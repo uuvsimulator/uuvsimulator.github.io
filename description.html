@@ -1,0 +1,429 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Description of the modules &mdash; UUV Simulator 0.2 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="UUV Simulator 0.2 documentation" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> UUV Simulator
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">UUV Simulator</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Description of the modules</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/description.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="description-of-the-modules">
+<span id="description"></span><h1>Description of the modules<a class="headerlink" href="#description-of-the-modules" title="Permalink to this headline">¶</a></h1>
+<p>In the sections below you can find a detailed description of the theory behind the algorithms implemented in the Gazebo plugins developed for the
+UUV Simulator.</p>
+<div class="section" id="underwater-object-plugin">
+<h2>Underwater object plugin<a class="headerlink" href="#underwater-object-plugin" title="Permalink to this headline">¶</a></h2>
+<p>This plugin is the core of the simulation of underwater vehicles. It contains an implementation of Fossen&#8217;s equation of motion for underwater
+vehicles (see <a class="reference internal" href="index.html#fossen-2011" id="id1">[5]</a> or <a class="reference internal" href="index.html#fossen-2011a" id="id2">[6]</a> for more details). For underwater robots, oarine robotics in general, the SNAME
+<a class="reference internal" href="index.html#sname" id="id3">[1]</a> convention is used to represent poses and velocities using the <a class="reference external" href="https://en.wikipedia.org/wiki/North_east_down">North East Down (NED)</a>
+reference frame convention.</p>
+<div class="section" id="theoretical-background">
+<h3>Theoretical background<a class="headerlink" href="#theoretical-background" title="Permalink to this headline">¶</a></h3>
+<p>The nomenclature for position, orientation and velocity vectors can be seen in the table below <a class="reference internal" href="index.html#antonelli-2008b" id="id4">[2]</a>.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="8%" />
+<col width="22%" />
+<col width="13%" />
+<col width="28%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">&nbsp;</th>
+<th class="head">&nbsp;</th>
+<th class="head">Forces and moments</th>
+<th class="head">Velocities</th>
+<th class="head">Position and orientation</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Motion in the x-direction</td>
+<td>Surge</td>
+<td>X</td>
+<td>u</td>
+<td>x</td>
+</tr>
+<tr class="row-odd"><td>Motion in the y-direction</td>
+<td>Sway</td>
+<td>Y</td>
+<td>v</td>
+<td>y</td>
+</tr>
+<tr class="row-even"><td>Motion in the z-direction</td>
+<td>Heave</td>
+<td>Z</td>
+<td>w</td>
+<td>z</td>
+</tr>
+<tr class="row-odd"><td>Rotation about the x-axis</td>
+<td>Roll</td>
+<td>K</td>
+<td>p</td>
+<td><span class="math">\(\phi\)</span></td>
+</tr>
+<tr class="row-even"><td>Rotation about the y-axis</td>
+<td>Pitch</td>
+<td>M</td>
+<td>q</td>
+<td><span class="math">\(\theta\)</span></td>
+</tr>
+<tr class="row-odd"><td>Rotation about the z-axis</td>
+<td>Yaw</td>
+<td>N</td>
+<td>r</td>
+<td><span class="math">\(\psi\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The pose of the vehicle is represented by the vector <span class="math">\(\boldsymbol{\eta} = (x, y, z, \phi, \theta, \psi)^T\)</span> and the
+velocity (represented in the BODY frame) is written as <span class="math">\(\boldsymbol{\nu} = (u, v, w, p, q, r)^T\)</span>. The transformation
+between BODY and NED frame is achieved through a Jacobian matrix as follows (see <a class="reference internal" href="index.html#fossen-2011a" id="id5">[6]</a> for more details).</p>
+<div class="math">
+\[\boldsymbol{\dot{\eta}} = \mathbf{J} \boldsymbol{\nu}\]</div>
+<p>To describe the motion of an object in the water, the influence of the fluid surrounding the object has to be considered. The most common
+method used is Fossen&#8217;s equation of motion, where you consider:</p>
+<ul class="simple">
+<li><strong>Added-mass:</strong> with the acceleration of a body in a fluid, the surrounding volume of fluid will be accelerated during the motion.</li>
+<li><strong>Hydrodynamic damping:</strong> damping has several sources of contribution, such as skin friction, viscous damping. It is usually divided into linear and quadratic damping for simplification.</li>
+<li><strong>Hydrostatic forces:</strong> for an object in the water, buoyancy is a new force component has to be taken into account. It is dependent on the object&#8217;s volume and the fluid&#8217;s density. The resulting force between buoyancy and gravitational forces is known as <em>restoring</em> force. When an object has <em>positive buoyancy</em> for instance, it means that the buoyany force is greater than the gravitational force, and the object will float unless other forces are acting on the body.</li>
+</ul>
+<p>Added mass and some damping contributions are in reality frequency dependent, but for underwater robotics it is often considered that these coefficients
+are constant. The equation of motion <a class="reference internal" href="index.html#fossen-2011" id="id6">[5]</a> can be written as follows</p>
+<div class="math">
+\[(\mathbf{M}_{RB} + \mathbf{M}_{A}) \boldsymbol{\dot{\nu}} + (\mathbf{C}_{RB}(\boldsymbol{\nu}) + \mathbf{C}_{A}(\boldsymbol{\nu})) \boldsymbol{\nu} + \mathbf{D}(\boldsymbol{\nu}) \boldsymbol{\nu} + \mathbf{g}(\boldsymbol{\eta}) = \boldsymbol{\tau}\]</div>
+<p>In this equation,</p>
+<ul class="simple">
+<li><span class="math">\(\mathbf{M}_{RB}\)</span> and <span class="math">\(\mathbf{C}_{RB}\)</span> represent respectively the rigid-body inertial and Coriolis and centripetal matrices.</li>
+<li><span class="math">\(\mathbf{M}_{A}\)</span> is the constant added-mass matrix and <span class="math">\(\mathbf{C}_A(\boldsymbol{\nu})\)</span> the resulting added-mass Coriolis and centripetal matrix.</li>
+<li><span class="math">\(\mathbf{D}(\boldsymbol{\nu})\)</span> represents linear and quadratic damping components.</li>
+<li><span class="math">\(\mathbf{g}(\boldsymbol{\eta})\)</span> is the vector of restoring forces.</li>
+<li><span class="math">\(\mathbf{\tau}\)</span> is the generalized force vector for external and control forces and moments.</li>
+</ul>
+</div>
+<div class="section" id="implementation-aspects">
+<h3>Implementation aspects<a class="headerlink" href="#implementation-aspects" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://gazebosim.org/">Gazebo</a> offers a wide range of physics engines to rigid-body dynamics simulation already and an API that can be used
+to write plugins to extend the functionalities of the simulator. In general, packages that offer some extension on the dynamics simulation for
+a certain type of entity have to implement <a class="reference external" href="http://gazebosim.org/tutorials?tut=plugins_model&amp;cat=write_plugin">model plugins</a> that will
+be called by Gazebo at each iteration to generate the necessary forces and torques.</p>
+<p>Since the rigid-body dynamics and contact forces are simulated by Gazebo already, what is left to be computed are the hydrodynamic and hydrostatic
+forces and moments described in the previous section, namely</p>
+<div class="math">
+\[\boldsymbol{\tau}_{h} = - \mathbf{M}_A \boldsymbol{\dot{\nu}} - \mathbf{C}_{A}(\boldsymbol{\nu}) \boldsymbol{\nu} - \mathbf{D}(\boldsymbol{\nu}) \boldsymbol{\nu} - \mathbf{g}_b(\boldsymbol{\eta})\]</div>
+<p>where <span class="math">\(\mathbf{g}_b(\boldsymbol{\eta})\)</span> stands for the buoyancy force vector represented in the BODY frame, since the gravitational force
+is already computed by Gazebo.</p>
+<p><strong>Added-mass forces and moments</strong></p>
+<p><strong>Damping forces and moments</strong></p>
+<p>The damping matrices are implemented here following the equation described by <a class="reference internal" href="index.html#refsnes-2007" id="id7">[9]</a>.</p>
+<p><strong>Buoyancy forces and moments</strong></p>
+<p>The buoyancy force is the easiest implementation of this list. There are two options that can be setup in order to compute the buoyancy force. For
+underwater vehicles, once the center of buoyancy <span class="math">\(\mathbf{r}_b\)</span>, fluid density, volume are provided, the buoyancy force vector is generated
+and applied on the vehicle&#8217;s center of buoyancy with respect to the Gazebo&#8217;s inertial frame as</p>
+<div class="math">
+\[\mathbf{f}_b = [0, 0, \rho V g]^T\]</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The <span class="math">\(\mathbf{f}_b\)</span> vector is generated in the plugin with respect to Gazebo&#8217;s inertial frame, which follows the ENU (East North Up) convention,
+not NED.</p>
+</div>
+</div>
+<div class="section" id="plugin-s-urdf-description">
+<h3>Plugin&#8217;s URDF description<a class="headerlink" href="#plugin-s-urdf-description" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44</pre></div></td><td class="code"><div class="highlight"><pre><span class="nt">&lt;gazebo&gt;</span>
+  <span class="nt">&lt;plugin</span> <span class="na">name=</span><span class="s">&quot;uuv_plugin&quot;</span> <span class="na">filename=</span><span class="s">&quot;libunderwater_object_ros_plugin.so&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;fluid_density&gt;</span>1028.0<span class="nt">&lt;/fluid_density&gt;</span>
+    <span class="nt">&lt;flow_velocity_topic&gt;</span>hydrodynamics/current_velocity<span class="nt">&lt;/flow_velocity_topic&gt;</span>
+    <span class="nt">&lt;debug&gt;</span>$(arg debug)<span class="nt">&lt;/debug&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">name=</span><span class="s">&quot;${namespace}/base_link&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;neutrally_buoyant&gt;</span>0<span class="nt">&lt;/neutrally_buoyant&gt;</span>
+
+      <span class="nt">&lt;volume&gt;</span>0<span class="nt">&lt;/volume&gt;</span>
+
+      <span class="nt">&lt;box&gt;</span>
+        <span class="nt">&lt;width&gt;</span>0<span class="nt">&lt;/width&gt;</span>
+        <span class="nt">&lt;length&gt;</span>0<span class="nt">&lt;/length&gt;</span>
+        <span class="nt">&lt;height&gt;</span>0<span class="nt">&lt;/height&gt;</span>
+      <span class="nt">&lt;/box&gt;</span>
+
+      <span class="nt">&lt;center_of_buoyancy&gt;</span>0 0 0<span class="nt">&lt;/center_of_buoyancy&gt;</span>
+
+      <span class="nt">&lt;hydrodynamic_model&gt;</span>
+        <span class="nt">&lt;type&gt;</span>fossen<span class="nt">&lt;/type&gt;</span>
+        <span class="nt">&lt;added_mass&gt;</span>
+          0 0 0 0 0 0
+          0 0 0 0 0 0
+          0 0 0 0 0 0
+          0 0 0 0 0 0
+          0 0 0 0 0 0
+          0 0 0 0 0 0
+        <span class="nt">&lt;/added_mass&gt;</span>
+
+        <span class="nt">&lt;linear_damping&gt;</span>
+          0 0 0 0 0 0
+        <span class="nt">&lt;/linear_damping&gt;</span>
+
+        <span class="nt">&lt;linear_damping_forward_speed&gt;</span>
+          0 0 0 0 0 0
+        <span class="nt">&lt;/linear_damping_forward_speed&gt;</span>
+
+        <span class="nt">&lt;quadratic_damping&gt;</span>
+          0 0 0 0 0 0
+        <span class="nt">&lt;/quadratic_damping&gt;</span>
+      <span class="nt">&lt;/hydrodynamic_model&gt;</span>
+    <span class="nt">&lt;/link&gt;</span>
+  <span class="nt">&lt;/plugin&gt;</span>
+<span class="nt">&lt;/gazebo&gt;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="thruster-plugin">
+<h2>Thruster plugin<a class="headerlink" href="#thruster-plugin" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id8">
+<h3>Theoretical background<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>The computation of the dynamics of the thrust force generated by the thruster is a very complex task. Many sources have already addressed it,
+such as <a class="reference internal" href="index.html#bessa-2006" id="id9">[4]</a> and <a class="reference internal" href="index.html#yoerger-1990" id="id10">[10]</a>, but it is difficult to determine one single method to describe it, and the parametrization
+of the equation, regardless which one you choose, will need the identification of the equation&#8217;s parameters through <a class="reference external" href="https://en.wikipedia.org/wiki/Bollard_pull">Bollard tests</a>.</p>
+<p>The plugin implemented can be described by two modules:</p>
+<ul class="simple">
+<li>the <strong>dynamics module</strong> describes the dynamics of the thruster&#8217;s rotor</li>
+<li>and the <strong>conversion function</strong>, which describes the steady-state relationship between the rotor&#8217;s angular velocity and the thrust force output</li>
+</ul>
+<p>These two models can be configured using the options below according to the model of thruster being used in the vehicle. The thruster plugin</p>
+</div>
+</div>
+<div class="section" id="fin-plugin">
+<h2>Fin plugin<a class="headerlink" href="#fin-plugin" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id11">
+<h3>Plugin&#8217;s URDF description<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="thruster-manager">
+<h2>Thruster manager<a class="headerlink" href="#thruster-manager" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, UUV Simulator Authors.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

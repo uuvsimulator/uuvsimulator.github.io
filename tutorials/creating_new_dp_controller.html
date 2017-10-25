@@ -1,0 +1,510 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Creating a new custom dynamic positioning controller &mdash; UUV Simulator 0.2 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="UUV Simulator 0.2 documentation" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> UUV Simulator
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">UUV Simulator</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Creating a new custom dynamic positioning controller</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/tutorials/creating_new_dp_controller.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="creating-a-new-custom-dynamic-positioning-controller">
+<span id="creating-new-dp-controller"></span><h1>Creating a new custom dynamic positioning controller<a class="headerlink" href="#creating-a-new-custom-dynamic-positioning-controller" title="Permalink to this headline">¶</a></h1>
+<p>To facilitate the implementation of new control algorithms for the vehicle modelled in this package, a few Python modules were created as an interface to
+the vehicle&#8217;s thruster manager, the local planner and setup the necessary publishers and subscribers needed to receive trajectory messages and send
+thruster commands. The module also includes an implementation of Fossen&#8217;s equations of motion that can be used by model-based controllers. To create a
+controller based on this Python modules, see the following steps. All the files discussed below are available in the package <a class="reference external" href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_tutorials/uuv_tutorial_dp_controller">uuv_tutorial_dp_controller</a>
+in the <a class="reference external" href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_tutorials">uuv_tutorials</a> folder. Remember to change the name of the package when developing your own module to avoid conflicts when compiling the catkin
+workspace.</p>
+<div class="section" id="creating-the-custom-controller-package">
+<h2>Creating the custom controller package<a class="headerlink" href="#creating-the-custom-controller-package" title="Permalink to this headline">¶</a></h2>
+<p>First, a new catkin package will be created to include the scripts and launch files necessary for this implementation. Replace the name of the
+catkin workspace <strong>catkin_ws</strong> below if yours is named differently.</p>
+<div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws/src
+catkin_create_pkg uuv_tutorial_dp_controller
+</pre></div>
+</div>
+<p>This command will create the necessary files for the new package which will be edited further on in this tutorial. Next, two folders are needed,
+one <strong>launch</strong> folder to the launch files and one <strong>scripts</strong> folder, where the implementation of the custom controller will be stored.</p>
+<div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws/src/uuv_tutorial_dp_controller
+mkdir launch scripts
+</pre></div>
+</div>
+</div>
+<div class="section" id="creating-the-controller-node">
+<h2>Creating the controller node<a class="headerlink" href="#creating-the-controller-node" title="Permalink to this headline">¶</a></h2>
+<p>In the <strong>scripts</strong> folder, a Python file has to be created, here we will name it <strong>tutorial_dp_controller.py</strong>.</p>
+<div class="highlight-python"><div class="highlight"><pre>touch scripts/tutorial_dp_controller.py
+</pre></div>
+</div>
+<p>This file will have the implementation of the controller named <strong>TutorialDPController</strong>, a very simple PID controller, as shown below.</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68</pre></div></td><td class="code"><div class="highlight"><pre><span class="ch">#!/usr/bin/env python</span>
+<span class="kn">import</span> <span class="nn">rospy</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">uuv_control_interfaces</span> <span class="kn">import</span> <span class="n">DPControllerBase</span>
+
+<span class="k">class</span> <span class="nc">TutorialDPController</span><span class="p">(</span><span class="n">DPControllerBase</span><span class="p">):</span>
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="nb">super</span><span class="p">(</span><span class="n">TutorialDPController</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+      <span class="bp">self</span><span class="o">.</span><span class="n">_Kp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_Kd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_Ki</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+      <span class="bp">self</span><span class="o">.</span><span class="n">_int</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,))</span>
+
+      <span class="bp">self</span><span class="o">.</span><span class="n">_error_pose</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,))</span>
+
+       <span class="c1"># Do the same for the other two matrices</span>
+      <span class="k">if</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s1">&#39;~Kp&#39;</span><span class="p">):</span>
+          <span class="n">diag</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s1">&#39;~Kp&#39;</span><span class="p">)</span>
+          <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">diag</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
+              <span class="bp">self</span><span class="o">.</span><span class="n">_Kp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">diag</span><span class="p">)</span>
+              <span class="k">print</span> <span class="s1">&#39;Kp=</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Kp</span>
+          <span class="k">else</span><span class="p">:</span>
+              <span class="c1"># If the vector provided has the wrong dimension, raise an exception</span>
+              <span class="k">raise</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ROSException</span><span class="p">(</span><span class="s1">&#39;For the Kp diagonal matrix, 6 coefficients are needed&#39;</span><span class="p">)</span>
+
+      <span class="k">if</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s1">&#39;~Kd&#39;</span><span class="p">):</span>
+          <span class="n">diag</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s1">&#39;~Kd&#39;</span><span class="p">)</span>
+          <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">diag</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
+              <span class="bp">self</span><span class="o">.</span><span class="n">_Kd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">diag</span><span class="p">)</span>
+              <span class="k">print</span> <span class="s1">&#39;Kd=</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Kd</span>
+          <span class="k">else</span><span class="p">:</span>
+              <span class="c1"># If the vector provided has the wrong dimension, raise an exception</span>
+              <span class="k">raise</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ROSException</span><span class="p">(</span><span class="s1">&#39;For the Kd diagonal matrix, 6 coefficients are needed&#39;</span><span class="p">)</span>
+
+      <span class="k">if</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s1">&#39;~Ki&#39;</span><span class="p">):</span>
+          <span class="n">diag</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s1">&#39;~Ki&#39;</span><span class="p">)</span>
+          <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">diag</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
+              <span class="bp">self</span><span class="o">.</span><span class="n">_Ki</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">diag</span><span class="p">)</span>
+              <span class="k">print</span> <span class="s1">&#39;Ki=</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Ki</span>
+          <span class="k">else</span><span class="p">:</span>
+              <span class="c1"># If the vector provided has the wrong dimension, raise an exception</span>
+              <span class="k">raise</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ROSException</span><span class="p">(</span><span class="s1">&#39;For the Ki diagonal matrix, 6 coefficients are needed&#39;</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">_reset_controller</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="nb">super</span><span class="p">(</span><span class="n">TutorialDPController</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">_reset_controller</span><span class="p">()</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_error_pose</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,))</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_int</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,))</span>
+
+  <span class="k">def</span> <span class="nf">update_controller</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">odom_is_init</span><span class="p">:</span>
+          <span class="k">return</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_int</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_int</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">error_pose_euler</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_error_pose</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dt</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_error_pose</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">error_pose_euler</span>
+      <span class="n">tau</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_Kp</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">error_pose_euler</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_Kd</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_errors</span><span class="p">[</span><span class="s1">&#39;vel&#39;</span><span class="p">])</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_Ki</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_int</span><span class="p">)</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">publish_control_wrench</span><span class="p">(</span><span class="n">tau</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+  <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Tutorial - DP Controller&#39;</span><span class="p">)</span>
+  <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s1">&#39;tutorial_dp_controller&#39;</span><span class="p">)</span>
+
+  <span class="k">try</span><span class="p">:</span>
+      <span class="n">node</span> <span class="o">=</span> <span class="n">TutorialDPController</span><span class="p">()</span>
+      <span class="n">rospy</span><span class="o">.</span><span class="n">spin</span><span class="p">()</span>
+  <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ROSInterruptException</span><span class="p">:</span>
+      <span class="k">print</span><span class="p">(</span><span class="s1">&#39;caught exception&#39;</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s1">&#39;exiting&#39;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>Analyzing the file in detail, for the controller to use the controller modules from <strong>uuv_control_interfaces</strong>, it has to inherit
+the <strong>DPControllerBase</strong> class and initialize it</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">TutorialDPController</span><span class="p">(</span><span class="n">DPControllerBase</span><span class="p">):</span>
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="nb">super</span><span class="p">(</span><span class="n">TutorialDPController</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This will setup the super class to initialize, for example, odometry message subscribers and thruster manager topic publishers.
+For model-based controllers, the super class constructor has to be called as</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="nb">super</span><span class="p">(</span><span class="n">TutorialDPController</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">is_model_based</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The controller&#8217;s parameters, in this case <strong>Kp</strong>, <strong>Kd</strong> and <strong>Ki</strong> should retrieved from the parameter server to allow the controller
+to be used in different configurations. One alternative is to read this information from the node&#8217;s private parameter namespace as shown
+below. This is done by adding a <strong>~</strong> in front of the parameters&#8217;s tag. The parameter has to be provided at the controller&#8217;s launch file
+accordingly, which will be discussed later on.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">if</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s1">&#39;~Kd&#39;</span><span class="p">):</span>
+  <span class="n">diag</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s1">&#39;~Kd&#39;</span><span class="p">)</span>
+  <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">diag</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_Kd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">diag</span><span class="p">)</span>
+      <span class="k">print</span> <span class="s1">&#39;Kd=</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_Kd</span>
+  <span class="k">else</span><span class="p">:</span>
+      <span class="c1"># If the vector provided has the wrong dimension, raise an exception</span>
+      <span class="k">raise</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ROSException</span><span class="p">(</span><span class="s1">&#39;For the Kd diagonal matrix, 6 coefficients are needed&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <strong>_reset_controller</strong> method can be overriden in case internal variables must be reset when the reset service call is received.
+It is important to also call the super class&#8217; reset method as seen below to ensure that error and reference vectors are also going
+to be cleared.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="nb">super</span><span class="p">(</span><span class="n">TutorialDPController</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">_reset_controller</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>When using the super class <strong>DPControllerBase</strong>, there is no need to add an controller update sequence or a timer. Once the method
+<strong>update_controller</strong> is implemented in the controller class, it will be given as a callback function to the odometry update method.
+This update method should include the controller&#8217;s algorithm and generate the control effort vector (in this case <strong>tau</strong>) and use the
+super class function <strong>publish_control_wrench</strong> to publish it to the thruster manager input.</p>
+<p>The last part of the file is necessary for the ROS node to be executed.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+  <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Tutorial - DP Controller&#39;</span><span class="p">)</span>
+  <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s1">&#39;tutorial_dp_controller&#39;</span><span class="p">)</span>
+
+  <span class="k">try</span><span class="p">:</span>
+      <span class="n">node</span> <span class="o">=</span> <span class="n">TutorialDPController</span><span class="p">()</span>
+      <span class="n">rospy</span><span class="o">.</span><span class="n">spin</span><span class="p">()</span>
+  <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ROSInterruptException</span><span class="p">:</span>
+      <span class="k">print</span><span class="p">(</span><span class="s1">&#39;caught exception&#39;</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s1">&#39;exiting&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configuring-the-launch-files">
+<h2>Configuring the launch files<a class="headerlink" href="#configuring-the-launch-files" title="Permalink to this headline">¶</a></h2>
+<p>Once the custom controller is done, you have to turn your Python script into an executable and it can be done as follows, otherwise
+you will not be able to start the ROS node.</p>
+<div class="highlight-python"><div class="highlight"><pre>chmod u+x tutorial_dp_controller.py
+</pre></div>
+</div>
+<p>Next step is to setup the launch file for the new controller. Create a new launch file as follows</p>
+<div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws/src/uuv_tutorial_dp_controller/launch
+touch start_tutorial_dp_controller.launch
+</pre></div>
+</div>
+<p>Edit the file to include the following</p>
+<div class="highlight-xml"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43</pre></div></td><td class="code"><div class="highlight"><pre><span class="nt">&lt;launch&gt;</span>
+  <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;uuv_name&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;model_name&quot;</span> <span class="na">default=</span><span class="s">&quot;$(arg uuv_name)&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;saturation&quot;</span> <span class="na">default=</span><span class="s">&quot;5000&quot;</span><span class="nt">/&gt;</span>
+
+  <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;Kp&quot;</span> <span class="na">default=</span><span class="s">&quot;11993.888,11993.888,11993.888,19460.069,19460.069,19460.069&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;Kd&quot;</span> <span class="na">default=</span><span class="s">&quot;9077.459,9077.459,9077.459,18880.925,18880.925,18880.925&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;Ki&quot;</span> <span class="na">default=</span><span class="s">&quot;321.417,321.417,321.417,2096.951,2096.951,2096.951&quot;</span><span class="nt">/&gt;</span>
+
+  <span class="nt">&lt;include</span> <span class="na">file=</span><span class="s">&quot;$(find uuv_thruster_manager)/launch/thruster_manager.launch&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;uuv_name&quot;</span> <span class="na">value=</span><span class="s">&quot;$(arg uuv_name)&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;model_name&quot;</span> <span class="na">value=</span><span class="s">&quot;$(arg model_name)&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;/include&gt;</span>
+
+  <span class="nt">&lt;group</span> <span class="na">ns=</span><span class="s">&quot;$(arg uuv_name)&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;node</span> <span class="na">pkg=</span><span class="s">&quot;uuv_control_utils&quot;</span>
+            <span class="na">type=</span><span class="s">&quot;trajectory_marker_publisher.py&quot;</span>
+            <span class="na">name=</span><span class="s">&quot;trajectory_marker_publisher&quot;</span>
+            <span class="na">output=</span><span class="s">&quot;screen&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;remap</span> <span class="na">from=</span><span class="s">&quot;trajectory&quot;</span> <span class="na">to=</span><span class="s">&quot;dp_controller/trajectory&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;remap</span> <span class="na">from=</span><span class="s">&quot;waypoints&quot;</span> <span class="na">to=</span><span class="s">&quot;dp_controller/waypoints&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;/node&gt;</span>
+
+      <span class="nt">&lt;node</span> <span class="na">pkg=</span><span class="s">&quot;uuv_tutorial_dp_controller&quot;</span>
+          <span class="na">type=</span><span class="s">&quot;tutorial_dp_controller.py&quot;</span>
+          <span class="na">name=</span><span class="s">&quot;tutorial_dp_controller&quot;</span>
+          <span class="na">output=</span><span class="s">&quot;screen&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;remap</span> <span class="na">from=</span><span class="s">&quot;odom&quot;</span> <span class="na">to=</span><span class="s">&quot;pose_gt&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;remap</span> <span class="na">from=</span><span class="s">&quot;trajectory&quot;</span> <span class="na">to=</span><span class="s">&quot;dp_controller/trajectory&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;remap</span> <span class="na">from=</span><span class="s">&quot;input_trajectory&quot;</span> <span class="na">to=</span><span class="s">&quot;dp_controller/input_trajectory&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;remap</span> <span class="na">from=</span><span class="s">&quot;waypoints&quot;</span> <span class="na">to=</span><span class="s">&quot;dp_controller/waypoints&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;remap</span> <span class="na">from=</span><span class="s">&quot;error&quot;</span> <span class="na">to=</span><span class="s">&quot;dp_controller/error&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;remap</span> <span class="na">from=</span><span class="s">&quot;reference&quot;</span> <span class="na">to=</span><span class="s">&quot;dp_controller/reference&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;remap</span> <span class="na">from=</span><span class="s">&quot;thruster_output&quot;</span> <span class="na">to=</span><span class="s">&quot;thruster_manager/input&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;rosparam</span> <span class="na">subst_value=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+              saturation: $(arg saturation)
+              Kp: [$(arg Kp)]
+              Kd: [$(arg Kd)]
+              Ki: [$(arg Ki)]
+          <span class="nt">&lt;/rosparam&gt;</span>
+      <span class="nt">&lt;/node&gt;</span>
+  <span class="nt">&lt;/group&gt;</span>
+<span class="nt">&lt;/launch&gt;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, UUV Simulator Authors.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
