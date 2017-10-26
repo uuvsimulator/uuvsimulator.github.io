@@ -30,7 +30,9 @@
   
 
   
-    <link rel="top" title="UUV Simulator 0.2 documentation" href="../index.html"/> 
+    <link rel="top" title="UUV Simulator 0.2 documentation" href="../index.html"/>
+        <link rel="next" title="Creating a new underwater vehicle model" href="create_new_vehicle.html"/>
+        <link rel="prev" title="Quick start" href="../quick_start.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -79,9 +81,16 @@
           
             
             
-                <ul>
+                <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick start</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="create_new_vehicle.html">Creating a new underwater vehicle model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_thruster_manager.html">Configuring the thruster manager for a new vehicle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating_new_dp_controller.html">Creating a new custom dynamic positioning controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="seabed_world.html">Making a simple seabed world model</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
 </ul>
 
@@ -131,29 +140,22 @@
 <span id="id1"></span><h1>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="create_new_vehicle.html">Creating a new underwater vehicle model</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="create_new_vehicle.html#vehicle-description">Vehicle description</a></li>
-<li class="toctree-l2"><a class="reference internal" href="create_new_vehicle.html#actuators">Actuators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="create_new_vehicle.html#sensors">Sensors</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="create_new_vehicle.html">Creating a new underwater vehicle model</a></li>
 <li class="toctree-l1"><a class="reference internal" href="config_thruster_manager.html">Configuring the thruster manager for a new vehicle</a></li>
 <li class="toctree-l1"><a class="reference internal" href="creating_new_dp_controller.html">Creating a new custom dynamic positioning controller</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="creating_new_dp_controller.html#creating-the-custom-controller-package">Creating the custom controller package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="creating_new_dp_controller.html#creating-the-controller-node">Creating the controller node</a></li>
 <li class="toctree-l2"><a class="reference internal" href="creating_new_dp_controller.html#configuring-the-launch-files">Configuring the launch files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating_new_dp_controller.html#configuring-the-package">Configuring the package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating_new_dp_controller.html#running-the-simulation">Running the simulation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="seabed_world.html">Making a simple seabed world model</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="seabed_world.html#creating-the-mesh-file">Creating the mesh file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="seabed_world.html#creating-the-gazebo-seabed-model">Creating the Gazebo seabed model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="seabed_world.html#creating-a-new-gazebo-world">Creating a new Gazebo world</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="disturbances.html">Applying disturbances during the simulation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="disturbances.html#thruster-failure">Thruster failure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="disturbances.html#disturbance-manager">Disturbance manager</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="simulating_simple_vessel.html">Simulating a simple surface vessel</a></li>
 </ul>
 </div>
 </div>
@@ -162,6 +164,15 @@
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="create_new_vehicle.html" class="btn btn-neutral float-right" title="Creating a new underwater vehicle model" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../quick_start.html" class="btn btn-neutral" title="Quick start" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

@@ -83,6 +83,7 @@
                 <ul>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
 </ul>
 
@@ -133,6 +134,7 @@
 <p>The UUV Simulator is a package containing the implementation of Gazebo plugins
 and ROS nodes necessary for the simulation of unmanned underwater vehicles, such
 as ROVs (remotely operated vehicles) and AUVs (autonomous underwater vehicles).</p>
+<p>To send questions and/or issues, please refer to the <a class="reference external" href="https://github.com/uuvsimulator/uuv_simulator/issues">repository&#8217;s issues page</a>.</p>
 <div class="section" id="contents">
 <h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
@@ -146,6 +148,13 @@ as ROVs (remotely operated vehicles) and AUVs (autonomous underwater vehicles).<
 <li class="toctree-l2"><a class="reference internal" href="quick_start.html#running-the-simulation-remotely">Running the simulation remotely</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/create_new_vehicle.html">Creating a new underwater vehicle model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/config_thruster_manager.html">Configuring the thruster manager for a new vehicle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/creating_new_dp_controller.html">Creating a new custom dynamic positioning controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials/seabed_world.html">Making a simple seabed world model</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
 </ul>
 </div>
@@ -153,14 +162,15 @@ as ROVs (remotely operated vehicles) and AUVs (autonomous underwater vehicles).<
 <div class="section" id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
 <p>If you wish to use the UUV Simulator in a research project, please cite our paper</p>
-<div class="highlight-python"><div class="highlight"><pre>@inproceedings{Marcusso_2016,
-  author    = {Musa Morena Marcusso Manh{\~{a}}es and Sebastian Scherer and Martin Voss and Luiz Ricardo Douat and Thomas Rauschenbach},
-  title     = {{UUV} Simulator: A Gazebo-based Package for Underwater Intervention and Multi-Robot Simulation},
-  year      = {2016},
-  pages     = {1-8},
-  month     = {September},
-  booktitle = {OCEANS&#39;16 MTS/IEEE Monterey},
-  doi       = {10.1109/OCEANS.2016.7761080}
+<div class="highlight-python"><div class="highlight"><pre>@inproceedings{Manhaes_2016,
+      doi = {10.1109/oceans.2016.7761080},
+      url = {https://doi.org/10.1109%2Foceans.2016.7761080},
+      year = 2016,
+      month = {sep},
+      publisher = {{IEEE}},
+      author = {Musa Morena Marcusso Manh\~{a}es and Sebastian A. Scherer and Martin Voss and Luiz Ricardo Douat and Thomas Rauschenbach},
+      title = {{UUV} Simulator: A Gazebo-based package for underwater intervention and multi-robot simulation},
+      booktitle = {{OCEANS} 2016 {MTS}/{IEEE} Monterey}
 }
 </pre></div>
 </div>
