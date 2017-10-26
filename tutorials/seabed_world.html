@@ -515,7 +515,7 @@ touch tutorial_seabed_world.launch
       <span class="nt">&lt;pose&gt;</span>0 0 0 0 0 0<span class="nt">&lt;/pose&gt;</span>
     <span class="nt">&lt;/include&gt;</span>
 
-    <span class="nt">&lt;plugin</span> <span class="na">name=</span><span class="s">&quot;underwater_world&quot;</span> <span class="na">filename=</span><span class="s">&quot;libuuv_underwater_world_ros_plugin.so&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;plugin</span> <span class="na">name=</span><span class="s">&quot;underwater_current_plugin&quot;</span> <span class="na">filename=</span><span class="s">&quot;libuuv_underwater_current_ros_plugin.so&quot;</span><span class="nt">&gt;</span>
       <span class="nt">&lt;namespace&gt;</span>hydrodynamics<span class="nt">&lt;/namespace&gt;</span>
       <span class="nt">&lt;constant_current&gt;</span>
         <span class="nt">&lt;topic&gt;</span>current_velocity<span class="nt">&lt;/topic&gt;</span>
@@ -527,15 +527,25 @@ touch tutorial_seabed_world.launch
           <span class="nt">&lt;noiseAmp&gt;</span>0.0<span class="nt">&lt;/noiseAmp&gt;</span>
         <span class="nt">&lt;/velocity&gt;</span>
 
-        <span class="nt">&lt;direction&gt;</span>
+        <span class="nt">&lt;horizontal_angle&gt;</span>
           <span class="nt">&lt;mean&gt;</span>0<span class="nt">&lt;/mean&gt;</span>
-          <span class="nt">&lt;min&gt;</span>-1.5707963267948966<span class="nt">&lt;/min&gt;</span>
-          <span class="nt">&lt;max&gt;</span>1.5707963267948966<span class="nt">&lt;/max&gt;</span>
+          <span class="nt">&lt;min&gt;</span>-3.141592653589793238<span class="nt">&lt;/min&gt;</span>
+          <span class="nt">&lt;max&gt;</span>3.141592653589793238<span class="nt">&lt;/max&gt;</span>
           <span class="nt">&lt;mu&gt;</span>0.0<span class="nt">&lt;/mu&gt;</span>
           <span class="nt">&lt;noiseAmp&gt;</span>0.0<span class="nt">&lt;/noiseAmp&gt;</span>
-        <span class="nt">&lt;/direction&gt;</span>
+        <span class="nt">&lt;/horizontal_angle&gt;</span>
+
+        <span class="nt">&lt;vertical_angle&gt;</span>
+          <span class="nt">&lt;mean&gt;</span>0<span class="nt">&lt;/mean&gt;</span>
+          <span class="nt">&lt;min&gt;</span>-3.141592653589793238<span class="nt">&lt;/min&gt;</span>
+          <span class="nt">&lt;max&gt;</span>3.141592653589793238<span class="nt">&lt;/max&gt;</span>
+          <span class="nt">&lt;mu&gt;</span>0.0<span class="nt">&lt;/mu&gt;</span>
+          <span class="nt">&lt;noiseAmp&gt;</span>0.0<span class="nt">&lt;/noiseAmp&gt;</span>
+        <span class="nt">&lt;/vertical_angle&gt;</span>
       <span class="nt">&lt;/constant_current&gt;</span>
     <span class="nt">&lt;/plugin&gt;</span>
+
+    <span class="nt">&lt;plugin</span> <span class="na">name=</span><span class="s">&quot;sc_interface&quot;</span> <span class="na">filename=</span><span class="s">&quot;libuuv_sc_ros_interface_plugin.so&quot;</span><span class="nt">/&gt;</span>
 
   <span class="nt">&lt;/world&gt;</span>
 <span class="nt">&lt;/sdf&gt;</span>
