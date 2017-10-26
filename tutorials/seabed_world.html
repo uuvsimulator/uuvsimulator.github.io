@@ -32,7 +32,7 @@
   
     <link rel="top" title="UUV Simulator 0.2 documentation" href="../index.html"/>
         <link rel="up" title="Tutorials" href="index.html"/>
-        <link rel="next" title="Applying disturbances during the simulation" href="disturbances.html"/>
+        <link rel="next" title="License" href="../license.html"/>
         <link rel="prev" title="Creating a new custom dynamic positioning controller" href="creating_new_dp_controller.html"/> 
 
   
@@ -95,8 +95,6 @@
 <li class="toctree-l3"><a class="reference internal" href="#creating-a-new-gazebo-world">Creating a new Gazebo world</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="disturbances.html">Applying disturbances during the simulation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="simulating_simple_vessel.html">Simulating a simple surface vessel</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
@@ -517,7 +515,7 @@ touch tutorial_seabed_world.launch
       <span class="nt">&lt;pose&gt;</span>0 0 0 0 0 0<span class="nt">&lt;/pose&gt;</span>
     <span class="nt">&lt;/include&gt;</span>
 
-    <span class="nt">&lt;plugin</span> <span class="na">name=</span><span class="s">&quot;underwater_current_plugin&quot;</span> <span class="na">filename=</span><span class="s">&quot;libuuv_underwater_current_ros_plugin.so&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;plugin</span> <span class="na">name=</span><span class="s">&quot;underwater_world&quot;</span> <span class="na">filename=</span><span class="s">&quot;libuuv_underwater_world_ros_plugin.so&quot;</span><span class="nt">&gt;</span>
       <span class="nt">&lt;namespace&gt;</span>hydrodynamics<span class="nt">&lt;/namespace&gt;</span>
       <span class="nt">&lt;constant_current&gt;</span>
         <span class="nt">&lt;topic&gt;</span>current_velocity<span class="nt">&lt;/topic&gt;</span>
@@ -529,25 +527,15 @@ touch tutorial_seabed_world.launch
           <span class="nt">&lt;noiseAmp&gt;</span>0.0<span class="nt">&lt;/noiseAmp&gt;</span>
         <span class="nt">&lt;/velocity&gt;</span>
 
-        <span class="nt">&lt;horizontal_angle&gt;</span>
+        <span class="nt">&lt;direction&gt;</span>
           <span class="nt">&lt;mean&gt;</span>0<span class="nt">&lt;/mean&gt;</span>
-          <span class="nt">&lt;min&gt;</span>-3.141592653589793238<span class="nt">&lt;/min&gt;</span>
-          <span class="nt">&lt;max&gt;</span>3.141592653589793238<span class="nt">&lt;/max&gt;</span>
+          <span class="nt">&lt;min&gt;</span>-1.5707963267948966<span class="nt">&lt;/min&gt;</span>
+          <span class="nt">&lt;max&gt;</span>1.5707963267948966<span class="nt">&lt;/max&gt;</span>
           <span class="nt">&lt;mu&gt;</span>0.0<span class="nt">&lt;/mu&gt;</span>
           <span class="nt">&lt;noiseAmp&gt;</span>0.0<span class="nt">&lt;/noiseAmp&gt;</span>
-        <span class="nt">&lt;/horizontal_angle&gt;</span>
-
-        <span class="nt">&lt;vertical_angle&gt;</span>
-          <span class="nt">&lt;mean&gt;</span>0<span class="nt">&lt;/mean&gt;</span>
-          <span class="nt">&lt;min&gt;</span>-3.141592653589793238<span class="nt">&lt;/min&gt;</span>
-          <span class="nt">&lt;max&gt;</span>3.141592653589793238<span class="nt">&lt;/max&gt;</span>
-          <span class="nt">&lt;mu&gt;</span>0.0<span class="nt">&lt;/mu&gt;</span>
-          <span class="nt">&lt;noiseAmp&gt;</span>0.0<span class="nt">&lt;/noiseAmp&gt;</span>
-        <span class="nt">&lt;/vertical_angle&gt;</span>
+        <span class="nt">&lt;/direction&gt;</span>
       <span class="nt">&lt;/constant_current&gt;</span>
     <span class="nt">&lt;/plugin&gt;</span>
-
-    <span class="nt">&lt;plugin</span> <span class="na">name=</span><span class="s">&quot;sc_interface&quot;</span> <span class="na">filename=</span><span class="s">&quot;libuuv_sc_ros_interface_plugin.so&quot;</span><span class="nt">/&gt;</span>
 
   <span class="nt">&lt;/world&gt;</span>
 <span class="nt">&lt;/sdf&gt;</span>
@@ -590,7 +578,7 @@ touch tutorial_seabed_world.launch
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="disturbances.html" class="btn btn-neutral float-right" title="Applying disturbances during the simulation" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../license.html" class="btn btn-neutral float-right" title="License" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="creating_new_dp_controller.html" class="btn btn-neutral" title="Creating a new custom dynamic positioning controller" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>

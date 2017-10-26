@@ -90,7 +90,6 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="">Configuring the thruster manager for a new vehicle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="creating_new_dp_controller.html">Creating a new custom dynamic positioning controller</a></li>
 <li class="toctree-l2"><a class="reference internal" href="seabed_world.html">Making a simple seabed world model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="disturbances.html">Applying disturbances during the simulation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
@@ -188,9 +187,9 @@ vehicle thruster manager configuration:</p>
   thruster_topic_prefix: thrusters/
   thruster_topic_suffix: /input
   thruster_frame_base: thruster_
-  max_thrust: 2000.0
+  max_thrust: 100000.0
   timeout: -1
-  update_rate: 50
+  update_rate: 200
   conversion_fcn: proportional
   conversion_fcn_params:
     gain: 0.00031
