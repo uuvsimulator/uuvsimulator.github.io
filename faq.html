@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Quick start &mdash; UUV Simulator 0.2 documentation</title>
+  <title>F.A.Q. &mdash; UUV Simulator 0.2 documentation</title>
   
 
   
@@ -31,8 +31,8 @@
 
   
     <link rel="top" title="UUV Simulator 0.2 documentation" href="index.html"/>
-        <link rel="next" title="Tutorials" href="tutorials/index.html"/>
-        <link rel="prev" title="Installation" href="installation.html"/> 
+        <link rel="next" title="License" href="license.html"/>
+        <link rel="prev" title="Vehicles available" href="vehicles.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -83,13 +83,10 @@
             
                 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Quick start</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#running-the-simulation-remotely">Running the simulation remotely</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vehicles.html">Vehicles available</a></li>
-<li class="toctree-l1"><a class="reference internal" href="faq.html">F.A.Q.</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">F.A.Q.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
 </ul>
 
@@ -121,11 +118,11 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>Quick start</li>
+    <li>F.A.Q.</li>
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="_sources/quick_start.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/faq.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -135,47 +132,25 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="quick-start">
-<span id="id1"></span><h1>Quick start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h1>
-<p>Start an empty underwater environment using either</p>
-<div class="highlight-python"><div class="highlight"><pre>roslaunch uuv_descriptions empty_underwater_world.launch
+  <div class="section" id="f-a-q">
+<span id="faq"></span><h1>F.A.Q.<a class="headerlink" href="#f-a-q" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><strong>How do I find out the ID number my joystick?</strong></li>
+</ul>
+<p>You can use <strong>jstest-gtk</strong> to find that out. To install it, run</p>
+<div class="highlight-python"><div class="highlight"><pre>sudo apt-get install jstest-gtk
 </pre></div>
 </div>
-<p>or</p>
-<div class="highlight-python"><div class="highlight"><pre>roslaunch uuv_descriptions ocean_waves.launch
-</pre></div>
-</div>
-<p>Spawn the remotely operated vehicle RexROV (find the robot description files in <strong>uuv_descriptions/models/rexrov</strong>) as follows</p>
-<div class="highlight-python"><div class="highlight"><pre>roslaunch uuv_descriptions upload_rexrov.launch mode:=default x:=0 y:=0 z:=-20 namespace:=rexrov
-</pre></div>
-</div>
-<p>for which <strong>mode</strong> stands for the configuration of the vehicle to be used. It is important to create the vehicles under a unique
-<strong>namespace</strong> to allow simulation of multiple vehicles in the same scenario.</p>
-<p>You can start a velocity controller with a joystick teleoperation node as</p>
-<div class="highlight-python"><div class="highlight"><pre>roslaunch uuv_control_cascaded_pid joy_velocity.launch uuv_name:=rexrov model_name:=rexrov joy_id:=0
-</pre></div>
-</div>
-<p>In this case <strong>model_name</strong> refers to the vehicle model, which can be different from the <strong>namespace</strong>. It is a necessary parameter to load
-the correct controller and thruster allocation matrix coefficients. The joystick ID is already set zero as default. To find the correct
-joystick index, you can install and run <strong>jstest-gtk</strong>.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The mapping of the joystick teleoperation node is set as default for the XBox 360 controller. Remapping is possible by passing the correct
-indexes of the desired axes in the launch file located in the <strong>uuv_vehicle_teleop</strong>.</p>
-</div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p>Sometimes Gazebo takes a while to close. Try</p>
-<div class="highlight-python"><div class="highlight"><pre>killall -9 gzserver gzclient
-</pre></div>
-</div>
-<p class="last">in case that happens.</p>
-</div>
-<div class="section" id="running-the-simulation-remotely">
-<h2>Running the simulation remotely<a class="headerlink" href="#running-the-simulation-remotely" title="Permalink to this headline">¶</a></h2>
-<p>If you are having trouble running your application in multiple computers, you can try adding the hostnames and IP addresses of your machines
-to the <strong>/etc/hosts</strong> file of the computer running <strong>roscore</strong>.</p>
-</div>
+<p>and run it on the terminal. It will open a window as seen below. The joystick
+devices are named <strong>/dev/input/js1</strong> for the device #1. You can use this index
+for the launch files that have the input option <strong>joy_id</strong>.</p>
+<img alt="_images/jstest.png" src="_images/jstest.png" />
+<ul class="simple">
+<li><strong>My machine doesn&#8217;t seem to see the services and topics from the roscore running remotely.</strong></li>
+</ul>
+<p>If you are having trouble running your application in multiple computers, you
+can try adding the hostnames and IP addresses of your machines to the
+<strong>/etc/hosts</strong> file of the computer running <strong>roscore</strong>.</p>
 </div>
 
 
@@ -185,10 +160,10 @@ to the <strong>/etc/hosts</strong> file of the computer running <strong>roscore<
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="tutorials/index.html" class="btn btn-neutral float-right" title="Tutorials" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="license.html" class="btn btn-neutral float-right" title="License" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="installation.html" class="btn btn-neutral" title="Installation" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="vehicles.html" class="btn btn-neutral" title="Vehicles available" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
