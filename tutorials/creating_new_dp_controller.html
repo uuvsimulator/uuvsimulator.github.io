@@ -243,7 +243,11 @@ mkdir launch scripts
 65
 66
 67
-68</pre></div></td><td class="code"><div class="highlight"><pre><span class="ch">#!/usr/bin/env python</span>
+68
+69
+70
+71
+72</pre></div></td><td class="code"><div class="highlight"><pre><span class="ch">#!/usr/bin/env python</span>
 <span class="kn">import</span> <span class="nn">rospy</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">uuv_control_interfaces</span> <span class="kn">import</span> <span class="n">DPControllerBase</span>
@@ -287,6 +291,7 @@ mkdir launch scripts
           <span class="k">else</span><span class="p">:</span>
               <span class="c1"># If the vector provided has the wrong dimension, raise an exception</span>
               <span class="k">raise</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ROSException</span><span class="p">(</span><span class="s1">&#39;For the Ki diagonal matrix, 6 coefficients are needed&#39;</span><span class="p">)</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">_is_init</span> <span class="o">=</span> <span class="bp">True</span>
 
   <span class="k">def</span> <span class="nf">_reset_controller</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
       <span class="nb">super</span><span class="p">(</span><span class="n">TutorialDPController</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">_reset_controller</span><span class="p">()</span>
@@ -294,6 +299,9 @@ mkdir launch scripts
       <span class="bp">self</span><span class="o">.</span><span class="n">_int</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,))</span>
 
   <span class="k">def</span> <span class="nf">update_controller</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_init</span><span class="p">:</span>
+          <span class="k">return</span> <span class="bp">False</span>
+
       <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">odom_is_init</span><span class="p">:</span>
           <span class="k">return</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">_int</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_int</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">error_pose_euler</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_error_pose</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dt</span>
