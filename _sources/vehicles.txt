@@ -60,7 +60,7 @@ then run a Gazebo UUV simulator world ::
 
 and the vehicle demo launch file ::
 
-  roslaunch desistek_saga_gazebo start_demo_teleop.launch joy_id:=1
+  roslaunch desistek_saga_gazebo start_demo_teleop.launch joy_id:=0
 
 The teleoperation nodes are pre-configured per default for the XBox 360
 controller.
