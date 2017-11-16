@@ -86,7 +86,13 @@
 <li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vehicles.html">Vehicles available</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">F.A.Q.</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">F.A.Q.</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#how-do-i-find-out-the-id-number-my-joystick">How do I find out the ID number my joystick?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#my-machine-doesn-t-seem-to-see-the-services-and-topics-from-the-roscore-running-remotely">My machine doesn&#8217;t seem to see the services and topics from the roscore running remotely</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#after-running-catkin-build-i-still-can-t-start-launch-and-nodes-files">After running catkin build, I still can&#8217;t start launch and nodes files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-gazebo-worlds-don-t-start-when-running-the-simulation-on-a-virtual-machine">The Gazebo worlds don&#8217;t start when running the simulation on a virtual machine</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
 </ul>
 
@@ -134,9 +140,8 @@
             
   <div class="section" id="f-a-q">
 <span id="faq"></span><h1>F.A.Q.<a class="headerlink" href="#f-a-q" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><strong>How do I find out the ID number my joystick?</strong></li>
-</ul>
+<div class="section" id="how-do-i-find-out-the-id-number-my-joystick">
+<h2>How do I find out the ID number my joystick?<a class="headerlink" href="#how-do-i-find-out-the-id-number-my-joystick" title="Permalink to this headline">¶</a></h2>
 <p>You can use <strong>jstest-gtk</strong> to find that out. To install it, run</p>
 <div class="highlight-python"><div class="highlight"><pre>sudo apt-get install jstest-gtk
 </pre></div>
@@ -145,15 +150,15 @@
 devices are named <strong>/dev/input/js1</strong> for the device #1. You can use this index
 for the launch files that have the input option <strong>joy_id</strong>.</p>
 <img alt="_images/jstest.png" src="_images/jstest.png" />
-<ul class="simple">
-<li><strong>My machine doesn&#8217;t seem to see the services and topics from the roscore running remotely.</strong></li>
-</ul>
+</div>
+<div class="section" id="my-machine-doesn-t-seem-to-see-the-services-and-topics-from-the-roscore-running-remotely">
+<h2>My machine doesn&#8217;t seem to see the services and topics from the roscore running remotely<a class="headerlink" href="#my-machine-doesn-t-seem-to-see-the-services-and-topics-from-the-roscore-running-remotely" title="Permalink to this headline">¶</a></h2>
 <p>If you are having trouble running your application in multiple computers, you
 can try adding the hostnames and IP addresses of your machines to the
 <strong>/etc/hosts</strong> file of the computer running <strong>roscore</strong>.</p>
-<ul class="simple">
-<li><strong>After running catkin build, I still can&#8217;t run the launch and nodes files</strong></li>
-</ul>
+</div>
+<div class="section" id="after-running-catkin-build-i-still-can-t-start-launch-and-nodes-files">
+<h2>After running catkin build, I still can&#8217;t start launch and nodes files<a class="headerlink" href="#after-running-catkin-build-i-still-can-t-start-launch-and-nodes-files" title="Permalink to this headline">¶</a></h2>
 <p>If after compiling your catkin workspace using <strong>catkin build</strong> ROS seems to not
 update the paths to the packages even after you run</p>
 <div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws
@@ -173,9 +178,9 @@ catkin build
 source devel/setup.sh
 </pre></div>
 </div>
-<ul class="simple">
-<li><strong>The Gazebo worlds don&#8217;t start when running the simulation on a virtual machine.</strong></li>
-</ul>
+</div>
+<div class="section" id="the-gazebo-worlds-don-t-start-when-running-the-simulation-on-a-virtual-machine">
+<h2>The Gazebo worlds don&#8217;t start when running the simulation on a virtual machine<a class="headerlink" href="#the-gazebo-worlds-don-t-start-when-running-the-simulation-on-a-virtual-machine" title="Permalink to this headline">¶</a></h2>
 <p>Even though using a virtual machine can lead to the performance of the simulation being
 very poor, to avoid segmentation faults when starting Gazebo in a virtual machine you can
 add the following line to your <strong>~/.bashrc</strong> file</p>
@@ -186,6 +191,7 @@ add the following line to your <strong>~/.bashrc</strong> file</p>
 <p class="first admonition-title">Note</p>
 <p class="last">If you are running VirtualBox, remember to install the guest additions to your virtual
 machine as well.</p>
+</div>
 </div>
 </div>
 
