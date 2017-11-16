@@ -151,6 +151,42 @@ for the launch files that have the input option <strong>joy_id</strong>.</p>
 <p>If you are having trouble running your application in multiple computers, you
 can try adding the hostnames and IP addresses of your machines to the
 <strong>/etc/hosts</strong> file of the computer running <strong>roscore</strong>.</p>
+<ul class="simple">
+<li><strong>After running catkin build, I still can&#8217;t run the launch and nodes files</strong></li>
+</ul>
+<p>If after compiling your catkin workspace using <strong>catkin build</strong> ROS seems to not
+update the paths to the packages even after you run</p>
+<div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws
+source devel/setup.sh
+</pre></div>
+</div>
+<p>you can try disabling the option to source the <strong>install</strong> folder of your catkin
+workspace by running</p>
+<div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws
+catkin config --no-install
+catkin clean --all
+</pre></div>
+</div>
+<p>Then rebuild your workspace</p>
+<div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws
+catkin build
+source devel/setup.sh
+</pre></div>
+</div>
+<ul class="simple">
+<li><strong>The Gazebo worlds don&#8217;t start when running the simulation on a virtual machine.</strong></li>
+</ul>
+<p>Even though using a virtual machine can lead to the performance of the simulation being
+very poor, to avoid segmentation faults when starting Gazebo in a virtual machine you can
+add the following line to your <strong>~/.bashrc</strong> file</p>
+<div class="highlight-python"><div class="highlight"><pre>export LIBGL_ALWAYS_SOFTWARE=1
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you are running VirtualBox, remember to install the guest additions to your virtual
+machine as well.</p>
+</div>
 </div>
 
 

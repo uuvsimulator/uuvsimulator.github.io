@@ -195,16 +195,17 @@ cd ..
 <p>If you don&#8217;t have the ROS workspace yet, you should run the following and then clone the <strong>uuv_simulator</strong> package in the <strong>~/catkin_ws/src</strong> folder</p>
 <div class="highlight-python"><div class="highlight"><pre>mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws/src
-catkin_init_workspace
-wstool init
 </pre></div>
 </div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p>You can install the package <strong>wstool</strong> using</p>
-<div class="last highlight-python"><div class="highlight"><pre>sudo pip install wstool
+<p>Be sure to install <strong>catkin tools</strong> package by following the installation instructions on the <a class="reference external" href="https://catkin-tools.readthedocs.io/en/latest/installing.html">catkin tools documentation page</a>. After the installation, initialize the catkin workspace</p>
+<div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws
+catkin init
 </pre></div>
 </div>
+<p>You can then clone the UUV simulator into your <strong>src</strong> folder</p>
+<div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws/src
+git clone https://github.com/uuvsimulator/uuv_simulator.git
+</pre></div>
 </div>
 <p>Configure the environment variables by adding the following lines in <strong>~/.bashrc</strong> (replace <strong>kinetic</strong> with <strong>indigo</strong> depending on the ROS version you  are using).</p>
 <div class="admonition note">
@@ -241,6 +242,25 @@ catkin build
 </pre></div>
 </div>
 <p>in case you are using <strong>catkin_tools</strong>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>If after compiling your catkin workspace using <strong>catkin build</strong> ROS seems to not update the paths to the packages even after you run</p>
+<div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws
+source devel/setup.sh
+</pre></div>
+</div>
+<p>you can try disabling the option to source the <strong>install</strong> folder of your catkin workspace by running</p>
+<div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws
+catkin config --no-install
+catkin clean --all
+</pre></div>
+</div>
+<p>Then rebuild your workspace</p>
+<div class="last highlight-python"><div class="highlight"><pre>catkin build
+source devel/setup.sh
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 
