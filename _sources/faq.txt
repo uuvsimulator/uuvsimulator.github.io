@@ -23,8 +23,8 @@ If you are having trouble running your application in multiple computers, you
 can try adding the hostnames and IP addresses of your machines to the
 **/etc/hosts** file of the computer running **roscore**.
 
-After running catkin build, I still can't start launch and nodes files
-----------------------------------------------------------------------
+After running catkin build, I still can't start any nodes or launch files
+-------------------------------------------------------------------------
 
 If after compiling your catkin workspace using **catkin build** ROS seems to not 
 update the paths to the packages even after you run ::
