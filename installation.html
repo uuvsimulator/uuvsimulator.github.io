@@ -13,6 +13,8 @@
 
   
   
+  
+  
 
   
 
@@ -30,6 +32,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="UUV Simulator 0.2 documentation" href="index.html"/>
         <link rel="next" title="Quick start" href="quick_start.html"/>
         <link rel="prev" title="Welcome to UUV Simulator’s documentation!" href="index.html"/> 
@@ -41,6 +46,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -81,8 +87,11 @@
           
             
             
-                <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="">Installation</a><ul>
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#dependencies">Dependencies</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#using-uuv-simulator-with-ros-indigo-and-gazebo-7">Using UUV Simulator with ROS Indigo and Gazebo 7</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#using-uuv-simulator-with-ros-kinetic-and-gazebo-7">Using UUV Simulator with ROS Kinetic and Gazebo 7</a></li>
@@ -108,8 +117,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="index.html">UUV Simulator</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">UUV Simulator</a>
+        
       </nav>
 
 
@@ -118,23 +129,40 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="index.html">Docs</a> &raquo;</li>
-      
-    <li>Installation</li>
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Installation</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="_sources/installation.txt" rel="nofollow"> View page source</a>
+            
+            <a href="_sources/installation.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -151,60 +179,60 @@ and for <a class="reference external" href="http://wiki.ros.org/kinetic/Installa
 <div class="section" id="using-uuv-simulator-with-ros-indigo-and-gazebo-7">
 <h3>Using UUV Simulator with ROS Indigo and Gazebo 7<a class="headerlink" href="#using-uuv-simulator-with-ros-indigo-and-gazebo-7" title="Permalink to this headline">¶</a></h3>
 <p>After the installation of ROS Indigo, the following packages are also needed</p>
-<div class="highlight-python"><div class="highlight"><pre>sudo apt-get install gazebo7 libgazebo7-dev protobuf-compiler protobuf-c-compiler ros-indigo-gazebo7-msgs ros-indigo-gazebo7-plugins ros-indigo-gazebo7-ros ros-indigo-gazebo7-ros-control ros-indigo-gazebo7-ros-pkgs ros-indigo-effort-controllers ros-indigo-image-pipeline ros-indigo-image-common ros-indigo-perception ros-indigo-perception-pcl ros-indigo-robot-state-publisher ros-indigo-ros-base ros-indigo-viz python-wstool python-catkin-tools python-catkin-lint ros-indigo-hector-localization ros-indigo-joy ros-indigo-joy-teleop libopencv-dev
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">gazebo7</span> <span class="n">libgazebo7</span><span class="o">-</span><span class="n">dev</span> <span class="n">protobuf</span><span class="o">-</span><span class="n">compiler</span> <span class="n">protobuf</span><span class="o">-</span><span class="n">c</span><span class="o">-</span><span class="n">compiler</span> <span class="n">ros</span><span class="o">-</span><span class="n">indigo</span><span class="o">-</span><span class="n">gazebo7</span><span class="o">-</span><span class="n">msgs</span> <span class="n">ros</span><span class="o">-</span><span class="n">indigo</span><span class="o">-</span><span class="n">gazebo7</span><span class="o">-</span><span class="n">plugins</span> <span class="n">ros</span><span class="o">-</span><span class="n">indigo</span><span class="o">-</span><span class="n">gazebo7</span><span class="o">-</span><span class="n">ros</span> <span class="n">ros</span><span class="o">-</span><span class="n">indigo</span><span class="o">-</span><span class="n">gazebo7</span><span class="o">-</span><span class="n">ros</span><span class="o">-</span><span class="n">control</span> <span class="n">ros</span><span class="o">-</span><span class="n">indigo</span><span class="o">-</span><span class="n">gazebo7</span><span class="o">-</span><span class="n">ros</span><span class="o">-</span><span class="n">pkgs</span> <span class="n">ros</span><span class="o">-</span><span class="n">indigo</span><span class="o">-</span><span class="n">effort</span><span class="o">-</span><span class="n">controllers</span> <span class="n">ros</span><span class="o">-</span><span class="n">indigo</span><span class="o">-</span><span class="n">image</span><span class="o">-</span><span class="n">pipeline</span> <span class="n">ros</span><span class="o">-</span><span class="n">indigo</span><span class="o">-</span><span class="n">image</span><span class="o">-</span><span class="n">common</span> <span class="n">ros</span><span class="o">-</span><span class="n">indigo</span><span class="o">-</span><span class="n">perception</span> <span class="n">ros</span><span class="o">-</span><span class="n">indigo</span><span class="o">-</span><span class="n">perception</span><span class="o">-</span><span class="n">pcl</span> <span class="n">ros</span><span class="o">-</span><span class="n">indigo</span><span class="o">-</span><span class="n">robot</span><span class="o">-</span><span class="n">state</span><span class="o">-</span><span class="n">publisher</span> <span class="n">ros</span><span class="o">-</span><span class="n">indigo</span><span class="o">-</span><span class="n">ros</span><span class="o">-</span><span class="n">base</span> <span class="n">ros</span><span class="o">-</span><span class="n">indigo</span><span class="o">-</span><span class="n">viz</span> <span class="n">python</span><span class="o">-</span><span class="n">wstool</span> <span class="n">python</span><span class="o">-</span><span class="n">catkin</span><span class="o">-</span><span class="n">tools</span> <span class="n">python</span><span class="o">-</span><span class="n">catkin</span><span class="o">-</span><span class="n">lint</span> <span class="n">ros</span><span class="o">-</span><span class="n">indigo</span><span class="o">-</span><span class="n">hector</span><span class="o">-</span><span class="n">localization</span> <span class="n">ros</span><span class="o">-</span><span class="n">indigo</span><span class="o">-</span><span class="n">joy</span> <span class="n">ros</span><span class="o">-</span><span class="n">indigo</span><span class="o">-</span><span class="n">joy</span><span class="o">-</span><span class="n">teleop</span> <span class="n">libopencv</span><span class="o">-</span><span class="n">dev</span>
 </pre></div>
 </div>
 <p>To use the vehicles with robotic manipulators using ROS Indigo, it might also be necessary to use a different version of the <strong>ros-control</strong> modules (listed below). In that case, clone the following repositories in the <strong>src</strong> folder</p>
-<div class="highlight-python"><div class="highlight"><pre>git clone https://github.com/ros-controls/control_msgs.git
-cd control_msgs
-git checkout c0b322b
-cd ..
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ros</span><span class="o">-</span><span class="n">controls</span><span class="o">/</span><span class="n">control_msgs</span><span class="o">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">control_msgs</span>
+<span class="n">git</span> <span class="n">checkout</span> <span class="n">c0b322b</span>
+<span class="n">cd</span> <span class="o">..</span>
 
-git clone https://github.com/ros-controls/control_toolbox.git
-cd control_toolbox
-git checkout 5ccdc6d
-cd ..
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ros</span><span class="o">-</span><span class="n">controls</span><span class="o">/</span><span class="n">control_toolbox</span><span class="o">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">control_toolbox</span>
+<span class="n">git</span> <span class="n">checkout</span> <span class="mi">5</span><span class="n">ccdc6d</span>
+<span class="n">cd</span> <span class="o">..</span>
 
-git clone https://github.com/ros-simulation/gazebo_ros_pkgs.git
-cd gazebo_ros_pkgs
-git checkout 231b76d
-cd ..
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ros</span><span class="o">-</span><span class="n">simulation</span><span class="o">/</span><span class="n">gazebo_ros_pkgs</span><span class="o">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">gazebo_ros_pkgs</span>
+<span class="n">git</span> <span class="n">checkout</span> <span class="mi">231</span><span class="n">b76d</span>
+<span class="n">cd</span> <span class="o">..</span>
 
-git clone https://github.com/ros-controls/realtime_tools.git
-cd realtime_tools
-git checkout bf55298
-cd ..
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ros</span><span class="o">-</span><span class="n">controls</span><span class="o">/</span><span class="n">realtime_tools</span><span class="o">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">realtime_tools</span>
+<span class="n">git</span> <span class="n">checkout</span> <span class="n">bf55298</span>
+<span class="n">cd</span> <span class="o">..</span>
 
-git clone https://github.com/ros-controls/ros_controllers.git
-cd ros_controllers
-git checkout b4dc152
-cd ..
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ros</span><span class="o">-</span><span class="n">controls</span><span class="o">/</span><span class="n">ros_controllers</span><span class="o">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">ros_controllers</span>
+<span class="n">git</span> <span class="n">checkout</span> <span class="n">b4dc152</span>
+<span class="n">cd</span> <span class="o">..</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="using-uuv-simulator-with-ros-kinetic-and-gazebo-7">
 <h3>Using UUV Simulator with ROS Kinetic and Gazebo 7<a class="headerlink" href="#using-uuv-simulator-with-ros-kinetic-and-gazebo-7" title="Permalink to this headline">¶</a></h3>
 <p>If you installed ROS Kinetic, then install the following packages</p>
-<div class="highlight-python"><div class="highlight"><pre>sudo apt-get install ros-kinetic-gazebo-msgs ros-kinetic-gazebo-plugins ros-kinetic-gazebo-ros ros-kinetic-gazebo-ros-control ros-kinetic-gazebo-ros-pkgs ros-kinetic-effort-controllers ros-kinetic-image-pipeline ros-kinetic-image-common ros-kinetic-perception ros-kinetic-perception-pcl ros-kinetic-robot-state-publisher ros-kinetic-ros-base ros-kinetic-viz python-wstool python-catkin-tools python-catkin-lint ros-kinetic-hector-localization ros-kinetic-joy ros-kinetic-joy-teleop libopencv-dev protobuf-compiler protobuf-c-compiler
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">ros</span><span class="o">-</span><span class="n">kinetic</span><span class="o">-</span><span class="n">gazebo</span><span class="o">-</span><span class="n">msgs</span> <span class="n">ros</span><span class="o">-</span><span class="n">kinetic</span><span class="o">-</span><span class="n">gazebo</span><span class="o">-</span><span class="n">plugins</span> <span class="n">ros</span><span class="o">-</span><span class="n">kinetic</span><span class="o">-</span><span class="n">gazebo</span><span class="o">-</span><span class="n">ros</span> <span class="n">ros</span><span class="o">-</span><span class="n">kinetic</span><span class="o">-</span><span class="n">gazebo</span><span class="o">-</span><span class="n">ros</span><span class="o">-</span><span class="n">control</span> <span class="n">ros</span><span class="o">-</span><span class="n">kinetic</span><span class="o">-</span><span class="n">gazebo</span><span class="o">-</span><span class="n">ros</span><span class="o">-</span><span class="n">pkgs</span> <span class="n">ros</span><span class="o">-</span><span class="n">kinetic</span><span class="o">-</span><span class="n">effort</span><span class="o">-</span><span class="n">controllers</span> <span class="n">ros</span><span class="o">-</span><span class="n">kinetic</span><span class="o">-</span><span class="n">image</span><span class="o">-</span><span class="n">pipeline</span> <span class="n">ros</span><span class="o">-</span><span class="n">kinetic</span><span class="o">-</span><span class="n">image</span><span class="o">-</span><span class="n">common</span> <span class="n">ros</span><span class="o">-</span><span class="n">kinetic</span><span class="o">-</span><span class="n">perception</span> <span class="n">ros</span><span class="o">-</span><span class="n">kinetic</span><span class="o">-</span><span class="n">perception</span><span class="o">-</span><span class="n">pcl</span> <span class="n">ros</span><span class="o">-</span><span class="n">kinetic</span><span class="o">-</span><span class="n">robot</span><span class="o">-</span><span class="n">state</span><span class="o">-</span><span class="n">publisher</span> <span class="n">ros</span><span class="o">-</span><span class="n">kinetic</span><span class="o">-</span><span class="n">ros</span><span class="o">-</span><span class="n">base</span> <span class="n">ros</span><span class="o">-</span><span class="n">kinetic</span><span class="o">-</span><span class="n">viz</span> <span class="n">python</span><span class="o">-</span><span class="n">wstool</span> <span class="n">python</span><span class="o">-</span><span class="n">catkin</span><span class="o">-</span><span class="n">tools</span> <span class="n">python</span><span class="o">-</span><span class="n">catkin</span><span class="o">-</span><span class="n">lint</span> <span class="n">ros</span><span class="o">-</span><span class="n">kinetic</span><span class="o">-</span><span class="n">hector</span><span class="o">-</span><span class="n">localization</span> <span class="n">ros</span><span class="o">-</span><span class="n">kinetic</span><span class="o">-</span><span class="n">joy</span> <span class="n">ros</span><span class="o">-</span><span class="n">kinetic</span><span class="o">-</span><span class="n">joy</span><span class="o">-</span><span class="n">teleop</span> <span class="n">libopencv</span><span class="o">-</span><span class="n">dev</span> <span class="n">protobuf</span><span class="o">-</span><span class="n">compiler</span> <span class="n">protobuf</span><span class="o">-</span><span class="n">c</span><span class="o">-</span><span class="n">compiler</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="creating-and-configuring-a-workspace">
 <h2>Creating and configuring a workspace<a class="headerlink" href="#creating-and-configuring-a-workspace" title="Permalink to this headline">¶</a></h2>
-<p>If you don&#8217;t have the ROS workspace yet, you should run the following and then clone the <strong>uuv_simulator</strong> package in the <strong>~/catkin_ws/src</strong> folder</p>
-<div class="highlight-python"><div class="highlight"><pre>mkdir -p ~/catkin_ws/src
-cd ~/catkin_ws/src
+<p>If you don’t have the ROS workspace yet, you should run the following and then clone the <strong>uuv_simulator</strong> package in the <strong>~/catkin_ws/src</strong> folder</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">~/</span><span class="n">catkin_ws</span><span class="o">/</span><span class="n">src</span>
+<span class="n">cd</span> <span class="o">~/</span><span class="n">catkin_ws</span><span class="o">/</span><span class="n">src</span>
 </pre></div>
 </div>
 <p>Be sure to install <strong>catkin tools</strong> package by following the installation instructions on the <a class="reference external" href="https://catkin-tools.readthedocs.io/en/latest/installing.html">catkin tools documentation page</a>. After the installation, initialize the catkin workspace</p>
-<div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws
-catkin init
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">catkin_ws</span>
+<span class="n">catkin</span> <span class="n">init</span>
 </pre></div>
 </div>
 <p>You can then clone the UUV simulator into your <strong>src</strong> folder</p>
-<div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws/src
-git clone https://github.com/uuvsimulator/uuv_simulator.git
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">catkin_ws</span><span class="o">/</span><span class="n">src</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">uuvsimulator</span><span class="o">/</span><span class="n">uuv_simulator</span><span class="o">.</span><span class="n">git</span>
 </pre></div>
 </div>
 <p>Configure the environment variables by adding the following lines in <strong>~/.bashrc</strong> (replace <strong>kinetic</strong> with <strong>indigo</strong> depending on the ROS version you  are using).</p>
@@ -212,52 +240,47 @@ git clone https://github.com/uuvsimulator/uuv_simulator.git
 <p class="first admonition-title">Note</p>
 <p>If you install a version of Gazebo newer than 7.0, you might need to adjust <strong>gazebo-7.0</strong> below.
 You can find out which version you are using by typing</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">gazebo</span> <span class="o">--</span><span class="n">version</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">gazebo</span> <span class="o">--</span><span class="n">version</span>
 </pre></div>
 </div>
 <p class="last">in your terminal.</p>
 </div>
-<div class="highlight-python"><div class="highlight"><pre>source /usr/share/gazebo-7/setup.sh
+<div class="highlight-default"><div class="highlight"><pre><span></span>source /usr/share/gazebo-7/setup.sh
 source /opt/ros/kinetic/setup.bash
-source $HOME/catkin_ws/devel/setup.sh
-
-export GAZEBO_PREFIX=$HOME/catkin_ws/install
-export GAZEBO_RESOURCE_PATH=${GAZEBO_PREFIX}/share/gazebo-7.0:${GAZEBO_RESOURCE_PATH}
-export GAZEBO_MODEL_PATH=${GAZEBO_PREFIX}/share/gazebo-7.0/models:${GAZEBO_MODEL_PATH}
-export GAZEBO_PLUGIN_PATH=${GAZEBO_PREFIX}/lib:${GAZEBO_PREFIX}/lib/x86_64-linux-gnu:${GAZEBO_PLUGIN_PATH}
+source $HOME/catkin_ws/devel/setup.bash
 </pre></div>
 </div>
 <p>After saving these changes, remember to source the <strong>.bashrc</strong> by either typing</p>
-<div class="highlight-python"><div class="highlight"><pre>source ~/.bashrc
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">~/.</span><span class="n">bashrc</span>
 </pre></div>
 </div>
 <p>in your terminal or reopening the terminal. Finally, clone the UUV simulator package in the folder <strong>~/catkin_ws/src</strong> and build your workspace using</p>
-<div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws
-catkin_make install
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">catkin_ws</span>
+<span class="n">catkin_make</span> <span class="n">install</span>
 </pre></div>
 </div>
 <p>or</p>
-<div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws
-catkin build
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">catkin_ws</span>
+<span class="n">catkin</span> <span class="n">build</span>
 </pre></div>
 </div>
 <p>in case you are using <strong>catkin_tools</strong>.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p>If after compiling your catkin workspace using <strong>catkin build</strong> ROS seems to not update the paths to the packages even after you run</p>
-<div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws
-source devel/setup.sh
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">catkin_ws</span>
+<span class="n">source</span> <span class="n">devel</span><span class="o">/</span><span class="n">setup</span><span class="o">.</span><span class="n">sh</span>
 </pre></div>
 </div>
 <p>you can try disabling the option to source the <strong>install</strong> folder of your catkin workspace by running</p>
-<div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws
-catkin config --no-install
-catkin clean --all
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">catkin_ws</span>
+<span class="n">catkin</span> <span class="n">config</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">install</span>
+<span class="n">catkin</span> <span class="n">clean</span> <span class="o">--</span><span class="nb">all</span>
 </pre></div>
 </div>
 <p>Then rebuild your workspace</p>
-<div class="last highlight-python"><div class="highlight"><pre>catkin build
-source devel/setup.sh
+<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="n">catkin</span> <span class="n">build</span>
+<span class="n">source</span> <span class="n">devel</span><span class="o">/</span><span class="n">setup</span><span class="o">.</span><span class="n">bash</span>
 </pre></div>
 </div>
 </div>
@@ -266,15 +289,18 @@ source devel/setup.sh
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="quick_start.html" class="btn btn-neutral float-right" title="Quick start" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="quick_start.html" class="btn btn-neutral float-right" title="Quick start" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="Welcome to UUV Simulator’s documentation!" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral" title="Welcome to UUV Simulator’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -308,13 +334,14 @@ source devel/setup.sh
             VERSION:'0.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

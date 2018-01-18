@@ -13,6 +13,8 @@
 
   
   
+  
+  
 
   
 
@@ -30,6 +32,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="UUV Simulator 0.2 documentation" href="../index.html"/> 
 
   
@@ -39,6 +44,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -79,7 +85,10 @@
           
             
             
-                <ul>
+              
+            
+            
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index.html">Tutorials</a></li>
@@ -98,8 +107,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">UUV Simulator</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">UUV Simulator</a>
+        
       </nav>
 
 
@@ -108,23 +119,40 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Docs</a> &raquo;</li>
-      
-    <li>Applying disturbances during the simulation</li>
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Applying disturbances during the simulation</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../_sources/tutorials/disturbances.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../_sources/tutorials/disturbances.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -132,9 +160,9 @@
             
   <div class="section" id="applying-disturbances-during-the-simulation">
 <span id="disturbances"></span><h1>Applying disturbances during the simulation<a class="headerlink" href="#applying-disturbances-during-the-simulation" title="Permalink to this headline">¶</a></h1>
-<p>One of the steps to evaluate the vehicle&#8217;s performance using a control strategy is to check how it would behave under different kinds of disturbances.
+<p>One of the steps to evaluate the vehicle’s performance using a control strategy is to check how it would behave under different kinds of disturbances.
 One tool that can be used is an option in Gazebo through the GUI or using a ROS service to apply forces and torque to a link in the scenario. Additionally,
-it is possible to use the services provided by this package&#8217;s underwater world Gazebo plugin to set a constant current velocity to the vehicles.</p>
+it is possible to use the services provided by this package’s underwater world Gazebo plugin to set a constant current velocity to the vehicles.</p>
 <p>To make this type of tests easier, some scripts are available in the package uuv_control_utils to schedule disturbances to happen during the simulation,
 making it easier to reproduce a scenario where the disturbances have to be active only at a certain simulation time or have a limited duration. The
 <strong>uuv_control_utils</strong> package provides scripts to apply the disturbances at specific times and also launch files that can be built in an use-case scenario.
@@ -143,12 +171,12 @@ The files mentioned below are available at the <strong>uuv_tutorial_disturbances
 <h2>Thruster failure<a class="headerlink" href="#thruster-failure" title="Permalink to this headline">¶</a></h2>
 <p>One interesting use-case to be tested is to see how the vehicle would behave in case one or more thrusters stops working. The thruster plugin provides a
 service call to set the thruster state to <strong>ON</strong> or <strong>OFF</strong>. Each thruster unit generates the service names automatically as follows</p>
-<div class="highlight-python"><div class="highlight"><pre>/&lt;model_name&gt;/thrusters/&lt;thruster_id&gt;/set_thruster_state
-/&lt;model_name&gt;/thrusters/&lt;thruster_id&gt;/get_thruster_state
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">/&lt;</span><span class="n">model_name</span><span class="o">&gt;/</span><span class="n">thrusters</span><span class="o">/&lt;</span><span class="n">thruster_id</span><span class="o">&gt;/</span><span class="n">set_thruster_state</span>
+<span class="o">/&lt;</span><span class="n">model_name</span><span class="o">&gt;/</span><span class="n">thrusters</span><span class="o">/&lt;</span><span class="n">thruster_id</span><span class="o">&gt;/</span><span class="n">get_thruster_state</span>
 </pre></div>
 </div>
 <p>The RexROV vehicle, for instance, provides the set thruster state service for thruster #2 as</p>
-<div class="highlight-python"><div class="highlight"><pre>/rexrov/thrusters/2/set_thruster_state.
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">rexrov</span><span class="o">/</span><span class="n">thrusters</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="n">set_thruster_state</span><span class="o">.</span>
 </pre></div>
 </div>
 <p>To use the service call, a few options are presented below.</p>
@@ -156,19 +184,19 @@ service call to set the thruster state to <strong>ON</strong> or <strong>OFF</st
 <h3>Setting thruster state through ROS service call<a class="headerlink" href="#setting-thruster-state-through-ros-service-call" title="Permalink to this headline">¶</a></h3>
 <p>When you start the simulation with an thruster-actuated underwater vehicle, the thruster services will be made available by the thruster unit plugins.
 So, if you start, for example, the PID controller demo launch file as</p>
-<div class="highlight-python"><div class="highlight"><pre>roslaunch uuv_gazebo start_pid_demo.launch
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_gazebo</span> <span class="n">start_pid_demo</span><span class="o">.</span><span class="n">launch</span>
 </pre></div>
 </div>
 <p>you can set the state of one of the thrusters to <strong>OFF</strong> using the following</p>
-<div class="highlight-python"><div class="highlight"><pre>rosservice call /rexrov/thrusters/2/set_thruster_state &quot;&#39;on&#39;: false&quot;
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rosservice</span> <span class="n">call</span> <span class="o">/</span><span class="n">rexrov</span><span class="o">/</span><span class="n">thrusters</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="n">set_thruster_state</span> <span class="s2">&quot;&#39;on&#39;: false&quot;</span>
 </pre></div>
 </div>
 <p>You can check the state of the thruster unit by calling</p>
-<div class="highlight-python"><div class="highlight"><pre>rosservice call /rexrov/thrusters/2/get_thruster_state
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rosservice</span> <span class="n">call</span> <span class="o">/</span><span class="n">rexrov</span><span class="o">/</span><span class="n">thrusters</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="n">get_thruster_state</span>
 </pre></div>
 </div>
 <p>which should return</p>
-<div class="highlight-python"><div class="highlight"><pre>is_on: False
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">is_on</span><span class="p">:</span> <span class="kc">False</span>
 </pre></div>
 </div>
 </div>
@@ -177,11 +205,11 @@ So, if you start, for example, the PID controller demo launch file as</p>
 <p>Even though the service call can be used in run time, if you want to schedule one or more thrusters to be turned off at a specific time and, optionally,
 set them to be turned on again after some time, you can use the ROS node in <strong>uuv_control_utils</strong>, <a class="reference external" href="https://github.com/uuvsimulator/uuv_simulator/blob/master/uuv_control/uuv_control_utils/scripts/set_thruster_state.py">set_thruster_state.py</a>.</p>
 <p>As an example, start the previous simulation again</p>
-<div class="highlight-python"><div class="highlight"><pre>roslaunch uuv_gazebo start_pid_demo.launch
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_gazebo</span> <span class="n">start_pid_demo</span><span class="o">.</span><span class="n">launch</span>
 </pre></div>
 </div>
 <p>and then start the node with its launch file as</p>
-<div class="highlight-python"><div class="highlight"><pre>roslaunch uuv_control_utils set_thruster_state.launch uuv_name:=rexrov starting_time:=10 duration:=20 is_on:=false thruster_id:=2
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_control_utils</span> <span class="n">set_thruster_state</span><span class="o">.</span><span class="n">launch</span> <span class="n">uuv_name</span><span class="p">:</span><span class="o">=</span><span class="n">rexrov</span> <span class="n">starting_time</span><span class="p">:</span><span class="o">=</span><span class="mi">10</span> <span class="n">duration</span><span class="p">:</span><span class="o">=</span><span class="mi">20</span> <span class="n">is_on</span><span class="p">:</span><span class="o">=</span><span class="n">false</span> <span class="n">thruster_id</span><span class="p">:</span><span class="o">=</span><span class="mi">2</span>
 </pre></div>
 </div>
 <p>The argument <strong>uuv_name</strong> refers to the namespace of the robot model, <strong>starting_time</strong> is the simulation time stamp when the thruster state is going to be
@@ -189,11 +217,11 @@ altered in seconds, <strong>duration</strong> refers to the duration in seconds 
 indefinitely), <strong>is_on</strong> should be set to false to turn off the thruster and <strong>thruster_id</strong> is the index of the unit.</p>
 <p>This launch file can also be included in other launch files to build a scenario with this thruster failure setup. The following example can called to
 demonstrate this as</p>
-<div class="highlight-python"><div class="highlight"><pre>roslaunch uuv_tutorial_disturbances tutorial_thruster_state.launch
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_tutorial_disturbances</span> <span class="n">tutorial_thruster_state</span><span class="o">.</span><span class="n">launch</span>
 </pre></div>
 </div>
 <p>You can monitor the thruster output during the simulation using <strong>rqt_plot</strong> or by reading the thruster unit output topic as</p>
-<div class="highlight-python"><div class="highlight"><pre>rostopic echo /rexrov/thrusters/2/thrust.
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rostopic</span> <span class="n">echo</span> <span class="o">/</span><span class="n">rexrov</span><span class="o">/</span><span class="n">thrusters</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="n">thrust</span><span class="o">.</span>
 </pre></div>
 </div>
 </div>
@@ -204,6 +232,9 @@ demonstrate this as</p>
 </div>
 
 
+           </div>
+           <div class="articleComments">
+            
            </div>
           </div>
           <footer>
@@ -238,13 +269,14 @@ demonstrate this as</p>
             VERSION:'0.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

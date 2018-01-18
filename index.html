@@ -13,6 +13,8 @@
 
   
   
+  
+  
 
   
 
@@ -30,6 +32,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="UUV Simulator 0.2 documentation" href="#"/>
         <link rel="next" title="Installation" href="installation.html"/> 
 
@@ -40,6 +45,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -80,7 +86,10 @@
           
             
             
-                <ul>
+              
+            
+            
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">Tutorials</a></li>
@@ -99,8 +108,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="#">UUV Simulator</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">UUV Simulator</a>
+        
       </nav>
 
 
@@ -109,34 +120,51 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="#">Docs</a> &raquo;</li>
-      
-    <li>Welcome to UUV Simulator&#8217;s documentation!</li>
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Welcome to UUV Simulator’s documentation!</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="_sources/index.txt" rel="nofollow"> View page source</a>
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
   <div class="section" id="welcome-to-uuv-simulator-s-documentation">
-<h1>Welcome to UUV Simulator&#8217;s documentation!<a class="headerlink" href="#welcome-to-uuv-simulator-s-documentation" title="Permalink to this headline">¶</a></h1>
+<h1>Welcome to UUV Simulator’s documentation!<a class="headerlink" href="#welcome-to-uuv-simulator-s-documentation" title="Permalink to this headline">¶</a></h1>
 <p>The UUV Simulator is a package containing the implementation of Gazebo plugins
 and ROS nodes necessary for the simulation of unmanned underwater vehicles, such
 as ROVs (remotely operated vehicles) and AUVs (autonomous underwater vehicles).</p>
-<p>To send questions and/or issues, please refer to the <a class="reference external" href="https://github.com/uuvsimulator/uuv_simulator/issues">repository&#8217;s issues page</a>.</p>
+<p>To send questions and/or issues, please refer to the <a class="reference external" href="https://github.com/uuvsimulator/uuv_simulator/issues">repository’s issues page</a>.</p>
 <p>Click <a class="reference external" href="https://github.com/uuvsimulator/uuv_simulator">here</a> to access the
 GitHub repository.</p>
 <div class="section" id="contents">
@@ -168,9 +196,9 @@ GitHub repository.</p>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">F.A.Q.</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="faq.html#how-do-i-find-out-the-id-number-my-joystick">How do I find out the ID number my joystick?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="faq.html#my-machine-doesn-t-seem-to-see-the-services-and-topics-from-the-roscore-running-remotely">My machine doesn&#8217;t seem to see the services and topics from the roscore running remotely</a></li>
-<li class="toctree-l2"><a class="reference internal" href="faq.html#after-running-catkin-build-i-still-can-t-start-any-nodes-or-launch-files">After running catkin build, I still can&#8217;t start any nodes or launch files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="faq.html#the-gazebo-worlds-don-t-start-when-running-the-simulation-on-a-virtual-machine">The Gazebo worlds don&#8217;t start when running the simulation on a virtual machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#my-machine-doesn-t-seem-to-see-the-services-and-topics-from-the-roscore-running-remotely">My machine doesn’t seem to see the services and topics from the roscore running remotely</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#after-running-catkin-build-i-still-can-t-start-any-nodes-or-launch-files">After running catkin build, I still can’t start any nodes or launch files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#the-gazebo-worlds-don-t-start-when-running-the-simulation-on-a-virtual-machine">The Gazebo worlds don’t start when running the simulation on a virtual machine</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
@@ -180,16 +208,16 @@ GitHub repository.</p>
 <div class="section" id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
 <p>If you wish to use the UUV Simulator in a research project, please cite our paper</p>
-<div class="highlight-python"><div class="highlight"><pre>@inproceedings{Manhaes_2016,
-      doi = {10.1109/oceans.2016.7761080},
-      url = {https://doi.org/10.1109%2Foceans.2016.7761080},
-      year = 2016,
-      month = {sep},
-      publisher = {{IEEE}},
-      author = {Musa Morena Marcusso Manh{\~{a}}es and Sebastian A. Scherer and Martin Voss and Luiz Ricardo Douat and Thomas Rauschenbach},
-      title = {{UUV} Simulator: A Gazebo-based package for underwater intervention and multi-robot simulation},
-      booktitle = {{OCEANS} 2016 {MTS}/{IEEE} Monterey}
-}
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nd">@inproceedings</span><span class="p">{</span><span class="n">Manhaes_2016</span><span class="p">,</span>
+      <span class="n">doi</span> <span class="o">=</span> <span class="p">{</span><span class="mf">10.1109</span><span class="o">/</span><span class="n">oceans</span><span class="o">.</span><span class="mf">2016.7761080</span><span class="p">},</span>
+      <span class="n">url</span> <span class="o">=</span> <span class="p">{</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">doi</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="mf">10.1109</span><span class="o">%</span><span class="mi">2</span><span class="n">Foceans</span><span class="o">.</span><span class="mf">2016.7761080</span><span class="p">},</span>
+      <span class="n">year</span> <span class="o">=</span> <span class="mi">2016</span><span class="p">,</span>
+      <span class="n">month</span> <span class="o">=</span> <span class="p">{</span><span class="n">sep</span><span class="p">},</span>
+      <span class="n">publisher</span> <span class="o">=</span> <span class="p">{{</span><span class="n">IEEE</span><span class="p">}},</span>
+      <span class="n">author</span> <span class="o">=</span> <span class="p">{</span><span class="n">Musa</span> <span class="n">Morena</span> <span class="n">Marcusso</span> <span class="n">Manh</span><span class="p">{</span>\<span class="o">~</span><span class="p">{</span><span class="n">a</span><span class="p">}}</span><span class="n">es</span> <span class="ow">and</span> <span class="n">Sebastian</span> <span class="n">A</span><span class="o">.</span> <span class="n">Scherer</span> <span class="ow">and</span> <span class="n">Martin</span> <span class="n">Voss</span> <span class="ow">and</span> <span class="n">Luiz</span> <span class="n">Ricardo</span> <span class="n">Douat</span> <span class="ow">and</span> <span class="n">Thomas</span> <span class="n">Rauschenbach</span><span class="p">},</span>
+      <span class="n">title</span> <span class="o">=</span> <span class="p">{{</span><span class="n">UUV</span><span class="p">}</span> <span class="n">Simulator</span><span class="p">:</span> <span class="n">A</span> <span class="n">Gazebo</span><span class="o">-</span><span class="n">based</span> <span class="n">package</span> <span class="k">for</span> <span class="n">underwater</span> <span class="n">intervention</span> <span class="ow">and</span> <span class="n">multi</span><span class="o">-</span><span class="n">robot</span> <span class="n">simulation</span><span class="p">},</span>
+      <span class="n">booktitle</span> <span class="o">=</span> <span class="p">{{</span><span class="n">OCEANS</span><span class="p">}</span> <span class="mi">2016</span> <span class="p">{</span><span class="n">MTS</span><span class="p">}</span><span class="o">/</span><span class="p">{</span><span class="n">IEEE</span><span class="p">}</span> <span class="n">Monterey</span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -216,9 +244,9 @@ file <a class="reference external" href="https://github.com/uuvsimulator/uuv_sim
 <div class="section" id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><a class="reference internal" href="genindex.html"><span>Index</span></a></li>
-<li><a class="reference internal" href="py-modindex.html"><span>Module Index</span></a></li>
-<li><a class="reference internal" href="search.html"><span>Search Page</span></a></li>
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
 </ul>
 </div>
 <div class="section" id="useful-bibliography">
@@ -268,7 +296,7 @@ file <a class="reference external" href="https://github.com/uuvsimulator/uuv_sim
 <table class="docutils citation" frame="void" id="okane-2014" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[8]</td><td>Jason&nbsp;Matthew O&#8217;Kane. <em>A Gentle Introduction to ROS</em>. University of South Carolina, 2014. URL: <a class="reference external" href="https://cse.sc.edu/~jokane/agitr/agitr-letter.pdf">https://cse.sc.edu/~jokane/agitr/agitr-letter.pdf</a>.</td></tr>
+<tr><td class="label">[8]</td><td>Jason&nbsp;Matthew O’Kane. <em>A Gentle Introduction to ROS</em>. University of South Carolina, 2014. URL: <a class="reference external" href="https://cse.sc.edu/~jokane/agitr/agitr-letter.pdf">https://cse.sc.edu/~jokane/agitr/agitr-letter.pdf</a>.</td></tr>
 </tbody>
 </table>
 <table class="docutils citation" frame="void" id="refsnes-2007" rules="none">
@@ -294,12 +322,15 @@ file <a class="reference external" href="https://github.com/uuvsimulator/uuv_sim
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="installation.html" class="btn btn-neutral float-right" title="Installation" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="installation.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>
@@ -334,13 +365,14 @@ file <a class="reference external" href="https://github.com/uuvsimulator/uuv_sim
             VERSION:'0.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

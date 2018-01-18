@@ -13,6 +13,8 @@
 
   
   
+  
+  
 
   
 
@@ -30,6 +32,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="UUV Simulator 0.2 documentation" href="../index.html"/>
         <link rel="up" title="Tutorials" href="index.html"/>
         <link rel="next" title="Creating a new custom dynamic positioning controller" href="creating_new_dp_controller.html"/>
@@ -42,6 +47,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -82,12 +88,15 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick start</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="create_new_vehicle.html">Creating a new underwater vehicle model</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">Configuring the thruster manager for a new vehicle</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Configuring the thruster manager for a new vehicle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="creating_new_dp_controller.html">Creating a new custom dynamic positioning controller</a></li>
 <li class="toctree-l2"><a class="reference internal" href="seabed_world.html">Making a simple seabed world model</a></li>
 </ul>
@@ -107,8 +116,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">UUV Simulator</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">UUV Simulator</a>
+        
       </nav>
 
 
@@ -117,25 +128,42 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
           <li><a href="index.html">Tutorials</a> &raquo;</li>
-      
-    <li>Configuring the thruster manager for a new vehicle</li>
+        
+      <li>Configuring the thruster manager for a new vehicle</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="../_sources/tutorials/config_thruster_manager.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../_sources/tutorials/config_thruster_manager.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -146,33 +174,33 @@
 <p>In order to generate control forces for thruster-actuated vehicles, it is
 necessary to compute the <strong>thruster allocation matrix</strong>, which will translate
 the output of the controller <span class="math">\(\boldsymbol{\tau}_C = (f_x, f_y, f_z, \tau_r, \tau_p, \tau_y)^T\)</span>
-represented in the vehicle&#8217;s body frame, where <span class="math">\(f_i\)</span> represents the forces
+represented in the vehicle’s body frame, where <span class="math">\(f_i\)</span> represents the forces
 and <span class="math">\(\tau_i\)</span> represents the torques, into the output thruster forces
 <span class="math">\(\tau_i\)</span> for each.</p>
 <p>The simulation expects each thruster unit to have its own unique frame, which
 enables the use of <a class="reference external" href="http://wiki.ros.org/tf">tf</a> to lookup the transformation
-matrix between the vehicle&#8217;s body frame and each thruster during runtime.
+matrix between the vehicle’s body frame and each thruster during runtime.
 Using this possibility, a package called <strong>uuv_thruster_manager</strong> has been
 developed to generate the thruster allocation matrix automatically and
 translating the control vector into commands to each thruster.</p>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last">Check the tutorial <a class="reference internal" href="create_new_vehicle.html#create-new-vehicle"><span>Creating a new underwater vehicle model</span></a> to check on how to setup
+<p class="last">Check the tutorial <a class="reference internal" href="create_new_vehicle.html#create-new-vehicle"><span class="std std-ref">Creating a new underwater vehicle model</span></a> to check on how to setup
 the new vehicle and actuators properly.</p>
 </div>
 <p>To create an initial package with the control configuration for a new vehicle,
 run the following in your catkin workspace</p>
-<div class="highlight-python"><div class="highlight"><pre>rosrun uuv_assistants create_thruster_manager_configuration --robot_name &lt;ROBOT_NAME&gt;
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rosrun</span> <span class="n">uuv_assistants</span> <span class="n">create_thruster_manager_configuration</span> <span class="o">--</span><span class="n">robot_name</span> <span class="o">&lt;</span><span class="n">ROBOT_NAME</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <p>This script will create a new <strong>&lt;ROBOT_NAME&gt;_control</strong> package with initial
 templates for the launch and parameter files. If you already have catkin package
 where you want to store these files, run</p>
-<div class="highlight-python"><div class="highlight"><pre>rosrun uuv_assistants create_thruster_manager_configuration --robot_name &lt;ROBOT_NAME&gt; --output_dir &lt;CATKIN_PKG&gt;
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rosrun</span> <span class="n">uuv_assistants</span> <span class="n">create_thruster_manager_configuration</span> <span class="o">--</span><span class="n">robot_name</span> <span class="o">&lt;</span><span class="n">ROBOT_NAME</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">output_dir</span> <span class="o">&lt;</span><span class="n">CATKIN_PKG</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <p>The folder structure will look like the following</p>
-<div class="highlight-python"><div class="highlight"><pre>&lt;ROBOT_NAME&gt;_control
+<div class="highlight-default"><div class="highlight"><pre><span></span>&lt;ROBOT_NAME&gt;_control
 |-- config
     |-- thruster_manager.yaml
 |-- launch
@@ -185,18 +213,18 @@ where you want to store these files, run</p>
 thruster model parameters and topics. Instructions on how to do it can be found
 in the comments on the same file.  Here is an example from the RexROV
 vehicle thruster manager configuration:</p>
-<div class="highlight-python"><div class="highlight"><pre>thruster_manager:
-  tf_prefix: rexrov
-  base_link: base_link
-  thruster_topic_prefix: thrusters/
-  thruster_topic_suffix: /input
-  thruster_frame_base: thruster_
-  max_thrust: 2000.0
-  timeout: -1
-  update_rate: 50
-  conversion_fcn: proportional
-  conversion_fcn_params:
-    gain: 0.00031
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">thruster_manager</span><span class="p">:</span>
+  <span class="n">tf_prefix</span><span class="p">:</span> <span class="n">rexrov</span>
+  <span class="n">base_link</span><span class="p">:</span> <span class="n">base_link</span>
+  <span class="n">thruster_topic_prefix</span><span class="p">:</span> <span class="n">thrusters</span><span class="o">/</span>
+  <span class="n">thruster_topic_suffix</span><span class="p">:</span> <span class="o">/</span><span class="nb">input</span>
+  <span class="n">thruster_frame_base</span><span class="p">:</span> <span class="n">thruster_</span>
+  <span class="n">max_thrust</span><span class="p">:</span> <span class="mf">2000.0</span>
+  <span class="n">timeout</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span>
+  <span class="n">update_rate</span><span class="p">:</span> <span class="mi">50</span>
+  <span class="n">conversion_fcn</span><span class="p">:</span> <span class="n">proportional</span>
+  <span class="n">conversion_fcn_params</span><span class="p">:</span>
+    <span class="n">gain</span><span class="p">:</span> <span class="mf">0.00031</span>
 </pre></div>
 </div>
 <p>Once the configuration is done, the thruster allocation matrix file should be
@@ -205,35 +233,35 @@ simulation starts, but it is recommended to store and read it from a file since
 the <strong>tf_listener</strong> can take a long time to find all frames and will therefore
 make the vehicle inactive for a while at the beginning of the simulation.
 To do this, you must compile you catkin workspace</p>
-<div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws
-catkin_make
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">catkin_ws</span>
+<span class="n">catkin_make</span>
 </pre></div>
 </div>
 <p>or</p>
-<div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws
-catkin build
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">catkin_ws</span>
+<span class="n">catkin</span> <span class="n">build</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p>You can run</p>
-<div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws
-source devel/setup.sh
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">catkin_ws</span>
+<span class="n">source</span> <span class="n">devel</span><span class="o">/</span><span class="n">setup</span><span class="o">.</span><span class="n">sh</span>
 </pre></div>
 </div>
 <p class="last">if after compiling your package seems to not be found.</p>
 </div>
 <p>A <strong>TAM.yaml</strong> file will be stored in the <strong>config</strong> folder once you start a
 Gazebo world</p>
-<div class="highlight-python"><div class="highlight"><pre>roslaunch uuv_descriptions empty_underwater_world.launch
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_descriptions</span> <span class="n">empty_underwater_world</span><span class="o">.</span><span class="n">launch</span>
 </pre></div>
 </div>
 <p>and then include the vehicle</p>
-<div class="highlight-python"><div class="highlight"><pre>roslaunch &lt;ROBOT_NAME&gt;_description upload.launch
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="o">&lt;</span><span class="n">ROBOT_NAME</span><span class="o">&gt;</span><span class="n">_description</span> <span class="n">upload</span><span class="o">.</span><span class="n">launch</span>
 </pre></div>
 </div>
 <p>and finally run</p>
-<div class="highlight-python"><div class="highlight"><pre>roslaunch &lt;ROBOT_NAME&gt;_control start_thruster_manager.launch reset_tam:=true
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="o">&lt;</span><span class="n">ROBOT_NAME</span><span class="o">&gt;</span><span class="n">_control</span> <span class="n">start_thruster_manager</span><span class="o">.</span><span class="n">launch</span> <span class="n">reset_tam</span><span class="p">:</span><span class="o">=</span><span class="n">true</span>
 </pre></div>
 </div>
 <p>From now on, if you always start the thruster manager using the launch file
@@ -241,25 +269,28 @@ above (using the <strong>reset_tam</strong> as <strong>false</strong>), you can 
 <p>To command the vehicle, you have to start the thruster manager and publish a
 <a class="reference external" href="http://docs.ros.org/api/geometry_msgs/html/msg/Wrench.html">ROS Wrench message</a>
 to the input topic</p>
-<div class="highlight-python"><div class="highlight"><pre>/&lt;ROBOT_NAME or ROBOT_NAMESPACE&gt;/thruster_manager/input
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">/&lt;</span><span class="n">ROBOT_NAME</span> <span class="ow">or</span> <span class="n">ROBOT_NAMESPACE</span><span class="o">&gt;/</span><span class="n">thruster_manager</span><span class="o">/</span><span class="nb">input</span>
 </pre></div>
 </div>
 <p>with the wrench command to the vehicle. The thrust forces will be generated
-at each thruster&#8217;s unit frame like in the RViz screenshot below.</p>
+at each thruster’s unit frame like in the RViz screenshot below.</p>
 <img alt="../_images/rexrov_thrusters.png" src="../_images/rexrov_thrusters.png" />
 </div>
 
 
+           </div>
+           <div class="articleComments">
+            
            </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="creating_new_dp_controller.html" class="btn btn-neutral float-right" title="Creating a new custom dynamic positioning controller" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="creating_new_dp_controller.html" class="btn btn-neutral float-right" title="Creating a new custom dynamic positioning controller" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="create_new_vehicle.html" class="btn btn-neutral" title="Creating a new underwater vehicle model" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="create_new_vehicle.html" class="btn btn-neutral" title="Creating a new underwater vehicle model" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -293,13 +324,14 @@ at each thruster&#8217;s unit frame like in the RViz screenshot below.</p>
             VERSION:'0.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

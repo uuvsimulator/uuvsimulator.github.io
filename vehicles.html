@@ -13,6 +13,8 @@
 
   
   
+  
+  
 
   
 
@@ -30,6 +32,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="UUV Simulator 0.2 documentation" href="index.html"/>
         <link rel="next" title="F.A.Q." href="faq.html"/>
         <link rel="prev" title="Making a simple seabed world model" href="tutorials/seabed_world.html"/> 
@@ -41,6 +46,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -81,11 +87,14 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">Tutorials</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Vehicles available</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Vehicles available</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#rexrov">RexROV</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#rexrov-2">RexROV 2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#desistek-saga-rov">Desistek SAGA ROV</a></li>
@@ -106,8 +115,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="index.html">UUV Simulator</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">UUV Simulator</a>
+        
       </nav>
 
 
@@ -116,23 +127,40 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="index.html">Docs</a> &raquo;</li>
-      
-    <li>Vehicles available</li>
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Vehicles available</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="_sources/vehicles.txt" rel="nofollow"> View page source</a>
+            
+            <a href="_sources/vehicles.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -150,7 +178,7 @@ available in <a class="reference internal" href="index.html#berg-2012" id="id2">
 the SF 30k, with a total of 8 thruster units.</p>
 <p>This vehicle model is included in the UUV simulator package as the default test
 vehicle. To run a demo, use the following</p>
-<div class="highlight-python"><div class="highlight"><pre>roslaunch uuv_gazebo start_pid_demo_with_teleop.launch joy_id:=0
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_gazebo</span> <span class="n">start_pid_demo_with_teleop</span><span class="o">.</span><span class="n">launch</span> <span class="n">joy_id</span><span class="p">:</span><span class="o">=</span><span class="mi">0</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -164,11 +192,11 @@ vehicle. To run a demo, use the following</p>
 configuration as presented in <a class="reference internal" href="index.html#berg-2012" id="id3">[3]</a>. To run a demo of this vehicle,
 clone the repository in your catkin workspace and then run a Gazebo UUV simulator
 world</p>
-<div class="highlight-python"><div class="highlight"><pre>roslaunch uuv_descriptions ocean_waves.launch
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_descriptions</span> <span class="n">ocean_waves</span><span class="o">.</span><span class="n">launch</span>
 </pre></div>
 </div>
 <p>and then</p>
-<div class="highlight-python"><div class="highlight"><pre>roslaunch rexrov2_gazebo start_rexrov2_pid_controller.launch teleop_on:=true joy_id:=0
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">rexrov2_gazebo</span> <span class="n">start_rexrov2_pid_controller</span><span class="o">.</span><span class="n">launch</span> <span class="n">teleop_on</span><span class="p">:</span><span class="o">=</span><span class="n">true</span> <span class="n">joy_id</span><span class="p">:</span><span class="o">=</span><span class="mi">0</span>
 </pre></div>
 </div>
 <p>The teleoperation nodes are pre-configured per default for the XBox 360
@@ -182,11 +210,11 @@ controller.</p>
 <img alt="_images/desistek_saga.png" src="_images/desistek_saga.png" />
 <p>To run a demo of this vehicle, clone the repository in your catkin workspace and
 then run a Gazebo UUV simulator world</p>
-<div class="highlight-python"><div class="highlight"><pre>roslaunch uuv_descriptions ocean_waves.launch
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_descriptions</span> <span class="n">ocean_waves</span><span class="o">.</span><span class="n">launch</span>
 </pre></div>
 </div>
 <p>and the vehicle demo launch file</p>
-<div class="highlight-python"><div class="highlight"><pre>roslaunch desistek_saga_gazebo start_demo_teleop.launch joy_id:=0
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">desistek_saga_gazebo</span> <span class="n">start_demo_teleop</span><span class="o">.</span><span class="n">launch</span> <span class="n">joy_id</span><span class="p">:</span><span class="o">=</span><span class="mi">0</span>
 </pre></div>
 </div>
 <p>The teleoperation nodes are pre-configured per default for the XBox 360
@@ -200,11 +228,11 @@ controller.</p>
 <img alt="_images/eca_a9.png" src="_images/eca_a9.png" />
 <p>To run a demo of this vehicle, clone the repository in your catkin workspace and
 then run a Gazebo UUV simulator world</p>
-<div class="highlight-python"><div class="highlight"><pre>roslaunch uuv_descriptions ocean_waves.launch
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_descriptions</span> <span class="n">ocean_waves</span><span class="o">.</span><span class="n">launch</span>
 </pre></div>
 </div>
 <p>and the vehicle demo launch file</p>
-<div class="highlight-python"><div class="highlight"><pre>roslaunch eca_a9_gazebo start_demo_teleop.launch joy_id:=0
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">eca_a9_gazebo</span> <span class="n">start_demo_teleop</span><span class="o">.</span><span class="n">launch</span> <span class="n">joy_id</span><span class="p">:</span><span class="o">=</span><span class="mi">0</span>
 </pre></div>
 </div>
 <p>The teleoperation nodes are pre-configured per default for the XBox 360
@@ -217,15 +245,18 @@ controller.</p>
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="faq.html" class="btn btn-neutral float-right" title="F.A.Q." accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="faq.html" class="btn btn-neutral float-right" title="F.A.Q." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="tutorials/seabed_world.html" class="btn btn-neutral" title="Making a simple seabed world model" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="tutorials/seabed_world.html" class="btn btn-neutral" title="Making a simple seabed world model" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -259,13 +290,14 @@ controller.</p>
             VERSION:'0.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
