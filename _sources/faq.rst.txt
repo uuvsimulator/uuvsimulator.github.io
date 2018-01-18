@@ -30,7 +30,7 @@ If after compiling your catkin workspace using **catkin build** ROS seems to not
 update the paths to the packages even after you run ::
 
   cd ~/catkin_ws
-  source devel/setup.sh
+  source devel/setup.bash
 
 you can try disabling the option to source the **install** folder of your catkin
 workspace by running ::
