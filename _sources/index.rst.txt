@@ -28,8 +28,6 @@ Contents
   vehicles
   faq
   license
-  .. description
-
 
 Reference
 ---------

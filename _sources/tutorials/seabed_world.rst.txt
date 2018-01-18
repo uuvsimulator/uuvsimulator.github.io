@@ -108,12 +108,12 @@ the `default materials provided by Gazebo <https://bitbucket.org/osrf/gazebo/src
 
 - **model.config**
 
-.. literalinclude:: ../../../uuv_tutorials/uuv_tutorial_seabed_world/models/tutorial_seabed/model.config
+.. literalinclude:: ../files/tutorials/seabed_world/model.config
   :language: xml
 
 - **model.sdf**
 
-.. literalinclude:: ../../../uuv_tutorials/uuv_tutorial_seabed_world/models/tutorial_seabed/model.sdf
+.. literalinclude:: ../files/tutorials/seabed_world/model.sdf
   :language: xml
 
 Now you can configure your **catkin package** so that the model can be listed in
@@ -122,13 +122,13 @@ Gazebo as a model. For that you'll have to configure the **package.xml** and
 
 - **CMakeLists.txt**
 
-.. literalinclude:: ../../../uuv_tutorials/uuv_tutorial_seabed_world/CMakeLists.txt
+.. literalinclude:: ../files/tutorials/seabed_world/CMakeLists.txt
 
 - **package.xml**
 
 For this file, be sure to have the following lines:
 
-.. literalinclude:: ../../../uuv_tutorials/uuv_tutorial_seabed_world/package.xml
+.. literalinclude:: ../files/tutorials/seabed_world/package.xml
   :language: xml
   :lines: 17-24
 
@@ -172,12 +172,12 @@ The contents of both files can be seen below
 
 - **example_underwater.world**
 
-.. literalinclude:: ../../../uuv_tutorials/uuv_tutorial_seabed_world/worlds/example_underwater.world
+.. literalinclude:: ../files/tutorials/seabed_world/example_underwater.world
   :language: xml
 
 - **tutorial_seabed_world.launch**
 
-.. literalinclude:: ../../../uuv_tutorials/uuv_tutorial_seabed_world/launch/tutorial_seabed_world.launch
+.. literalinclude:: ../files/tutorials/seabed_world/tutorial_seabed_world.launch
   :language: xml
 
 Now you can launch your world using ::

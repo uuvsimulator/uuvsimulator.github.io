@@ -85,7 +85,7 @@ The last part of the file is necessary for the ROS node to be executed.
 
 .. literalinclude:: ../samples/tutorials/custom_dp_controller.py
   :language: python
-  :lines: 63-73
+  :lines: 63-72
 
 Configuring the launch files
 ----------------------------
@@ -131,7 +131,7 @@ launch file as follows ::
 
 and initialize a world, the vehicle and the RViz visualization tool as follows
 
-.. literalinclude:: ../../../uuv_tutorials/uuv_tutorial_dp_controller/launch/start_tutorial_dp_controller_demo.launch
+.. literalinclude:: ../files/tutorials/dp_controller/start_tutorial_dp_controller_demo.launch
   :language: xml
 
 Before you can run this demo, the package has to be configured.
@@ -142,7 +142,7 @@ Configuring the package
 To allow catkin to install all your modules, you can open the **CMakeLists.txt**
 file from your catkin package and edit it to look like in the example below.
 
-.. literalinclude:: ../../../uuv_tutorials/uuv_tutorial_dp_controller/CMakeLists.txt
+.. literalinclude:: ../files/tutorials/dp_controller/CMakeLists.txt
 
 Running the simulation
 ----------------------

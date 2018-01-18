@@ -42,13 +42,13 @@ The folder structure will look like the following ::
       |-- start_thruster_manager.launch
   `-- CMakeLists.txt
   `-- package.xml
-  
+
 You should edit the **thruster_manager.yaml** file to include the correct
 thruster model parameters and topics. Instructions on how to do it can be found
 in the comments on the same file.  Here is an example from the RexROV
 vehicle thruster manager configuration:
 
-.. literalinclude:: ../../../uuv_control/uuv_thruster_manager/config/rexrov/thruster_manager.yaml
+.. literalinclude:: ../files/tutorials/thruster_manager/thruster_manager.yaml
 
 Once the configuration is done, the thruster allocation matrix file should be
 generated and store. The TAM matrix can be generated in runtime everytime the
