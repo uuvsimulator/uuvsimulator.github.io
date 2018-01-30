@@ -35,7 +35,10 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="UUV Simulator 0.2 documentation" href="../index.html"/> 
+    <link rel="top" title="UUV Simulator 0.2 documentation" href="../index.html"/>
+        <link rel="up" title="Tutorials" href="index.html"/>
+        <link rel="next" title="Vehicles available" href="../vehicles.html"/>
+        <link rel="prev" title="Making a simple seabed world model" href="seabed_world.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -88,10 +91,36 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="index.html">Tutorials</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="create_new_vehicle.html">Creating a new underwater vehicle model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_thruster_manager.html">Configuring the thruster manager for a new vehicle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creating_new_dp_controller.html">Creating a new custom dynamic positioning controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="seabed_world.html">Making a simple seabed world model</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Applying disturbances during the simulation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#thruster-failure">Thruster failure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#setting-thruster-state-through-ros-service-call">Setting thruster state through ROS service call</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#using-the-uuv-control-utils-ros-nodes">Using the uuv_control_utils ROS nodes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#thruster-and-propeller-efficiency-loss">Thruster and propeller efficiency loss</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#setting-thruster-and-propeller-efficiency-through-ros-service-call">Setting thruster and propeller efficiency through ROS service call</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Using the uuv_control_utils ROS nodes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#body-wrench-disturbances">Body wrench disturbances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#current-velocity">Current velocity</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#setting-the-current-velocity-model-using-ros-service-calls">Setting the current velocity model using ROS service calls</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#using-the-uuv-control-utils-ros-node">Using the uuv_control_utils ROS node</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#disturbance-manager">Disturbance manager</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../vehicles.html">Vehicles available</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq.html">F.A.Q.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
@@ -138,6 +167,8 @@
   <ul class="wy-breadcrumbs">
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Tutorials</a> &raquo;</li>
         
       <li>Applying disturbances during the simulation</li>
     
@@ -200,8 +231,8 @@ So, if you start, for example, the PID controller demo launch file as</p>
 </pre></div>
 </div>
 </div>
-<div class="section" id="using-the-uuv-control-utils-ros-node">
-<h3>Using the uuv_control_utils ROS node<a class="headerlink" href="#using-the-uuv-control-utils-ros-node" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="using-the-uuv-control-utils-ros-nodes">
+<h3>Using the uuv_control_utils ROS nodes<a class="headerlink" href="#using-the-uuv-control-utils-ros-nodes" title="Permalink to this headline">¶</a></h3>
 <p>Even though the service call can be used in run time, if you want to schedule one or more thrusters to be turned off at a specific time and, optionally,
 set them to be turned on again after some time, you can use the ROS node in <strong>uuv_control_utils</strong>, <a class="reference external" href="https://github.com/uuvsimulator/uuv_simulator/blob/master/uuv_control/uuv_control_utils/scripts/set_thruster_state.py">set_thruster_state.py</a>.</p>
 <p>As an example, start the previous simulation again</p>
@@ -215,19 +246,154 @@ set them to be turned on again after some time, you can use the ROS node in <str
 <p>The argument <strong>uuv_name</strong> refers to the namespace of the robot model, <strong>starting_time</strong> is the simulation time stamp when the thruster state is going to be
 altered in seconds, <strong>duration</strong> refers to the duration in seconds of this new thruster state (set it to -1 if the thruster should be kept in this state
 indefinitely), <strong>is_on</strong> should be set to false to turn off the thruster and <strong>thruster_id</strong> is the index of the unit.</p>
-<p>This launch file can also be included in other launch files to build a scenario with this thruster failure setup. The following example can called to
+<p>This launch file can also be included in other launch files to build a scenario with this thruster failure setup. The following <a class="reference external" href="https://github.com/uuvsimulator/uuv_simulator/blob/master/uuv_tutorials/uuv_tutorial_disturbances/launch/tutorial_thruster_state.launch">example</a> can called to
 demonstrate this as</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_tutorial_disturbances</span> <span class="n">tutorial_thruster_state</span><span class="o">.</span><span class="n">launch</span>
 </pre></div>
 </div>
 <p>You can monitor the thruster output during the simulation using <strong>rqt_plot</strong> or by reading the thruster unit output topic as</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rostopic</span> <span class="n">echo</span> <span class="o">/</span><span class="n">rexrov</span><span class="o">/</span><span class="n">thrusters</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="n">thrust</span><span class="o">.</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rostopic</span> <span class="n">echo</span> <span class="o">/</span><span class="n">rexrov</span><span class="o">/</span><span class="n">thrusters</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="n">thrust</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="thruster-and-propeller-efficiency-loss">
+<h2>Thruster and propeller efficiency loss<a class="headerlink" href="#thruster-and-propeller-efficiency-loss" title="Permalink to this headline">¶</a></h2>
+<p>Another possibility is to set a efficiency factor to the thruster unit’s thrust force output and/or to the propeller’s dynamic state variable (usually the rotor’s angular velocity). The services that allow these settings are, respectively</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">/&lt;</span><span class="n">model_name</span><span class="o">&gt;/</span><span class="n">thrusters</span><span class="o">/&lt;</span><span class="n">thruster_id</span><span class="o">&gt;/</span><span class="n">set_thrust_force_efficiency</span>
+<span class="o">/&lt;</span><span class="n">model_name</span><span class="o">&gt;/</span><span class="n">thrusters</span><span class="o">/&lt;</span><span class="n">thruster_id</span><span class="o">&gt;/</span><span class="n">set_dynamic_state_efficiency</span>
+</pre></div>
+</div>
+<div class="section" id="setting-thruster-and-propeller-efficiency-through-ros-service-call">
+<h3>Setting thruster and propeller efficiency through ROS service call<a class="headerlink" href="#setting-thruster-and-propeller-efficiency-through-ros-service-call" title="Permalink to this headline">¶</a></h3>
+<p>Similar to the last example, you can start a simulation scenario with a vehicle, such as the demo</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_gazebo</span> <span class="n">start_pid_demo</span><span class="o">.</span><span class="n">launch</span>
+</pre></div>
+</div>
+<p>and then make a service call such as</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rosservice</span> <span class="n">call</span> <span class="o">/</span><span class="n">rexrov</span><span class="o">/</span><span class="n">thrusters</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="n">set_thrust_force_efficiency</span> <span class="s2">&quot;efficiency: 0.1&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>Using the uuv_control_utils ROS nodes<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>For the setup of a thruster output efficiency factor during the simulation, you can use the launch file</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_control_utils</span> <span class="n">set_thruster_output_efficiency</span><span class="o">.</span><span class="n">launch</span> <span class="n">uuv_name</span><span class="p">:</span><span class="o">=</span><span class="n">rexrov</span> <span class="n">starting_time</span><span class="p">:</span><span class="o">=</span><span class="mi">10</span> <span class="n">thruster_id</span><span class="p">:</span><span class="o">=</span><span class="mi">2</span> <span class="n">duration</span><span class="p">:</span><span class="o">=</span><span class="mi">20</span> <span class="n">efficiency</span><span class="p">:</span><span class="o">=</span><span class="mf">0.3</span>
+</pre></div>
+</div>
+<p>where the argument <strong>efficiency</strong> must be a floating number from 0.0 to 1.0. A example is available and can be launched as follows</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_tutorial_disturbances</span> <span class="n">tutorial_thruster_efficiency</span><span class="o">.</span><span class="n">launch</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="body-wrench-disturbances">
+<h2>Body wrench disturbances<a class="headerlink" href="#body-wrench-disturbances" title="Permalink to this headline">¶</a></h2>
+<p>It is also possible to set a simple step wrench disturbance to be applied on the center of mass of the vehicle during the simulation using Gazebo’s apply body wrench services. To see more details on how to use Gazebo’s ROS service, check this <a class="reference external" href="http://gazebosim.org/tutorials?tut=ros_comm&amp;cat=connect_ros#ApplyWrenchestoLinks">link</a>.</p>
+<p>In order to manage to use this disturbance in a launch file, you can also use the following</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_control_utils</span> <span class="n">apply_body_wrench</span><span class="o">.</span><span class="n">launch</span> <span class="n">uuv_name</span><span class="p">:</span><span class="o">=</span><span class="n">rexrov</span> <span class="n">starting_time</span><span class="p">:</span><span class="o">=</span><span class="mf">0.0</span> <span class="n">duration</span><span class="p">:</span><span class="o">=</span><span class="mi">10</span> <span class="n">force_x</span><span class="p">:</span><span class="o">=</span><span class="mi">0</span> <span class="n">force_y</span><span class="p">:</span><span class="o">=</span><span class="mi">0</span> <span class="n">force_z</span><span class="p">:</span><span class="o">=</span><span class="mi">0</span> <span class="n">torque_x</span><span class="p">:</span><span class="o">=</span><span class="mi">0</span> <span class="n">torque_y</span><span class="p">:</span><span class="o">=</span><span class="mi">0</span> <span class="n">torque_z</span><span class="p">:</span><span class="o">=</span><span class="mi">0</span>
+</pre></div>
+</div>
+<p>It is not necessary to set force and torque components explicitly if they are supposed to be set to 0.0, the launch file already does that per default. The duration can be set to -1 if the wrench must be applied for an indefinitely amount of time.</p>
+<p>It is important to remember that the wrench will be applied on the center of mass of the vehicle’s base link with respect to the inertial frame. You can run the following launch file to see an example of this disturbance</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_tutorial_disturbances</span> <span class="n">tutorial_body_wrench</span><span class="o">.</span><span class="n">launch</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="current-velocity">
+<h2>Current velocity<a class="headerlink" href="#current-velocity" title="Permalink to this headline">¶</a></h2>
+<p>The current velocity is probably the most important type of disturbance in this list. Each model in the simulation running an instance of the <a class="reference external" href="https://github.com/uuvsimulator/uuv_simulator/blob/master/uuv_gazebo_plugins/uuv_gazebo_plugins/src/UnderwaterObjectPlugin.cc">underwater object plugin</a> with defined linear and quadratic damping coefficients will be affected by the current velocity that is published by the underwater world plugin through the topic <strong>/hydrodynamics/current_velocity</strong>. The underwater object plugin can also subscribe to its own private current velocity topic <strong>/&lt;model_name/current_velocity</strong>, but this is subject for another tutorial.</p>
+<p>The <a class="reference external" href="https://github.com/uuvsimulator/uuv_simulator/blob/master/uuv_world_plugins/uuv_world_plugins/include/uuv_world_plugins/UnderwaterCurrentPlugin.hh">underwater world plugin</a> can generate current velocity topics using three separate Gauss-Markov processes as described in <a class="reference internal" href="../index.html#fossen-2011" id="id2">[5]</a> (for the current velocity magnitude, horizontal angle and vertical angle) that can be also set in the world SDF file.</p>
+<div class="section" id="setting-the-current-velocity-model-using-ros-service-calls">
+<h3>Setting the current velocity model using ROS service calls<a class="headerlink" href="#setting-the-current-velocity-model-using-ros-service-calls" title="Permalink to this headline">¶</a></h3>
+<p>There are different possibilities to set the current velocity through service call. The simplest option is to simply set constant current velocity vector as in the example</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rosservice</span> <span class="n">call</span> <span class="o">/</span><span class="n">hydrodynamics</span><span class="o">/</span><span class="n">set_current_velocity</span> <span class="s2">&quot;velocity: 1.0</span>
+<span class="n">horizontal_angle</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.8</span>
+<span class="n">vertical_angle</span><span class="p">:</span> <span class="mf">0.2</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<p>The angles here are expressed in radians. These parameters can also be individually set using the following calls</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rosservice</span> <span class="n">call</span> <span class="o">/</span><span class="n">hydrodynamics</span><span class="o">/</span><span class="n">set_current_horz_angle</span> <span class="s2">&quot;angle: 0.0&quot;</span>
+<span class="n">rosservice</span> <span class="n">call</span> <span class="o">/</span><span class="n">hydrodynamics</span><span class="o">/</span><span class="n">set_current_vert_angle</span> <span class="s2">&quot;angle: 0.0&quot;</span>
+</pre></div>
+</div>
+<p>and you can monitor the current velocity topic <strong>/hydrodynamics/current_velocity</strong> on the terminal with <strong>rostopic echo</strong> or in <strong>rqt</strong>.</p>
+<p>It is important to note that the current velocity is calculated in Gazebo’s ENU reference frame since it does not recognize the SNAME convention. If you visualize the simulation output in RViz, you can subscribe to the topic <strong>/&lt;model_name&gt;/current_velocity_marker</strong> to see an arrow indicating the direction of the current velocity as shown in the image below. The marker disappears if the current velocity is set to zero.</p>
+<img alt="../_images/current_rviz.png" src="../_images/current_rviz.png" />
+<p>As mentioned, the current velocity magnitude, horizontal and vertical angles are modelled as Gauss-Markov processes to allow a small variation around a mean value. These models can be set using the service calls below</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rosservice</span> <span class="n">call</span> <span class="o">/</span><span class="n">hydrodynamics</span><span class="o">/</span><span class="n">set_current_velocity_model</span> <span class="s2">&quot;{mean: 0.0, min: 0.0, max: 0.0, noise: 0.0, mu: 0.0}&quot;</span>
+<span class="n">rosservice</span> <span class="n">call</span> <span class="o">/</span><span class="n">hydrodynamics</span><span class="o">/</span><span class="n">set_current_horz_angle_model</span> <span class="s2">&quot;{mean: 0.0, min: 0.0, max: 0.0, noise: 0.0, mu: 0.0}&quot;</span>
+<span class="n">rosservice</span> <span class="n">call</span> <span class="o">/</span><span class="n">hydrodynamics</span><span class="o">/</span><span class="n">set_current_vert_angle_model</span> <span class="s2">&quot;{mean: 0.0, min: 0.0, max: 0.0, noise: 0.0, mu: 0.0}&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-the-uuv-control-utils-ros-node">
+<h3>Using the uuv_control_utils ROS node<a class="headerlink" href="#using-the-uuv-control-utils-ros-node" title="Permalink to this headline">¶</a></h3>
+<p>In order set a current velocity to the simulation without needing manual service calls or changes in the world’s SDF file, a ROS node is available in the <strong>uuv_control_utils</strong> package, but currently only for constant current velocity models. You can call it using the following launch file</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_control_utils</span> <span class="n">set_timed_current_perturbation</span><span class="o">.</span><span class="n">launch</span> <span class="n">starting_time</span><span class="p">:</span><span class="o">=</span><span class="mf">0.0</span> <span class="n">end_time</span><span class="p">:</span><span class="o">=</span><span class="mf">10.0</span> <span class="n">current_vel</span><span class="p">:</span><span class="o">=</span><span class="mf">1.0</span> <span class="n">horizontal_angle</span><span class="p">:</span><span class="o">=</span><span class="mf">10.0</span> <span class="n">vertical_angle</span><span class="p">:</span><span class="o">=</span><span class="mi">30</span>
+</pre></div>
+</div>
+<p>This ROS node takes the horizontal and vertical angles in degrees and the current can also be set to end in a fixed time by using the argument <strong>end_time</strong>. You can run the following tutorial example to see how it can be used</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_tutorial_disturbances</span> <span class="n">tutorial_timed_current</span><span class="o">.</span><span class="n">launch</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="disturbance-manager">
 <h2>Disturbance manager<a class="headerlink" href="#disturbance-manager" title="Permalink to this headline">¶</a></h2>
+<p>All of these past examples are very helpful to set individual disturbances, but in case one scenario needs several (and sometimes different) disturbance models to be activated in the same simulation scenario, you can use the <a class="reference external" href="https://github.com/uuvsimulator/uuv_simulator/blob/master/uuv_control/uuv_control_utils/launch/start_disturbance_manager.launch">disturbance manager node</a>. With this tool, you can make an YAML files with the full configuration of the disturbances that will be activated during the simulation such as in the example below</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">disturbances</span><span class="p">:</span>
+<span class="o">-</span>
+  <span class="nb">type</span><span class="p">:</span> <span class="n">current</span>
+  <span class="n">starting_time</span><span class="p">:</span> <span class="mi">0</span>
+  <span class="n">velocity</span><span class="p">:</span> <span class="mf">1.2</span>
+  <span class="n">horizontal_angle</span><span class="p">:</span> <span class="mi">0</span>
+  <span class="n">vertical_angle</span><span class="p">:</span> <span class="mi">0</span>
+  <span class="n">duration</span><span class="p">:</span> <span class="mi">10</span>
+<span class="o">-</span>
+  <span class="nb">type</span><span class="p">:</span> <span class="n">thruster_state</span>
+  <span class="n">starting_time</span><span class="p">:</span> <span class="mi">10</span>
+  <span class="n">duration</span><span class="p">:</span> <span class="mi">10</span>
+  <span class="n">thruster_id</span><span class="p">:</span> <span class="mi">2</span>
+  <span class="n">is_on</span><span class="p">:</span> <span class="mi">0</span>
+<span class="o">-</span>
+  <span class="nb">type</span><span class="p">:</span> <span class="n">propeller_efficiency</span>
+  <span class="n">starting_time</span><span class="p">:</span> <span class="mi">20</span>
+  <span class="n">duration</span><span class="p">:</span> <span class="mi">10</span>
+  <span class="n">thruster_id</span><span class="p">:</span> <span class="mi">4</span>
+  <span class="n">efficiency</span><span class="p">:</span> <span class="mf">0.2</span>
+<span class="o">-</span>
+  <span class="nb">type</span><span class="p">:</span> <span class="n">thrust_efficiency</span>
+  <span class="n">starting_time</span><span class="p">:</span> <span class="mi">30</span>
+  <span class="n">duration</span><span class="p">:</span> <span class="mi">10</span>
+  <span class="n">thruster_id</span><span class="p">:</span> <span class="mi">4</span>
+  <span class="n">efficiency</span><span class="p">:</span> <span class="mf">0.1</span>
+<span class="o">-</span>
+  <span class="nb">type</span><span class="p">:</span> <span class="n">wrench</span>
+  <span class="n">starting_time</span><span class="p">:</span> <span class="mi">40</span>
+  <span class="n">duration</span><span class="p">:</span> <span class="mi">10</span>
+  <span class="n">force</span><span class="p">:</span>
+    <span class="o">-</span> <span class="mi">1500</span>
+    <span class="o">-</span> <span class="mi">0</span>
+    <span class="o">-</span> <span class="o">-</span><span class="mi">1500</span>
+  <span class="n">torque</span><span class="p">:</span>
+    <span class="o">-</span> <span class="mi">1000</span>
+    <span class="o">-</span> <span class="mi">0</span>
+    <span class="o">-</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>and pass the path of the file to the disturbance manager node as in the following example</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">include</span> <span class="n">file</span><span class="o">=</span><span class="s2">&quot;$(find uuv_control_utils)/launch/start_disturbance_manager.launch&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">arg</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;uuv_name&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;rexrov&quot;</span><span class="o">/&gt;</span>
+    <span class="o">&lt;</span><span class="n">arg</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;use_file&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="o">/&gt;</span>
+    <span class="o">&lt;</span><span class="n">arg</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;disturbance_file&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;$(find uuv_tutorial_disturbances)/config/disturbances.yaml&quot;</span><span class="o">/&gt;</span>
+<span class="o">&lt;/</span><span class="n">include</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>The functionalities mentioned previously, such as disturbance duration, remain the same. Run the following example to see how it works</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_tutorial_disturbances</span> <span class="n">tutorial_disturbance_manager</span><span class="o">.</span><span class="n">launch</span>
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -238,6 +404,15 @@ demonstrate this as</p>
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../vehicles.html" class="btn btn-neutral float-right" title="Vehicles available" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="seabed_world.html" class="btn btn-neutral" title="Making a simple seabed world model" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
