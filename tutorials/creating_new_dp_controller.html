@@ -108,6 +108,7 @@
 <li class="toctree-l2"><a class="reference internal" href="seabed_world.html">Making a simple seabed world model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="disturbances.html">Applying disturbances during the simulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plume_simulation.html">Starting a plume simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simulation_wrapper.html">How to use the wrapper class for repetitive simulation runs</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../vehicles.html">Vehicles available</a></li>
@@ -458,7 +459,14 @@ you will not be able to start the ROS node.</p>
 40
 41
 42
-43</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nt">&lt;launch&gt;</span>
+43
+44
+45
+46
+47
+48
+49
+50</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nt">&lt;launch&gt;</span>
   <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;uuv_name&quot;</span><span class="nt">/&gt;</span>
   <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;model_name&quot;</span> <span class="na">default=</span><span class="s">&quot;$(arg uuv_name)&quot;</span><span class="nt">/&gt;</span>
   <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;saturation&quot;</span> <span class="na">default=</span><span class="s">&quot;5000&quot;</span><span class="nt">/&gt;</span>
@@ -467,9 +475,16 @@ you will not be able to start the ROS node.</p>
   <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;Kd&quot;</span> <span class="na">default=</span><span class="s">&quot;9077.459,9077.459,9077.459,18880.925,18880.925,18880.925&quot;</span><span class="nt">/&gt;</span>
   <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;Ki&quot;</span> <span class="na">default=</span><span class="s">&quot;321.417,321.417,321.417,2096.951,2096.951,2096.951&quot;</span><span class="nt">/&gt;</span>
 
+  <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;output_dir&quot;</span> <span class="na">default=</span><span class="s">&quot;$(find uuv_thruster_manager)/config/$(arg model_name)&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;config_file&quot;</span> <span class="na">default=</span><span class="s">&quot;$(find uuv_thruster_manager)/config/$(arg model_name)/thruster_manager.yaml&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;tam_file&quot;</span> <span class="na">default=</span><span class="s">&quot;$(find uuv_thruster_manager)/config/$(arg model_name)/TAM.yaml&quot;</span><span class="nt">/&gt;</span>
+
   <span class="nt">&lt;include</span> <span class="na">file=</span><span class="s">&quot;$(find uuv_thruster_manager)/launch/thruster_manager.launch&quot;</span><span class="nt">&gt;</span>
       <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;uuv_name&quot;</span> <span class="na">value=</span><span class="s">&quot;$(arg uuv_name)&quot;</span><span class="nt">/&gt;</span>
       <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;model_name&quot;</span> <span class="na">value=</span><span class="s">&quot;$(arg model_name)&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;output_dir&quot;</span> <span class="na">value=</span><span class="s">&quot;$(arg output_dir)&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;config_file&quot;</span> <span class="na">value=</span><span class="s">&quot;$(arg config_file)&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;tam_file&quot;</span> <span class="na">value=</span><span class="s">&quot;$(arg tam_file)&quot;</span><span class="nt">/&gt;</span>
   <span class="nt">&lt;/include&gt;</span>
 
   <span class="nt">&lt;group</span> <span class="na">ns=</span><span class="s">&quot;$(arg uuv_name)&quot;</span><span class="nt">&gt;</span>
@@ -491,7 +506,7 @@ you will not be able to start the ROS node.</p>
           <span class="nt">&lt;remap</span> <span class="na">from=</span><span class="s">&quot;waypoints&quot;</span> <span class="na">to=</span><span class="s">&quot;dp_controller/waypoints&quot;</span><span class="nt">/&gt;</span>
           <span class="nt">&lt;remap</span> <span class="na">from=</span><span class="s">&quot;error&quot;</span> <span class="na">to=</span><span class="s">&quot;dp_controller/error&quot;</span><span class="nt">/&gt;</span>
           <span class="nt">&lt;remap</span> <span class="na">from=</span><span class="s">&quot;reference&quot;</span> <span class="na">to=</span><span class="s">&quot;dp_controller/reference&quot;</span><span class="nt">/&gt;</span>
-          <span class="nt">&lt;remap</span> <span class="na">from=</span><span class="s">&quot;thruster_output&quot;</span> <span class="na">to=</span><span class="s">&quot;thruster_manager/input&quot;</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;remap</span> <span class="na">from=</span><span class="s">&quot;thruster_output&quot;</span> <span class="na">to=</span><span class="s">&quot;thruster_manager/input_stamped&quot;</span><span class="nt">/&gt;</span>
           <span class="nt">&lt;rosparam</span> <span class="na">subst_value=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
               saturation: $(arg saturation)
               Kp: [$(arg Kp)]
@@ -529,11 +544,8 @@ launch file as follows</p>
     <span class="c">&lt;!-- If you want to generate a ROS bag with the recorded simulated data, set this flag to true --&gt;</span>
     <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;record&quot;</span> <span class="na">default=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
 
-    <span class="c">&lt;!-- Start the a underwater world simulation scenario --&gt;</span>
-    <span class="nt">&lt;include</span> <span class="na">file=</span><span class="s">&quot;$(find gazebo_ros)/launch/empty_world.launch&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;world_name&quot;</span> <span class="na">value=</span><span class="s">&quot;worlds/ocean_waves.world&quot;</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;paused&quot;</span> <span class="na">value=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/include&gt;</span>
+    <span class="c">&lt;!-- Start the a underwater world simulation scenario --&gt;</span>    
+    <span class="nt">&lt;include</span> <span class="na">file=</span><span class="s">&quot;$(find uuv_descriptions)/launch/ocean_waves.launch&quot;</span><span class="nt">/&gt;</span>
 
     <span class="c">&lt;!-- Add the RexROV vehicle to the simulation (namespace: rexrov) --&gt;</span>
     <span class="nt">&lt;include</span> <span class="na">file=</span><span class="s">&quot;$(find uuv_descriptions)/models/rexrov/launch/upload_rexrov.launch&quot;</span><span class="nt">&gt;</span>
