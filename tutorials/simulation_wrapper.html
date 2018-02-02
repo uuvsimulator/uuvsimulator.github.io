@@ -562,6 +562,11 @@ To run the example, use the following command</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rosrun</span> <span class="n">uuv_simulation_runner_example</span> <span class="n">run_grid_search</span> <span class="o">--</span><span class="n">n_points</span> <span class="o">&lt;</span><span class="n">N_POINTS</span><span class="o">&gt;</span>
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The Python simulation wrapper assigns a random port to the ROS master and Gazebo for each time a new simulation run is done and locks the ports for the duration of the simulation.
+That allows several instances of the simulation to be started at the same time using this wrapper.</p>
+</div>
 </div>
 </div>
 
