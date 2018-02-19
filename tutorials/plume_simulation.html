@@ -105,6 +105,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../vehicles.html">Vehicles available</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sim_scenarios.html">Simulation scenarios</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq.html">F.A.Q.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
 </ul>
@@ -176,8 +177,8 @@
 <span id="plume-simulation"></span><h1>Starting a plume simulation<a class="headerlink" href="#starting-a-plume-simulation" title="Permalink to this headline">¶</a></h1>
 <p>Tracking and/or mapping of chemical plumes is one of the use-cases often addressed when regarding guidances strategies for AUVs.
 It presents also a challenge when setting up a simulation in order to design the desired algorithm since the setup of the real experiment can present various types of challenges and can hardly be repeated under the same conditions.</p>
-<p>For this objective, the algorithm presented in <a class="reference internal" href="../index.html#tian-2010" id="id1">[11]</a> for both the dynamics of plume particles and the particle concentration sensor have been implemented in the <a class="reference external" href="https://github.com/uuvsimulator/uuv_plume_simulator">uuv_plume_simulation</a>.
-For a detailed explanation on the implementation of a passive scalar turbulent plume, please refer to <a class="reference internal" href="../index.html#tian-2010" id="id2">[11]</a> and the ROS implementation for the particle generation <a class="reference external" href="https://github.com/uuvsimulator/uuv_plume_simulator/blob/master/uuv_plume_simulator/src/uuv_plume_model/passive_scalar_turbulence.py">here</a>.</p>
+<p>For this objective, the algorithm presented in <a class="reference internal" href="../index.html#tian-2010" id="id1">[12]</a> for both the dynamics of plume particles and the particle concentration sensor have been implemented in the <a class="reference external" href="https://github.com/uuvsimulator/uuv_plume_simulator">uuv_plume_simulation</a>.
+For a detailed explanation on the implementation of a passive scalar turbulent plume, please refer to <a class="reference internal" href="../index.html#tian-2010" id="id2">[12]</a> and the ROS implementation for the particle generation <a class="reference external" href="https://github.com/uuvsimulator/uuv_plume_simulator/blob/master/uuv_plume_simulator/src/uuv_plume_model/passive_scalar_turbulence.py">here</a>.</p>
 <p>To run this ROS node, be sure to clone the package in your catkin workspace as follows</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">catkin_ws</span><span class="o">/</span><span class="n">src</span>
 <span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">uuvsimulator</span><span class="o">/</span><span class="n">uuv_plume_simulator</span><span class="o">.</span><span class="n">git</span>
@@ -202,7 +203,7 @@ For a detailed explanation on the implementation of a passive scalar turbulent p
 </pre></div>
 </div>
 <p>By changing the current, it is possible to steer the plume.
-To measure the particle concentration using the algorithm described in <a class="reference internal" href="../index.html#tian-2010" id="id3">[11]</a>, the vehicle must have a sensor unit from the chemical particle concentration available in the <strong>uuv_sensor_ros_plugins</strong>.
+To measure the particle concentration using the algorithm described in <a class="reference internal" href="../index.html#tian-2010" id="id3">[12]</a>, the vehicle must have a sensor unit from the chemical particle concentration available in the <strong>uuv_sensor_ros_plugins</strong>.
 A number of URDF snippets to initialize this sensor in the URDF robot description can be found in the <a class="reference external" href="https://github.com/uuvsimulator/uuv_simulator/blob/master/uuv_sensor_plugins/uuv_sensor_ros_plugins/urdf/chemical_concentration_snippets.xacro">sensor package</a>.
 One example of implementation is already presented in the description of the <a class="reference internal" href="../vehicles.html#rexrov2"><span class="std std-ref">RexROV 2</span></a> vehicle in the declaration of its <a class="reference external" href="https://github.com/uuvsimulator/rexrov2/blob/master/rexrov2_description/urdf/rexrov2_sensors.xacro">sensor units</a> as shown below</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>&lt;!-- Mount chemical particle concentration sensor --&gt;
