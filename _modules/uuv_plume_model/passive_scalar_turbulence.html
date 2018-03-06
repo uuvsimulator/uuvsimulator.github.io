@@ -1,0 +1,440 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>uuv_plume_model.passive_scalar_turbulence &mdash; UUV Simulator 0.2 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="UUV Simulator 0.2 documentation" href="../../index.html"/>
+        <link rel="up" title="Module code" href="../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> UUV Simulator
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick_start.html">Quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../documentation/index.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">F.A.Q.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">UUV Simulator</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      
+    <li>uuv_plume_model.passive_scalar_turbulence</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for uuv_plume_model.passive_scalar_turbulence</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright (c) 2016 The UUV Simulator Authors.</span>
+<span class="c1"># All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+<span class="kn">from</span> <span class="nn">plume</span> <span class="k">import</span> <span class="n">Plume</span>
+<span class="kn">from</span> <span class="nn">copy</span> <span class="k">import</span> <span class="n">deepcopy</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<div class="viewcode-block" id="PlumePassiveScalarTurbulence"><a class="viewcode-back" href="../../api/uuv_plume_simulator/uuv_plume_simulator/src/uuv_plume_model.html#uuv_plume_model.passive_scalar_turbulence.PlumePassiveScalarTurbulence">[docs]</a><span class="k">class</span> <span class="nc">PlumePassiveScalarTurbulence</span><span class="p">(</span><span class="n">Plume</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plume model implementation based on [1]. The chemical plume is described</span>
+<span class="sd">    here by discretized particles generated that are generated on the Cartesian</span>
+<span class="sd">    position given as the source of the plume. The plume is treated as a</span>
+<span class="sd">    passive scalar turbulence, meaning that it will not affect the</span>
+<span class="sd">    environmental fluid flow.</span>
+
+<span class="sd">    To model the dynamics of the plume particles, the Lagrangian particle</span>
+<span class="sd">    random walk approach [2] is used. The particles are generated from the</span>
+<span class="sd">    source position in batches at each iteration to ensure a steady flow and</span>
+<span class="sd">    each particle has its position :math:`(x_k, y_k, z_k)` at the instant</span>
+<span class="sd">    :math:`t_k` computed as</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        x_k = x_{k - 1} + (u_a + u_i) \Delta t \\</span>
+<span class="sd">        y_k = y_{k - 1} + (v_a + v_i) \Delta t \\</span>
+<span class="sd">        z_k = z_{k - 1} + (w_a + w_b + w_i) \Delta t</span>
+
+<span class="sd">    where :math:`(u_a, v_a, w_a)` are the particle&#39;s velocities due to the</span>
+<span class="sd">    current velocity, :math:`(u_t, v_t, w_t)` are the particle&#39;s velocities</span>
+<span class="sd">    due to turbulent diffusion, and :math:`w_b` is the vertical buoyant</span>
+<span class="sd">    velocity.</span>
+
+<span class="sd">    [1] Yu Tian and Aiqun Zhang, &quot;Simulation environment and guidance system</span>
+<span class="sd">        for AUV tracing chemical plume in 3-dimensions,&quot; 2010 2nd International</span>
+<span class="sd">        Asia Conference on Informatics in Control, Automation and Robotics</span>
+<span class="sd">        (CAR 2010), Mar. 2010.</span>
+
+<span class="sd">    [2] M. Mestres et al., &quot;Modelling of the Ebro River plume. Validation with</span>
+<span class="sd">        field observations,&quot; Scientia Marina, vol. 67, no. 4, pp. 379-391,</span>
+<span class="sd">        Dec. 2003.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">LABEL</span> <span class="o">=</span> <span class="s1">&#39;passive_scalar_turbulence&#39;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">turbulent_diffusion_coefficients</span><span class="p">,</span> <span class="n">buoyancy_flux</span><span class="p">,</span>
+                 <span class="n">stability_param</span><span class="p">,</span> <span class="n">source_pos</span><span class="p">,</span> <span class="n">n_points</span><span class="p">,</span> <span class="n">start_time</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Passive scalar turbulent plume model constructor.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        turbulent_diffusion_coefficients: list</span>
+<span class="sd">            A vector with three elements containing the turbulent diffusion</span>
+<span class="sd">            coefficients for each degree of freedom of the particles (x, y and</span>
+<span class="sd">            z).</span>
+<span class="sd">        buoyancy_flux: float</span>
+<span class="sd">            Parameter used to compute the plume rise.</span>
+<span class="sd">        stability_param: float</span>
+<span class="sd">            Parameter used to compute the plume rise.</span>
+<span class="sd">        source_pos: list</span>
+<span class="sd">            Vector containing the Cartesian coordinates for the plume source</span>
+<span class="sd">            (represented in the ENU inertial frame).</span>
+<span class="sd">        n_points: int</span>
+<span class="sd">            Maximum number of particles to be generated for the plume.</span>
+<span class="sd">        start_time: float</span>
+<span class="sd">            Plume model creation time stamp.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">Plume</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source_pos</span><span class="p">,</span> <span class="n">n_points</span><span class="p">,</span> <span class="n">start_time</span><span class="p">)</span>
+
+        <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">turbulent_diffusion_coefficients</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;There should be &#39;</span> \
+            <span class="s1">&#39;three elements in the turbulent diffusion coefficients vector&#39;</span>
+
+        <span class="k">assert</span> <span class="n">buoyancy_flux</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Buoyancy flux coefficient must be equal &#39;</span> \
+            <span class="s1">&#39;or greater than zero&#39;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_turbulent_diffusion_coefficients</span> <span class="o">=</span> <span class="n">turbulent_diffusion_coefficients</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_vel_turbulent_diffusion</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_max_particles_per_iter</span> <span class="o">=</span> <span class="mi">10</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">create_particles</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_buoyancy_flux</span> <span class="o">=</span> <span class="n">buoyancy_flux</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_stability_param</span> <span class="o">=</span> <span class="n">stability_param</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">max_particles_per_iter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the maximum number of particles to be generated per iteration</span>
+<span class="sd">        from the source of the plume.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_max_particles_per_iter</span>
+
+<div class="viewcode-block" id="PlumePassiveScalarTurbulence.set_max_particles_per_iter"><a class="viewcode-back" href="../../api/uuv_plume_simulator/uuv_plume_simulator/src/uuv_plume_model.html#uuv_plume_model.passive_scalar_turbulence.PlumePassiveScalarTurbulence.set_max_particles_per_iter">[docs]</a>    <span class="k">def</span> <span class="nf">set_max_particles_per_iter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_particles</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the maximum number of particles to be generated per iteration from</span>
+<span class="sd">        the source of the plume.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        n_particles: int</span>
+<span class="sd">            Number of particles.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">n_particles</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_max_particles_per_iter</span> <span class="o">=</span> <span class="n">n_particles</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span> <span class="s1">&#39;Number of particles per iteration must be greater than zero&#39;</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="PlumePassiveScalarTurbulence.create_particles"><a class="viewcode-back" href="../../api/uuv_plume_simulator/uuv_plume_simulator/src/uuv_plume_model.html#uuv_plume_model.passive_scalar_turbulence.PlumePassiveScalarTurbulence.create_particles">[docs]</a>    <span class="k">def</span> <span class="nf">create_particles</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create random number of particles for one iteration up to the given</span>
+<span class="sd">        maximum limit and remove all particles that have left the plume&#39;s</span>
+<span class="sd">        bounding box limits.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">n_particles</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_max_particles_per_iter</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">())</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># Remove the particles that are outside of the limits</span>
+            <span class="n">p_filter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_contraints_filter</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">p_filter</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="c1"># Filter out the points outside of the limit box</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">p_filter</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="p">:]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_vel_turbulent_diffusion</span> <span class="o">=</span> \
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_vel_turbulent_diffusion</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">p_filter</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="p">:]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_time_creation</span> <span class="o">=</span> \
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_time_creation</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">p_filter</span><span class="p">)[</span><span class="mi">0</span><span class="p">]]</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">n_particles</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_points</span><span class="p">:</span>
+                <span class="n">n_particles</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_points</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_points</span><span class="p">:</span>
+                <span class="k">return</span>
+
+        <span class="n">new_pnts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span>
+            <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_source_pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n_particles</span><span class="p">),</span>
+             <span class="bp">self</span><span class="o">.</span><span class="n">_source_pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n_particles</span><span class="p">),</span>
+             <span class="bp">self</span><span class="o">.</span><span class="n">_source_pos</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n_particles</span><span class="p">)))</span><span class="o">.</span><span class="n">T</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span> <span class="o">=</span> <span class="n">new_pnts</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_vel_turbulent_diffusion</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">new_pnts</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_time_creation</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_t</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">new_pnts</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span><span class="p">,</span> <span class="n">new_pnts</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_vel_turbulent_diffusion</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span>
+                <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_vel_turbulent_diffusion</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">new_pnts</span><span class="o">.</span><span class="n">shape</span><span class="p">)))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_time_creation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span>
+                <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_time_creation</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_t</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">new_pnts</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])))</span></div>
+
+<div class="viewcode-block" id="PlumePassiveScalarTurbulence.compute_plume_rise"><a class="viewcode-back" href="../../api/uuv_plume_simulator/uuv_plume_simulator/src/uuv_plume_model.html#uuv_plume_model.passive_scalar_turbulence.PlumePassiveScalarTurbulence.compute_plume_rise">[docs]</a>    <span class="k">def</span> <span class="nf">compute_plume_rise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The plume rise equation is used to compute the vertical buoyant</span>
+<span class="sd">        velocity. It is based on the experimental results presented in [1]</span>
+<span class="sd">        and can be written as</span>
+
+<span class="sd">        .. math::</span>
+
+<span class="sd">            H(u, s, t) = 2.6 \left ( \frac{F t^2}{u} \right )^{1/3} (t^2 s + 4.3)^{-1/3}</span>
+
+<span class="sd">        where :math:`F` is the buoyancy flux parameter and :math:`s` the</span>
+<span class="sd">        stability parameters, and both can be tuned by the user. :math:`u` is</span>
+<span class="sd">        the magnitude of the current velocity on the horizontal plane. The</span>
+<span class="sd">        resulting vertical buoyant velocity will be computed as follows</span>
+
+<span class="sd">        .. math::</span>
+
+<span class="sd">            w_b = \frac{H(u, s, t + \Delta t) - H(u, s, t)}{\Delta t}</span>
+
+<span class="sd">        [1] Anfossi, Domenico. &quot;Analysis of plume rise data from five TVA steam</span>
+<span class="sd">            plants.&quot; Journal of climate and applied meteorology 24.11 (1985):</span>
+<span class="sd">            1225-1236.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        t: float</span>
+<span class="sd">            Current simulation time stamp.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">horz_vel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_current_vel</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_current_vel</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">horz_vel</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mf">0.0</span>
+        <span class="n">t2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">t</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_time_creation</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="k">return</span> <span class="mf">2.6</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_buoyancy_flux</span> <span class="o">*</span> <span class="n">t2</span> <span class="o">/</span> <span class="n">horz_vel</span><span class="p">,</span> <span class="mf">1.</span> <span class="o">/</span> <span class="mi">3</span><span class="p">),</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">t2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stability_param</span> <span class="o">+</span> <span class="mf">4.3</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span> <span class="o">/</span> <span class="mi">3</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="PlumePassiveScalarTurbulence.update"><a class="viewcode-back" href="../../api/uuv_plume_simulator/uuv_plume_simulator/src/uuv_plume_model.html#uuv_plume_model.passive_scalar_turbulence.PlumePassiveScalarTurbulence.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Update the position of all particles and create/remove particles from</span>
+<span class="sd">        the plume according to the bounding box limit constraints and the</span>
+<span class="sd">        maximum number of particles allowed.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        t: float</span>
+<span class="sd">            Current simulation time stamp.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dt</span> <span class="o">=</span> <span class="n">t</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_t</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_t</span> <span class="o">=</span> <span class="n">t</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dt</span> <span class="o">&lt;=</span> <span class="mf">0.0</span><span class="p">:</span>
+            <span class="nb">print</span> <span class="s1">&#39;Time step must be greater than zero&#39;</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">create_particles</span><span class="p">()</span>
+        <span class="c1"># Update turbulent diffusion velocity component</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+            <span class="c1"># Calculate particle velocity due to turbulent diffusion</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_vel_turbulent_diffusion</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> \
+                <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mf">0.5</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_vel_turbulent_diffusion</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span> <span class="o">*</span> \
+                <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
+                    <span class="mi">6</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_turbulent_diffusion_coefficients</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dt</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_vel_turbulent_diffusion</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dt</span>
+
+            <span class="c1"># Add the current velocity component</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_current_vel</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dt</span>
+
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">+=</span> \
+                    <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">compute_plume_rise</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_t</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dt</span><span class="p">)</span> <span class="o">-</span>
+                     <span class="bp">self</span><span class="o">.</span><span class="n">compute_plume_rise</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_t</span><span class="p">))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+        <span class="k">return</span> <span class="kc">True</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, UUV Simulator Authors.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

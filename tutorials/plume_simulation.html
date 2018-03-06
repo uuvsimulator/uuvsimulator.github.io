@@ -13,8 +13,6 @@
 
   
   
-  
-  
 
   
 
@@ -47,7 +45,6 @@
 
 <body class="wy-body-for-nav" role="document">
 
-   
   <div class="wy-grid-for-nav">
 
     
@@ -88,10 +85,7 @@
           
             
             
-              
-            
-            
-              <ul class="current">
+                <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick start</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials</a><ul class="current">
@@ -104,8 +98,8 @@
 <li class="toctree-l2"><a class="reference internal" href="simulation_wrapper.html">How to use the wrapper class for repetitive simulation runs</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../vehicles.html">Vehicles available</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../sim_scenarios.html">Simulation scenarios</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">API Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq.html">F.A.Q.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
 </ul>
@@ -120,10 +114,8 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">UUV Simulator</a>
-        
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">UUV Simulator</a>
       </nav>
 
 
@@ -132,42 +124,25 @@
         <div class="rst-content">
           
 
-
-
-
-
-
-
-
-
-
-
-
+ 
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
-
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
           <li><a href="index.html">Tutorials</a> &raquo;</li>
-        
-      <li>Starting a plume simulation</li>
-    
-    
+      
+    <li>Starting a plume simulation</li>
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../_sources/tutorials/plume_simulation.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -205,7 +180,7 @@ For a detailed explanation on the implementation of a passive scalar turbulent p
 <p>By changing the current, it is possible to steer the plume.
 To measure the particle concentration using the algorithm described in <a class="reference internal" href="../index.html#tian-2010" id="id3">[12]</a>, the vehicle must have a sensor unit from the chemical particle concentration available in the <strong>uuv_sensor_ros_plugins</strong>.
 A number of URDF snippets to initialize this sensor in the URDF robot description can be found in the <a class="reference external" href="https://github.com/uuvsimulator/uuv_simulator/blob/master/uuv_sensor_plugins/uuv_sensor_ros_plugins/urdf/chemical_concentration_snippets.xacro">sensor package</a>.
-One example of implementation is already presented in the description of the <a class="reference internal" href="../vehicles.html#rexrov2"><span class="std std-ref">RexROV 2</span></a> vehicle in the declaration of its <a class="reference external" href="https://github.com/uuvsimulator/rexrov2/blob/master/rexrov2_description/urdf/rexrov2_sensors.xacro">sensor units</a> as shown below</p>
+One example of implementation is already presented in the description of the <a class="reference internal" href="../documentation/vehicles.html#rexrov2"><span class="std std-ref">RexROV 2</span></a> vehicle in the declaration of its <a class="reference external" href="https://github.com/uuvsimulator/rexrov2/blob/master/rexrov2_description/urdf/rexrov2_sensors.xacro">sensor units</a> as shown below</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>&lt;!-- Mount chemical particle concentration sensor --&gt;
 &lt;xacro:default_chemical_concentration_sensor_macro
   namespace=&quot;${namespace}&quot;
@@ -224,18 +199,15 @@ Feel free to check the sample <a class="reference external" href="https://github
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="simulation_wrapper.html" class="btn btn-neutral float-right" title="How to use the wrapper class for repetitive simulation runs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="simulation_wrapper.html" class="btn btn-neutral float-right" title="How to use the wrapper class for repetitive simulation runs" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="disturbances.html" class="btn btn-neutral" title="Applying disturbances during the simulation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="disturbances.html" class="btn btn-neutral" title="Applying disturbances during the simulation" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -269,8 +241,7 @@ Feel free to check the sample <a class="reference external" href="https://github
             VERSION:'0.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
+            HAS_SOURCE:  true
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>

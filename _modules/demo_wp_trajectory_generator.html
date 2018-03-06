@@ -1,0 +1,344 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>demo_wp_trajectory_generator &mdash; UUV Simulator 0.2 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="UUV Simulator 0.2 documentation" href="../index.html"/>
+        <link rel="up" title="Module code" href="index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> UUV Simulator
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">F.A.Q.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">UUV Simulator</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Module code</a> &raquo;</li>
+      
+    <li>demo_wp_trajectory_generator</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for demo_wp_trajectory_generator</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># Copyright (c) 2016 The UUV Simulator Authors.</span>
+<span class="c1"># All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+<span class="kn">import</span> <span class="nn">roslib</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">uuv_trajectory_generator</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">geometry_msgs.msg</span> <span class="k">import</span> <span class="n">Point</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="k">import</span> <span class="n">Axes3D</span>
+
+<span class="n">roslib</span><span class="o">.</span><span class="n">load_manifest</span><span class="p">(</span><span class="s1">&#39;uuv_trajectory_control&#39;</span><span class="p">)</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Demo file to demonstrate the waypoint interpolation method with generation of</span>
+<span class="sd">velocity and acceleration profile using a constant rate.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="run_generator"><a class="viewcode-back" href="../api/uuv_simulator/uuv_trajectory_control/scripts/demo_wp_trajectory_generator.html#demo_wp_trajectory_generator.run_generator">[docs]</a><span class="k">def</span> <span class="nf">run_generator</span><span class="p">(</span><span class="n">waypoint_set</span><span class="p">,</span> <span class="n">interp_method</span><span class="p">):</span>
+    <span class="c1"># Initialize the trajectory generator</span>
+    <span class="n">gen</span> <span class="o">=</span> <span class="n">uuv_trajectory_generator</span><span class="o">.</span><span class="n">WPTrajectoryGenerator</span><span class="p">(</span><span class="n">full_dof</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">gen</span><span class="o">.</span><span class="n">set_interp_method</span><span class="p">(</span><span class="n">interp_method</span><span class="p">)</span>
+    <span class="n">gen</span><span class="o">.</span><span class="n">init_waypoints</span><span class="p">(</span><span class="n">waypoint_set</span><span class="p">)</span>
+
+    <span class="n">dt</span> <span class="o">=</span> <span class="mf">0.05</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">pnts</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+    <span class="n">avg_time</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="n">gen</span><span class="o">.</span><span class="n">set_start_time</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">ti</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">gen</span><span class="o">.</span><span class="n">get_max_time</span><span class="p">(),</span> <span class="n">dt</span><span class="p">):</span>
+        <span class="n">tic</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()</span>
+        <span class="n">pnts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gen</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">ti</span><span class="p">))</span>
+        <span class="n">toc</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()</span>
+        <span class="n">avg_time</span> <span class="o">+=</span> <span class="n">toc</span> <span class="o">-</span> <span class="n">tic</span>
+        <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">avg_time</span> <span class="o">/=</span> <span class="n">idx</span>
+    <span class="nb">print</span> <span class="s1">&#39;Average processing time [s] =&#39;</span><span class="p">,</span> <span class="n">avg_time</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+    <span class="c1"># Trajectory and heading 3D plot</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Plot the generated path</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">p</span><span class="o">.</span><span class="n">x</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pnts</span><span class="p">],</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">y</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pnts</span><span class="p">],</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">z</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pnts</span><span class="p">],</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Plot original waypoints</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">waypoint_set</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">waypoint_set</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">waypoint_set</span><span class="o">.</span><span class="n">z</span><span class="p">,</span> <span class="s1">&#39;r.&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Plot the raw path along the waypoints</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">waypoint_set</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">waypoint_set</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">waypoint_set</span><span class="o">.</span><span class="n">z</span><span class="p">,</span> <span class="s1">&#39;g--&#39;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">pnts</span><span class="p">),</span> <span class="mi">100</span><span class="p">):</span>
+        <span class="n">p0</span> <span class="o">=</span> <span class="n">pnts</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">p1</span> <span class="o">=</span> <span class="n">p0</span><span class="o">.</span><span class="n">pos</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">p0</span><span class="o">.</span><span class="n">rot_matrix</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">p0</span><span class="o">.</span><span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p1</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="p">[</span><span class="n">p0</span><span class="o">.</span><span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">p1</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="p">[</span><span class="n">p0</span><span class="o">.</span><span class="n">pos</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">p1</span><span class="p">[</span><span class="mi">2</span><span class="p">]],</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">interp_method</span><span class="p">)</span>
+
+    <span class="c1"># Position and orientation plot</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">p</span><span class="o">.</span><span class="n">t</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pnts</span><span class="p">],</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">pos</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pnts</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Position - &#39;</span> <span class="o">+</span> <span class="n">interp_method</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">pnts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">pnts</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">t</span><span class="p">)</span>
+
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">p</span><span class="o">.</span><span class="n">t</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pnts</span><span class="p">],</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">rot</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="mi">180</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pnts</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Rotation - &#39;</span> <span class="o">+</span> <span class="n">interp_method</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">pnts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">pnts</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">t</span><span class="p">)</span>
+
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">p</span><span class="o">.</span><span class="n">t</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pnts</span><span class="p">],</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">vel</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pnts</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Linear velocity - &#39;</span> <span class="o">+</span> <span class="n">interp_method</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">pnts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">pnts</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">t</span><span class="p">)</span>
+
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">p</span><span class="o">.</span><span class="n">t</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pnts</span><span class="p">],</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">vel</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">3</span><span class="p">]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pnts</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Angular velocity - &#39;</span> <span class="o">+</span> <span class="n">interp_method</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">pnts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">pnts</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">t</span><span class="p">)</span>
+
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">211</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">p</span><span class="o">.</span><span class="n">t</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pnts</span><span class="p">],</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">acc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pnts</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Linear accelerations - &#39;</span> <span class="o">+</span> <span class="n">interp_method</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">pnts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">pnts</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">t</span><span class="p">)</span>
+
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">p</span><span class="o">.</span><span class="n">t</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pnts</span><span class="p">],</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">acc</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">3</span><span class="p">]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pnts</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Angular accelerations - &#39;</span> <span class="o">+</span> <span class="n">interp_method</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">pnts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">pnts</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">t</span><span class="p">)</span></div>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="c1"># For a helical trajectory</span>
+    <span class="n">wp_set</span> <span class="o">=</span> <span class="n">uuv_trajectory_generator</span><span class="o">.</span><span class="n">WaypointSet</span><span class="p">()</span>
+    <span class="c1"># Add some waypoints at the beginning</span>
+    <span class="n">wp_set</span><span class="o">.</span><span class="n">add_waypoint</span><span class="p">(</span><span class="n">uuv_trajectory_generator</span><span class="o">.</span><span class="n">Waypoint</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">12</span><span class="p">,</span> <span class="o">-</span><span class="mi">36</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span>
+                        <span class="n">add_to_beginning</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">wp_set</span><span class="o">.</span><span class="n">add_waypoint</span><span class="p">(</span><span class="n">uuv_trajectory_generator</span><span class="o">.</span><span class="n">Waypoint</span><span class="p">(</span><span class="o">-</span><span class="mi">13</span><span class="p">,</span> <span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="o">-</span><span class="mi">44</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span>
+                        <span class="n">add_to_beginning</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">wp_set</span><span class="o">.</span><span class="n">add_waypoint</span><span class="p">(</span><span class="n">uuv_trajectory_generator</span><span class="o">.</span><span class="n">Waypoint</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="o">-</span><span class="mi">24</span><span class="p">,</span> <span class="o">-</span><span class="mi">48</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span>
+                        <span class="n">add_to_beginning</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">wp_set</span><span class="o">.</span><span class="n">add_waypoint</span><span class="p">(</span><span class="n">uuv_trajectory_generator</span><span class="o">.</span><span class="n">Waypoint</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+    <span class="n">wp_set</span><span class="o">.</span><span class="n">add_waypoint</span><span class="p">(</span><span class="n">uuv_trajectory_generator</span><span class="o">.</span><span class="n">Waypoint</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+    <span class="n">wp_set</span><span class="o">.</span><span class="n">add_waypoint</span><span class="p">(</span><span class="n">uuv_trajectory_generator</span><span class="o">.</span><span class="n">Waypoint</span><span class="p">(</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+    <span class="n">wp_set</span><span class="o">.</span><span class="n">add_waypoint</span><span class="p">(</span><span class="n">uuv_trajectory_generator</span><span class="o">.</span><span class="n">Waypoint</span><span class="p">(</span><span class="o">-</span><span class="mi">40</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="o">-</span><span class="mi">55</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+    <span class="n">wp_set</span><span class="o">.</span><span class="n">add_waypoint</span><span class="p">(</span><span class="n">uuv_trajectory_generator</span><span class="o">.</span><span class="n">Waypoint</span><span class="p">(</span><span class="o">-</span><span class="mi">40</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+
+    <span class="n">run_generator</span><span class="p">(</span><span class="n">wp_set</span><span class="p">,</span> <span class="s1">&#39;cubic_interpolator&#39;</span><span class="p">)</span>
+    <span class="n">run_generator</span><span class="p">(</span><span class="n">wp_set</span><span class="p">,</span> <span class="s1">&#39;lipb_interpolator&#39;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, UUV Simulator Authors.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

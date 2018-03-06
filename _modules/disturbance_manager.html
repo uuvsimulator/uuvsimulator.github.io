@@ -1,0 +1,479 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>disturbance_manager &mdash; UUV Simulator 0.2 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="UUV Simulator 0.2 documentation" href="../index.html"/>
+        <link rel="up" title="Module code" href="index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> UUV Simulator
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">F.A.Q.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">UUV Simulator</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Module code</a> &raquo;</li>
+      
+    <li>disturbance_manager</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for disturbance_manager</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># Copyright (c) 2016 The UUV Simulator Authors.</span>
+<span class="c1"># All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+<span class="kn">import</span> <span class="nn">rospy</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">uuv_world_ros_plugins_msgs.srv</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">gazebo_msgs.srv</span> <span class="k">import</span> <span class="n">ApplyBodyWrench</span>
+<span class="kn">from</span> <span class="nn">uuv_gazebo_ros_plugins_msgs.srv</span> <span class="k">import</span> <span class="n">SetThrusterState</span><span class="p">,</span> <span class="n">SetThrusterEfficiency</span>
+<span class="kn">from</span> <span class="nn">geometry_msgs.msg</span> <span class="k">import</span> <span class="n">Point</span><span class="p">,</span> <span class="n">WrenchStamped</span><span class="p">,</span> <span class="n">Vector3</span>
+
+
+<div class="viewcode-block" id="DisturbanceManager"><a class="viewcode-back" href="../api/uuv_simulator/uuv_control_utils/scripts/disturbance_manager.html#disturbance_manager.DisturbanceManager">[docs]</a><span class="k">class</span> <span class="nc">DisturbanceManager</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;dp_local_planner&#39;</span><span class="p">)</span>
+        <span class="n">out_hdlr</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+        <span class="n">out_hdlr</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> | </span><span class="si">%(levelname)s</span><span class="s1"> | </span><span class="si">%(module)s</span><span class="s1"> | </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">))</span>
+        <span class="n">out_hdlr</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">out_hdlr</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+
+        <span class="c1"># Load disturbances and check for missing information</span>
+        <span class="n">specs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">current</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;starting_time&#39;</span><span class="p">,</span> <span class="s1">&#39;velocity&#39;</span><span class="p">,</span> <span class="s1">&#39;horizontal_angle&#39;</span><span class="p">,</span>
+                              <span class="s1">&#39;vertical_angle&#39;</span><span class="p">],</span>
+                     <span class="n">wrench</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;starting_time&#39;</span><span class="p">,</span> <span class="s1">&#39;duration&#39;</span><span class="p">,</span> <span class="s1">&#39;force&#39;</span><span class="p">,</span> <span class="s1">&#39;torque&#39;</span><span class="p">],</span>
+                     <span class="n">thruster_state</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;starting_time&#39;</span><span class="p">,</span> <span class="s1">&#39;thruster_id&#39;</span><span class="p">,</span> <span class="s1">&#39;is_on&#39;</span><span class="p">,</span>
+                                     <span class="s1">&#39;duration&#39;</span><span class="p">],</span>
+                     <span class="n">propeller_efficiency</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;starting_time&#39;</span><span class="p">,</span> <span class="s1">&#39;thruster_id&#39;</span><span class="p">,</span> <span class="s1">&#39;duration&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;efficiency&#39;</span><span class="p">],</span>
+                     <span class="n">thrust_efficiency</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;starting_time&#39;</span><span class="p">,</span> <span class="s1">&#39;thruster_id&#39;</span><span class="p">,</span> <span class="s1">&#39;duration&#39;</span><span class="p">,</span>
+                                 <span class="s1">&#39;efficiency&#39;</span><span class="p">])</span>
+
+        <span class="n">thruster_ids</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">rospy</span><span class="o">.</span><span class="n">has_param</span><span class="p">(</span><span class="s1">&#39;~disturbances&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_disturbances</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s1">&#39;~disturbances&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_disturbances</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_disturbances</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">list</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ROSException</span><span class="p">(</span><span class="s1">&#39;Current specifications must be &#39;</span>
+                                         <span class="s1">&#39;given as a list of dict&#39;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_disturbances</span><span class="p">)):</span>
+                <span class="n">item</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_disturbances</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">item</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">dict</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ROSException</span><span class="p">(</span><span class="s1">&#39;Disturbance description must be&#39;</span>
+                                             <span class="s1">&#39; given as a dict&#39;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="s1">&#39;type&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ROSException</span><span class="p">(</span><span class="s1">&#39;Type of disturbance not &#39;</span>
+                                             <span class="s1">&#39;specified&#39;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">specs</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ROSException</span><span class="p">(</span>
+                        <span class="s1">&#39;Invalid type of disturbance, value=</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">])</span>
+
+                <span class="k">for</span> <span class="n">spec</span> <span class="ow">in</span> <span class="n">specs</span><span class="p">[</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]]:</span>
+                    <span class="k">if</span> <span class="n">spec</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ROSException</span><span class="p">(</span>
+                            <span class="s1">&#39;Invalid current model specification, &#39;</span>
+                            <span class="s1">&#39;missing tag=</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">spec</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;thruster_state&#39;</span><span class="p">:</span>
+                    <span class="n">thruster_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;thruster_id&#39;</span><span class="p">])</span>
+
+                <span class="c1"># Create flag to indicate that perturbation has been applied</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_disturbances</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;is_applied&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_disturbances</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;ended&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ROSException</span><span class="p">(</span><span class="s1">&#39;No disturbance specifications given&#39;</span><span class="p">)</span>
+
+        <span class="c1"># List all disturbances to be applied</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_disturbances</span><span class="p">)):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Disturbance #</span><span class="si">%d</span><span class="s1">: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_disturbances</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_body_force</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_body_torque</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_body_wrench_msg</span> <span class="o">=</span> <span class="n">WrenchStamped</span><span class="p">()</span>
+
+        <span class="c1"># For body wrench disturbances, publish a topic</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_wrench_topic</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span>
+            <span class="s1">&#39;wrench_perturbation&#39;</span><span class="p">,</span> <span class="n">WrenchStamped</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="n">vehicle_name</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_namespace</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Test if services are reachable</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">services</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;/hydrodynamics/set_current_velocity&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;/gazebo/apply_body_wrench&#39;</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_disturbances</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;thruster_state&#39;</span><span class="p">:</span>
+                    <span class="n">services</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;/</span><span class="si">%s</span><span class="s1">/thrusters/</span><span class="si">%d</span><span class="s1">/set_thruster_state&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">vehicle_name</span><span class="p">,</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;thruster_id&#39;</span><span class="p">]))</span>
+                <span class="k">elif</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;propeller_efficiency&#39;</span><span class="p">:</span>
+                    <span class="n">services</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;/</span><span class="si">%s</span><span class="s1">/thrusters/</span><span class="si">%d</span><span class="s1">/set_dynamic_state_efficiency&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">vehicle_name</span><span class="p">,</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;thruster_id&#39;</span><span class="p">]))</span>
+                <span class="k">elif</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;thrust_efficiency&#39;</span><span class="p">:</span>
+                    <span class="n">services</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;/</span><span class="si">%s</span><span class="s1">/thrusters/</span><span class="si">%d</span><span class="s1">/set_thrust_force_efficiency&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">vehicle_name</span><span class="p">,</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;thruster_id&#39;</span><span class="p">]))</span>
+            <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">services</span><span class="p">:</span>
+                <span class="n">rospy</span><span class="o">.</span><span class="n">wait_for_service</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Some services are not available! message=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Closing node...&#39;</span><span class="p">)</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># Obtain service proxy</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_service_cb</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_service_cb</span><span class="p">[</span><span class="s1">&#39;current_velocity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span>
+                <span class="s1">&#39;/hydrodynamics/set_current_velocity&#39;</span><span class="p">,</span> <span class="n">SetCurrentVelocity</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_service_cb</span><span class="p">[</span><span class="s1">&#39;wrench&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span>
+                <span class="s1">&#39;/gazebo/apply_body_wrench&#39;</span><span class="p">,</span> <span class="n">ApplyBodyWrench</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_service_cb</span><span class="p">[</span><span class="s1">&#39;thrusters&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_disturbances</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;thruster_state&#39;</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="s1">&#39;state&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_service_cb</span><span class="p">[</span><span class="s1">&#39;thrusters&#39;</span><span class="p">]:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_service_cb</span><span class="p">[</span><span class="s1">&#39;thrusters&#39;</span><span class="p">][</span><span class="s1">&#39;state&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_service_cb</span><span class="p">[</span><span class="s1">&#39;thrusters&#39;</span><span class="p">][</span><span class="s1">&#39;state&#39;</span><span class="p">][</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;thruster_id&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span>
+                        <span class="s1">&#39;/</span><span class="si">%s</span><span class="s1">/thrusters/</span><span class="si">%d</span><span class="s1">/set_thruster_state&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">vehicle_name</span><span class="p">,</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;thruster_id&#39;</span><span class="p">]),</span>
+                        <span class="n">SetThrusterState</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;propeller_efficiency&#39;</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="s1">&#39;propeller_efficiency&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_service_cb</span><span class="p">[</span><span class="s1">&#39;thrusters&#39;</span><span class="p">]:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_service_cb</span><span class="p">[</span><span class="s1">&#39;thrusters&#39;</span><span class="p">][</span><span class="s1">&#39;propeller_efficiency&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_service_cb</span><span class="p">[</span><span class="s1">&#39;thrusters&#39;</span><span class="p">][</span><span class="s1">&#39;propeller_efficiency&#39;</span><span class="p">][</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;thruster_id&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span>
+                        <span class="s1">&#39;/</span><span class="si">%s</span><span class="s1">/thrusters/</span><span class="si">%d</span><span class="s1">/set_dynamic_state_efficiency&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">vehicle_name</span><span class="p">,</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;thruster_id&#39;</span><span class="p">]),</span>
+                        <span class="n">SetThrusterEfficiency</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;thrust_efficiency&#39;</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="s1">&#39;thrust_efficiency&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_service_cb</span><span class="p">[</span><span class="s1">&#39;thrusters&#39;</span><span class="p">]:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_service_cb</span><span class="p">[</span><span class="s1">&#39;thrusters&#39;</span><span class="p">][</span><span class="s1">&#39;thrust_efficiency&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_service_cb</span><span class="p">[</span><span class="s1">&#39;thrusters&#39;</span><span class="p">][</span><span class="s1">&#39;thrust_efficiency&#39;</span><span class="p">][</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;thruster_id&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span>
+                        <span class="s1">&#39;/</span><span class="si">%s</span><span class="s1">/thrusters/</span><span class="si">%d</span><span class="s1">/set_thrust_force_efficiency&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">vehicle_name</span><span class="p">,</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;thruster_id&#39;</span><span class="p">]),</span>
+                        <span class="n">SetThrusterEfficiency</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceException</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Service call failed, error=</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_wrench_timer</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">timer</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">rospy</span><span class="o">.</span><span class="n">Duration</span><span class="p">(</span><span class="mf">0.1</span><span class="p">),</span>
+                                               <span class="bp">self</span><span class="o">.</span><span class="n">_publish_wrench_disturbance</span><span class="p">)</span>
+
+        <span class="n">rate</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Rate</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+        <span class="k">while</span> <span class="ow">not</span> <span class="n">rospy</span><span class="o">.</span><span class="n">is_shutdown</span><span class="p">():</span>
+            <span class="n">t</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_disturbances</span><span class="p">)):</span>
+                <span class="n">d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_disturbances</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">t</span> <span class="o">&gt;</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;starting_time&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;is_applied&#39;</span><span class="p">]:</span>
+                    <span class="c1">###########################################################</span>
+                    <span class="k">if</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;current&#39;</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">set_current</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;velocity&#39;</span><span class="p">],</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;horizontal_angle&#39;</span><span class="p">],</span>
+                                         <span class="n">d</span><span class="p">[</span><span class="s1">&#39;vertical_angle&#39;</span><span class="p">])</span>
+                    <span class="c1">###########################################################</span>
+                    <span class="k">elif</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;wrench&#39;</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">set_body_wrench</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;force&#39;</span><span class="p">],</span>
+                                             <span class="n">d</span><span class="p">[</span><span class="s1">&#39;torque&#39;</span><span class="p">],</span>
+                                             <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+                                             <span class="n">d</span><span class="p">[</span><span class="s1">&#39;starting_time&#39;</span><span class="p">])</span>
+                    <span class="c1">###########################################################</span>
+                    <span class="k">elif</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;thruster_state&#39;</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">set_thruster_state</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;thruster_id&#39;</span><span class="p">],</span> <span class="nb">bool</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;is_on&#39;</span><span class="p">]))</span>
+                    <span class="c1">###########################################################</span>
+                    <span class="k">elif</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;propeller_efficiency&#39;</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">set_propeller_efficiency</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;thruster_id&#39;</span><span class="p">],</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;efficiency&#39;</span><span class="p">])</span>
+                    <span class="c1">###########################################################</span>
+                    <span class="k">elif</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;thrust_efficiency&#39;</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">set_thrust_efficiency</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;thruster_id&#39;</span><span class="p">],</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;efficiency&#39;</span><span class="p">])</span>
+                    <span class="c1"># Set applied flag to true</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_disturbances</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;is_applied&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+
+                    <span class="k">if</span> <span class="s1">&#39;duration&#39;</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">_disturbances</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;ended&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_disturbances</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;ended&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">elif</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;is_applied&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="s1">&#39;duration&#39;</span> <span class="ow">in</span> <span class="n">d</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;ended&#39;</span><span class="p">]:</span>
+                    <span class="k">if</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;starting_time&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">]:</span>
+                            <span class="c1">###########################################################</span>
+                            <span class="k">if</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;current&#39;</span><span class="p">:</span>
+                                <span class="c1"># Set current to zero</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">set_current</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;horizontal_angle&#39;</span><span class="p">],</span>
+                                                 <span class="n">d</span><span class="p">[</span><span class="s1">&#39;vertical_angle&#39;</span><span class="p">])</span>
+                            <span class="c1">###########################################################</span>
+                            <span class="k">elif</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;wrench&#39;</span><span class="p">:</span>
+                                <span class="c1"># Cancel out force and torque</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">set_body_wrench</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;force&#39;</span><span class="p">][</span><span class="n">n</span><span class="p">]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)],</span>
+                                                     <span class="p">[</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;torque&#39;</span><span class="p">][</span><span class="n">n</span><span class="p">]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)],</span>
+                                                     <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+                                                     <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">())</span>
+                            <span class="c1">###########################################################</span>
+                            <span class="k">elif</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;thruster_state&#39;</span><span class="p">:</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">set_thruster_state</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;thruster_id&#39;</span><span class="p">],</span> <span class="ow">not</span> <span class="nb">bool</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;is_on&#39;</span><span class="p">]))</span>
+                            <span class="c1">###########################################################</span>
+                            <span class="k">elif</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;propeller_efficiency&#39;</span><span class="p">:</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">set_propeller_efficiency</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;thruster_id&#39;</span><span class="p">],</span> <span class="mf">1.0</span><span class="p">)</span>
+                            <span class="c1">###########################################################</span>
+                            <span class="k">elif</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;thrust_efficiency&#39;</span><span class="p">:</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">set_thrust_efficiency</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;thruster_id&#39;</span><span class="p">],</span> <span class="mf">1.0</span><span class="p">)</span>
+
+                            <span class="bp">self</span><span class="o">.</span><span class="n">_disturbances</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;ended&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">rate</span><span class="o">.</span><span class="n">sleep</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_publish_wrench_disturbance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="n">WrenchStamped</span><span class="p">()</span>
+        <span class="n">msg</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">stamp</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Time</span><span class="p">()</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="n">msg</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="s1">&#39;world&#39;</span>
+        <span class="n">msg</span><span class="o">.</span><span class="n">wrench</span><span class="o">.</span><span class="n">force</span> <span class="o">=</span> <span class="n">Vector3</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_body_force</span><span class="p">)</span>
+        <span class="n">msg</span><span class="o">.</span><span class="n">wrench</span><span class="o">.</span><span class="n">torque</span> <span class="o">=</span> <span class="n">Vector3</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_body_torque</span><span class="p">)</span>
+        <span class="c1"># Publish the applied body wrench</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_wrench_topic</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+<div class="viewcode-block" id="DisturbanceManager.set_current"><a class="viewcode-back" href="../api/uuv_simulator/uuv_control_utils/scripts/disturbance_manager.html#disturbance_manager.DisturbanceManager.set_current">[docs]</a>    <span class="k">def</span> <span class="nf">set_current</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">velocity</span><span class="p">,</span> <span class="n">horizontal_angle</span><span class="p">,</span> <span class="n">vertical_angle</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Appying current velocity model...&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_service_cb</span><span class="p">[</span><span class="s1">&#39;current_velocity&#39;</span><span class="p">](</span><span class="n">velocity</span><span class="p">,</span> <span class="n">horizontal_angle</span><span class="p">,</span> <span class="n">vertical_angle</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Current velocity changed successfully at </span><span class="si">%f</span><span class="s1"> s! vel= </span><span class="si">%f</span><span class="s1"> m/s&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">(),</span> <span class="n">velocity</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Failed to change current velocity&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="DisturbanceManager.set_body_wrench"><a class="viewcode-back" href="../api/uuv_simulator/uuv_control_utils/scripts/disturbance_manager.html#disturbance_manager.DisturbanceManager.set_body_wrench">[docs]</a>    <span class="k">def</span> <span class="nf">set_body_wrench</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">force</span><span class="p">,</span> <span class="n">torque</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="n">starting_time</span><span class="p">):</span>
+        <span class="n">ns</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_namespace</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">body_name</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/base_link&#39;</span> <span class="o">%</span> <span class="n">ns</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_body_force</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">_body_force</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">force</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_body_torque</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">_body_torque</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">torque</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)])</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_body_wrench_msg</span> <span class="o">=</span> <span class="n">WrenchStamped</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_body_wrench_msg</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">stamp</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Time</span><span class="p">()</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_body_wrench_msg</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="s1">&#39;world&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_body_wrench_msg</span><span class="o">.</span><span class="n">wrench</span><span class="o">.</span><span class="n">force</span> <span class="o">=</span> <span class="n">Vector3</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_body_force</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_body_wrench_msg</span><span class="o">.</span><span class="n">wrench</span><span class="o">.</span><span class="n">torque</span> <span class="o">=</span> <span class="n">Vector3</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_body_torque</span><span class="p">)</span>
+        <span class="n">success</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_service_cb</span><span class="p">[</span><span class="s1">&#39;wrench&#39;</span><span class="p">](</span>
+            <span class="n">body_name</span><span class="p">,</span>
+            <span class="s1">&#39;world&#39;</span><span class="p">,</span>
+            <span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_body_wrench_msg</span><span class="o">.</span><span class="n">wrench</span><span class="p">,</span>
+            <span class="n">rospy</span><span class="o">.</span><span class="n">Time</span><span class="p">(</span><span class="n">secs</span><span class="o">=</span><span class="n">starting_time</span><span class="p">),</span>
+            <span class="n">rospy</span><span class="o">.</span><span class="n">Duration</span><span class="p">(</span><span class="n">duration</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Body wrench perturbation applied!, body_name=</span><span class="si">%s</span><span class="s1">, t=</span><span class="si">%.2f</span><span class="s1"> s&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">body_name</span><span class="p">,</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">()))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Failed to apply body wrench!, body_name=</span><span class="si">%s</span><span class="s1">, t=</span><span class="si">%.2f</span><span class="s1"> s&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">body_name</span><span class="p">,</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">()))</span></div>
+
+<div class="viewcode-block" id="DisturbanceManager.set_thruster_state"><a class="viewcode-back" href="../api/uuv_simulator/uuv_control_utils/scripts/disturbance_manager.html#disturbance_manager.DisturbanceManager.set_thruster_state">[docs]</a>    <span class="k">def</span> <span class="nf">set_thruster_state</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">thruster_id</span><span class="p">,</span> <span class="n">is_on</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_service_cb</span><span class="p">[</span><span class="s1">&#39;thrusters&#39;</span><span class="p">][</span><span class="s1">&#39;state&#39;</span><span class="p">][</span><span class="n">thruster_id</span><span class="p">](</span><span class="n">is_on</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Setting state of thruster #</span><span class="si">%d</span><span class="s1">, state=</span><span class="si">%s</span><span class="s1">, t=</span><span class="si">%.2f</span><span class="s1"> s&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">thruster_id</span><span class="p">,</span> <span class="s1">&#39;ON&#39;</span> <span class="k">if</span> <span class="n">is_on</span> <span class="k">else</span> <span class="s1">&#39;OFF&#39;</span><span class="p">,</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">()))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Setting state of thruster #</span><span class="si">%d</span><span class="s1"> failed! t=</span><span class="si">%.2f</span><span class="s1"> s&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">thruster_id</span><span class="p">,</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">()))</span></div>
+
+<div class="viewcode-block" id="DisturbanceManager.set_propeller_efficiency"><a class="viewcode-back" href="../api/uuv_simulator/uuv_control_utils/scripts/disturbance_manager.html#disturbance_manager.DisturbanceManager.set_propeller_efficiency">[docs]</a>    <span class="k">def</span> <span class="nf">set_propeller_efficiency</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">thruster_id</span><span class="p">,</span> <span class="n">eff</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_service_cb</span><span class="p">[</span><span class="s1">&#39;thrusters&#39;</span><span class="p">][</span><span class="s1">&#39;propeller_efficiency&#39;</span><span class="p">][</span><span class="n">thruster_id</span><span class="p">](</span><span class="n">eff</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Setting propeller efficiency of thruster #</span><span class="si">%d</span><span class="s1">, eff=</span><span class="si">%s</span><span class="s1">, t=</span><span class="si">%.2f</span><span class="s1"> s&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">thruster_id</span><span class="p">,</span> <span class="n">eff</span><span class="p">,</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">()))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Setting propeller efficiency of thruster #</span><span class="si">%d</span><span class="s1"> failed! t=</span><span class="si">%.2f</span><span class="s1"> s&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">thruster_id</span><span class="p">,</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">()))</span></div>
+
+<div class="viewcode-block" id="DisturbanceManager.set_thrust_efficiency"><a class="viewcode-back" href="../api/uuv_simulator/uuv_control_utils/scripts/disturbance_manager.html#disturbance_manager.DisturbanceManager.set_thrust_efficiency">[docs]</a>    <span class="k">def</span> <span class="nf">set_thrust_efficiency</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">thruster_id</span><span class="p">,</span> <span class="n">eff</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_service_cb</span><span class="p">[</span><span class="s1">&#39;thrusters&#39;</span><span class="p">][</span><span class="s1">&#39;thrust_efficiency&#39;</span><span class="p">][</span><span class="n">thruster_id</span><span class="p">](</span><span class="n">eff</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Setting thrust efficiency of thruster #</span><span class="si">%d</span><span class="s1">, eff=</span><span class="si">%s</span><span class="s1">, t=</span><span class="si">%.2f</span><span class="s1"> s&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">thruster_id</span><span class="p">,</span> <span class="n">eff</span><span class="p">,</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">()))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Setting thrust efficiency of thruster #</span><span class="si">%d</span><span class="s1"> failed! t=</span><span class="si">%.2f</span><span class="s1"> s&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">thruster_id</span><span class="p">,</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">()))</span></div></div>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Starting disturbance manager&#39;</span><span class="p">)</span>
+    <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s1">&#39;disturbance_manager&#39;</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="n">DisturbanceManager</span><span class="p">()</span>
+        <span class="n">rospy</span><span class="o">.</span><span class="n">spin</span><span class="p">()</span>
+    <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ROSInterruptException</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;caught exception&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;exiting&#39;</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, UUV Simulator Authors.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

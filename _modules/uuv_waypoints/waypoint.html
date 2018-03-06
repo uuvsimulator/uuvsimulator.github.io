@@ -1,0 +1,351 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>uuv_waypoints.waypoint &mdash; UUV Simulator 0.2 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="UUV Simulator 0.2 documentation" href="../../index.html"/>
+        <link rel="up" title="Module code" href="../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> UUV Simulator
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick_start.html">Quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../documentation/index.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">F.A.Q.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">UUV Simulator</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      
+    <li>uuv_waypoints.waypoint</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for uuv_waypoints.waypoint</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright (c) 2016 The UUV Simulator Authors.</span>
+<span class="c1"># All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">uuv_control_msgs.msg</span> <span class="k">import</span> <span class="n">Waypoint</span> <span class="k">as</span> <span class="n">WaypointMessage</span>
+
+
+<div class="viewcode-block" id="Waypoint"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_waypoints.html#uuv_waypoints.waypoint.Waypoint">[docs]</a><span class="k">class</span> <span class="nc">Waypoint</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="n">FINAL_WAYPOINT_COLOR</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">131.0</span> <span class="o">/</span> <span class="mi">255</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+    <span class="n">OK_WAYPOINT</span> <span class="o">=</span> <span class="p">[</span><span class="mf">31.</span> <span class="o">/</span> <span class="mi">255</span><span class="p">,</span> <span class="mf">106.</span> <span class="o">/</span> <span class="mi">255</span><span class="p">,</span> <span class="mf">226.</span> <span class="o">/</span> <span class="mi">255</span><span class="p">]</span>
+    <span class="n">FAILED_WAYPOINT</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_forward_speed</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">heading_offset</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="n">use_fixed_heading</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inertial_frame_id</span><span class="o">=</span><span class="s1">&#39;world&#39;</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="n">inertial_frame_id</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;world&#39;</span><span class="p">,</span> <span class="s1">&#39;world_ned&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_y</span> <span class="o">=</span> <span class="n">y</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_z</span> <span class="o">=</span> <span class="n">z</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_inertial_frame_id</span> <span class="o">=</span> <span class="n">inertial_frame_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_max_forward_speed</span> <span class="o">=</span> <span class="n">max_forward_speed</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_heading_offset</span> <span class="o">=</span> <span class="n">heading_offset</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_violates_constraint</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_use_fixed_heading</span> <span class="o">=</span> <span class="n">use_fixed_heading</span>
+
+    <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">x</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_y</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">y</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_z</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">z</span>
+
+    <span class="k">def</span> <span class="nf">__ne__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">!=</span> <span class="n">other</span><span class="o">.</span><span class="n">x</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_y</span> <span class="o">!=</span> <span class="n">other</span><span class="o">.</span><span class="n">y</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_z</span> <span class="o">!=</span> <span class="n">other</span><span class="o">.</span><span class="n">z</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;(x, y, z)= (</span><span class="si">%.2f</span><span class="s1">, </span><span class="si">%.2f</span><span class="s1">, </span><span class="si">%.2f</span><span class="s1">) m</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_z</span><span class="p">)</span>
+        <span class="n">msg</span> <span class="o">+=</span> <span class="s1">&#39;Max. forward speed = </span><span class="si">%.2f</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">_max_forward_speed</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_use_fixed_heading</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">+=</span> <span class="s1">&#39;Heading offset = </span><span class="si">%.2f</span><span class="s1"> degrees</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_heading_offset</span> <span class="o">*</span> <span class="mi">180</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">msg</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">inertial_frame_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_inertial_frame_id</span>
+
+    <span class="nd">@inertial_frame_id</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">inertial_frame_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">frame_id</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="n">frame_id</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;world&#39;</span><span class="p">,</span> <span class="s1">&#39;world_ned&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_inertial_frame_id</span> <span class="o">=</span> <span class="n">frame_id</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">y</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_y</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">z</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_z</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">pos</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">_x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_z</span><span class="p">])</span>
+
+    <span class="nd">@pos</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">pos</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_pos</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">new_pos</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">new_pos</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">new_pos</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+            <span class="k">assert</span> <span class="n">new_pos</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="mi">3</span><span class="p">,)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Invalid position vector size&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">new_pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_y</span> <span class="o">=</span> <span class="n">new_pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_z</span> <span class="o">=</span> <span class="n">new_pos</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">violates_constraint</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_violates_constraint</span>
+
+    <span class="nd">@violates_constraint</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">violates_constraint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flag</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_violates_constraint</span> <span class="o">=</span> <span class="n">flag</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">max_forward_speed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_max_forward_speed</span>
+
+    <span class="nd">@max_forward_speed</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">max_forward_speed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vel</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_max_forward_speed</span> <span class="o">=</span> <span class="n">vel</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">heading_offset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_heading_offset</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">heading</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_heading</span>
+
+    <span class="nd">@heading</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">heading</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">angle</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_heading</span> <span class="o">=</span> <span class="n">angle</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">using_heading_offset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_use_fixed_heading</span>
+
+<div class="viewcode-block" id="Waypoint.get_color"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_waypoints.html#uuv_waypoints.waypoint.Waypoint.get_color">[docs]</a>    <span class="k">def</span> <span class="nf">get_color</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">FAILED_WAYPOINT</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_violates_constraint</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">OK_WAYPOINT</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Waypoint.get_final_color"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_waypoints.html#uuv_waypoints.waypoint.Waypoint.get_final_color">[docs]</a>    <span class="k">def</span> <span class="nf">get_final_color</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">FINAL_WAYPOINT_COLOR</span></div>
+
+<div class="viewcode-block" id="Waypoint.from_message"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_waypoints.html#uuv_waypoints.waypoint.Waypoint.from_message">[docs]</a>    <span class="k">def</span> <span class="nf">from_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_inertial_frame_id</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">frame_id</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_inertial_frame_id</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_inertial_frame_id</span> <span class="o">=</span> <span class="s1">&#39;world&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">point</span><span class="o">.</span><span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_y</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">point</span><span class="o">.</span><span class="n">y</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_z</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">point</span><span class="o">.</span><span class="n">z</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_max_forward_speed</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">max_forward_speed</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_use_fixed_heading</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">use_fixed_heading</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_heading_offset</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">heading_offset</span></div>
+
+<div class="viewcode-block" id="Waypoint.to_message"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_waypoints.html#uuv_waypoints.waypoint.Waypoint.to_message">[docs]</a>    <span class="k">def</span> <span class="nf">to_message</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">wp</span> <span class="o">=</span> <span class="n">WaypointMessage</span><span class="p">()</span>
+        <span class="n">wp</span><span class="o">.</span><span class="n">point</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
+        <span class="n">wp</span><span class="o">.</span><span class="n">point</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_y</span>
+        <span class="n">wp</span><span class="o">.</span><span class="n">point</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_z</span>
+        <span class="n">wp</span><span class="o">.</span><span class="n">max_forward_speed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_max_forward_speed</span>
+        <span class="n">wp</span><span class="o">.</span><span class="n">use_fixed_heading</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_use_fixed_heading</span>
+        <span class="n">wp</span><span class="o">.</span><span class="n">heading_offset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_heading_offset</span>
+        <span class="n">wp</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_inertial_frame_id</span>
+        <span class="k">return</span> <span class="n">wp</span></div>
+
+<div class="viewcode-block" id="Waypoint.dist"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_waypoints.html#uuv_waypoints.waypoint.Waypoint.dist">[docs]</a>    <span class="k">def</span> <span class="nf">dist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pos</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">-</span> <span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span>
+                       <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_y</span> <span class="o">-</span> <span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span>
+                       <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_z</span> <span class="o">-</span> <span class="n">pos</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, UUV Simulator Authors.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

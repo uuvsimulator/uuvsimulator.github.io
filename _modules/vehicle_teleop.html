@@ -1,0 +1,389 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>vehicle_teleop &mdash; UUV Simulator 0.2 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="UUV Simulator 0.2 documentation" href="../index.html"/>
+        <link rel="up" title="Module code" href="index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> UUV Simulator
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/index.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">F.A.Q.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">UUV Simulator</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Module code</a> &raquo;</li>
+      
+    <li>vehicle_teleop</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for vehicle_teleop</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># Copyright (c) 2016 The UUV Simulator Authors.</span>
+<span class="c1"># All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">rospy</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">std_msgs.msg</span> <span class="k">import</span> <span class="n">Bool</span>
+<span class="kn">from</span> <span class="nn">geometry_msgs.msg</span> <span class="k">import</span> <span class="n">Twist</span><span class="p">,</span> <span class="n">Accel</span><span class="p">,</span> <span class="n">Vector3</span>
+<span class="kn">from</span> <span class="nn">sensor_msgs.msg</span> <span class="k">import</span> <span class="n">Joy</span>
+
+
+<div class="viewcode-block" id="VehicleTeleop"><a class="viewcode-back" href="../api/uuv_simulator/uuv_teleop/scripts/vehicle_teleop.html#vehicle_teleop.VehicleTeleop">[docs]</a><span class="k">class</span> <span class="nc">VehicleTeleop</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Load the mapping for each input</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_axes</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                          <span class="n">roll</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">pitch</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">yaw</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                          <span class="n">xfast</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">yfast</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">zfast</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+                          <span class="n">rollfast</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">pitchfast</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">yawfast</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="c1"># Load the gain for each joystick axis input</span>
+        <span class="c1"># (default values for the XBox 360 controller)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_axes_gain</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+                               <span class="n">roll</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">pitch</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">yaw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+                               <span class="n">xfast</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">yfast</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">zfast</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                               <span class="n">rollfast</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">pitchfast</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">yawfast</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">rospy</span><span class="o">.</span><span class="n">has_param</span><span class="p">(</span><span class="s1">&#39;~mapping&#39;</span><span class="p">):</span>
+            <span class="n">mapping</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s1">&#39;~mapping&#39;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_axes</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">tag</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mapping</span><span class="p">:</span>
+                    <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s1">&#39;Tag not found in axes mapping, &#39;</span>
+                                  <span class="s1">&#39;tag=</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">tag</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="s1">&#39;axis&#39;</span> <span class="ow">in</span> <span class="n">mapping</span><span class="p">[</span><span class="n">tag</span><span class="p">]:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_axes</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span> <span class="o">=</span> <span class="n">mapping</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="s1">&#39;axis&#39;</span><span class="p">]</span>
+                    <span class="k">if</span> <span class="s1">&#39;gain&#39;</span> <span class="ow">in</span> <span class="n">mapping</span><span class="p">[</span><span class="n">tag</span><span class="p">]:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_axes_gain</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span> <span class="o">=</span> <span class="n">mapping</span><span class="p">[</span><span class="n">tag</span><span class="p">][</span><span class="s1">&#39;gain&#39;</span><span class="p">]</span>
+
+        <span class="c1"># Dead zone: Force values close to 0 to 0</span>
+        <span class="c1"># (Recommended for imprecise controllers)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_deadzone</span> <span class="o">=</span> <span class="mf">0.5</span>
+        <span class="k">if</span> <span class="n">rospy</span><span class="o">.</span><span class="n">has_param</span><span class="p">(</span><span class="s1">&#39;~deadzone&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_deadzone</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s1">&#39;~deadzone&#39;</span><span class="p">))</span>
+
+        <span class="c1"># Default for the RB button of the XBox 360 controller</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_deadman_button</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">if</span> <span class="n">rospy</span><span class="o">.</span><span class="n">has_param</span><span class="p">(</span><span class="s1">&#39;~deadman_button&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_deadman_button</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s1">&#39;~deadman_button&#39;</span><span class="p">))</span>
+
+        <span class="c1"># If these buttons are pressed, the arm will not move</span>
+        <span class="k">if</span> <span class="n">rospy</span><span class="o">.</span><span class="n">has_param</span><span class="p">(</span><span class="s1">&#39;~exclusion_buttons&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_exclusion_buttons</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s1">&#39;~exclusion_buttons&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_exclusion_buttons</span><span class="p">)</span> <span class="ow">in</span> <span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_exclusion_buttons</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_exclusion_buttons</span><span class="p">)]</span>
+            <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_exclusion_buttons</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exclusion_buttons</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+                        <span class="k">raise</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ROSException</span><span class="p">(</span>
+                            <span class="s1">&#39;Exclusion buttons must be an integer index to &#39;</span>
+                            <span class="s1">&#39;the joystick button&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_exclusion_buttons</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+
+        <span class="c1"># Default for the start button of the XBox 360 controller</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_home_button</span> <span class="o">=</span> <span class="mi">7</span>
+        <span class="k">if</span> <span class="n">rospy</span><span class="o">.</span><span class="n">has_param</span><span class="p">(</span><span class="s1">&#39;~home_button&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_home_button</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s1">&#39;~home_button&#39;</span><span class="p">))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_msg_type</span> <span class="o">=</span> <span class="s1">&#39;twist&#39;</span>
+        <span class="k">if</span> <span class="n">rospy</span><span class="o">.</span><span class="n">has_param</span><span class="p">(</span><span class="s1">&#39;~type&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_msg_type</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s1">&#39;~type&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_msg_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;twist&#39;</span><span class="p">,</span> <span class="s1">&#39;accel&#39;</span><span class="p">]:</span>
+                <span class="k">raise</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ROSException</span><span class="p">(</span><span class="s1">&#39;Teleoperation output must be either &#39;</span>
+                                         <span class="s1">&#39;twist or accel&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_msg_type</span> <span class="o">==</span> <span class="s1">&#39;twist&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_output_pub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s1">&#39;output&#39;</span><span class="p">,</span> <span class="n">Twist</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_output_pub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s1">&#39;output&#39;</span><span class="p">,</span> <span class="n">Accel</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_home_pressed_pub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span>
+            <span class="s1">&#39;home_pressed&#39;</span><span class="p">,</span> <span class="n">Bool</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># Joystick topic subscriber</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_joy_sub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Subscriber</span><span class="p">(</span><span class="s1">&#39;joy&#39;</span><span class="p">,</span> <span class="n">Joy</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_joy_callback</span><span class="p">)</span>
+
+        <span class="n">rate</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Rate</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+        <span class="k">while</span> <span class="ow">not</span> <span class="n">rospy</span><span class="o">.</span><span class="n">is_shutdown</span><span class="p">():</span>
+            <span class="n">rate</span><span class="o">.</span><span class="n">sleep</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_parse_joy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">joy</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_msg_type</span> <span class="o">==</span> <span class="s1">&#39;twist&#39;</span><span class="p">:</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="n">Twist</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="n">Accel</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">joy</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># Linear velocities:</span>
+            <span class="n">l</span> <span class="o">=</span> <span class="n">Vector3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_axes</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="nb">abs</span><span class="p">(</span><span class="n">joy</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_axes</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]])</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deadzone</span><span class="p">:</span>
+                <span class="n">l</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_axes_gain</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">joy</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_axes</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]]</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_axes</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="nb">abs</span><span class="p">(</span><span class="n">joy</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_axes</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]])</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deadzone</span><span class="p">:</span>
+                <span class="n">l</span><span class="o">.</span><span class="n">y</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_axes_gain</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">joy</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_axes</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]]</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_axes</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="nb">abs</span><span class="p">(</span><span class="n">joy</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_axes</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]])</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deadzone</span><span class="p">:</span>
+                <span class="n">l</span><span class="o">.</span><span class="n">z</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_axes_gain</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">joy</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_axes</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]]</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_axes</span><span class="p">[</span><span class="s1">&#39;xfast&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="nb">abs</span><span class="p">(</span><span class="n">joy</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_axes</span><span class="p">[</span><span class="s1">&#39;xfast&#39;</span><span class="p">]])</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deadzone</span><span class="p">:</span>
+                <span class="n">l</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_axes_gain</span><span class="p">[</span><span class="s1">&#39;xfast&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">joy</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_axes</span><span class="p">[</span><span class="s1">&#39;xfast&#39;</span><span class="p">]]</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_axes</span><span class="p">[</span><span class="s1">&#39;yfast&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="nb">abs</span><span class="p">(</span><span class="n">joy</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_axes</span><span class="p">[</span><span class="s1">&#39;yfast&#39;</span><span class="p">]])</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deadzone</span><span class="p">:</span>
+                <span class="n">l</span><span class="o">.</span><span class="n">y</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_axes_gain</span><span class="p">[</span><span class="s1">&#39;yfast&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">joy</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_axes</span><span class="p">[</span><span class="s1">&#39;yfast&#39;</span><span class="p">]]</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_axes</span><span class="p">[</span><span class="s1">&#39;zfast&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="nb">abs</span><span class="p">(</span><span class="n">joy</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_axes</span><span class="p">[</span><span class="s1">&#39;zfast&#39;</span><span class="p">]])</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deadzone</span><span class="p">:</span>
+                <span class="n">l</span><span class="o">.</span><span class="n">z</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_axes_gain</span><span class="p">[</span><span class="s1">&#39;zfast&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">joy</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_axes</span><span class="p">[</span><span class="s1">&#39;zfast&#39;</span><span class="p">]]</span>
+
+            <span class="c1"># Angular velocities:</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="n">Vector3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_axes</span><span class="p">[</span><span class="s1">&#39;roll&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="nb">abs</span><span class="p">(</span><span class="n">joy</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_axes</span><span class="p">[</span><span class="s1">&#39;roll&#39;</span><span class="p">]])</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deadzone</span><span class="p">:</span>
+                <span class="n">a</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_axes_gain</span><span class="p">[</span><span class="s1">&#39;roll&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">joy</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_axes</span><span class="p">[</span><span class="s1">&#39;roll&#39;</span><span class="p">]]</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_axes</span><span class="p">[</span><span class="s1">&#39;rollfast&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="nb">abs</span><span class="p">(</span><span class="n">joy</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_axes</span><span class="p">[</span><span class="s1">&#39;rollfast&#39;</span><span class="p">]])</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deadzone</span><span class="p">:</span>
+                <span class="n">a</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_axes_gain</span><span class="p">[</span><span class="s1">&#39;rollfast&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">joy</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_axes</span><span class="p">[</span><span class="s1">&#39;rollfast&#39;</span><span class="p">]]</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_axes</span><span class="p">[</span><span class="s1">&#39;pitch&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="nb">abs</span><span class="p">(</span><span class="n">joy</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_axes</span><span class="p">[</span><span class="s1">&#39;pitch&#39;</span><span class="p">]])</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deadzone</span><span class="p">:</span>
+                <span class="n">a</span><span class="o">.</span><span class="n">y</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_axes_gain</span><span class="p">[</span><span class="s1">&#39;pitch&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">joy</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_axes</span><span class="p">[</span><span class="s1">&#39;pitch&#39;</span><span class="p">]]</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_axes</span><span class="p">[</span><span class="s1">&#39;pitchfast&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="nb">abs</span><span class="p">(</span><span class="n">joy</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_axes</span><span class="p">[</span><span class="s1">&#39;pitchfast&#39;</span><span class="p">]])</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deadzone</span><span class="p">:</span>
+                <span class="n">a</span><span class="o">.</span><span class="n">y</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_axes_gain</span><span class="p">[</span><span class="s1">&#39;pitchfast&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">joy</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_axes</span><span class="p">[</span><span class="s1">&#39;pitchfast&#39;</span><span class="p">]]</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_axes</span><span class="p">[</span><span class="s1">&#39;yaw&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="nb">abs</span><span class="p">(</span><span class="n">joy</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_axes</span><span class="p">[</span><span class="s1">&#39;yaw&#39;</span><span class="p">]])</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deadzone</span><span class="p">:</span>
+                <span class="n">a</span><span class="o">.</span><span class="n">z</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_axes_gain</span><span class="p">[</span><span class="s1">&#39;yaw&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">joy</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_axes</span><span class="p">[</span><span class="s1">&#39;yaw&#39;</span><span class="p">]]</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_axes</span><span class="p">[</span><span class="s1">&#39;yawfast&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="nb">abs</span><span class="p">(</span><span class="n">joy</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_axes</span><span class="p">[</span><span class="s1">&#39;yawfast&#39;</span><span class="p">]])</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deadzone</span><span class="p">:</span>
+                <span class="n">a</span><span class="o">.</span><span class="n">z</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_axes_gain</span><span class="p">[</span><span class="s1">&#39;yawfast&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">joy</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_axes</span><span class="p">[</span><span class="s1">&#39;yawfast&#39;</span><span class="p">]]</span>
+
+            <span class="n">cmd</span><span class="o">.</span><span class="n">linear</span> <span class="o">=</span> <span class="n">l</span>
+            <span class="n">cmd</span><span class="o">.</span><span class="n">angular</span> <span class="o">=</span> <span class="n">a</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cmd</span><span class="o">.</span><span class="n">linear</span> <span class="o">=</span> <span class="n">Vector3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">cmd</span><span class="o">.</span><span class="n">angular</span> <span class="o">=</span> <span class="n">Vector3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">cmd</span>
+
+    <span class="k">def</span> <span class="nf">_joy_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">joy</span><span class="p">):</span>
+        <span class="c1"># If any exclusion buttons are pressed, do nothing</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exclusion_buttons</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">joy</span><span class="o">.</span><span class="n">buttons</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">cmd</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_joy</span><span class="p">()</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_output_pub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+                    <span class="k">return</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deadman_button</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">joy</span><span class="o">.</span><span class="n">buttons</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_deadman_button</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">cmd</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_joy</span><span class="p">(</span><span class="n">joy</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">cmd</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_joy</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">cmd</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_joy</span><span class="p">(</span><span class="n">joy</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_output_pub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_home_pressed_pub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span>
+                <span class="n">Bool</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="n">joy</span><span class="o">.</span><span class="n">buttons</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_home_button</span><span class="p">])))</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span> <span class="s1">&#39;Error occurred while parsing joystick input, check if the joy_id corresponds to the joystick &#39;</span> \
+                  <span class="s1">&#39;being used. message=</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span></div>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="c1"># Start the node</span>
+    <span class="n">node_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="n">node_name</span><span class="p">)</span>
+    <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s1">&#39;Starting [</span><span class="si">%s</span><span class="s1">] node&#39;</span> <span class="o">%</span> <span class="n">node_name</span><span class="p">)</span>
+
+    <span class="n">teleop</span> <span class="o">=</span> <span class="n">VehicleTeleop</span><span class="p">()</span>
+
+    <span class="n">rospy</span><span class="o">.</span><span class="n">spin</span><span class="p">()</span>
+    <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s1">&#39;Shutting down [</span><span class="si">%s</span><span class="s1">] node&#39;</span> <span class="o">%</span> <span class="n">node_name</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, UUV Simulator Authors.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
