@@ -30,9 +30,6 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="UUV Simulator 0.2 documentation" href="../index.html"/>
         <link rel="up" title="Module code" href="index.html"/> 
 
@@ -136,7 +133,7 @@
            <div itemprop="articleBody">
             
   <h1>Source code for publish_footprints</h1><div class="highlight"><pre>
-<span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># Copyright (c) 2016 The UUV Simulator Authors.</span>
 <span class="c1"># All rights reserved.</span>
 <span class="c1">#</span>
@@ -155,21 +152,21 @@
 <span class="kn">import</span> <span class="nn">rospy</span>
 <span class="kn">import</span> <span class="nn">rostopic</span>
 <span class="kn">import</span> <span class="nn">rosgraph</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">copy</span> <span class="k">import</span> <span class="n">deepcopy</span>
-<span class="kn">from</span> <span class="nn">nav_msgs.msg</span> <span class="k">import</span> <span class="n">Odometry</span>
-<span class="kn">from</span> <span class="nn">geometry_msgs.msg</span> <span class="k">import</span> <span class="n">PolygonStamped</span><span class="p">,</span> <span class="n">Point32</span>
-<span class="kn">from</span> <span class="nn">tf.transformations</span> <span class="k">import</span> <span class="n">euler_from_quaternion</span>
-<span class="kn">from</span> <span class="nn">gazebo_msgs.srv</span> <span class="k">import</span> <span class="n">GetWorldProperties</span><span class="p">,</span> <span class="n">GetModelProperties</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+<span class="kn">from</span> <span class="nn">nav_msgs.msg</span> <span class="kn">import</span> <span class="n">Odometry</span>
+<span class="kn">from</span> <span class="nn">geometry_msgs.msg</span> <span class="kn">import</span> <span class="n">PolygonStamped</span><span class="p">,</span> <span class="n">Point32</span>
+<span class="kn">from</span> <span class="nn">tf.transformations</span> <span class="kn">import</span> <span class="n">euler_from_quaternion</span>
+<span class="kn">from</span> <span class="nn">gazebo_msgs.srv</span> <span class="kn">import</span> <span class="n">GetWorldProperties</span><span class="p">,</span> <span class="n">GetModelProperties</span>
 
 
 <span class="n">vehicle_pub</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
 
 <span class="n">odom_sub</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
 
-<span class="n">get_world_props</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">get_world_props</span> <span class="o">=</span> <span class="bp">None</span>
 
-<span class="n">get_model_props</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">get_model_props</span> <span class="o">=</span> <span class="bp">None</span>
 
 <span class="n">marker</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.25</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.25</span><span class="p">]])</span>
 
@@ -211,10 +208,10 @@
     <span class="n">vehicle_pub</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">new_poly</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="get_topics"><a class="viewcode-back" href="../api/uuv_simulator/uuv_assistants/scripts/publish_footprints.html#publish_footprints.get_topics">[docs]</a><span class="k">def</span> <span class="nf">get_topics</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">rosgraph</span><span class="o">.</span><span class="n">Master</span><span class="p">(</span><span class="s1">&#39;/</span><span class="si">{}</span><span class="s1">/&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span><span class="o">.</span><span class="n">getPublishedTopics</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">t</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;/rosout&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">t</span><span class="p">]</span></div>
+    <span class="k">return</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">rosgraph</span><span class="o">.</span><span class="n">Master</span><span class="p">(</span><span class="s1">&#39;/{}/&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span><span class="o">.</span><span class="n">getPublishedTopics</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">t</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;/rosout&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">t</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="sub_odometry_topic"><a class="viewcode-back" href="../api/uuv_simulator/uuv_assistants/scripts/publish_footprints.html#publish_footprints.sub_odometry_topic">[docs]</a><span class="k">def</span> <span class="nf">sub_odometry_topic</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-    <span class="n">odom_topic_sub</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">odom_topic_sub</span> <span class="o">=</span> <span class="bp">None</span>
     <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">get_topics</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
         <span class="n">msg_class</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">rostopic</span><span class="o">.</span><span class="n">get_topic_class</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">msg_class</span> <span class="o">==</span> <span class="n">Odometry</span><span class="p">:</span>
@@ -227,24 +224,24 @@
 <span class="sd">    marine crafts.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">global</span> <span class="n">get_world_props</span>
-    <span class="k">if</span> <span class="n">get_world_props</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">get_world_props</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="c1"># Handle for world properties update function</span>
             <span class="n">rospy</span><span class="o">.</span><span class="n">wait_for_service</span><span class="p">(</span><span class="s1">&#39;/gazebo/get_world_properties&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
             <span class="n">get_world_props</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span><span class="s1">&#39;/gazebo/get_world_properties&#39;</span><span class="p">,</span>
                                                  <span class="n">GetWorldProperties</span><span class="p">)</span>
         <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ROSException</span><span class="p">:</span>
-            <span class="nb">print</span> <span class="s1">&#39;/gazebo/get_world_properties service is unavailable&#39;</span>
+            <span class="k">print</span> <span class="s1">&#39;/gazebo/get_world_properties service is unavailable&#39;</span>
 
     <span class="k">global</span> <span class="n">get_model_props</span>
-    <span class="k">if</span> <span class="n">get_model_props</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">get_model_props</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="c1"># Handle for retrieving model properties</span>
             <span class="n">rospy</span><span class="o">.</span><span class="n">wait_for_service</span><span class="p">(</span><span class="s1">&#39;/gazebo/get_model_properties&#39;</span><span class="p">)</span>
             <span class="n">get_model_props</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceProxy</span><span class="p">(</span><span class="s1">&#39;/gazebo/get_model_properties&#39;</span><span class="p">,</span>
                                                  <span class="n">GetModelProperties</span><span class="p">)</span>
         <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ROSException</span><span class="p">:</span>
-            <span class="nb">print</span> <span class="s1">&#39;/gazebo/get_model_properties service is unavailable&#39;</span>
+            <span class="k">print</span> <span class="s1">&#39;/gazebo/get_model_properties service is unavailable&#39;</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="k">global</span> <span class="n">vehicle_pub</span>
         <span class="k">global</span> <span class="n">odom_sub</span>
@@ -252,28 +249,28 @@
         <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">msg</span><span class="o">.</span><span class="n">model_names</span><span class="p">:</span>
             <span class="n">model_properties</span> <span class="o">=</span> <span class="n">get_model_props</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">model_properties</span><span class="o">.</span><span class="n">is_static</span> <span class="ow">and</span> \
-               <span class="n">rospy</span><span class="o">.</span><span class="n">has_param</span><span class="p">(</span><span class="s1">&#39;/</span><span class="si">{}</span><span class="s1">/robot_description&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="p">))</span> <span class="ow">and</span> \
+               <span class="n">rospy</span><span class="o">.</span><span class="n">has_param</span><span class="p">(</span><span class="s1">&#39;/{}/robot_description&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="p">))</span> <span class="ow">and</span> \
                <span class="n">model</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">vehicle_pub</span><span class="p">:</span>
                <span class="n">odom_sub</span><span class="p">[</span><span class="n">model</span><span class="p">]</span> <span class="o">=</span> <span class="n">sub_odometry_topic</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
-               <span class="n">vehicle_pub</span><span class="p">[</span><span class="n">model</span><span class="p">]</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s1">&#39;/</span><span class="si">{}</span><span class="s1">/footprint&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="p">),</span>
+               <span class="n">vehicle_pub</span><span class="p">[</span><span class="n">model</span><span class="p">]</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s1">&#39;/{}/footprint&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="p">),</span>
                                                     <span class="n">PolygonStamped</span><span class="p">,</span>
                                                     <span class="n">queue_size</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
     <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ServiceException</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
-        <span class="nb">print</span> <span class="s1">&#39;Service call failed: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">e</span></div>
+        <span class="k">print</span> <span class="s1">&#39;Service call failed: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">e</span></div>
 
 <div class="viewcode-block" id="main"><a class="viewcode-back" href="../api/uuv_simulator/uuv_assistants/scripts/publish_footprints.html#publish_footprints.main">[docs]</a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="n">update_timer</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">rospy</span><span class="o">.</span><span class="n">Duration</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">update_vehicle_list</span><span class="p">)</span></div>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Start publishing vehicle footprints to RViz&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Start publishing vehicle footprints to RViz&#39;</span><span class="p">)</span>
     <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s1">&#39;publish_footprints&#39;</span><span class="p">)</span>
 
     <span class="k">try</span><span class="p">:</span>
         <span class="n">main</span><span class="p">()</span>
         <span class="n">rospy</span><span class="o">.</span><span class="n">spin</span><span class="p">()</span>
     <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ROSInterruptException</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;caught exception&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;exiting&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;caught exception&#39;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;exiting&#39;</span><span class="p">)</span>
 </pre></div>
 
            </div>
@@ -316,7 +313,7 @@
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

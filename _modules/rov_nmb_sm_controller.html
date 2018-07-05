@@ -30,9 +30,6 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="UUV Simulator 0.2 documentation" href="../index.html"/>
         <link rel="up" title="Module code" href="index.html"/> 
 
@@ -136,7 +133,7 @@
            <div itemprop="articleBody">
             
   <h1>Source code for rov_nmb_sm_controller</h1><div class="highlight"><pre>
-<span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># Copyright (c) 2016 The UUV Simulator Authors.</span>
 <span class="c1"># All rights reserved.</span>
 <span class="c1">#</span>
@@ -153,9 +150,9 @@
 <span class="c1"># limitations under the License.</span>
 
 <span class="kn">import</span> <span class="nn">rospy</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">uuv_control_interfaces</span> <span class="k">import</span> <span class="n">DPControllerBase</span>
-<span class="kn">from</span> <span class="nn">uuv_control_msgs.srv</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">uuv_control_interfaces</span> <span class="kn">import</span> <span class="n">DPControllerBase</span>
+<span class="kn">from</span> <span class="nn">uuv_control_msgs.srv</span> <span class="kn">import</span> <span class="o">*</span>
 
 
 <div class="viewcode-block" id="ROV_NMB_SMController"><a class="viewcode-back" href="../api/uuv_simulator/uuv_trajectory_control/scripts/rov_nmb_sm_controller.html#rov_nmb_sm_controller.ROV_NMB_SMController">[docs]</a><span class="k">class</span> <span class="nc">ROV_NMB_SMController</span><span class="p">(</span><span class="n">DPControllerBase</span><span class="p">):</span>
@@ -174,9 +171,9 @@
     <span class="n">_LABEL</span> <span class="o">=</span> <span class="s1">&#39;Model-free Sliding Mode Controller&#39;</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">DPControllerBase</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">is_model_based</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">DPControllerBase</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">is_model_based</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Initializing: &#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_LABEL</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_first_pass</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_first_pass</span> <span class="o">=</span> <span class="bp">True</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_t_init</span> <span class="o">=</span> <span class="mf">0.0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_s_linear_b_init</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_s_angular_b_init</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
@@ -252,12 +249,12 @@
             <span class="n">GetSMControllerParams</span><span class="p">,</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">get_sm_controller_params_callback</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_is_init</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_is_init</span> <span class="o">=</span> <span class="bp">True</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_LABEL</span> <span class="o">+</span> <span class="s1">&#39; ready&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_reset_controller</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">ROV_NMB_SMController</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">_reset_controller</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_first_pass</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_first_pass</span> <span class="o">=</span> <span class="bp">True</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_t_init</span> <span class="o">=</span> <span class="mf">0.0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_s_linear_b_init</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_s_angular_b_init</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
@@ -269,7 +266,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_tau</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
 
 <div class="viewcode-block" id="ROV_NMB_SMController.set_sm_controller_params_callback"><a class="viewcode-back" href="../api/uuv_simulator/uuv_trajectory_control/scripts/rov_nmb_sm_controller.html#rov_nmb_sm_controller.ROV_NMB_SMController.set_sm_controller_params_callback">[docs]</a>    <span class="k">def</span> <span class="nf">set_sm_controller_params_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">SetSMControllerParamsResponse</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">SetSMControllerParamsResponse</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="ROV_NMB_SMController.get_sm_controller_params_callback"><a class="viewcode-back" href="../api/uuv_simulator/uuv_trajectory_control/scripts/rov_nmb_sm_controller.html#rov_nmb_sm_controller.ROV_NMB_SMController.get_sm_controller_params_callback">[docs]</a>    <span class="k">def</span> <span class="nf">get_sm_controller_params_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">GetSMControllerParamsResponse</span><span class="p">(</span>
@@ -280,7 +277,7 @@
 
 <div class="viewcode-block" id="ROV_NMB_SMController.update_controller"><a class="viewcode-back" href="../api/uuv_simulator/uuv_trajectory_control/scripts/rov_nmb_sm_controller.html#rov_nmb_sm_controller.ROV_NMB_SMController.update_controller">[docs]</a>    <span class="k">def</span> <span class="nf">update_controller</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_init</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">False</span>
+            <span class="k">return</span> <span class="bp">False</span>
         <span class="n">t</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Time</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">to_sec</span><span class="p">()</span>
 
         <span class="n">dt</span> <span class="o">=</span> <span class="n">t</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prev_t</span>
@@ -301,9 +298,9 @@
                                                   <span class="n">e_p_angular_b</span><span class="p">)</span>
 
         <span class="c1"># Compute exponential decay for transient improvement</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_first_pass</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_first_pass</span> <span class="o">==</span> <span class="bp">True</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_t_init</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_s_linear_b_init</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_s_angular_b_init</span> <span class="o">=</span> <span class="n">t</span><span class="p">,</span> <span class="n">s_linear_b</span><span class="p">,</span> <span class="n">s_angular_b</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_first_pass</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_first_pass</span> <span class="o">=</span> <span class="bp">False</span>
 
         <span class="n">sd_linear_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_s_linear_b_init</span><span class="p">,</span>
                                   <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">_K</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">t</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_t_init</span><span class="p">)))</span>
@@ -339,8 +336,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_prev_sign_sn_angular_b</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sat</span><span class="p">(</span><span class="n">sn_angular_b</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sat_epsilon</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_prev_t</span> <span class="o">=</span> <span class="n">t</span></div>
 
-<div class="viewcode-block" id="ROV_NMB_SMController.sat"><a class="viewcode-back" href="../api/uuv_simulator/uuv_trajectory_control/scripts/rov_nmb_sm_controller.html#rov_nmb_sm_controller.ROV_NMB_SMController.sat">[docs]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">sat</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ROV_NMB_SMController.sat"><a class="viewcode-back" href="../api/uuv_simulator/uuv_trajectory_control/scripts/rov_nmb_sm_controller.html#rov_nmb_sm_controller.ROV_NMB_SMController.sat">[docs]</a>    <span class="k">def</span> <span class="nf">sat</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
         <span class="k">assert</span> <span class="n">epsilon</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Saturation constant must be greate or equal to zero&#39;</span>
         <span class="k">if</span> <span class="n">epsilon</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
@@ -356,16 +353,16 @@
                 <span class="n">output</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">vec</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">output</span></div></div>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Starting Non-model-based Sliding Mode Controller&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Starting Non-model-based Sliding Mode Controller&#39;</span><span class="p">)</span>
     <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s1">&#39;rov_nmb_sm_controller&#39;</span><span class="p">)</span>
 
     <span class="k">try</span><span class="p">:</span>
         <span class="n">node</span> <span class="o">=</span> <span class="n">ROV_NMB_SMController</span><span class="p">()</span>
         <span class="n">rospy</span><span class="o">.</span><span class="n">spin</span><span class="p">()</span>
     <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ROSInterruptException</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;caught exception&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;exiting&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;caught exception&#39;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;exiting&#39;</span><span class="p">)</span>
 </pre></div>
 
            </div>
@@ -408,7 +405,7 @@
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

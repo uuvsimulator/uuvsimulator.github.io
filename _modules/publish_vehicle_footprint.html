@@ -30,9 +30,6 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="UUV Simulator 0.2 documentation" href="../index.html"/>
         <link rel="up" title="Module code" href="index.html"/> 
 
@@ -136,7 +133,7 @@
            <div itemprop="articleBody">
             
   <h1>Source code for publish_vehicle_footprint</h1><div class="highlight"><pre>
-<span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># Copyright (c) 2016 The UUV Simulator Authors.</span>
 <span class="c1"># All rights reserved.</span>
 <span class="c1">#</span>
@@ -153,12 +150,12 @@
 <span class="c1"># limitations under the License.</span>
 
 <span class="kn">import</span> <span class="nn">rospy</span>
-<span class="kn">from</span> <span class="nn">copy</span> <span class="k">import</span> <span class="n">deepcopy</span>
-<span class="kn">from</span> <span class="nn">tf.transformations</span> <span class="k">import</span> <span class="n">euler_from_quaternion</span>
-<span class="kn">from</span> <span class="nn">nav_msgs.msg</span> <span class="k">import</span> <span class="n">Odometry</span>
-<span class="kn">from</span> <span class="nn">geometry_msgs.msg</span> <span class="k">import</span> <span class="n">PolygonStamped</span><span class="p">,</span> <span class="n">Point32</span>
-<span class="kn">from</span> <span class="nn">visualization_msgs.msg</span> <span class="k">import</span> <span class="n">Marker</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+<span class="kn">from</span> <span class="nn">tf.transformations</span> <span class="kn">import</span> <span class="n">euler_from_quaternion</span>
+<span class="kn">from</span> <span class="nn">nav_msgs.msg</span> <span class="kn">import</span> <span class="n">Odometry</span>
+<span class="kn">from</span> <span class="nn">geometry_msgs.msg</span> <span class="kn">import</span> <span class="n">PolygonStamped</span><span class="p">,</span> <span class="n">Point32</span>
+<span class="kn">from</span> <span class="nn">visualization_msgs.msg</span> <span class="kn">import</span> <span class="n">Marker</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 
 
 <div class="viewcode-block" id="VehicleFootprint"><a class="viewcode-back" href="../api/uuv_simulator/uuv_assistants/scripts/publish_vehicle_footprint.html#publish_vehicle_footprint.VehicleFootprint">[docs]</a><span class="k">class</span> <span class="nc">VehicleFootprint</span><span class="p">:</span>
@@ -174,9 +171,9 @@
             <span class="k">if</span> <span class="n">scale</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_scale_footprint</span> <span class="o">=</span> <span class="n">scale</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="nb">print</span> <span class="s1">&#39;Scale factor should be greater than zero&#39;</span>
+                <span class="k">print</span> <span class="s1">&#39;Scale factor should be greater than zero&#39;</span>
         
-        <span class="nb">print</span> <span class="s1">&#39;Footprint marker scale factor = &#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_scale_footprint</span>
+        <span class="k">print</span> <span class="s1">&#39;Footprint marker scale factor = &#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_scale_footprint</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_scale_label</span> <span class="o">=</span> <span class="mi">10</span>
 
@@ -185,9 +182,9 @@
             <span class="k">if</span> <span class="n">scale</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_scale_label</span> <span class="o">=</span> <span class="n">scale</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="nb">print</span> <span class="s1">&#39;Scale factor should be greater than zero&#39;</span>
+                <span class="k">print</span> <span class="s1">&#39;Scale factor should be greater than zero&#39;</span>
         
-        <span class="nb">print</span> <span class="s1">&#39;Label marker scale factor = &#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_scale_label</span>
+        <span class="k">print</span> <span class="s1">&#39;Label marker scale factor = &#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_scale_label</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_label_x_offset</span> <span class="o">=</span> <span class="mi">60</span>
         <span class="k">if</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s1">&#39;~label_x_offset&#39;</span><span class="p">):</span>
@@ -219,8 +216,8 @@
         <span class="c1"># Vehicle label marker (remap this topic in the launch file if necessary)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_label_pub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s1">&#39;label&#39;</span><span class="p">,</span> <span class="n">Marker</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
     
-<div class="viewcode-block" id="VehicleFootprint.rot"><a class="viewcode-back" href="../api/uuv_simulator/uuv_assistants/scripts/publish_vehicle_footprint.html#publish_vehicle_footprint.VehicleFootprint.rot">[docs]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">rot</span><span class="p">(</span><span class="n">alpha</span><span class="p">):</span>
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="VehicleFootprint.rot"><a class="viewcode-back" href="../api/uuv_simulator/uuv_assistants/scripts/publish_vehicle_footprint.html#publish_vehicle_footprint.VehicleFootprint.rot">[docs]</a>    <span class="k">def</span> <span class="nf">rot</span><span class="p">(</span><span class="n">alpha</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">alpha</span><span class="p">),</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">alpha</span><span class="p">)],</span>
                          <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">alpha</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">alpha</span><span class="p">)]])</span></div>
 
@@ -263,16 +260,16 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_label_pub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_label_marker</span><span class="p">)</span></div></div>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="nb">print</span> <span class="s1">&#39;Generate RViz footprint and markers for 2D visualization&#39;</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s1">&#39;Generate RViz footprint and markers for 2D visualization&#39;</span>
     <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s1">&#39;generate_vehicle_footprint&#39;</span><span class="p">)</span>
 
     <span class="k">try</span><span class="p">:</span>
         <span class="n">node</span> <span class="o">=</span> <span class="n">VehicleFootprint</span><span class="p">()</span>
         <span class="n">rospy</span><span class="o">.</span><span class="n">spin</span><span class="p">()</span>
     <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ROSInterruptException</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;caught exception&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;exiting&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;caught exception&#39;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;exiting&#39;</span><span class="p">)</span>
 </pre></div>
 
            </div>
@@ -315,7 +312,7 @@
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

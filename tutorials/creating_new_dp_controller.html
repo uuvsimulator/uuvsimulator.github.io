@@ -30,9 +30,6 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="UUV Simulator 0.2 documentation" href="../index.html"/>
         <link rel="up" title="Tutorials" href="index.html"/>
         <link rel="next" title="Making a simple seabed world model" href="seabed_world.html"/>
@@ -91,7 +88,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="create_new_vehicle.html">Creating a new underwater vehicle model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="config_thruster_manager.html">Configuring the thruster manager for a new vehicle</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Creating a new custom dynamic positioning controller</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Creating a new custom dynamic positioning controller</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#creating-the-custom-controller-package">Creating the custom controller package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#creating-the-controller-node">Creating the controller node</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#configuring-the-launch-files">Configuring the launch files</a></li>
@@ -145,7 +142,7 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/tutorials/creating_new_dp_controller.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/tutorials/creating_new_dp_controller.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -158,8 +155,8 @@
   <div class="section" id="creating-a-new-custom-dynamic-positioning-controller">
 <span id="creating-new-dp-controller"></span><h1>Creating a new custom dynamic positioning controller<a class="headerlink" href="#creating-a-new-custom-dynamic-positioning-controller" title="Permalink to this headline">¶</a></h1>
 <p>To facilitate the implementation of new control algorithms for the vehicle modelled in this package, a few Python modules were created as an interface to
-the vehicle’s thruster manager, the local planner and setup the necessary publishers and subscribers needed to receive trajectory messages and send
-thruster commands. The module also includes an implementation of Fossen’s equations of motion that can be used by model-based controllers. To create a
+the vehicle&#8217;s thruster manager, the local planner and setup the necessary publishers and subscribers needed to receive trajectory messages and send
+thruster commands. The module also includes an implementation of Fossen&#8217;s equations of motion that can be used by model-based controllers. To create a
 controller based on this Python modules, see the following steps. All the files discussed below are available in the package <a class="reference external" href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_tutorials/uuv_tutorial_dp_controller">uuv_tutorial_dp_controller</a>
 in the <a class="reference external" href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_tutorials">uuv_tutorials</a> folder. Remember to change the name of the package when developing your own module to avoid conflicts when compiling the catkin
 workspace.</p>
@@ -167,21 +164,21 @@ workspace.</p>
 <h2>Creating the custom controller package<a class="headerlink" href="#creating-the-custom-controller-package" title="Permalink to this headline">¶</a></h2>
 <p>First, a new catkin package will be created to include the scripts and launch files necessary for this implementation. Replace the name of the
 catkin workspace <strong>catkin_ws</strong> below if yours is named differently.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">catkin_ws</span><span class="o">/</span><span class="n">src</span>
-<span class="n">catkin_create_pkg</span> <span class="n">uuv_tutorial_dp_controller</span>
+<div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws/src
+catkin_create_pkg uuv_tutorial_dp_controller
 </pre></div>
 </div>
 <p>This command will create the necessary files for the new package which will be edited further on in this tutorial. Next, two folders are needed,
 one <strong>launch</strong> folder to the launch files and one <strong>scripts</strong> folder, where the implementation of the custom controller will be stored.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">catkin_ws</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">uuv_tutorial_dp_controller</span>
-<span class="n">mkdir</span> <span class="n">launch</span> <span class="n">scripts</span>
+<div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws/src/uuv_tutorial_dp_controller
+mkdir launch scripts
 </pre></div>
 </div>
 </div>
 <div class="section" id="creating-the-controller-node">
 <h2>Creating the controller node<a class="headerlink" href="#creating-the-controller-node" title="Permalink to this headline">¶</a></h2>
 <p>In the <strong>scripts</strong> folder, a Python file has to be created, here we will name it <strong>tutorial_dp_controller.py</strong>.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">touch</span> <span class="n">scripts</span><span class="o">/</span><span class="n">tutorial_dp_controller</span><span class="o">.</span><span class="n">py</span>
+<div class="highlight-python"><div class="highlight"><pre>touch scripts/tutorial_dp_controller.py
 </pre></div>
 </div>
 <p>This file will have the implementation of the controller named <strong>TutorialDPController</strong>, a very simple PID controller, as shown below.</p>
@@ -256,14 +253,14 @@ one <strong>launch</strong> folder to the launch files and one <strong>scripts</
 69
 70
 71
-72</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+72</pre></div></td><td class="code"><div class="highlight"><pre><span class="ch">#!/usr/bin/env python</span>
 <span class="kn">import</span> <span class="nn">rospy</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">uuv_control_interfaces</span> <span class="kn">import</span> <span class="n">DPControllerBase</span>
 
 <span class="k">class</span> <span class="nc">TutorialDPController</span><span class="p">(</span><span class="n">DPControllerBase</span><span class="p">):</span>
-  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-      <span class="nb">super</span><span class="p">(</span><span class="n">TutorialDPController</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="nb">super</span><span class="p">(</span><span class="n">TutorialDPController</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
       <span class="bp">self</span><span class="o">.</span><span class="n">_Kp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">_Kd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
@@ -318,7 +315,7 @@ one <strong>launch</strong> folder to the launch files and one <strong>scripts</
       <span class="n">tau</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_Kp</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">error_pose_euler</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_Kd</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_errors</span><span class="p">[</span><span class="s1">&#39;vel&#39;</span><span class="p">])</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_Ki</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_int</span><span class="p">)</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">publish_control_wrench</span><span class="p">(</span><span class="n">tau</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
   <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Tutorial - DP Controller&#39;</span><span class="p">)</span>
   <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s1">&#39;tutorial_dp_controller&#39;</span><span class="p">)</span>
 
@@ -332,21 +329,21 @@ one <strong>launch</strong> folder to the launch files and one <strong>scripts</
 </td></tr></table></div>
 <p>Analyzing the file in detail, for the controller to use the controller modules from <strong>uuv_control_interfaces</strong>, it has to inherit
 the <strong>DPControllerBase</strong> class and initialize it</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">TutorialDPController</span><span class="p">(</span><span class="n">DPControllerBase</span><span class="p">):</span>
-  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-      <span class="nb">super</span><span class="p">(</span><span class="n">TutorialDPController</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">TutorialDPController</span><span class="p">(</span><span class="n">DPControllerBase</span><span class="p">):</span>
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+      <span class="nb">super</span><span class="p">(</span><span class="n">TutorialDPController</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This will setup the super class to initialize, for example, odometry message subscribers and thruster manager topic publishers.
 For model-based controllers, the super class constructor has to be called as</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="nb">super</span><span class="p">(</span><span class="n">TutorialDPController</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">is_model_based</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="nb">super</span><span class="p">(</span><span class="n">TutorialDPController</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">is_model_based</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The controller’s parameters, in this case <strong>Kp</strong>, <strong>Kd</strong> and <strong>Ki</strong> should retrieved from the parameter server to allow the controller
-to be used in different configurations. One alternative is to read this information from the node’s private parameter namespace as shown
-below. This is done by adding a <strong>~</strong> in front of the parameters’s tag. The parameter has to be provided at the controller’s launch file
+<p>The controller&#8217;s parameters, in this case <strong>Kp</strong>, <strong>Kd</strong> and <strong>Ki</strong> should retrieved from the parameter server to allow the controller
+to be used in different configurations. One alternative is to read this information from the node&#8217;s private parameter namespace as shown
+below. This is done by adding a <strong>~</strong> in front of the parameters&#8217;s tag. The parameter has to be provided at the controller&#8217;s launch file
 accordingly, which will be discussed later on.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s1">&#39;~Kd&#39;</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">if</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s1">&#39;~Kd&#39;</span><span class="p">):</span>
   <span class="n">diag</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s1">&#39;~Kd&#39;</span><span class="p">)</span>
   <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">diag</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
       <span class="bp">self</span><span class="o">.</span><span class="n">_Kd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">diag</span><span class="p">)</span>
@@ -357,17 +354,17 @@ accordingly, which will be discussed later on.</p>
 </pre></div>
 </div>
 <p>The <strong>_reset_controller</strong> method can be overriden in case internal variables must be reset when the reset service call is received.
-It is important to also call the super class’ reset method as seen below to ensure that error and reference vectors are also going
+It is important to also call the super class&#8217; reset method as seen below to ensure that error and reference vectors are also going
 to be cleared.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="nb">super</span><span class="p">(</span><span class="n">TutorialDPController</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">_reset_controller</span><span class="p">()</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="nb">super</span><span class="p">(</span><span class="n">TutorialDPController</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">_reset_controller</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>When using the super class <strong>DPControllerBase</strong>, there is no need to add an controller update sequence or a timer. Once the method
 <strong>update_controller</strong> is implemented in the controller class, it will be given as a callback function to the odometry update method.
-This update method should include the controller’s algorithm and generate the control effort vector (in this case <strong>tau</strong>) and use the
+This update method should include the controller&#8217;s algorithm and generate the control effort vector (in this case <strong>tau</strong>) and use the
 super class function <strong>publish_control_wrench</strong> to publish it to the thruster manager input.</p>
 <p>The last part of the file is necessary for the ROS node to be executed.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
   <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Tutorial - DP Controller&#39;</span><span class="p">)</span>
   <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s1">&#39;tutorial_dp_controller&#39;</span><span class="p">)</span>
 
@@ -384,12 +381,12 @@ super class function <strong>publish_control_wrench</strong> to publish it to th
 <h2>Configuring the launch files<a class="headerlink" href="#configuring-the-launch-files" title="Permalink to this headline">¶</a></h2>
 <p>Once the custom controller is done, you have to turn your Python script into an executable and it can be done as follows, otherwise
 you will not be able to start the ROS node.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">chmod</span> <span class="n">u</span><span class="o">+</span><span class="n">x</span> <span class="n">tutorial_dp_controller</span><span class="o">.</span><span class="n">py</span>
+<div class="highlight-python"><div class="highlight"><pre>chmod u+x tutorial_dp_controller.py
 </pre></div>
 </div>
 <p>Next step is to setup the launch file for the new controller. Create a new launch file as follows</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">catkin_ws</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">uuv_tutorial_dp_controller</span><span class="o">/</span><span class="n">launch</span>
-<span class="n">touch</span> <span class="n">start_tutorial_dp_controller</span><span class="o">.</span><span class="n">launch</span>
+<div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws/src/uuv_tutorial_dp_controller/launch
+touch start_tutorial_dp_controller.launch
 </pre></div>
 </div>
 <p>Edit the file to include the following</p>
@@ -442,7 +439,7 @@ you will not be able to start the ROS node.</p>
 47
 48
 49
-50</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nt">&lt;launch&gt;</span>
+50</pre></div></td><td class="code"><div class="highlight"><pre><span class="nt">&lt;launch&gt;</span>
   <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;uuv_name&quot;</span><span class="nt">/&gt;</span>
   <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;model_name&quot;</span> <span class="na">default=</span><span class="s">&quot;$(arg uuv_name)&quot;</span><span class="nt">/&gt;</span>
   <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;saturation&quot;</span> <span class="na">default=</span><span class="s">&quot;5000&quot;</span><span class="nt">/&gt;</span>
@@ -501,7 +498,7 @@ their namespaces. The thruster manager must also be initialized.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">For more information on how to setup the thruster manager, check the tutorial
-<a class="reference internal" href="config_thruster_manager.html#config-thruster-manager"><span class="std std-ref">Configuring the thruster manager for a new vehicle</span></a>.</p>
+<a class="reference internal" href="config_thruster_manager.html#config-thruster-manager"><span>Configuring the thruster manager for a new vehicle</span></a>.</p>
 </div>
 <p>Finally, the controller node has to be called, along with the correct parameters
 set by the arguments <strong>Kp</strong>, <strong>Kd</strong> and <strong>Ki</strong> in this example. You can pass
@@ -511,12 +508,12 @@ should be no spaces between commas and values. They have to be set in the
 used only to publish visual markers.</p>
 <p>To start a small demonstration using the RexROV vehicle, you can create another
 launch file as follows</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">catkin_ws</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">uuv_tutorial_dp_controller</span><span class="o">/</span><span class="n">launch</span>
-<span class="n">touch</span> <span class="n">start_tutorial_dp_controller_demo</span><span class="o">.</span><span class="n">launch</span>
+<div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws/src/uuv_tutorial_dp_controller/launch
+touch start_tutorial_dp_controller_demo.launch
 </pre></div>
 </div>
 <p>and initialize a world, the vehicle and the RViz visualization tool as follows</p>
-<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;launch&gt;</span>
+<div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;launch&gt;</span>
     <span class="c">&lt;!-- If you want to generate a ROS bag with the recorded simulated data, set this flag to true --&gt;</span>
     <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;record&quot;</span> <span class="na">default=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
 
@@ -564,7 +561,7 @@ launch file as follows</p>
 <h2>Configuring the package<a class="headerlink" href="#configuring-the-package" title="Permalink to this headline">¶</a></h2>
 <p>To allow catkin to install all your modules, you can open the <strong>CMakeLists.txt</strong>
 file from your catkin package and edit it to look like in the example below.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>cmake_minimum_required(VERSION 2.8.3)
+<div class="highlight-python"><div class="highlight"><pre>cmake_minimum_required(VERSION 2.8.3)
 project(uuv_tutorial_dp_controller)
 
 find_package(catkin REQUIRED)
@@ -583,7 +580,7 @@ install(DIRECTORY launch
 <h2>Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permalink to this headline">¶</a></h2>
 <p>After you compile you workspace again with <strong>catkin_make</strong> or <strong>catkin build</strong>,
 you can run the demo launch file created before.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_tutorial_dp_controller</span> <span class="n">start_tutorial_dp_controller_demo</span><span class="o">.</span><span class="n">launch</span>
+<div class="highlight-python"><div class="highlight"><pre>roslaunch uuv_tutorial_dp_controller start_tutorial_dp_controller_demo.launch
 </pre></div>
 </div>
 <p>This will start the Gazebo simulator with an instance of the RexROV vehicle with
@@ -593,7 +590,7 @@ this custom controller being used for positioning.</p>
 vehicle some waypoints and see the controller in action. For example, use the
 <a class="reference external" href="https://github.com/uuvsimulator/uuv_simulator/blob/master/uuv_control/uuv_control_utils/config/example_waypoints.yaml">default list of waypoints</a>
 and send them to the controller by using</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_control_utils</span> <span class="n">send_waypoints_file</span><span class="o">.</span><span class="n">launch</span> <span class="n">uuv_name</span><span class="p">:</span><span class="o">=</span><span class="n">rexrov</span>
+<div class="highlight-python"><div class="highlight"><pre>roslaunch uuv_control_utils send_waypoints_file.launch uuv_name:=rexrov
 </pre></div>
 </div>
 <p>The local planner in <strong>uuv_control_interfaces</strong> that is used per default by the
@@ -654,7 +651,7 @@ vehicle.</p>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

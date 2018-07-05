@@ -30,9 +30,6 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="UUV Simulator 0.2 documentation" href="../index.html"/>
         <link rel="up" title="Module code" href="index.html"/> 
 
@@ -136,7 +133,7 @@
            <div itemprop="articleBody">
             
   <h1>Source code for vehicle_teleop</h1><div class="highlight"><pre>
-<span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># Copyright (c) 2016 The UUV Simulator Authors.</span>
 <span class="c1"># All rights reserved.</span>
 <span class="c1">#</span>
@@ -153,10 +150,10 @@
 <span class="c1"># limitations under the License.</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">rospy</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">std_msgs.msg</span> <span class="k">import</span> <span class="n">Bool</span>
-<span class="kn">from</span> <span class="nn">geometry_msgs.msg</span> <span class="k">import</span> <span class="n">Twist</span><span class="p">,</span> <span class="n">Accel</span><span class="p">,</span> <span class="n">Vector3</span>
-<span class="kn">from</span> <span class="nn">sensor_msgs.msg</span> <span class="k">import</span> <span class="n">Joy</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">std_msgs.msg</span> <span class="kn">import</span> <span class="n">Bool</span>
+<span class="kn">from</span> <span class="nn">geometry_msgs.msg</span> <span class="kn">import</span> <span class="n">Twist</span><span class="p">,</span> <span class="n">Accel</span><span class="p">,</span> <span class="n">Vector3</span>
+<span class="kn">from</span> <span class="nn">sensor_msgs.msg</span> <span class="kn">import</span> <span class="n">Joy</span>
 
 
 <div class="viewcode-block" id="VehicleTeleop"><a class="viewcode-back" href="../api/uuv_simulator/uuv_teleop/scripts/vehicle_teleop.html#vehicle_teleop.VehicleTeleop">[docs]</a><span class="k">class</span> <span class="nc">VehicleTeleop</span><span class="p">:</span>
@@ -237,12 +234,12 @@
         <span class="k">while</span> <span class="ow">not</span> <span class="n">rospy</span><span class="o">.</span><span class="n">is_shutdown</span><span class="p">():</span>
             <span class="n">rate</span><span class="o">.</span><span class="n">sleep</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">_parse_joy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">joy</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_parse_joy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">joy</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_msg_type</span> <span class="o">==</span> <span class="s1">&#39;twist&#39;</span><span class="p">:</span>
             <span class="n">cmd</span> <span class="o">=</span> <span class="n">Twist</span><span class="p">()</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">cmd</span> <span class="o">=</span> <span class="n">Accel</span><span class="p">()</span>
-        <span class="k">if</span> <span class="n">joy</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">joy</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
             <span class="c1"># Linear velocities:</span>
             <span class="n">l</span> <span class="o">=</span> <span class="n">Vector3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
@@ -312,12 +309,12 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_home_pressed_pub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span>
                 <span class="n">Bool</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="n">joy</span><span class="o">.</span><span class="n">buttons</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_home_button</span><span class="p">])))</span>
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
-            <span class="nb">print</span> <span class="s1">&#39;Error occurred while parsing joystick input, check if the joy_id corresponds to the joystick &#39;</span> \
+            <span class="k">print</span> <span class="s1">&#39;Error occurred while parsing joystick input, check if the joy_id corresponds to the joystick &#39;</span> \
                   <span class="s1">&#39;being used. message=</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span></div>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="c1"># Start the node</span>
-    <span class="n">node_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">node_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">__file__</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="n">node_name</span><span class="p">)</span>
     <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s1">&#39;Starting [</span><span class="si">%s</span><span class="s1">] node&#39;</span> <span class="o">%</span> <span class="n">node_name</span><span class="p">)</span>
 
@@ -367,7 +364,7 @@
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

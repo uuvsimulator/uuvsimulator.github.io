@@ -30,9 +30,6 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../../../../genindex.html"/>
-        <link rel="search" title="Search" href="../../../../search.html"/>
     <link rel="top" title="UUV Simulator 0.2 documentation" href="../../../../index.html"/>
         <link rel="up" title="uuv_trajectory_control - SRC" href="modules.html"/>
         <link rel="next" title="uuv_trajectory_generator.path_generator package" href="uuv_trajectory_generator.path_generator.html"/>
@@ -151,7 +148,7 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../../../../_sources/api/uuv_simulator/uuv_trajectory_control/src/uuv_trajectory_generator.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../../_sources/api/uuv_simulator/uuv_trajectory_control/src/uuv_trajectory_generator.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -171,7 +168,10 @@
 <li class="toctree-l2"><a class="reference internal" href="uuv_trajectory_generator.path_generator.html#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="uuv_trajectory_generator.path_generator.html#module-uuv_trajectory_generator.path_generator.bezier_curve">uuv_trajectory_generator.path_generator.bezier_curve module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="uuv_trajectory_generator.path_generator.html#module-uuv_trajectory_generator.path_generator.cs_interpolator">uuv_trajectory_generator.path_generator.cs_interpolator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uuv_trajectory_generator.path_generator.html#module-uuv_trajectory_generator.path_generator.dubins_interpolator">uuv_trajectory_generator.path_generator.dubins_interpolator module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uuv_trajectory_generator.path_generator.html#module-uuv_trajectory_generator.path_generator.helical_segment">uuv_trajectory_generator.path_generator.helical_segment module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="uuv_trajectory_generator.path_generator.html#module-uuv_trajectory_generator.path_generator.line_segment">uuv_trajectory_generator.path_generator.line_segment module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uuv_trajectory_generator.path_generator.html#module-uuv_trajectory_generator.path_generator.linear_interpolator">uuv_trajectory_generator.path_generator.linear_interpolator module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="uuv_trajectory_generator.path_generator.html#module-uuv_trajectory_generator.path_generator.lipb_interpolator">uuv_trajectory_generator.path_generator.lipb_interpolator module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="uuv_trajectory_generator.path_generator.html#module-uuv_trajectory_generator.path_generator.path_generator">uuv_trajectory_generator.path_generator.path_generator module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="uuv_trajectory_generator.path_generator.html#module-uuv_trajectory_generator.path_generator">Module contents</a></li>
@@ -213,8 +213,18 @@ process, add a trajectory point to the set.</p>
 <dd></dd></dl>
 
 <dl class="method">
+<dt id="uuv_trajectory_generator.trajectory_generator.TrajectoryGenerator.generate_reference">
+<code class="descname">generate_reference</code><span class="sig-paren">(</span><em>t</em>, <em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/trajectory_generator.html#TrajectoryGenerator.generate_reference"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.trajectory_generator.TrajectoryGenerator.generate_reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="uuv_trajectory_generator.trajectory_generator.TrajectoryGenerator.get_interp_method">
 <code class="descname">get_interp_method</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/trajectory_generator.html#TrajectoryGenerator.get_interp_method"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.trajectory_generator.TrajectoryGenerator.get_interp_method" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="uuv_trajectory_generator.trajectory_generator.TrajectoryGenerator.get_interpolator_tags">
+<code class="descname">get_interpolator_tags</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/trajectory_generator.html#TrajectoryGenerator.get_interpolator_tags"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.trajectory_generator.TrajectoryGenerator.get_interpolator_tags" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -234,6 +244,11 @@ process, add a trajectory point to the set.</p>
 are currently in use, then sample the interpolated path and return the
 poses only.</p>
 </dd></dl>
+
+<dl class="method">
+<dt id="uuv_trajectory_generator.trajectory_generator.TrajectoryGenerator.get_visual_markers">
+<code class="descname">get_visual_markers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/trajectory_generator.html#TrajectoryGenerator.get_visual_markers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.trajectory_generator.TrajectoryGenerator.get_visual_markers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="uuv_trajectory_generator.trajectory_generator.TrajectoryGenerator.get_waypoints">
@@ -269,7 +284,7 @@ if any exist.</p>
 
 <dl class="method">
 <dt id="uuv_trajectory_generator.trajectory_generator.TrajectoryGenerator.interpolate">
-<code class="descname">interpolate</code><span class="sig-paren">(</span><em>t</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/trajectory_generator.html#TrajectoryGenerator.interpolate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.trajectory_generator.TrajectoryGenerator.interpolate" title="Permalink to this definition">¶</a></dt>
+<code class="descname">interpolate</code><span class="sig-paren">(</span><em>t</em>, <em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/trajectory_generator.html#TrajectoryGenerator.interpolate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.trajectory_generator.TrajectoryGenerator.interpolate" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -306,6 +321,11 @@ if any exist.</p>
 <dl class="method">
 <dt id="uuv_trajectory_generator.trajectory_generator.TrajectoryGenerator.set_interp_method">
 <code class="descname">set_interp_method</code><span class="sig-paren">(</span><em>method</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/trajectory_generator.html#TrajectoryGenerator.set_interp_method"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.trajectory_generator.TrajectoryGenerator.set_interp_method" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="uuv_trajectory_generator.trajectory_generator.TrajectoryGenerator.set_interpolator_parameters">
+<code class="descname">set_interpolator_parameters</code><span class="sig-paren">(</span><em>method</em>, <em>params</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/trajectory_generator.html#TrajectoryGenerator.set_interpolator_parameters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.trajectory_generator.TrajectoryGenerator.set_interpolator_parameters" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -462,10 +482,10 @@ if any exist.</p>
 <span id="uuv-trajectory-generator-wp-trajectory-generator-module"></span><h2>uuv_trajectory_generator.wp_trajectory_generator module<a class="headerlink" href="#module-uuv_trajectory_generator.wp_trajectory_generator" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="uuv_trajectory_generator.wp_trajectory_generator.WPTrajectoryGenerator">
-<em class="property">class </em><code class="descclassname">uuv_trajectory_generator.wp_trajectory_generator.</code><code class="descname">WPTrajectoryGenerator</code><span class="sig-paren">(</span><em>full_dof=False</em>, <em>use_finite_diff=True</em>, <em>interpolation_method='cubic_interpolator'</em>, <em>stamped_pose_only=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/wp_trajectory_generator.html#WPTrajectoryGenerator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.wp_trajectory_generator.WPTrajectoryGenerator" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">uuv_trajectory_generator.wp_trajectory_generator.</code><code class="descname">WPTrajectoryGenerator</code><span class="sig-paren">(</span><em>full_dof=False</em>, <em>use_finite_diff=True</em>, <em>interpolation_method='cubic'</em>, <em>stamped_pose_only=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/wp_trajectory_generator.html#WPTrajectoryGenerator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.wp_trajectory_generator.WPTrajectoryGenerator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <p>Class that generates a trajectory from the interpolated path generated
-from a set of waypoints. It uses the information given for the waypoint’s
+from a set of waypoints. It uses the information given for the waypoint&#8217;s
 maximum forward speed to estimate the velocity between waypoint and
 parametrize the interpolated curve.
 The velocity and acceleration profiles are the generated through finite
@@ -494,9 +514,14 @@ path.</p>
 
 <dl class="method">
 <dt id="uuv_trajectory_generator.wp_trajectory_generator.WPTrajectoryGenerator.generate_pnt">
-<code class="descname">generate_pnt</code><span class="sig-paren">(</span><em>s=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/wp_trajectory_generator.html#WPTrajectoryGenerator.generate_pnt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.wp_trajectory_generator.WPTrajectoryGenerator.generate_pnt" title="Permalink to this definition">¶</a></dt>
+<code class="descname">generate_pnt</code><span class="sig-paren">(</span><em>t</em>, <em>pos</em>, <em>rot</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/wp_trajectory_generator.html#WPTrajectoryGenerator.generate_pnt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.wp_trajectory_generator.WPTrajectoryGenerator.generate_pnt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return trajectory sample for the current parameter s.</p>
 </dd></dl>
+
+<dl class="method">
+<dt id="uuv_trajectory_generator.wp_trajectory_generator.WPTrajectoryGenerator.generate_reference">
+<code class="descname">generate_reference</code><span class="sig-paren">(</span><em>t</em>, <em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/wp_trajectory_generator.html#WPTrajectoryGenerator.generate_reference"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.wp_trajectory_generator.WPTrajectoryGenerator.generate_reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="uuv_trajectory_generator.wp_trajectory_generator.WPTrajectoryGenerator.get_interpolation_method">
@@ -516,6 +541,11 @@ path.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="uuv_trajectory_generator.wp_trajectory_generator.WPTrajectoryGenerator.get_visual_markers">
+<code class="descname">get_visual_markers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/wp_trajectory_generator.html#WPTrajectoryGenerator.get_visual_markers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.wp_trajectory_generator.WPTrajectoryGenerator.get_visual_markers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="uuv_trajectory_generator.wp_trajectory_generator.WPTrajectoryGenerator.get_waypoints">
 <code class="descname">get_waypoints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/wp_trajectory_generator.html#WPTrajectoryGenerator.get_waypoints"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.wp_trajectory_generator.WPTrajectoryGenerator.get_waypoints" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return waypoint set.</p>
@@ -529,12 +559,17 @@ path.</p>
 
 <dl class="method">
 <dt id="uuv_trajectory_generator.wp_trajectory_generator.WPTrajectoryGenerator.interpolate">
-<code class="descname">interpolate</code><span class="sig-paren">(</span><em>t</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/wp_trajectory_generator.html#WPTrajectoryGenerator.interpolate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.wp_trajectory_generator.WPTrajectoryGenerator.interpolate" title="Permalink to this definition">¶</a></dt>
+<code class="descname">interpolate</code><span class="sig-paren">(</span><em>t</em>, <em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/wp_trajectory_generator.html#WPTrajectoryGenerator.interpolate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.wp_trajectory_generator.WPTrajectoryGenerator.interpolate" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="uuv_trajectory_generator.wp_trajectory_generator.WPTrajectoryGenerator.interpolator">
 <code class="descname">interpolator</code><a class="headerlink" href="#uuv_trajectory_generator.wp_trajectory_generator.WPTrajectoryGenerator.interpolator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="uuv_trajectory_generator.wp_trajectory_generator.WPTrajectoryGenerator.interpolator_tags">
+<code class="descname">interpolator_tags</code><a class="headerlink" href="#uuv_trajectory_generator.wp_trajectory_generator.WPTrajectoryGenerator.interpolator_tags" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -566,6 +601,11 @@ computed.</p>
 <dl class="method">
 <dt id="uuv_trajectory_generator.wp_trajectory_generator.WPTrajectoryGenerator.set_interpolation_method">
 <code class="descname">set_interpolation_method</code><span class="sig-paren">(</span><em>method</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/wp_trajectory_generator.html#WPTrajectoryGenerator.set_interpolation_method"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.wp_trajectory_generator.WPTrajectoryGenerator.set_interpolation_method" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="uuv_trajectory_generator.wp_trajectory_generator.WPTrajectoryGenerator.set_interpolator_parameters">
+<code class="descname">set_interpolator_parameters</code><span class="sig-paren">(</span><em>method</em>, <em>params</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/wp_trajectory_generator.html#WPTrajectoryGenerator.set_interpolator_parameters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.wp_trajectory_generator.WPTrajectoryGenerator.set_interpolator_parameters" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -654,7 +694,7 @@ computed.</p>
       <script type="text/javascript" src="../../../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

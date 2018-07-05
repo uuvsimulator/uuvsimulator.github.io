@@ -30,9 +30,6 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../../genindex.html"/>
-        <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="UUV Simulator 0.2 documentation" href="../../index.html"/>
         <link rel="up" title="Module code" href="../index.html"/> 
 
@@ -136,7 +133,7 @@
            <div itemprop="articleBody">
             
   <h1>Source code for uuv_waypoints.waypoint_set</h1><div class="highlight"><pre>
-<span></span><span class="c1"># Copyright (c) 2016 The UUV Simulator Authors.</span>
+<span class="c1"># Copyright (c) 2016 The UUV Simulator Authors.</span>
 <span class="c1"># All rights reserved.</span>
 <span class="c1">#</span>
 <span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
@@ -152,14 +149,14 @@
 <span class="c1"># limitations under the License.</span>
 
 <span class="kn">import</span> <span class="nn">rospy</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">yaml</span>
-<span class="kn">from</span> <span class="nn">waypoint</span> <span class="k">import</span> <span class="n">Waypoint</span>
-<span class="kn">from</span> <span class="nn">uuv_control_msgs.msg</span> <span class="k">import</span> <span class="n">WaypointSet</span> <span class="k">as</span> <span class="n">WaypointSetMessage</span>
-<span class="kn">from</span> <span class="nn">visualization_msgs.msg</span> <span class="k">import</span> <span class="n">Marker</span><span class="p">,</span> <span class="n">MarkerArray</span>
-<span class="kn">from</span> <span class="nn">nav_msgs.msg</span> <span class="k">import</span> <span class="n">Path</span>
-<span class="kn">from</span> <span class="nn">geometry_msgs.msg</span> <span class="k">import</span> <span class="n">PoseStamped</span>
+<span class="kn">from</span> <span class="nn">waypoint</span> <span class="kn">import</span> <span class="n">Waypoint</span>
+<span class="kn">from</span> <span class="nn">uuv_control_msgs.msg</span> <span class="kn">import</span> <span class="n">WaypointSet</span> <span class="k">as</span> <span class="n">WaypointSetMessage</span>
+<span class="kn">from</span> <span class="nn">visualization_msgs.msg</span> <span class="kn">import</span> <span class="n">Marker</span><span class="p">,</span> <span class="n">MarkerArray</span>
+<span class="kn">from</span> <span class="nn">nav_msgs.msg</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">geometry_msgs.msg</span> <span class="kn">import</span> <span class="n">PoseStamped</span>
 
 
 <div class="viewcode-block" id="WaypointSet"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_waypoints.html#uuv_waypoints.waypoint_set.WaypointSet">[docs]</a><span class="k">class</span> <span class="nc">WaypointSet</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -168,12 +165,13 @@
     <span class="n">OK_WAYPOINT</span> <span class="o">=</span> <span class="p">[</span><span class="mf">31.</span> <span class="o">/</span> <span class="mi">255</span><span class="p">,</span> <span class="mf">106.</span> <span class="o">/</span> <span class="mi">255</span><span class="p">,</span> <span class="mf">226.</span> <span class="o">/</span> <span class="mi">255</span><span class="p">]</span>
     <span class="n">FAILED_WAYPOINT</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">inertial_frame_id</span><span class="o">=</span><span class="s1">&#39;world&#39;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">inertial_frame_id</span><span class="o">=</span><span class="s1">&#39;world&#39;</span><span class="p">,</span> <span class="n">max_surge_speed</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
         <span class="k">assert</span> <span class="n">inertial_frame_id</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;world&#39;</span><span class="p">,</span> <span class="s1">&#39;world_ned&#39;</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_waypoints</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_violates_constraint</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_violates_constraint</span> <span class="o">=</span> <span class="bp">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_scale</span> <span class="o">=</span> <span class="n">scale</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_inertial_frame_id</span> <span class="o">=</span> <span class="n">inertial_frame_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_max_surge_speed</span> <span class="o">=</span> <span class="n">max_surge_speed</span>
 
     <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_waypoints</span><span class="p">:</span>
@@ -181,7 +179,7 @@
             <span class="n">msg</span> <span class="o">+=</span> <span class="s1">&#39;List of waypoints</span><span class="se">\n</span><span class="s1">&#39;</span>
             <span class="n">msg</span> <span class="o">+=</span> <span class="s1">&#39;================================</span><span class="se">\n</span><span class="s1">&#39;</span>
             <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_waypoints</span><span class="p">):</span>
-                <span class="n">msg</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_waypoint</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>
+                <span class="n">msg</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_waypoint</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">__str__</span><span class="p">()</span>
                 <span class="n">msg</span> <span class="o">+=</span> <span class="s1">&#39;---</span><span class="se">\n</span><span class="s1">&#39;</span>
             <span class="n">msg</span> <span class="o">+=</span> <span class="s1">&#39;Number of waypoints = </span><span class="si">%d</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_waypoints</span>
             <span class="n">msg</span> <span class="o">+=</span> <span class="s1">&#39;Number of valid waypoints = </span><span class="si">%d</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_waypoints</span>
@@ -214,7 +212,7 @@
     <span class="k">def</span> <span class="nf">inertial_frame_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_inertial_frame_id</span>
 
-    <span class="nd">@inertial_frame_id</span><span class="o">.</span><span class="n">setter</span>
+    <span class="nd">@inertial_frame_id.setter</span>
     <span class="k">def</span> <span class="nf">inertial_frame_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">frame_id</span><span class="p">):</span>
         <span class="k">assert</span> <span class="n">frame_id</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;world&#39;</span><span class="p">,</span> <span class="s1">&#39;world_ned&#39;</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_inertial_frame_id</span> <span class="o">=</span> <span class="n">frame_id</span>
@@ -224,16 +222,16 @@
 
 <div class="viewcode-block" id="WaypointSet.set_constraint_status"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_waypoints.html#uuv_waypoints.waypoint_set.WaypointSet.set_constraint_status">[docs]</a>    <span class="k">def</span> <span class="nf">set_constraint_status</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">flag</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">index</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_waypoints</span><span class="p">):</span>
-            <span class="k">return</span> <span class="kc">False</span>
+            <span class="k">return</span> <span class="bp">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_waypoints</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">violates_constraint</span> <span class="o">=</span> <span class="n">flag</span>
-        <span class="k">return</span> <span class="kc">True</span></div>
+        <span class="k">return</span> <span class="bp">True</span></div>
 
 <div class="viewcode-block" id="WaypointSet.get_waypoint"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_waypoints.html#uuv_waypoints.waypoint_set.WaypointSet.get_waypoint">[docs]</a>    <span class="k">def</span> <span class="nf">get_waypoint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">index</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_waypoints</span><span class="p">):</span>
-            <span class="k">return</span> <span class="kc">None</span>
+            <span class="k">return</span> <span class="bp">None</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_waypoints</span><span class="p">[</span><span class="n">index</span><span class="p">]</span></div>
 
-<div class="viewcode-block" id="WaypointSet.add_waypoint"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_waypoints.html#uuv_waypoints.waypoint_set.WaypointSet.add_waypoint">[docs]</a>    <span class="k">def</span> <span class="nf">add_waypoint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">waypoint</span><span class="p">,</span> <span class="n">add_to_beginning</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="WaypointSet.add_waypoint"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_waypoints.html#uuv_waypoints.waypoint_set.WaypointSet.add_waypoint">[docs]</a>    <span class="k">def</span> <span class="nf">add_waypoint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">waypoint</span><span class="p">,</span> <span class="n">add_to_beginning</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_waypoints</span><span class="p">):</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_waypoints</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="n">waypoint</span><span class="p">:</span>
                 <span class="k">if</span> <span class="ow">not</span> <span class="n">add_to_beginning</span><span class="p">:</span>
@@ -241,14 +239,14 @@
                 <span class="k">else</span><span class="p">:</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">_waypoints</span> <span class="o">=</span> <span class="p">[</span><span class="n">waypoint</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_waypoints</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="nb">print</span> <span class="s1">&#39;Cannot add repeated waypoint&#39;</span>
-                <span class="k">return</span> <span class="kc">False</span>
+                <span class="k">print</span> <span class="s1">&#39;Cannot add repeated waypoint&#39;</span>
+                <span class="k">return</span> <span class="bp">False</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">add_to_beginning</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_waypoints</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">waypoint</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_waypoints</span> <span class="o">=</span> <span class="p">[</span><span class="n">waypoint</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_waypoints</span>
-        <span class="k">return</span> <span class="kc">True</span></div>
+        <span class="k">return</span> <span class="bp">True</span></div>
 
 <div class="viewcode-block" id="WaypointSet.add_waypoint_from_msg"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_waypoints.html#uuv_waypoints.waypoint_set.WaypointSet.add_waypoint_from_msg">[docs]</a>    <span class="k">def</span> <span class="nf">add_waypoint_from_msg</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
         <span class="n">waypoint</span> <span class="o">=</span> <span class="n">Waypoint</span><span class="p">()</span>
@@ -259,12 +257,12 @@
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_waypoints</span><span class="p">):</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_waypoints</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">None</span></div>
+            <span class="k">return</span> <span class="bp">None</span></div>
 
 <div class="viewcode-block" id="WaypointSet.get_last_waypoint"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_waypoints.html#uuv_waypoints.waypoint_set.WaypointSet.get_last_waypoint">[docs]</a>    <span class="k">def</span> <span class="nf">get_last_waypoint</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_waypoints</span><span class="p">):</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_waypoints</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-        <span class="k">return</span> <span class="kc">None</span></div>
+        <span class="k">return</span> <span class="bp">None</span></div>
 
 <div class="viewcode-block" id="WaypointSet.remove_waypoint"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_waypoints.html#uuv_waypoints.waypoint_set.WaypointSet.remove_waypoint">[docs]</a>    <span class="k">def</span> <span class="nf">remove_waypoint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">waypoint</span><span class="p">):</span>
         <span class="n">new_waypoints</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
@@ -276,8 +274,8 @@
 
 <div class="viewcode-block" id="WaypointSet.read_from_file"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_waypoints.html#uuv_waypoints.waypoint_set.WaypointSet.read_from_file">[docs]</a>    <span class="k">def</span> <span class="nf">read_from_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
-            <span class="nb">print</span> <span class="s1">&#39;Invalid waypoint filename, file&#39;</span><span class="p">,</span> <span class="n">filename</span>
-            <span class="k">return</span> <span class="kc">False</span>
+            <span class="k">print</span> <span class="s1">&#39;Invalid waypoint filename, file&#39;</span><span class="p">,</span> <span class="n">filename</span>
+            <span class="k">return</span> <span class="bp">False</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">clear_waypoints</span><span class="p">()</span>
             <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">wp_file</span><span class="p">:</span>
@@ -310,10 +308,10 @@
                             <span class="n">inertial_frame_id</span><span class="o">=</span><span class="n">wps</span><span class="p">[</span><span class="s1">&#39;inertial_frame_id&#39;</span><span class="p">])</span>
                         <span class="bp">self</span><span class="o">.</span><span class="n">add_waypoint</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
-            <span class="nb">print</span> <span class="s1">&#39;Error while loading the file&#39;</span>
-            <span class="nb">print</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-            <span class="k">return</span> <span class="kc">False</span>
-        <span class="k">return</span> <span class="kc">True</span></div>
+            <span class="k">print</span> <span class="s1">&#39;Error while loading the file&#39;</span>
+            <span class="k">print</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">False</span>
+        <span class="k">return</span> <span class="bp">True</span></div>
 
 <div class="viewcode-block" id="WaypointSet.export_to_file"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_waypoints.html#uuv_waypoints.waypoint_set.WaypointSet.export_to_file">[docs]</a>    <span class="k">def</span> <span class="nf">export_to_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
         <span class="k">try</span><span class="p">:</span>
@@ -321,16 +319,16 @@
             <span class="k">for</span> <span class="n">wp</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_waypoints</span><span class="p">:</span>
                 <span class="n">wp_elem</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">point</span><span class="o">=</span><span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">wp</span><span class="o">.</span><span class="n">x</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">wp</span><span class="o">.</span><span class="n">y</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">wp</span><span class="o">.</span><span class="n">z</span><span class="p">)],</span>
                                <span class="n">max_forward_speed</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">wp</span><span class="o">.</span><span class="n">_max_forward_speed</span><span class="p">),</span>
-                               <span class="n">heading</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">wp</span><span class="o">.</span><span class="n">_heading_offset</span> <span class="k">if</span> <span class="n">wp</span><span class="o">.</span><span class="n">_heading_offset</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="mf">0.0</span><span class="p">),</span>
+                               <span class="n">heading</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">wp</span><span class="o">.</span><span class="n">_heading_offset</span> <span class="k">if</span> <span class="n">wp</span><span class="o">.</span><span class="n">_heading_offset</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="k">else</span> <span class="mf">0.0</span><span class="p">),</span>
                                <span class="n">use_fixed_heading</span><span class="o">=</span><span class="nb">bool</span><span class="p">(</span><span class="n">wp</span><span class="o">.</span><span class="n">_use_fixed_heading</span><span class="p">))</span>
                 <span class="n">wp_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">wp_elem</span><span class="p">)</span>
             <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">filename</span><span class="p">),</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">wp_file</span><span class="p">:</span>
-                <span class="n">yaml</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">wp_data</span><span class="p">,</span> <span class="n">wp_file</span><span class="p">,</span> <span class="n">default_flow_style</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-            <span class="k">return</span> <span class="kc">True</span>
+                <span class="n">yaml</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">wp_data</span><span class="p">,</span> <span class="n">wp_file</span><span class="p">,</span> <span class="n">default_flow_style</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">True</span>
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
-            <span class="nb">print</span> <span class="s1">&#39;Error occured while exporting waypoint file&#39;</span>
-            <span class="nb">print</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-            <span class="k">return</span> <span class="kc">False</span></div>
+            <span class="k">print</span> <span class="s1">&#39;Error occured while exporting waypoint file&#39;</span>
+            <span class="k">print</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">False</span></div>
 
 <div class="viewcode-block" id="WaypointSet.to_message"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_waypoints.html#uuv_waypoints.waypoint_set.WaypointSet.to_message">[docs]</a>    <span class="k">def</span> <span class="nf">to_message</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">msg</span> <span class="o">=</span> <span class="n">WaypointSetMessage</span><span class="p">()</span>
@@ -351,11 +349,21 @@
 
 <div class="viewcode-block" id="WaypointSet.dist_to_waypoint"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_waypoints.html#uuv_waypoints.waypoint_set.WaypointSet.dist_to_waypoint">[docs]</a>    <span class="k">def</span> <span class="nf">dist_to_waypoint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
         <span class="n">wp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_waypoint</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">wp</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">wp</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">wp</span><span class="o">.</span><span class="n">dist</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span>
-        <span class="k">return</span> <span class="kc">None</span></div>
+        <span class="k">return</span> <span class="bp">None</span></div>
 
-<div class="viewcode-block" id="WaypointSet.to_path_marker"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_waypoints.html#uuv_waypoints.waypoint_set.WaypointSet.to_path_marker">[docs]</a>    <span class="k">def</span> <span class="nf">to_path_marker</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="WaypointSet.set_radius_of_acceptance"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_waypoints.html#uuv_waypoints.waypoint_set.WaypointSet.set_radius_of_acceptance">[docs]</a>    <span class="k">def</span> <span class="nf">set_radius_of_acceptance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">radius</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">index</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_waypoints</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_waypoints</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">radius_of_acceptance</span> <span class="o">=</span> <span class="n">radius</span></div>
+
+<div class="viewcode-block" id="WaypointSet.get_radius_of_acceptance"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_waypoints.html#uuv_waypoints.waypoint_set.WaypointSet.get_radius_of_acceptance">[docs]</a>    <span class="k">def</span> <span class="nf">get_radius_of_acceptance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">index</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_waypoints</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_waypoints</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">radius_of_acceptance</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span></div>
+
+<div class="viewcode-block" id="WaypointSet.to_path_marker"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_waypoints.html#uuv_waypoints.waypoint_set.WaypointSet.to_path_marker">[docs]</a>    <span class="k">def</span> <span class="nf">to_path_marker</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
         <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">()</span>
         <span class="n">t</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Time</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
         <span class="n">path</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">stamp</span> <span class="o">=</span> <span class="n">t</span>
@@ -372,7 +380,7 @@
                 <span class="n">path</span><span class="o">.</span><span class="n">poses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pose</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">path</span></div>
 
-<div class="viewcode-block" id="WaypointSet.to_marker_list"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_waypoints.html#uuv_waypoints.waypoint_set.WaypointSet.to_marker_list">[docs]</a>    <span class="k">def</span> <span class="nf">to_marker_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="WaypointSet.to_marker_list"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_waypoints.html#uuv_waypoints.waypoint_set.WaypointSet.to_marker_list">[docs]</a>    <span class="k">def</span> <span class="nf">to_marker_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
         <span class="n">list_waypoints</span> <span class="o">=</span> <span class="n">MarkerArray</span><span class="p">()</span>
         <span class="n">t</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Time</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_waypoints</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">clear</span><span class="p">:</span>
@@ -410,18 +418,18 @@
         <span class="k">return</span> <span class="n">list_waypoints</span></div>
 
 <div class="viewcode-block" id="WaypointSet.generate_circle"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_waypoints.html#uuv_waypoints.waypoint_set.WaypointSet.generate_circle">[docs]</a>    <span class="k">def</span> <span class="nf">generate_circle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">center</span><span class="p">,</span> <span class="n">num_points</span><span class="p">,</span> <span class="n">max_forward_speed</span><span class="p">,</span>
-                        <span class="n">theta_offset</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">heading_offset</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">append</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+                        <span class="n">theta_offset</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">heading_offset</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">append</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">radius</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="nb">print</span> <span class="s1">&#39;Invalid radius, value=&#39;</span><span class="p">,</span> <span class="n">radius</span>
-            <span class="k">return</span> <span class="kc">False</span>
+            <span class="k">print</span> <span class="s1">&#39;Invalid radius, value=&#39;</span><span class="p">,</span> <span class="n">radius</span>
+            <span class="k">return</span> <span class="bp">False</span>
 
         <span class="k">if</span> <span class="n">num_points</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="nb">print</span> <span class="s1">&#39;Invalid number of samples, value=&#39;</span><span class="p">,</span> <span class="n">num_points</span>
-            <span class="k">return</span> <span class="kc">False</span>
+            <span class="k">print</span> <span class="s1">&#39;Invalid number of samples, value=&#39;</span><span class="p">,</span> <span class="n">num_points</span>
+            <span class="k">return</span> <span class="bp">False</span>
 
         <span class="k">if</span> <span class="n">max_forward_speed</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="nb">print</span> <span class="s1">&#39;Invalid absolute maximum velocity, value=&#39;</span><span class="p">,</span> <span class="n">max_forward_speed</span>
-            <span class="k">return</span> <span class="kc">False</span>
+            <span class="k">print</span> <span class="s1">&#39;Invalid absolute maximum velocity, value=&#39;</span><span class="p">,</span> <span class="n">max_forward_speed</span>
+            <span class="k">return</span> <span class="bp">False</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">append</span><span class="p">:</span>
             <span class="c1"># Clear current list</span>
@@ -436,26 +444,26 @@
             <span class="n">wp</span> <span class="o">=</span> <span class="n">Waypoint</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">max_forward_speed</span><span class="p">,</span>
                           <span class="n">heading_offset</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">add_waypoint</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span>
-        <span class="k">return</span> <span class="kc">True</span></div>
+        <span class="k">return</span> <span class="bp">True</span></div>
 
 <div class="viewcode-block" id="WaypointSet.generate_helix"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_waypoints.html#uuv_waypoints.waypoint_set.WaypointSet.generate_helix">[docs]</a>    <span class="k">def</span> <span class="nf">generate_helix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">center</span><span class="p">,</span> <span class="n">num_points</span><span class="p">,</span> <span class="n">max_forward_speed</span><span class="p">,</span> <span class="n">delta_z</span><span class="p">,</span>
                        <span class="n">num_turns</span><span class="p">,</span> <span class="n">theta_offset</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">heading_offset</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
-                       <span class="n">append</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+                       <span class="n">append</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">radius</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="nb">print</span> <span class="s1">&#39;Invalid radius, value=&#39;</span><span class="p">,</span> <span class="n">radius</span>
-            <span class="k">return</span> <span class="kc">False</span>
+            <span class="k">print</span> <span class="s1">&#39;Invalid radius, value=&#39;</span><span class="p">,</span> <span class="n">radius</span>
+            <span class="k">return</span> <span class="bp">False</span>
 
         <span class="k">if</span> <span class="n">num_points</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="nb">print</span> <span class="s1">&#39;Invalid number of samples, value=&#39;</span><span class="p">,</span> <span class="n">num_points</span>
-            <span class="k">return</span> <span class="kc">False</span>
+            <span class="k">print</span> <span class="s1">&#39;Invalid number of samples, value=&#39;</span><span class="p">,</span> <span class="n">num_points</span>
+            <span class="k">return</span> <span class="bp">False</span>
 
         <span class="k">if</span> <span class="n">num_turns</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="nb">print</span> <span class="s1">&#39;Invalid number of turns, value=&#39;</span><span class="p">,</span> <span class="n">num_points</span>
-            <span class="k">return</span> <span class="kc">False</span>
+            <span class="k">print</span> <span class="s1">&#39;Invalid number of turns, value=&#39;</span><span class="p">,</span> <span class="n">num_points</span>
+            <span class="k">return</span> <span class="bp">False</span>
 
         <span class="k">if</span> <span class="n">max_forward_speed</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="nb">print</span> <span class="s1">&#39;Invalid absolute maximum velocity, value=&#39;</span><span class="p">,</span> <span class="n">max_forward_speed</span>
-            <span class="k">return</span> <span class="kc">False</span>
+            <span class="k">print</span> <span class="s1">&#39;Invalid absolute maximum velocity, value=&#39;</span><span class="p">,</span> <span class="n">max_forward_speed</span>
+            <span class="k">return</span> <span class="bp">False</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">append</span><span class="p">:</span>
             <span class="c1"># Clear current list</span>
@@ -473,7 +481,7 @@
             <span class="n">wp</span> <span class="o">=</span> <span class="n">Waypoint</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">max_forward_speed</span><span class="p">,</span>
                           <span class="n">heading_offset</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">add_waypoint</span><span class="p">(</span><span class="n">wp</span><span class="p">)</span>
-        <span class="k">return</span> <span class="kc">True</span></div></div>
+        <span class="k">return</span> <span class="bp">True</span></div></div>
 </pre></div>
 
            </div>
@@ -516,7 +524,7 @@
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

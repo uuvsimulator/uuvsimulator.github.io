@@ -30,9 +30,6 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../../../../genindex.html"/>
-        <link rel="search" title="Search" href="../../../../search.html"/>
     <link rel="top" title="UUV Simulator 0.2 documentation" href="../../../../index.html"/>
         <link rel="up" title="uuv_trajectory_control - SRC" href="modules.html"/>
         <link rel="next" title="uuv_teleop" href="../../uuv_teleop/index.html"/>
@@ -151,7 +148,7 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../../../../_sources/api/uuv_simulator/uuv_trajectory_control/src/uuv_waypoints.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../../_sources/api/uuv_simulator/uuv_trajectory_control/src/uuv_waypoints.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -170,7 +167,7 @@
 <span id="uuv-waypoints-waypoint-module"></span><h2>uuv_waypoints.waypoint module<a class="headerlink" href="#module-uuv_waypoints.waypoint" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="uuv_waypoints.waypoint.Waypoint">
-<em class="property">class </em><code class="descclassname">uuv_waypoints.waypoint.</code><code class="descname">Waypoint</code><span class="sig-paren">(</span><em>x=0</em>, <em>y=0</em>, <em>z=0</em>, <em>max_forward_speed=0</em>, <em>heading_offset=0</em>, <em>use_fixed_heading=False</em>, <em>inertial_frame_id='world'</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_waypoints/waypoint.html#Waypoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_waypoints.waypoint.Waypoint" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">uuv_waypoints.waypoint.</code><code class="descname">Waypoint</code><span class="sig-paren">(</span><em>x=0</em>, <em>y=0</em>, <em>z=0</em>, <em>max_forward_speed=0</em>, <em>heading_offset=0</em>, <em>use_fixed_heading=False</em>, <em>inertial_frame_id='world'</em>, <em>radius_acceptance=0.0</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_waypoints/waypoint.html#Waypoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_waypoints.waypoint.Waypoint" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <dl class="attribute">
 <dt id="uuv_waypoints.waypoint.Waypoint.FAILED_WAYPOINT">
@@ -185,6 +182,11 @@
 <dl class="attribute">
 <dt id="uuv_waypoints.waypoint.Waypoint.OK_WAYPOINT">
 <code class="descname">OK_WAYPOINT</code><em class="property"> = [0.12156862745098039, 0.41568627450980394, 0.8862745098039215]</em><a class="headerlink" href="#uuv_waypoints.waypoint.Waypoint.OK_WAYPOINT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="uuv_waypoints.waypoint.Waypoint.calculate_heading">
+<code class="descname">calculate_heading</code><span class="sig-paren">(</span><em>target</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_waypoints/waypoint.html#Waypoint.calculate_heading"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_waypoints.waypoint.Waypoint.calculate_heading" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -232,6 +234,11 @@
 <code class="descname">pos</code><a class="headerlink" href="#uuv_waypoints.waypoint.Waypoint.pos" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="attribute">
+<dt id="uuv_waypoints.waypoint.Waypoint.radius_of_acceptance">
+<code class="descname">radius_of_acceptance</code><a class="headerlink" href="#uuv_waypoints.waypoint.Waypoint.radius_of_acceptance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="method">
 <dt id="uuv_waypoints.waypoint.Waypoint.to_message">
 <code class="descname">to_message</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_waypoints/waypoint.html#Waypoint.to_message"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_waypoints.waypoint.Waypoint.to_message" title="Permalink to this definition">¶</a></dt>
@@ -269,7 +276,7 @@
 <span id="uuv-waypoints-waypoint-set-module"></span><h2>uuv_waypoints.waypoint_set module<a class="headerlink" href="#module-uuv_waypoints.waypoint_set" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="uuv_waypoints.waypoint_set.WaypointSet">
-<em class="property">class </em><code class="descclassname">uuv_waypoints.waypoint_set.</code><code class="descname">WaypointSet</code><span class="sig-paren">(</span><em>scale=0.1</em>, <em>inertial_frame_id='world'</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_waypoints/waypoint_set.html#WaypointSet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_waypoints.waypoint_set.WaypointSet" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">uuv_waypoints.waypoint_set.</code><code class="descname">WaypointSet</code><span class="sig-paren">(</span><em>scale=0.1</em>, <em>inertial_frame_id='world'</em>, <em>max_surge_speed=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_waypoints/waypoint_set.html#WaypointSet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_waypoints.waypoint_set.WaypointSet" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <dl class="attribute">
 <dt id="uuv_waypoints.waypoint_set.WaypointSet.FAILED_WAYPOINT">
@@ -332,6 +339,11 @@
 <dd></dd></dl>
 
 <dl class="method">
+<dt id="uuv_waypoints.waypoint_set.WaypointSet.get_radius_of_acceptance">
+<code class="descname">get_radius_of_acceptance</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_waypoints/waypoint_set.html#WaypointSet.get_radius_of_acceptance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_waypoints.waypoint_set.WaypointSet.get_radius_of_acceptance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="uuv_waypoints.waypoint_set.WaypointSet.get_start_waypoint">
 <code class="descname">get_start_waypoint</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_waypoints/waypoint_set.html#WaypointSet.get_start_waypoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_waypoints.waypoint_set.WaypointSet.get_start_waypoint" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -369,6 +381,11 @@
 <dl class="method">
 <dt id="uuv_waypoints.waypoint_set.WaypointSet.set_constraint_status">
 <code class="descname">set_constraint_status</code><span class="sig-paren">(</span><em>index</em>, <em>flag</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_waypoints/waypoint_set.html#WaypointSet.set_constraint_status"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_waypoints.waypoint_set.WaypointSet.set_constraint_status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="uuv_waypoints.waypoint_set.WaypointSet.set_radius_of_acceptance">
+<code class="descname">set_radius_of_acceptance</code><span class="sig-paren">(</span><em>index</em>, <em>radius</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_waypoints/waypoint_set.html#WaypointSet.set_radius_of_acceptance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_waypoints.waypoint_set.WaypointSet.set_radius_of_acceptance" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -459,7 +476,7 @@
       <script type="text/javascript" src="../../../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

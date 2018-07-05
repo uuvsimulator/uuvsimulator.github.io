@@ -30,9 +30,6 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../../../../genindex.html"/>
-        <link rel="search" title="Search" href="../../../../search.html"/>
     <link rel="top" title="UUV Simulator 0.2 documentation" href="../../../../index.html"/>
         <link rel="up" title="uuv_trajectory_generator package" href="uuv_trajectory_generator.html"/>
         <link rel="next" title="uuv_waypoints package" href="uuv_waypoints.html"/>
@@ -153,7 +150,7 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../../../../_sources/api/uuv_simulator/uuv_trajectory_control/src/uuv_trajectory_generator.path_generator.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../../_sources/api/uuv_simulator/uuv_trajectory_control/src/uuv_trajectory_generator.path_generator.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -172,7 +169,7 @@
 <span id="uuv-trajectory-generator-path-generator-bezier-curve-module"></span><h2>uuv_trajectory_generator.path_generator.bezier_curve module<a class="headerlink" href="#module-uuv_trajectory_generator.path_generator.bezier_curve" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="uuv_trajectory_generator.path_generator.bezier_curve.BezierCurve">
-<em class="property">class </em><code class="descclassname">uuv_trajectory_generator.path_generator.bezier_curve.</code><code class="descname">BezierCurve</code><span class="sig-paren">(</span><em>pnts</em>, <em>order</em>, <em>tangents=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/bezier_curve.html#BezierCurve"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.bezier_curve.BezierCurve" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">uuv_trajectory_generator.path_generator.bezier_curve.</code><code class="descname">BezierCurve</code><span class="sig-paren">(</span><em>pnts</em>, <em>order</em>, <em>tangents=None</em>, <em>normals=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/bezier_curve.html#BezierCurve"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.bezier_curve.BezierCurve" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <p>Implementation of Bezier curves of orders 3, 4 and 5 based on [1].</p>
 <dl class="docutils">
@@ -189,9 +186,24 @@
 <code class="descname">control_pnts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/bezier_curve.html#BezierCurve.control_pnts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.bezier_curve.BezierCurve.control_pnts" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="staticmethod">
+<dt id="uuv_trajectory_generator.path_generator.bezier_curve.BezierCurve.distance">
+<em class="property">static </em><code class="descname">distance</code><span class="sig-paren">(</span><em>p1</em>, <em>p2</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/bezier_curve.html#BezierCurve.distance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.bezier_curve.BezierCurve.distance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="uuv_trajectory_generator.path_generator.bezier_curve.BezierCurve.generate_cubic_curve">
+<em class="property">static </em><code class="descname">generate_cubic_curve</code><span class="sig-paren">(</span><em>pnts</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/bezier_curve.html#BezierCurve.generate_cubic_curve"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.bezier_curve.BezierCurve.generate_cubic_curve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="uuv_trajectory_generator.path_generator.bezier_curve.BezierCurve.generate_quintic_curve">
+<em class="property">static </em><code class="descname">generate_quintic_curve</code><span class="sig-paren">(</span><em>pnts</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/bezier_curve.html#BezierCurve.generate_quintic_curve"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.bezier_curve.BezierCurve.generate_quintic_curve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="method">
 <dt id="uuv_trajectory_generator.path_generator.bezier_curve.BezierCurve.get_derivative">
-<code class="descname">get_derivative</code><span class="sig-paren">(</span><em>u</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/bezier_curve.html#BezierCurve.get_derivative"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.bezier_curve.BezierCurve.get_derivative" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_derivative</code><span class="sig-paren">(</span><em>u</em>, <em>order=1</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/bezier_curve.html#BezierCurve.get_derivative"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.bezier_curve.BezierCurve.get_derivative" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -216,12 +228,12 @@
 <p>Interpolator that will generate cubic Bezier curve segments for a set of waypoints.</p>
 <dl class="attribute">
 <dt id="uuv_trajectory_generator.path_generator.cs_interpolator.CSInterpolator.LABEL">
-<code class="descname">LABEL</code><em class="property"> = 'cubic_interpolator'</em><a class="headerlink" href="#uuv_trajectory_generator.path_generator.cs_interpolator.CSInterpolator.LABEL" title="Permalink to this definition">¶</a></dt>
+<code class="descname">LABEL</code><em class="property"> = 'cubic'</em><a class="headerlink" href="#uuv_trajectory_generator.path_generator.cs_interpolator.CSInterpolator.LABEL" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="uuv_trajectory_generator.path_generator.cs_interpolator.CSInterpolator.generate_pnt">
-<code class="descname">generate_pnt</code><span class="sig-paren">(</span><em>s</em>, <em>t=0.0</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/cs_interpolator.html#CSInterpolator.generate_pnt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.cs_interpolator.CSInterpolator.generate_pnt" title="Permalink to this definition">¶</a></dt>
+<code class="descname">generate_pnt</code><span class="sig-paren">(</span><em>s</em>, <em>t</em>, <em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/cs_interpolator.html#CSInterpolator.generate_pnt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.cs_interpolator.CSInterpolator.generate_pnt" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -236,12 +248,87 @@
 
 <dl class="method">
 <dt id="uuv_trajectory_generator.path_generator.cs_interpolator.CSInterpolator.get_samples">
-<code class="descname">get_samples</code><span class="sig-paren">(</span><em>max_time</em>, <em>step=0.005</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/cs_interpolator.html#CSInterpolator.get_samples"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.cs_interpolator.CSInterpolator.get_samples" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_samples</code><span class="sig-paren">(</span><em>max_time</em>, <em>step=0.001</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/cs_interpolator.html#CSInterpolator.get_samples"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.cs_interpolator.CSInterpolator.get_samples" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="uuv_trajectory_generator.path_generator.cs_interpolator.CSInterpolator.init_interpolator">
 <code class="descname">init_interpolator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/cs_interpolator.html#CSInterpolator.init_interpolator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.cs_interpolator.CSInterpolator.init_interpolator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="uuv_trajectory_generator.path_generator.cs_interpolator.CSInterpolator.set_parameters">
+<code class="descname">set_parameters</code><span class="sig-paren">(</span><em>params</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/cs_interpolator.html#CSInterpolator.set_parameters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.cs_interpolator.CSInterpolator.set_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Not implemented for this interpolator.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-uuv_trajectory_generator.path_generator.dubins_interpolator">
+<span id="uuv-trajectory-generator-path-generator-dubins-interpolator-module"></span><h2>uuv_trajectory_generator.path_generator.dubins_interpolator module<a class="headerlink" href="#module-uuv_trajectory_generator.path_generator.dubins_interpolator" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="uuv_trajectory_generator.path_generator.dubins_interpolator.DubinsInterpolator">
+<em class="property">class </em><code class="descclassname">uuv_trajectory_generator.path_generator.dubins_interpolator.</code><code class="descname">DubinsInterpolator</code><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/dubins_interpolator.html#DubinsInterpolator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.dubins_interpolator.DubinsInterpolator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#uuv_trajectory_generator.path_generator.path_generator.PathGenerator" title="uuv_trajectory_generator.path_generator.path_generator.PathGenerator"><code class="xref py py-class docutils literal"><span class="pre">uuv_trajectory_generator.path_generator.path_generator.PathGenerator</span></code></a></p>
+<p>3D Dubins path interpolator</p>
+<dl class="attribute">
+<dt id="uuv_trajectory_generator.path_generator.dubins_interpolator.DubinsInterpolator.LABEL">
+<code class="descname">LABEL</code><em class="property"> = 'dubins'</em><a class="headerlink" href="#uuv_trajectory_generator.path_generator.dubins_interpolator.DubinsInterpolator.LABEL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="uuv_trajectory_generator.path_generator.dubins_interpolator.DubinsInterpolator.generate_pnt">
+<code class="descname">generate_pnt</code><span class="sig-paren">(</span><em>s</em>, <em>t</em>, <em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/dubins_interpolator.html#DubinsInterpolator.generate_pnt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.dubins_interpolator.DubinsInterpolator.generate_pnt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="uuv_trajectory_generator.path_generator.dubins_interpolator.DubinsInterpolator.generate_pos">
+<code class="descname">generate_pos</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/dubins_interpolator.html#DubinsInterpolator.generate_pos"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.dubins_interpolator.DubinsInterpolator.generate_pos" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="uuv_trajectory_generator.path_generator.dubins_interpolator.DubinsInterpolator.generate_quat">
+<code class="descname">generate_quat</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/dubins_interpolator.html#DubinsInterpolator.generate_quat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.dubins_interpolator.DubinsInterpolator.generate_quat" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="uuv_trajectory_generator.path_generator.dubins_interpolator.DubinsInterpolator.get_samples">
+<code class="descname">get_samples</code><span class="sig-paren">(</span><em>max_time</em>, <em>step=0.001</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/dubins_interpolator.html#DubinsInterpolator.get_samples"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.dubins_interpolator.DubinsInterpolator.get_samples" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="uuv_trajectory_generator.path_generator.dubins_interpolator.DubinsInterpolator.init_interpolator">
+<code class="descname">init_interpolator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/dubins_interpolator.html#DubinsInterpolator.init_interpolator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.dubins_interpolator.DubinsInterpolator.init_interpolator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="uuv_trajectory_generator.path_generator.dubins_interpolator.DubinsInterpolator.set_parameters">
+<code class="descname">set_parameters</code><span class="sig-paren">(</span><em>params</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/dubins_interpolator.html#DubinsInterpolator.set_parameters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.dubins_interpolator.DubinsInterpolator.set_parameters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-uuv_trajectory_generator.path_generator.helical_segment">
+<span id="uuv-trajectory-generator-path-generator-helical-segment-module"></span><h2>uuv_trajectory_generator.path_generator.helical_segment module<a class="headerlink" href="#module-uuv_trajectory_generator.path_generator.helical_segment" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="uuv_trajectory_generator.path_generator.helical_segment.HelicalSegment">
+<em class="property">class </em><code class="descclassname">uuv_trajectory_generator.path_generator.helical_segment.</code><code class="descname">HelicalSegment</code><span class="sig-paren">(</span><em>center</em>, <em>radius</em>, <em>n_turns</em>, <em>delta_z</em>, <em>angle_offset</em>, <em>is_clockwise=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/helical_segment.html#HelicalSegment"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.helical_segment.HelicalSegment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="uuv_trajectory_generator.path_generator.helical_segment.HelicalSegment.get_length">
+<code class="descname">get_length</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/helical_segment.html#HelicalSegment.get_length"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.helical_segment.HelicalSegment.get_length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="uuv_trajectory_generator.path_generator.helical_segment.HelicalSegment.get_pitch">
+<code class="descname">get_pitch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/helical_segment.html#HelicalSegment.get_pitch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.helical_segment.HelicalSegment.get_pitch" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="uuv_trajectory_generator.path_generator.helical_segment.HelicalSegment.interpolate">
+<code class="descname">interpolate</code><span class="sig-paren">(</span><em>u</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/helical_segment.html#HelicalSegment.interpolate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.helical_segment.HelicalSegment.interpolate" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -255,7 +342,7 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <dl class="method">
 <dt id="uuv_trajectory_generator.path_generator.line_segment.LineSegment.get_derivative">
-<code class="descname">get_derivative</code><span class="sig-paren">(</span><em>u</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/line_segment.html#LineSegment.get_derivative"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.line_segment.LineSegment.get_derivative" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_derivative</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/line_segment.html#LineSegment.get_derivative"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.line_segment.LineSegment.get_derivative" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -276,6 +363,52 @@
 </dd></dl>
 
 </div>
+<div class="section" id="module-uuv_trajectory_generator.path_generator.linear_interpolator">
+<span id="uuv-trajectory-generator-path-generator-linear-interpolator-module"></span><h2>uuv_trajectory_generator.path_generator.linear_interpolator module<a class="headerlink" href="#module-uuv_trajectory_generator.path_generator.linear_interpolator" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="uuv_trajectory_generator.path_generator.linear_interpolator.LinearInterpolator">
+<em class="property">class </em><code class="descclassname">uuv_trajectory_generator.path_generator.linear_interpolator.</code><code class="descname">LinearInterpolator</code><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/linear_interpolator.html#LinearInterpolator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.linear_interpolator.LinearInterpolator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#uuv_trajectory_generator.path_generator.path_generator.PathGenerator" title="uuv_trajectory_generator.path_generator.path_generator.PathGenerator"><code class="xref py py-class docutils literal"><span class="pre">uuv_trajectory_generator.path_generator.path_generator.PathGenerator</span></code></a></p>
+<p>Simple linear interpolator</p>
+<dl class="attribute">
+<dt id="uuv_trajectory_generator.path_generator.linear_interpolator.LinearInterpolator.LABEL">
+<code class="descname">LABEL</code><em class="property"> = 'linear'</em><a class="headerlink" href="#uuv_trajectory_generator.path_generator.linear_interpolator.LinearInterpolator.LABEL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="uuv_trajectory_generator.path_generator.linear_interpolator.LinearInterpolator.generate_pnt">
+<code class="descname">generate_pnt</code><span class="sig-paren">(</span><em>s</em>, <em>t</em>, <em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/linear_interpolator.html#LinearInterpolator.generate_pnt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.linear_interpolator.LinearInterpolator.generate_pnt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="uuv_trajectory_generator.path_generator.linear_interpolator.LinearInterpolator.generate_pos">
+<code class="descname">generate_pos</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/linear_interpolator.html#LinearInterpolator.generate_pos"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.linear_interpolator.LinearInterpolator.generate_pos" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="uuv_trajectory_generator.path_generator.linear_interpolator.LinearInterpolator.generate_quat">
+<code class="descname">generate_quat</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/linear_interpolator.html#LinearInterpolator.generate_quat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.linear_interpolator.LinearInterpolator.generate_quat" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="uuv_trajectory_generator.path_generator.linear_interpolator.LinearInterpolator.get_samples">
+<code class="descname">get_samples</code><span class="sig-paren">(</span><em>max_time</em>, <em>step=0.001</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/linear_interpolator.html#LinearInterpolator.get_samples"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.linear_interpolator.LinearInterpolator.get_samples" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="uuv_trajectory_generator.path_generator.linear_interpolator.LinearInterpolator.init_interpolator">
+<code class="descname">init_interpolator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/linear_interpolator.html#LinearInterpolator.init_interpolator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.linear_interpolator.LinearInterpolator.init_interpolator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="uuv_trajectory_generator.path_generator.linear_interpolator.LinearInterpolator.set_parameters">
+<code class="descname">set_parameters</code><span class="sig-paren">(</span><em>params</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/linear_interpolator.html#LinearInterpolator.set_parameters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.linear_interpolator.LinearInterpolator.set_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Not implemented for this interpolator.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="module-uuv_trajectory_generator.path_generator.lipb_interpolator">
 <span id="uuv-trajectory-generator-path-generator-lipb-interpolator-module"></span><h2>uuv_trajectory_generator.path_generator.lipb_interpolator module<a class="headerlink" href="#module-uuv_trajectory_generator.path_generator.lipb_interpolator" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
@@ -289,17 +422,17 @@
 </dl>
 <dl class="attribute">
 <dt id="uuv_trajectory_generator.path_generator.lipb_interpolator.LIPBInterpolator.LABEL">
-<code class="descname">LABEL</code><em class="property"> = 'lipb_interpolator'</em><a class="headerlink" href="#uuv_trajectory_generator.path_generator.lipb_interpolator.LIPBInterpolator.LABEL" title="Permalink to this definition">¶</a></dt>
+<code class="descname">LABEL</code><em class="property"> = 'lipb'</em><a class="headerlink" href="#uuv_trajectory_generator.path_generator.lipb_interpolator.LIPBInterpolator.LABEL" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="uuv_trajectory_generator.path_generator.lipb_interpolator.LIPBInterpolator.generate_pnt">
-<code class="descname">generate_pnt</code><span class="sig-paren">(</span><em>s</em>, <em>t=0.0</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/lipb_interpolator.html#LIPBInterpolator.generate_pnt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.lipb_interpolator.LIPBInterpolator.generate_pnt" title="Permalink to this definition">¶</a></dt>
+<code class="descname">generate_pnt</code><span class="sig-paren">(</span><em>s</em>, <em>t=0.0</em>, <em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/lipb_interpolator.html#LIPBInterpolator.generate_pnt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.lipb_interpolator.LIPBInterpolator.generate_pnt" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="uuv_trajectory_generator.path_generator.lipb_interpolator.LIPBInterpolator.generate_pos">
-<code class="descname">generate_pos</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/lipb_interpolator.html#LIPBInterpolator.generate_pos"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.lipb_interpolator.LIPBInterpolator.generate_pos" title="Permalink to this definition">¶</a></dt>
+<code class="descname">generate_pos</code><span class="sig-paren">(</span><em>s</em>, <em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/lipb_interpolator.html#LIPBInterpolator.generate_pos"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.lipb_interpolator.LIPBInterpolator.generate_pos" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -309,12 +442,17 @@
 
 <dl class="method">
 <dt id="uuv_trajectory_generator.path_generator.lipb_interpolator.LIPBInterpolator.get_samples">
-<code class="descname">get_samples</code><span class="sig-paren">(</span><em>max_time</em>, <em>step=0.005</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/lipb_interpolator.html#LIPBInterpolator.get_samples"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.lipb_interpolator.LIPBInterpolator.get_samples" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_samples</code><span class="sig-paren">(</span><em>max_time</em>, <em>step=0.001</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/lipb_interpolator.html#LIPBInterpolator.get_samples"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.lipb_interpolator.LIPBInterpolator.get_samples" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="uuv_trajectory_generator.path_generator.lipb_interpolator.LIPBInterpolator.init_interpolator">
 <code class="descname">init_interpolator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/lipb_interpolator.html#LIPBInterpolator.init_interpolator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.lipb_interpolator.LIPBInterpolator.init_interpolator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="uuv_trajectory_generator.path_generator.lipb_interpolator.LIPBInterpolator.set_parameters">
+<code class="descname">set_parameters</code><span class="sig-paren">(</span><em>params</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/lipb_interpolator.html#LIPBInterpolator.set_parameters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.lipb_interpolator.LIPBInterpolator.set_parameters" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -405,6 +543,16 @@ path.</p>
 <dd></dd></dl>
 
 <dl class="method">
+<dt id="uuv_trajectory_generator.path_generator.path_generator.PathGenerator.get_visual_markers">
+<code class="descname">get_visual_markers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/path_generator.html#PathGenerator.get_visual_markers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.path_generator.PathGenerator.get_visual_markers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="uuv_trajectory_generator.path_generator.path_generator.PathGenerator.has_started">
+<code class="descname">has_started</code><span class="sig-paren">(</span><em>t</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/path_generator.html#PathGenerator.has_started"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.path_generator.PathGenerator.has_started" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="uuv_trajectory_generator.path_generator.path_generator.PathGenerator.init_interpolator">
 <code class="descname">init_interpolator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/path_generator.html#PathGenerator.init_interpolator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.path_generator.PathGenerator.init_interpolator" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -417,6 +565,11 @@ path.</p>
 <dl class="method">
 <dt id="uuv_trajectory_generator.path_generator.path_generator.PathGenerator.interpolate">
 <code class="descname">interpolate</code><span class="sig-paren">(</span><em>tag</em>, <em>s</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/path_generator.html#PathGenerator.interpolate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.path_generator.PathGenerator.interpolate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="uuv_trajectory_generator.path_generator.path_generator.PathGenerator.is_finished">
+<code class="descname">is_finished</code><span class="sig-paren">(</span><em>t</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/path_generator.html#PathGenerator.is_finished"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.path_generator.PathGenerator.is_finished" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -444,9 +597,19 @@ path.</p>
 <code class="descname">set_full_dof</code><span class="sig-paren">(</span><em>flag</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/path_generator.html#PathGenerator.set_full_dof"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.path_generator.PathGenerator.set_full_dof" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="method">
+<dt id="uuv_trajectory_generator.path_generator.path_generator.PathGenerator.set_parameters">
+<code class="descname">set_parameters</code><span class="sig-paren">(</span><em>params</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/path_generator.html#PathGenerator.set_parameters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.path_generator.PathGenerator.set_parameters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="attribute">
 <dt id="uuv_trajectory_generator.path_generator.path_generator.PathGenerator.start_time">
 <code class="descname">start_time</code><a class="headerlink" href="#uuv_trajectory_generator.path_generator.path_generator.PathGenerator.start_time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="uuv_trajectory_generator.path_generator.path_generator.PathGenerator.termination_by_time">
+<code class="descname">termination_by_time</code><a class="headerlink" href="#uuv_trajectory_generator.path_generator.path_generator.PathGenerator.termination_by_time" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -542,6 +705,16 @@ path.</p>
 <dd></dd></dl>
 
 <dl class="method">
+<dt id="uuv_trajectory_generator.path_generator.PathGenerator.get_visual_markers">
+<code class="descname">get_visual_markers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/path_generator.html#PathGenerator.get_visual_markers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.PathGenerator.get_visual_markers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="uuv_trajectory_generator.path_generator.PathGenerator.has_started">
+<code class="descname">has_started</code><span class="sig-paren">(</span><em>t</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/path_generator.html#PathGenerator.has_started"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.PathGenerator.has_started" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="uuv_trajectory_generator.path_generator.PathGenerator.init_interpolator">
 <code class="descname">init_interpolator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/path_generator.html#PathGenerator.init_interpolator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.PathGenerator.init_interpolator" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -554,6 +727,11 @@ path.</p>
 <dl class="method">
 <dt id="uuv_trajectory_generator.path_generator.PathGenerator.interpolate">
 <code class="descname">interpolate</code><span class="sig-paren">(</span><em>tag</em>, <em>s</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/path_generator.html#PathGenerator.interpolate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.PathGenerator.interpolate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="uuv_trajectory_generator.path_generator.PathGenerator.is_finished">
+<code class="descname">is_finished</code><span class="sig-paren">(</span><em>t</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/path_generator.html#PathGenerator.is_finished"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.PathGenerator.is_finished" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -581,9 +759,19 @@ path.</p>
 <code class="descname">set_full_dof</code><span class="sig-paren">(</span><em>flag</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/path_generator.html#PathGenerator.set_full_dof"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.PathGenerator.set_full_dof" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="method">
+<dt id="uuv_trajectory_generator.path_generator.PathGenerator.set_parameters">
+<code class="descname">set_parameters</code><span class="sig-paren">(</span><em>params</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/path_generator.html#PathGenerator.set_parameters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.PathGenerator.set_parameters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="attribute">
 <dt id="uuv_trajectory_generator.path_generator.PathGenerator.start_time">
 <code class="descname">start_time</code><a class="headerlink" href="#uuv_trajectory_generator.path_generator.PathGenerator.start_time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="uuv_trajectory_generator.path_generator.PathGenerator.termination_by_time">
+<code class="descname">termination_by_time</code><a class="headerlink" href="#uuv_trajectory_generator.path_generator.PathGenerator.termination_by_time" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -600,12 +788,12 @@ path.</p>
 <p>Interpolator that will generate cubic Bezier curve segments for a set of waypoints.</p>
 <dl class="attribute">
 <dt id="uuv_trajectory_generator.path_generator.CSInterpolator.LABEL">
-<code class="descname">LABEL</code><em class="property"> = 'cubic_interpolator'</em><a class="headerlink" href="#uuv_trajectory_generator.path_generator.CSInterpolator.LABEL" title="Permalink to this definition">¶</a></dt>
+<code class="descname">LABEL</code><em class="property"> = 'cubic'</em><a class="headerlink" href="#uuv_trajectory_generator.path_generator.CSInterpolator.LABEL" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="uuv_trajectory_generator.path_generator.CSInterpolator.generate_pnt">
-<code class="descname">generate_pnt</code><span class="sig-paren">(</span><em>s</em>, <em>t=0.0</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/cs_interpolator.html#CSInterpolator.generate_pnt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.CSInterpolator.generate_pnt" title="Permalink to this definition">¶</a></dt>
+<code class="descname">generate_pnt</code><span class="sig-paren">(</span><em>s</em>, <em>t</em>, <em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/cs_interpolator.html#CSInterpolator.generate_pnt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.CSInterpolator.generate_pnt" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -620,7 +808,7 @@ path.</p>
 
 <dl class="method">
 <dt id="uuv_trajectory_generator.path_generator.CSInterpolator.get_samples">
-<code class="descname">get_samples</code><span class="sig-paren">(</span><em>max_time</em>, <em>step=0.005</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/cs_interpolator.html#CSInterpolator.get_samples"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.CSInterpolator.get_samples" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_samples</code><span class="sig-paren">(</span><em>max_time</em>, <em>step=0.001</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/cs_interpolator.html#CSInterpolator.get_samples"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.CSInterpolator.get_samples" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -628,11 +816,17 @@ path.</p>
 <code class="descname">init_interpolator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/cs_interpolator.html#CSInterpolator.init_interpolator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.CSInterpolator.init_interpolator" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="method">
+<dt id="uuv_trajectory_generator.path_generator.CSInterpolator.set_parameters">
+<code class="descname">set_parameters</code><span class="sig-paren">(</span><em>params</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/cs_interpolator.html#CSInterpolator.set_parameters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.CSInterpolator.set_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Not implemented for this interpolator.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
 <dt id="uuv_trajectory_generator.path_generator.BezierCurve">
-<em class="property">class </em><code class="descclassname">uuv_trajectory_generator.path_generator.</code><code class="descname">BezierCurve</code><span class="sig-paren">(</span><em>pnts</em>, <em>order</em>, <em>tangents=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/bezier_curve.html#BezierCurve"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.BezierCurve" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">uuv_trajectory_generator.path_generator.</code><code class="descname">BezierCurve</code><span class="sig-paren">(</span><em>pnts</em>, <em>order</em>, <em>tangents=None</em>, <em>normals=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/bezier_curve.html#BezierCurve"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.BezierCurve" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <p>Implementation of Bezier curves of orders 3, 4 and 5 based on [1].</p>
 <dl class="docutils">
@@ -649,9 +843,24 @@ path.</p>
 <code class="descname">control_pnts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/bezier_curve.html#BezierCurve.control_pnts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.BezierCurve.control_pnts" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="staticmethod">
+<dt id="uuv_trajectory_generator.path_generator.BezierCurve.distance">
+<em class="property">static </em><code class="descname">distance</code><span class="sig-paren">(</span><em>p1</em>, <em>p2</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/bezier_curve.html#BezierCurve.distance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.BezierCurve.distance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="uuv_trajectory_generator.path_generator.BezierCurve.generate_cubic_curve">
+<em class="property">static </em><code class="descname">generate_cubic_curve</code><span class="sig-paren">(</span><em>pnts</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/bezier_curve.html#BezierCurve.generate_cubic_curve"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.BezierCurve.generate_cubic_curve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="uuv_trajectory_generator.path_generator.BezierCurve.generate_quintic_curve">
+<em class="property">static </em><code class="descname">generate_quintic_curve</code><span class="sig-paren">(</span><em>pnts</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/bezier_curve.html#BezierCurve.generate_quintic_curve"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.BezierCurve.generate_quintic_curve" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="method">
 <dt id="uuv_trajectory_generator.path_generator.BezierCurve.get_derivative">
-<code class="descname">get_derivative</code><span class="sig-paren">(</span><em>u</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/bezier_curve.html#BezierCurve.get_derivative"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.BezierCurve.get_derivative" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_derivative</code><span class="sig-paren">(</span><em>u</em>, <em>order=1</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/bezier_curve.html#BezierCurve.get_derivative"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.BezierCurve.get_derivative" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -672,7 +881,7 @@ path.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <dl class="method">
 <dt id="uuv_trajectory_generator.path_generator.LineSegment.get_derivative">
-<code class="descname">get_derivative</code><span class="sig-paren">(</span><em>u</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/line_segment.html#LineSegment.get_derivative"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.LineSegment.get_derivative" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_derivative</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/line_segment.html#LineSegment.get_derivative"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.LineSegment.get_derivative" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -703,17 +912,17 @@ path.</p>
 </dl>
 <dl class="attribute">
 <dt id="uuv_trajectory_generator.path_generator.LIPBInterpolator.LABEL">
-<code class="descname">LABEL</code><em class="property"> = 'lipb_interpolator'</em><a class="headerlink" href="#uuv_trajectory_generator.path_generator.LIPBInterpolator.LABEL" title="Permalink to this definition">¶</a></dt>
+<code class="descname">LABEL</code><em class="property"> = 'lipb'</em><a class="headerlink" href="#uuv_trajectory_generator.path_generator.LIPBInterpolator.LABEL" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="uuv_trajectory_generator.path_generator.LIPBInterpolator.generate_pnt">
-<code class="descname">generate_pnt</code><span class="sig-paren">(</span><em>s</em>, <em>t=0.0</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/lipb_interpolator.html#LIPBInterpolator.generate_pnt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.LIPBInterpolator.generate_pnt" title="Permalink to this definition">¶</a></dt>
+<code class="descname">generate_pnt</code><span class="sig-paren">(</span><em>s</em>, <em>t=0.0</em>, <em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/lipb_interpolator.html#LIPBInterpolator.generate_pnt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.LIPBInterpolator.generate_pnt" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="uuv_trajectory_generator.path_generator.LIPBInterpolator.generate_pos">
-<code class="descname">generate_pos</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/lipb_interpolator.html#LIPBInterpolator.generate_pos"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.LIPBInterpolator.generate_pos" title="Permalink to this definition">¶</a></dt>
+<code class="descname">generate_pos</code><span class="sig-paren">(</span><em>s</em>, <em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/lipb_interpolator.html#LIPBInterpolator.generate_pos"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.LIPBInterpolator.generate_pos" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -723,13 +932,103 @@ path.</p>
 
 <dl class="method">
 <dt id="uuv_trajectory_generator.path_generator.LIPBInterpolator.get_samples">
-<code class="descname">get_samples</code><span class="sig-paren">(</span><em>max_time</em>, <em>step=0.005</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/lipb_interpolator.html#LIPBInterpolator.get_samples"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.LIPBInterpolator.get_samples" title="Permalink to this definition">¶</a></dt>
+<code class="descname">get_samples</code><span class="sig-paren">(</span><em>max_time</em>, <em>step=0.001</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/lipb_interpolator.html#LIPBInterpolator.get_samples"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.LIPBInterpolator.get_samples" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="uuv_trajectory_generator.path_generator.LIPBInterpolator.init_interpolator">
 <code class="descname">init_interpolator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/lipb_interpolator.html#LIPBInterpolator.init_interpolator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.LIPBInterpolator.init_interpolator" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="method">
+<dt id="uuv_trajectory_generator.path_generator.LIPBInterpolator.set_parameters">
+<code class="descname">set_parameters</code><span class="sig-paren">(</span><em>params</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/lipb_interpolator.html#LIPBInterpolator.set_parameters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.LIPBInterpolator.set_parameters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="uuv_trajectory_generator.path_generator.DubinsInterpolator">
+<em class="property">class </em><code class="descclassname">uuv_trajectory_generator.path_generator.</code><code class="descname">DubinsInterpolator</code><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/dubins_interpolator.html#DubinsInterpolator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.DubinsInterpolator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#uuv_trajectory_generator.path_generator.path_generator.PathGenerator" title="uuv_trajectory_generator.path_generator.path_generator.PathGenerator"><code class="xref py py-class docutils literal"><span class="pre">uuv_trajectory_generator.path_generator.path_generator.PathGenerator</span></code></a></p>
+<p>3D Dubins path interpolator</p>
+<dl class="attribute">
+<dt id="uuv_trajectory_generator.path_generator.DubinsInterpolator.LABEL">
+<code class="descname">LABEL</code><em class="property"> = 'dubins'</em><a class="headerlink" href="#uuv_trajectory_generator.path_generator.DubinsInterpolator.LABEL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="uuv_trajectory_generator.path_generator.DubinsInterpolator.generate_pnt">
+<code class="descname">generate_pnt</code><span class="sig-paren">(</span><em>s</em>, <em>t</em>, <em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/dubins_interpolator.html#DubinsInterpolator.generate_pnt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.DubinsInterpolator.generate_pnt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="uuv_trajectory_generator.path_generator.DubinsInterpolator.generate_pos">
+<code class="descname">generate_pos</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/dubins_interpolator.html#DubinsInterpolator.generate_pos"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.DubinsInterpolator.generate_pos" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="uuv_trajectory_generator.path_generator.DubinsInterpolator.generate_quat">
+<code class="descname">generate_quat</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/dubins_interpolator.html#DubinsInterpolator.generate_quat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.DubinsInterpolator.generate_quat" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="uuv_trajectory_generator.path_generator.DubinsInterpolator.get_samples">
+<code class="descname">get_samples</code><span class="sig-paren">(</span><em>max_time</em>, <em>step=0.001</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/dubins_interpolator.html#DubinsInterpolator.get_samples"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.DubinsInterpolator.get_samples" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="uuv_trajectory_generator.path_generator.DubinsInterpolator.init_interpolator">
+<code class="descname">init_interpolator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/dubins_interpolator.html#DubinsInterpolator.init_interpolator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.DubinsInterpolator.init_interpolator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="uuv_trajectory_generator.path_generator.DubinsInterpolator.set_parameters">
+<code class="descname">set_parameters</code><span class="sig-paren">(</span><em>params</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/dubins_interpolator.html#DubinsInterpolator.set_parameters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.DubinsInterpolator.set_parameters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="uuv_trajectory_generator.path_generator.LinearInterpolator">
+<em class="property">class </em><code class="descclassname">uuv_trajectory_generator.path_generator.</code><code class="descname">LinearInterpolator</code><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/linear_interpolator.html#LinearInterpolator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.LinearInterpolator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#uuv_trajectory_generator.path_generator.path_generator.PathGenerator" title="uuv_trajectory_generator.path_generator.path_generator.PathGenerator"><code class="xref py py-class docutils literal"><span class="pre">uuv_trajectory_generator.path_generator.path_generator.PathGenerator</span></code></a></p>
+<p>Simple linear interpolator</p>
+<dl class="attribute">
+<dt id="uuv_trajectory_generator.path_generator.LinearInterpolator.LABEL">
+<code class="descname">LABEL</code><em class="property"> = 'linear'</em><a class="headerlink" href="#uuv_trajectory_generator.path_generator.LinearInterpolator.LABEL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="uuv_trajectory_generator.path_generator.LinearInterpolator.generate_pnt">
+<code class="descname">generate_pnt</code><span class="sig-paren">(</span><em>s</em>, <em>t</em>, <em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/linear_interpolator.html#LinearInterpolator.generate_pnt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.LinearInterpolator.generate_pnt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="uuv_trajectory_generator.path_generator.LinearInterpolator.generate_pos">
+<code class="descname">generate_pos</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/linear_interpolator.html#LinearInterpolator.generate_pos"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.LinearInterpolator.generate_pos" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="uuv_trajectory_generator.path_generator.LinearInterpolator.generate_quat">
+<code class="descname">generate_quat</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/linear_interpolator.html#LinearInterpolator.generate_quat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.LinearInterpolator.generate_quat" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="uuv_trajectory_generator.path_generator.LinearInterpolator.get_samples">
+<code class="descname">get_samples</code><span class="sig-paren">(</span><em>max_time</em>, <em>step=0.001</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/linear_interpolator.html#LinearInterpolator.get_samples"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.LinearInterpolator.get_samples" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="uuv_trajectory_generator.path_generator.LinearInterpolator.init_interpolator">
+<code class="descname">init_interpolator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/linear_interpolator.html#LinearInterpolator.init_interpolator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.LinearInterpolator.init_interpolator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="uuv_trajectory_generator.path_generator.LinearInterpolator.set_parameters">
+<code class="descname">set_parameters</code><span class="sig-paren">(</span><em>params</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_trajectory_generator/path_generator/linear_interpolator.html#LinearInterpolator.set_parameters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_trajectory_generator.path_generator.LinearInterpolator.set_parameters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Not implemented for this interpolator.</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -786,7 +1085,7 @@ path.</p>
       <script type="text/javascript" src="../../../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

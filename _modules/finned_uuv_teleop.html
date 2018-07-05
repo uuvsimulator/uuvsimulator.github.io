@@ -30,9 +30,6 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="UUV Simulator 0.2 documentation" href="../index.html"/>
         <link rel="up" title="Module code" href="index.html"/> 
 
@@ -136,7 +133,7 @@
            <div itemprop="articleBody">
             
   <h1>Source code for finned_uuv_teleop</h1><div class="highlight"><pre>
-<span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># Copyright (c) 2016 The UUV Simulator Authors.</span>
 <span class="c1"># All rights reserved.</span>
 <span class="c1">#</span>
@@ -155,19 +152,19 @@
 <span class="kn">import</span> <span class="nn">numpy</span>
 <span class="kn">import</span> <span class="nn">rospy</span>
 <span class="kn">import</span> <span class="nn">tf</span>
-<span class="kn">import</span> <span class="nn">tf.transformations</span> <span class="k">as</span> <span class="nn">trans</span>
+<span class="kn">import</span> <span class="nn">tf.transformations</span> <span class="kn">as</span> <span class="nn">trans</span>
 
-<span class="kn">from</span> <span class="nn">sensor_msgs.msg</span> <span class="k">import</span> <span class="n">Joy</span>
-<span class="kn">from</span> <span class="nn">uuv_gazebo_ros_plugins_msgs.msg</span> <span class="k">import</span> <span class="n">FloatStamped</span>
-<span class="kn">from</span> <span class="nn">uuv_thrusters.models</span> <span class="k">import</span> <span class="n">Thruster</span>
-<span class="kn">from</span> <span class="nn">rospy.numpy_msg</span> <span class="k">import</span> <span class="n">numpy_msg</span>
+<span class="kn">from</span> <span class="nn">sensor_msgs.msg</span> <span class="kn">import</span> <span class="n">Joy</span>
+<span class="kn">from</span> <span class="nn">uuv_gazebo_ros_plugins_msgs.msg</span> <span class="kn">import</span> <span class="n">FloatStamped</span>
+<span class="kn">from</span> <span class="nn">uuv_thrusters.models</span> <span class="kn">import</span> <span class="n">Thruster</span>
+<span class="kn">from</span> <span class="nn">rospy.numpy_msg</span> <span class="kn">import</span> <span class="n">numpy_msg</span>
 
 
 <div class="viewcode-block" id="FinnedUUVControllerNode"><a class="viewcode-back" href="../api/uuv_simulator/uuv_teleop/scripts/finned_uuv_teleop.html#finned_uuv_teleop.FinnedUUVControllerNode">[docs]</a><span class="k">class</span> <span class="nc">FinnedUUVControllerNode</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;FinnedUUVControllerNode: initializing node&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;FinnedUUVControllerNode: initializing node&#39;</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_ready</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ready</span> <span class="o">=</span> <span class="bp">False</span>
 
         <span class="c1"># Test if any of the needed parameters are missing</span>
         <span class="n">param_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;n_fins&#39;</span><span class="p">,</span> <span class="s1">&#39;gain_roll&#39;</span><span class="p">,</span> <span class="s1">&#39;gain_pitch&#39;</span><span class="p">,</span> <span class="s1">&#39;gain_yaw&#39;</span><span class="p">,</span>
@@ -224,7 +221,7 @@
                 <span class="k">raise</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ROSException</span><span class="p">(</span><span class="s1">&#39;No limit to thruster output was given&#39;</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_thruster_model</span> <span class="o">=</span> <span class="n">Thruster</span><span class="o">.</span><span class="n">create_thruster</span><span class="p">(</span>
                         <span class="bp">self</span><span class="o">.</span><span class="n">_thruster_params</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span>
-                        <span class="bp">self</span><span class="o">.</span><span class="n">_thruster_topic</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_thruster_topic</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span>
                         <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">_thruster_params</span><span class="p">[</span><span class="s1">&#39;params&#39;</span><span class="p">])</span>
         <span class="k">except</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ROSException</span><span class="p">(</span><span class="s1">&#39;Thruster model could not be initialized&#39;</span><span class="p">)</span>
@@ -233,7 +230,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">sub_joy</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Subscriber</span><span class="p">(</span><span class="s1">&#39;joy&#39;</span><span class="p">,</span> <span class="n">numpy_msg</span><span class="p">(</span><span class="n">Joy</span><span class="p">),</span>
                                         <span class="bp">self</span><span class="o">.</span><span class="n">joy_callback</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_ready</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ready</span> <span class="o">=</span> <span class="bp">True</span>
 
 <div class="viewcode-block" id="FinnedUUVControllerNode.joy_callback"><a class="viewcode-back" href="../api/uuv_simulator/uuv_teleop/scripts/finned_uuv_teleop.html#finned_uuv_teleop.FinnedUUVControllerNode.joy_callback">[docs]</a>    <span class="k">def</span> <span class="nf">joy_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Handle callbacks with joystick state.&quot;&quot;&quot;</span>
@@ -246,9 +243,19 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">_thruster_params</span><span class="p">[</span><span class="s1">&#39;max_thrust&#39;</span><span class="p">]</span> <span class="o">*</span> \
                 <span class="bp">self</span><span class="o">.</span><span class="n">_thruster_joy_gain</span>
 
-            <span class="n">rpy</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">msg</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_joy_axis</span><span class="p">[</span><span class="s1">&#39;axis_roll&#39;</span><span class="p">]],</span>
-                               <span class="n">msg</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_joy_axis</span><span class="p">[</span><span class="s1">&#39;axis_pitch&#39;</span><span class="p">]],</span>
-                               <span class="n">msg</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_joy_axis</span><span class="p">[</span><span class="s1">&#39;axis_yaw&#39;</span><span class="p">]]])</span>
+            <span class="n">cmd_roll</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_joy_axis</span><span class="p">[</span><span class="s1">&#39;axis_roll&#39;</span><span class="p">]]</span>
+            <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">cmd_roll</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.2</span><span class="p">:</span>
+                <span class="n">cmd_roll</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+            <span class="n">cmd_pitch</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_joy_axis</span><span class="p">[</span><span class="s1">&#39;axis_pitch&#39;</span><span class="p">]]</span>
+            <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">cmd_pitch</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.2</span><span class="p">:</span>
+                <span class="n">cmd_pitch</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+            <span class="n">cmd_yaw</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_joy_axis</span><span class="p">[</span><span class="s1">&#39;axis_yaw&#39;</span><span class="p">]]</span>
+            <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">cmd_yaw</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.2</span><span class="p">:</span>
+                <span class="n">cmd_yaw</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+            <span class="n">rpy</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">cmd_roll</span><span class="p">,</span> <span class="n">cmd_pitch</span><span class="p">,</span> <span class="n">cmd_yaw</span><span class="p">])</span>
             <span class="n">fins</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rpy_to_fins</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">rpy</span><span class="p">)</span>
 
             <span class="bp">self</span><span class="o">.</span><span class="n">_thruster_model</span><span class="o">.</span><span class="n">publish_command</span><span class="p">(</span><span class="n">thrust</span><span class="p">)</span>
@@ -261,20 +268,20 @@
             <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ready</span><span class="p">:</span>
                 <span class="k">return</span>
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
-            <span class="nb">print</span> <span class="s1">&#39;Error occurred while parsing joystick input, check if the joy_id corresponds to the joystick &#39;</span> \
+            <span class="k">print</span> <span class="s1">&#39;Error occurred while parsing joystick input, check if the joy_id corresponds to the joystick &#39;</span> \
                   <span class="s1">&#39;being used. message=</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span></div></div>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;starting FinnedUUVControllerNode.py&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;starting FinnedUUVControllerNode.py&#39;</span><span class="p">)</span>
     <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s1">&#39;finned_uuv_teleop&#39;</span><span class="p">)</span>
 
     <span class="k">try</span><span class="p">:</span>
         <span class="n">node</span> <span class="o">=</span> <span class="n">FinnedUUVControllerNode</span><span class="p">()</span>
         <span class="n">rospy</span><span class="o">.</span><span class="n">spin</span><span class="p">()</span>
     <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ROSInterruptException</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;caught exception&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;exiting&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;caught exception&#39;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;exiting&#39;</span><span class="p">)</span>
 </pre></div>
 
            </div>
@@ -317,7 +324,7 @@
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

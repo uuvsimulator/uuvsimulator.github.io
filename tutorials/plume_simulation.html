@@ -30,9 +30,6 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="UUV Simulator 0.2 documentation" href="../index.html"/>
         <link rel="up" title="Tutorials" href="index.html"/>
         <link rel="next" title="How to use the wrapper class for repetitive simulation runs" href="simulation_wrapper.html"/>
@@ -94,7 +91,7 @@
 <li class="toctree-l2"><a class="reference internal" href="creating_new_dp_controller.html">Creating a new custom dynamic positioning controller</a></li>
 <li class="toctree-l2"><a class="reference internal" href="seabed_world.html">Making a simple seabed world model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="disturbances.html">Applying disturbances during the simulation</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Starting a plume simulation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Starting a plume simulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="simulation_wrapper.html">How to use the wrapper class for repetitive simulation runs</a></li>
 </ul>
 </li>
@@ -138,7 +135,7 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/tutorials/plume_simulation.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/tutorials/plume_simulation.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -155,33 +152,33 @@ It presents also a challenge when setting up a simulation in order to design the
 <p>For this objective, the algorithm presented in <a class="reference internal" href="../index.html#tian-2010" id="id1">[12]</a> for both the dynamics of plume particles and the particle concentration sensor have been implemented in the <a class="reference external" href="https://github.com/uuvsimulator/uuv_plume_simulator">uuv_plume_simulation</a>.
 For a detailed explanation on the implementation of a passive scalar turbulent plume, please refer to <a class="reference internal" href="../index.html#tian-2010" id="id2">[12]</a> and the ROS implementation for the particle generation <a class="reference external" href="https://github.com/uuvsimulator/uuv_plume_simulator/blob/master/uuv_plume_simulator/src/uuv_plume_model/passive_scalar_turbulence.py">here</a>.</p>
 <p>To run this ROS node, be sure to clone the package in your catkin workspace as follows</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">catkin_ws</span><span class="o">/</span><span class="n">src</span>
-<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">uuvsimulator</span><span class="o">/</span><span class="n">uuv_plume_simulator</span><span class="o">.</span><span class="n">git</span>
+<div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws/src
+git clone https://github.com/uuvsimulator/uuv_plume_simulator.git
 </pre></div>
 </div>
 <p>and build it</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">catkin_ws</span>
-<span class="n">catkin</span> <span class="n">build</span>
-<span class="n">source</span> <span class="n">devel</span><span class="o">/</span><span class="n">setup</span><span class="o">.</span><span class="n">bash</span>
+<div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws
+catkin build
+source devel/setup.bash
 </pre></div>
 </div>
 <p>To run the plume generator ROS node, call the demo launch file</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_plume_simulator</span> <span class="n">start_plume_example</span><span class="o">.</span><span class="n">launch</span>
+<div class="highlight-python"><div class="highlight"><pre>roslaunch uuv_plume_simulator start_plume_example.launch
 </pre></div>
 </div>
 <p>One script is already available to setup an example of a turbulent plume model in the package and can be initialized by calling</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rosrun</span> <span class="n">uuv_plume_simulator</span> <span class="n">set_demo_turbulent_plume</span>
+<div class="highlight-python"><div class="highlight"><pre>rosrun uuv_plume_simulator set_demo_turbulent_plume
 </pre></div>
 </div>
 <p>If no current is active in the Gazebo world, the particles will accumulate around the plume source. To start a current velocity model, run the script</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rosrun</span> <span class="n">uuv_plume_simulator</span> <span class="n">set_current_vel</span>
+<div class="highlight-python"><div class="highlight"><pre>rosrun uuv_plume_simulator set_current_vel
 </pre></div>
 </div>
 <p>By changing the current, it is possible to steer the plume.
 To measure the particle concentration using the algorithm described in <a class="reference internal" href="../index.html#tian-2010" id="id3">[12]</a>, the vehicle must have a sensor unit from the chemical particle concentration available in the <strong>uuv_sensor_ros_plugins</strong>.
 A number of URDF snippets to initialize this sensor in the URDF robot description can be found in the <a class="reference external" href="https://github.com/uuvsimulator/uuv_simulator/blob/master/uuv_sensor_plugins/uuv_sensor_ros_plugins/urdf/chemical_concentration_snippets.xacro">sensor package</a>.
-One example of implementation is already presented in the description of the <a class="reference internal" href="../documentation/vehicles.html#rexrov2"><span class="std std-ref">RexROV 2</span></a> vehicle in the declaration of its <a class="reference external" href="https://github.com/uuvsimulator/rexrov2/blob/master/rexrov2_description/urdf/rexrov2_sensors.xacro">sensor units</a> as shown below</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>&lt;!-- Mount chemical particle concentration sensor --&gt;
+One example of implementation is already presented in the description of the <a class="reference internal" href="../documentation/vehicles.html#rexrov2"><span>RexROV 2</span></a> vehicle in the declaration of its <a class="reference external" href="https://github.com/uuvsimulator/rexrov2/blob/master/rexrov2_description/urdf/rexrov2_sensors.xacro">sensor units</a> as shown below</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;!-- Mount chemical particle concentration sensor --&gt;
 &lt;xacro:default_chemical_concentration_sensor_macro
   namespace=&quot;${namespace}&quot;
   parent_link=&quot;${namespace}/base_link&quot;
@@ -247,7 +244,7 @@ Feel free to check the sample <a class="reference external" href="https://github
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

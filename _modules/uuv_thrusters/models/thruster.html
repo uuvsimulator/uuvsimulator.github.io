@@ -30,9 +30,6 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../../../genindex.html"/>
-        <link rel="search" title="Search" href="../../../search.html"/>
     <link rel="top" title="UUV Simulator 0.2 documentation" href="../../../index.html"/>
         <link rel="up" title="Module code" href="../../index.html"/> 
 
@@ -136,7 +133,7 @@
            <div itemprop="articleBody">
             
   <h1>Source code for uuv_thrusters.models.thruster</h1><div class="highlight"><pre>
-<span></span><span class="c1"># Copyright (c) 2016 The UUV Simulator Authors.</span>
+<span class="c1"># Copyright (c) 2016 The UUV Simulator Authors.</span>
 <span class="c1"># All rights reserved.</span>
 <span class="c1">#</span>
 <span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
@@ -153,9 +150,9 @@
 
 <span class="kn">import</span> <span class="nn">rospy</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
-<span class="kn">import</span> <span class="nn">tf.transformations</span> <span class="k">as</span> <span class="nn">trans</span>
-<span class="kn">from</span> <span class="nn">uuv_gazebo_ros_plugins_msgs.msg</span> <span class="k">import</span> <span class="n">FloatStamped</span>
-<span class="kn">from</span> <span class="nn">std_msgs.msg</span> <span class="k">import</span> <span class="n">Header</span>
+<span class="kn">import</span> <span class="nn">tf.transformations</span> <span class="kn">as</span> <span class="nn">trans</span>
+<span class="kn">from</span> <span class="nn">uuv_gazebo_ros_plugins_msgs.msg</span> <span class="kn">import</span> <span class="n">FloatStamped</span>
+<span class="kn">from</span> <span class="nn">std_msgs.msg</span> <span class="kn">import</span> <span class="n">Header</span>
 
 
 <div class="viewcode-block" id="Thruster"><a class="viewcode-back" href="../../../api/uuv_simulator/uuv_thruster_manager/src/uuv_thrusters.models.html#uuv_thrusters.models.thruster.Thruster">[docs]</a><span class="k">class</span> <span class="nc">Thruster</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -181,10 +178,10 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_index</span> <span class="o">=</span> <span class="n">index</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_topic</span> <span class="o">=</span> <span class="n">topic</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_pos</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_orientation</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_force_dist</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="k">if</span> <span class="kc">None</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="n">pos</span><span class="p">,</span> <span class="n">orientation</span><span class="p">]:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_pos</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_orientation</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_force_dist</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="k">if</span> <span class="n">pos</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">orientation</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_pos</span> <span class="o">=</span> <span class="n">pos</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_orientation</span> <span class="o">=</span> <span class="n">orientation</span>
             <span class="c1"># compute contribution to configuration matrix of this thruster</span>
@@ -198,14 +195,14 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_command_pub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_topic</span><span class="p">,</span> <span class="n">FloatStamped</span><span class="p">,</span>
                                             <span class="n">queue_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 
-        <span class="nb">print</span> <span class="s1">&#39;Thruster #</span><span class="si">%d</span><span class="s1"> - </span><span class="si">%s</span><span class="s1"> - </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_index</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">LABEL</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_topic</span><span class="p">)</span>
+        <span class="k">print</span> <span class="s1">&#39;Thruster #</span><span class="si">%d</span><span class="s1"> - </span><span class="si">%s</span><span class="s1"> - </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_index</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">LABEL</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_topic</span><span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">tam_column</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_force_dist</span>
 
-<div class="viewcode-block" id="Thruster.create_thruster"><a class="viewcode-back" href="../../../api/uuv_simulator/uuv_thruster_manager/src/uuv_thrusters.models.html#uuv_thrusters.models.thruster.Thruster.create_thruster">[docs]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">create_thruster</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Thruster.create_thruster"><a class="viewcode-back" href="../../../api/uuv_simulator/uuv_thruster_manager/src/uuv_thrusters.models.html#uuv_thrusters.models.thruster.Thruster.create_thruster">[docs]</a>    <span class="k">def</span> <span class="nf">create_thruster</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">thruster</span> <span class="ow">in</span> <span class="n">Thruster</span><span class="o">.</span><span class="n">__subclasses__</span><span class="p">():</span>
             <span class="k">if</span> <span class="n">model_name</span> <span class="o">==</span> <span class="n">thruster</span><span class="o">.</span><span class="n">LABEL</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">thruster</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -287,7 +284,7 @@
       <script type="text/javascript" src="../../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

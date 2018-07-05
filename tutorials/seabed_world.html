@@ -30,9 +30,6 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="UUV Simulator 0.2 documentation" href="../index.html"/>
         <link rel="up" title="Tutorials" href="index.html"/>
         <link rel="next" title="Applying disturbances during the simulation" href="disturbances.html"/>
@@ -92,7 +89,7 @@
 <li class="toctree-l2"><a class="reference internal" href="create_new_vehicle.html">Creating a new underwater vehicle model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="config_thruster_manager.html">Configuring the thruster manager for a new vehicle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="creating_new_dp_controller.html">Creating a new custom dynamic positioning controller</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Making a simple seabed world model</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Making a simple seabed world model</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#creating-the-mesh-file">Creating the mesh file</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#creating-the-gazebo-seabed-model">Creating the Gazebo seabed model</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#creating-a-new-gazebo-world">Creating a new Gazebo world</a></li>
@@ -143,7 +140,7 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/tutorials/seabed_world.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/tutorials/seabed_world.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -169,12 +166,12 @@ setup a heightmap, but it can happen that its complexity might make the simulati
 data can be interpolated into a grid and later converted into an STL file. For this example, we will use the test surface available in the <strong>matplotlib</strong>
 package, but you should replace it with your own point cloud data. You will also need the packages <strong>numpy</strong>, <strong>scipy</strong> and <strong>numpy-stl</strong>.</p>
 <p>To install the necessary packages, you can use <strong>pip</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">pip</span>
-<span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">numpy</span> <span class="n">scipy</span> <span class="n">matplotlib</span> <span class="n">numpy</span><span class="o">-</span><span class="n">stl</span>
+<div class="highlight-python"><div class="highlight"><pre>sudo apt-get install python-pip
+sudo pip install numpy scipy matplotlib numpy-stl
 </pre></div>
 </div>
 <p>To generate the mesh, change the code below to your needs</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">griddata</span>
 <span class="kn">import</span> <span class="nn">scipy.ndimage</span> <span class="kn">as</span> <span class="nn">ndimage</span>
 <span class="kn">from</span> <span class="nn">scipy.ndimage</span> <span class="kn">import</span> <span class="n">gaussian_filter</span>
@@ -267,7 +264,7 @@ panel as follows</p>
 <img alt="../_images/modifier_blender.png" src="../_images/modifier_blender.png" />
 <p>and choose the option <strong>Solidify</strong> in the <strong>Add modifier</strong> popup menu.</p>
 <img alt="../_images/solidify.png" src="../_images/solidify.png" />
-<p>Enter a value for the surface’s thickness as shown below and click on the button
+<p>Enter a value for the surface&#8217;s thickness as shown below and click on the button
 <strong>Apply</strong>.</p>
 <img alt="../_images/thickness.png" src="../_images/thickness.png" />
 <p>You can now export you surface again using the STL exporter tool. Now you need
@@ -278,35 +275,35 @@ to create a <a class="reference external" href="http://sdformat.org/">SDF</a> mo
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
 <p class="last">For the further steps, be sure to have followed the installation
-instructions that can be found in this page: <a class="reference internal" href="../installation.html#installation"><span class="std std-ref">Installation</span></a>.</p>
+instructions that can be found in this page: <a class="reference internal" href="../installation.html#installation"><span>Installation</span></a>.</p>
 </div>
 <p>To be able to load your seabed mesh in Gazebo, you need a SDF model describing
-it. Starting from the folder structure, let’s create a new catkin package for
+it. Starting from the folder structure, let&#8217;s create a new catkin package for
 this world description. The folder structure below is only a suggestion based
 on the structure used in this package.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">catkin_ws</span><span class="o">/</span><span class="n">src</span>
-<span class="n">catkin_create_pkg</span> <span class="n">uuv_tutorial_seabed_world</span>
-<span class="n">cd</span> <span class="n">uuv_tutorial_seabed_world</span>
-<span class="n">mkdir</span> <span class="n">models</span> <span class="n">worlds</span> <span class="n">launch</span>
-<span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="n">models</span><span class="o">/</span><span class="n">tutorial_seabed</span><span class="o">/</span><span class="n">meshes</span>
+<div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws/src
+catkin_create_pkg uuv_tutorial_seabed_world
+cd uuv_tutorial_seabed_world
+mkdir models worlds launch
+mkdir -p models/tutorial_seabed/meshes
 </pre></div>
 </div>
-<p>Let’s create the files for our seabed model.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">catkin_ws</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">uuv_tutorial_seabed_world</span><span class="o">/</span><span class="n">models</span><span class="o">/</span><span class="n">tutorial_seabed</span>
-<span class="n">touch</span> <span class="n">model</span><span class="o">.</span><span class="n">config</span> <span class="n">model</span><span class="o">.</span><span class="n">sdf</span>
+<p>Let&#8217;s create the files for our seabed model.</p>
+<div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws/src/uuv_tutorial_seabed_world/models/tutorial_seabed
+touch model.config model.sdf
 </pre></div>
 </div>
 <p>Now copy the <strong>seabed.stl</strong> file into the folder
 <strong>uuv_tutorial_seabed_world/models/tutorial_seabed/meshes</strong>.</p>
 <p>For the Gazebo seabed model, you will need to create the following files in
 your <strong>uuv_tutorial_seabed_world/models/tutorial_seabed</strong> folder. The materials
-used below come from UUV simulator’s <a class="reference external" href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_descriptions/Media/materials">materials description</a>.
+used below come from UUV simulator&#8217;s <a class="reference external" href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_descriptions/Media/materials">materials description</a>.
 You can replace them for other textures. You can change them to, for example,
 the <a class="reference external" href="https://bitbucket.org/osrf/gazebo/src/7d7c37d66d00f1e5e3d96a90734bc61f1f75d8eb/media/materials/scripts/gazebo.material?at=default&amp;fileviewer=file-view-default">default materials provided by Gazebo</a>.</p>
 <ul class="simple">
 <li><strong>model.config</strong></li>
 </ul>
-<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<div class="highlight-xml"><div class="highlight"><pre><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
 <span class="c">&lt;!-- Copyright (c) 2016 The UUV Simulator Authors.</span>
 <span class="c">     All rights reserved.</span>
 
@@ -342,7 +339,7 @@ the <a class="reference external" href="https://bitbucket.org/osrf/gazebo/src/7d
 <ul class="simple">
 <li><strong>model.sdf</strong></li>
 </ul>
-<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; ?&gt;</span>
+<div class="highlight-xml"><div class="highlight"><pre><span class="cp">&lt;?xml version=&quot;1.0&quot; ?&gt;</span>
 <span class="c">&lt;!-- Copyright (c) 2016 The UUV Simulator Authors.</span>
 <span class="c">     All rights reserved.</span>
 
@@ -405,12 +402,12 @@ the <a class="reference external" href="https://bitbucket.org/osrf/gazebo/src/7d
 </pre></div>
 </div>
 <p>Now you can configure your <strong>catkin package</strong> so that the model can be listed in
-Gazebo as a model. For that you’ll have to configure the <strong>package.xml</strong> and
+Gazebo as a model. For that you&#8217;ll have to configure the <strong>package.xml</strong> and
 <strong>CMakeLists.txt</strong> files as in the examples below.</p>
 <ul class="simple">
 <li><strong>CMakeLists.txt</strong></li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span>cmake_minimum_required(VERSION 2.8.3)
+<div class="highlight-python"><div class="highlight"><pre>cmake_minimum_required(VERSION 2.8.3)
 project(uuv_tutorial_seabed_world)
 
 find_package(catkin REQUIRED)
@@ -427,9 +424,9 @@ install(DIRECTORY launch worlds models
 <li><strong>package.xml</strong></li>
 </ul>
 <p>For this file, be sure to have the following lines:</p>
-<div class="highlight-xml"><div class="highlight"><pre><span></span>  <span class="nt">&lt;buildtool_depend&gt;</span>catkin<span class="nt">&lt;/buildtool_depend&gt;</span>
+<div class="highlight-xml"><div class="highlight"><pre>  <span class="nt">&lt;buildtool_depend&gt;</span>catkin<span class="nt">&lt;/buildtool_depend&gt;</span>
 
-  <span class="nt">&lt;run_depend&gt;</span>gazebo_ros<span class="nt">&lt;/run_depend&gt;</span>
+  <span class="nt">&lt;exec_depend&gt;</span>gazebo_ros<span class="nt">&lt;/exec_depend&gt;</span>
 
   <span class="nt">&lt;export&gt;</span>
     <span class="nt">&lt;gazebo_ros</span> <span class="na">gazebo_media_path=</span><span class="s">&quot;${prefix}&quot;</span>
@@ -438,18 +435,18 @@ install(DIRECTORY launch worlds models
 </pre></div>
 </div>
 <p>You can now build your workspace as</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">catkin_ws</span>
-<span class="n">catkin_make</span>
+<div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws
+catkin_make
 </pre></div>
 </div>
 <p>or</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">catkin_ws</span>
-<span class="n">catkin</span> <span class="n">build</span>
+<div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws
+catkin build
 </pre></div>
 </div>
 <p>if you are using <strong>catkin tools</strong>.</p>
 <p>Now, if you open Gazebo using</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">gazebo_ros</span> <span class="n">empty_world</span><span class="o">.</span><span class="n">launch</span>
+<div class="highlight-python"><div class="highlight"><pre>roslaunch gazebo_ros empty_world.launch
 </pre></div>
 </div>
 <p>and delete the <strong>ground_plane</strong> model under the <strong>Models</strong> list, and then
@@ -461,20 +458,20 @@ you will be able to see the following screen</p>
 <h2>Creating a new Gazebo world<a class="headerlink" href="#creating-a-new-gazebo-world" title="Permalink to this headline">¶</a></h2>
 <p>Now that the model is done, you can create a Gazebo world to load your scenario
 with the seabed model. Create a new world file as follows</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roscd</span> <span class="n">uuv_tutorial_seabed_world</span><span class="o">/</span><span class="n">worlds</span>
-<span class="n">touch</span> <span class="n">example_underwater</span><span class="o">.</span><span class="n">world</span>
+<div class="highlight-python"><div class="highlight"><pre>roscd uuv_tutorial_seabed_world/worlds
+touch example_underwater.world
 </pre></div>
 </div>
 <p>and a <strong>launch</strong> file to start it</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roscd</span> <span class="n">uuv_tutorial_seabed_world</span><span class="o">/</span><span class="n">launch</span>
-<span class="n">touch</span> <span class="n">tutorial_seabed_world</span><span class="o">.</span><span class="n">launch</span>
+<div class="highlight-python"><div class="highlight"><pre>roscd uuv_tutorial_seabed_world/launch
+touch tutorial_seabed_world.launch
 </pre></div>
 </div>
 <p>The contents of both files can be seen below</p>
 <ul class="simple">
 <li><strong>example_underwater.world</strong></li>
 </ul>
-<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; ?&gt;</span>
+<div class="highlight-xml"><div class="highlight"><pre><span class="cp">&lt;?xml version=&quot;1.0&quot; ?&gt;</span>
 <span class="c">&lt;!-- Copyright (c) 2016 The UUV Simulator Authors.</span>
 <span class="c">     All rights reserved.</span>
 
@@ -563,7 +560,7 @@ with the seabed model. Create a new world file as follows</p>
 <ul class="simple">
 <li><strong>tutorial_seabed_world.launch</strong></li>
 </ul>
-<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;launch&gt;</span>
+<div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;launch&gt;</span>
     <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;gui&quot;</span> <span class="na">default=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
     <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;paused&quot;</span> <span class="na">default=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
     <span class="c">&lt;!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched --&gt;</span>
@@ -581,7 +578,7 @@ with the seabed model. Create a new world file as follows</p>
 </pre></div>
 </div>
 <p>Now you can launch your world using</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_tutorial_seabed_world</span> <span class="n">tutorial_seabed_world</span><span class="o">.</span><span class="n">launch</span>
+<div class="highlight-python"><div class="highlight"><pre>roslaunch uuv_tutorial_seabed_world tutorial_seabed_world.launch
 </pre></div>
 </div>
 <p>and the result on the screen should be</p>
@@ -640,7 +637,7 @@ with the seabed model. Create a new world file as follows</p>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

@@ -30,9 +30,6 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../../genindex.html"/>
-        <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="UUV Simulator 0.2 documentation" href="../../index.html"/>
         <link rel="up" title="Module code" href="../index.html"/> 
 
@@ -136,7 +133,7 @@
            <div itemprop="articleBody">
             
   <h1>Source code for uuv_thrusters.thruster_manager</h1><div class="highlight"><pre>
-<span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># Copyright (c) 2016 The UUV Simulator Authors.</span>
 <span class="c1"># All rights reserved.</span>
 <span class="c1">#</span>
@@ -155,14 +152,14 @@
 <span class="kn">import</span> <span class="nn">numpy</span>
 <span class="kn">import</span> <span class="nn">rospy</span>
 <span class="kn">import</span> <span class="nn">tf</span>
-<span class="kn">import</span> <span class="nn">tf.transformations</span> <span class="k">as</span> <span class="nn">trans</span>
+<span class="kn">import</span> <span class="nn">tf.transformations</span> <span class="kn">as</span> <span class="nn">trans</span>
 <span class="kn">import</span> <span class="nn">tf2_ros</span>
-<span class="kn">from</span> <span class="nn">os.path</span> <span class="k">import</span> <span class="n">isdir</span><span class="p">,</span> <span class="n">join</span>
+<span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">isdir</span><span class="p">,</span> <span class="n">join</span>
 <span class="kn">import</span> <span class="nn">yaml</span>
-<span class="kn">from</span> <span class="nn">time</span> <span class="k">import</span> <span class="n">sleep</span>
-<span class="kn">from</span> <span class="nn">models</span> <span class="k">import</span> <span class="n">Thruster</span>
-<span class="kn">from</span> <span class="nn">uuv_gazebo_ros_plugins_msgs.msg</span> <span class="k">import</span> <span class="n">FloatStamped</span>
-<span class="kn">from</span> <span class="nn">geometry_msgs.msg</span> <span class="k">import</span> <span class="n">Wrench</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+<span class="kn">from</span> <span class="nn">models</span> <span class="kn">import</span> <span class="n">Thruster</span>
+<span class="kn">from</span> <span class="nn">uuv_gazebo_ros_plugins_msgs.msg</span> <span class="kn">import</span> <span class="n">FloatStamped</span>
+<span class="kn">from</span> <span class="nn">geometry_msgs.msg</span> <span class="kn">import</span> <span class="n">Wrench</span>
 
 
 <div class="viewcode-block" id="ThrusterManager"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_thruster_manager/src/uuv_thrusters.html#uuv_thrusters.thruster_manager.ThrusterManager">[docs]</a><span class="k">class</span> <span class="nc">ThrusterManager</span><span class="p">:</span>
@@ -184,7 +181,7 @@
         <span class="sd">&quot;&quot;&quot;Class constructor.&quot;&quot;&quot;</span>
         <span class="c1"># This flag will be set to true once the thruster allocation matrix is</span>
         <span class="c1"># available</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_ready</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ready</span> <span class="o">=</span> <span class="bp">False</span>
 
         <span class="c1"># Acquiring the namespace of the vehicle</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">namespace</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_namespace</span><span class="p">()</span>
@@ -205,11 +202,11 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;update_rate&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;update_rate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">50</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">base_link_ned_to_enu</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">base_link_ned_to_enu</span> <span class="o">=</span> <span class="bp">None</span>
 
         <span class="n">tf_buffer</span> <span class="o">=</span> <span class="n">tf2_ros</span><span class="o">.</span><span class="n">Buffer</span><span class="p">()</span>
         <span class="n">listener</span> <span class="o">=</span> <span class="n">tf2_ros</span><span class="o">.</span><span class="n">TransformListener</span><span class="p">(</span><span class="n">tf_buffer</span><span class="p">)</span>
-        <span class="n">tf_trans_ned_to_enu</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">tf_trans_ned_to_enu</span> <span class="o">=</span> <span class="bp">None</span>
 
         <span class="k">try</span><span class="p">:</span>
             <span class="n">target</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">base_link&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">namespace</span>
@@ -219,19 +216,19 @@
             <span class="n">tf_trans_ned_to_enu</span> <span class="o">=</span> <span class="n">tf_buffer</span><span class="o">.</span><span class="n">lookup_transform</span><span class="p">(</span>
                 <span class="n">target</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Time</span><span class="p">(),</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Duration</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No transform found between base_link and base_link_ned&#39;</span>
+            <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s1">&#39;No transform found between base_link and base_link_ned&#39;</span>
                   <span class="s1">&#39; for vehicle &#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">namespace</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">base_link_ned_to_enu</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">base_link_ned_to_enu</span> <span class="o">=</span> <span class="bp">None</span>
 
-        <span class="k">if</span> <span class="n">tf_trans_ned_to_enu</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">tf_trans_ned_to_enu</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">base_link_ned_to_enu</span> <span class="o">=</span> <span class="n">trans</span><span class="o">.</span><span class="n">quaternion_matrix</span><span class="p">(</span>
                 <span class="p">(</span><span class="n">tf_trans_ned_to_enu</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">rotation</span><span class="o">.</span><span class="n">x</span><span class="p">,</span>
                  <span class="n">tf_trans_ned_to_enu</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">rotation</span><span class="o">.</span><span class="n">y</span><span class="p">,</span>
                  <span class="n">tf_trans_ned_to_enu</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">rotation</span><span class="o">.</span><span class="n">z</span><span class="p">,</span>
                  <span class="n">tf_trans_ned_to_enu</span><span class="o">.</span><span class="n">transform</span><span class="o">.</span><span class="n">rotation</span><span class="o">.</span><span class="n">w</span><span class="p">))[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
 
-        <span class="nb">print</span> <span class="s1">&#39;base_link transform NED to ENU=</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_link_ned_to_enu</span>
+            <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s1">&#39;base_link transform NED to ENU=</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_link_ned_to_enu</span><span class="p">))</span>
 
         <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span>
           <span class="s1">&#39;ThrusterManager::update_rate=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;update_rate&#39;</span><span class="p">]))</span>
@@ -241,13 +238,13 @@
 
         <span class="c1"># Retrieve the output file path to store the TAM</span>
         <span class="c1"># matrix for future use</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">output_dir</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">output_dir</span> <span class="o">=</span> <span class="bp">None</span>
         <span class="k">if</span> <span class="n">rospy</span><span class="o">.</span><span class="n">has_param</span><span class="p">(</span><span class="s1">&#39;~output_dir&#39;</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">output_dir</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s1">&#39;~output_dir&#39;</span><span class="p">)</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">isdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_dir</span><span class="p">):</span>
                 <span class="k">raise</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ROSException</span><span class="p">(</span>
                     <span class="s1">&#39;Invalid output directory, output_dir=&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_dir</span><span class="p">)</span>
-            <span class="nb">print</span> <span class="s1">&#39;output_dir=&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_dir</span>
+            <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s1">&#39;output_dir=&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_dir</span><span class="p">)</span> 
 
         <span class="c1"># Number of thrusters</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n_thrusters</span> <span class="o">=</span> <span class="mi">0</span>
@@ -256,10 +253,10 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">thrusters</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
 
         <span class="c1"># Thrust forces vector</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">thrust</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">thrust</span> <span class="o">=</span> <span class="bp">None</span>
 
         <span class="c1"># Thruster allocation matrix: transform thruster inputs to force/torque</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">configuration_matrix</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">configuration_matrix</span> <span class="o">=</span> <span class="bp">None</span>
         <span class="k">if</span> <span class="n">rospy</span><span class="o">.</span><span class="n">has_param</span><span class="p">(</span><span class="s1">&#39;~tam&#39;</span><span class="p">):</span>
             <span class="n">tam</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s1">&#39;~tam&#39;</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">configuration_matrix</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">tam</span><span class="p">)</span>
@@ -279,54 +276,54 @@
                     <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;thruster_topic_suffix&#39;</span><span class="p">]</span>
                 <span class="k">if</span> <span class="nb">list</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="nb">type</span><span class="p">(</span><span class="n">params</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">conv_fcn</span><span class="p">)]:</span>
                     <span class="n">thruster</span> <span class="o">=</span> <span class="n">Thruster</span><span class="o">.</span><span class="n">create_thruster</span><span class="p">(</span>
-                        <span class="n">conv_fcn</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">topic</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span>
+                        <span class="n">conv_fcn</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">topic</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span>
                         <span class="o">**</span><span class="n">params</span><span class="p">)</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="n">thruster</span> <span class="o">=</span> <span class="n">Thruster</span><span class="o">.</span><span class="n">create_thruster</span><span class="p">(</span>
-                        <span class="n">conv_fcn</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">i</span><span class="p">,</span> <span class="n">topic</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span>
+                        <span class="n">conv_fcn</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">i</span><span class="p">,</span> <span class="n">topic</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span>
                         <span class="o">**</span><span class="n">params</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 
-                <span class="k">if</span> <span class="n">thruster</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">thruster</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
                     <span class="n">rospy</span><span class="o">.</span><span class="n">ROSException</span><span class="p">(</span><span class="s1">&#39;Invalid thruster conversion &#39;</span>
                                        <span class="s1">&#39;function=</span><span class="si">%s</span><span class="s1">&#39;</span>
                                        <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;conversion_fcn&#39;</span><span class="p">])</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">thrusters</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">thruster</span><span class="p">)</span>
-            <span class="nb">print</span> <span class="s1">&#39;Thruster allocation matrix provided!&#39;</span>
-            <span class="nb">print</span> <span class="s1">&#39;TAM=&#39;</span>
-            <span class="nb">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">configuration_matrix</span>
+            <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s1">&#39;Thruster allocation matrix provided!&#39;</span><span class="p">)</span> 
+            <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s1">&#39;TAM=&#39;</span><span class="p">)</span>
+            <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">configuration_matrix</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">thrust</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_thrusters</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_tam</span><span class="p">():</span>
             <span class="k">raise</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ROSException</span><span class="p">(</span><span class="s1">&#39;No thrusters found&#39;</span><span class="p">)</span>
 
         <span class="c1"># (pseudo) inverse: force/torque to thruster inputs</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">inverse_configuration_matrix</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">configuration_matrix</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inverse_configuration_matrix</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">configuration_matrix</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">inverse_configuration_matrix</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">pinv</span><span class="p">(</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">configuration_matrix</span><span class="p">)</span>
 
         <span class="c1"># If an output directory was provided, store matrix for further use</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_dir</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_dir</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
             <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_dir</span><span class="p">,</span> <span class="s1">&#39;TAM.yaml&#39;</span><span class="p">),</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">yaml_file</span><span class="p">:</span>
                 <span class="n">yaml_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
                     <span class="n">yaml</span><span class="o">.</span><span class="n">safe_dump</span><span class="p">(</span>
                         <span class="nb">dict</span><span class="p">(</span><span class="n">tam</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">configuration_matrix</span><span class="o">.</span><span class="n">tolist</span><span class="p">())))</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span> <span class="s1">&#39;Invalid output directory for the TAM matrix, dir=&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_dir</span>
+            <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s1">&#39;Invalid output directory for the TAM matrix, dir=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_dir</span><span class="p">))</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">ready</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;ThrusterManager: ready&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ready</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s1">&#39;ThrusterManager: ready&#39;</span><span class="p">)</span>
 
-<div class="viewcode-block" id="ThrusterManager.update_tam"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_thruster_manager/src/uuv_thrusters.html#uuv_thrusters.thruster_manager.ThrusterManager.update_tam">[docs]</a>    <span class="k">def</span> <span class="nf">update_tam</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">recalculate</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="ThrusterManager.update_tam"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_thruster_manager/src/uuv_thrusters.html#uuv_thrusters.thruster_manager.ThrusterManager.update_tam">[docs]</a>    <span class="k">def</span> <span class="nf">update_tam</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">recalculate</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Calculate the thruster allocation matrix, if one is not given.&quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">configuration_matrix</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">recalculate</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">ready</span> <span class="o">=</span> <span class="kc">True</span>
-            <span class="nb">print</span> <span class="s1">&#39;TAM provided, skipping...&#39;</span>
-            <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;ThrusterManager: ready&#39;</span><span class="p">)</span>
-            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">configuration_matrix</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">recalculate</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ready</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s1">&#39;TAM provided, skipping...&#39;</span><span class="p">)</span>
+            <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s1">&#39;ThrusterManager: ready&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">True</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">ready</span> <span class="o">=</span> <span class="kc">False</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ThrusterManager: updating thruster poses&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ready</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s1">&#39;ThrusterManager: updating thruster poses&#39;</span><span class="p">)</span>
         <span class="c1"># Small margin to make sure we get thruster frames via tf</span>
         <span class="n">now</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Time</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">+</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Duration</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
 
@@ -334,7 +331,7 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">thrusters</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
 
-        <span class="n">equal_thrusters</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">equal_thrusters</span> <span class="o">=</span> <span class="bp">True</span>
         <span class="n">idx_thruster_model</span> <span class="o">=</span> <span class="mi">0</span>
 
         <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;conversion_fcn_params&#39;</span><span class="p">])</span> <span class="o">==</span> <span class="nb">list</span> <span class="ow">and</span> \
@@ -344,10 +341,10 @@
                 <span class="k">raise</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ROSException</span><span class="p">(</span>
                     <span class="s1">&#39;Lists of conversion_fcn_params and conversion_fcn&#39;</span>
                     <span class="s1">&#39; must have equal length&#39;</span><span class="p">)</span>
-            <span class="n">equal_thrusters</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="n">equal_thrusters</span> <span class="o">=</span> <span class="bp">False</span>
 
-        <span class="nb">print</span> <span class="s1">&#39;conversion_fcn=&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;conversion_fcn&#39;</span><span class="p">]</span>
-        <span class="nb">print</span> <span class="s1">&#39;conversion_fcn_params=&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;conversion_fcn_params&#39;</span><span class="p">]</span>
+        <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s1">&#39;conversion_fcn=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;conversion_fcn&#39;</span><span class="p">]))</span> 
+        <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s1">&#39;conversion_fcn_params=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;conversion_fcn_params&#39;</span><span class="p">]))</span>
 
         <span class="n">listener</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">TransformListener</span><span class="p">()</span>
         <span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -357,7 +354,7 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;thruster_frame_base&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="c1"># try to get thruster pose with respect to base frame via tf</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;transform: &#39;</span> <span class="o">+</span> <span class="n">base</span> <span class="o">+</span> <span class="s1">&#39; -&gt; &#39;</span> <span class="o">+</span> <span class="n">frame</span><span class="p">)</span>
+                <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s1">&#39;transform: &#39;</span> <span class="o">+</span> <span class="n">base</span> <span class="o">+</span> <span class="s1">&#39; -&gt; &#39;</span> <span class="o">+</span> <span class="n">frame</span><span class="p">)</span>
                 <span class="n">now</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Time</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">+</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Duration</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
                 <span class="n">listener</span><span class="o">.</span><span class="n">waitForTransform</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">frame</span><span class="p">,</span>
                                                <span class="n">now</span><span class="p">,</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Duration</span><span class="p">(</span><span class="mf">30.0</span><span class="p">))</span>
@@ -383,19 +380,19 @@
                         <span class="n">i</span><span class="p">,</span> <span class="n">topic</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">quat</span><span class="p">,</span>
                         <span class="o">**</span><span class="n">params</span><span class="p">)</span>
                     <span class="n">idx_thruster_model</span> <span class="o">+=</span> <span class="mi">1</span>
-                <span class="k">if</span> <span class="n">thruster</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">thruster</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
                     <span class="n">rospy</span><span class="o">.</span><span class="n">ROSException</span><span class="p">(</span><span class="s1">&#39;Invalid thruster conversion &#39;</span>
                                        <span class="s1">&#39;function=</span><span class="si">%s</span><span class="s1">&#39;</span>
                                        <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;conversion_fcn&#39;</span><span class="p">])</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">thrusters</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">thruster</span><span class="p">)</span>
             <span class="k">except</span> <span class="n">tf</span><span class="o">.</span><span class="n">Exception</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;could not get transform from: &#39;</span> <span class="o">+</span> <span class="n">base</span><span class="p">)</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;to: &#39;</span> <span class="o">+</span> <span class="n">frame</span><span class="p">)</span>
+                <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s1">&#39;could not get transform from: &#39;</span> <span class="o">+</span> <span class="n">base</span><span class="p">)</span>
+                <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s1">&#39;to: &#39;</span> <span class="o">+</span> <span class="n">frame</span><span class="p">)</span>
                 <span class="k">break</span>
 
-        <span class="nb">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">thrusters</span>
+        <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">thrusters</span><span class="p">))</span> 
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">thrusters</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">False</span>
+            <span class="k">return</span> <span class="bp">False</span>
 
         <span class="c1"># Set the number of thrusters found</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n_thrusters</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">thrusters</span><span class="p">)</span>
@@ -413,45 +410,44 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">configuration_matrix</span><span class="p">[</span><span class="n">numpy</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">configuration_matrix</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-3</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
 
-        <span class="nb">print</span> <span class="s1">&#39;TAM=&#39;</span>
-        <span class="nb">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">configuration_matrix</span>
-
+        <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s1">&#39;TAM= </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">configuration_matrix</span><span class="p">))</span>
+        
         <span class="c1"># Once we know the configuration matrix we can compute its</span>
         <span class="c1"># (pseudo-)inverse:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">inverse_configuration_matrix</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">pinv</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">configuration_matrix</span><span class="p">)</span>
 
         <span class="c1"># If an output directory was provided, store matrix for further use</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_dir</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">recalculate</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_dir</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">recalculate</span><span class="p">:</span>
             <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_dir</span><span class="p">,</span> <span class="s1">&#39;TAM.yaml&#39;</span><span class="p">),</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">yaml_file</span><span class="p">:</span>
                 <span class="n">yaml_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
                     <span class="n">yaml</span><span class="o">.</span><span class="n">safe_dump</span><span class="p">(</span>
                         <span class="nb">dict</span><span class="p">(</span><span class="n">tam</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">configuration_matrix</span><span class="o">.</span><span class="n">tolist</span><span class="p">())))</span>
-            <span class="nb">print</span> <span class="s1">&#39;TAM saved in &lt;</span><span class="si">%s</span><span class="s1">&gt;&#39;</span> <span class="o">%</span> <span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_dir</span><span class="p">,</span> <span class="s1">&#39;TAM.yaml&#39;</span><span class="p">)</span>
+            <span class="k">print</span> <span class="s1">&#39;TAM saved in &lt;</span><span class="si">%s</span><span class="s1">&gt;&#39;</span> <span class="o">%</span> <span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_dir</span><span class="p">,</span> <span class="s1">&#39;TAM.yaml&#39;</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">recalculate</span><span class="p">:</span>
-            <span class="nb">print</span> <span class="s1">&#39;Recalculate flag on, matrix will not be stored in TAM.yaml&#39;</span>
+            <span class="k">print</span> <span class="s1">&#39;Recalculate flag on, matrix will not be stored in TAM.yaml&#39;</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span> <span class="s1">&#39;Invalid output directory for the TAM matrix, dir=&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_dir</span>
+            <span class="k">print</span> <span class="s1">&#39;Invalid output directory for the TAM matrix, dir=&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_dir</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">ready</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;ThrusterManager: ready&#39;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="kc">True</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ready</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="k">print</span> <span class="p">(</span><span class="s1">&#39;ThrusterManager: ready&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">True</span></div>
 
 <div class="viewcode-block" id="ThrusterManager.command_thrusters"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_thruster_manager/src/uuv_thrusters.html#uuv_thrusters.thruster_manager.ThrusterManager.command_thrusters">[docs]</a>    <span class="k">def</span> <span class="nf">command_thrusters</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Publish the thruster input into their specific topic.&quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">thrust</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">thrust</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
             <span class="k">return</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_thrusters</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">thrusters</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">publish_command</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">thrust</span><span class="p">[</span><span class="n">i</span><span class="p">])</span></div>
 
 <div class="viewcode-block" id="ThrusterManager.publish_thrust_forces"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_thruster_manager/src/uuv_thrusters.html#uuv_thrusters.thruster_manager.ThrusterManager.publish_thrust_forces">[docs]</a>    <span class="k">def</span> <span class="nf">publish_thrust_forces</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">control_forces</span><span class="p">,</span> <span class="n">control_torques</span><span class="p">,</span>
-                              <span class="n">frame_id</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+                              <span class="n">frame_id</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">ready</span><span class="p">:</span>
             <span class="k">return</span>
 
-        <span class="k">if</span> <span class="n">frame_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">frame_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;base_link&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">frame_id</span><span class="p">:</span>
-                <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_link_ned_to_enu</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;Transform from&#39;</span>
+                <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_link_ned_to_enu</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">,</span> <span class="s1">&#39;Transform from&#39;</span>
                 <span class="s1">&#39; base_link_ned to base_link could not be found&#39;</span>
                 <span class="k">if</span> <span class="s1">&#39;base_link_ned&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;base_link&#39;</span><span class="p">]:</span>
                     <span class="n">control_forces</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_link_ned_to_enu</span><span class="p">,</span>
@@ -531,7 +527,7 @@
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

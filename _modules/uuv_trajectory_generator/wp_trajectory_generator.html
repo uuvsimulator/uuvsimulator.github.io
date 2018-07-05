@@ -30,9 +30,6 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../../genindex.html"/>
-        <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="UUV Simulator 0.2 documentation" href="../../index.html"/>
         <link rel="up" title="Module code" href="../index.html"/> 
 
@@ -136,7 +133,7 @@
            <div itemprop="articleBody">
             
   <h1>Source code for uuv_trajectory_generator.wp_trajectory_generator</h1><div class="highlight"><pre>
-<span></span><span class="c1"># Copyright (c) 2016 The UUV Simulator Authors.</span>
+<span class="c1"># Copyright (c) 2016 The UUV Simulator Authors.</span>
 <span class="c1"># All rights reserved.</span>
 <span class="c1">#</span>
 <span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
@@ -150,16 +147,18 @@
 <span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
 <span class="c1"># See the License for the specific language governing permissions and</span>
 <span class="c1"># limitations under the License.</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">copy</span> <span class="k">import</span> <span class="n">deepcopy</span>
-<span class="kn">from</span> <span class="nn">.trajectory_point</span> <span class="k">import</span> <span class="n">TrajectoryPoint</span>
-<span class="kn">from</span> <span class="nn">uuv_waypoints</span> <span class="k">import</span> <span class="n">Waypoint</span>
-<span class="kn">from</span> <span class="nn">uuv_waypoints</span> <span class="k">import</span> <span class="n">WaypointSet</span>
-<span class="kn">from</span> <span class="nn">tf.transformations</span> <span class="k">import</span> <span class="n">quaternion_multiply</span><span class="p">,</span> <span class="n">quaternion_inverse</span><span class="p">,</span> \
+<span class="kn">from</span> <span class="nn">rospy</span> <span class="kn">import</span> <span class="n">get_namespace</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+<span class="kn">from</span> <span class="nn">.trajectory_point</span> <span class="kn">import</span> <span class="n">TrajectoryPoint</span>
+<span class="kn">from</span> <span class="nn">uuv_waypoints</span> <span class="kn">import</span> <span class="n">Waypoint</span>
+<span class="kn">from</span> <span class="nn">uuv_waypoints</span> <span class="kn">import</span> <span class="n">WaypointSet</span>
+<span class="kn">from</span> <span class="nn">tf.transformations</span> <span class="kn">import</span> <span class="n">quaternion_multiply</span><span class="p">,</span> <span class="n">quaternion_inverse</span><span class="p">,</span> \
     <span class="n">quaternion_conjugate</span><span class="p">,</span> <span class="n">quaternion_about_axis</span>
-<span class="kn">from</span> <span class="nn">path_generator</span> <span class="k">import</span> <span class="n">PathGenerator</span>
+<span class="kn">from</span> <span class="nn">path_generator</span> <span class="kn">import</span> <span class="n">PathGenerator</span>
 <span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">time</span>
 
 
 <div class="viewcode-block" id="WPTrajectoryGenerator"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_trajectory_generator.html#uuv_trajectory_generator.wp_trajectory_generator.WPTrajectoryGenerator">[docs]</a><span class="k">class</span> <span class="nc">WPTrajectoryGenerator</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -173,28 +172,31 @@
 <span class="sd">    simple solution for quick trajectory generation for waypoint navigation.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">full_dof</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">use_finite_diff</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                 <span class="n">interpolation_method</span><span class="o">=</span><span class="s1">&#39;cubic_interpolator&#39;</span><span class="p">,</span>
-                 <span class="n">stamped_pose_only</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">full_dof</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">use_finite_diff</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                 <span class="n">interpolation_method</span><span class="o">=</span><span class="s1">&#39;cubic&#39;</span><span class="p">,</span>
+                 <span class="n">stamped_pose_only</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Class constructor.&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;wp_trajectory_generator&#39;</span><span class="p">)</span>
         <span class="n">out_hdlr</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
-        <span class="n">out_hdlr</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> | </span><span class="si">%(levelname)s</span><span class="s1"> | </span><span class="si">%(module)s</span><span class="s1"> | </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">))</span>
+        <span class="n">out_hdlr</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span>
+            <span class="n">get_namespace</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39; -- </span><span class="si">%(asctime)s</span><span class="s1"> | </span><span class="si">%(levelname)s</span><span class="s1"> | </span><span class="si">%(module)s</span><span class="s1"> | </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">))</span>
         <span class="n">out_hdlr</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">out_hdlr</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_path_generators</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Waypoint interpolators available:&#39;</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">gen</span> <span class="ow">in</span> <span class="n">PathGenerator</span><span class="o">.</span><span class="n">get_all_generators</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1"> - &#39;</span> <span class="o">+</span> <span class="n">gen</span><span class="o">.</span><span class="n">get_label</span><span class="p">())</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_path_generators</span><span class="p">[</span><span class="n">gen</span><span class="o">.</span><span class="n">get_label</span><span class="p">()]</span> <span class="o">=</span> <span class="n">gen</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_path_generators</span><span class="p">[</span><span class="n">gen</span><span class="o">.</span><span class="n">get_label</span><span class="p">()]</span><span class="o">.</span><span class="n">set_full_dof</span><span class="p">(</span><span class="n">full_dof</span><span class="p">)</span>
         <span class="c1"># Time step between interpolated samples</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_dt</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dt</span> <span class="o">=</span> <span class="bp">None</span>
         <span class="c1"># Last time stamp</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_last_t</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_last_t</span> <span class="o">=</span> <span class="bp">None</span>
         <span class="c1"># Last interpolated point</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_last_pnt</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_this_pnt</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_last_pnt</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_this_pnt</span> <span class="o">=</span> <span class="bp">None</span>
 
         <span class="c1"># Flag to generate only stamped pose, no velocity profiles</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_stamped_pose_only</span> <span class="o">=</span> <span class="n">stamped_pose_only</span>
@@ -219,8 +221,8 @@
 
         <span class="c1"># Flags to indicate that the interpolation process has started and</span>
         <span class="c1"># ended</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_has_started</span> <span class="o">=</span> <span class="kc">False</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_has_ended</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_has_started</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_has_ended</span> <span class="o">=</span> <span class="bp">False</span>
 
         <span class="c1"># The parametric variable to use as input for the interpolator</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_cur_s</span> <span class="o">=</span> <span class="mi">0</span>
@@ -255,10 +257,14 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_path_generators</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_interp_method</span><span class="p">]</span>
 
     <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">interpolator_tags</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">gen</span><span class="o">.</span><span class="n">get_label</span><span class="p">()</span> <span class="k">for</span> <span class="n">gen</span> <span class="ow">in</span> <span class="n">PathGenerator</span><span class="o">.</span><span class="n">get_all_generators</span><span class="p">()]</span>
+
+    <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">use_finite_diff</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_use_finite_diff</span>
 
-    <span class="nd">@use_finite_diff</span><span class="o">.</span><span class="n">setter</span>
+    <span class="nd">@use_finite_diff.setter</span>
     <span class="k">def</span> <span class="nf">use_finite_diff</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flag</span><span class="p">):</span>
         <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">flag</span><span class="p">)</span> <span class="o">==</span> <span class="nb">bool</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_use_finite_diff</span> <span class="o">=</span> <span class="n">flag</span>
@@ -267,21 +273,30 @@
     <span class="k">def</span> <span class="nf">stamped_pose_only</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stamped_pose_only</span>
 
-    <span class="nd">@stamped_pose_only</span><span class="o">.</span><span class="n">setter</span>
+    <span class="nd">@stamped_pose_only.setter</span>
     <span class="k">def</span> <span class="nf">stamped_pose_only</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">flag</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_stamped_pose_only</span> <span class="o">=</span> <span class="n">flag</span>
 
 <div class="viewcode-block" id="WPTrajectoryGenerator.get_interpolation_method"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_trajectory_generator.html#uuv_trajectory_generator.wp_trajectory_generator.WPTrajectoryGenerator.get_interpolation_method">[docs]</a>    <span class="k">def</span> <span class="nf">get_interpolation_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_interp_method</span></div>
 
+<div class="viewcode-block" id="WPTrajectoryGenerator.get_visual_markers"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_trajectory_generator.html#uuv_trajectory_generator.wp_trajectory_generator.WPTrajectoryGenerator.get_visual_markers">[docs]</a>    <span class="k">def</span> <span class="nf">get_visual_markers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">get_visual_markers</span><span class="p">()</span></div>
+
 <div class="viewcode-block" id="WPTrajectoryGenerator.set_interpolation_method"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_trajectory_generator.html#uuv_trajectory_generator.wp_trajectory_generator.WPTrajectoryGenerator.set_interpolation_method">[docs]</a>    <span class="k">def</span> <span class="nf">set_interpolation_method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">method</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_path_generators</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_interp_method</span> <span class="o">=</span> <span class="n">method</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Interpolation method set: &#39;</span> <span class="o">+</span> <span class="n">method</span><span class="p">)</span>
-            <span class="k">return</span> <span class="kc">True</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Interpolation method set: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">method</span><span class="p">))</span>
+            <span class="k">return</span> <span class="bp">True</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Invalid interpolation method, keeping the current method &lt;</span><span class="si">%s</span><span class="s1">&gt;&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">_interp_method</span><span class="p">)</span>
-            <span class="k">return</span> <span class="kc">False</span></div>
+            <span class="k">return</span> <span class="bp">False</span></div>
+
+<div class="viewcode-block" id="WPTrajectoryGenerator.set_interpolator_parameters"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_trajectory_generator.html#uuv_trajectory_generator.wp_trajectory_generator.WPTrajectoryGenerator.set_interpolator_parameters">[docs]</a>    <span class="k">def</span> <span class="nf">set_interpolator_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">method</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolator_tags</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Invalid interpolation method: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">method</span><span class="p">))</span>
+            <span class="k">return</span> <span class="bp">False</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_path_generators</span><span class="p">[</span><span class="n">method</span><span class="p">]</span><span class="o">.</span><span class="n">set_parameters</span><span class="p">(</span><span class="n">params</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="WPTrajectoryGenerator.is_full_dof"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_trajectory_generator.html#uuv_trajectory_generator.wp_trajectory_generator.WPTrajectoryGenerator.is_full_dof">[docs]</a>    <span class="k">def</span> <span class="nf">is_full_dof</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Return true if the trajectory is generated for all 6 degrees of</span>
@@ -299,10 +314,10 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">duration</span> <span class="o">=</span> <span class="n">t</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">s_step</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_t_step</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">duration</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;New duration, max. relative time=</span><span class="si">%.2f</span><span class="s1"> s&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">duration</span><span class="p">)</span>
-            <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">return</span> <span class="bp">True</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Invalid max. time, time=</span><span class="si">%.2f</span><span class="s1"> s&#39;</span> <span class="o">%</span> <span class="n">t</span><span class="p">)</span>
-            <span class="k">return</span> <span class="kc">False</span></div>
+            <span class="k">return</span> <span class="bp">False</span></div>
 
 <div class="viewcode-block" id="WPTrajectoryGenerator.is_finished"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_trajectory_generator.html#uuv_trajectory_generator.wp_trajectory_generator.WPTrajectoryGenerator.is_finished">[docs]</a>    <span class="k">def</span> <span class="nf">is_finished</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Return true if the trajectory has finished.&quot;&quot;&quot;</span>
@@ -312,12 +327,12 @@
         <span class="sd">&quot;&quot;&quot;Reset all class attributes to allow a new trajectory to be</span>
 <span class="sd">        computed.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_dt</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_last_t</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_last_pnt</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_this_pnt</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_has_started</span> <span class="o">=</span> <span class="kc">False</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_has_ended</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dt</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_last_t</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_last_pnt</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_this_pnt</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_has_started</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_has_ended</span> <span class="o">=</span> <span class="bp">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_cur_s</span> <span class="o">=</span> <span class="mi">0</span></div>
 
 <div class="viewcode-block" id="WPTrajectoryGenerator.init_waypoints"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_trajectory_generator.html#uuv_trajectory_generator.wp_trajectory_generator.WPTrajectoryGenerator.init_waypoints">[docs]</a>    <span class="k">def</span> <span class="nf">init_waypoints</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">waypoint_set</span><span class="p">,</span> <span class="n">init_rot</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)):</span>
@@ -326,7 +341,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">init_waypoints</span><span class="p">(</span><span class="n">waypoint_set</span><span class="p">,</span> <span class="n">init_rot</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="WPTrajectoryGenerator.add_waypoint"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_trajectory_generator.html#uuv_trajectory_generator.wp_trajectory_generator.WPTrajectoryGenerator.add_waypoint">[docs]</a>    <span class="k">def</span> <span class="nf">add_waypoint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">waypoint</span><span class="p">,</span> <span class="n">add_to_beginning</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="WPTrajectoryGenerator.add_waypoint"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_trajectory_generator.html#uuv_trajectory_generator.wp_trajectory_generator.WPTrajectoryGenerator.add_waypoint">[docs]</a>    <span class="k">def</span> <span class="nf">add_waypoint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">waypoint</span><span class="p">,</span> <span class="n">add_to_beginning</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Add waypoint to the existing waypoint set. If no waypoint set has</span>
 <span class="sd">        been initialized, create new waypoint set structure and add the given</span>
 <span class="sd">        waypoint.&quot;&quot;&quot;</span>
@@ -338,21 +353,20 @@
 
 <div class="viewcode-block" id="WPTrajectoryGenerator.update_dt"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_trajectory_generator.html#uuv_trajectory_generator.wp_trajectory_generator.WPTrajectoryGenerator.update_dt">[docs]</a>    <span class="k">def</span> <span class="nf">update_dt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Update the time stamp.&quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_last_t</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_last_t</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_last_t</span> <span class="o">=</span> <span class="n">t</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_dt</span> <span class="o">=</span> <span class="mf">0.0</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">start_time</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">start_time</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">start_time</span> <span class="o">=</span> <span class="n">t</span>
-            <span class="k">return</span> <span class="kc">False</span>
+            <span class="k">return</span> <span class="bp">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_dt</span> <span class="o">=</span> <span class="n">t</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_last_t</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_last_t</span> <span class="o">=</span> <span class="n">t</span>
-        <span class="k">return</span> <span class="p">(</span><span class="kc">True</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dt</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="kc">False</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="p">(</span><span class="bp">True</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dt</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="bp">False</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="WPTrajectoryGenerator.get_samples"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_trajectory_generator.html#uuv_trajectory_generator.wp_trajectory_generator.WPTrajectoryGenerator.get_samples">[docs]</a>    <span class="k">def</span> <span class="nf">get_samples</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.005</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Return pose samples from the interpolated path.&quot;&quot;&quot;</span>
         <span class="k">assert</span> <span class="n">step</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Step size must be positive&#39;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">get_samples</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">max_time</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">get_samples</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="WPTrajectoryGenerator.set_start_time"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_trajectory_generator.html#uuv_trajectory_generator.wp_trajectory_generator.WPTrajectoryGenerator.set_start_time">[docs]</a>    <span class="k">def</span> <span class="nf">set_start_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Set a custom starting time to the interpolated trajectory.&quot;&quot;&quot;</span>
@@ -441,45 +455,53 @@
 
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">lin_vel</span><span class="p">,</span> <span class="n">ang_vel</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])),</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">lin_acc</span><span class="p">,</span> <span class="n">ang_acc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]))</span>
 
-<div class="viewcode-block" id="WPTrajectoryGenerator.generate_pnt"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_trajectory_generator.html#uuv_trajectory_generator.wp_trajectory_generator.WPTrajectoryGenerator.generate_pnt">[docs]</a>    <span class="k">def</span> <span class="nf">generate_pnt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="WPTrajectoryGenerator.generate_pnt"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_trajectory_generator.html#uuv_trajectory_generator.wp_trajectory_generator.WPTrajectoryGenerator.generate_pnt">[docs]</a>    <span class="k">def</span> <span class="nf">generate_pnt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">rot</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Return trajectory sample for the current parameter s.&quot;&quot;&quot;</span>
-        <span class="n">cur_s</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cur_s</span> <span class="k">if</span> <span class="n">s</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">s</span><span class="p">)</span>
+        <span class="n">cur_s</span> <span class="o">=</span> <span class="p">(</span><span class="n">t</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">start_time</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">max_time</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">start_time</span><span class="p">)</span>
         <span class="n">last_s</span> <span class="o">=</span> <span class="n">cur_s</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">s_step</span>
         <span class="c1"># Generate position and rotation quaternion for the current path</span>
         <span class="c1"># generator method</span>
         <span class="n">pnt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">generate_pnt</span><span class="p">(</span>
-            <span class="n">cur_s</span><span class="p">,</span> <span class="n">cur_s</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">max_time</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">start_time</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">start_time</span><span class="p">)</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_use_finite_diff</span><span class="p">:</span>
-            <span class="c1"># Set linear velocity</span>
-            <span class="n">pnt</span><span class="o">.</span><span class="n">vel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generate_vel</span><span class="p">(</span><span class="n">cur_s</span><span class="p">)</span>
-            <span class="c1"># Compute linear and angular accelerations</span>
-            <span class="n">last_vel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generate_vel</span><span class="p">(</span><span class="n">last_s</span><span class="p">)</span>
-            <span class="n">pnt</span><span class="o">.</span><span class="n">acc</span> <span class="o">=</span> <span class="p">(</span><span class="n">pnt</span><span class="o">.</span><span class="n">vel</span> <span class="o">-</span> <span class="n">last_vel</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_t_step</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">pnts</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
-            <span class="k">for</span> <span class="n">ti</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">pnt</span><span class="o">.</span><span class="n">t</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_regression_window</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">pnt</span><span class="o">.</span><span class="n">t</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_regression_window</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_t_step</span><span class="p">):</span>
-                <span class="k">if</span> <span class="n">ti</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-                    <span class="n">si</span> <span class="o">=</span> <span class="mi">0</span>
-                <span class="k">elif</span> <span class="n">ti</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">max_time</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">start_time</span><span class="p">:</span>
-                    <span class="n">si</span> <span class="o">=</span> <span class="mi">1</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="n">si</span> <span class="o">=</span> <span class="p">(</span><span class="n">ti</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">start_time</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">max_time</span>
-                <span class="n">pnts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">pos</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">generate_pos</span><span class="p">(</span><span class="n">si</span><span class="p">),</span>
-                                 <span class="n">rot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">generate_quat</span><span class="p">(</span><span class="n">si</span><span class="p">),</span>
-                                 <span class="n">t</span><span class="o">=</span><span class="n">ti</span><span class="p">))</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stamped_pose_only</span><span class="p">:</span>
-                <span class="n">vel</span><span class="p">,</span> <span class="n">acc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_motion_regression_6d</span><span class="p">(</span><span class="n">pnts</span><span class="p">,</span> <span class="n">pnt</span><span class="o">.</span><span class="n">rotq</span><span class="p">,</span> <span class="n">pnt</span><span class="o">.</span><span class="n">t</span><span class="p">)</span>
-                <span class="n">pnt</span><span class="o">.</span><span class="n">vel</span> <span class="o">=</span> <span class="n">vel</span>
-                <span class="n">pnt</span><span class="o">.</span><span class="n">acc</span> <span class="o">=</span> <span class="n">acc</span>
+            <span class="n">cur_s</span><span class="p">,</span> 
+            <span class="n">cur_s</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">max_time</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">start_time</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">start_time</span><span class="p">,</span> 
+            <span class="n">pos</span><span class="p">,</span>
+            <span class="n">rot</span><span class="p">)</span>
+            
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_interpolation_method</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="s1">&#39;los&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_use_finite_diff</span><span class="p">:</span>
+                <span class="c1"># Set linear velocity</span>
+                <span class="n">pnt</span><span class="o">.</span><span class="n">vel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generate_vel</span><span class="p">(</span><span class="n">cur_s</span><span class="p">)</span>            
+                <span class="c1"># Compute linear and angular accelerations</span>
+                <span class="n">last_vel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generate_vel</span><span class="p">(</span><span class="n">last_s</span><span class="p">)</span>
+                <span class="n">pnt</span><span class="o">.</span><span class="n">acc</span> <span class="o">=</span> <span class="p">(</span><span class="n">pnt</span><span class="o">.</span><span class="n">vel</span> <span class="o">-</span> <span class="n">last_vel</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_t_step</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">pnt</span><span class="o">.</span><span class="n">vel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
-                <span class="n">pnt</span><span class="o">.</span><span class="n">acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+                <span class="n">pnts</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+                <span class="k">for</span> <span class="n">ti</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">pnt</span><span class="o">.</span><span class="n">t</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_regression_window</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">pnt</span><span class="o">.</span><span class="n">t</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_regression_window</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_t_step</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">ti</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="n">si</span> <span class="o">=</span> <span class="mi">0</span>
+                    <span class="k">elif</span> <span class="n">ti</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">max_time</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">start_time</span><span class="p">:</span>
+                        <span class="n">si</span> <span class="o">=</span> <span class="mi">1</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">si</span> <span class="o">=</span> <span class="p">(</span><span class="n">ti</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">start_time</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">max_time</span>
+                    <span class="n">pnts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">pos</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">generate_pos</span><span class="p">(</span><span class="n">si</span><span class="p">),</span>
+                                     <span class="n">rot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">generate_quat</span><span class="p">(</span><span class="n">si</span><span class="p">),</span>
+                                     <span class="n">t</span><span class="o">=</span><span class="n">ti</span><span class="p">))</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stamped_pose_only</span><span class="p">:</span>
+                    <span class="n">vel</span><span class="p">,</span> <span class="n">acc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_motion_regression_6d</span><span class="p">(</span><span class="n">pnts</span><span class="p">,</span> <span class="n">pnt</span><span class="o">.</span><span class="n">rotq</span><span class="p">,</span> <span class="n">pnt</span><span class="o">.</span><span class="n">t</span><span class="p">)</span>
+                    <span class="n">pnt</span><span class="o">.</span><span class="n">vel</span> <span class="o">=</span> <span class="n">vel</span>
+                    <span class="n">pnt</span><span class="o">.</span><span class="n">acc</span> <span class="o">=</span> <span class="n">acc</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">pnt</span><span class="o">.</span><span class="n">vel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+                    <span class="n">pnt</span><span class="o">.</span><span class="n">acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">pnt</span><span class="o">.</span><span class="n">vel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+            <span class="n">pnt</span><span class="o">.</span><span class="n">acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">pnt</span></div>
 
-    <span class="k">def</span> <span class="nf">_generate_vel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_generate_vel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stamped_pose_only</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
-        <span class="n">cur_s</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cur_s</span> <span class="k">if</span> <span class="n">s</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">s</span><span class="p">)</span>
+        <span class="n">cur_s</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cur_s</span> <span class="k">if</span> <span class="n">s</span> <span class="ow">is</span> <span class="bp">None</span> <span class="k">else</span> <span class="n">s</span><span class="p">)</span>
         <span class="n">last_s</span> <span class="o">=</span> <span class="n">cur_s</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">s_step</span>
 
         <span class="k">if</span> <span class="n">last_s</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">cur_s</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
@@ -507,37 +529,44 @@
                <span class="n">ang_vel</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">vel</span><span class="p">)</span>
 
-<div class="viewcode-block" id="WPTrajectoryGenerator.interpolate"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_trajectory_generator.html#uuv_trajectory_generator.wp_trajectory_generator.WPTrajectoryGenerator.interpolate">[docs]</a>    <span class="k">def</span> <span class="nf">interpolate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+<div class="viewcode-block" id="WPTrajectoryGenerator.generate_reference"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_trajectory_generator.html#uuv_trajectory_generator.wp_trajectory_generator.WPTrajectoryGenerator.generate_reference">[docs]</a>    <span class="k">def</span> <span class="nf">generate_reference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">start_time</span><span class="p">)</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">max_time</span><span class="p">)</span>
+        <span class="n">pnt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">generate_pnt</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+        <span class="n">pnt</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="n">t</span>
+        <span class="k">return</span> <span class="n">pnt</span></div>
+
+<div class="viewcode-block" id="WPTrajectoryGenerator.interpolate"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_trajectory_generator.html#uuv_trajectory_generator.wp_trajectory_generator.WPTrajectoryGenerator.interpolate">[docs]</a>    <span class="k">def</span> <span class="nf">interpolate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_has_started</span><span class="p">:</span>
+            <span class="n">tic</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">init_interpolator</span><span class="p">():</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Error initializing the waypoint interpolator&#39;</span><span class="p">)</span>
-                <span class="k">return</span> <span class="kc">None</span>
-
+                <span class="k">return</span> <span class="bp">None</span>            
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_start_time</span><span class="p">(</span><span class="n">t</span> <span class="o">+</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">tic</span><span class="p">))</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">s_step</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_t_step</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">max_time</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">start_time</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">update_dt</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
             <span class="c1"># Generate first point</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_cur_s</span> <span class="o">=</span> <span class="mi">0</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_has_started</span> <span class="o">=</span> <span class="kc">True</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_has_ended</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_has_started</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_has_ended</span> <span class="o">=</span> <span class="bp">False</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Waypoint interpolator initialized! Start time: </span><span class="si">%.2f</span><span class="s1"> s&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">start_time</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">t</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">max_time</span> <span class="ow">or</span> <span class="n">t</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">start_time</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">t</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">max_time</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_has_ended</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">is_finished</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">has_started</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">is_finished</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_has_ended</span> <span class="o">=</span> <span class="bp">True</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_cur_s</span> <span class="o">=</span> <span class="mi">1</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_this_pnt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">generate_pnt</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_this_pnt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">generate_pnt</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_this_pnt</span><span class="o">.</span><span class="n">vel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_this_pnt</span><span class="o">.</span><span class="n">acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_this_pnt</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="n">t</span>
-
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_has_started</span> <span class="o">=</span> <span class="kc">True</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_has_ended</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_has_started</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_has_ended</span> <span class="o">=</span> <span class="bp">False</span>
 
             <span class="c1"># Retrieving current position and heading</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_cur_s</span> <span class="o">=</span> <span class="p">(</span><span class="n">t</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">start_time</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">max_time</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpolator</span><span class="o">.</span><span class="n">start_time</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_this_pnt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">generate_pnt</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_this_pnt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">generate_pnt</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_this_pnt</span><span class="o">.</span><span class="n">t</span> <span class="o">=</span> <span class="n">t</span>
 
             <span class="bp">self</span><span class="o">.</span><span class="n">_last_pnt</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_this_pnt</span><span class="p">)</span>
@@ -584,7 +613,7 @@
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

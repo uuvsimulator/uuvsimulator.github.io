@@ -30,9 +30,6 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../../genindex.html"/>
-        <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="UUV Simulator 0.2 documentation" href="../../index.html"/>
         <link rel="up" title="Module code" href="../index.html"/> 
 
@@ -136,7 +133,7 @@
            <div itemprop="articleBody">
             
   <h1>Source code for uuv_trajectory_generator.trajectory_point</h1><div class="highlight"><pre>
-<span></span><span class="c1"># Copyright (c) 2016 The UUV Simulator Authors.</span>
+<span class="c1"># Copyright (c) 2016 The UUV Simulator Authors.</span>
 <span class="c1"># All rights reserved.</span>
 <span class="c1">#</span>
 <span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
@@ -152,10 +149,10 @@
 <span class="c1"># limitations under the License.</span>
 
 <span class="kn">import</span> <span class="nn">rospy</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">uuv_control_msgs.msg</span> <span class="k">import</span> <span class="n">TrajectoryPoint</span> <span class="k">as</span> <span class="n">TrajectoryPointMsg</span>
-<span class="kn">import</span> <span class="nn">geometry_msgs.msg</span> <span class="k">as</span> <span class="nn">geometry_msgs</span>
-<span class="kn">from</span> <span class="nn">tf.transformations</span> <span class="k">import</span> <span class="n">quaternion_from_euler</span><span class="p">,</span> <span class="n">euler_from_quaternion</span><span class="p">,</span> <span class="n">quaternion_matrix</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">uuv_control_msgs.msg</span> <span class="kn">import</span> <span class="n">TrajectoryPoint</span> <span class="k">as</span> <span class="n">TrajectoryPointMsg</span>
+<span class="kn">import</span> <span class="nn">geometry_msgs.msg</span> <span class="kn">as</span> <span class="nn">geometry_msgs</span>
+<span class="kn">from</span> <span class="nn">tf.transformations</span> <span class="kn">import</span> <span class="n">quaternion_from_euler</span><span class="p">,</span> <span class="n">euler_from_quaternion</span><span class="p">,</span> <span class="n">quaternion_matrix</span>
 
 
 <div class="viewcode-block" id="TrajectoryPoint"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_trajectory_generator.html#uuv_trajectory_generator.trajectory_point.TrajectoryPoint">[docs]</a><span class="k">class</span> <span class="nc">TrajectoryPoint</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -218,7 +215,7 @@
         <span class="sd">&quot;&quot;&quot;Return X coordinate from the position vector.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
-    <span class="nd">@x</span><span class="o">.</span><span class="n">setter</span>
+    <span class="nd">@x.setter</span>
     <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span>
 
@@ -227,7 +224,7 @@
         <span class="sd">&quot;&quot;&quot;Return Y coordinate from the position vector.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 
-    <span class="nd">@y</span><span class="o">.</span><span class="n">setter</span>
+    <span class="nd">@y.setter</span>
     <span class="k">def</span> <span class="nf">y</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span>
 
@@ -236,7 +233,7 @@
         <span class="sd">&quot;&quot;&quot;Return Z coordinate from the position vector.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pos</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
 
-    <span class="nd">@z</span><span class="o">.</span><span class="n">setter</span>
+    <span class="nd">@z.setter</span>
     <span class="k">def</span> <span class="nf">z</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_pos</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">z</span>
 
@@ -245,7 +242,7 @@
         <span class="sd">&quot;&quot;&quot;Return time stamp in seconds.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_t</span>
 
-    <span class="nd">@t</span><span class="o">.</span><span class="n">setter</span>
+    <span class="nd">@t.setter</span>
     <span class="k">def</span> <span class="nf">t</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_t</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Set time stamp in seconds.&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_t</span> <span class="o">=</span> <span class="n">new_t</span>
@@ -254,7 +251,7 @@
     <span class="k">def</span> <span class="nf">pos</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pos</span>
 
-    <span class="nd">@pos</span><span class="o">.</span><span class="n">setter</span>
+    <span class="nd">@pos.setter</span>
     <span class="k">def</span> <span class="nf">pos</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_pos</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">new_pos</span><span class="p">)</span>
 
@@ -263,7 +260,7 @@
         <span class="n">rpy</span> <span class="o">=</span> <span class="n">euler_from_quaternion</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_rot</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">rpy</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">rpy</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">rpy</span><span class="p">[</span><span class="mi">2</span><span class="p">]])</span>
 
-    <span class="nd">@rot</span><span class="o">.</span><span class="n">setter</span>
+    <span class="nd">@rot.setter</span>
     <span class="k">def</span> <span class="nf">rot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_rot</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_rot</span> <span class="o">=</span> <span class="n">quaternion_from_euler</span><span class="p">(</span><span class="o">*</span><span class="n">new_rot</span><span class="p">)</span>
 
@@ -275,7 +272,7 @@
     <span class="k">def</span> <span class="nf">rotq</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rot</span>
 
-    <span class="nd">@rotq</span><span class="o">.</span><span class="n">setter</span>
+    <span class="nd">@rotq.setter</span>
     <span class="k">def</span> <span class="nf">rotq</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">quat</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_rot</span> <span class="o">=</span> <span class="n">quat</span>
 
@@ -283,7 +280,7 @@
     <span class="k">def</span> <span class="nf">vel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_vel</span>
 
-    <span class="nd">@vel</span><span class="o">.</span><span class="n">setter</span>
+    <span class="nd">@vel.setter</span>
     <span class="k">def</span> <span class="nf">vel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_vel</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_vel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">new_vel</span><span class="p">)</span>
 
@@ -291,7 +288,7 @@
     <span class="k">def</span> <span class="nf">acc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_acc</span>
 
-    <span class="nd">@acc</span><span class="o">.</span><span class="n">setter</span>
+    <span class="nd">@acc.setter</span>
     <span class="k">def</span> <span class="nf">acc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_acc</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">new_acc</span><span class="p">)</span>
 
@@ -323,7 +320,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_rot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">q</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">q</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">q</span><span class="o">.</span><span class="n">z</span><span class="p">,</span> <span class="n">q</span><span class="o">.</span><span class="n">w</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_vel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">v</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">z</span><span class="p">,</span> <span class="n">w</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">w</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="o">.</span><span class="n">z</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">a</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">z</span><span class="p">,</span> <span class="n">al</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">al</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">al</span><span class="o">.</span><span class="n">z</span><span class="p">])</span>
-        <span class="k">return</span> <span class="kc">True</span></div>
+        <span class="k">return</span> <span class="bp">True</span></div>
 
 <div class="viewcode-block" id="TrajectoryPoint.from_dict"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_trajectory_generator.html#uuv_trajectory_generator.trajectory_point.TrajectoryPoint.from_dict">[docs]</a>    <span class="k">def</span> <span class="nf">from_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_t</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span>
@@ -384,7 +381,7 @@
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

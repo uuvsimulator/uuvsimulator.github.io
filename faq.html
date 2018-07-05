@@ -30,12 +30,9 @@
   
 
   
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="UUV Simulator 0.2 documentation" href="index.html"/>
         <link rel="next" title="License" href="license.html"/>
-        <link rel="prev" title="unpause_simulation module" href="api/uuv_assistants/unpause_simulation.html"/> 
+        <link rel="prev" title="uuv_plume_model package" href="api/uuv_plume_simulator/uuv_plume_simulator/src/uuv_plume_model.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -90,11 +87,11 @@
 <li class="toctree-l1"><a class="reference internal" href="tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="documentation/index.html">Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api/index.html">API Documentation</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">F.A.Q.</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="">F.A.Q.</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#how-do-i-find-out-the-id-number-my-joystick">How do I find out the ID number my joystick?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#my-machine-doesn-t-seem-to-see-the-services-and-topics-from-the-roscore-running-remotely">My machine doesn’t seem to see the services and topics from the roscore running remotely</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#after-running-catkin-build-i-still-can-t-start-any-nodes-or-launch-files">After running catkin build, I still can’t start any nodes or launch files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#the-gazebo-worlds-don-t-start-when-running-the-simulation-on-a-virtual-machine">The Gazebo worlds don’t start when running the simulation on a virtual machine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#my-machine-doesn-t-seem-to-see-the-services-and-topics-from-the-roscore-running-remotely">My machine doesn&#8217;t seem to see the services and topics from the roscore running remotely</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#after-running-catkin-build-i-still-can-t-start-any-nodes-or-launch-files">After running catkin build, I still can&#8217;t start any nodes or launch files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-gazebo-worlds-don-t-start-when-running-the-simulation-on-a-virtual-machine">The Gazebo worlds don&#8217;t start when running the simulation on a virtual machine</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
@@ -132,7 +129,7 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="_sources/faq.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/faq.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -147,7 +144,7 @@
 <div class="section" id="how-do-i-find-out-the-id-number-my-joystick">
 <h2>How do I find out the ID number my joystick?<a class="headerlink" href="#how-do-i-find-out-the-id-number-my-joystick" title="Permalink to this headline">¶</a></h2>
 <p>You can use <strong>jstest-gtk</strong> to find that out. To install it, run</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">jstest</span><span class="o">-</span><span class="n">gtk</span>
+<div class="highlight-python"><div class="highlight"><pre>sudo apt-get install jstest-gtk
 </pre></div>
 </div>
 <p>and run it on the terminal. It will open a window as seen below. The joystick
@@ -156,38 +153,38 @@ for the launch files that have the input option <strong>joy_id</strong>.</p>
 <img alt="_images/jstest.png" src="_images/jstest.png" />
 </div>
 <div class="section" id="my-machine-doesn-t-seem-to-see-the-services-and-topics-from-the-roscore-running-remotely">
-<h2>My machine doesn’t seem to see the services and topics from the roscore running remotely<a class="headerlink" href="#my-machine-doesn-t-seem-to-see-the-services-and-topics-from-the-roscore-running-remotely" title="Permalink to this headline">¶</a></h2>
+<h2>My machine doesn&#8217;t seem to see the services and topics from the roscore running remotely<a class="headerlink" href="#my-machine-doesn-t-seem-to-see-the-services-and-topics-from-the-roscore-running-remotely" title="Permalink to this headline">¶</a></h2>
 <p>If you are having trouble running your application in multiple computers, you
 can try adding the hostnames and IP addresses of your machines to the
 <strong>/etc/hosts</strong> file of the computer running <strong>roscore</strong>.</p>
 </div>
 <div class="section" id="after-running-catkin-build-i-still-can-t-start-any-nodes-or-launch-files">
-<h2>After running catkin build, I still can’t start any nodes or launch files<a class="headerlink" href="#after-running-catkin-build-i-still-can-t-start-any-nodes-or-launch-files" title="Permalink to this headline">¶</a></h2>
+<h2>After running catkin build, I still can&#8217;t start any nodes or launch files<a class="headerlink" href="#after-running-catkin-build-i-still-can-t-start-any-nodes-or-launch-files" title="Permalink to this headline">¶</a></h2>
 <p>If after compiling your catkin workspace using <strong>catkin build</strong> ROS seems to not
 update the paths to the packages even after you run</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">catkin_ws</span>
-<span class="n">source</span> <span class="n">devel</span><span class="o">/</span><span class="n">setup</span><span class="o">.</span><span class="n">bash</span>
+<div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws
+source devel/setup.bash
 </pre></div>
 </div>
 <p>you can try disabling the option to source the <strong>install</strong> folder of your catkin
 workspace by running</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">catkin_ws</span>
-<span class="n">catkin</span> <span class="n">config</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">install</span>
-<span class="n">catkin</span> <span class="n">clean</span> <span class="o">--</span><span class="nb">all</span>
+<div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws
+catkin config --no-install
+catkin clean --all
 </pre></div>
 </div>
 <p>Then rebuild your workspace</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">catkin_ws</span>
-<span class="n">catkin</span> <span class="n">build</span>
-<span class="n">source</span> <span class="n">devel</span><span class="o">/</span><span class="n">setup</span><span class="o">.</span><span class="n">bash</span>
+<div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws
+catkin build
+source devel/setup.bash
 </pre></div>
 </div>
 </div>
 <div class="section" id="the-gazebo-worlds-don-t-start-when-running-the-simulation-on-a-virtual-machine">
-<h2>The Gazebo worlds don’t start when running the simulation on a virtual machine<a class="headerlink" href="#the-gazebo-worlds-don-t-start-when-running-the-simulation-on-a-virtual-machine" title="Permalink to this headline">¶</a></h2>
+<h2>The Gazebo worlds don&#8217;t start when running the simulation on a virtual machine<a class="headerlink" href="#the-gazebo-worlds-don-t-start-when-running-the-simulation-on-a-virtual-machine" title="Permalink to this headline">¶</a></h2>
 <p>To avoid segmentation faults when starting Gazebo in a virtual machine you can
 add the following line to your <strong>~/.bashrc</strong> file</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">LIBGL_ALWAYS_SOFTWARE</span><span class="o">=</span><span class="mi">1</span>
+<div class="highlight-python"><div class="highlight"><pre>export LIBGL_ALWAYS_SOFTWARE=1
 </pre></div>
 </div>
 <div class="admonition note">
@@ -213,7 +210,7 @@ the simulation since the performance on virtual machines can be very poor.</p>
         <a href="license.html" class="btn btn-neutral float-right" title="License" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="api/uuv_assistants/unpause_simulation.html" class="btn btn-neutral" title="unpause_simulation module" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="api/uuv_plume_simulator/uuv_plume_simulator/src/uuv_plume_model.html" class="btn btn-neutral" title="uuv_plume_model package" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -253,7 +250,7 @@ the simulation since the performance on virtual machines can be very poor.</p>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

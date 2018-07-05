@@ -30,9 +30,6 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="UUV Simulator 0.2 documentation" href="../index.html"/>
         <link rel="up" title="Tutorials" href="index.html"/>
         <link rel="next" title="Configuring the thruster manager for a new vehicle" href="config_thruster_manager.html"/>
@@ -89,7 +86,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick start</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Creating a new underwater vehicle model</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Creating a new underwater vehicle model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="config_thruster_manager.html">Configuring the thruster manager for a new vehicle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="creating_new_dp_controller.html">Creating a new custom dynamic positioning controller</a></li>
 <li class="toctree-l2"><a class="reference internal" href="seabed_world.html">Making a simple seabed world model</a></li>
@@ -138,7 +135,7 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/tutorials/create_new_vehicle.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/tutorials/create_new_vehicle.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -152,16 +149,16 @@
 <span id="create-new-vehicle"></span><h1>Creating a new underwater vehicle model<a class="headerlink" href="#creating-a-new-underwater-vehicle-model" title="Permalink to this headline">¶</a></h1>
 <p>To create the catkin package and file structure necessary to create a new
 underwater vehicle, you can run the following script in your catkin workspace</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rosrun</span> <span class="n">uuv_assistants</span> <span class="n">create_new_robot_model</span> <span class="o">--</span><span class="n">robot_name</span> <span class="o">&lt;</span><span class="n">ROBOT_NAME</span><span class="o">&gt;</span>
+<div class="highlight-python"><div class="highlight"><pre>rosrun uuv_assistants create_new_robot_model --robot_name &lt;ROBOT_NAME&gt;
 </pre></div>
 </div>
 <p>This will create a catkin package named <strong>&lt;ROBOT_NAME&gt;_description</strong> with
-templates for launch and URDF files. The snippets to use the UUV simulator’s
+templates for launch and URDF files. The snippets to use the UUV simulator&#8217;s
 plugins are included and should be modified in order to be used. The template
 files do <strong>NOT</strong> describe any vehicle in particular. Meshes should also be
 included by the user in the <strong>meshes</strong> folder. The complete folder structure
 can be seen below.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>&lt;ROBOT_NAME&gt;_description
+<div class="highlight-python"><div class="highlight"><pre>&lt;ROBOT_NAME&gt;_description
 |-- launch
     |-- upload.launch
 |-- meshes
@@ -186,7 +183,7 @@ thruster.</p>
 <img alt="../_images/thruster_mesh.png" src="../_images/thruster_mesh.png" />
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Check the page <a class="reference internal" href="config_thruster_manager.html#config-thruster-manager"><span class="std std-ref">Configuring the thruster manager for a new vehicle</span></a> to see how to setup the
+<p class="last">Check the page <a class="reference internal" href="config_thruster_manager.html#config-thruster-manager"><span>Configuring the thruster manager for a new vehicle</span></a> to see how to setup the
 thruster allocation matrix and configure the thruster manager node for the
 vehicle.</p>
 </div>
@@ -201,7 +198,7 @@ and the <a class="reference external" href="https://github.com/uuvsimulator/uuv_
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">The position and orientation for sensors, actuators and center of buoyancy
-must be set with respect to the center of gravity of the vehicle’s base link.
+must be set with respect to the center of gravity of the vehicle&#8217;s base link.
 ROS and Gazebo also use per default the <a class="reference external" href="http://www.ros.org/reps/rep-0103.html">ENU (East-North-Up) reference frame</a>
 convention, not NED (North-East-Down).</p>
 </div>
@@ -257,7 +254,7 @@ convention, not NED (North-East-Down).</p>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

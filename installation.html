@@ -30,9 +30,6 @@
   
 
   
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="UUV Simulator 0.2 documentation" href="index.html"/>
         <link rel="next" title="Quick start" href="quick_start.html"/>
         <link rel="prev" title="Welcome to UUV Simulator’s documentation!" href="index.html"/> 
@@ -85,7 +82,7 @@
             
             
                 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#dependencies">Dependencies</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#using-uuv-simulator-with-ros-indigo-and-gazebo-7">Using UUV Simulator with ROS Indigo and Gazebo 7</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#using-uuv-simulator-with-ros-kinetic-and-gazebo-7">Using UUV Simulator with ROS Kinetic and Gazebo 7</a></li>
@@ -135,7 +132,7 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="_sources/installation.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/installation.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -161,12 +158,12 @@ and for <a class="reference external" href="http://wiki.ros.org/kinetic/Installa
 <li><p class="first">Follow the instructions from the <a class="reference external" href="http://gazebosim.org/tutorials?cat=install&amp;tut=install_ubuntu&amp;ver=7.0">Gazebo 7 installation tutorial</a></p>
 </li>
 <li><p class="first">Install the necessary ROS packages for Gazebo 7</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">ros</span><span class="o">-</span><span class="n">indigo</span><span class="o">-</span><span class="n">gazebo7</span><span class="o">-*</span>
+<div class="highlight-python"><div class="highlight"><pre>sudo apt-get install ros-indigo-gazebo7-*
 </pre></div>
 </div>
 </li>
 <li><p class="first">Some extra packages that might also be needed</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">protobuf</span><span class="o">-</span><span class="n">compiler</span> <span class="n">protobuf</span><span class="o">-</span><span class="n">c</span><span class="o">-</span><span class="n">compiler</span>
+<div class="highlight-python"><div class="highlight"><pre>sudo apt-get install protobuf-compiler protobuf-c-compiler
 </pre></div>
 </div>
 </li>
@@ -174,30 +171,30 @@ and for <a class="reference external" href="http://wiki.ros.org/kinetic/Installa
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p>To use the vehicles with robotic manipulators using ROS Indigo, it might also be necessary to use a different version of the <strong>ros-control</strong> modules (listed below). In that case, clone the following repositories in the <strong>src</strong> folder</p>
-<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ros</span><span class="o">-</span><span class="n">controls</span><span class="o">/</span><span class="n">control_msgs</span><span class="o">.</span><span class="n">git</span>
-<span class="n">cd</span> <span class="n">control_msgs</span>
-<span class="n">git</span> <span class="n">checkout</span> <span class="n">c0b322b</span>
-<span class="n">cd</span> <span class="o">..</span>
+<div class="last highlight-python"><div class="highlight"><pre>git clone https://github.com/ros-controls/control_msgs.git
+cd control_msgs
+git checkout c0b322b
+cd ..
 
-<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ros</span><span class="o">-</span><span class="n">controls</span><span class="o">/</span><span class="n">control_toolbox</span><span class="o">.</span><span class="n">git</span>
-<span class="n">cd</span> <span class="n">control_toolbox</span>
-<span class="n">git</span> <span class="n">checkout</span> <span class="mi">5</span><span class="n">ccdc6d</span>
-<span class="n">cd</span> <span class="o">..</span>
+git clone https://github.com/ros-controls/control_toolbox.git
+cd control_toolbox
+git checkout 5ccdc6d
+cd ..
 
-<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ros</span><span class="o">-</span><span class="n">simulation</span><span class="o">/</span><span class="n">gazebo_ros_pkgs</span><span class="o">.</span><span class="n">git</span>
-<span class="n">cd</span> <span class="n">gazebo_ros_pkgs</span>
-<span class="n">git</span> <span class="n">checkout</span> <span class="mi">231</span><span class="n">b76d</span>
-<span class="n">cd</span> <span class="o">..</span>
+git clone https://github.com/ros-simulation/gazebo_ros_pkgs.git
+cd gazebo_ros_pkgs
+git checkout 231b76d
+cd ..
 
-<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ros</span><span class="o">-</span><span class="n">controls</span><span class="o">/</span><span class="n">realtime_tools</span><span class="o">.</span><span class="n">git</span>
-<span class="n">cd</span> <span class="n">realtime_tools</span>
-<span class="n">git</span> <span class="n">checkout</span> <span class="n">bf55298</span>
-<span class="n">cd</span> <span class="o">..</span>
+git clone https://github.com/ros-controls/realtime_tools.git
+cd realtime_tools
+git checkout bf55298
+cd ..
 
-<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ros</span><span class="o">-</span><span class="n">controls</span><span class="o">/</span><span class="n">ros_controllers</span><span class="o">.</span><span class="n">git</span>
-<span class="n">cd</span> <span class="n">ros_controllers</span>
-<span class="n">git</span> <span class="n">checkout</span> <span class="n">b4dc152</span>
-<span class="n">cd</span> <span class="o">..</span>
+git clone https://github.com/ros-controls/ros_controllers.git
+cd ros_controllers
+git checkout b4dc152
+cd ..
 </pre></div>
 </div>
 </div>
@@ -208,7 +205,7 @@ and for <a class="reference external" href="http://wiki.ros.org/kinetic/Installa
 <li><p class="first">If you installed <strong>ros-kinetic-desktop-full</strong> after following the <a class="reference external" href="http://wiki.ros.org/kinetic/Installation/Ubuntu">installation instructions for ROS Kinetic</a>, Gazebo 7.0 should already be installed.</p>
 </li>
 <li><p class="first">In case you want to update Gazebo 7, follow the <a class="reference external" href="http://gazebosim.org/tutorials?cat=install&amp;tut=install_ubuntu&amp;ver=7.0">instructions to add the mirror from OSRF</a> and then upgrade <strong>gazebo7</strong> and <strong>libgazebo7-dev</strong></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="o">--</span><span class="n">only</span><span class="o">-</span><span class="n">upgrade</span> <span class="n">gazebo7</span> <span class="n">libgazebo7</span><span class="o">-</span><span class="n">dev</span>
+<div class="highlight-python"><div class="highlight"><pre>sudo apt-get install --only-upgrade gazebo7 libgazebo7-dev
 </pre></div>
 </div>
 </li>
@@ -222,7 +219,7 @@ and for <a class="reference external" href="http://wiki.ros.org/kinetic/Installa
 <li><p class="first">Follow the <a class="reference external" href="http://gazebosim.org/tutorials?cat=install&amp;tut=install_ubuntu&amp;ver=9.0">installation instructions for Gazebo 9 in this wiki page</a>.</p>
 </li>
 <li><p class="first">Install the additional packages necessary to work with ROS Kinetic and Gazebo 9</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">ros</span><span class="o">-</span><span class="n">kinetic</span><span class="o">-</span><span class="n">gazebo9</span><span class="o">-*</span>
+<div class="highlight-python"><div class="highlight"><pre>sudo apt-get install ros-kinetic-gazebo9-*
 </pre></div>
 </div>
 </li>
@@ -231,19 +228,19 @@ and for <a class="reference external" href="http://wiki.ros.org/kinetic/Installa
 </div>
 <div class="section" id="creating-and-configuring-a-workspace">
 <h2>Creating and configuring a workspace<a class="headerlink" href="#creating-and-configuring-a-workspace" title="Permalink to this headline">¶</a></h2>
-<p>If you don’t have the ROS workspace yet, you should run the following and then clone the <strong>uuv_simulator</strong> package in the <strong>~/catkin_ws/src</strong> folder</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">~/</span><span class="n">catkin_ws</span><span class="o">/</span><span class="n">src</span>
-<span class="n">cd</span> <span class="o">~/</span><span class="n">catkin_ws</span><span class="o">/</span><span class="n">src</span>
+<p>If you don&#8217;t have the ROS workspace yet, you should run the following and then clone the <strong>uuv_simulator</strong> package in the <strong>~/catkin_ws/src</strong> folder</p>
+<div class="highlight-python"><div class="highlight"><pre>mkdir -p ~/catkin_ws/src
+cd ~/catkin_ws/src
 </pre></div>
 </div>
 <p>Be sure to install <strong>catkin tools</strong> package by following the installation instructions on the <a class="reference external" href="https://catkin-tools.readthedocs.io/en/latest/installing.html">catkin tools documentation page</a>. After the installation, initialize the catkin workspace</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">catkin_ws</span>
-<span class="n">catkin</span> <span class="n">init</span>
+<div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws
+catkin init
 </pre></div>
 </div>
 <p>You can then clone the UUV simulator into your <strong>src</strong> folder</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">catkin_ws</span><span class="o">/</span><span class="n">src</span>
-<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">uuvsimulator</span><span class="o">/</span><span class="n">uuv_simulator</span><span class="o">.</span><span class="n">git</span>
+<div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws/src
+git clone https://github.com/uuvsimulator/uuv_simulator.git
 </pre></div>
 </div>
 <p>Configure the environment variables by adding the following lines in <strong>~/.bashrc</strong> (replace <strong>kinetic</strong> with <strong>indigo</strong> depending on the ROS version you  are using).</p>
@@ -251,37 +248,37 @@ and for <a class="reference external" href="http://wiki.ros.org/kinetic/Installa
 <p class="first admonition-title">Note</p>
 <p>If you install a version of Gazebo newer than 7.X, you might need to adjust <strong>gazebo-7</strong> below (e.g. <strong>gazebo-9</strong>).
 You can find out which version you are using by typing</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">gazebo</span> <span class="o">--</span><span class="n">version</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">gazebo</span> <span class="o">--</span><span class="n">version</span>
 </pre></div>
 </div>
 <p class="last">in your terminal.</p>
 </div>
-<div class="highlight-default"><div class="highlight"><pre><span></span>source /usr/share/gazebo-7/setup.sh
+<div class="highlight-python"><div class="highlight"><pre>source /usr/share/gazebo-7/setup.sh
 source /opt/ros/kinetic/setup.bash
 source $HOME/catkin_ws/devel/setup.bash
 </pre></div>
 </div>
 <p>After saving these changes, remember to source the <strong>.bashrc</strong> by either typing</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">~/.</span><span class="n">bashrc</span>
+<div class="highlight-python"><div class="highlight"><pre>source ~/.bashrc
 </pre></div>
 </div>
-<p>To install the simulator’s dependencies, you can run one of the following commands (see which of the ROS/Gazebo combinations from <a class="reference internal" href="#dependencies"><span class="std std-ref">Dependencies</span></a> you have on your machine):</p>
+<p>To install the simulator&#8217;s dependencies, you can run one of the following commands (see which of the ROS/Gazebo combinations from <a class="reference internal" href="#dependencies"><span>Dependencies</span></a> you have on your machine):</p>
 <ul>
 <li><p class="first">For ROS Indigo + Gazebo 7</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">catkin_ws</span>
-<span class="n">rosdep</span> <span class="n">install</span> <span class="o">--</span><span class="n">from</span><span class="o">-</span><span class="n">paths</span> <span class="n">src</span> <span class="o">--</span><span class="n">ignore</span><span class="o">-</span><span class="n">src</span> <span class="o">--</span><span class="n">rosdistro</span><span class="o">=</span><span class="n">indigo</span> <span class="o">-</span><span class="n">y</span> <span class="o">--</span><span class="n">skip</span><span class="o">-</span><span class="n">keys</span> <span class="s2">&quot;gazebo gazebo_msgs gazebo_plugins gazebo_ros gazebo_ros_control gazebo_ros_pkgs&quot;</span>
+<div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws
+rosdep install --from-paths src --ignore-src --rosdistro=indigo -y --skip-keys &quot;gazebo gazebo_msgs gazebo_plugins gazebo_ros gazebo_ros_control gazebo_ros_pkgs&quot;
 </pre></div>
 </div>
 </li>
 <li><p class="first">For ROS Kinetic + Gazebo 7</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">catkin_ws</span>
-<span class="n">rosdep</span> <span class="n">install</span> <span class="o">--</span><span class="n">from</span><span class="o">-</span><span class="n">paths</span> <span class="n">src</span> <span class="o">--</span><span class="n">ignore</span><span class="o">-</span><span class="n">src</span> <span class="o">--</span><span class="n">rosdistro</span><span class="o">=</span><span class="n">kinetic</span> <span class="o">-</span><span class="n">y</span>
+<div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws
+rosdep install --from-paths src --ignore-src --rosdistro=kinetic -y
 </pre></div>
 </div>
 </li>
 <li><p class="first">For ROS Kinetic + Gazebo 9</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">catkin_ws</span>
-<span class="n">rosdep</span> <span class="n">install</span> <span class="o">--</span><span class="n">from</span><span class="o">-</span><span class="n">paths</span> <span class="n">src</span> <span class="o">--</span><span class="n">ignore</span><span class="o">-</span><span class="n">src</span> <span class="o">--</span><span class="n">rosdistro</span><span class="o">=</span><span class="n">kinetic</span> <span class="o">-</span><span class="n">y</span> <span class="o">--</span><span class="n">skip</span><span class="o">-</span><span class="n">keys</span> <span class="s2">&quot;gazebo gazebo_msgs gazebo_plugins gazebo_ros gazebo_ros_control gazebo_ros_pkgs&quot;</span>
+<div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws
+rosdep install --from-paths src --ignore-src --rosdistro=kinetic -y --skip-keys &quot;gazebo gazebo_msgs gazebo_plugins gazebo_ros gazebo_ros_control gazebo_ros_pkgs&quot;
 </pre></div>
 </div>
 </li>
@@ -289,39 +286,39 @@ source $HOME/catkin_ws/devel/setup.bash
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p>In case you are using ROS Lunar, you might need to clone the following repositories directly to your <strong>~/catkin_ws/src</strong> folder and build them with the rest of the packages</p>
-<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">catkin</span><span class="o">/</span><span class="n">src</span>
-<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">tu</span><span class="o">-</span><span class="n">darmstadt</span><span class="o">-</span><span class="n">ros</span><span class="o">-</span><span class="n">pkg</span><span class="o">/</span><span class="n">hector_localization</span>
-<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ros</span><span class="o">-</span><span class="n">teleop</span><span class="o">/</span><span class="n">teleop_tools</span>
+<div class="last highlight-python"><div class="highlight"><pre>cd ~/catkin/src
+git clone https://github.com/tu-darmstadt-ros-pkg/hector_localization
+git clone https://github.com/ros-teleop/teleop_tools
 </pre></div>
 </div>
 </div>
 <p>Finally, build your workspace using</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">catkin_ws</span>
-<span class="n">catkin_make</span> <span class="n">install</span>
+<div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws
+catkin_make install
 </pre></div>
 </div>
 <p>or</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">catkin_ws</span>
-<span class="n">catkin</span> <span class="n">build</span>
+<div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws
+catkin build
 </pre></div>
 </div>
 <p>in case you are using <strong>catkin_tools</strong>.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p>If after compiling your catkin workspace using <strong>catkin build</strong> ROS seems to not update the paths to the packages even after you run</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">catkin_ws</span>
-<span class="n">source</span> <span class="n">devel</span><span class="o">/</span><span class="n">setup</span><span class="o">.</span><span class="n">bash</span>
+<div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws
+source devel/setup.bash
 </pre></div>
 </div>
 <p>you can try disabling the option to source the <strong>install</strong> folder of your catkin workspace by running</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">catkin_ws</span>
-<span class="n">catkin</span> <span class="n">config</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">install</span>
-<span class="n">catkin</span> <span class="n">clean</span> <span class="o">--</span><span class="nb">all</span>
+<div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws
+catkin config --no-install
+catkin clean --all
 </pre></div>
 </div>
 <p>Then rebuild your workspace</p>
-<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="n">catkin</span> <span class="n">build</span>
-<span class="n">source</span> <span class="n">devel</span><span class="o">/</span><span class="n">setup</span><span class="o">.</span><span class="n">bash</span>
+<div class="last highlight-python"><div class="highlight"><pre>catkin build
+source devel/setup.bash
 </pre></div>
 </div>
 </div>
@@ -378,7 +375,7 @@ source $HOME/catkin_ws/devel/setup.bash
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

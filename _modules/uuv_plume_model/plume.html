@@ -30,9 +30,6 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../../genindex.html"/>
-        <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="UUV Simulator 0.2 documentation" href="../../index.html"/>
         <link rel="up" title="Module code" href="../index.html"/> 
 
@@ -136,7 +133,7 @@
            <div itemprop="articleBody">
             
   <h1>Source code for uuv_plume_model.plume</h1><div class="highlight"><pre>
-<span></span><span class="c1"># Copyright (c) 2016 The UUV Simulator Authors.</span>
+<span class="c1"># Copyright (c) 2016 The UUV Simulator Authors.</span>
 <span class="c1"># All rights reserved.</span>
 <span class="c1">#</span>
 <span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
@@ -152,11 +149,11 @@
 <span class="c1"># limitations under the License.</span>
 
 <span class="kn">import</span> <span class="nn">rospy</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">sensor_msgs.msg</span> <span class="k">import</span> <span class="n">PointCloud</span><span class="p">,</span> <span class="n">ChannelFloat32</span>
-<span class="kn">from</span> <span class="nn">visualization_msgs.msg</span> <span class="k">import</span> <span class="n">Marker</span><span class="p">,</span> <span class="n">MarkerArray</span>
-<span class="kn">from</span> <span class="nn">geometry_msgs.msg</span> <span class="k">import</span> <span class="n">Point</span><span class="p">,</span> <span class="n">Point32</span>
-<span class="kn">from</span> <span class="nn">tf.transformations</span> <span class="k">import</span> <span class="n">quaternion_from_euler</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sensor_msgs.msg</span> <span class="kn">import</span> <span class="n">PointCloud</span><span class="p">,</span> <span class="n">ChannelFloat32</span>
+<span class="kn">from</span> <span class="nn">visualization_msgs.msg</span> <span class="kn">import</span> <span class="n">Marker</span><span class="p">,</span> <span class="n">MarkerArray</span>
+<span class="kn">from</span> <span class="nn">geometry_msgs.msg</span> <span class="kn">import</span> <span class="n">Point</span><span class="p">,</span> <span class="n">Point32</span>
+<span class="kn">from</span> <span class="nn">tf.transformations</span> <span class="kn">import</span> <span class="n">quaternion_from_euler</span>
 
 
 <div class="viewcode-block" id="Plume"><a class="viewcode-back" href="../../api/uuv_plume_simulator/uuv_plume_simulator/src/uuv_plume_model.html#uuv_plume_model.plume.Plume">[docs]</a><span class="k">class</span> <span class="nc">Plume</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -178,10 +175,10 @@
 
         <span class="c1"># Vector [N x 3] holding all the position vectors for each created</span>
         <span class="c1"># particle</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span> <span class="o">=</span> <span class="bp">None</span>
         <span class="c1"># Time of creation vector will hold the time stamps of creation of each</span>
         <span class="c1"># particle in the plume</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_time_creation</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_time_creation</span> <span class="o">=</span> <span class="bp">None</span>
 
         <span class="c1"># Limits for the bounding box where the plume particles can exist and</span>
         <span class="c1"># be generated</span>
@@ -194,7 +191,7 @@
         <span class="c1"># Number of points in the point cloud</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_n_points</span> <span class="o">=</span> <span class="n">n_points</span>
         <span class="c1"># Time stamp to be updated at each iteration</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_t</span> <span class="o">=</span> <span class="n">start_time</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_t</span> <span class="o">=</span> <span class="mf">0.0</span>
         <span class="c1"># Time stamp for the creation of this plume model instance</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_start_time</span> <span class="o">=</span> <span class="n">start_time</span>
         <span class="c1"># Time step between updates</span>
@@ -202,8 +199,8 @@
         <span class="c1"># Current velocity vector to be updated by the plume server</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_current_vel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Plume.create_plume_model"><a class="viewcode-back" href="../../api/uuv_plume_simulator/uuv_plume_simulator/src/uuv_plume_model.html#uuv_plume_model.plume.Plume.create_plume_model">[docs]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">create_plume_model</span><span class="p">(</span><span class="n">tag</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Plume.create_plume_model"><a class="viewcode-back" href="../../api/uuv_plume_simulator/uuv_plume_simulator/src/uuv_plume_model.html#uuv_plume_model.plume.Plume.create_plume_model">[docs]</a>    <span class="k">def</span> <span class="nf">create_plume_model</span><span class="p">(</span><span class="n">tag</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Factory function to create the plume model using the LABEL attribute</span>
 <span class="sd">        as identifier.</span>
@@ -218,7 +215,7 @@
         <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">Plume</span><span class="o">.</span><span class="n">__subclasses__</span><span class="p">():</span>
             <span class="k">if</span> <span class="n">model</span><span class="o">.</span><span class="n">LABEL</span> <span class="o">==</span> <span class="n">tag</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">model</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
-        <span class="k">return</span> <span class="kc">None</span></div>
+        <span class="k">return</span> <span class="bp">None</span></div>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">source_pos</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -228,7 +225,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_source_pos</span>
 
-    <span class="nd">@source_pos</span><span class="o">.</span><span class="n">setter</span>
+    <span class="nd">@source_pos.setter</span>
     <span class="k">def</span> <span class="nf">source_pos</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_pos</span><span class="p">):</span>
         <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">new_pos</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span>
         <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">new_pos</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span>
@@ -252,8 +249,8 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return only the X coordinates for the particle positions.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
 
     <span class="nd">@property</span>
@@ -268,9 +265,16 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return only the Y coordinates for the particle positions.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">time_of_creation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the time of creation vector.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_time_creation</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">y_lim</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -284,8 +288,8 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return only the Z coordinates for the particle positions.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span>
 
     <span class="nd">@property</span>
@@ -309,6 +313,13 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_points</span>
 
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">num_particles</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
 <div class="viewcode-block" id="Plume.set_n_points"><a class="viewcode-back" href="../../api/uuv_plume_simulator/uuv_plume_simulator/src/uuv_plume_model.html#uuv_plume_model.plume.Plume.set_n_points">[docs]</a>    <span class="k">def</span> <span class="nf">set_n_points</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_points</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Set the maximum number of points to be created by the plume model.</span>
@@ -320,10 +331,10 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">n_points</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_n_points</span> <span class="o">=</span> <span class="n">n_points</span>
-            <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">return</span> <span class="bp">True</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span> <span class="s1">&#39;Number of plume particle points must be positive&#39;</span>
-            <span class="k">return</span> <span class="kc">False</span></div>
+            <span class="k">print</span> <span class="s1">&#39;Number of plume particle points must be positive&#39;</span>
+            <span class="k">return</span> <span class="bp">False</span></div>
 
 <div class="viewcode-block" id="Plume.update_current_vel"><a class="viewcode-back" href="../../api/uuv_plume_simulator/uuv_plume_simulator/src/uuv_plume_model.html#uuv_plume_model.plume.Plume.update_current_vel">[docs]</a>    <span class="k">def</span> <span class="nf">update_current_vel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vel</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -353,10 +364,10 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_source_pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x_lim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_source_pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x_lim</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_x_lim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">min_value</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_x_lim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">max_value</span>
-            <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">return</span> <span class="bp">True</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span> <span class="s1">&#39;Plume source is outside of limits, ignoring new X limits&#39;</span>
-            <span class="k">return</span> <span class="kc">False</span></div>
+            <span class="k">print</span> <span class="s1">&#39;Plume source is outside of limits, ignoring new X limits&#39;</span>
+            <span class="k">return</span> <span class="bp">False</span></div>
 
 <div class="viewcode-block" id="Plume.set_y_lim"><a class="viewcode-back" href="../../api/uuv_plume_simulator/uuv_plume_simulator/src/uuv_plume_model.html#uuv_plume_model.plume.Plume.set_y_lim">[docs]</a>    <span class="k">def</span> <span class="nf">set_y_lim</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">min_value</span><span class="p">,</span> <span class="n">max_value</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -375,10 +386,10 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_source_pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_y_lim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_source_pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_y_lim</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_y_lim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">min_value</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_y_lim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">max_value</span>
-            <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">return</span> <span class="bp">True</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span> <span class="s1">&#39;Plume source is outside of limits, ignoring new Y limits&#39;</span>
-            <span class="k">return</span> <span class="kc">False</span></div>
+            <span class="k">print</span> <span class="s1">&#39;Plume source is outside of limits, ignoring new Y limits&#39;</span>
+            <span class="k">return</span> <span class="bp">False</span></div>
 
 <div class="viewcode-block" id="Plume.set_z_lim"><a class="viewcode-back" href="../../api/uuv_plume_simulator/uuv_plume_simulator/src/uuv_plume_model.html#uuv_plume_model.plume.Plume.set_z_lim">[docs]</a>    <span class="k">def</span> <span class="nf">set_z_lim</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">min_value</span><span class="p">,</span> <span class="n">max_value</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -399,17 +410,17 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_source_pos</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_z_lim</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_z_lim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">min_value</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_z_lim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_value</span><span class="p">)</span>
-            <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">return</span> <span class="bp">True</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span> <span class="s1">&#39;Plume source is outside of limits, ignoring new Z limits&#39;</span>
-            <span class="k">return</span> <span class="kc">False</span></div>
+            <span class="k">print</span> <span class="s1">&#39;Plume source is outside of limits, ignoring new Z limits&#39;</span>
+            <span class="k">return</span> <span class="bp">False</span></div>
 
 <div class="viewcode-block" id="Plume.reset_plume"><a class="viewcode-back" href="../../api/uuv_plume_simulator/uuv_plume_simulator/src/uuv_plume_model.html#uuv_plume_model.plume.Plume.reset_plume">[docs]</a>    <span class="k">def</span> <span class="nf">reset_plume</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Reset point cloud and time of creating vectors.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_time_creation</span> <span class="o">=</span> <span class="kc">None</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_time_creation</span> <span class="o">=</span> <span class="bp">None</span></div>
 
 <div class="viewcode-block" id="Plume.get_contraints_filter"><a class="viewcode-back" href="../../api/uuv_plume_simulator/uuv_plume_simulator/src/uuv_plume_model.html#uuv_plume_model.plume.Plume.get_contraints_filter">[docs]</a>    <span class="k">def</span> <span class="nf">get_contraints_filter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -444,7 +455,7 @@
 <span class="sd">        Truncate the position of the particle to the closest bounding box limit</span>
 <span class="sd">        if the particle is positioned outside of the limits.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;Plume points have not been initialized&#39;</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">,</span> <span class="s1">&#39;Plume points have not been initialized&#39;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_x_lim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_x_lim</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
@@ -455,26 +466,38 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_z_lim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_z_lim</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">])</span></div>
 
+<div class="viewcode-block" id="Plume.set_plume_particles"><a class="viewcode-back" href="../../api/uuv_plume_simulator/uuv_plume_simulator/src/uuv_plume_model.html#uuv_plume_model.plume.Plume.set_plume_particles">[docs]</a>    <span class="k">def</span> <span class="nf">set_plume_particles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">time_creation</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="mi">3</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_time_creation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">time_creation</span><span class="p">))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_time_creation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">time_creation</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_time_creation</span> <span class="o">-=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">time_creation</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_time_creation</span> <span class="o">+=</span> <span class="n">t</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">z</span><span class="p">)</span></div>
+
 <div class="viewcode-block" id="Plume.get_point_cloud_as_msg"><a class="viewcode-back" href="../../api/uuv_plume_simulator/uuv_plume_simulator/src/uuv_plume_model.html#uuv_plume_model.plume.Plume.get_point_cloud_as_msg">[docs]</a>    <span class="k">def</span> <span class="nf">get_point_cloud_as_msg</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return a ROS point cloud sensor message with the points representing</span>
 <span class="sd">        the plume&#39;s particles and one channel containing the time of creation</span>
 <span class="sd">        for each particle.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_time_creation</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_time_creation</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
 
         <span class="n">pc</span> <span class="o">=</span> <span class="n">PointCloud</span><span class="p">()</span>
         <span class="n">pc</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">stamp</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Time</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
         <span class="n">pc</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="s1">&#39;world&#39;</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
         <span class="n">pc</span><span class="o">.</span><span class="n">points</span> <span class="o">=</span> <span class="p">[</span><span class="n">Point32</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">z</span><span class="p">)]</span>
 
         <span class="n">channel</span> <span class="o">=</span> <span class="n">ChannelFloat32</span><span class="p">()</span>
         <span class="n">channel</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;time_creation&#39;</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_time_creation</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_time_creation</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
         <span class="n">channel</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_time_creation</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 
         <span class="n">pc</span><span class="o">.</span><span class="n">channels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">channel</span><span class="p">)</span>
@@ -487,8 +510,8 @@
 <span class="sd">        show the direction of the current velocity if it&#39;s norm is greater</span>
 <span class="sd">        than zero.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pnts</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
 
         <span class="n">marker_array</span> <span class="o">=</span> <span class="n">MarkerArray</span><span class="p">()</span>
 
@@ -639,7 +662,7 @@
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

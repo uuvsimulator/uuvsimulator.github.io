@@ -30,9 +30,6 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="UUV Simulator 0.2 documentation" href="../index.html"/>
         <link rel="up" title="Documentation" href="index.html"/>
         <link rel="next" title="Vehicles available" href="vehicles.html"/>
@@ -90,7 +87,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../quick_start.html">Quick start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Documentation</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Simulation scenarios</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Simulation scenarios</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#ocean-waves">Ocean waves</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#empty-underwater-world">Empty underwater world</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#simple-lake">Simple lake</a></li>
@@ -151,7 +148,7 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/documentation/sim_scenarios.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/documentation/sim_scenarios.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -166,7 +163,7 @@
 <div class="section" id="ocean-waves">
 <h2>Ocean waves<a class="headerlink" href="#ocean-waves" title="Permalink to this headline">¶</a></h2>
 <p>An ocean box with a underwater heightmap and animated waves. To run it, use the following launch file</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_descriptions</span> <span class="n">ocean_waves</span><span class="o">.</span><span class="n">launch</span>
+<div class="highlight-python"><div class="highlight"><pre>roslaunch uuv_descriptions ocean_waves.launch
 </pre></div>
 </div>
 <img alt="../_images/ocean_waves_gazebo.png" src="../_images/ocean_waves_gazebo.png" />
@@ -175,7 +172,7 @@
 <div class="section" id="empty-underwater-world">
 <h2>Empty underwater world<a class="headerlink" href="#empty-underwater-world" title="Permalink to this headline">¶</a></h2>
 <p>An ocean box with fog simulation. To run it, use the following launch file</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_descriptions</span> <span class="n">empty_underwater_world</span><span class="o">.</span><span class="n">launch</span>
+<div class="highlight-python"><div class="highlight"><pre>roslaunch uuv_descriptions empty_underwater_world.launch
 </pre></div>
 </div>
 <img alt="../_images/empty_underwater_world_gazebo.png" src="../_images/empty_underwater_world_gazebo.png" />
@@ -183,7 +180,7 @@
 <div class="section" id="simple-lake">
 <h2>Simple lake<a class="headerlink" href="#simple-lake" title="Permalink to this headline">¶</a></h2>
 <p>A simple lake made with Blender. To run it, use the following launch file</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_descriptions</span> <span class="n">lake</span><span class="o">.</span><span class="n">launch</span>
+<div class="highlight-python"><div class="highlight"><pre>roslaunch uuv_descriptions lake.launch
 </pre></div>
 </div>
 <img alt="../_images/lake_gazebo.png" src="../_images/lake_gazebo.png" />
@@ -191,7 +188,7 @@
 <div class="section" id="mangalia-coast-romania">
 <h2>Mangalia coast, Romania<a class="headerlink" href="#mangalia-coast-romania" title="Permalink to this headline">¶</a></h2>
 <p>The location of the second SWARMs project demonstration was modeled in Gazebo with a rough description of the seabed based on depth maps of the region. To run it, use the following launch file</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_descriptions</span> <span class="n">mangalia</span><span class="o">.</span><span class="n">launch</span>
+<div class="highlight-python"><div class="highlight"><pre>roslaunch uuv_descriptions mangalia.launch
 </pre></div>
 </div>
 <img alt="../_images/mangalia_gazebo.png" src="../_images/mangalia_gazebo.png" />
@@ -202,21 +199,21 @@ Do not use the model as the exact reference for any algorithms.</p>
 </div>
 <div class="section" id="location">
 <h3>Location<a class="headerlink" href="#location" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
+<ul>
 <li><dl class="first docutils">
 <dt><strong>North</strong></dt>
-<dd><ul class="first last">
+<dd><ul class="first last simple">
 <li>43.797763</li>
-<li>43° 47’ 52.0’‘</li>
+<li>43° 47&#8217; 52.0&#8217;&#8216;</li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt><strong>East</strong></dt>
-<dd><ul class="first last">
+<dd><ul class="first last simple">
 <li>28.598597</li>
-<li>28° 35’ 55.0’‘</li>
+<li>28° 35&#8217; 55.0&#8217;&#8216;</li>
 </ul>
 </dd>
 </dl>
@@ -228,7 +225,7 @@ Do not use the model as the exact reference for any algorithms.</p>
 <h2>M/S Herkules ship wreck, Trondheim, Norway<a class="headerlink" href="#m-s-herkules-ship-wreck-trondheim-norway" title="Permalink to this headline">¶</a></h2>
 <p>A approximated model of the M/S Herkules ship wreck located in the Trondheim fjord, in Norway, based on the video below generated as a result from the paper <a class="reference internal" href="../index.html#nornes-2015" id="id1">[9]</a>.</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/0Po234vEdi0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe><p>The Gazebo world includes an ocean box with fog simulation and can be started as follows</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_descriptions</span> <span class="n">herkules_ship_wreck</span><span class="o">.</span><span class="n">launch</span>
+<div class="highlight-python"><div class="highlight"><pre>roslaunch uuv_descriptions herkules_ship_wreck.launch
 </pre></div>
 </div>
 <img alt="../_images/herkules_gazebo.png" src="../_images/herkules_gazebo.png" />
@@ -241,28 +238,28 @@ Do not use this model as an exact reference to any algorithms.</p>
 <h3>Sources<a class="headerlink" href="#sources" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference external" href="http://www.dykkepedia.com/wiki/Herkules">Dykkepedia</a></li>
-<li><a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S2405896315002736">Nornes, Stein M., et al. “Underwater photogrammetric mapping of an intact standing steel wreck with ROV.” IFAC-PapersOnLine 48.2 (2015): 206-211.</a></li>
+<li><a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S2405896315002736">Nornes, Stein M., et al. &#8220;Underwater photogrammetric mapping of an intact standing steel wreck with ROV.&#8221; IFAC-PapersOnLine 48.2 (2015): 206-211.</a></li>
 </ul>
 </div>
 <div class="section" id="id3">
 <h3>Location<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
+<ul>
 <li><dl class="first docutils">
 <dt><strong>North</strong></dt>
-<dd><ul class="first last">
+<dd><ul class="first last simple">
 <li>63.453444</li>
-<li>63° 27.20664’</li>
-<li>63° 27’ 12.3984’‘</li>
+<li>63° 27.20664&#8217;</li>
+<li>63° 27&#8217; 12.3984&#8217;&#8216;</li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt><strong>East</strong></dt>
-<dd><ul class="first last">
+<dd><ul class="first last simple">
 <li>10.405556</li>
-<li>10° 24.33336’</li>
-<li>10° 24’ 20.0016’‘</li>
+<li>10° 24.33336&#8217;</li>
+<li>10° 24&#8217; 20.0016&#8217;&#8216;</li>
 </ul>
 </dd>
 </dl>
@@ -273,7 +270,7 @@ Do not use this model as an exact reference to any algorithms.</p>
 <div class="section" id="munkholmen-islet-trondheim-norway">
 <h2>Munkholmen islet, Trondheim, Norway<a class="headerlink" href="#munkholmen-islet-trondheim-norway" title="Permalink to this headline">¶</a></h2>
 <p><a href="https://commons.wikimedia.org/wiki/File:Munkholmen_IMG_6003.JPG#/media/File:Munkholmen_IMG_6003.JPG"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Munkholmen_IMG_6003.JPG/1200px-Munkholmen_IMG_6003.JPG" alt="Munkholmen IMG 6003.JPG"></a><br>By <a href="//commons.wikimedia.org/wiki/User:Bjoertvedt" title="User:Bjoertvedt">Bjoertvedt</a> - <span class="int-own-work" lang="en">Own work</span>, <a href="https://creativecommons.org/licenses/by-sa/3.0" title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=26089719">Link</a></p><p>The Munkholmen fortress is located in the Trondheim fjord, in Norway. The Gazebo model includes the islet with the Munkholmen fortress and the M/S Herkules ship wreck. To start the world, run</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_descriptions</span> <span class="n">munkholmen</span><span class="o">.</span><span class="n">launch</span>
+<div class="highlight-python"><div class="highlight"><pre>roslaunch uuv_descriptions munkholmen.launch
 </pre></div>
 </div>
 <img alt="../_images/munkholmen_gazebo.png" src="../_images/munkholmen_gazebo.png" />
@@ -285,23 +282,23 @@ Do not use the model as the exact reference for any algorithms.</p>
 </div>
 <div class="section" id="id4">
 <h3>Location<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
+<ul>
 <li><dl class="first docutils">
 <dt><strong>North</strong></dt>
-<dd><ul class="first last">
+<dd><ul class="first last simple">
 <li>63.4520278</li>
-<li>63° 27.1216667’</li>
-<li>63° 27’ 7.3’‘</li>
+<li>63° 27.1216667&#8217;</li>
+<li>63° 27&#8217; 7.3&#8217;&#8216;</li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt><strong>East</strong></dt>
-<dd><ul class="first last">
+<dd><ul class="first last simple">
 <li>10.3844722</li>
-<li>10° 23.0683333’</li>
-<li>10° 23’ 4.1’‘</li>
+<li>10° 23.0683333&#8217;</li>
+<li>10° 23&#8217; 4.1&#8217;&#8216;</li>
 </ul>
 </dd>
 </dl>
@@ -361,7 +358,7 @@ Do not use the model as the exact reference for any algorithms.</p>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

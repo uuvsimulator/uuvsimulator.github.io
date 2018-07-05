@@ -30,9 +30,6 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="UUV Simulator 0.2 documentation" href="../index.html"/>
         <link rel="up" title="Tutorials" href="index.html"/>
         <link rel="next" title="Documentation" href="../documentation/index.html"/>
@@ -95,7 +92,7 @@
 <li class="toctree-l2"><a class="reference internal" href="seabed_world.html">Making a simple seabed world model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="disturbances.html">Applying disturbances during the simulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plume_simulation.html">Starting a plume simulation</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">How to use the wrapper class for repetitive simulation runs</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="">How to use the wrapper class for repetitive simulation runs</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#starting-and-terminating-the-simulation-using-a-timeout">Starting and terminating the simulation using a timeout</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#using-the-python-wrapper-to-run-a-simulation">Using the Python wrapper to run a simulation</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#simulation-launcher">Simulation launcher</a></li>
@@ -148,7 +145,7 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/tutorials/simulation_wrapper.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/tutorials/simulation_wrapper.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -165,20 +162,20 @@ That is the case for reinforcement learning and optimization algorithms, to name
 Even though that is a promising application of any Gazebo/ROS based simulation, the actual implementation of a wrapper with which the simulation can be started and terminated in a controlled environment involves a lot of attention in order to guarantee that all ROS nodes can be properly started.
 For this purposes, a set of nodes and process managers have been implemented as part of the <a class="reference external" href="https://github.com/uuvsimulator/uuv_simulation_evaluation">uuv_simulation_evaluation</a>.
 Be sure to install the package in your catkin workspace</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">catkin_ws</span><span class="o">/</span><span class="n">src</span>
-<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">uuvsimulator</span><span class="o">/</span><span class="n">uuv_simulation_evaluation</span><span class="o">.</span><span class="n">git</span>
+<div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws/src
+git clone https://github.com/uuvsimulator/uuv_simulation_evaluation.git
 </pre></div>
 </div>
 <p>then build the workspace:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">catkin_ws</span>
-<span class="n">catkin</span> <span class="n">build</span>
-<span class="n">source</span> <span class="n">devel</span><span class="o">/</span><span class="n">setup</span><span class="o">.</span><span class="n">bash</span>
+<div class="highlight-python"><div class="highlight"><pre>cd ~/catkin_ws
+catkin build
+source devel/setup.bash
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p>The <strong>uuv_simulation_evaluation</strong> package also requires extra dependencies that can be installed as follows:</p>
-<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="n">pip3</span> <span class="n">install</span> <span class="n">smac</span>
+<div class="last highlight-python"><div class="highlight"><pre>pip3 install smac
 </pre></div>
 </div>
 </div>
@@ -186,7 +183,7 @@ Be sure to install the package in your catkin workspace</p>
 <h2>Starting and terminating the simulation using a timeout<a class="headerlink" href="#starting-and-terminating-the-simulation-using-a-timeout" title="Permalink to this headline">¶</a></h2>
 <p>Per default, it is not possible to set a termination time for the simulation.
 This is acchieved by a very simple ROS node that is launched by the file below</p>
-<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;launch&gt;</span>
+<div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;launch&gt;</span>
     <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;timeout&quot;</span> <span class="nt">/&gt;</span>
 
     <span class="nt">&lt;node</span> <span class="na">name=</span><span class="s">&quot;simulation_timeout&quot;</span> <span class="na">pkg=</span><span class="s">&quot;uuv_simulation_wrapper&quot;</span> <span class="na">type=</span><span class="s">&quot;set_simulation_timer&quot;</span> <span class="na">required=</span><span class="s">&quot;true&quot;</span>
@@ -207,48 +204,48 @@ The only requirement is that this node has to be called with the rest of the pro
 <p class="last">For more information on the <strong>required</strong> flag, check the <a class="reference external" href="http://wiki.ros.org/roslaunch/XML/node">official ROS wiki page</a>.</p>
 </div>
 <p>One small example is starting the empty underwater world and setting a simulation timeout in a launch file as follows</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">launch</span><span class="o">&gt;</span>
-  <span class="o">&lt;</span><span class="n">include</span> <span class="n">file</span><span class="o">=</span><span class="s2">&quot;$(find uuv_descriptions)/launch/empty_underwater_world.launch&quot;</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="n">arg</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;gui&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="o">/&gt;</span>
-      <span class="o">&lt;</span><span class="n">arg</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;paused&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;false&quot;</span><span class="o">/&gt;</span>
-  <span class="o">&lt;/</span><span class="n">include</span><span class="o">&gt;</span>
+<div class="highlight-python"><div class="highlight"><pre>&lt;launch&gt;
+  &lt;include file=&quot;$(find uuv_descriptions)/launch/empty_underwater_world.launch&quot;&gt;
+      &lt;arg name=&quot;gui&quot; value=&quot;true&quot;/&gt;
+      &lt;arg name=&quot;paused&quot; value=&quot;false&quot;/&gt;
+  &lt;/include&gt;
 
-  <span class="o">&lt;</span><span class="n">include</span> <span class="n">file</span><span class="o">=</span><span class="s2">&quot;$(find uuv_simulation_wrapper)/launch/set_simulation_timer.launch&quot;</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="n">arg</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;timeout&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;10&quot;</span><span class="o">/&gt;</span>
-  <span class="o">&lt;/</span><span class="n">include</span><span class="o">&gt;</span>
-<span class="o">&lt;/</span><span class="n">launch</span><span class="o">&gt;</span>
+  &lt;include file=&quot;$(find uuv_simulation_wrapper)/launch/set_simulation_timer.launch&quot;&gt;
+      &lt;arg name=&quot;timeout&quot; value=&quot;10&quot;/&gt;
+  &lt;/include&gt;
+&lt;/launch&gt;
 </pre></div>
 </div>
 <p>This example will lead to the Gazebo simulation being terminated after 10 seconds.
-One further problem can appear when starting a large number of ROS nodes that depend on Gazebo’s simulation.
-Gazebo’s process can often take some time to be initialized and some services and topics might not be available right away until all plugins have been set in place.
+One further problem can appear when starting a large number of ROS nodes that depend on Gazebo&#8217;s simulation.
+Gazebo&#8217;s process can often take some time to be initialized and some services and topics might not be available right away until all plugins have been set in place.
 That can lead to some issues with some ROS nodes that will find that services and topics are unavailable right after starting the simulation.
 That is easier to control when starting all nodes manually using the command line, but can be an issue when setting up automated simulation runs.
 For this issue, one further ROS node can be used to unpause the Gazebo simulation after a timeout, making it easier to control the startup process.
 This can be seen in the following sample launch file</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">launch</span><span class="o">&gt;</span>
-  <span class="o">&lt;</span><span class="n">include</span> <span class="n">file</span><span class="o">=</span><span class="s2">&quot;$(find uuv_descriptions)/launch/empty_underwater_world.launch&quot;</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="n">arg</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;gui&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="o">/&gt;</span>
-      <span class="o">&lt;</span><span class="n">arg</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;paused&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="o">/&gt;</span>
-  <span class="o">&lt;/</span><span class="n">include</span><span class="o">&gt;</span>
+<div class="highlight-python"><div class="highlight"><pre>&lt;launch&gt;
+  &lt;include file=&quot;$(find uuv_descriptions)/launch/empty_underwater_world.launch&quot;&gt;
+      &lt;arg name=&quot;gui&quot; value=&quot;true&quot;/&gt;
+      &lt;arg name=&quot;paused&quot; value=&quot;true&quot;/&gt;
+  &lt;/include&gt;
 
-  <span class="o">&lt;</span><span class="n">include</span> <span class="n">file</span><span class="o">=</span><span class="s2">&quot;$(find uuv_simulation_wrapper)/launch/set_simulation_timer.launch&quot;</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="n">arg</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;timeout&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;10&quot;</span><span class="o">/&gt;</span>
-  <span class="o">&lt;/</span><span class="n">include</span><span class="o">&gt;</span>
+  &lt;include file=&quot;$(find uuv_simulation_wrapper)/launch/set_simulation_timer.launch&quot;&gt;
+      &lt;arg name=&quot;timeout&quot; value=&quot;10&quot;/&gt;
+  &lt;/include&gt;
 
-  <span class="o">&lt;</span><span class="n">include</span> <span class="n">file</span><span class="o">=</span><span class="s2">&quot;$(find uuv_simulation_wrapper)/launch/unpause_simulation.launch&quot;</span><span class="o">&gt;</span>
-      <span class="o">&lt;</span><span class="n">arg</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;timeout&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;5&quot;</span><span class="o">/&gt;</span>
-  <span class="o">&lt;/</span><span class="n">include</span><span class="o">&gt;</span>
-<span class="o">&lt;/</span><span class="n">launch</span><span class="o">&gt;</span>
+  &lt;include file=&quot;$(find uuv_simulation_wrapper)/launch/unpause_simulation.launch&quot;&gt;
+      &lt;arg name=&quot;timeout&quot; value=&quot;5&quot;/&gt;
+  &lt;/include&gt;
+&lt;/launch&gt;
 </pre></div>
 </div>
 <p>What this example does is unpause the simulation after 5 seconds and helps to control the startup of all nodes that use the simulation time for their cycles.
 Is essential in this case to start the Gazebo world with the <strong>paused</strong> flag set to <strong>true</strong>.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">arg</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;paused&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="o">/&gt;</span>
+<div class="highlight-python"><div class="highlight"><pre>&lt;arg name=&quot;paused&quot; value=&quot;true&quot;/&gt;
 </pre></div>
 </div>
 <p>This example can be run using the following sample launch file</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_simulation_timer_example</span> <span class="n">start_timer_example</span><span class="o">.</span><span class="n">launch</span>
+<div class="highlight-python"><div class="highlight"><pre>roslaunch uuv_simulation_timer_example start_timer_example.launch
 </pre></div>
 </div>
 </div>
@@ -257,7 +254,7 @@ Is essential in this case to start the Gazebo world with the <strong>paused</str
 <p>In the <strong>uuv_simulation_wrapper</strong> package, a simulation wrapper is implemented as a part of the <strong>uuv_simulation_runner</strong> Python library that can be used to start a simulation and evaluate its resulting ROS bag from a Python application.
 Some configuration is needed to acchieve it, but an example is available in the catkin package <a class="reference external" href="https://github.com/uuvsimulator/uuv_simulation_evaluation/tree/master/uuv_evaluation_examples/uuv_simulation_runner_example">uuv_simulation_runner_example</a>.
 The folder structure of the this demonstration consists of a catkin package set as</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>uuv_simulation_runner_example
+<div class="highlight-python"><div class="highlight"><pre>uuv_simulation_runner_example
 |-- config
     |-- task.yml
 |-- launch
@@ -278,100 +275,100 @@ Some of the elements of the launch file that will be common to other use-cases a
 <p><strong>Recording the results</strong></p>
 <p>The evaluation of the simulation is achieved by analyzing the resulting ROS bag.
 The simulation wrapper expects the launch file to have an input string <strong>bag_filename</strong> to set, and it can be defined in the launch file as follows</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">arg</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;record&quot;</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;false&quot;</span><span class="o">/&gt;</span>
-<span class="o">&lt;</span><span class="n">arg</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;bag_filename&quot;</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;recording.bag&quot;</span><span class="o">/&gt;</span>
+<div class="highlight-python"><div class="highlight"><pre>&lt;arg name=&quot;record&quot; default=&quot;false&quot;/&gt;
+&lt;arg name=&quot;bag_filename&quot; default=&quot;recording.bag&quot;/&gt;
 </pre></div>
 </div>
-<p>In the launch file there must be also an <strong>rosbag recording</strong> node being started having the vehicle’s states and other topics as an input as in the example below</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">node</span> <span class="n">pkg</span><span class="o">=</span><span class="s2">&quot;rosbag&quot;</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;record&quot;</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;recording&quot;</span>
-    <span class="n">args</span><span class="o">=</span><span class="s2">&quot;record -O $(arg bag_filename)</span>
-    <span class="o">/</span><span class="n">rexrov</span><span class="o">/</span><span class="n">dp_controller</span><span class="o">/</span><span class="n">trajectory</span>
-    <span class="o">/</span><span class="n">rexrov</span><span class="o">/</span><span class="n">dp_controller</span><span class="o">/</span><span class="n">reference</span>
-    <span class="o">/</span><span class="n">rexrov</span><span class="o">/</span><span class="n">pose_gt_ned</span>
-    <span class="o">/</span><span class="n">hydrodynamics</span><span class="o">/</span><span class="n">current_velocity</span>
-    <span class="o">/</span><span class="n">rexrov</span><span class="o">/</span><span class="n">thruster_manager</span><span class="o">/</span><span class="nb">input</span>
-    <span class="o">/</span><span class="n">rexrov</span><span class="o">/</span><span class="n">wrench_perturbation</span>
-    <span class="o">/</span><span class="n">rexrov</span><span class="o">/</span><span class="n">thrusters</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="n">thrust</span>
-    <span class="o">/</span><span class="n">rexrov</span><span class="o">/</span><span class="n">thrusters</span><span class="o">/</span><span class="mi">1</span><span class="o">/</span><span class="n">thrust</span>
-    <span class="o">/</span><span class="n">rexrov</span><span class="o">/</span><span class="n">thrusters</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="n">thrust</span>
-    <span class="o">/</span><span class="n">rexrov</span><span class="o">/</span><span class="n">thrusters</span><span class="o">/</span><span class="mi">3</span><span class="o">/</span><span class="n">thrust</span>
-    <span class="o">/</span><span class="n">rexrov</span><span class="o">/</span><span class="n">thrusters</span><span class="o">/</span><span class="mi">4</span><span class="o">/</span><span class="n">thrust</span>
-    <span class="o">/</span><span class="n">rexrov</span><span class="o">/</span><span class="n">thrusters</span><span class="o">/</span><span class="mi">5</span><span class="o">/</span><span class="n">thrust</span>
-    <span class="o">/</span><span class="n">rexrov</span><span class="o">/</span><span class="n">thrusters</span><span class="o">/</span><span class="mi">6</span><span class="o">/</span><span class="n">thrust</span>
-    <span class="o">/</span><span class="n">rexrov</span><span class="o">/</span><span class="n">thrusters</span><span class="o">/</span><span class="mi">7</span><span class="o">/</span><span class="n">thrust</span><span class="s2">&quot;</span>
-    <span class="k">if</span><span class="o">=</span><span class="s2">&quot;$(arg record)&quot;</span><span class="o">/&gt;</span>
+<p>In the launch file there must be also an <strong>rosbag recording</strong> node being started having the vehicle&#8217;s states and other topics as an input as in the example below</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;node pkg=&quot;rosbag&quot; type=&quot;record&quot; name=&quot;recording&quot;
+    args=&quot;record -O $(arg bag_filename)
+    /rexrov/dp_controller/trajectory
+    /rexrov/dp_controller/reference
+    /rexrov/pose_gt_ned
+    /hydrodynamics/current_velocity
+    /rexrov/thruster_manager/input
+    /rexrov/wrench_perturbation
+    /rexrov/thrusters/0/thrust
+    /rexrov/thrusters/1/thrust
+    /rexrov/thrusters/2/thrust
+    /rexrov/thrusters/3/thrust
+    /rexrov/thrusters/4/thrust
+    /rexrov/thrusters/5/thrust
+    /rexrov/thrusters/6/thrust
+    /rexrov/thrusters/7/thrust&quot;
+    if=&quot;$(arg record)&quot;/&gt;
 </pre></div>
 </div>
 <p>The <strong>record</strong> flag is optional but useful while testing the launch file before running the simulation with the wrapper to avoid recording ROS bag unnecessarely.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p>The pose of the vehicle can be recorded with respect to Gazebo’s default inertial frame <strong>world</strong> (that uses the East-North-Up convention) by using the <strong>/&lt;vehicle&gt;/pose_gt</strong> topic or with respect to the generated <strong>world_ned</strong> frame (that uses the North-East-Down convention) by using <strong>/&lt;vehicle&gt;/pose_gt_ned</strong>.</p>
+<p>The pose of the vehicle can be recorded with respect to Gazebo&#8217;s default inertial frame <strong>world</strong> (that uses the East-North-Up convention) by using the <strong>/&lt;vehicle&gt;/pose_gt</strong> topic or with respect to the generated <strong>world_ned</strong> frame (that uses the North-East-Down convention) by using <strong>/&lt;vehicle&gt;/pose_gt_ned</strong>.</p>
 <p>For this the vehicle must use the sensor plugins included in <strong>uuv_sensor_ros_plugins</strong> package and the static TF frame <strong>world_ned</strong> must exist (which is already done when starting one of the Gazebo worlds included in the UUV simulator package).</p>
 <p class="last">Check this <a class="reference external" href="https://en.wikipedia.org/wiki/Axes_conventions">Wikipedia page</a> for more information on both conventions.</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">The topic <strong>/rexrov/wrench_perturbation</strong> is generated when using the disturbance manager node described in <a class="reference internal" href="disturbances.html#disturbances"><span class="std std-ref">Applying disturbances during the simulation</span></a>.</p>
+<p class="last">The topic <strong>/rexrov/wrench_perturbation</strong> is generated when using the disturbance manager node described in <a class="reference internal" href="disturbances.html#disturbances"><span>Applying disturbances during the simulation</span></a>.</p>
 </div>
 <p><strong>Turning off the frontend during the evaluation</strong></p>
 <p>To avoid unnecessary overhead when doing repetitive evaluations of the same scenario, a flag can be given as an input of to turn off the Gazebo client and other visualization tools as RViz.
 In the example the flag is given as</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">arg</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;gui&quot;</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="o">/&gt;</span>
+<div class="highlight-python"><div class="highlight"><pre>&lt;arg name=&quot;gui&quot; default=&quot;true&quot;/&gt;
 </pre></div>
 </div>
 <p>and is used as</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">include</span> <span class="n">file</span><span class="o">=</span><span class="s2">&quot;$(find uuv_descriptions)/launch/empty_underwater_world.launch&quot;</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">arg</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;gui&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;$(arg gui)&quot;</span><span class="o">/&gt;</span>
-    <span class="o">&lt;</span><span class="n">arg</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;paused&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="o">/&gt;</span>
-<span class="o">&lt;/</span><span class="n">include</span><span class="o">&gt;</span>
+<div class="highlight-python"><div class="highlight"><pre>&lt;include file=&quot;$(find uuv_descriptions)/launch/empty_underwater_world.launch&quot;&gt;
+    &lt;arg name=&quot;gui&quot; value=&quot;$(arg gui)&quot;/&gt;
+    &lt;arg name=&quot;paused&quot; value=&quot;true&quot;/&gt;
+&lt;/include&gt;
 
-<span class="o">&lt;</span><span class="n">node</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;rviz&quot;</span> <span class="n">pkg</span><span class="o">=</span><span class="s2">&quot;rviz&quot;</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;rviz&quot;</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;screen&quot;</span>
-    <span class="n">args</span><span class="o">=</span><span class="s2">&quot;-d $(find uuv_gazebo)/rviz/controller_demo.rviz&quot;</span>
-    <span class="k">if</span><span class="o">=</span><span class="s2">&quot;$(arg gui)&quot;</span><span class="o">/&gt;</span>
+&lt;node name=&quot;rviz&quot; pkg=&quot;rviz&quot; type=&quot;rviz&quot; output=&quot;screen&quot;
+    args=&quot;-d $(find uuv_gazebo)/rviz/controller_demo.rviz&quot;
+    if=&quot;$(arg gui)&quot;/&gt;
 </pre></div>
 </div>
 <p>Having the flag as an input is useful when running the launch file without the evaluation to check the scenario, namely</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_simulation_runner_example</span> <span class="n">start_simulation</span><span class="o">.</span><span class="n">launch</span> <span class="n">gui</span><span class="p">:</span><span class="o">=</span><span class="n">true</span> <span class="n">record</span><span class="p">:</span><span class="o">=</span><span class="n">false</span>
+<div class="highlight-python"><div class="highlight"><pre>roslaunch uuv_simulation_runner_example start_simulation.launch gui:=true record:=false
 </pre></div>
 </div>
 <p><strong>Having the variables to be varied in the different evaluations as an input</strong></p>
 <p>For the simulation wrapper to provide different variables that can influence the simulation, these variables have to be configured as input arguments on the launch file.
 In this example presented here, the vehicle will be set to follow a helical trajectory under constant currents of different magnitudes.
 The ROS node that generates the constant current is the following</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">include</span> <span class="n">file</span><span class="o">=</span><span class="s2">&quot;$(find uuv_control_utils)/launch/set_timed_current_perturbation.launch&quot;</span><span class="o">&gt;</span>
-  <span class="o">&lt;</span><span class="n">arg</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;starting_time&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;0.0&quot;</span><span class="o">/&gt;</span>
-  <span class="o">&lt;</span><span class="n">arg</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;end_time&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;-1&quot;</span><span class="o">/&gt;</span>
-  <span class="o">&lt;</span><span class="n">arg</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;current_vel&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;$(arg current_vel)&quot;</span><span class="o">/&gt;</span>
-  <span class="o">&lt;</span><span class="n">arg</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;horizontal_angle&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;$(arg horizontal_angle)&quot;</span><span class="o">/&gt;</span>
-<span class="o">&lt;/</span><span class="n">include</span><span class="o">&gt;</span>
+<div class="highlight-python"><div class="highlight"><pre>&lt;include file=&quot;$(find uuv_control_utils)/launch/set_timed_current_perturbation.launch&quot;&gt;
+  &lt;arg name=&quot;starting_time&quot; value=&quot;0.0&quot;/&gt;
+  &lt;arg name=&quot;end_time&quot; value=&quot;-1&quot;/&gt;
+  &lt;arg name=&quot;current_vel&quot; value=&quot;$(arg current_vel)&quot;/&gt;
+  &lt;arg name=&quot;horizontal_angle&quot; value=&quot;$(arg horizontal_angle)&quot;/&gt;
+&lt;/include&gt;
 </pre></div>
 </div>
 <p>and to change the magnitude of the current, the <strong>current_vel</strong> must be one input argument of the launch file, namely</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">arg</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;current_vel&quot;</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;0.0&quot;</span><span class="o">/&gt;</span>
+<div class="highlight-python"><div class="highlight"><pre>&lt;arg name=&quot;current_vel&quot; default=&quot;0.0&quot;/&gt;
 </pre></div>
 </div>
 <p>The default value is set to zero, but the simulation wrapper is then capable of calling the launch file in a separate process giving <strong>current_vel</strong> as an input.</p>
 <p><strong>Simulation timers</strong></p>
 <p>As explained before, it is crucial to include the <strong>simulation timer</strong> and <strong>unpause simulation</strong> nodes so that every simulation run to have the same time span.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">include</span> <span class="n">file</span><span class="o">=</span><span class="s2">&quot;$(find uuv_simulation_wrapper)/launch/set_simulation_timer.launch&quot;</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">arg</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;timeout&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;$(arg timeout)&quot;</span><span class="o">/&gt;</span>
-<span class="o">&lt;/</span><span class="n">include</span><span class="o">&gt;</span>
+<div class="highlight-python"><div class="highlight"><pre>&lt;include file=&quot;$(find uuv_simulation_wrapper)/launch/set_simulation_timer.launch&quot;&gt;
+    &lt;arg name=&quot;timeout&quot; value=&quot;$(arg timeout)&quot;/&gt;
+&lt;/include&gt;
 
-<span class="o">&lt;</span><span class="n">include</span> <span class="n">file</span><span class="o">=</span><span class="s2">&quot;$(find uuv_assistants)/launch/unpause_simulation.launch&quot;</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">arg</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;timeout&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;$(arg unpause_timeout)&quot;</span><span class="o">/&gt;</span>
-<span class="o">&lt;/</span><span class="n">include</span><span class="o">&gt;</span>
+&lt;include file=&quot;$(find uuv_assistants)/launch/unpause_simulation.launch&quot;&gt;
+    &lt;arg name=&quot;timeout&quot; value=&quot;$(arg unpause_timeout)&quot;/&gt;
+&lt;/include&gt;
 </pre></div>
 </div>
 <p>The Gazebo world has to be also initialized using the <strong>paused</strong> flag as well to the unpause simulation node to work.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">include</span> <span class="n">file</span><span class="o">=</span><span class="s2">&quot;$(find uuv_descriptions)/launch/empty_underwater_world.launch&quot;</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">arg</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;gui&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;$(arg gui)&quot;</span><span class="o">/&gt;</span>
-    <span class="o">&lt;</span><span class="n">arg</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;paused&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="o">/&gt;</span>
-<span class="o">&lt;/</span><span class="n">include</span><span class="o">&gt;</span>
+<div class="highlight-python"><div class="highlight"><pre>&lt;include file=&quot;$(find uuv_descriptions)/launch/empty_underwater_world.launch&quot;&gt;
+    &lt;arg name=&quot;gui&quot; value=&quot;$(arg gui)&quot;/&gt;
+    &lt;arg name=&quot;paused&quot; value=&quot;true&quot;/&gt;
+&lt;/include&gt;
 </pre></div>
 </div>
 <p><strong>Testing the simulation</strong></p>
 <p>By running the launch file as</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_simulation_runner_example</span> <span class="n">start_simulation</span><span class="o">.</span><span class="n">launch</span> <span class="n">gui</span><span class="p">:</span><span class="o">=</span><span class="n">true</span> <span class="n">record</span><span class="p">:</span><span class="o">=</span><span class="n">false</span>
+<div class="highlight-python"><div class="highlight"><pre>roslaunch uuv_simulation_runner_example start_simulation.launch gui:=true record:=false
 </pre></div>
 </div>
 <p>Both the RViz and Gazebo screens should appear as shown below.</p>
@@ -381,24 +378,24 @@ The ROS node that generates the constant current is the following</p>
 <div class="section" id="simulation-wrapper-task-file">
 <h3>Simulation wrapper task file<a class="headerlink" href="#simulation-wrapper-task-file" title="Permalink to this headline">¶</a></h3>
 <p>The <strong>task.yml</strong> file contains a set of parameters necessary for the simulation wrapper to run the simulation in a separate process.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">execute</span><span class="p">:</span>
-  <span class="n">cmd</span><span class="p">:</span> <span class="n">roslaunch</span> <span class="n">uuv_simulation_runner_example</span> <span class="n">start_simulation</span><span class="o">.</span><span class="n">launch</span>
-  <span class="c1"># The parameters below are named as in the input arguments of the launch</span>
-  <span class="c1"># file. List below all parameters that you wish to override from default</span>
-  <span class="c1"># values set in the launch file.</span>
-  <span class="c1"># IMPORTANT: Do not add below the parameters that you wish to vary in your</span>
-  <span class="c1"># script/optimizer/client. They will be given to the simulation wrapper</span>
-  <span class="c1"># in the Python script as an input</span>
-  <span class="n">params</span><span class="p">:</span>
-    <span class="c1"># Gazebo client and RViz are not initialized when running the iterations</span>
-    <span class="c1"># using the simulation wrapper</span>
-    <span class="n">gui</span><span class="p">:</span> <span class="n">false</span>
-    <span class="n">timeout</span><span class="p">:</span> <span class="mi">70</span>
-    <span class="c1"># Recording the simulation is necessary for the evaluation step later</span>
-    <span class="n">record</span><span class="p">:</span> <span class="n">true</span>
-    <span class="n">bag_filename</span><span class="p">:</span> <span class="n">recording</span><span class="o">.</span><span class="n">bag</span>
-    <span class="n">current_on</span><span class="p">:</span> <span class="n">true</span>
-<span class="nb">id</span><span class="p">:</span> <span class="n">tutorial_simulation_runner</span>
+<div class="highlight-python"><div class="highlight"><pre>execute:
+  cmd: roslaunch uuv_simulation_runner_example start_simulation.launch
+  # The parameters below are named as in the input arguments of the launch
+  # file. List below all parameters that you wish to override from default
+  # values set in the launch file.
+  # IMPORTANT: Do not add below the parameters that you wish to vary in your
+  # script/optimizer/client. They will be given to the simulation wrapper
+  # in the Python script as an input
+  params:
+    # Gazebo client and RViz are not initialized when running the iterations
+    # using the simulation wrapper
+    gui: false
+    timeout: 70
+    # Recording the simulation is necessary for the evaluation step later
+    record: true
+    bag_filename: recording.bag
+    current_on: true
+id: tutorial_simulation_runner
 </pre></div>
 </div>
 <p>The parameters fields are described below:</p>
@@ -412,7 +409,7 @@ The ROS node that generates the constant current is the following</p>
 <h3>Simulation runner script<a class="headerlink" href="#simulation-runner-script" title="Permalink to this headline">¶</a></h3>
 <p>The code that uses the simulation wrapper can be seen below, with a step-by-step explanation of its functionalities in the comments.
 In this example, the <strong>Evaluation</strong> class is used to read the ROS bag and generate performance indicators, along with plots, but any script can be used for that purpose.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># Copyright (c) 2016 The UUV Simulator Authors.</span>
 <span class="c1"># All rights reserved.</span>
 <span class="c1">#</span>
@@ -453,7 +450,7 @@ In this example, the <strong>Evaluation</strong> class is used to read the ROS b
 <span class="c1"># the package folder, but it can be placed anywhere)</span>
 <span class="n">DEFAULT_RESULTS</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ROOT_PATH</span><span class="p">,</span> <span class="s1">&#39;results&#39;</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Simulation runner tutorial&#39;</span><span class="p">)</span>
     <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
         <span class="s1">&#39;--task&#39;</span><span class="p">,</span>
@@ -529,13 +526,13 @@ In this example, the <strong>Evaluation</strong> class is used to read the ROS b
 <div class="section" id="running-the-example">
 <h2>Running the example<a class="headerlink" href="#running-the-example" title="Permalink to this headline">¶</a></h2>
 <p>As shown in this line of the script shown in the last section shows</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">DEFAULT_RESULTS</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ROOT_PATH</span><span class="p">,</span> <span class="s1">&#39;results&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">DEFAULT_RESULTS</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ROOT_PATH</span><span class="p">,</span> <span class="s1">&#39;results&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>the <strong>results</strong> folder will be created in the <strong>uuv_simulation_runner_example</strong> folder.
 The results folder in this case will have one folder for each simulation run containing ROS bag, plots and log files for the each simulation scenario run with a different current velocity magnitude.
 To run the example, use the following command</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rosrun</span> <span class="n">uuv_simulation_runner_example</span> <span class="n">run_grid_search</span> <span class="o">--</span><span class="n">n_points</span> <span class="o">&lt;</span><span class="n">N_POINTS</span><span class="o">&gt;</span>
+<div class="highlight-python"><div class="highlight"><pre>rosrun uuv_simulation_runner_example run_grid_search --n_points &lt;N_POINTS&gt;
 </pre></div>
 </div>
 <div class="admonition note">
@@ -596,7 +593,7 @@ That allows several instances of the simulation to be started at the same time u
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

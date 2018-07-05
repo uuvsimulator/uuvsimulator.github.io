@@ -30,13 +30,10 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../../../../genindex.html"/>
-        <link rel="search" title="Search" href="../../../../search.html"/>
     <link rel="top" title="UUV Simulator 0.2 documentation" href="../../../../index.html"/>
         <link rel="up" title="uuv_plume_simulator - SRC" href="modules.html"/>
         <link rel="next" title="F.A.Q." href="../../../../faq.html"/>
-        <link rel="prev" title="uuv_plume_simulator - SRC" href="modules.html"/> 
+        <link rel="prev" title="uuv_gm_process package" href="uuv_gm_process.html"/> 
 
   
   <script src="../../../../_static/js/modernizr.min.js"></script>
@@ -146,7 +143,7 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../../../../_sources/api/uuv_plume_simulator/uuv_plume_simulator/src/uuv_plume_model.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../../_sources/api/uuv_plume_simulator/uuv_plume_simulator/src/uuv_plume_model.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -165,7 +162,7 @@
 <span id="uuv-plume-model-passive-scalar-turbulence-module"></span><h2>uuv_plume_model.passive_scalar_turbulence module<a class="headerlink" href="#module-uuv_plume_model.passive_scalar_turbulence" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="uuv_plume_model.passive_scalar_turbulence.PlumePassiveScalarTurbulence">
-<em class="property">class </em><code class="descclassname">uuv_plume_model.passive_scalar_turbulence.</code><code class="descname">PlumePassiveScalarTurbulence</code><span class="sig-paren">(</span><em>turbulent_diffusion_coefficients</em>, <em>buoyancy_flux</em>, <em>stability_param</em>, <em>source_pos</em>, <em>n_points</em>, <em>start_time</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_plume_model/passive_scalar_turbulence.html#PlumePassiveScalarTurbulence"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_plume_model.passive_scalar_turbulence.PlumePassiveScalarTurbulence" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">uuv_plume_model.passive_scalar_turbulence.</code><code class="descname">PlumePassiveScalarTurbulence</code><span class="sig-paren">(</span><em>turbulent_diffusion_coefficients</em>, <em>buoyancy_flux</em>, <em>stability_param</em>, <em>source_pos</em>, <em>n_points</em>, <em>start_time</em>, <em>max_particles_per_iter=10</em>, <em>max_life_time=-1</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_plume_model/passive_scalar_turbulence.html#PlumePassiveScalarTurbulence"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_plume_model.passive_scalar_turbulence.PlumePassiveScalarTurbulence" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#uuv_plume_model.plume.Plume" title="uuv_plume_model.plume.Plume"><code class="xref py py-class docutils literal"><span class="pre">uuv_plume_model.plume.Plume</span></code></a></p>
 <p>Plume model implementation based on [1]. The chemical plume is described
 here by discretized particles generated that are generated on the Cartesian
@@ -181,17 +178,17 @@ each particle has its position <span class="math">\((x_k, y_k, z_k)\)</span> at 
 \[x_k = x_{k - 1} + (u_a + u_i) \Delta t \
 y_k = y_{k - 1} + (v_a + v_i) \Delta t \
 z_k = z_{k - 1} + (w_a + w_b + w_i) \Delta t\]</div>
-<p>where <span class="math">\((u_a, v_a, w_a)\)</span> are the particle’s velocities due to the
-current velocity, <span class="math">\((u_t, v_t, w_t)\)</span> are the particle’s velocities
+<p>where <span class="math">\((u_a, v_a, w_a)\)</span> are the particle&#8217;s velocities due to the
+current velocity, <span class="math">\((u_t, v_t, w_t)\)</span> are the particle&#8217;s velocities
 due to turbulent diffusion, and <span class="math">\(w_b\)</span> is the vertical buoyant
 velocity.</p>
 <dl class="docutils">
-<dt>[1] Yu Tian and Aiqun Zhang, “Simulation environment and guidance system</dt>
-<dd>for AUV tracing chemical plume in 3-dimensions,” 2010 2nd International
+<dt>[1] Yu Tian and Aiqun Zhang, &#8220;Simulation environment and guidance system</dt>
+<dd>for AUV tracing chemical plume in 3-dimensions,&#8221; 2010 2nd International
 Asia Conference on Informatics in Control, Automation and Robotics
 (CAR 2010), Mar. 2010.</dd>
-<dt>[2] M. Mestres et al., “Modelling of the Ebro River plume. Validation with</dt>
-<dd>field observations,” Scientia Marina, vol. 67, no. 4, pp. 379-391,
+<dt>[2] M. Mestres et al., &#8220;Modelling of the Ebro River plume. Validation with</dt>
+<dd>field observations,&#8221; Scientia Marina, vol. 67, no. 4, pp. 379-391,
 Dec. 2003.</dd>
 </dl>
 <dl class="attribute">
@@ -222,8 +219,8 @@ resulting vertical buoyant velocity will be computed as follows</p>
 <p>rac{H(u, s, t + Delta t) - H(u, s, t)}{Delta t}</p>
 <blockquote>
 <div><dl class="docutils">
-<dt>[1] Anfossi, Domenico. “Analysis of plume rise data from five TVA steam</dt>
-<dd>plants.” Journal of climate and applied meteorology 24.11 (1985):
+<dt>[1] Anfossi, Domenico. &#8220;Analysis of plume rise data from five TVA steam</dt>
+<dd>plants.&#8221; Journal of climate and applied meteorology 24.11 (1985):
 1225-1236.</dd>
 </dl>
 <dl class="docutils">
@@ -235,9 +232,9 @@ resulting vertical buoyant velocity will be computed as follows</p>
 
 <dl class="method">
 <dt id="uuv_plume_model.passive_scalar_turbulence.PlumePassiveScalarTurbulence.create_particles">
-<code class="descname">create_particles</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_plume_model/passive_scalar_turbulence.html#PlumePassiveScalarTurbulence.create_particles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_plume_model.passive_scalar_turbulence.PlumePassiveScalarTurbulence.create_particles" title="Permalink to this definition">¶</a></dt>
+<code class="descname">create_particles</code><span class="sig-paren">(</span><em>t</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_plume_model/passive_scalar_turbulence.html#PlumePassiveScalarTurbulence.create_particles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_plume_model.passive_scalar_turbulence.PlumePassiveScalarTurbulence.create_particles" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create random number of particles for one iteration up to the given
-maximum limit and remove all particles that have left the plume’s
+maximum limit and remove all particles that have left the plume&#8217;s
 bounding box limits.</p>
 </dd></dl>
 
@@ -258,6 +255,11 @@ the source of the plume.</p>
 <dd>Number of particles.</dd>
 </dl>
 </dd></dl>
+
+<dl class="method">
+<dt id="uuv_plume_model.passive_scalar_turbulence.PlumePassiveScalarTurbulence.set_plume_particles">
+<code class="descname">set_plume_particles</code><span class="sig-paren">(</span><em>t</em>, <em>x</em>, <em>y</em>, <em>z</em>, <em>time_creation</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_plume_model/passive_scalar_turbulence.html#PlumePassiveScalarTurbulence.set_plume_particles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_plume_model.passive_scalar_turbulence.PlumePassiveScalarTurbulence.set_plume_particles" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="uuv_plume_model.passive_scalar_turbulence.PlumePassiveScalarTurbulence.update">
@@ -323,7 +325,7 @@ particle finds itself outside of the bounding box limits.</p>
 <code class="descname">get_markers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_plume_model/plume.html#Plume.get_markers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_plume_model.plume.Plume.get_markers" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a ROS marker array message structure with an sphere marker to
 represent the plume source, the bounding box and an arrow marker to
-show the direction of the current velocity if it’s norm is greater
+show the direction of the current velocity if it&#8217;s norm is greater
 than zero.</p>
 </dd></dl>
 
@@ -331,7 +333,7 @@ than zero.</p>
 <dt id="uuv_plume_model.plume.Plume.get_point_cloud_as_msg">
 <code class="descname">get_point_cloud_as_msg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_plume_model/plume.html#Plume.get_point_cloud_as_msg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_plume_model.plume.Plume.get_point_cloud_as_msg" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a ROS point cloud sensor message with the points representing
-the plume’s particles and one channel containing the time of creation
+the plume&#8217;s particles and one channel containing the time of creation
 for each particle.</p>
 </dd></dl>
 
@@ -340,6 +342,11 @@ for each particle.</p>
 <code class="descname">n_points</code><a class="headerlink" href="#uuv_plume_model.plume.Plume.n_points" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the maximum number of points to be created by the plume model.</p>
 </dd></dl>
+
+<dl class="attribute">
+<dt id="uuv_plume_model.plume.Plume.num_particles">
+<code class="descname">num_particles</code><a class="headerlink" href="#uuv_plume_model.plume.Plume.num_particles" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="attribute">
 <dt id="uuv_plume_model.plume.Plume.points">
@@ -362,6 +369,11 @@ for each particle.</p>
 <dd>Number of particles (must be greater than zero).</dd>
 </dl>
 </dd></dl>
+
+<dl class="method">
+<dt id="uuv_plume_model.plume.Plume.set_plume_particles">
+<code class="descname">set_plume_particles</code><span class="sig-paren">(</span><em>t</em>, <em>x</em>, <em>y</em>, <em>z</em>, <em>time_creation</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_plume_model/plume.html#Plume.set_plume_particles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_plume_model.plume.Plume.set_plume_particles" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="uuv_plume_model.plume.Plume.set_x_lim">
@@ -407,6 +419,12 @@ defined with respect to the ENU inertial frame.</p>
 <code class="descname">source_pos</code><a class="headerlink" href="#uuv_plume_model.plume.Plume.source_pos" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the position vector with the Cartesian coordinates for the plume
 source.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="uuv_plume_model.plume.Plume.time_of_creation">
+<code class="descname">time_of_creation</code><a class="headerlink" href="#uuv_plume_model.plume.Plume.time_of_creation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the time of creation vector.</p>
 </dd></dl>
 
 <dl class="method">
@@ -501,7 +519,7 @@ the plume particles at each iteration.</p>
         <a href="../../../../faq.html" class="btn btn-neutral float-right" title="F.A.Q." accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="modules.html" class="btn btn-neutral" title="uuv_plume_simulator - SRC" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="uuv_gm_process.html" class="btn btn-neutral" title="uuv_gm_process package" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -541,7 +559,7 @@ the plume particles at each iteration.</p>
       <script type="text/javascript" src="../../../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

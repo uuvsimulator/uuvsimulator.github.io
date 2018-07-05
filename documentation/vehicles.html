@@ -30,9 +30,6 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="UUV Simulator 0.2 documentation" href="../index.html"/>
         <link rel="up" title="Documentation" href="index.html"/>
         <link rel="next" title="API Documentation" href="../api/index.html"/>
@@ -91,11 +88,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Documentation</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="sim_scenarios.html">Simulation scenarios</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Vehicles available</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Vehicles available</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#rexrov">RexROV</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#rexrov-2">RexROV 2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#desistek-saga-rov">Desistek SAGA ROV</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#eca-a9-auv">ECA A9 AUV</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lauv">LAUV</a></li>
 </ul>
 </li>
 </ul>
@@ -139,7 +137,7 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/documentation/vehicles.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/documentation/vehicles.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -161,7 +159,7 @@ available in <a class="reference internal" href="../index.html#berg-2012" id="id
 the SF 30k, with a total of 8 thruster units.</p>
 <p>This vehicle model is included in the UUV simulator package as the default test
 vehicle. To run a demo, use the following</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_gazebo</span> <span class="n">start_pid_demo_with_teleop</span><span class="o">.</span><span class="n">launch</span> <span class="n">joy_id</span><span class="p">:</span><span class="o">=</span><span class="mi">0</span>
+<div class="highlight-python"><div class="highlight"><pre>roslaunch uuv_gazebo start_pid_demo_with_teleop.launch joy_id:=0
 </pre></div>
 </div>
 <ul class="simple">
@@ -175,11 +173,11 @@ vehicle. To run a demo, use the following</p>
 configuration as presented in <a class="reference internal" href="../index.html#berg-2012" id="id3">[3]</a>. To run a demo of this vehicle,
 clone the repository in your catkin workspace and then run a Gazebo UUV simulator
 world</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_descriptions</span> <span class="n">ocean_waves</span><span class="o">.</span><span class="n">launch</span>
+<div class="highlight-python"><div class="highlight"><pre>roslaunch uuv_descriptions ocean_waves.launch
 </pre></div>
 </div>
 <p>and then</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">rexrov2_gazebo</span> <span class="n">start_rexrov2_pid_controller</span><span class="o">.</span><span class="n">launch</span> <span class="n">teleop_on</span><span class="p">:</span><span class="o">=</span><span class="n">true</span> <span class="n">joy_id</span><span class="p">:</span><span class="o">=</span><span class="mi">0</span>
+<div class="highlight-python"><div class="highlight"><pre>roslaunch rexrov2_gazebo start_rexrov2_pid_controller.launch teleop_on:=true joy_id:=0
 </pre></div>
 </div>
 <p>The teleoperation nodes are pre-configured per default for the XBox 360
@@ -193,11 +191,11 @@ controller.</p>
 <img alt="../_images/desistek_saga.png" src="../_images/desistek_saga.png" />
 <p>To run a demo of this vehicle, clone the repository in your catkin workspace and
 then run a Gazebo UUV simulator world</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_descriptions</span> <span class="n">ocean_waves</span><span class="o">.</span><span class="n">launch</span>
+<div class="highlight-python"><div class="highlight"><pre>roslaunch uuv_descriptions ocean_waves.launch
 </pre></div>
 </div>
 <p>and the vehicle demo launch file</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">desistek_saga_gazebo</span> <span class="n">start_demo_teleop</span><span class="o">.</span><span class="n">launch</span> <span class="n">joy_id</span><span class="p">:</span><span class="o">=</span><span class="mi">0</span>
+<div class="highlight-python"><div class="highlight"><pre>roslaunch desistek_saga_gazebo start_demo_teleop.launch joy_id:=0
 </pre></div>
 </div>
 <p>The teleoperation nodes are pre-configured per default for the XBox 360
@@ -211,17 +209,24 @@ controller.</p>
 <img alt="../_images/eca_a9.png" src="../_images/eca_a9.png" />
 <p>To run a demo of this vehicle, clone the repository in your catkin workspace and
 then run a Gazebo UUV simulator world</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_descriptions</span> <span class="n">ocean_waves</span><span class="o">.</span><span class="n">launch</span>
+<div class="highlight-python"><div class="highlight"><pre>roslaunch uuv_descriptions ocean_waves.launch
 </pre></div>
 </div>
 <p>and the vehicle demo launch file</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">eca_a9_gazebo</span> <span class="n">start_demo_teleop</span><span class="o">.</span><span class="n">launch</span> <span class="n">joy_id</span><span class="p">:</span><span class="o">=</span><span class="mi">0</span>
+<div class="highlight-python"><div class="highlight"><pre>roslaunch eca_a9_gazebo start_demo_teleop.launch joy_id:=0
 </pre></div>
 </div>
 <p>The teleoperation nodes are pre-configured per default for the XBox 360
 controller.</p>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/uuvsimulator/eca_a9">ECA A9 AUV GitHub repository</a></li>
+</ul>
+</div>
+<div class="section" id="lauv">
+<h2>LAUV<a class="headerlink" href="#lauv" title="Permalink to this headline">¶</a></h2>
+<img alt="../_images/lauv.png" src="../_images/lauv.png" />
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/uuvsimulator/lauv_gazebo">LAUV GitHub repository</a></li>
 </ul>
 </div>
 </div>
@@ -276,7 +281,7 @@ controller.</p>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

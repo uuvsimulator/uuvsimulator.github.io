@@ -30,9 +30,6 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../../../../genindex.html"/>
-        <link rel="search" title="Search" href="../../../../search.html"/>
     <link rel="top" title="UUV Simulator 0.2 documentation" href="../../../../index.html"/>
         <link rel="up" title="uuv_trajectory_control - SRC" href="modules.html"/>
         <link rel="next" title="uuv_trajectory_generator package" href="uuv_trajectory_generator.html"/>
@@ -151,7 +148,7 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../../../../_sources/api/uuv_simulator/uuv_trajectory_control/src/uuv_control_interfaces.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../../_sources/api/uuv_simulator/uuv_trajectory_control/src/uuv_control_interfaces.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -227,6 +224,11 @@ to be read from the ROS parameter server.</p>
 <dd></dd></dl>
 
 <dl class="method">
+<dt id="uuv_control_interfaces.dp_controller_base.DPControllerBase.publish_auv_command">
+<code class="descname">publish_auv_command</code><span class="sig-paren">(</span><em>surge_speed</em>, <em>wrench</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_control_interfaces/dp_controller_base.html#DPControllerBase.publish_auv_command"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_control_interfaces.dp_controller_base.DPControllerBase.publish_auv_command" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="uuv_control_interfaces.dp_controller_base.DPControllerBase.publish_control_wrench">
 <code class="descname">publish_control_wrench</code><span class="sig-paren">(</span><em>force</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_control_interfaces/dp_controller_base.html#DPControllerBase.publish_control_wrench"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_control_interfaces.dp_controller_base.DPControllerBase.publish_control_wrench" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -253,10 +255,20 @@ to be read from the ROS parameter server.</p>
 <span id="uuv-control-interfaces-dp-controller-local-planner-module"></span><h2>uuv_control_interfaces.dp_controller_local_planner module<a class="headerlink" href="#module-uuv_control_interfaces.dp_controller_local_planner" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="uuv_control_interfaces.dp_controller_local_planner.DPControllerLocalPlanner">
-<em class="property">class </em><code class="descclassname">uuv_control_interfaces.dp_controller_local_planner.</code><code class="descname">DPControllerLocalPlanner</code><span class="sig-paren">(</span><em>full_dof=False</em>, <em>stamped_pose_only=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_control_interfaces/dp_controller_local_planner.html#DPControllerLocalPlanner"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_control_interfaces.dp_controller_local_planner.DPControllerLocalPlanner" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">uuv_control_interfaces.dp_controller_local_planner.</code><code class="descname">DPControllerLocalPlanner</code><span class="sig-paren">(</span><em>full_dof=False</em>, <em>stamped_pose_only=False</em>, <em>thrusters_only=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_control_interfaces/dp_controller_local_planner.html#DPControllerLocalPlanner"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_control_interfaces.dp_controller_local_planner.DPControllerLocalPlanner" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <p>Local planner for the dynamic positioning controllers to interpolate
 trajectories and generate trajectories from interpolated waypoint paths.</p>
+<dl class="method">
+<dt id="uuv_control_interfaces.dp_controller_local_planner.DPControllerLocalPlanner.generate_reference">
+<code class="descname">generate_reference</code><span class="sig-paren">(</span><em>t</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_control_interfaces/dp_controller_local_planner.html#DPControllerLocalPlanner.generate_reference"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_control_interfaces.dp_controller_local_planner.DPControllerLocalPlanner.generate_reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="uuv_control_interfaces.dp_controller_local_planner.DPControllerLocalPlanner.get_idle_circle_path">
+<code class="descname">get_idle_circle_path</code><span class="sig-paren">(</span><em>n_points</em>, <em>radius=30</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_control_interfaces/dp_controller_local_planner.html#DPControllerLocalPlanner.get_idle_circle_path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_control_interfaces.dp_controller_local_planner.DPControllerLocalPlanner.get_idle_circle_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="method">
 <dt id="uuv_control_interfaces.dp_controller_local_planner.DPControllerLocalPlanner.get_vehicle_rot">
 <code class="descname">get_vehicle_rot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_control_interfaces/dp_controller_local_planner.html#DPControllerLocalPlanner.get_vehicle_rot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_control_interfaces.dp_controller_local_planner.DPControllerLocalPlanner.get_vehicle_rot" title="Permalink to this definition">¶</a></dt>
@@ -289,7 +301,7 @@ points.</p>
 <dl class="method">
 <dt id="uuv_control_interfaces.dp_controller_local_planner.DPControllerLocalPlanner.hold_vehicle">
 <code class="descname">hold_vehicle</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_control_interfaces/dp_controller_local_planner.html#DPControllerLocalPlanner.hold_vehicle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_control_interfaces.dp_controller_local_planner.DPControllerLocalPlanner.hold_vehicle" title="Permalink to this definition">¶</a></dt>
-<dd><p>Service callback function to hold the vehicle’s current position.</p>
+<dd><p>Service callback function to hold the vehicle&#8217;s current position.</p>
 </dd></dl>
 
 <dl class="method">
@@ -387,14 +399,23 @@ update_controller must be overridden in other for a controller to work.</p>
 </dd></dl>
 
 </div>
+<div class="section" id="module-uuv_control_interfaces.sym_vehicle">
+<span id="uuv-control-interfaces-sym-vehicle-module"></span><h2>uuv_control_interfaces.sym_vehicle module<a class="headerlink" href="#module-uuv_control_interfaces.sym_vehicle" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="uuv_control_interfaces.sym_vehicle.SymVehicle">
+<em class="property">class </em><code class="descclassname">uuv_control_interfaces.sym_vehicle.</code><code class="descname">SymVehicle</code><span class="sig-paren">(</span><em>inertial_frame_id='world'</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_control_interfaces/sym_vehicle.html#SymVehicle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_control_interfaces.sym_vehicle.SymVehicle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#uuv_control_interfaces.vehicle.Vehicle" title="uuv_control_interfaces.vehicle.Vehicle"><code class="xref py py-class docutils literal"><span class="pre">uuv_control_interfaces.vehicle.Vehicle</span></code></a></p>
+</dd></dl>
+
+</div>
 <div class="section" id="module-uuv_control_interfaces.vehicle">
 <span id="uuv-control-interfaces-vehicle-module"></span><h2>uuv_control_interfaces.vehicle module<a class="headerlink" href="#module-uuv_control_interfaces.vehicle" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="uuv_control_interfaces.vehicle.Vehicle">
-<em class="property">class </em><code class="descclassname">uuv_control_interfaces.vehicle.</code><code class="descname">Vehicle</code><span class="sig-paren">(</span><em>list_odometry_callbacks=[]</em>, <em>sub_to_odometry=True</em>, <em>inertial_frame_id='world'</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_control_interfaces/vehicle.html#Vehicle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_control_interfaces.vehicle.Vehicle" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">uuv_control_interfaces.vehicle.</code><code class="descname">Vehicle</code><span class="sig-paren">(</span><em>inertial_frame_id='world'</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_control_interfaces/vehicle.html#Vehicle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_control_interfaces.vehicle.Vehicle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
 <p>Vehicle interface to be used by model-based controllers. It receives the
-parameters necessary to compute the vehicle’s motion according to Fossen’s.</p>
+parameters necessary to compute the vehicle&#8217;s motion according to Fossen&#8217;s.</p>
 <dl class="attribute">
 <dt id="uuv_control_interfaces.vehicle.Vehicle.Ctotal">
 <code class="descname">Ctotal</code><a class="headerlink" href="#uuv_control_interfaces.vehicle.Vehicle.Ctotal" title="Permalink to this definition">¶</a></dt>
@@ -438,11 +459,6 @@ BODY frame in relation to the INERTIAL frame into quaternion rate.</p>
 <dd><p>Return linear and angular acceleration vector.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="uuv_control_interfaces.vehicle.Vehicle.add_odometry_callback">
-<code class="descname">add_odometry_callback</code><span class="sig-paren">(</span><em>callback</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_control_interfaces/vehicle.html#Vehicle.add_odometry_callback"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_control_interfaces.vehicle.Vehicle.add_odometry_callback" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
 <dl class="attribute">
 <dt id="uuv_control_interfaces.vehicle.Vehicle.body_frame_id">
 <code class="descname">body_frame_id</code><a class="headerlink" href="#uuv_control_interfaces.vehicle.Vehicle.body_frame_id" title="Permalink to this definition">¶</a></dt>
@@ -462,6 +478,11 @@ BODY frame in relation to the INERTIAL frame into quaternion rate.</p>
 sum of forces given the rigid-body and hydrodynamic models for the
 marine vessel.</p>
 </dd></dl>
+
+<dl class="attribute">
+<dt id="uuv_control_interfaces.vehicle.Vehicle.density">
+<code class="descname">density</code><a class="headerlink" href="#uuv_control_interfaces.vehicle.Vehicle.density" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="attribute">
 <dt id="uuv_control_interfaces.vehicle.Vehicle.depth">
@@ -492,6 +513,11 @@ marine vessel.</p>
 <dd><p>Return the Jacobian for the current orientation using transformations
 from BODY to INERTIAL frame.</p>
 </dd></dl>
+
+<dl class="attribute">
+<dt id="uuv_control_interfaces.vehicle.Vehicle.gravity">
+<code class="descname">gravity</code><a class="headerlink" href="#uuv_control_interfaces.vehicle.Vehicle.gravity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="attribute">
 <dt id="uuv_control_interfaces.vehicle.Vehicle.heading">
@@ -526,11 +552,6 @@ from BODY to INERTIAL frame.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="uuv_control_interfaces.vehicle.Vehicle.odom_is_init">
-<code class="descname">odom_is_init</code><a class="headerlink" href="#uuv_control_interfaces.vehicle.Vehicle.odom_is_init" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
 <dt id="uuv_control_interfaces.vehicle.Vehicle.pos">
 <code class="descname">pos</code><a class="headerlink" href="#uuv_control_interfaces.vehicle.Vehicle.pos" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the position of the vehicle.</p>
@@ -551,8 +572,13 @@ from BODY to INERTIAL frame.</p>
 <dl class="method">
 <dt id="uuv_control_interfaces.vehicle.Vehicle.print_info">
 <code class="descname">print_info</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_control_interfaces/vehicle.html#Vehicle.print_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_control_interfaces.vehicle.Vehicle.print_info" title="Permalink to this definition">¶</a></dt>
-<dd><p>Print the vehicle’s parameters.</p>
+<dd><p>Print the vehicle&#8217;s parameters.</p>
 </dd></dl>
+
+<dl class="staticmethod">
+<dt id="uuv_control_interfaces.vehicle.Vehicle.q_to_matrix">
+<em class="property">static </em><code class="descname">q_to_matrix</code><span class="sig-paren">(</span><em>q</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_control_interfaces/vehicle.html#Vehicle.q_to_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_control_interfaces.vehicle.Vehicle.q_to_matrix" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="attribute">
 <dt id="uuv_control_interfaces.vehicle.Vehicle.quat">
@@ -602,11 +628,22 @@ to retrieve Euler angles from the quaternion vector (Fossen, 2011).</p>
 <code class="descname">to_SNAME</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_control_interfaces/vehicle.html#Vehicle.to_SNAME"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_control_interfaces.vehicle.Vehicle.to_SNAME" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="method">
+<dt id="uuv_control_interfaces.vehicle.Vehicle.update_odometry">
+<code class="descname">update_odometry</code><span class="sig-paren">(</span><em>msg</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/uuv_control_interfaces/vehicle.html#Vehicle.update_odometry"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#uuv_control_interfaces.vehicle.Vehicle.update_odometry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Odometry topic subscriber callback function.</p>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="uuv_control_interfaces.vehicle.Vehicle.vel">
 <code class="descname">vel</code><a class="headerlink" href="#uuv_control_interfaces.vehicle.Vehicle.vel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return linear and angular velocity vector.</p>
 </dd></dl>
+
+<dl class="attribute">
+<dt id="uuv_control_interfaces.vehicle.Vehicle.volume">
+<code class="descname">volume</code><a class="headerlink" href="#uuv_control_interfaces.vehicle.Vehicle.volume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="attribute">
 <dt id="uuv_control_interfaces.vehicle.Vehicle.width">
@@ -677,7 +714,7 @@ to retrieve Euler angles from the quaternion vector (Fossen, 2011).</p>
       <script type="text/javascript" src="../../../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

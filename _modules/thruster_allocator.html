@@ -30,9 +30,6 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="UUV Simulator 0.2 documentation" href="../index.html"/>
         <link rel="up" title="Module code" href="index.html"/> 
 
@@ -136,7 +133,7 @@
            <div itemprop="articleBody">
             
   <h1>Source code for thruster_allocator</h1><div class="highlight"><pre>
-<span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># Copyright (c) 2016 The UUV Simulator Authors.</span>
 <span class="c1"># All rights reserved.</span>
 <span class="c1">#</span>
@@ -155,14 +152,14 @@
 <span class="kn">import</span> <span class="nn">numpy</span>
 <span class="kn">import</span> <span class="nn">rospy</span>
 <span class="kn">import</span> <span class="nn">tf</span>
-<span class="kn">import</span> <span class="nn">tf.transformations</span> <span class="k">as</span> <span class="nn">trans</span>
-<span class="kn">from</span> <span class="nn">os.path</span> <span class="k">import</span> <span class="n">isdir</span><span class="p">,</span> <span class="n">join</span>
-<span class="kn">from</span> <span class="nn">copy</span> <span class="k">import</span> <span class="n">deepcopy</span>
+<span class="kn">import</span> <span class="nn">tf.transformations</span> <span class="kn">as</span> <span class="nn">trans</span>
+<span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">isdir</span><span class="p">,</span> <span class="n">join</span>
+<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
 <span class="kn">import</span> <span class="nn">yaml</span>
 <span class="kn">import</span> <span class="nn">tf2_ros</span>
-<span class="kn">from</span> <span class="nn">uuv_thrusters</span> <span class="k">import</span> <span class="n">ThrusterManager</span>
-<span class="kn">from</span> <span class="nn">geometry_msgs.msg</span> <span class="k">import</span> <span class="n">Wrench</span><span class="p">,</span> <span class="n">WrenchStamped</span>
-<span class="kn">from</span> <span class="nn">uuv_thruster_manager.srv</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">uuv_thrusters</span> <span class="kn">import</span> <span class="n">ThrusterManager</span>
+<span class="kn">from</span> <span class="nn">geometry_msgs.msg</span> <span class="kn">import</span> <span class="n">Wrench</span><span class="p">,</span> <span class="n">WrenchStamped</span>
+<span class="kn">from</span> <span class="nn">uuv_thruster_manager.srv</span> <span class="kn">import</span> <span class="o">*</span>
 
 
 <div class="viewcode-block" id="ThrusterAllocatorNode"><a class="viewcode-back" href="../api/uuv_simulator/uuv_thruster_manager/scripts/thruster_allocator.html#thruster_allocator.ThrusterAllocatorNode">[docs]</a><span class="k">class</span> <span class="nc">ThrusterAllocatorNode</span><span class="p">(</span><span class="n">ThrusterManager</span><span class="p">):</span>
@@ -172,7 +169,7 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Class constructor.&quot;&quot;&quot;</span>
-        <span class="n">ThrusterManager</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">ThrusterManager</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">last_update</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Time</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
 
@@ -186,7 +183,6 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">input_stamped_sub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Subscriber</span><span class="p">(</span>
             <span class="s1">&#39;thruster_manager/input_stamped&#39;</span><span class="p">,</span> <span class="n">WrenchStamped</span><span class="p">,</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">input_stamped_callback</span><span class="p">)</span>
-
         <span class="bp">self</span><span class="o">.</span><span class="n">thruster_info_service</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Service</span><span class="p">(</span>
             <span class="s1">&#39;thruster_manager/get_thrusters_info&#39;</span><span class="p">,</span> <span class="n">ThrusterManagerInfo</span><span class="p">,</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">get_thruster_info</span><span class="p">)</span>
@@ -206,8 +202,8 @@
                 <span class="c1"># If a timeout is set, zero the outputs to the thrusters if</span>
                 <span class="c1"># there is no command signal for the length of timeout</span>
                 <span class="k">if</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Time</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_update</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;timeout&#39;</span><span class="p">]:</span>
-                    <span class="nb">print</span> <span class="s1">&#39;Turning thrusters off - inactive for too long&#39;</span>
-                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">thrust</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">print</span> <span class="s1">&#39;Turning thrusters off - inactive for too long&#39;</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">thrust</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
                         <span class="bp">self</span><span class="o">.</span><span class="n">thrust</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
                         <span class="bp">self</span><span class="o">.</span><span class="n">command_thrusters</span><span class="p">()</span>
             <span class="n">rate</span><span class="o">.</span><span class="n">sleep</span><span class="p">()</span>
@@ -231,20 +227,20 @@
 
 <div class="viewcode-block" id="ThrusterAllocatorNode.set_config"><a class="viewcode-back" href="../api/uuv_simulator/uuv_thruster_manager/scripts/thruster_allocator.html#thruster_allocator.ThrusterAllocatorNode.set_config">[docs]</a>    <span class="k">def</span> <span class="nf">set_config</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
         <span class="n">old_config</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">ready</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ready</span> <span class="o">=</span> <span class="bp">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;base_link&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">base_link</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;thruster_frame_base&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">thruster_frame_base</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;thruster_topic_prefix&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">thruster_topic_prefix</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;thruster_topic_suffix&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">thruster_topic_suffix</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;timeout&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">timeout</span>
-        <span class="nb">print</span> <span class="s1">&#39;New configuration:</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="k">print</span> <span class="s1">&#39;New configuration:</span><span class="se">\n</span><span class="s1">&#39;</span>
         <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">:</span>
-            <span class="nb">print</span> <span class="n">key</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_tam</span><span class="p">(</span><span class="n">recalculate</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-            <span class="nb">print</span> <span class="s1">&#39;Configuration parameters are invalid, going back to old configuration...&#39;</span>
+            <span class="k">print</span> <span class="n">key</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_tam</span><span class="p">(</span><span class="n">recalculate</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+            <span class="k">print</span> <span class="s1">&#39;Configuration parameters are invalid, going back to old configuration...&#39;</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="n">old_config</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">update_tam</span><span class="p">(</span><span class="n">recalculate</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">SetThrusterManagerConfigResponse</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">update_tam</span><span class="p">(</span><span class="n">recalculate</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">SetThrusterManagerConfigResponse</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="ThrusterAllocatorNode.get_config"><a class="viewcode-back" href="../api/uuv_simulator/uuv_thruster_manager/scripts/thruster_allocator.html#thruster_allocator.ThrusterAllocatorNode.get_config">[docs]</a>    <span class="k">def</span> <span class="nf">get_config</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">GetThrusterManagerConfigResponse</span><span class="p">(</span>
@@ -295,15 +291,15 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">last_update</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Time</span><span class="o">.</span><span class="n">now</span><span class="p">()</span></div></div>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s1">&#39;thruster_allocator&#39;</span><span class="p">)</span>
 
     <span class="k">try</span><span class="p">:</span>
         <span class="n">node</span> <span class="o">=</span> <span class="n">ThrusterAllocatorNode</span><span class="p">()</span>
         <span class="n">rospy</span><span class="o">.</span><span class="n">spin</span><span class="p">()</span>
     <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ROSInterruptException</span><span class="p">:</span>
-        <span class="nb">print</span> <span class="s1">&#39;ThrusterAllocatorNode::Exception&#39;</span>
-    <span class="nb">print</span> <span class="s1">&#39;Leaving ThrusterAllocatorNode&#39;</span>
+        <span class="k">print</span> <span class="s1">&#39;ThrusterAllocatorNode::Exception&#39;</span>
+    <span class="k">print</span> <span class="s1">&#39;Leaving ThrusterAllocatorNode&#39;</span>
 </pre></div>
 
            </div>
@@ -346,7 +342,7 @@
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

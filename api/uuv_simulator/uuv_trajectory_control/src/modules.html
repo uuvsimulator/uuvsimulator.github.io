@@ -30,9 +30,6 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../../../../genindex.html"/>
-        <link rel="search" title="Search" href="../../../../search.html"/>
     <link rel="top" title="UUV Simulator 0.2 documentation" href="../../../../index.html"/>
         <link rel="up" title="uuv_trajectory_control" href="../index.html"/>
         <link rel="next" title="uuv_control_interfaces package" href="uuv_control_interfaces.html"/>
@@ -98,7 +95,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../uuv_thruster_manager/index.html">uuv_thruster_manager</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../index.html">uuv_trajectory_control</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="../scripts/modules.html">uuv_trajectory_control - SCRIPTS</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">uuv_trajectory_control - SRC</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="">uuv_trajectory_control - SRC</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../../uuv_teleop/index.html">uuv_teleop</a></li>
@@ -149,7 +146,7 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../../../../_sources/api/uuv_simulator/uuv_trajectory_control/src/modules.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../../_sources/api/uuv_simulator/uuv_trajectory_control/src/modules.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -168,6 +165,7 @@
 <li class="toctree-l2"><a class="reference internal" href="uuv_control_interfaces.html#module-uuv_control_interfaces.dp_controller_base">uuv_control_interfaces.dp_controller_base module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="uuv_control_interfaces.html#module-uuv_control_interfaces.dp_controller_local_planner">uuv_control_interfaces.dp_controller_local_planner module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="uuv_control_interfaces.html#module-uuv_control_interfaces.dp_pid_controller_base">uuv_control_interfaces.dp_pid_controller_base module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uuv_control_interfaces.html#module-uuv_control_interfaces.sym_vehicle">uuv_control_interfaces.sym_vehicle module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="uuv_control_interfaces.html#module-uuv_control_interfaces.vehicle">uuv_control_interfaces.vehicle module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="uuv_control_interfaces.html#module-uuv_control_interfaces">Module contents</a></li>
 </ul>
@@ -178,7 +176,10 @@
 <li class="toctree-l4"><a class="reference internal" href="uuv_trajectory_generator.path_generator.html#submodules">Submodules</a></li>
 <li class="toctree-l4"><a class="reference internal" href="uuv_trajectory_generator.path_generator.html#module-uuv_trajectory_generator.path_generator.bezier_curve">uuv_trajectory_generator.path_generator.bezier_curve module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="uuv_trajectory_generator.path_generator.html#module-uuv_trajectory_generator.path_generator.cs_interpolator">uuv_trajectory_generator.path_generator.cs_interpolator module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="uuv_trajectory_generator.path_generator.html#module-uuv_trajectory_generator.path_generator.dubins_interpolator">uuv_trajectory_generator.path_generator.dubins_interpolator module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="uuv_trajectory_generator.path_generator.html#module-uuv_trajectory_generator.path_generator.helical_segment">uuv_trajectory_generator.path_generator.helical_segment module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="uuv_trajectory_generator.path_generator.html#module-uuv_trajectory_generator.path_generator.line_segment">uuv_trajectory_generator.path_generator.line_segment module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="uuv_trajectory_generator.path_generator.html#module-uuv_trajectory_generator.path_generator.linear_interpolator">uuv_trajectory_generator.path_generator.linear_interpolator module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="uuv_trajectory_generator.path_generator.html#module-uuv_trajectory_generator.path_generator.lipb_interpolator">uuv_trajectory_generator.path_generator.lipb_interpolator module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="uuv_trajectory_generator.path_generator.html#module-uuv_trajectory_generator.path_generator.path_generator">uuv_trajectory_generator.path_generator.path_generator module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="uuv_trajectory_generator.path_generator.html#module-uuv_trajectory_generator.path_generator">Module contents</a></li>
@@ -254,7 +255,7 @@
       <script type="text/javascript" src="../../../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

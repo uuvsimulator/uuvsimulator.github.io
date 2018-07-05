@@ -30,9 +30,6 @@
   
 
   
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="UUV Simulator 0.2 documentation" href="index.html"/>
         <link rel="next" title="Tutorials" href="tutorials/index.html"/>
         <link rel="prev" title="Installation" href="installation.html"/> 
@@ -86,7 +83,7 @@
             
                 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Quick start</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Quick start</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#running-the-simulation-remotely">Running the simulation remotely</a></li>
 </ul>
 </li>
@@ -129,7 +126,7 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="_sources/quick_start.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/quick_start.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -142,21 +139,21 @@
   <div class="section" id="quick-start">
 <span id="id1"></span><h1>Quick start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h1>
 <p>Start an empty underwater environment using either</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_descriptions</span> <span class="n">empty_underwater_world</span><span class="o">.</span><span class="n">launch</span>
+<div class="highlight-python"><div class="highlight"><pre>roslaunch uuv_descriptions empty_underwater_world.launch
 </pre></div>
 </div>
 <p>or</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_descriptions</span> <span class="n">ocean_waves</span><span class="o">.</span><span class="n">launch</span>
+<div class="highlight-python"><div class="highlight"><pre>roslaunch uuv_descriptions ocean_waves.launch
 </pre></div>
 </div>
 <p>Spawn the remotely operated vehicle RexROV (find the robot description files in <strong>uuv_descriptions/models/rexrov</strong>) as follows</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_descriptions</span> <span class="n">upload_rexrov</span><span class="o">.</span><span class="n">launch</span> <span class="n">mode</span><span class="p">:</span><span class="o">=</span><span class="n">default</span> <span class="n">x</span><span class="p">:</span><span class="o">=</span><span class="mi">0</span> <span class="n">y</span><span class="p">:</span><span class="o">=</span><span class="mi">0</span> <span class="n">z</span><span class="p">:</span><span class="o">=-</span><span class="mi">20</span> <span class="n">namespace</span><span class="p">:</span><span class="o">=</span><span class="n">rexrov</span>
+<div class="highlight-python"><div class="highlight"><pre>roslaunch uuv_descriptions upload_rexrov.launch mode:=default x:=0 y:=0 z:=-20 namespace:=rexrov
 </pre></div>
 </div>
 <p>for which <strong>mode</strong> stands for the configuration of the vehicle to be used. It is important to create the vehicles under a unique
 <strong>namespace</strong> to allow simulation of multiple vehicles in the same scenario.</p>
 <p>You can start a velocity controller with a joystick teleoperation node as</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_control_cascaded_pid</span> <span class="n">joy_velocity</span><span class="o">.</span><span class="n">launch</span> <span class="n">uuv_name</span><span class="p">:</span><span class="o">=</span><span class="n">rexrov</span> <span class="n">model_name</span><span class="p">:</span><span class="o">=</span><span class="n">rexrov</span> <span class="n">joy_id</span><span class="p">:</span><span class="o">=</span><span class="mi">0</span>
+<div class="highlight-python"><div class="highlight"><pre>roslaunch uuv_control_cascaded_pid joy_velocity.launch uuv_name:=rexrov model_name:=rexrov joy_id:=0
 </pre></div>
 </div>
 <p>In this case <strong>model_name</strong> refers to the vehicle model, which can be different from the <strong>namespace</strong>. It is a necessary parameter to load
@@ -170,7 +167,7 @@ indexes of the desired axes in the launch file located in the <strong>uuv_vehicl
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p>Sometimes Gazebo takes a while to close. Try</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">killall</span> <span class="o">-</span><span class="mi">9</span> <span class="n">gzserver</span> <span class="n">gzclient</span>
+<div class="highlight-python"><div class="highlight"><pre>killall -9 gzserver gzclient
 </pre></div>
 </div>
 <p class="last">in case that happens.</p>
@@ -232,7 +229,7 @@ to the <strong>/etc/hosts</strong> file of the computer running <strong>roscore<
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

@@ -30,9 +30,6 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../../genindex.html"/>
-        <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="UUV Simulator 0.2 documentation" href="../../index.html"/>
         <link rel="up" title="Module code" href="../index.html"/> 
 
@@ -136,7 +133,7 @@
            <div itemprop="articleBody">
             
   <h1>Source code for uuv_control_interfaces.dp_pid_controller_base</h1><div class="highlight"><pre>
-<span></span><span class="c1"># Copyright (c) 2016 The UUV Simulator Authors.</span>
+<span class="c1"># Copyright (c) 2016 The UUV Simulator Authors.</span>
 <span class="c1"># All rights reserved.</span>
 <span class="c1">#</span>
 <span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
@@ -151,10 +148,10 @@
 <span class="c1"># See the License for the specific language governing permissions and</span>
 <span class="c1"># limitations under the License.</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">rospy</span>
-<span class="kn">from</span> <span class="nn">uuv_control_msgs.srv</span> <span class="k">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">uuv_control_interfaces.dp_controller_base</span> <span class="k">import</span> <span class="n">DPControllerBase</span>
+<span class="kn">from</span> <span class="nn">uuv_control_msgs.srv</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">uuv_control_interfaces.dp_controller_base</span> <span class="kn">import</span> <span class="n">DPControllerBase</span>
 
 
 <div class="viewcode-block" id="DPPIDControllerBase"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_control_interfaces.html#uuv_control_interfaces.dp_pid_controller_base.DPPIDControllerBase">[docs]</a><span class="k">class</span> <span class="nc">DPPIDControllerBase</span><span class="p">(</span><span class="n">DPControllerBase</span><span class="p">):</span>
@@ -165,7 +162,7 @@
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
         <span class="c1"># Start the super class</span>
-        <span class="n">DPControllerBase</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+        <span class="n">DPControllerBase</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Initializing: PID controller&#39;</span><span class="p">)</span>
         <span class="c1"># Proportional gains</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_Kp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
@@ -229,11 +226,11 @@
         <span class="n">kd</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">Kd</span>
         <span class="n">ki</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">Ki</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">kp</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">6</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">kd</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">6</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">ki</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">6</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">SetPIDParamsResponse</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">SetPIDParamsResponse</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_Kp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">kp</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_Ki</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">ki</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_Kd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">kd</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">SetPIDParamsResponse</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">SetPIDParamsResponse</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="DPPIDControllerBase.get_pid_params_callback"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_control_interfaces.html#uuv_control_interfaces.dp_pid_controller_base.DPPIDControllerBase.get_pid_params_callback">[docs]</a>    <span class="k">def</span> <span class="nf">get_pid_params_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">GetPIDParamsResponse</span><span class="p">(</span>
@@ -293,7 +290,7 @@
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
