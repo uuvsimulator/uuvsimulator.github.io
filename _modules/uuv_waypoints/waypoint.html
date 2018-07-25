@@ -296,13 +296,11 @@
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">-</span> <span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span>
                        <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_y</span> <span class="o">-</span> <span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span>
                        <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_z</span> <span class="o">-</span> <span class="n">pos</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span></div>
-        
-<div class="viewcode-block" id="Waypoint.calculate_heading"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_waypoints.html#uuv_waypoints.waypoint.Waypoint.calculate_heading">[docs]</a>    <span class="k">def</span> <span class="nf">calculate_heading</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>        
+
+<div class="viewcode-block" id="Waypoint.calculate_heading"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_waypoints.html#uuv_waypoints.waypoint.Waypoint.calculate_heading">[docs]</a>    <span class="k">def</span> <span class="nf">calculate_heading</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
         <span class="n">dy</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span>
         <span class="n">dx</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">dy</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span></div></div>
-    
-    
 </pre></div>
 
            </div>

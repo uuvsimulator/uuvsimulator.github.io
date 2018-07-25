@@ -164,7 +164,7 @@
 <span class="sd">    [1] O.-E. Fjellstad and T. I. Fossen, Singularity-free tracking of unmanned</span>
 <span class="sd">        underwater vehicles in 6 DOF, Proceedings of 1994 33rd IEEE Conference</span>
 <span class="sd">        on Decision and Control</span>
-<span class="sd">    [2] G. Antonelli, &quot;Underwater Robots,&quot; Springer Tracts in Advanced Robotics, </span>
+<span class="sd">    [2] G. Antonelli, &quot;Underwater Robots,&quot; Springer Tracts in Advanced Robotics,</span>
 <span class="sd">        2003</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -185,7 +185,7 @@
                 <span class="k">raise</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ROSException</span><span class="p">(</span><span class="s1">&#39;Kd coefficients: 6 coefficients &#39;</span>
                                          <span class="s1">&#39;needed&#39;</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Kd=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_Kd</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Kd=</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_Kd</span><span class="p">))</span>
 
         <span class="c1"># Build delta matrix</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_delta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
@@ -208,9 +208,9 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_delta</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ROSException</span><span class="p">(</span>
-                <span class="s1">&#39;c: either a scalar or a 3 element vector must be provided&#39;</span><span class="p">)</span>               
+                <span class="s1">&#39;c: either a scalar or a 3 element vector must be provided&#39;</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;delta=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_delta</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;delta=</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_delta</span><span class="p">))</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_prev_t</span> <span class="o">=</span> <span class="bp">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_prev_vel_r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
@@ -226,9 +226,8 @@
 
         <span class="c1"># Compute the generalized pose error vector using the quaternion</span>
         <span class="c1"># orientation error</span>
-        <span class="c1"># error = np.hstack((self._errors[&#39;pos&#39;], self.error_orientation_quat))</span>
-        <span class="n">error</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">error_pose_euler</span>
-        
+        <span class="n">error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">_errors</span><span class="p">[</span><span class="s1">&#39;pos&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">error_orientation_quat</span><span class="p">))</span>
+
         <span class="c1"># Compute the virtual velocity signal</span>
         <span class="n">vel_r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reference</span><span class="p">[</span><span class="s1">&#39;vel&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_delta</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
 

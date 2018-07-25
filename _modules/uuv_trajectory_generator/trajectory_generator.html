@@ -157,6 +157,7 @@
 <span class="kn">from</span> <span class="nn">.wp_trajectory_generator</span> <span class="kn">import</span> <span class="n">WPTrajectoryGenerator</span>
 <span class="kn">from</span> <span class="nn">uuv_waypoints</span> <span class="kn">import</span> <span class="n">WaypointSet</span>
 <span class="kn">from</span> <span class="nn">.trajectory_point</span> <span class="kn">import</span> <span class="n">TrajectoryPoint</span>
+<span class="kn">from</span> <span class="nn">tf.transformations</span> <span class="kn">import</span> <span class="n">euler_from_quaternion</span>
 
 
 <div class="viewcode-block" id="TrajectoryGenerator"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_trajectory_generator.html#uuv_trajectory_generator.trajectory_generator.TrajectoryGenerator">[docs]</a><span class="k">class</span> <span class="nc">TrajectoryGenerator</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -201,7 +202,7 @@
 
 <div class="viewcode-block" id="TrajectoryGenerator.get_interp_method"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_trajectory_generator.html#uuv_trajectory_generator.trajectory_generator.TrajectoryGenerator.get_interp_method">[docs]</a>    <span class="k">def</span> <span class="nf">get_interp_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wp_interp</span><span class="o">.</span><span class="n">get_interpolation_method</span><span class="p">()</span></div>
-    
+
 <div class="viewcode-block" id="TrajectoryGenerator.get_interpolator_tags"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_trajectory_generator.html#uuv_trajectory_generator.trajectory_generator.TrajectoryGenerator.get_interpolator_tags">[docs]</a>    <span class="k">def</span> <span class="nf">get_interpolator_tags</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wp_interp</span><span class="o">.</span><span class="n">interpolator_tags</span></div>
 
@@ -212,7 +213,7 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wp_interp_on</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wp_interp</span><span class="o">.</span><span class="n">get_visual_markers</span><span class="p">()</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">None</span>    </div>
+            <span class="k">return</span> <span class="bp">None</span></div>
 
     <span class="k">def</span> <span class="nf">_reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_points</span> <span class="o">=</span> <span class="bp">None</span>
@@ -248,6 +249,9 @@
 
 <div class="viewcode-block" id="TrajectoryGenerator.set_waypoints"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_trajectory_generator.html#uuv_trajectory_generator.trajectory_generator.TrajectoryGenerator.set_waypoints">[docs]</a>    <span class="k">def</span> <span class="nf">set_waypoints</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">waypoints</span><span class="p">,</span> <span class="n">init_rot</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)):</span>
         <span class="sd">&quot;&quot;&quot;Initializes the waypoint interpolator with a set of waypoints.&quot;&quot;&quot;</span>
+        <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s1">&#39;Initial rotation vector (quat)=</span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">init_rot</span><span class="p">))</span>
+        <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s1">&#39;Initial rotation vector (rpy)=</span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span>
+                      <span class="nb">str</span><span class="p">(</span><span class="n">euler_from_quaternion</span><span class="p">(</span><span class="n">init_rot</span><span class="p">)))</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wp_interp</span><span class="o">.</span><span class="n">init_waypoints</span><span class="p">(</span><span class="n">waypoints</span><span class="p">,</span> <span class="n">init_rot</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_wp_interp_on</span> <span class="o">=</span> <span class="bp">True</span>
             <span class="k">return</span> <span class="bp">True</span>
@@ -261,7 +265,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_using_waypoints</span><span class="p">():</span>
-            <span class="k">print</span> <span class="s1">&#39;NOT USING WAYPOINTS&#39;</span>
+            <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s1">&#39;NOT USING WAYPOINTS&#39;</span><span class="p">)</span>
             <span class="k">return</span> <span class="bp">None</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wp_interp</span><span class="o">.</span><span class="n">get_waypoints</span><span class="p">()</span></div>
 
@@ -291,7 +295,8 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_time</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pnt</span><span class="o">.</span><span class="n">t</span><span class="p">)</span>
             <span class="k">return</span> <span class="bp">True</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">print</span> <span class="s1">&#39;Cannot add trajectory point! Generator is in waypoint interpolation mode!&#39;</span>
+            <span class="n">rospy</span><span class="o">.</span><span class="n">logerr</span><span class="p">(</span><span class="s1">&#39;Cannot add trajectory point! Generator is in &#39;</span>
+                         <span class="s1">&#39;waypoint interpolation mode!&#39;</span><span class="p">)</span>
             <span class="k">return</span> <span class="bp">False</span></div>
 
 <div class="viewcode-block" id="TrajectoryGenerator.add_trajectory_point_from_msg"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_trajectory_generator.html#uuv_trajectory_generator.trajectory_generator.TrajectoryGenerator.add_trajectory_point_from_msg">[docs]</a>    <span class="k">def</span> <span class="nf">add_trajectory_point_from_msg</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
@@ -301,15 +306,16 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">add_trajectory_point</span><span class="p">(</span><span class="n">pnt</span><span class="p">)</span>
                 <span class="k">return</span> <span class="bp">True</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="k">print</span> <span class="s1">&#39;Error converting message to trajectory point&#39;</span>
+                <span class="n">rospy</span><span class="o">.</span><span class="n">logerr</span><span class="p">(</span><span class="s1">&#39;Error converting message to trajectory point&#39;</span><span class="p">)</span>
                 <span class="k">return</span> <span class="bp">False</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">print</span> <span class="s1">&#39;Cannot add trajectory point! Generator is in waypoint interpolation mode!&#39;</span>
+            <span class="n">rospy</span><span class="o">.</span><span class="n">logerr</span><span class="p">(</span><span class="s1">&#39;Cannot add trajectory point! Generator is in &#39;</span>
+                         <span class="s1">&#39;waypoint interpolation mode!&#39;</span><span class="p">)</span>
             <span class="k">return</span> <span class="bp">False</span></div>
 
 <div class="viewcode-block" id="TrajectoryGenerator.set_duration"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_trajectory_generator.html#uuv_trajectory_generator.trajectory_generator.TrajectoryGenerator.set_duration">[docs]</a>    <span class="k">def</span> <span class="nf">set_duration</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wp_interp_on</span><span class="p">:</span>
-            <span class="k">print</span> <span class="s1">&#39;Waypoint interpolation is not activated&#39;</span>
+            <span class="n">rospy</span><span class="o">.</span><span class="n">logerr</span><span class="p">(</span><span class="s1">&#39;Waypoint interpolation is not activated&#39;</span><span class="p">)</span>
             <span class="k">return</span> <span class="bp">False</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wp_interp</span><span class="o">.</span><span class="n">set_duration</span><span class="p">(</span><span class="n">t</span><span class="p">)</span></div>
@@ -350,7 +356,8 @@
                 <span class="n">last_t</span> <span class="o">=</span> <span class="n">t</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">t</span> <span class="o">&lt;=</span> <span class="n">last_t</span><span class="p">:</span>
-                    <span class="k">print</span> <span class="s1">&#39;Trajectory should be given a growing value of time&#39;</span>
+                    <span class="n">rospy</span><span class="o">.</span><span class="n">logerr</span><span class="p">(</span><span class="s1">&#39;Trajectory should be given a growing value &#39;</span>
+                                 <span class="s1">&#39;of time&#39;</span><span class="p">)</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">_reset</span><span class="p">()</span>
                     <span class="k">return</span> <span class="bp">False</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">add_trajectory_point_from_msg</span><span class="p">(</span><span class="n">p_msg</span><span class="p">)</span>
@@ -425,7 +432,7 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wp_interp_on</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wp_interp</span><span class="o">.</span><span class="n">generate_reference</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">None</span>            </div>
+            <span class="k">return</span> <span class="bp">None</span></div>
 
 <div class="viewcode-block" id="TrajectoryGenerator.interpolate"><a class="viewcode-back" href="../../api/uuv_simulator/uuv_trajectory_control/src/uuv_trajectory_generator.html#uuv_trajectory_generator.trajectory_generator.TrajectoryGenerator.interpolate">[docs]</a>    <span class="k">def</span> <span class="nf">interpolate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wp_interp_on</span><span class="p">:</span>

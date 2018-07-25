@@ -303,29 +303,24 @@
             <span class="n">last_s</span> <span class="o">=</span> <span class="mi">0</span>
 
         <span class="k">if</span> <span class="n">s</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">rotq</span> <span class="o">=</span> <span class="n">quaternion_about_axis</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_interp_fcns</span><span class="p">[</span><span class="s1">&#39;heading&#39;</span><span class="p">](</span><span class="mi">0</span><span class="p">),</span>
-                <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]))</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_last_rot</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">rotq</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">this_pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">generate_pos</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-            <span class="n">last_pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">generate_pos</span><span class="p">(</span><span class="n">last_s</span><span class="p">)</span>
-            <span class="n">dx</span> <span class="o">=</span> <span class="n">this_pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">last_pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-            <span class="n">dy</span> <span class="o">=</span> <span class="n">this_pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">last_pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-            <span class="n">dz</span> <span class="o">=</span> <span class="n">this_pos</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">last_pos</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_last_rot</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_init_rot</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_init_rot</span>
 
-            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">dx</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">dy</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
-                <span class="n">rotq</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_last_rot</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">rotq</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_rot_quat</span><span class="p">(</span><span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">dz</span><span class="p">)</span>
+        <span class="n">this_pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">generate_pos</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+        <span class="n">last_pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">generate_pos</span><span class="p">(</span><span class="n">last_s</span><span class="p">)</span>
+        <span class="n">dx</span> <span class="o">=</span> <span class="n">this_pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">last_pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">dy</span> <span class="o">=</span> <span class="n">this_pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">last_pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">dz</span> <span class="o">=</span> <span class="n">this_pos</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">last_pos</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
 
-            <span class="c1"># Calculating the step for the heading offset</span>
-            <span class="n">q_step</span> <span class="o">=</span> <span class="n">quaternion_about_axis</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_interp_fcns</span><span class="p">[</span><span class="s1">&#39;heading&#39;</span><span class="p">](</span><span class="n">s</span><span class="p">),</span>
-                <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]))</span>
-            <span class="c1"># Adding the heading offset to the rotation quaternion</span>
-            <span class="n">rotq</span> <span class="o">=</span> <span class="n">quaternion_multiply</span><span class="p">(</span><span class="n">rotq</span><span class="p">,</span> <span class="n">q_step</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_last_rot</span> <span class="o">=</span> <span class="n">rotq</span>
+        <span class="n">rotq</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_rot_quat</span><span class="p">(</span><span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">dz</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_last_rot</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">rotq</span><span class="p">)</span>
+
+        <span class="c1"># Calculating the step for the heading offset</span>
+        <span class="n">q_step</span> <span class="o">=</span> <span class="n">quaternion_about_axis</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_interp_fcns</span><span class="p">[</span><span class="s1">&#39;heading&#39;</span><span class="p">](</span><span class="n">s</span><span class="p">),</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]))</span>
+        <span class="c1"># Adding the heading offset to the rotation quaternion</span>
+        <span class="n">rotq</span> <span class="o">=</span> <span class="n">quaternion_multiply</span><span class="p">(</span><span class="n">rotq</span><span class="p">,</span> <span class="n">q_step</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">rotq</span></div></div>
 </pre></div>
 

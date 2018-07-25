@@ -293,7 +293,7 @@
             <span class="n">wps</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_segment_to_wp_map</span><span class="p">[</span><span class="n">idx</span><span class="p">::]</span>
             <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">wps</span><span class="p">)</span>
         <span class="k">except</span><span class="p">:</span>
-            <span class="k">print</span> <span class="s1">&#39;Invalid index&#39;</span>
+            <span class="n">rospy</span><span class="o">.</span><span class="n">logerr</span><span class="p">(</span><span class="s1">&#39;Invalid index&#39;</span><span class="p">)</span>
             <span class="k">return</span> <span class="bp">None</span></div>
 
 <div class="viewcode-block" id="PathGenerator.is_full_dof"><a class="viewcode-back" href="../../../api/uuv_simulator/uuv_trajectory_control/src/uuv_trajectory_generator.path_generator.html#uuv_trajectory_generator.path_generator.path_generator.PathGenerator.is_full_dof">[docs]</a>    <span class="k">def</span> <span class="nf">is_full_dof</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -328,10 +328,12 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_waypoints</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">waypoints</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_waypoints</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="k">print</span> <span class="s1">&#39;Waypoint list has not been initialized&#39;</span>
+            <span class="n">rospy</span><span class="o">.</span><span class="n">logerr</span><span class="p">(</span><span class="s1">&#39;Waypoint list has not been initialized&#39;</span><span class="p">)</span>
             <span class="k">return</span> <span class="bp">False</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_init_rot</span> <span class="o">=</span> <span class="n">init_rot</span>
+        <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s1">&#39;PathGenerator::Setting initial rotation as=</span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span>
+                      <span class="nb">str</span><span class="p">(</span><span class="n">init_rot</span><span class="p">))</span>
         <span class="k">return</span> <span class="bp">True</span></div>
 
 <div class="viewcode-block" id="PathGenerator.interpolate"><a class="viewcode-back" href="../../../api/uuv_simulator/uuv_trajectory_control/src/uuv_trajectory_generator.path_generator.html#uuv_trajectory_generator.path_generator.path_generator.PathGenerator.interpolate">[docs]</a>    <span class="k">def</span> <span class="nf">interpolate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tag</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
@@ -359,17 +361,26 @@
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="PathGenerator.set_parameters"><a class="viewcode-back" href="../../../api/uuv_simulator/uuv_trajectory_control/src/uuv_trajectory_generator.path_generator.html#uuv_trajectory_generator.path_generator.path_generator.PathGenerator.set_parameters">[docs]</a>    <span class="k">def</span> <span class="nf">set_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>    </div>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
 
     <span class="k">def</span> <span class="nf">_compute_rot_quat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">dz</span><span class="p">):</span>
-        <span class="n">heading</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">dy</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span>
-        <span class="n">rotq</span> <span class="o">=</span> <span class="n">quaternion_about_axis</span><span class="p">(</span><span class="n">heading</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-        
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">dx</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">dy</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="n">rotq</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_last_rot</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">heading</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">dy</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span>
+            <span class="n">rotq</span> <span class="o">=</span> <span class="n">quaternion_about_axis</span><span class="p">(</span><span class="n">heading</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_full_dof</span><span class="p">:</span>
             <span class="n">rote</span> <span class="o">=</span> <span class="n">quaternion_about_axis</span><span class="p">(</span>
                 <span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">dz</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">dy</span><span class="o">**</span><span class="mi">2</span><span class="p">)),</span>
                 <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
             <span class="n">rotq</span> <span class="o">=</span> <span class="n">quaternion_multiply</span><span class="p">(</span><span class="n">rotq</span><span class="p">,</span> <span class="n">rote</span><span class="p">)</span>
+
+        <span class="c1"># Certify that the next quaternion remains in the same half hemisphere</span>
+        <span class="n">d_prod</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_last_rot</span><span class="p">,</span> <span class="n">rotq</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">d_prod</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">rotq</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
+
         <span class="k">return</span> <span class="n">rotq</span></div>
 </pre></div>
 
