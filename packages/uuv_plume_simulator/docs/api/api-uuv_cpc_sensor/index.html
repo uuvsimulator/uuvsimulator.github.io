@@ -1,0 +1,2616 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Unmanned Underwater Vehicle Simulator Documentation.">
+      
+      
+        <link rel="canonical" href="https://uuvsimulator.github.io/packages/uuv_plume_simulator/docs/api/api-uuv_cpc_sensor/">
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.2">
+    
+    
+      
+        <title>uuv_cpc_sensor - Unmanned Underwater Vehicle Simulator Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/application.3020aac5.css">
+      
+      
+    
+    
+      <script src="../../../../../assets/javascripts/modernizr.01ccdecf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#summary" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://uuvsimulator.github.io/" title="Unmanned Underwater Vehicle Simulator Documentation" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Unmanned Underwater Vehicle Simulator Documentation
+            </span>
+            <span class="md-header-nav__topic">
+              uuv_cpc_sensor
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/uuvsimulator/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../../../../.." title="Home" class="md-tabs__link">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../uuv_simulator/intro/" title="UUV Simulator" class="md-tabs__link">
+          UUV Simulator
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../intro/" title="Plume Simulator" class="md-tabs__link md-tabs__link--active">
+          Plume Simulator
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../rexrov2/intro/" title="RexROV 2" class="md-tabs__link">
+          RexROV 2
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../eca_a9/intro/" title="ECA A9" class="md-tabs__link">
+          ECA A9
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../lauv_gazebo/intro/" title="LAUV" class="md-tabs__link">
+          LAUV
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../desistek_saga/intro/" title="Desistek SAGA ROV" class="md-tabs__link">
+          Desistek SAGA ROV
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../../tutorials/config_thruster_manager/" title="Tutorials" class="md-tabs__link">
+          Tutorials
+        </a>
+      
+    </li>
+  
+
+      
+        
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../../about/license/" title="About" class="md-tabs__link">
+          About
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://uuvsimulator.github.io/" title="Unmanned Underwater Vehicle Simulator Documentation" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Unmanned Underwater Vehicle Simulator Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/uuvsimulator/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../installation/" title="Installation" class="md-nav__link">
+      Installation
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../quick_start/" title="Quick start" class="md-nav__link">
+      Quick start
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      UUV Simulator
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        UUV Simulator
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../uuv_simulator/intro/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2">
+    
+    <label class="md-nav__link" for="nav-4-2">
+      Packages
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-2">
+        Packages
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../uuv_simulator/docs/packages/uuv_assistants/" title="uuv_assistants" class="md-nav__link">
+      uuv_assistants
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../uuv_simulator/docs/packages/uuv_auv_control_allocator/" title="uuv_auv_control_allocator" class="md-nav__link">
+      uuv_auv_control_allocator
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../uuv_simulator/docs/packages/uuv_control_cascaded_pid/" title="uuv_control_cascaded_pid" class="md-nav__link">
+      uuv_control_cascaded_pid
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../uuv_simulator/docs/packages/uuv_control_msgs/" title="uuv_control_msgs" class="md-nav__link">
+      uuv_control_msgs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../uuv_simulator/docs/packages/uuv_control_utils/" title="uuv_control_utils" class="md-nav__link">
+      uuv_control_utils
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../uuv_simulator/docs/packages/uuv_descriptions/" title="uuv_descriptions" class="md-nav__link">
+      uuv_descriptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../uuv_simulator/docs/packages/uuv_gazebo_plugins/" title="uuv_gazebo_plugins" class="md-nav__link">
+      uuv_gazebo_plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../uuv_simulator/docs/packages/uuv_gazebo/" title="uuv_gazebo" class="md-nav__link">
+      uuv_gazebo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../uuv_simulator/docs/packages/uuv_gazebo_ros_plugins/" title="uuv_gazebo_ros_plugins" class="md-nav__link">
+      uuv_gazebo_ros_plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../uuv_simulator/docs/packages/uuv_gazebo_ros_plugins_msgs/" title="uuv_gazebo_ros_plugins_msgs" class="md-nav__link">
+      uuv_gazebo_ros_plugins_msgs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../uuv_simulator/docs/packages/uuv_gazebo_worlds/" title="uuv_gazebo_worlds" class="md-nav__link">
+      uuv_gazebo_worlds
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../uuv_simulator/docs/packages/uuv_sensor_ros_plugins/" title="uuv_sensor_ros_plugins" class="md-nav__link">
+      uuv_sensor_ros_plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../uuv_simulator/docs/packages/uuv_sensor_ros_plugins_msgs/" title="uuv_sensor_ros_plugins_msgs" class="md-nav__link">
+      uuv_sensor_ros_plugins_msgs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../uuv_simulator/docs/packages/uuv_teleop/" title="uuv_teleop" class="md-nav__link">
+      uuv_teleop
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../uuv_simulator/docs/packages/uuv_thruster_manager/" title="uuv_thruster_manager" class="md-nav__link">
+      uuv_thruster_manager
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../uuv_simulator/docs/packages/uuv_trajectory_control/" title="uuv_trajectory_control" class="md-nav__link">
+      uuv_trajectory_control
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../uuv_simulator/docs/packages/uuv_world_plugins/" title="uuv_world_plugins" class="md-nav__link">
+      uuv_world_plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../uuv_simulator/docs/packages/uuv_world_ros_plugins/" title="uuv_world_ros_plugins" class="md-nav__link">
+      uuv_world_ros_plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../uuv_simulator/docs/packages/uuv_world_ros_plugins_msgs/" title="uuv_world_ros_plugins_msgs" class="md-nav__link">
+      uuv_world_ros_plugins_msgs
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3" type="checkbox" id="nav-4-3">
+    
+    <label class="md-nav__link" for="nav-4-3">
+      API
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-3">
+        API
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../uuv_simulator/docs/api/api-uuv_gazebo_plugins/" title="uuv_gazebo_plugins" class="md-nav__link">
+      uuv_gazebo_plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../uuv_simulator/docs/api/api-uuv_gazebo_ros_plugins/" title="uuv_gazebo_ros_plugins" class="md-nav__link">
+      uuv_gazebo_ros_plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../uuv_simulator/docs/api/api-uuv_sensor_ros_plugins/" title="uuv_sensor_ros_plugins" class="md-nav__link">
+      uuv_sensor_ros_plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../uuv_simulator/docs/api/api-uuv_world_plugins/" title="uuv_world_plugins" class="md-nav__link">
+      uuv_world_plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../uuv_simulator/docs/api/api-uuv_world_ros_plugins/" title="uuv_world_ros_plugins" class="md-nav__link">
+      uuv_world_ros_plugins
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      Plume Simulator
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Plume Simulator
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-2" type="checkbox" id="nav-5-2">
+    
+    <label class="md-nav__link" for="nav-5-2">
+      Packages
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-2">
+        Packages
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_plume_simulator/" title="uuv_plume_simulator" class="md-nav__link">
+      uuv_plume_simulator
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_cpc_sensor/" title="uuv_cpc_sensor" class="md-nav__link">
+      uuv_cpc_sensor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_plume_msgs/" title="uuv_plume_msgs" class="md-nav__link">
+      uuv_plume_msgs
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3" type="checkbox" id="nav-5-3" checked>
+    
+    <label class="md-nav__link" for="nav-5-3">
+      API
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-3">
+        API
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        uuv_cpc_sensor
+      </label>
+    
+    <a href="./" title="uuv_cpc_sensor" class="md-nav__link md-nav__link--active">
+      uuv_cpc_sensor
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" title="Summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#namespace-uuv_plume_simulator" title="namespace uuv_plume_simulator" class="md-nav__link">
+    namespace uuv_plume_simulator
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary_1" title="Summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#class-uuv_plume_simulatorcpcsensor" title="class uuv_plume_simulator::CPCSensor" class="md-nav__link">
+    class uuv_plume_simulator::CPCSensor
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary_2" title="Summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#members" title="Members" class="md-nav__link">
+    Members
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#publiccpcsensor" title="publicCPCSensor()" class="md-nav__link">
+    publicCPCSensor()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publiccpcsensor_1" title="public~CPCSensor()" class="md-nav__link">
+    public~CPCSensor()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-boolupdatingcloud" title="protected boolupdatingCloud" class="md-nav__link">
+    protected boolupdatingCloud
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-doublegamma" title="protected doublegamma" class="md-nav__link">
+    protected doublegamma
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-doublegain" title="protected doublegain" class="md-nav__link">
+    protected doublegain
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-doublesmoothinglength" title="protected doublesmoothingLength" class="md-nav__link">
+    protected doublesmoothingLength
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-stdstringsalinityunit" title="protected std::stringsalinityUnit" class="md-nav__link">
+    protected std::stringsalinityUnit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-doublesaturation" title="protected doublesaturation" class="md-nav__link">
+    protected doublesaturation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-boolusegeocoordinates" title="protected booluseGeoCoordinates" class="md-nav__link">
+    protected booluseGeoCoordinates
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-boolpublishsalinity" title="protected boolpublishSalinity" class="md-nav__link">
+    protected boolpublishSalinity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-doublereferencesalinityvalue" title="protected doublereferenceSalinityValue" class="md-nav__link">
+    protected doublereferenceSalinityValue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-doubleplumesalinityvalue" title="protected doubleplumeSalinityValue" class="md-nav__link">
+    protected doubleplumeSalinityValue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-boolupdatemeasurement" title="protected boolupdateMeasurement" class="md-nav__link">
+    protected boolupdateMeasurement
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-doubleupdaterate" title="protected doubleupdateRate" class="md-nav__link">
+    protected doubleupdateRate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-stdstringsensorframeid" title="protected std::stringsensorFrameID" class="md-nav__link">
+    protected std::stringsensorFrameID
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-boolareparticlesinit" title="protected boolareParticlesInit" class="md-nav__link">
+    protected boolareParticlesInit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-booluseodom" title="protected booluseOdom" class="md-nav__link">
+    protected booluseOdom
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-boolusegps" title="protected booluseGPS" class="md-nav__link">
+    protected booluseGPS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-boolusetfupdate" title="protected booluseTFUpdate" class="md-nav__link">
+    protected booluseTFUpdate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-geometry_msgsvector3cartpos" title="protected geometry_msgs::Vector3cartPos" class="md-nav__link">
+    protected geometry_msgs::Vector3cartPos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-geographic_msgsgeopointgeopos" title="protected geographic_msgs::GeoPointgeoPos" class="md-nav__link">
+    protected geographic_msgs::GeoPointgeoPos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-rossubscriberparticlessub" title="protected ros::SubscriberparticlesSub" class="md-nav__link">
+    protected ros::SubscriberparticlesSub
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-rossubscriberodometrysub" title="protected ros::SubscriberodometrySub" class="md-nav__link">
+    protected ros::SubscriberodometrySub
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-rossubscribergpssub" title="protected ros::SubscribergpsSub" class="md-nav__link">
+    protected ros::SubscribergpsSub
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-rospublisherconcentrationpub" title="protected ros::PublisherconcentrationPub" class="md-nav__link">
+    protected ros::PublisherconcentrationPub
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-rospublishersalinitypub" title="protected ros::PublishersalinityPub" class="md-nav__link">
+    protected ros::PublishersalinityPub
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-stdshared_ptr-rosnodehandle-nodehandle" title="protected std::shared_ptr&lt; ros::NodeHandle &gt;nodeHandle" class="md-nav__link">
+    protected std::shared_ptr&lt; ros::NodeHandle &gt;nodeHandle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-tf2_rosbuffertfbuffer" title="protected tf2_ros::BuffertfBuffer" class="md-nav__link">
+    protected tf2_ros::BuffertfBuffer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-stdshared_ptr-tf2_rostransformlistener-tflistener" title="protected std::shared_ptr&lt; tf2_ros::TransformListener &gt;tfListener" class="md-nav__link">
+    protected std::shared_ptr&lt; tf2_ros::TransformListener &gt;tfListener
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-geographicliblocalcartesianprojection" title="protected GeographicLib::LocalCartesianprojection" class="md-nav__link">
+    protected GeographicLib::LocalCartesianprojection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-uuv_plume_msgsparticleconcentrationconcentrationmsg" title="protected uuv_plume_msgs::ParticleConcentrationconcentrationMsg" class="md-nav__link">
+    protected uuv_plume_msgs::ParticleConcentrationconcentrationMsg
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-uuv_plume_msgssalinitysalinitymsg" title="protected uuv_plume_msgs::SalinitysalinityMsg" class="md-nav__link">
+    protected uuv_plume_msgs::SalinitysalinityMsg
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-rostimerupdatetimer" title="protected ros::TimerupdateTimer" class="md-nav__link">
+    protected ros::TimerupdateTimer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-stddefault_random_enginerndgen" title="protected std::default_random_enginerndGen" class="md-nav__link">
+    protected std::default_random_enginerndGen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-stdnormal_distribution-double-noisemodel" title="protected std::normal_distribution&lt; double &gt;noiseModel" class="md-nav__link">
+    protected std::normal_distribution&lt; double &gt;noiseModel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-doublenoiseamp" title="protected doublenoiseAmp" class="md-nav__link">
+    protected doublenoiseAmp
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-doublenoisesigma" title="protected doublenoiseSigma" class="md-nav__link">
+    protected doublenoiseSigma
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-voidonsensorupdateconst-rostimerevent" title="protected voidOnSensorUpdate(const ros::TimerEvent &amp;)" class="md-nav__link">
+    protected voidOnSensorUpdate(const ros::TimerEvent &amp;)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-voidonplumeparticlesupdateconst-sensor_msgspointcloudconstptr-_msg" title="protected voidOnPlumeParticlesUpdate(const sensor_msgs::PointCloud::ConstPtr &amp; _msg)" class="md-nav__link">
+    protected voidOnPlumeParticlesUpdate(const sensor_msgs::PointCloud::ConstPtr &amp; _msg)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-voidonodometryupdateconst-nav_msgsodometryconstptr-_msg" title="protected voidOnOdometryUpdate(const nav_msgs::Odometry::ConstPtr &amp; _msg)" class="md-nav__link">
+    protected voidOnOdometryUpdate(const nav_msgs::Odometry::ConstPtr &amp; _msg)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-voidongpsupdateconst-sensor_msgsnavsatfixconstptr-_msg" title="protected voidOnGPSUpdate(const sensor_msgs::NavSatFix::ConstPtr &amp; _msg)" class="md-nav__link">
+    protected voidOnGPSUpdate(const sensor_msgs::NavSatFix::ConstPtr &amp; _msg)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      RexROV 2
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        RexROV 2
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../rexrov2/intro/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-2" type="checkbox" id="nav-6-2">
+    
+    <label class="md-nav__link" for="nav-6-2">
+      Packages
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-2">
+        Packages
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../rexrov2/docs/packages/rexrov2_control/" title="rexrov2_control" class="md-nav__link">
+      rexrov2_control
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../rexrov2/docs/packages/rexrov2_description/" title="rexrov2_description" class="md-nav__link">
+      rexrov2_description
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../rexrov2/docs/packages/rexrov2_gazebo/" title="rexrov2_gazebo" class="md-nav__link">
+      rexrov2_gazebo
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      ECA A9
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        ECA A9
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../eca_a9/intro/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-2" type="checkbox" id="nav-7-2">
+    
+    <label class="md-nav__link" for="nav-7-2">
+      Packages
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-2">
+        Packages
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../eca_a9/docs/packages/eca_a9_control/" title="eca_a9_control" class="md-nav__link">
+      eca_a9_control
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../eca_a9/docs/packages/eca_a9_description/" title="eca_a9_description" class="md-nav__link">
+      eca_a9_description
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../eca_a9/docs/packages/eca_a9_gazebo/" title="eca_a9_gazebo" class="md-nav__link">
+      eca_a9_gazebo
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      LAUV
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        LAUV
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../lauv_gazebo/intro/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-2" type="checkbox" id="nav-8-2">
+    
+    <label class="md-nav__link" for="nav-8-2">
+      Packages
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-2">
+        Packages
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../lauv_gazebo/docs/packages/lauv_control/" title="lauv_control" class="md-nav__link">
+      lauv_control
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../lauv_gazebo/docs/packages/lauv_description/" title="lauv_description" class="md-nav__link">
+      lauv_description
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../lauv_gazebo/docs/packages/lauv_gazebo/" title="lauv_gazebo" class="md-nav__link">
+      lauv_gazebo
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      Desistek SAGA ROV
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        Desistek SAGA ROV
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../desistek_saga/intro/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9-2" type="checkbox" id="nav-9-2">
+    
+    <label class="md-nav__link" for="nav-9-2">
+      Packages
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-9-2">
+        Packages
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../desistek_saga/docs/packages/desistek_saga_control/" title="desistek_saga_control" class="md-nav__link">
+      desistek_saga_control
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../desistek_saga/docs/packages/desistek_saga_description/" title="desistek_saga_description" class="md-nav__link">
+      desistek_saga_description
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../desistek_saga/docs/packages/desistek_saga_gazebo/" title="desistek_saga_gazebo" class="md-nav__link">
+      desistek_saga_gazebo
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+    
+    <label class="md-nav__link" for="nav-10">
+      Tutorials
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        Tutorials
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../tutorials/config_thruster_manager/" title="Configuring the thruster manager" class="md-nav__link">
+      Configuring the thruster manager
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../tutorials/create_new_vehicle/" title="Create new vehicle" class="md-nav__link">
+      Create new vehicle
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../tutorials/creating_new_dp_controller/" title="Creating new dynamic positioning controller" class="md-nav__link">
+      Creating new dynamic positioning controller
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../tutorials/disturbances/" title="Disturbances" class="md-nav__link">
+      Disturbances
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../tutorials/plume_simulation/" title="Plume simulation" class="md-nav__link">
+      Plume simulation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../tutorials/seabed_world/" title="Creating a new world with a custom seabed" class="md-nav__link">
+      Creating a new world with a custom seabed
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../tutorials/simulation_wrapper/" title="Using the simulation wrapper" class="md-nav__link">
+      Using the simulation wrapper
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../faq/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../bibliography/" title="Useful Bibliography" class="md-nav__link">
+      Useful Bibliography
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13">
+    
+    <label class="md-nav__link" for="nav-13">
+      About
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-13">
+        About
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../about/license/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" title="Summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#namespace-uuv_plume_simulator" title="namespace uuv_plume_simulator" class="md-nav__link">
+    namespace uuv_plume_simulator
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary_1" title="Summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#class-uuv_plume_simulatorcpcsensor" title="class uuv_plume_simulator::CPCSensor" class="md-nav__link">
+    class uuv_plume_simulator::CPCSensor
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary_2" title="Summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#members" title="Members" class="md-nav__link">
+    Members
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#publiccpcsensor" title="publicCPCSensor()" class="md-nav__link">
+    publicCPCSensor()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publiccpcsensor_1" title="public~CPCSensor()" class="md-nav__link">
+    public~CPCSensor()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-boolupdatingcloud" title="protected boolupdatingCloud" class="md-nav__link">
+    protected boolupdatingCloud
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-doublegamma" title="protected doublegamma" class="md-nav__link">
+    protected doublegamma
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-doublegain" title="protected doublegain" class="md-nav__link">
+    protected doublegain
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-doublesmoothinglength" title="protected doublesmoothingLength" class="md-nav__link">
+    protected doublesmoothingLength
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-stdstringsalinityunit" title="protected std::stringsalinityUnit" class="md-nav__link">
+    protected std::stringsalinityUnit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-doublesaturation" title="protected doublesaturation" class="md-nav__link">
+    protected doublesaturation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-boolusegeocoordinates" title="protected booluseGeoCoordinates" class="md-nav__link">
+    protected booluseGeoCoordinates
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-boolpublishsalinity" title="protected boolpublishSalinity" class="md-nav__link">
+    protected boolpublishSalinity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-doublereferencesalinityvalue" title="protected doublereferenceSalinityValue" class="md-nav__link">
+    protected doublereferenceSalinityValue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-doubleplumesalinityvalue" title="protected doubleplumeSalinityValue" class="md-nav__link">
+    protected doubleplumeSalinityValue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-boolupdatemeasurement" title="protected boolupdateMeasurement" class="md-nav__link">
+    protected boolupdateMeasurement
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-doubleupdaterate" title="protected doubleupdateRate" class="md-nav__link">
+    protected doubleupdateRate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-stdstringsensorframeid" title="protected std::stringsensorFrameID" class="md-nav__link">
+    protected std::stringsensorFrameID
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-boolareparticlesinit" title="protected boolareParticlesInit" class="md-nav__link">
+    protected boolareParticlesInit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-booluseodom" title="protected booluseOdom" class="md-nav__link">
+    protected booluseOdom
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-boolusegps" title="protected booluseGPS" class="md-nav__link">
+    protected booluseGPS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-boolusetfupdate" title="protected booluseTFUpdate" class="md-nav__link">
+    protected booluseTFUpdate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-geometry_msgsvector3cartpos" title="protected geometry_msgs::Vector3cartPos" class="md-nav__link">
+    protected geometry_msgs::Vector3cartPos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-geographic_msgsgeopointgeopos" title="protected geographic_msgs::GeoPointgeoPos" class="md-nav__link">
+    protected geographic_msgs::GeoPointgeoPos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-rossubscriberparticlessub" title="protected ros::SubscriberparticlesSub" class="md-nav__link">
+    protected ros::SubscriberparticlesSub
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-rossubscriberodometrysub" title="protected ros::SubscriberodometrySub" class="md-nav__link">
+    protected ros::SubscriberodometrySub
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-rossubscribergpssub" title="protected ros::SubscribergpsSub" class="md-nav__link">
+    protected ros::SubscribergpsSub
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-rospublisherconcentrationpub" title="protected ros::PublisherconcentrationPub" class="md-nav__link">
+    protected ros::PublisherconcentrationPub
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-rospublishersalinitypub" title="protected ros::PublishersalinityPub" class="md-nav__link">
+    protected ros::PublishersalinityPub
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-stdshared_ptr-rosnodehandle-nodehandle" title="protected std::shared_ptr&lt; ros::NodeHandle &gt;nodeHandle" class="md-nav__link">
+    protected std::shared_ptr&lt; ros::NodeHandle &gt;nodeHandle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-tf2_rosbuffertfbuffer" title="protected tf2_ros::BuffertfBuffer" class="md-nav__link">
+    protected tf2_ros::BuffertfBuffer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-stdshared_ptr-tf2_rostransformlistener-tflistener" title="protected std::shared_ptr&lt; tf2_ros::TransformListener &gt;tfListener" class="md-nav__link">
+    protected std::shared_ptr&lt; tf2_ros::TransformListener &gt;tfListener
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-geographicliblocalcartesianprojection" title="protected GeographicLib::LocalCartesianprojection" class="md-nav__link">
+    protected GeographicLib::LocalCartesianprojection
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-uuv_plume_msgsparticleconcentrationconcentrationmsg" title="protected uuv_plume_msgs::ParticleConcentrationconcentrationMsg" class="md-nav__link">
+    protected uuv_plume_msgs::ParticleConcentrationconcentrationMsg
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-uuv_plume_msgssalinitysalinitymsg" title="protected uuv_plume_msgs::SalinitysalinityMsg" class="md-nav__link">
+    protected uuv_plume_msgs::SalinitysalinityMsg
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-rostimerupdatetimer" title="protected ros::TimerupdateTimer" class="md-nav__link">
+    protected ros::TimerupdateTimer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-stddefault_random_enginerndgen" title="protected std::default_random_enginerndGen" class="md-nav__link">
+    protected std::default_random_enginerndGen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-stdnormal_distribution-double-noisemodel" title="protected std::normal_distribution&lt; double &gt;noiseModel" class="md-nav__link">
+    protected std::normal_distribution&lt; double &gt;noiseModel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-doublenoiseamp" title="protected doublenoiseAmp" class="md-nav__link">
+    protected doublenoiseAmp
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-doublenoisesigma" title="protected doublenoiseSigma" class="md-nav__link">
+    protected doublenoiseSigma
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-voidonsensorupdateconst-rostimerevent" title="protected voidOnSensorUpdate(const ros::TimerEvent &amp;)" class="md-nav__link">
+    protected voidOnSensorUpdate(const ros::TimerEvent &amp;)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-voidonplumeparticlesupdateconst-sensor_msgspointcloudconstptr-_msg" title="protected voidOnPlumeParticlesUpdate(const sensor_msgs::PointCloud::ConstPtr &amp; _msg)" class="md-nav__link">
+    protected voidOnPlumeParticlesUpdate(const sensor_msgs::PointCloud::ConstPtr &amp; _msg)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-voidonodometryupdateconst-nav_msgsodometryconstptr-_msg" title="protected voidOnOdometryUpdate(const nav_msgs::Odometry::ConstPtr &amp; _msg)" class="md-nav__link">
+    protected voidOnOdometryUpdate(const nav_msgs::Odometry::ConstPtr &amp; _msg)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-voidongpsupdateconst-sensor_msgsnavsatfixconstptr-_msg" title="protected voidOnGPSUpdate(const sensor_msgs::NavSatFix::ConstPtr &amp; _msg)" class="md-nav__link">
+    protected voidOnGPSUpdate(const sensor_msgs::NavSatFix::ConstPtr &amp; _msg)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/uuvsimulator/edit/master/docs/packages/uuv_plume_simulator/docs/api/api-uuv_cpc_sensor.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>uuv_cpc_sensor</h1>
+                
+                <h4 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Members</th>
+<th>Descriptions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="codehilite">namespace</code><a href="#namespaceuuv__plume__simulator"><code class="codehilite">uuv_plume_simulator</code></a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="namespace-uuv_plume_simulator">namespace <code class="codehilite">uuv_plume_simulator</code><a class="headerlink" href="#namespace-uuv_plume_simulator" title="Permanent link">&para;</a></h4>
+<h5 id="summary_1">Summary<a class="headerlink" href="#summary_1" title="Permanent link">&para;</a></h5>
+<table>
+<thead>
+<tr>
+<th>Members</th>
+<th>Descriptions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="codehilite"><span class="k">class</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor"><code class="codehilite">uuv_plume_simulator::CPCSensor</code></a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="class-uuv_plume_simulatorcpcsensor">class <code class="codehilite">uuv_plume_simulator::CPCSensor</code><a class="headerlink" href="#class-uuv_plume_simulatorcpcsensor" title="Permanent link">&para;</a></h4>
+<h5 id="summary_2">Summary<a class="headerlink" href="#summary_2" title="Permanent link">&para;</a></h5>
+<table>
+<thead>
+<tr>
+<th>Members</th>
+<th>Descriptions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="codehilite">public</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a1472cc5596ca8af358a4a2a887c94935"><code class="codehilite">CPCSensor</code></a><code class="codehilite">()</code></td>
+<td>Class constructor.</td>
+</tr>
+<tr>
+<td><code class="codehilite">public</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a6c28c6d5b2f1788372ce74be9ac48d31"><code class="codehilite">~CPCSensor</code></a><code class="codehilite">()</code></td>
+<td>Class destructor.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected bool</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a32ace61c89476eb6309a4507936b5257"><code class="codehilite">updatingCloud</code></a></td>
+<td>Flag to ensure the cloud and measurement update don't coincide.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected double</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a853b8d456c24b321b952359c9a61489b"><code class="codehilite">gamma</code></a></td>
+<td>Gamma velocity parameter for the smoothing function.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected double</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1ad676c2b912f8b148b57070cda5b1c384"><code class="codehilite">gain</code></a></td>
+<td>Sensor gain.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected double</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a285eb79145cfd715291f808eaac32afb"><code class="codehilite">smoothingLength</code></a></td>
+<td>Radius of the kernel to identify particles that will be taken into account in the concentration computation.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected std::string</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a1a2bed3e78efa3c7d002d266c775029f"><code class="codehilite">salinityUnit</code></a></td>
+<td>Salinity unit to be used. Options are.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected double</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a4925a0273447a20a2a45749c2b739bf3"><code class="codehilite">saturation</code></a></td>
+<td>Sensor saturation.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected bool</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a9f12bbbc0bb4734e3e319fc940b0b0e6"><code class="codehilite">useGeoCoordinates</code></a></td>
+<td>Flag that will allow storing the geodetic coordinates with the measurement message.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected bool</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1ae9007729f28c92ac5d8a11190cdeb8bd"><code class="codehilite">publishSalinity</code></a></td>
+<td>Flag to activate publishing the simulated salinity.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected double</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a91278f224f4dc69aaa839eb517dd5a46"><code class="codehilite">referenceSalinityValue</code></a></td>
+<td>Default salinity value for the fluid e.g. sea water.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected double</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a7bbe4a621ed6c6be8d7ee87769c154f6"><code class="codehilite">plumeSalinityValue</code></a></td>
+<td>Default salinity value for the plume.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected bool</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a2de0395b9721e726347601543cfcd03d"><code class="codehilite">updateMeasurement</code></a></td>
+<td>Set to true to avoid particle update.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected double</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a5091b83afd0468f9f9926e19329c33ee"><code class="codehilite">updateRate</code></a></td>
+<td>Output topic's update rate.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected std::string</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1aee44faae4c264c656d8ebd248d2292a4"><code class="codehilite">sensorFrameID</code></a></td>
+<td>Name of the sensor frame.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected bool</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1af7b8775cc7edf1f37b10d2324f002146"><code class="codehilite">areParticlesInit</code></a></td>
+<td>Flag set to true after the first set of plume particles is received.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected bool</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1ab9602b92be015516bb35879f6b1539fe"><code class="codehilite">useOdom</code></a></td>
+<td>Flag set if the sensor position update must be read from the vehicle's odometry input topic.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected bool</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a42362a4faafe57c53e52930f32d5b757"><code class="codehilite">useGPS</code></a></td>
+<td>Flag set if the sensor position update must be read from the vehicle's GPS topic.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected bool</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a6e5f2a338e6158a8e65288489d2f43d0"><code class="codehilite">useTFUpdate</code></a></td>
+<td>Flag set if the TF update wrt the sensor frame ID.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected geometry_msgs::Vector3</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a624487ac7c4af59a54344608be0e9002"><code class="codehilite">cartPos</code></a></td>
+<td>Measured Cartesian position.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected geographic_msgs::GeoPoint</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a2eaeb701f45906596c91eb81b0799423"><code class="codehilite">geoPos</code></a></td>
+<td>Measured geodetic position.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected ros::Subscriber</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a10ca6338f7e6ed74c814aecd89908df9"><code class="codehilite">particlesSub</code></a></td>
+<td>Subscriber for the plume particle point cloud.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected ros::Subscriber</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a1113a6a302688220ec6e900897847e08"><code class="codehilite">odometrySub</code></a></td>
+<td>Subscriber for odometry topic.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected ros::Subscriber</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a22257bbc83b40e7b502e3c423fa25572"><code class="codehilite">gpsSub</code></a></td>
+<td>Subscriber to the GPS update topic.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected ros::Publisher</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1aeacfcb3e55ddf1da3df33dfd7132dad1"><code class="codehilite">concentrationPub</code></a></td>
+<td>Output topic for particle concentration.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected ros::Publisher</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a606721a0bb469e7c369d166ec7298027"><code class="codehilite">salinityPub</code></a></td>
+<td>Output topic for salinity.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected std::shared_ptr&lt; ros::NodeHandle &gt;</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1acc3ddc9eda68743989953933a8bdb6dd"><code class="codehilite">nodeHandle</code></a></td>
+<td>ROS node handle.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected tf2_ros::Buffer</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a2b75335de225523e6ddadaab786c6376"><code class="codehilite">tfBuffer</code></a></td>
+<td>TF buffer instance.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected std::shared_ptr&lt; tf2_ros::TransformListener &gt;</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1ab6950f90194ecfd62ab0bbd54fd81f7c"><code class="codehilite">tfListener</code></a></td>
+<td>TF listener pointer.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected GeographicLib::LocalCartesian</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1ae9c6808ab2ad5b13a72fb511eac3ab94"><code class="codehilite">projection</code></a></td>
+<td>Local Cartesian projection.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected uuv_plume_msgs::ParticleConcentration</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a8cfe5eff941369e1e33e26064764abbb"><code class="codehilite">concentrationMsg</code></a></td>
+<td>Plume concentration message.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected uuv_plume_msgs::Salinity</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a2e35ed0c7c463da2602b5ac9f1da282e"><code class="codehilite">salinityMsg</code></a></td>
+<td>Salinity message.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected ros::Timer</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a9c173307f263aa9b9b7c7f2342d5ce94"><code class="codehilite">updateTimer</code></a></td>
+<td>Sensor update timer.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected std::default_random_engine</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a32296108956e0909056e72ea5c3fe873"><code class="codehilite">rndGen</code></a></td>
+<td>Pseudo random number generator.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected std::normal_distribution&lt; double &gt;</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a43cfa91f2d9b5285545e7986b5a15962"><code class="codehilite">noiseModel</code></a></td>
+<td>Normal distribution describing the noise model.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected double</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1aff1cf4cad2ccf96800db7f6a16f271cc"><code class="codehilite">noiseAmp</code></a></td>
+<td>Noise amplitude.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected double</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a051b51ad3230fe9ee57f94aa80605cb1"><code class="codehilite">noiseSigma</code></a></td>
+<td>Noise standard deviation.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected void</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1aa0112facdab526f2e99a62772a7613cb"><code class="codehilite">OnSensorUpdate</code></a><code class="codehilite">(const ros::TimerEvent &amp;)</code></td>
+<td>Update the output concentration and salinity topics.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected void</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1ae4cac538822b672d2045a11f4d406336"><code class="codehilite">OnPlumeParticlesUpdate</code></a><code class="codehilite">(const sensor_msgs::PointCloud::ConstPtr &amp; _msg)</code></td>
+<td>Update callback from the plume particles.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected void</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a6348d873f88079a8af2303d76eede010"><code class="codehilite">OnOdometryUpdate</code></a><code class="codehilite">(const nav_msgs::Odometry::ConstPtr &amp; _msg)</code></td>
+<td>Update the odometry callback.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected void</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a428cc881985682f78876aa44866a6c7e"><code class="codehilite">OnGPSUpdate</code></a><code class="codehilite">(const sensor_msgs::NavSatFix::ConstPtr &amp; _msg)</code></td>
+<td>Update the GPS update callback.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="members">Members<a class="headerlink" href="#members" title="Permanent link">&para;</a></h5>
+<h6 id="publiccpcsensor"><code class="codehilite">public</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a1472cc5596ca8af358a4a2a887c94935"><code class="codehilite">CPCSensor</code></a><code class="codehilite">()</code><a class="headerlink" href="#publiccpcsensor" title="Permanent link">&para;</a></h6>
+<p>Class constructor.</p>
+<h6 id="publiccpcsensor_1"><code class="codehilite">public</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a6c28c6d5b2f1788372ce74be9ac48d31"><code class="codehilite">~CPCSensor</code></a><code class="codehilite">()</code><a class="headerlink" href="#publiccpcsensor_1" title="Permanent link">&para;</a></h6>
+<p>Class destructor.</p>
+<h6 id="protected-boolupdatingcloud"><code class="codehilite">protected bool</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a32ace61c89476eb6309a4507936b5257"><code class="codehilite">updatingCloud</code></a><a class="headerlink" href="#protected-boolupdatingcloud" title="Permanent link">&para;</a></h6>
+<p>Flag to ensure the cloud and measurement update don't coincide.</p>
+<h6 id="protected-doublegamma"><code class="codehilite">protected double</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a853b8d456c24b321b952359c9a61489b"><code class="codehilite">gamma</code></a><a class="headerlink" href="#protected-doublegamma" title="Permanent link">&para;</a></h6>
+<p>Gamma velocity parameter for the smoothing function.</p>
+<h6 id="protected-doublegain"><code class="codehilite">protected double</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1ad676c2b912f8b148b57070cda5b1c384"><code class="codehilite">gain</code></a><a class="headerlink" href="#protected-doublegain" title="Permanent link">&para;</a></h6>
+<p>Sensor gain.</p>
+<h6 id="protected-doublesmoothinglength"><code class="codehilite">protected double</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a285eb79145cfd715291f808eaac32afb"><code class="codehilite">smoothingLength</code></a><a class="headerlink" href="#protected-doublesmoothinglength" title="Permanent link">&para;</a></h6>
+<p>Radius of the kernel to identify particles that will be taken into account in the concentration computation.</p>
+<h6 id="protected-stdstringsalinityunit"><code class="codehilite">protected std::string</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a1a2bed3e78efa3c7d002d266c775029f"><code class="codehilite">salinityUnit</code></a><a class="headerlink" href="#protected-stdstringsalinityunit" title="Permanent link">&para;</a></h6>
+<p>Salinity unit to be used. Options are.</p>
+<ul>
+<li>
+<p>PPT (parts per thousand)</p>
+</li>
+<li>
+<p>PPM (parts per million)</p>
+</li>
+<li>
+<p>PSU (practical salinity unit)</p>
+</li>
+</ul>
+<h6 id="protected-doublesaturation"><code class="codehilite">protected double</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a4925a0273447a20a2a45749c2b739bf3"><code class="codehilite">saturation</code></a><a class="headerlink" href="#protected-doublesaturation" title="Permanent link">&para;</a></h6>
+<p>Sensor saturation.</p>
+<h6 id="protected-boolusegeocoordinates"><code class="codehilite">protected bool</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a9f12bbbc0bb4734e3e319fc940b0b0e6"><code class="codehilite">useGeoCoordinates</code></a><a class="headerlink" href="#protected-boolusegeocoordinates" title="Permanent link">&para;</a></h6>
+<p>Flag that will allow storing the geodetic coordinates with the measurement message.</p>
+<h6 id="protected-boolpublishsalinity"><code class="codehilite">protected bool</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1ae9007729f28c92ac5d8a11190cdeb8bd"><code class="codehilite">publishSalinity</code></a><a class="headerlink" href="#protected-boolpublishsalinity" title="Permanent link">&para;</a></h6>
+<p>Flag to activate publishing the simulated salinity.</p>
+<h6 id="protected-doublereferencesalinityvalue"><code class="codehilite">protected double</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a91278f224f4dc69aaa839eb517dd5a46"><code class="codehilite">referenceSalinityValue</code></a><a class="headerlink" href="#protected-doublereferencesalinityvalue" title="Permanent link">&para;</a></h6>
+<p>Default salinity value for the fluid e.g. sea water.</p>
+<h6 id="protected-doubleplumesalinityvalue"><code class="codehilite">protected double</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a7bbe4a621ed6c6be8d7ee87769c154f6"><code class="codehilite">plumeSalinityValue</code></a><a class="headerlink" href="#protected-doubleplumesalinityvalue" title="Permanent link">&para;</a></h6>
+<p>Default salinity value for the plume.</p>
+<h6 id="protected-boolupdatemeasurement"><code class="codehilite">protected bool</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a2de0395b9721e726347601543cfcd03d"><code class="codehilite">updateMeasurement</code></a><a class="headerlink" href="#protected-boolupdatemeasurement" title="Permanent link">&para;</a></h6>
+<p>Set to true to avoid particle update.</p>
+<h6 id="protected-doubleupdaterate"><code class="codehilite">protected double</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a5091b83afd0468f9f9926e19329c33ee"><code class="codehilite">updateRate</code></a><a class="headerlink" href="#protected-doubleupdaterate" title="Permanent link">&para;</a></h6>
+<p>Output topic's update rate.</p>
+<h6 id="protected-stdstringsensorframeid"><code class="codehilite">protected std::string</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1aee44faae4c264c656d8ebd248d2292a4"><code class="codehilite">sensorFrameID</code></a><a class="headerlink" href="#protected-stdstringsensorframeid" title="Permanent link">&para;</a></h6>
+<p>Name of the sensor frame.</p>
+<h6 id="protected-boolareparticlesinit"><code class="codehilite">protected bool</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1af7b8775cc7edf1f37b10d2324f002146"><code class="codehilite">areParticlesInit</code></a><a class="headerlink" href="#protected-boolareparticlesinit" title="Permanent link">&para;</a></h6>
+<p>Flag set to true after the first set of plume particles is received.</p>
+<h6 id="protected-booluseodom"><code class="codehilite">protected bool</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1ab9602b92be015516bb35879f6b1539fe"><code class="codehilite">useOdom</code></a><a class="headerlink" href="#protected-booluseodom" title="Permanent link">&para;</a></h6>
+<p>Flag set if the sensor position update must be read from the vehicle's odometry input topic.</p>
+<h6 id="protected-boolusegps"><code class="codehilite">protected bool</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a42362a4faafe57c53e52930f32d5b757"><code class="codehilite">useGPS</code></a><a class="headerlink" href="#protected-boolusegps" title="Permanent link">&para;</a></h6>
+<p>Flag set if the sensor position update must be read from the vehicle's GPS topic.</p>
+<h6 id="protected-boolusetfupdate"><code class="codehilite">protected bool</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a6e5f2a338e6158a8e65288489d2f43d0"><code class="codehilite">useTFUpdate</code></a><a class="headerlink" href="#protected-boolusetfupdate" title="Permanent link">&para;</a></h6>
+<p>Flag set if the TF update wrt the sensor frame ID.</p>
+<h6 id="protected-geometry_msgsvector3cartpos"><code class="codehilite">protected geometry_msgs::Vector3</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a624487ac7c4af59a54344608be0e9002"><code class="codehilite">cartPos</code></a><a class="headerlink" href="#protected-geometry_msgsvector3cartpos" title="Permanent link">&para;</a></h6>
+<p>Measured Cartesian position.</p>
+<h6 id="protected-geographic_msgsgeopointgeopos"><code class="codehilite">protected geographic_msgs::GeoPoint</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a2eaeb701f45906596c91eb81b0799423"><code class="codehilite">geoPos</code></a><a class="headerlink" href="#protected-geographic_msgsgeopointgeopos" title="Permanent link">&para;</a></h6>
+<p>Measured geodetic position.</p>
+<h6 id="protected-rossubscriberparticlessub"><code class="codehilite">protected ros::Subscriber</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a10ca6338f7e6ed74c814aecd89908df9"><code class="codehilite">particlesSub</code></a><a class="headerlink" href="#protected-rossubscriberparticlessub" title="Permanent link">&para;</a></h6>
+<p>Subscriber for the plume particle point cloud.</p>
+<h6 id="protected-rossubscriberodometrysub"><code class="codehilite">protected ros::Subscriber</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a1113a6a302688220ec6e900897847e08"><code class="codehilite">odometrySub</code></a><a class="headerlink" href="#protected-rossubscriberodometrysub" title="Permanent link">&para;</a></h6>
+<p>Subscriber for odometry topic.</p>
+<h6 id="protected-rossubscribergpssub"><code class="codehilite">protected ros::Subscriber</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a22257bbc83b40e7b502e3c423fa25572"><code class="codehilite">gpsSub</code></a><a class="headerlink" href="#protected-rossubscribergpssub" title="Permanent link">&para;</a></h6>
+<p>Subscriber to the GPS update topic.</p>
+<h6 id="protected-rospublisherconcentrationpub"><code class="codehilite">protected ros::Publisher</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1aeacfcb3e55ddf1da3df33dfd7132dad1"><code class="codehilite">concentrationPub</code></a><a class="headerlink" href="#protected-rospublisherconcentrationpub" title="Permanent link">&para;</a></h6>
+<p>Output topic for particle concentration.</p>
+<h6 id="protected-rospublishersalinitypub"><code class="codehilite">protected ros::Publisher</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a606721a0bb469e7c369d166ec7298027"><code class="codehilite">salinityPub</code></a><a class="headerlink" href="#protected-rospublishersalinitypub" title="Permanent link">&para;</a></h6>
+<p>Output topic for salinity.</p>
+<h6 id="protected-stdshared_ptr-rosnodehandle-nodehandle"><code class="codehilite">protected std::shared_ptr&lt; ros::NodeHandle &gt;</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1acc3ddc9eda68743989953933a8bdb6dd"><code class="codehilite">nodeHandle</code></a><a class="headerlink" href="#protected-stdshared_ptr-rosnodehandle-nodehandle" title="Permanent link">&para;</a></h6>
+<p>ROS node handle.</p>
+<h6 id="protected-tf2_rosbuffertfbuffer"><code class="codehilite">protected tf2_ros::Buffer</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a2b75335de225523e6ddadaab786c6376"><code class="codehilite">tfBuffer</code></a><a class="headerlink" href="#protected-tf2_rosbuffertfbuffer" title="Permanent link">&para;</a></h6>
+<p>TF buffer instance.</p>
+<h6 id="protected-stdshared_ptr-tf2_rostransformlistener-tflistener"><code class="codehilite">protected std::shared_ptr&lt; tf2_ros::TransformListener &gt;</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1ab6950f90194ecfd62ab0bbd54fd81f7c"><code class="codehilite">tfListener</code></a><a class="headerlink" href="#protected-stdshared_ptr-tf2_rostransformlistener-tflistener" title="Permanent link">&para;</a></h6>
+<p>TF listener pointer.</p>
+<h6 id="protected-geographicliblocalcartesianprojection"><code class="codehilite">protected GeographicLib::LocalCartesian</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1ae9c6808ab2ad5b13a72fb511eac3ab94"><code class="codehilite">projection</code></a><a class="headerlink" href="#protected-geographicliblocalcartesianprojection" title="Permanent link">&para;</a></h6>
+<p>Local Cartesian projection.</p>
+<h6 id="protected-uuv_plume_msgsparticleconcentrationconcentrationmsg"><code class="codehilite">protected uuv_plume_msgs::ParticleConcentration</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a8cfe5eff941369e1e33e26064764abbb"><code class="codehilite">concentrationMsg</code></a><a class="headerlink" href="#protected-uuv_plume_msgsparticleconcentrationconcentrationmsg" title="Permanent link">&para;</a></h6>
+<p>Plume concentration message.</p>
+<h6 id="protected-uuv_plume_msgssalinitysalinitymsg"><code class="codehilite">protected uuv_plume_msgs::Salinity</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a2e35ed0c7c463da2602b5ac9f1da282e"><code class="codehilite">salinityMsg</code></a><a class="headerlink" href="#protected-uuv_plume_msgssalinitysalinitymsg" title="Permanent link">&para;</a></h6>
+<p>Salinity message.</p>
+<h6 id="protected-rostimerupdatetimer"><code class="codehilite">protected ros::Timer</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a9c173307f263aa9b9b7c7f2342d5ce94"><code class="codehilite">updateTimer</code></a><a class="headerlink" href="#protected-rostimerupdatetimer" title="Permanent link">&para;</a></h6>
+<p>Sensor update timer.</p>
+<h6 id="protected-stddefault_random_enginerndgen"><code class="codehilite">protected std::default_random_engine</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a32296108956e0909056e72ea5c3fe873"><code class="codehilite">rndGen</code></a><a class="headerlink" href="#protected-stddefault_random_enginerndgen" title="Permanent link">&para;</a></h6>
+<p>Pseudo random number generator.</p>
+<h6 id="protected-stdnormal_distribution-double-noisemodel"><code class="codehilite">protected std::normal_distribution&lt; double &gt;</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a43cfa91f2d9b5285545e7986b5a15962"><code class="codehilite">noiseModel</code></a><a class="headerlink" href="#protected-stdnormal_distribution-double-noisemodel" title="Permanent link">&para;</a></h6>
+<p>Normal distribution describing the noise model.</p>
+<h6 id="protected-doublenoiseamp"><code class="codehilite">protected double</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1aff1cf4cad2ccf96800db7f6a16f271cc"><code class="codehilite">noiseAmp</code></a><a class="headerlink" href="#protected-doublenoiseamp" title="Permanent link">&para;</a></h6>
+<p>Noise amplitude.</p>
+<h6 id="protected-doublenoisesigma"><code class="codehilite">protected double</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a051b51ad3230fe9ee57f94aa80605cb1"><code class="codehilite">noiseSigma</code></a><a class="headerlink" href="#protected-doublenoisesigma" title="Permanent link">&para;</a></h6>
+<p>Noise standard deviation.</p>
+<h6 id="protected-voidonsensorupdateconst-rostimerevent"><code class="codehilite">protected void</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1aa0112facdab526f2e99a62772a7613cb"><code class="codehilite">OnSensorUpdate</code></a><code class="codehilite">(const ros::TimerEvent &amp;)</code><a class="headerlink" href="#protected-voidonsensorupdateconst-rostimerevent" title="Permanent link">&para;</a></h6>
+<p>Update the output concentration and salinity topics.</p>
+<h6 id="protected-voidonplumeparticlesupdateconst-sensor_msgspointcloudconstptr-_msg"><code class="codehilite">protected void</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1ae4cac538822b672d2045a11f4d406336"><code class="codehilite">OnPlumeParticlesUpdate</code></a><code class="codehilite">(const sensor_msgs::PointCloud::ConstPtr &amp; _msg)</code><a class="headerlink" href="#protected-voidonplumeparticlesupdateconst-sensor_msgspointcloudconstptr-_msg" title="Permanent link">&para;</a></h6>
+<p>Update callback from the plume particles.</p>
+<h6 id="protected-voidonodometryupdateconst-nav_msgsodometryconstptr-_msg"><code class="codehilite">protected void</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a6348d873f88079a8af2303d76eede010"><code class="codehilite">OnOdometryUpdate</code></a><code class="codehilite">(const nav_msgs::Odometry::ConstPtr &amp; _msg)</code><a class="headerlink" href="#protected-voidonodometryupdateconst-nav_msgsodometryconstptr-_msg" title="Permanent link">&para;</a></h6>
+<p>Update the odometry callback.</p>
+<h6 id="protected-voidongpsupdateconst-sensor_msgsnavsatfixconstptr-_msg"><code class="codehilite">protected void</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a428cc881985682f78876aa44866a6c7e"><code class="codehilite">OnGPSUpdate</code></a><code class="codehilite">(const sensor_msgs::NavSatFix::ConstPtr &amp; _msg)</code><a class="headerlink" href="#protected-voidongpsupdateconst-sensor_msgsnavsatfixconstptr-_msg" title="Permanent link">&para;</a></h6>
+<p>Update the GPS update callback.</p>
+<p>Generated by <a href="https://sourcey.com/moxygen">Moxygen</a></p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../packages/uuv_plume_msgs/" title="uuv_plume_msgs" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                uuv_plume_msgs
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../../../rexrov2/intro/" title="Introduction" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Introduction
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright (c) 2016-2019 The UUV Simulator Authors
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/boschresearch" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://discourse.ros.org/c/maritime" class="md-footer-social__link fa fa-comment"></a>
+    
+      <a href="https://github.com/uuvsimulator/" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://uuvsimulator.slack.com/" class="md-footer-social__link fa fa-slack"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../../assets/javascripts/application.267712eb.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../../../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

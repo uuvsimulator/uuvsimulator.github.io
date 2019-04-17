@@ -1,0 +1,1901 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Unmanned Underwater Vehicle Simulator Documentation.">
+      
+      
+        <link rel="canonical" href="https://uuvsimulator.github.io/tutorials/simulation_wrapper/">
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.2">
+    
+    
+      
+        <title>Using the simulation wrapper - Unmanned Underwater Vehicle Simulator Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.3020aac5.css">
+      
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.01ccdecf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#how-to-use-the-wrapper-class-for-repetitive-simulation-runs" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://uuvsimulator.github.io/" title="Unmanned Underwater Vehicle Simulator Documentation" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Unmanned Underwater Vehicle Simulator Documentation
+            </span>
+            <span class="md-header-nav__topic">
+              Using the simulation wrapper
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/uuvsimulator/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." title="Home" class="md-tabs__link">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../packages/uuv_simulator/intro/" title="UUV Simulator" class="md-tabs__link">
+          UUV Simulator
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../packages/uuv_plume_simulator/intro/" title="Plume Simulator" class="md-tabs__link">
+          Plume Simulator
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../packages/rexrov2/intro/" title="RexROV 2" class="md-tabs__link">
+          RexROV 2
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../packages/eca_a9/intro/" title="ECA A9" class="md-tabs__link">
+          ECA A9
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../packages/lauv_gazebo/intro/" title="LAUV" class="md-tabs__link">
+          LAUV
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../packages/desistek_saga/intro/" title="Desistek SAGA ROV" class="md-tabs__link">
+          Desistek SAGA ROV
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../config_thruster_manager/" title="Tutorials" class="md-tabs__link md-tabs__link--active">
+          Tutorials
+        </a>
+      
+    </li>
+  
+
+      
+        
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../about/license/" title="About" class="md-tabs__link">
+          About
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://uuvsimulator.github.io/" title="Unmanned Underwater Vehicle Simulator Documentation" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Unmanned Underwater Vehicle Simulator Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/uuvsimulator/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../installation/" title="Installation" class="md-nav__link">
+      Installation
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../quick_start/" title="Quick start" class="md-nav__link">
+      Quick start
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      UUV Simulator
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        UUV Simulator
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_simulator/intro/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2">
+    
+    <label class="md-nav__link" for="nav-4-2">
+      Packages
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-2">
+        Packages
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_simulator/docs/packages/uuv_assistants/" title="uuv_assistants" class="md-nav__link">
+      uuv_assistants
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_simulator/docs/packages/uuv_auv_control_allocator/" title="uuv_auv_control_allocator" class="md-nav__link">
+      uuv_auv_control_allocator
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_simulator/docs/packages/uuv_control_cascaded_pid/" title="uuv_control_cascaded_pid" class="md-nav__link">
+      uuv_control_cascaded_pid
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_simulator/docs/packages/uuv_control_msgs/" title="uuv_control_msgs" class="md-nav__link">
+      uuv_control_msgs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_simulator/docs/packages/uuv_control_utils/" title="uuv_control_utils" class="md-nav__link">
+      uuv_control_utils
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_simulator/docs/packages/uuv_descriptions/" title="uuv_descriptions" class="md-nav__link">
+      uuv_descriptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_simulator/docs/packages/uuv_gazebo_plugins/" title="uuv_gazebo_plugins" class="md-nav__link">
+      uuv_gazebo_plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_simulator/docs/packages/uuv_gazebo/" title="uuv_gazebo" class="md-nav__link">
+      uuv_gazebo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_simulator/docs/packages/uuv_gazebo_ros_plugins/" title="uuv_gazebo_ros_plugins" class="md-nav__link">
+      uuv_gazebo_ros_plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_simulator/docs/packages/uuv_gazebo_ros_plugins_msgs/" title="uuv_gazebo_ros_plugins_msgs" class="md-nav__link">
+      uuv_gazebo_ros_plugins_msgs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_simulator/docs/packages/uuv_gazebo_worlds/" title="uuv_gazebo_worlds" class="md-nav__link">
+      uuv_gazebo_worlds
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_simulator/docs/packages/uuv_sensor_ros_plugins/" title="uuv_sensor_ros_plugins" class="md-nav__link">
+      uuv_sensor_ros_plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_simulator/docs/packages/uuv_sensor_ros_plugins_msgs/" title="uuv_sensor_ros_plugins_msgs" class="md-nav__link">
+      uuv_sensor_ros_plugins_msgs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_simulator/docs/packages/uuv_teleop/" title="uuv_teleop" class="md-nav__link">
+      uuv_teleop
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_simulator/docs/packages/uuv_thruster_manager/" title="uuv_thruster_manager" class="md-nav__link">
+      uuv_thruster_manager
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_simulator/docs/packages/uuv_trajectory_control/" title="uuv_trajectory_control" class="md-nav__link">
+      uuv_trajectory_control
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_simulator/docs/packages/uuv_world_plugins/" title="uuv_world_plugins" class="md-nav__link">
+      uuv_world_plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_simulator/docs/packages/uuv_world_ros_plugins/" title="uuv_world_ros_plugins" class="md-nav__link">
+      uuv_world_ros_plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_simulator/docs/packages/uuv_world_ros_plugins_msgs/" title="uuv_world_ros_plugins_msgs" class="md-nav__link">
+      uuv_world_ros_plugins_msgs
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3" type="checkbox" id="nav-4-3">
+    
+    <label class="md-nav__link" for="nav-4-3">
+      API
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-3">
+        API
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_simulator/docs/api/api-uuv_gazebo_plugins/" title="uuv_gazebo_plugins" class="md-nav__link">
+      uuv_gazebo_plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_simulator/docs/api/api-uuv_gazebo_ros_plugins/" title="uuv_gazebo_ros_plugins" class="md-nav__link">
+      uuv_gazebo_ros_plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_simulator/docs/api/api-uuv_sensor_ros_plugins/" title="uuv_sensor_ros_plugins" class="md-nav__link">
+      uuv_sensor_ros_plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_simulator/docs/api/api-uuv_world_plugins/" title="uuv_world_plugins" class="md-nav__link">
+      uuv_world_plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_simulator/docs/api/api-uuv_world_ros_plugins/" title="uuv_world_ros_plugins" class="md-nav__link">
+      uuv_world_ros_plugins
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Plume Simulator
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Plume Simulator
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_plume_simulator/intro/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-2" type="checkbox" id="nav-5-2">
+    
+    <label class="md-nav__link" for="nav-5-2">
+      Packages
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-2">
+        Packages
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_plume_simulator/docs/packages/uuv_plume_simulator/" title="uuv_plume_simulator" class="md-nav__link">
+      uuv_plume_simulator
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_plume_simulator/docs/packages/uuv_cpc_sensor/" title="uuv_cpc_sensor" class="md-nav__link">
+      uuv_cpc_sensor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_plume_simulator/docs/packages/uuv_plume_msgs/" title="uuv_plume_msgs" class="md-nav__link">
+      uuv_plume_msgs
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3" type="checkbox" id="nav-5-3">
+    
+    <label class="md-nav__link" for="nav-5-3">
+      API
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-3">
+        API
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_plume_simulator/docs/api/api-uuv_cpc_sensor/" title="uuv_cpc_sensor" class="md-nav__link">
+      uuv_cpc_sensor
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      RexROV 2
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        RexROV 2
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/rexrov2/intro/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-2" type="checkbox" id="nav-6-2">
+    
+    <label class="md-nav__link" for="nav-6-2">
+      Packages
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-2">
+        Packages
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/rexrov2/docs/packages/rexrov2_control/" title="rexrov2_control" class="md-nav__link">
+      rexrov2_control
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/rexrov2/docs/packages/rexrov2_description/" title="rexrov2_description" class="md-nav__link">
+      rexrov2_description
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/rexrov2/docs/packages/rexrov2_gazebo/" title="rexrov2_gazebo" class="md-nav__link">
+      rexrov2_gazebo
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      ECA A9
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        ECA A9
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/eca_a9/intro/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-2" type="checkbox" id="nav-7-2">
+    
+    <label class="md-nav__link" for="nav-7-2">
+      Packages
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-2">
+        Packages
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/eca_a9/docs/packages/eca_a9_control/" title="eca_a9_control" class="md-nav__link">
+      eca_a9_control
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/eca_a9/docs/packages/eca_a9_description/" title="eca_a9_description" class="md-nav__link">
+      eca_a9_description
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/eca_a9/docs/packages/eca_a9_gazebo/" title="eca_a9_gazebo" class="md-nav__link">
+      eca_a9_gazebo
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      LAUV
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        LAUV
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/lauv_gazebo/intro/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-2" type="checkbox" id="nav-8-2">
+    
+    <label class="md-nav__link" for="nav-8-2">
+      Packages
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-2">
+        Packages
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/lauv_gazebo/docs/packages/lauv_control/" title="lauv_control" class="md-nav__link">
+      lauv_control
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/lauv_gazebo/docs/packages/lauv_description/" title="lauv_description" class="md-nav__link">
+      lauv_description
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/lauv_gazebo/docs/packages/lauv_gazebo/" title="lauv_gazebo" class="md-nav__link">
+      lauv_gazebo
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      Desistek SAGA ROV
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        Desistek SAGA ROV
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/desistek_saga/intro/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9-2" type="checkbox" id="nav-9-2">
+    
+    <label class="md-nav__link" for="nav-9-2">
+      Packages
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-9-2">
+        Packages
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/desistek_saga/docs/packages/desistek_saga_control/" title="desistek_saga_control" class="md-nav__link">
+      desistek_saga_control
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/desistek_saga/docs/packages/desistek_saga_description/" title="desistek_saga_description" class="md-nav__link">
+      desistek_saga_description
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/desistek_saga/docs/packages/desistek_saga_gazebo/" title="desistek_saga_gazebo" class="md-nav__link">
+      desistek_saga_gazebo
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10" checked>
+    
+    <label class="md-nav__link" for="nav-10">
+      Tutorials
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        Tutorials
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../config_thruster_manager/" title="Configuring the thruster manager" class="md-nav__link">
+      Configuring the thruster manager
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../create_new_vehicle/" title="Create new vehicle" class="md-nav__link">
+      Create new vehicle
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../creating_new_dp_controller/" title="Creating new dynamic positioning controller" class="md-nav__link">
+      Creating new dynamic positioning controller
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../disturbances/" title="Disturbances" class="md-nav__link">
+      Disturbances
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../plume_simulation/" title="Plume simulation" class="md-nav__link">
+      Plume simulation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../seabed_world/" title="Creating a new world with a custom seabed" class="md-nav__link">
+      Creating a new world with a custom seabed
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Using the simulation wrapper
+      </label>
+    
+    <a href="./" title="Using the simulation wrapper" class="md-nav__link md-nav__link--active">
+      Using the simulation wrapper
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use-the-wrapper-class-for-repetitive-simulation-runs" title="How to use the wrapper class for repetitive simulation runs" class="md-nav__link">
+    How to use the wrapper class for repetitive simulation runs
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#starting-and-terminating-the-simulation-using-a-timeout" title="Starting and terminating the simulation using a timeout" class="md-nav__link">
+    Starting and terminating the simulation using a timeout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-the-python-wrapper-to-run-a-simulation" title="Using the Python wrapper to run a simulation" class="md-nav__link">
+    Using the Python wrapper to run a simulation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-the-example" title="Running the example" class="md-nav__link">
+    Running the example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../faq/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../bibliography/" title="Useful Bibliography" class="md-nav__link">
+      Useful Bibliography
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13">
+    
+    <label class="md-nav__link" for="nav-13">
+      About
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-13">
+        About
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../about/license/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use-the-wrapper-class-for-repetitive-simulation-runs" title="How to use the wrapper class for repetitive simulation runs" class="md-nav__link">
+    How to use the wrapper class for repetitive simulation runs
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#starting-and-terminating-the-simulation-using-a-timeout" title="Starting and terminating the simulation using a timeout" class="md-nav__link">
+    Starting and terminating the simulation using a timeout
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-the-python-wrapper-to-run-a-simulation" title="Using the Python wrapper to run a simulation" class="md-nav__link">
+    Using the Python wrapper to run a simulation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-the-example" title="Running the example" class="md-nav__link">
+    Running the example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/uuvsimulator/edit/master/docs/tutorials/simulation_wrapper.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Using the simulation wrapper</h1>
+                
+                <p>.. _simulation_wrapper:</p>
+<h4 id="how-to-use-the-wrapper-class-for-repetitive-simulation-runs">How to use the wrapper class for repetitive simulation runs<a class="headerlink" href="#how-to-use-the-wrapper-class-for-repetitive-simulation-runs" title="Permanent link">&para;</a></h4>
+<p>One of the good advantages of simulation implemenations is the possibility of evaluating the complete closed-loop system under several different scenarios that would be difficult to reproduce in real experiments.
+That is the case for reinforcement learning and optimization algorithms, to name a few use-cases where the simulation could be used for system evaluation.
+Even though that is a promising application of any Gazebo/ROS based simulation, the actual implementation of a wrapper with which the simulation can be started and terminated in a controlled environment involves a lot of attention in order to guarantee that all ROS nodes can be properly started.
+For this purposes, a set of nodes and process managers have been implemented as part of the <code class="codehilite">uuv_simulation_evaluation &lt;https://github.com/uuvsimulator/uuv_simulation_evaluation&gt;</code>_.
+Be sure to install the package in your catkin workspace ::</p>
+<p>cd ~/catkin_ws/src
+  git clone <a href="https://github.com/uuvsimulator/uuv_simulation_evaluation.git">https://github.com/uuvsimulator/uuv_simulation_evaluation.git</a></p>
+<p>then build the workspace::</p>
+<p>cd ~/catkin_ws
+  catkin build
+  source devel/setup.bash</p>
+<p>.. note::</p>
+<p>The <strong>uuv_simulation_evaluation</strong> package also requires extra dependencies that can be installed as follows::</p>
+<div class="codehilite"><pre><span></span>pip3 install smac
+</pre></div>
+
+
+<h5 id="starting-and-terminating-the-simulation-using-a-timeout">Starting and terminating the simulation using a timeout<a class="headerlink" href="#starting-and-terminating-the-simulation-using-a-timeout" title="Permanent link">&para;</a></h5>
+<p>Per default, it is not possible to set a termination time for the simulation.
+This is acchieved by a very simple ROS node that is launched by the file below</p>
+<p>.. literalinclude:: ../files/tutorials/simulation_wrapper/set_simulation_timer.launch
+  :language: xml</p>
+<p>and starts the <code class="codehilite">set_simulation_timer &lt;https://github.com/uuvsimulator/uuv_simulation_evaluation/blob/master/uuv_simulation_wrapper/scripts/set_simulation_timer&gt;</code>_ Python ROS node.
+This node will simply read simulation time from <strong>/clock</strong> and use the <strong>timeout</strong> input argument to count down the simulation time.
+Since the node is initialized with the <strong>required</strong> flag, all ROS processes are terminated once the timeout is reached.
+The only requirement is that this node has to be called with the rest of the processes running the simulation (including the Gazebo process) to terminate the simulation at a specified timeout, namely start the <strong>set_simulation_timer</strong> node in the launch file.</p>
+<p>.. note::</p>
+<p>For more information on the <strong>required</strong> flag, check the <code class="codehilite">official ROS wiki page &lt;http://wiki.ros.org/roslaunch/XML/node&gt;</code>_.</p>
+<p>One small example is starting the empty underwater world and setting a simulation timeout in a launch file as follows ::</p>
+<p><launch>
+    <include file="$(find uuv_descriptions)/launch/empty_underwater_world.launch">
+        <arg name="gui" value="true"/>
+        <arg name="paused" value="false"/>
+    </include></p>
+<div class="codehilite"><pre><span></span>&lt;include file=&quot;$(find uuv_simulation_wrapper)/launch/set_simulation_timer.launch&quot;&gt;
+    &lt;arg name=&quot;timeout&quot; value=&quot;10&quot;/&gt;
+&lt;/include&gt;
+</pre></div>
+
+
+<p></launch></p>
+<p>This example will lead to the Gazebo simulation being terminated after 10 seconds.
+One further problem can appear when starting a large number of ROS nodes that depend on Gazebo's simulation.
+Gazebo's process can often take some time to be initialized and some services and topics might not be available right away until all plugins have been set in place.
+That can lead to some issues with some ROS nodes that will find that services and topics are unavailable right after starting the simulation.
+That is easier to control when starting all nodes manually using the command line, but can be an issue when setting up automated simulation runs.
+For this issue, one further ROS node can be used to unpause the Gazebo simulation after a timeout, making it easier to control the startup process.
+This can be seen in the following sample launch file ::</p>
+<p><launch>
+    <include file="$(find uuv_descriptions)/launch/empty_underwater_world.launch">
+        <arg name="gui" value="true"/>
+        <arg name="paused" value="true"/>
+    </include></p>
+<div class="codehilite"><pre><span></span>&lt;include file=&quot;$(find uuv_simulation_wrapper)/launch/set_simulation_timer.launch&quot;&gt;
+    &lt;arg name=&quot;timeout&quot; value=&quot;10&quot;/&gt;
+&lt;/include&gt;
+
+&lt;include file=&quot;$(find uuv_simulation_wrapper)/launch/unpause_simulation.launch&quot;&gt;
+    &lt;arg name=&quot;timeout&quot; value=&quot;5&quot;/&gt;
+&lt;/include&gt;
+</pre></div>
+
+
+<p></launch></p>
+<p>What this example does is unpause the simulation after 5 seconds and helps to control the startup of all nodes that use the simulation time for their cycles.
+Is essential in this case to start the Gazebo world with the <strong>paused</strong> flag set to <strong>true</strong>. ::</p>
+<p><arg name="paused" value="true"/></p>
+<p>This example can be run using the following sample launch file ::</p>
+<p>roslaunch uuv_simulation_timer_example start_timer_example.launch</p>
+<h5 id="using-the-python-wrapper-to-run-a-simulation">Using the Python wrapper to run a simulation<a class="headerlink" href="#using-the-python-wrapper-to-run-a-simulation" title="Permanent link">&para;</a></h5>
+<p>In the <strong>uuv_simulation_wrapper</strong> package, a simulation wrapper is implemented as a part of the <strong>uuv_simulation_runner</strong> Python library that can be used to start a simulation and evaluate its resulting ROS bag from a Python application.
+Some configuration is needed to acchieve it, but an example is available in the catkin package <code class="codehilite">uuv_simulation_runner_example &lt;https://github.com/uuvsimulator/uuv_simulation_evaluation/tree/master/uuv_evaluation_examples/uuv_simulation_runner_example&gt;</code>_.
+The folder structure of the this demonstration consists of a catkin package set as ::</p>
+<p>uuv_simulation_runner_example
+  |-- config
+      |-- task.yml
+  |-- launch
+      |-- start_simulation.launch
+  |-- scripts
+      |-- run_grid_search
+  <code class="codehilite">-- CMakeLists.txt</code>-- package.xml</p>
+<p>The different elements necessary to make the evaluation using the wrapper are described below.</p>
+<p>Simulation launcher
+<sup>^</sup><sup>^</sup><sup>^</sup><sup>^</sup><sup>^</sup><sup>^</sup>^</p>
+<p>The launch file <code class="codehilite">start_simulation.launch &lt;https://github.com/uuvsimulator/uuv_simulation_evaluation/blob/master/uuv_evaluation_examples/uuv_simulation_runner_example/launch/start_simulation.launch&gt;</code>_ must contain all the nodes and elements to start the simulation that needs to be evaluated.
+In this example the Gazebo world starts with the simulation timers presented in the previous section, a RexROV vehicle is spawned with a PID controller node.
+A helical trajectory then is initialized and a constant current is applied to the scenario.
+Some of the elements of the launch file that will be common to other use-cases are described below.</p>
+<p><strong>Recording the results</strong></p>
+<p>The evaluation of the simulation is achieved by analyzing the resulting ROS bag.
+The simulation wrapper expects the launch file to have an input string <strong>bag_filename</strong> to set, and it can be defined in the launch file as follows ::</p>
+<p><arg name="record" default="false"/>
+  <arg name="bag_filename" default="recording.bag"/></p>
+<p>In the launch file there must be also an <strong>rosbag recording</strong> node being started having the vehicle's states and other topics as an input as in the example below ::</p>
+<p><node pkg="rosbag" type="record" name="recording"
+      args="record -O <span><span class="MathJax_Preview">(arg bag_filename)
+      /rexrov/dp_controller/trajectory
+      /rexrov/dp_controller/reference
+      /rexrov/pose_gt_ned
+      /hydrodynamics/current_velocity
+      /rexrov/thruster_manager/input
+      /rexrov/wrench_perturbation
+      /rexrov/thrusters/0/thrust
+      /rexrov/thrusters/1/thrust
+      /rexrov/thrusters/2/thrust
+      /rexrov/thrusters/3/thrust
+      /rexrov/thrusters/4/thrust
+      /rexrov/thrusters/5/thrust
+      /rexrov/thrusters/6/thrust
+      /rexrov/thrusters/7/thrust"
+      if="</span><script type="math/tex">(arg bag_filename)
+      /rexrov/dp_controller/trajectory
+      /rexrov/dp_controller/reference
+      /rexrov/pose_gt_ned
+      /hydrodynamics/current_velocity
+      /rexrov/thruster_manager/input
+      /rexrov/wrench_perturbation
+      /rexrov/thrusters/0/thrust
+      /rexrov/thrusters/1/thrust
+      /rexrov/thrusters/2/thrust
+      /rexrov/thrusters/3/thrust
+      /rexrov/thrusters/4/thrust
+      /rexrov/thrusters/5/thrust
+      /rexrov/thrusters/6/thrust
+      /rexrov/thrusters/7/thrust"
+      if="</script></span>(arg record)"/></p>
+<p>The <strong>record</strong> flag is optional but useful while testing the launch file before running the simulation with the wrapper to avoid recording ROS bag unnecessarely.</p>
+<p>.. note::</p>
+<p>The pose of the vehicle can be recorded with respect to Gazebo's default inertial frame <strong>world</strong> (that uses the East-North-Up convention) by using the <strong>/<vehicle>/pose_gt</strong> topic or with respect to the generated <strong>world_ned</strong> frame (that uses the North-East-Down convention) by using <strong>/<vehicle>/pose_gt_ned</strong>.</p>
+<p>For this the vehicle must use the sensor plugins included in <strong>uuv_sensor_ros_plugins</strong> package and the static TF frame <strong>world_ned</strong> must exist (which is already done when starting one of the Gazebo worlds included in the UUV simulator package).</p>
+<p>Check this <code class="codehilite">Wikipedia page &lt;https://en.wikipedia.org/wiki/Axes_conventions&gt;</code>_ for more information on both conventions.</p>
+<p>.. note::</p>
+<p>The topic <strong>/rexrov/wrench_perturbation</strong> is generated when using the disturbance manager node described in :ref:<code class="codehilite">disturbances</code>.</p>
+<p><strong>Turning off the frontend during the evaluation</strong></p>
+<p>To avoid unnecessary overhead when doing repetitive evaluations of the same scenario, a flag can be given as an input of to turn off the Gazebo client and other visualization tools as RViz.
+In the example the flag is given as ::</p>
+<p><arg name="gui" default="true"/></p>
+<p>and is used as ::</p>
+<p><include file="<span><span class="MathJax_Preview">(find uuv_descriptions)/launch/empty_underwater_world.launch"&gt;
+      &lt;arg name="gui" value="</span><script type="math/tex">(find uuv_descriptions)/launch/empty_underwater_world.launch">
+      <arg name="gui" value="</script></span>(arg gui)"/>
+      <arg name="paused" value="true"/>
+  </include></p>
+<p><node name="rviz" pkg="rviz" type="rviz" output="screen"
+      args="-d <span><span class="MathJax_Preview">(find uuv_gazebo)/rviz/controller_demo.rviz"
+      if="</span><script type="math/tex">(find uuv_gazebo)/rviz/controller_demo.rviz"
+      if="</script></span>(arg gui)"/></p>
+<p>Having the flag as an input is useful when running the launch file without the evaluation to check the scenario, namely ::</p>
+<p>roslaunch uuv_simulation_runner_example start_simulation.launch gui:=true record:=false</p>
+<p><strong>Having the variables to be varied in the different evaluations as an input</strong></p>
+<p>For the simulation wrapper to provide different variables that can influence the simulation, these variables have to be configured as input arguments on the launch file.
+In this example presented here, the vehicle will be set to follow a helical trajectory under constant currents of different magnitudes.
+The ROS node that generates the constant current is the following ::</p>
+<p><include file="<span><span class="MathJax_Preview">(find uuv_control_utils)/launch/set_timed_current_perturbation.launch"&gt;
+    &lt;arg name="starting_time" value="0.0"/&gt;
+    &lt;arg name="end_time" value="-1"/&gt;
+    &lt;arg name="current_vel" value="</span><script type="math/tex">(find uuv_control_utils)/launch/set_timed_current_perturbation.launch">
+    <arg name="starting_time" value="0.0"/>
+    <arg name="end_time" value="-1"/>
+    <arg name="current_vel" value="</script></span>(arg current_vel)"/>
+    <arg name="horizontal_angle" value="$(arg horizontal_angle)"/>
+  </include></p>
+<p>and to change the magnitude of the current, the <strong>current_vel</strong> must be one input argument of the launch file, namely ::</p>
+<p><arg name="current_vel" default="0.0"/></p>
+<p>The default value is set to zero, but the simulation wrapper is then capable of calling the launch file in a separate process giving <strong>current_vel</strong> as an input.</p>
+<p><strong>Simulation timers</strong></p>
+<p>As explained before, it is crucial to include the <strong>simulation timer</strong> and <strong>unpause simulation</strong> nodes so that every simulation run to have the same time span. ::</p>
+<p><include file="<span><span class="MathJax_Preview">(find uuv_simulation_wrapper)/launch/set_simulation_timer.launch"&gt;
+      &lt;arg name="timeout" value="</span><script type="math/tex">(find uuv_simulation_wrapper)/launch/set_simulation_timer.launch">
+      <arg name="timeout" value="</script></span>(arg timeout)"/>
+  </include></p>
+<p><include file="<span><span class="MathJax_Preview">(find uuv_assistants)/launch/unpause_simulation.launch"&gt;
+      &lt;arg name="timeout" value="</span><script type="math/tex">(find uuv_assistants)/launch/unpause_simulation.launch">
+      <arg name="timeout" value="</script></span>(arg unpause_timeout)"/>
+  </include></p>
+<p>The Gazebo world has to be also initialized using the <strong>paused</strong> flag as well to the unpause simulation node to work. ::</p>
+<p><include file="<span><span class="MathJax_Preview">(find uuv_descriptions)/launch/empty_underwater_world.launch"&gt;
+      &lt;arg name="gui" value="</span><script type="math/tex">(find uuv_descriptions)/launch/empty_underwater_world.launch">
+      <arg name="gui" value="</script></span>(arg gui)"/>
+      <arg name="paused" value="true"/>
+  </include></p>
+<p><strong>Testing the simulation</strong></p>
+<p>By running the launch file as ::</p>
+<p>roslaunch uuv_simulation_runner_example start_simulation.launch gui:=true record:=false</p>
+<p>Both the RViz and Gazebo screens should appear as shown below.</p>
+<p>.. image:: ../images/tutorial_simulation_runner/sim_gazebo.png</p>
+<p>.. image:: ../images/tutorial_simulation_runner/sim_rviz.png</p>
+<p>Simulation wrapper task file
+<sup>^</sup><sup>^</sup><sup>^</sup><sup>^</sup><sup>^</sup><sup>^</sup><sup>^</sup><sup>^</sup><sup>^</sup>^</p>
+<p>The <strong>task.yml</strong> file contains a set of parameters necessary for the simulation wrapper to run the simulation in a separate process.</p>
+<p>.. literalinclude:: ../files/tutorials/simulation_wrapper/task.yml</p>
+<p>The parameters fields are described below:</p>
+<ul>
+<li><strong>cmd:</strong> Command to call the launch file.</li>
+<li><strong>params:</strong> List of parameter to be overriden during the evaluations. Setting the <strong>gui</strong> to false and <strong>record</strong> to true are some examples.</li>
+<li><strong>id:</strong> An ID for the evaluation being performed.</li>
+</ul>
+<p>Simulation runner script
+<sup>^</sup><sup>^</sup><sup>^</sup><sup>^</sup><sup>^</sup><sup>^</sup><sup>^</sup><sup>^</sup></p>
+<p>The code that uses the simulation wrapper can be seen below, with a step-by-step explanation of its functionalities in the comments.
+In this example, the <strong>Evaluation</strong> class is used to read the ROS bag and generate performance indicators, along with plots, but any script can be used for that purpose.</p>
+<p>.. literalinclude:: ../files/tutorials/simulation_wrapper/run_grid_search
+  :language: python</p>
+<h5 id="running-the-example">Running the example<a class="headerlink" href="#running-the-example" title="Permanent link">&para;</a></h5>
+<p>As shown in this line of the script shown in the last section shows ::</p>
+<p>DEFAULT_RESULTS = os.path.join(ROOT_PATH, 'results')</p>
+<p>the <strong>results</strong> folder will be created in the <strong>uuv_simulation_runner_example</strong> folder.
+The results folder in this case will have one folder for each simulation run containing ROS bag, plots and log files for the each simulation scenario run with a different current velocity magnitude.
+To run the example, use the following command ::</p>
+<p>rosrun uuv_simulation_runner_example run_grid_search --n_points <N_POINTS></p>
+<p>.. note::</p>
+<p>The Python simulation wrapper assigns a random port to the ROS master and Gazebo for each time a new simulation run is done and locks the ports for the duration of the simulation.
+  That allows several instances of the simulation to be started at the same time using this wrapper.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../seabed_world/" title="Creating a new world with a custom seabed" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Creating a new world with a custom seabed
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../faq/" title="FAQ" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                FAQ
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright (c) 2016-2019 The UUV Simulator Authors
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/boschresearch" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://discourse.ros.org/c/maritime" class="md-footer-social__link fa fa-comment"></a>
+    
+      <a href="https://github.com/uuvsimulator/" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://uuvsimulator.slack.com/" class="md-footer-social__link fa fa-slack"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.267712eb.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
