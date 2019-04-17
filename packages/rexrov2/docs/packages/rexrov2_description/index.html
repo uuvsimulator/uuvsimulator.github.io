@@ -98,7 +98,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#launch-files" tabindex="1" class="md-skip">
+      <a href="#description" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -996,6 +996,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#description" title="Description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#launch-files" title="Launch files" class="md-nav__link">
     Launch files
   </a>
@@ -1544,6 +1551,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#description" title="Description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#launch-files" title="Launch files" class="md-nav__link">
     Launch files
   </a>
@@ -1609,6 +1623,8 @@
 <blockquote>
 <p>Link to the <code class="codehilite">rexrov2</code> repository <a href="https://github.com/uuvsimulator/rexrov2">here</a></p>
 </blockquote>
+<h4 id="description">Description<a class="headerlink" href="#description" title="Permanent link">&para;</a></h4>
+<p>The robot description files for the RexROV 2 underwater vehicle and launch files to spawn the model in different configurations.</p>
 <h4 id="launch-files">Launch files<a class="headerlink" href="#launch-files" title="Permanent link">&para;</a></h4>
 <h5 id="upload_rexrov2_oberon4launch"><a href="https://github.com/uuvsimulator/rexrov2/tree/master/rexrov2_description/launch/upload_rexrov2_oberon4.launch"><code class="codehilite">upload_rexrov2_oberon4.launch</code></a><a class="headerlink" href="#upload_rexrov2_oberon4launch" title="Permanent link">&para;</a></h5>
 <blockquote>
@@ -1681,27 +1697,31 @@
 </ul>
 <h5 id="upload_rexrov2launch"><a href="https://github.com/uuvsimulator/rexrov2/tree/master/rexrov2_description/launch/upload_rexrov2.launch"><code class="codehilite">upload_rexrov2.launch</code></a><a class="headerlink" href="#upload_rexrov2launch" title="Permanent link">&para;</a></h5>
 <blockquote>
+<p><strong>Description</strong></p>
+</blockquote>
+<p>Spawns the RexROV 2 vehicle in the simulation </p>
+<blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
-<li><strong>debug</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>x</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>y</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>z</strong> (<em>default:</em> <code class="codehilite">-20</code>)</li>
-<li><strong>roll</strong> (<em>default:</em> <code class="codehilite">0.0</code>)</li>
-<li><strong>pitch</strong> (<em>default:</em> <code class="codehilite">0.0</code>)</li>
-<li><strong>yaw</strong> (<em>default:</em> <code class="codehilite">0.0</code>)</li>
-<li><strong>use_geodetic</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
-<li><strong>latitude</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>longitude</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>depth</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>latitude_ref</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>longitude_ref</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>altitude_ref</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>mode</strong> (<em>default:</em> <code class="codehilite">default</code>)</li>
-<li><strong>namespace</strong> (<em>default:</em> <code class="codehilite">rexrov2</code>)</li>
-<li><strong>use_simplified_mesh</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
-<li><strong>use_ned_frame</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
+<li><strong>debug</strong> (<em>default:</em> <code class="codehilite">0</code>): Starts the Gazebo plugins in debug mode for more verbose output</li>
+<li><strong>x</strong> (<em>default:</em> <code class="codehilite">0</code>): X coordinate of the vehicle's initial position (in ENU)</li>
+<li><strong>y</strong> (<em>default:</em> <code class="codehilite">0</code>): Y coordinate of the vehicle's initial position (in ENU)</li>
+<li><strong>z</strong> (<em>default:</em> <code class="codehilite">-20</code>): Z coordinate of the vehicle's initial position (in ENU)</li>
+<li><strong>roll</strong> (<em>default:</em> <code class="codehilite">0.0</code>): Roll angle of the vehicle's initial orientation</li>
+<li><strong>pitch</strong> (<em>default:</em> <code class="codehilite">0.0</code>): Pitch angle of the vehicle's initial orientation</li>
+<li><strong>yaw</strong> (<em>default:</em> <code class="codehilite">0.0</code>): Yaw angle of the vehicle's initial orientation</li>
+<li><strong>use_geodetic</strong> (<em>default:</em> <code class="codehilite">false</code>): Spawn the vehicle using geodetic instead of Cartesian coordinates</li>
+<li><strong>latitude</strong> (<em>default:</em> <code class="codehilite">0</code>): Latitude for the vehicle's initial position in degrees</li>
+<li><strong>longitude</strong> (<em>default:</em> <code class="codehilite">0</code>): Longitude for the vehicle's initial position in degrees</li>
+<li><strong>depth</strong> (<em>default:</em> <code class="codehilite">0</code>): Depth of the vehicle's initial position with respect to the water surface in meters</li>
+<li><strong>latitude_ref</strong> (<em>default:</em> <code class="codehilite">0</code>): Latitude of the origin in degrees</li>
+<li><strong>longitude_ref</strong> (<em>default:</em> <code class="codehilite">0</code>): Longitude of the origin in degrees</li>
+<li><strong>altitude_ref</strong> (<em>default:</em> <code class="codehilite">0</code>): Altitude of the origin in meters</li>
+<li><strong>mode</strong> (<em>default:</em> <code class="codehilite">default</code>): Vehicle's build configuration mode</li>
+<li><strong>namespace</strong> (<em>default:</em> <code class="codehilite">rexrov2</code>): Namespace to spawn the vehicle</li>
+<li><strong>use_simplified_mesh</strong> (<em>default:</em> <code class="codehilite">false</code>): Use simplified geometries instead of the mesh</li>
+<li><strong>use_ned_frame</strong> (<em>default:</em> <code class="codehilite">false</code>): Set the inertial reference to NED (North-East-Down) convention instead of Gazebo's default ENU (East-North-Up)</li>
 </ul>
                 
                   

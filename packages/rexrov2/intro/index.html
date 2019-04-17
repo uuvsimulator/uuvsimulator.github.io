@@ -98,7 +98,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#rexrov-2" tabindex="1" class="md-skip">
+      <a href="#purpose-of-the-project" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -951,8 +951,29 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#rexrov-2" title="RexROV 2" class="md-nav__link">
-    RexROV 2
+  <a href="#purpose-of-the-project" title="Purpose of the project" class="md-nav__link">
+    Purpose of the project
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" title="Requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-of-usage" title="Example of usage" class="md-nav__link">
+    Example of usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" title="License" class="md-nav__link">
+    License
   </a>
   
 </li>
@@ -1508,8 +1529,29 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#rexrov-2" title="RexROV 2" class="md-nav__link">
-    RexROV 2
+  <a href="#purpose-of-the-project" title="Purpose of the project" class="md-nav__link">
+    Purpose of the project
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" title="Requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-of-usage" title="Example of usage" class="md-nav__link">
+    Example of usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" title="License" class="md-nav__link">
+    License
   </a>
   
 </li>
@@ -1535,9 +1577,55 @@
                 
                   <h1>Introduction</h1>
                 
-                <h4 id="rexrov-2">RexROV 2<a class="headerlink" href="#rexrov-2" title="Permanent link">&para;</a></h4>
-<p><img alt="GitHub issues" src="https://img.shields.io/github/issues/uuvsimulator/rexrov2.svg" />
+                <p><a href="https://travis-ci.org/uuvsimulator/rexrov2"><img alt="Build Status" src="https://travis-ci.org/uuvsimulator/rexrov2.svg?branch=master" /></a>
+<a href="https://github.com/uuvsimulator/rexrov2/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/uuvsimulator/rexrov2.svg" /></a>
 <img alt="License" src="https://img.shields.io/badge/license-Apache%202-blue.svg" /></p>
+<blockquote>
+<p>Link to the <code class="codehilite">rexrov2</code> repository <a href="https://github.com/uuvsimulator/rexrov2">here</a></p>
+<p>Link to the <a href="https://uuvsimulator.github.io/packages/rexrov2/intro/">documentation page</a> </p>
+</blockquote>
+<p>This repository contains the robot description and necessary launch files to
+simulate the RexROV 2 unmanned underwater vehicle. This repository is complementary
+to the <a href="https://github.com/uuvsimulator/uuv_simulator">Unmanned Underwater Vehicle Simulator (UUV Simulator)</a>,
+an open-source project extending the simulation capabilities of the robotics
+simulator Gazebo to underwater vehicles and environments. For installation and
+usage instructions, please refer to the <a href="https://uuvsimulator.github.io/">documentation pages</a>.</p>
+<p>The dimensions and parameters for the RexROV 2 are derived from the published
+model parameters for the SF 30k ROV [1].</p>
+<p><a href="https://brage.bibsys.no/xmlui/handle/11250/238170">[1] Berg, Viktor. Development and Commissioning of a DP system for ROV SF 30k. MS thesis. Institutt for marin teknikk, 2012.</a></p>
+<p><img alt="RexROV 2" src="../images/rexrov2.png" /></p>
+<h5 id="purpose-of-the-project">Purpose of the project<a class="headerlink" href="#purpose-of-the-project" title="Permanent link">&para;</a></h5>
+<p>This software is a research prototype, originally developed for the EU ECSEL
+Project 662107 <a href="http://swarms.eu/">SWARMs</a>.</p>
+<p>The software is not ready for production use. However, the license conditions of the
+applicable Open Source licenses allow you to adapt the software to your needs.
+Before using it in a safety relevant setting, make sure that the software
+fulfills your requirements and adjust it according to any applicable safety
+standards (e.g. ISO 26262).</p>
+<h5 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h5>
+<p>To simulate the RexROV 2 vehicle, please refer to the <a href="https://github.com/uuvsimulator/uuv_simulator">UUV Simulator</a>
+repository and follow the installation instructions of the package. Then you can clone
+this package in the <code class="codehilite">src</code> folder of you catkin workspace</p>
+<div class="codehilite"><pre><span></span>cd ~/catkin_ws/src
+git clone https://github.com/uuvsimulator/rexrov2.git
+</pre></div>
+
+<p>and then build your catkin workspace</p>
+<div class="codehilite"><pre><span></span><span class="nb">cd</span> ~/catkin_ws
+catkin_make <span class="c1"># or &lt;catkin build&gt;, if you are using catkin_tools</span>
+</pre></div>
+
+<h5 id="example-of-usage">Example of usage<a class="headerlink" href="#example-of-usage" title="Permanent link">&para;</a></h5>
+<p>To run a demonstration with the vehicle with teleoperation, you can run a UUV
+simulator Gazebo scenario, such as</p>
+<div class="codehilite"><pre><span></span>roslaunch rexrov2_gazebo start_demo_pid_controller.launch teleop_on:<span class="o">=</span><span class="nb">true</span> joy_id:<span class="o">=</span><span class="m">0</span>
+</pre></div>
+
+<p>The teleoperation nodes are pre-configured per default for the XBox 360
+controller.</p>
+<h5 id="license">License<a class="headerlink" href="#license" title="Permanent link">&para;</a></h5>
+<p>RexROV 2 package is open-sourced under the Apache-2.0 license. See the
+<a href="[LICENSE](https://github.com/uuvsimulator/rexrov2/blob/master/LICENSE)">LICENSE</a> file for details.</p>
                 
                   
                 
