@@ -1596,9 +1596,23 @@
 <a href="https://github.com/uuvsimulator/uuv_simulator/blob/master/LICENSE"><img alt="License" src="https://img.shields.io/badge/license-Apache%202-blue.svg" /></a></p>
 <blockquote>
 <p>Link to the <code class="codehilite">uuv_simulator</code> repository <a href="https://github.com/uuvsimulator/uuv_simulator">here</a></p>
-<p>Link to the <a href="https://uuvsimulator.github.io/">documentation page</a> </p>
+<p>Link to the <a href="https://uuvsimulator.github.io/packages/uuv_simulator/intro/">documentation page</a> </p>
 </blockquote>
 <p>The <strong>Unmanned Underwater Vehicle Simulator</strong> is a set of packages that include plugins and ROS applications that allow simulation of underwater vehicles in <a href="http://gazebosim.org/">Gazebo</a>. </p>
+<p>If you are using this simulator for your publication, please cite:</p>
+<div class="codehilite"><pre><span></span><span class="x">@inproceedings{Manhaes_2016,</span>
+<span class="x">    doi = {10.1109/oceans.2016.7761080},</span>
+<span class="x">    url = {https://doi.org/10.1109%2Foceans.2016.7761080},</span>
+<span class="x">    year = 2016,</span>
+<span class="x">    month = {sep},</span>
+<span class="x">    publisher = </span><span class="cp">{{</span><span class="nv">IEEE</span><span class="cp">}}</span><span class="x">,</span>
+<span class="x">    author = {Musa Morena Marcusso Manh{\~{a}}es and Sebastian A. Scherer and Martin Voss and Luiz Ricardo Douat and Thomas Rauschenbach},</span>
+<span class="x">    title = </span><span class="cp">{{</span><span class="nv">UUV</span><span class="o">}</span> <span class="nv">Simulator</span><span class="o">:</span> <span class="nv">A</span> <span class="nv">Gazebo-based</span> <span class="nv">package</span> <span class="nv">for</span> <span class="nv">underwater</span> <span class="nv">intervention</span> <span class="k">and</span> <span class="nv">multi-robot</span> <span class="nv">simulation</span><span class="o">},</span>
+    <span class="nv">booktitle</span> <span class="o">=</span> <span class="o">{{</span><span class="nv">OCEANS</span><span class="o">}</span> <span class="m">2016</span> <span class="o">{</span><span class="nv">MTS</span><span class="o">}/{</span><span class="nv">IEEE</span><span class="o">}</span> <span class="nv">Monterey</span><span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+<p>In you are willing to contribute to this package, please check the instructions in <a href="https://github.com/uuvsimulator/uuv_simulator/blob/master/CONTRIBUTING.md">CONTRIBUTING</a>.</p>
 <h4 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h4>
 <blockquote>
 <p><strong>Gazebo/ROS plugins</strong></p>
@@ -1621,12 +1635,12 @@
 </li>
 <li>For ROVs<ul>
 <li>Thruster manager with computation of the thruster allocation matrix based on the thruster frames available in <code class="codehilite">/tf</code></li>
-<li>Model-based feedback linearization controller</li>
-<li>Nonlinear PID controller</li>
-<li>Non-model-based sliding mode controller</li>
+<li>Model-based feedback linearization controller (<a href="https://www.wiley.com/en-us/Handbook+of+Marine+Craft+Hydrodynamics+and+Motion+Control-p-9781119991496"><code class="codehilite">Fossen, 2011</code></a>)</li>
+<li>Nonlinear PID controller (<a href="https://www.wiley.com/en-us/Handbook+of+Marine+Craft+Hydrodynamics+and+Motion+Control-p-9781119991496"><code class="codehilite">Fossen, 2011</code></a>)</li>
+<li>Non-model-based sliding mode controller (<a href="https://journals.sagepub.com/doi/full/10.5772/56810"><code class="codehilite">García-Valdovinos el al., 2014</code></a> and <a href="http://cdn.intechopen.com/pdfs/15221.pdf"><code class="codehilite">Salgado-Jiménez et al., 2011</code></a>)</li>
 <li>PD controller with restoration forces compensation </li>
 <li>6-DOF PID controller</li>
-<li>Singularity-free tracking controller</li>
+<li>Singularity-free tracking controller (<a href="https://ieeexplore.ieee.org/abstract/document/411068"><code class="codehilite">Fjellstad and Fossen, 1994</code></a>)</li>
 </ul>
 </li>
 <li>Teleoperation nodes for AUVs and ROVs</li>
@@ -1671,6 +1685,7 @@
 <div class="superfences-content"><div class="codehilite"><pre><span></span>sudo apt install ros-melodic-uuv-simulator
 </pre></div></div>
 </div>
+<p>For instructions on how to install the package from source, check this <a href="https://uuvsimulator.github.io/installation/">instructions page</a></p>
 <h4 id="purpose-of-the-project">Purpose of the project<a class="headerlink" href="#purpose-of-the-project" title="Permanent link">&para;</a></h4>
 <p>This software is a research prototype, originally developed for the EU ECSEL
 Project 662107 <a href="http://swarms.eu/">SWARMs</a>.</p>
