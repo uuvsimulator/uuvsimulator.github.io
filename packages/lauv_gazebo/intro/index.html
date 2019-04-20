@@ -98,6 +98,10 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
+      <a href="#purpose-of-the-project" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
@@ -1122,9 +1126,57 @@
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Introduction
+      </label>
+    
     <a href="./" title="Introduction" class="md-nav__link md-nav__link--active">
       Introduction
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#purpose-of-the-project" title="Purpose of the project" class="md-nav__link">
+    Purpose of the project
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" title="Requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-of-the-gazebo-world" title="Configuration of the Gazebo world" class="md-nav__link">
+    Configuration of the Gazebo world
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" title="License" class="md-nav__link">
+    License
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -1465,6 +1517,56 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#purpose-of-the-project" title="Purpose of the project" class="md-nav__link">
+    Purpose of the project
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" title="Requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-of-the-gazebo-world" title="Configuration of the Gazebo world" class="md-nav__link">
+    Configuration of the Gazebo world
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" title="License" class="md-nav__link">
+    License
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -1475,11 +1577,68 @@
                 
                   <h1>Introduction</h1>
                 
-                <p><img alt="GitHub issues" src="https://img.shields.io/github/issues/uuvsimulator/lauv_gazebo.svg" />
+                <p><a href="https://travis-ci.org/uuvsimulator/lauv_gazebo"><img alt="Build Status" src="https://travis-ci.org/uuvsimulator/lauv_gazebo.svg?branch=master" /></a>
+<a href="https://github.com/uuvsimulator/lauv_gazebo/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/uuvsimulator/lauv_gazebo.svg" /></a>
 <img alt="License" src="https://img.shields.io/badge/license-Apache%202-blue.svg" /></p>
 <blockquote>
 <p>Link to the <code class="codehilite">lauv_gazebo</code> repository <a href="https://github.com/uuvsimulator/lauv_gazebo">here</a></p>
+<p>Link to the <a href="https://uuvsimulator.github.io/packages/lauv_gazebo/intro/">documentation page</a> </p>
 </blockquote>
+<p>This repository contains the robot description and necessary launch files to
+simulate the <a href="http://www.oceanscan-mst.com/">Light Autonomous Underwater Vehicle (LAUV)</a>, developed by the <a href="https://www.lsts.pt/">Laboratório de Sistemas e Tecnologia Subaquática (LSTS) from Porto University</a> and <a href="http://www.oceanscan-mst.com/">OceanScan-MST</a>.
+This repository is complementary to the <a href="https://github.com/uuvsimulator/uuv_simulator">Unmanned Underwater Vehicle Simulator (UUV Simulator)</a>,
+an open-source project extending the simulation capabilities of the robotics
+simulator Gazebo to underwater vehicles and environments. For installation and
+usage instructions, please refer to the <a href="https://uuvsimulator.github.io/">documentation pages</a>.
+The information about the vehicle dynamic model and physical dimensions were retrieved from the following
+sources:</p>
+<ul>
+<li><a href="https://www.sciencedirect.com/science/article/pii/S1474667016306140">Sousa, Alexandre, et al. "LAUV: The man-portable autonomous underwater vehicle." IFAC Proceedings Volumes 45.5 (2012): 268-274.</a></li>
+<li><a href="http://ave.dee.isep.ipp.pt/~jes/english/publications/mmar07.pdf">da Silva, Jorge Estrela, et al. "Modeling and simulation of the LAUV autonomous underwater vehicle." 13<sup>th</sup> IEEE IFAC International Conference on Methods and Models in Automation and Robotics. Szczecin, Poland Szczecin, Poland, 2007.</a></li>
+</ul>
+<p><img alt="LAUV" src="../images/lauv.png" /></p>
+<h5 id="purpose-of-the-project">Purpose of the project<a class="headerlink" href="#purpose-of-the-project" title="Permanent link">&para;</a></h5>
+<p>This software is a research prototype, originally developed for the EU ECSEL
+Project 662107 <a href="http://swarms.eu/">SWARMs</a>.</p>
+<p>The software is not ready for production use. However, the license conditions of the
+applicable Open Source licenses allow you to adapt the software to your needs.
+Before using it in a safety relevant setting, make sure that the software
+fulfills your requirements and adjust it according to any applicable safety
+standards (e.g. ISO 26262).</p>
+<h5 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h5>
+<p>To simulate the Light Autonomous Underwater Vehicle (LAUV), please refer to the <a href="https://github.com/uuvsimulator/uuv_simulator">UUV Simulator</a>
+repository and follow the installation instructions of the package. Then you can clone
+this package in the <code class="codehilite">src</code> folder of you catkin workspace</p>
+<div class="codehilite"><pre><span></span>cd ~/catkin_ws/src
+git clone https://github.com/uuvsimulator/lauv_gazebo.git
+</pre></div>
+
+<p>and then build your catkin workspace</p>
+<div class="codehilite"><pre><span></span><span class="nb">cd</span> ~/catkin_ws
+catkin_make <span class="c1"># or &lt;catkin build&gt;, if you are using catkin_tools</span>
+</pre></div>
+
+<h5 id="configuration-of-the-gazebo-world">Configuration of the Gazebo world<a class="headerlink" href="#configuration-of-the-gazebo-world" title="Permanent link">&para;</a></h5>
+<p>The simulation with the fin plugins have shown better results by configuring
+the Gazebo's <code class="codehilite"><span class="na">.world</span></code> file with the following parameters for the physics engine:</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;physics</span> <span class="na">name=</span><span class="s">&quot;default_physics&quot;</span> <span class="na">default=</span><span class="s">&quot;true&quot;</span> <span class="na">type=</span><span class="s">&quot;ode&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;max_step_size&gt;</span>0.01<span class="nt">&lt;/max_step_size&gt;</span>
+  <span class="nt">&lt;real_time_factor&gt;</span>1<span class="nt">&lt;/real_time_factor&gt;</span>
+  <span class="nt">&lt;real_time_update_rate&gt;</span>100<span class="nt">&lt;/real_time_update_rate&gt;</span>
+  <span class="nt">&lt;ode&gt;</span>
+    <span class="nt">&lt;solver&gt;</span>
+      <span class="nt">&lt;type&gt;</span>quick<span class="nt">&lt;/type&gt;</span>
+      <span class="nt">&lt;iters&gt;</span>50<span class="nt">&lt;/iters&gt;</span>
+      <span class="nt">&lt;sor&gt;</span>1.2<span class="nt">&lt;/sor&gt;</span>
+    <span class="nt">&lt;/solver&gt;</span>
+  <span class="nt">&lt;/ode&gt;</span>
+<span class="nt">&lt;/physics&gt;</span>
+</pre></div>
+
+<p>Check the <a href="https://github.com/uuvsimulator/uuv_simulator/blob/master/uuv_gazebo_worlds/worlds/mangalia.world">Mangalia world file</a> to see an example.</p>
+<h5 id="license">License<a class="headerlink" href="#license" title="Permanent link">&para;</a></h5>
+<p>LAUV Gazebo package is open-sourced under the Apache-2.0 license. See the
+<a href="https://github.com/uuvsimulator/lauv_gazebo/blob/master/LICENSE">LICENSE</a> file for details.</p>
                 
                   
                 
