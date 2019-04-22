@@ -2,297 +2,307 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>https://uuvsimulator.github.io/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/installation/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/quick_start/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/uuv_simulator/intro/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/uuv_simulator/docs/packages/uuv_assistants/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/uuv_simulator/docs/packages/uuv_auv_control_allocator/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/uuv_simulator/docs/packages/uuv_control_cascaded_pid/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/uuv_simulator/docs/packages/uuv_control_msgs/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/uuv_simulator/docs/packages/uuv_control_utils/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/uuv_simulator/docs/packages/uuv_descriptions/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/uuv_simulator/docs/packages/uuv_gazebo_plugins/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/uuv_simulator/docs/packages/uuv_gazebo/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/uuv_simulator/docs/packages/uuv_gazebo_ros_plugins/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/uuv_simulator/docs/packages/uuv_gazebo_ros_plugins_msgs/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/uuv_simulator/docs/packages/uuv_gazebo_worlds/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/uuv_simulator/docs/packages/uuv_sensor_ros_plugins/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/uuv_simulator/docs/packages/uuv_sensor_ros_plugins_msgs/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/uuv_simulator/docs/packages/uuv_teleop/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/uuv_simulator/docs/packages/uuv_thruster_manager/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/uuv_simulator/docs/packages/uuv_trajectory_control/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/uuv_simulator/docs/packages/uuv_world_plugins/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/uuv_simulator/docs/packages/uuv_world_ros_plugins/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/uuv_simulator/docs/packages/uuv_world_ros_plugins_msgs/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/uuv_simulator/docs/api/api-uuv_gazebo_plugins/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/uuv_simulator/docs/api/api-uuv_gazebo_ros_plugins/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/uuv_simulator/docs/api/api-uuv_sensor_ros_plugins/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/uuv_simulator/docs/api/api-uuv_world_plugins/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/uuv_simulator/docs/api/api-uuv_world_ros_plugins/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/uuv_plume_simulator/intro/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://uuvsimulator.github.io/packages/uuv_plume_simulator/docs/user_guide/introduction/</loc>
+     <lastmod>2019-04-22</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://uuvsimulator.github.io/packages/uuv_plume_simulator/docs/user_guide/how_to_start_a_turbulent_plume/</loc>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/uuv_plume_simulator/docs/packages/uuv_plume_simulator/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/uuv_plume_simulator/docs/packages/uuv_cpc_sensor/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/uuv_plume_simulator/docs/packages/uuv_plume_msgs/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/uuv_plume_simulator/docs/api/api-uuv_cpc_sensor/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/rexrov2/intro/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/rexrov2/docs/packages/rexrov2_control/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/rexrov2/docs/packages/rexrov2_description/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/rexrov2/docs/packages/rexrov2_gazebo/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/eca_a9/intro/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/eca_a9/docs/packages/eca_a9_control/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/eca_a9/docs/packages/eca_a9_description/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/eca_a9/docs/packages/eca_a9_gazebo/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/lauv_gazebo/intro/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/lauv_gazebo/docs/packages/lauv_control/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/lauv_gazebo/docs/packages/lauv_description/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/lauv_gazebo/docs/packages/lauv_gazebo/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/desistek_saga/intro/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/desistek_saga/docs/packages/desistek_saga_control/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/desistek_saga/docs/packages/desistek_saga_description/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/packages/desistek_saga/docs/packages/desistek_saga_gazebo/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/tutorials/config_thruster_manager/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/tutorials/create_new_vehicle/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/tutorials/creating_new_dp_controller/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/tutorials/disturbances/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/tutorials/plume_simulation/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/tutorials/seabed_world/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/tutorials/simulation_wrapper/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/faq/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/bibliography/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://uuvsimulator.github.io/about/license/</loc>
-     <lastmod>2019-04-20</lastmod>
+     <lastmod>2019-04-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
