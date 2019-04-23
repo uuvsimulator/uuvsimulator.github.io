@@ -1888,31 +1888,209 @@
 <blockquote>
 <p><strong>Script type:</strong> <code class="codehilite">python</code></p>
 </blockquote>
-<p><strong>Passive turbulent plume server node</strong></p>
+<p><strong>Description</strong></p>
+<p>Passive turbulent plume server node.</p>
+<div class="admonition note">
+<p class="admonition-title">See also</p>
+<p><a href="../../user_guide/introduction/">Description of the turbulent plume model</a></p>
+</div>
 <p><strong>Input ROS parameters</strong></p>
 <ul>
 <li><code class="codehilite">update_rate</code> (<em>default:</em> <code class="codehilite">5</code>, <em>type:</em> <code class="codehilite">int</code> or <code class="codehilite">float</code>):  Update rate for the plume particle point cloud update</li>
 </ul>
+<p><strong>Launch file snippet</strong></p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;group</span> <span class="na">ns=</span><span class="s">&quot;plume&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;node</span> <span class="na">name=</span><span class="s">&quot;plume_simulation_server&quot;</span>
+          <span class="na">pkg=</span><span class="s">&quot;uuv_plume_simulator&quot;</span>
+          <span class="na">type=</span><span class="s">&quot;plume_server&quot;</span>
+          <span class="na">output=</span><span class="s">&quot;screen&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;remap</span> <span class="na">from=</span><span class="s">&quot;current_vel&quot;</span> <span class="na">to=</span><span class="s">&quot;/hydrodynamics/current_velocity&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;rosparam</span> <span class="na">subst_value=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+            update_rate: 5
+      <span class="nt">&lt;/rosparam&gt;</span>
+    <span class="nt">&lt;/node&gt;</span>
+<span class="nt">&lt;/group&gt;</span>
+</pre></div>
+
 <p><strong>ROS services</strong></p>
 <blockquote>
 <p><strong><code class="codehilite">create_spheroid_plume</code></strong></p>
+</blockquote>
+<p><em>Service description file</em></p>
+<p><a href="../uuv_plume_msgs/#createspheroidplume"><code class="codehilite">uuv_plume_msgs/CreateSpheroidPlume</code></a></p>
+<p><em>Service call</em></p>
+<div class="codehilite"><pre><span></span>rosservice call /&lt;plume_namespace&gt;/create_spheroid_plume <span class="s2">&quot;source: {x: 0.0, y: 0.0, z: 0.0}</span>
+<span class="s2">orientation: {x: 0.0, y: 0.0, z: 0.0, w: 0.0}</span>
+<span class="s2">n_points: 0</span>
+<span class="s2">a: 0.0</span>
+<span class="s2">c: 0.0</span>
+<span class="s2">x_min: 0.0</span>
+<span class="s2">x_max: 0.0</span>
+<span class="s2">y_min: 0.0</span>
+<span class="s2">y_max: 0.0</span>
+<span class="s2">z_min: 0.0</span>
+<span class="s2">z_max: 0.0&quot;</span>
+</pre></div>
+
+<p>Create a static plume in the shape of a spheroid.</p>
+<ul>
+<li><code class="codehilite">source</code>: Plume source position wrt ENU frame</li>
+<li><code class="codehilite">orientation</code>: Spheroid orientation in quaternion</li>
+<li><code class="codehilite">n_points</code>: Number of plume particles</li>
+<li><code class="codehilite">a</code> and <code class="codehilite">c</code>: Spheroid's semi-axis length</li>
+<li><code class="codehilite">x_min</code>, <code class="codehilite">x_max</code>, <code class="codehilite">y_min</code>, <code class="codehilite">y_max</code>, <code class="codehilite">z_min</code>, <code class="codehilite">z_max</code>: Limits of the bounding box where the plume particles are allowed to exist</li>
+</ul>
+<blockquote>
 <p><strong><code class="codehilite">create_passive_scalar_turbulent_plume</code></strong></p>
+</blockquote>
+<p><em>Service description file</em></p>
+<p><a href="../uuv_plume_msgs/#createpassivescalarturbulentplume"><code class="codehilite">uuv_plume_msgs/CreatePassiveScalarTurbulentPlume</code></a></p>
+<p><em>Service call</em></p>
+<div class="codehilite"><pre><span></span>rosservice call /&lt;plume_namespace&gt;/create_passive_scalar_turbulent_plume <span class="s2">&quot;turbulent_diffusion_coefficients: {x: 0.0, y: 0.0, z: 0.0}</span>
+<span class="s2">source: {x: 0.0, y: 0.0, z: 0.0}</span>
+<span class="s2">buoyancy_flux: 0.0</span>
+<span class="s2">stability_param: 0.0</span>
+<span class="s2">n_points: 0</span>
+<span class="s2">max_particles_per_iter: 0</span>
+<span class="s2">x_min: 0.0</span>
+<span class="s2">x_max: 0.0</span>
+<span class="s2">y_min: 0.0</span>
+<span class="s2">y_max: 0.0</span>
+<span class="s2">z_min: 0.0</span>
+<span class="s2">z_max: 0.0</span>
+<span class="s2">max_life_time: 0.0&quot;</span> 
+</pre></div>
+
+<p>Create a passive turbulent plume.</p>
+<ul>
+<li><code class="codehilite">turbulent_diffusion_coefficients</code>: Coefficients ruling the diffusion of the particles for each degree of freedom of the particle.</li>
+<li><code class="codehilite">source</code>: Position of the plume source wrt ENU frame</li>
+<li><code class="codehilite">buoyancy_flux</code> and <code class="codehilite">stability_param</code>: Parameters controlling the plume rise</li>
+<li><code class="codehilite">n_points</code>: Maximum number of plume particles to be generated</li>
+<li><code class="codehilite">max_particles_per_iter</code>: Maximum number of particles generated at the source position at each iteration</li>
+<li><code class="codehilite">x_min</code>, <code class="codehilite">x_max</code>, <code class="codehilite">y_min</code>, <code class="codehilite">y_max</code>, <code class="codehilite">z_min</code>, <code class="codehilite">z_max</code>: Limits of the bounding box where the plume particles are allowed to exist</li>
+<li><code class="codehilite">max_life_time</code>: Maximum life time of each particle in seconds</li>
+</ul>
+<blockquote>
 <p><strong><code class="codehilite">set_plume_limits</code></strong></p>
+</blockquote>
+<p><em>Service description file</em></p>
+<p><a href="../uuv_plume_msgs/#setplumelimits"><code class="codehilite">uuv_plume_msgs/SetPlumeLimits</code></a></p>
+<p><em>Service call</em></p>
+<div class="codehilite"><pre><span></span>rosservice call /&lt;plume_namespace&gt;/set_plume_limits <span class="s2">&quot;{x_min: 0.0, x_max: 0.0, y_min: 0.0, y_max: 0.0, z_min: 0.0, z_max: 0.0}&quot;</span>
+</pre></div>
+
+<p>Sets the bounds of the box where the plume particles are allowed to exist.</p>
+<ul>
+<li><code class="codehilite">x_min</code>, <code class="codehilite">x_max</code>, <code class="codehilite">y_min</code>, <code class="codehilite">y_max</code>, <code class="codehilite">z_min</code>, <code class="codehilite">z_max</code>: Limits of the bounding box where the plume particles are allowed to exist</li>
+</ul>
+<blockquote>
 <p><strong><code class="codehilite">set_plume_config</code></strong></p>
+</blockquote>
+<p><em>Service description file</em></p>
+<p><a href="../uuv_plume_msgs/#setplumeconfiguration"><code class="codehilite">uuv_plume_msgs/SetPlumeConfiguration</code></a></p>
+<p><em>Service call</em></p>
+<div class="codehilite"><pre><span></span>rosservice call /&lt;plume_namespace&gt;/set_plume_config <span class="s2">&quot;n_points: 0</span>
+<span class="s2">max_particles_per_iter: 0&quot;</span>
+</pre></div>
+
+<p>Configure the plume's particle generation parameters.</p>
+<ul>
+<li><code class="codehilite">n_points</code>: Maximum number of plume particles to be generated</li>
+<li><code class="codehilite">max_particles_per_iter</code>: Maximum number of particles generated at the source position at each iteration</li>
+</ul>
+<blockquote>
 <p><strong><code class="codehilite">get_plume_config</code></strong></p>
+</blockquote>
+<p><em>Service description file</em></p>
+<p><a href="../uuv_plume_msgs/#getplumeconfiguration"><code class="codehilite">uuv_plume_msgs/GetPlumeConfiguration</code></a></p>
+<p><em>Service call</em></p>
+<div class="codehilite"><pre><span></span>rosservice call /&lt;plume_namespace&gt;/get_plume_config
+</pre></div>
+
+<p>Return the plume's generation configuration parameters, including maximum number of particles,
+maximum number of particles per iteration, source position and limits of the bounding box.</p>
+<blockquote>
 <p><strong><code class="codehilite">delete_plume</code></strong></p>
+</blockquote>
+<p><em>Service description file</em></p>
+<p><a href="../uuv_plume_msgs/#deleteplume"><code class="codehilite">uuv_plume_msgs/DeletePlume</code></a></p>
+<p><em>Service call</em></p>
+<div class="codehilite"><pre><span></span>rosservice call /&lt;plume_namespace&gt;/delete_plume
+</pre></div>
+
+<p>Delete the source and the particles.</p>
+<blockquote>
 <p><strong><code class="codehilite">set_plume_source_position</code></strong></p>
+</blockquote>
+<p><em>Service description file</em></p>
+<p><a href="../uuv_plume_msgs/#setplumesourceposition"><code class="codehilite">uuv_plume_msgs/SetPlumeSourcePosition</code></a></p>
+<p><em>Service call</em></p>
+<div class="codehilite"><pre><span></span>rosservice call /&lt;plume_namespace&gt;/set_plume_source_position <span class="s2">&quot;source:</span>
+<span class="s2">  x: 0.0</span>
+<span class="s2">  y: 0.0</span>
+<span class="s2">  z: 0.0&quot;</span>
+</pre></div>
+
+<p>Set plume source position wrt ENU frame</p>
+<ul>
+<li><code class="codehilite">source</code>: New plume source position wrt ENU frame</li>
+</ul>
+<blockquote>
 <p><strong><code class="codehilite">get_plume_source_position</code></strong></p>
+</blockquote>
+<p><em>Service description file</em></p>
+<p><a href="../uuv_plume_msgs/#getplumesourceposition"><code class="codehilite">uuv_plume_msgs/GetPlumeSourcePosition</code></a></p>
+<p><em>Service call</em></p>
+<div class="codehilite"><pre><span></span>rosservice call /&lt;plume_namespace&gt;/get_plume_source_position
+</pre></div>
+
+<p>Return the plume source position coordinates.</p>
+<blockquote>
 <p><strong><code class="codehilite">get_num_particles</code></strong></p>
+</blockquote>
+<p><em>Service description file</em></p>
+<p><a href="../uuv_plume_msgs/#getnumparticles"><code class="codehilite">uuv_plume_msgs/GetNumParticles</code></a></p>
+<p><em>Service call</em></p>
+<div class="codehilite"><pre><span></span>rosservice call /&lt;plume_namespace&gt;/get_num_particles
+</pre></div>
+
+<p>Return current number of plume particles.</p>
+<blockquote>
 <p><strong><code class="codehilite">store_plume_state</code></strong></p>
+</blockquote>
+<p><em>Service description file</em></p>
+<p><a href="../uuv_plume_msgs/#storeplumestate"><code class="codehilite">uuv_plume_msgs/StorePlumeState</code></a></p>
+<p><em>Service call</em></p>
+<div class="codehilite"><pre><span></span>rosservice call /&lt;plume_namespace&gt;/store_plume_state <span class="s2">&quot;output_dir: &#39;&#39;</span>
+<span class="s2">filename: &#39;&#39;&quot;</span>
+</pre></div>
+
+<p>Store the position and time of creation for of each particle in a file as an YAML file.</p>
+<ul>
+<li><code class="codehilite">output_dir</code>: Path to output directory</li>
+<li><code class="codehilite">filename</code>: Output YAML file</li>
+</ul>
+<blockquote>
 <p><strong><code class="codehilite">load_plume_particles</code></strong></p>
 </blockquote>
+<p><em>Service description file</em></p>
+<p><a href="../uuv_plume_msgs/#loadplumeparticles"><code class="codehilite">uuv_plume_msgs/LoadPlumeParticles</code></a></p>
+<p><em>Service call</em></p>
+<div class="codehilite"><pre><span></span>rosservice call /&lt;plume_namespace&gt;/load_plume_particles <span class="s2">&quot;plume_file: &#39;&#39;&quot;</span> 
+</pre></div>
+
+<p>Load an YAML file with the plume particles' list positions and time of creation.</p>
+<ul>
+<li><code class="codehilite">plume_file</code>: Plume YAML file</li>
+</ul>
 <h5 id="current_velocity_server"><code class="codehilite">current_velocity_server</code><a class="headerlink" href="#current_velocity_server" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Script type:</strong> <code class="codehilite">python</code></p>
 </blockquote>
-<p><strong>Current velocity server node</strong></p>
-<p>In case no Gazebo simulation is providing the current velocity 
+<p><strong>Description</strong></p>
+<p>Current velocity server node.
+In case no Gazebo simulation is providing the current velocity 
 topic to steer the plume, this node generates a 2D current
 velocity topic. Both the current's velocity magnitude and horizontal 
 angle are modeled using a Gaussian-Markov process of first order, as 
@@ -1952,28 +2130,6 @@ The velocity magnitude is described by</p>
 <li><code class="codehilite">current_velocity_topic</code> (<em>default:</em> <code class="codehilite">current_velocity</code>, <em>type:</em> <code class="codehilite">string</code>): Name of the output current velocity topic</li>
 <li><code class="codehilite">update_rate</code> (<em>default:</em> <code class="codehilite">10</code>, <em>type:</em> <code class="codehilite">int</code> or <code class="codehilite">float</code>): Update rate of the output current velocity topic</li>
 </ul>
-<p><strong>ROS services</strong></p>
-<blockquote>
-<p><strong><code class="codehilite">get_current_velocity_model</code></strong></p>
-</blockquote>
-<p>ROS service description: <a href="../uuv_plume_msgs/"><code class="codehilite">GetCurrentModel</code></a></p>
-<p>Returns the parameters for the current velocity magnitude <span><span class="MathJax_Preview">v_c</span><script type="math/tex">v_c</script></span>.</p>
-<blockquote>
-<p><strong><code class="codehilite">get_angle_model</code></strong></p>
-</blockquote>
-<p>ROS service description: <a href="../uuv_plume_msgs/"><code class="codehilite">GetCurrentModel</code></a></p>
-<blockquote>
-<p><strong><code class="codehilite">set_current_velocity_model</code></strong></p>
-</blockquote>
-<p>ROS service description: <a href="../uuv_plume_msgs/"><code class="codehilite">SetCurrentModel</code></a></p>
-<blockquote>
-<p><strong><code class="codehilite">set_angle_model</code></strong></p>
-</blockquote>
-<p>ROS service description: <a href="../uuv_plume_msgs/"><code class="codehilite">SetCurrentModel</code></a></p>
-<blockquote>
-<p><strong><code class="codehilite">set_current_velocity</code></strong></p>
-</blockquote>
-<p>ROS service description: <a href="../uuv_plume_msgs/"><code class="codehilite">SetCurrentVelocity</code></a></p>
 <p><strong>Launch file snippet</strong></p>
 <div class="codehilite"><pre><span></span><span class="nt">&lt;node</span> <span class="na">name=</span><span class="s">&quot;current_velocity_server&quot;</span>
     <span class="na">pkg=</span><span class="s">&quot;uuv_plume_simulator&quot;</span>
@@ -1987,7 +2143,7 @@ The velocity magnitude is described by</p>
 </pre></div>
 
 <p><strong>Running from the launch file</strong></p>
-<div class="codehilite"><pre><span></span>&gt;&gt; roslaunch uuv_plume_simulator start_current_velocity_server.launch current_velocity_topic:<span class="o">=</span>current_velocity update_rate:<span class="o">=</span><span class="m">10</span>
+<div class="codehilite"><pre><span></span>roslaunch uuv_plume_simulator start_current_velocity_server.launch current_velocity_topic:<span class="o">=</span>current_velocity update_rate:<span class="o">=</span><span class="m">10</span>
 </pre></div>
 
 <div class="admonition warning">
@@ -1996,6 +2152,74 @@ The velocity magnitude is described by</p>
 simulation that generates the same topic, it can cause unexpected 
 behaviours to the plume's steering.</p>
 </div>
+<p><strong>ROS services</strong></p>
+<blockquote>
+<p><strong><code class="codehilite">get_current_velocity_model</code></strong></p>
+</blockquote>
+<p><em>Service description file</em></p>
+<p><a href="../uuv_plume_msgs/#getcurrentmodel"><code class="codehilite">uuv_plume_msgs/GetCurrentModel</code></a></p>
+<p><em>Service call</em></p>
+<div class="codehilite"><pre><span></span>rosservice call /&lt;namespace&gt;/get_current_velocity_model
+</pre></div>
+
+<p>Return the parameters for the Gauss-Markov process describing the current velocity magnitude <span><span class="MathJax_Preview">v_c</span><script type="math/tex">v_c</script></span>.</p>
+<blockquote>
+<p><strong><code class="codehilite">get_angle_model</code></strong></p>
+</blockquote>
+<p><em>Service description file</em></p>
+<p><a href="../uuv_plume_msgs/#getcurrentmodel"><code class="codehilite">uuv_plume_msgs/GetCurrentModel</code></a></p>
+<p><em>Service call</em></p>
+<div class="codehilite"><pre><span></span>rosservice call /&lt;namespace&gt;/get_angle_model 
+</pre></div>
+
+<p>Return the parameters for the Gauss-Markov process describing the current's horizontal angle <span><span class="MathJax_Preview">\phi</span><script type="math/tex">\phi</script></span>.</p>
+<blockquote>
+<p><strong><code class="codehilite">set_current_velocity_model</code></strong></p>
+</blockquote>
+<p><em>Service description file</em></p>
+<p><a href="../uuv_plume_msgs/#setcurrentmodel"><code class="codehilite">uuv_plume_msgs/SetCurrentModel</code></a></p>
+<p><em>Service call</em></p>
+<div class="codehilite"><pre><span></span>rosservice call /&lt;namespace&gt;/set_current_velocity_model <span class="s2">&quot;{mean: 0.0, min: 0.0, max: 0.0, noise: 0.0, mu: 0.0}&quot;</span> 
+</pre></div>
+
+<p>Set the parameters for the Gauss-Markov process describing the current velocity magnitude <span><span class="MathJax_Preview">v_c</span><script type="math/tex">v_c</script></span>.</p>
+<ul>
+<li><code class="codehilite">mean</code>: Mean value in m/s</li>
+<li><code class="codehilite">min</code> and <code class="codehilite">max</code>: Bounds of the output velocity magnitude in m/s</li>
+<li><code class="codehilite">noise</code>: Amplitude of the random noise value in m/s</li>
+<li><code class="codehilite">mu</code>: Inverse of the process' time constant</li>
+</ul>
+<blockquote>
+<p><strong><code class="codehilite">set_angle_model</code></strong></p>
+</blockquote>
+<p><em>Service description file</em></p>
+<p><a href="../uuv_plume_msgs/#setcurrentmodel"><code class="codehilite">uuv_plume_msgs/SetCurrentModel</code></a></p>
+<p><em>Service call</em></p>
+<div class="codehilite"><pre><span></span>rosservice call /&lt;namespace&gt;/set_angle_model <span class="s2">&quot;{mean: 0.0, min: 0.0, max: 0.0, noise: 0.0, mu: 0.0}&quot;</span> 
+</pre></div>
+
+<p>Set the parameters for the Gauss-Markov process describing the current's horizontal angle <span><span class="MathJax_Preview">\phi</span><script type="math/tex">\phi</script></span>.</p>
+<ul>
+<li><code class="codehilite">mean</code>: Mean value in radians</li>
+<li><code class="codehilite">min</code> and <code class="codehilite">max</code>: Bounds of the output angle in radians</li>
+<li><code class="codehilite">noise</code>: Amplitude of the random noise value in radians</li>
+<li><code class="codehilite">mu</code>: Inverse of the process' time constant</li>
+</ul>
+<blockquote>
+<p><strong><code class="codehilite">set_current_velocity</code></strong></p>
+</blockquote>
+<p><em>Service description file</em></p>
+<p><a href="../uuv_plume_msgs/#setcurrentvelocity"><code class="codehilite">uuv_plume_msgs/SetCurrentVelocity</code></a></p>
+<p><em>Service call</em></p>
+<div class="codehilite"><pre><span></span>rosservice call /&lt;namespace&gt;/set_current_velocity <span class="s2">&quot;velocity: 0.0</span>
+<span class="s2">horizontal_angle: 0.0&quot;</span> 
+</pre></div>
+
+<p>Set a default model for current velocity magnitude <span><span class="MathJax_Preview">v_c</span><script type="math/tex">v_c</script></span> and horizontal angle <span><span class="MathJax_Preview">\phi</span><script type="math/tex">\phi</script></span>.</p>
+<ul>
+<li><code class="codehilite">velocity</code>: Mean current velocity magnitude in m/s</li>
+<li>`horizontal_angle: Mean horizonal angle in degrees</li>
+</ul>
 <h5 id="set_demo_current_vel_gazebo"><code class="codehilite">set_demo_current_vel_gazebo</code><a class="headerlink" href="#set_demo_current_vel_gazebo" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Script type:</strong> <code class="codehilite">shell</code></p>
@@ -2008,6 +2232,24 @@ behaviours to the plume's steering.</p>
 <blockquote>
 <p><strong>Script type:</strong> <code class="codehilite">python</code></p>
 </blockquote>
+<p><strong>Description</strong></p>
+<p>Node to call the ROS service from the plume server to load
+the plume particles from an YAML file.</p>
+<p><strong>Input ROS parameters</strong></p>
+<ul>
+<li><code class="codehilite">filename</code> (<em>type:</em> <code class="codehilite">string</code>): Input YAML file where the plume particles' coordinates and time of creation are stored</li>
+</ul>
+<p><strong>ROS launch snippet</strong></p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;node</span> <span class="na">name=</span><span class="s">&quot;load_plume_particles&quot;</span>
+      <span class="na">pkg=</span><span class="s">&quot;uuv_plume_simulator&quot;</span>
+      <span class="na">type=</span><span class="s">&quot;load_plume_particles&quot;</span>
+      <span class="na">output=</span><span class="s">&quot;screen&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;rosparam&gt;</span>
+        filename: /<span class="nt">&lt;path&gt;</span>/file.yaml
+    <span class="nt">&lt;/rosparam&gt;</span>
+<span class="nt">&lt;/node&gt;</span>
+</pre></div>
+
 <h5 id="set_demo_current_vel"><code class="codehilite">set_demo_current_vel</code><a class="headerlink" href="#set_demo_current_vel" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Script type:</strong> <code class="codehilite">shell</code></p>
@@ -2016,6 +2258,21 @@ behaviours to the plume's steering.</p>
 <blockquote>
 <p><strong>Script type:</strong> <code class="codehilite">python</code></p>
 </blockquote>
+<p><strong>Description</strong></p>
+<p>Node to call the ROS service from the plume server to create a 
+passive turbulent plume.</p>
+<div class="admonition note">
+<p class="admonition-title">See also</p>
+<p><a href="../../user_guide/introduction/">Description of the turbulent plume model</a></p>
+</div>
+<p><strong>Input ROS parameters</strong></p>
+<ul>
+<li><code class="codehilite">turbulent_diffusion_coefficients</code> (<em>type:</em> <code class="codehilite">dict</code>): Dictionary with keys <code class="codehilite">x</code>, <code class="codehilite">y</code> and <code class="codehilite">z</code></li>
+</ul>
+<p><strong>ROS launch snippet</strong></p>
+<p><strong>Running from the launch file</strong></p>
+<div class="codehilite"><pre><span></span>roslaunch uuv_plume_simulator start_turbulent_plume.launch
+</pre></div>
                 
                   
                 
@@ -2086,13 +2343,11 @@ behaviours to the plume's steering.</p>
   <div class="md-footer-social">
     <link rel="stylesheet" href="../../../../../assets/fonts/font-awesome.css">
     
-      <a href="https://github.com/boschresearch" class="md-footer-social__link fa fa-globe"></a>
-    
-      <a href="https://discourse.ros.org/c/maritime" class="md-footer-social__link fa fa-comment"></a>
+      <a href="https://discourse.ros.org/c/maritime" class="md-footer-social__link fa fa-globe"></a>
     
       <a href="https://github.com/uuvsimulator/" class="md-footer-social__link fa fa-github-alt"></a>
     
-      <a href="https://uuvsimulator.slack.com/" class="md-footer-social__link fa fa-slack"></a>
+      <a href="https://discord.gg/zNauF2F" class="md-footer-social__link fa fa-comment"></a>
     
   </div>
 
