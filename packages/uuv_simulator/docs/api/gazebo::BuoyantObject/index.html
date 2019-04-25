@@ -1,0 +1,3633 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Unmanned Underwater Vehicle Simulator Documentation.">
+      
+      
+        <link rel="canonical" href="https://uuvsimulator.github.io/packages/uuv_simulator/docs/api/gazebo::BuoyantObject/">
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.2">
+    
+    
+      
+        <title>BuoyantObject - Unmanned Underwater Vehicle Simulator Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/application.3020aac5.css">
+      
+      
+    
+    
+      <script src="../../../../../assets/javascripts/modernizr.01ccdecf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#class-gazebobuoyantobject" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://uuvsimulator.github.io/" title="Unmanned Underwater Vehicle Simulator Documentation" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Unmanned Underwater Vehicle Simulator Documentation
+            </span>
+            <span class="md-header-nav__topic">
+              BuoyantObject
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/uuvsimulator/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../../../../.." title="Home" class="md-tabs__link">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../intro/" title="UUV Simulator" class="md-tabs__link md-tabs__link--active">
+          UUV Simulator
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../uuv_plume_simulator/intro/" title="Plume Simulator" class="md-tabs__link">
+          Plume Simulator
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../rexrov2/intro/" title="RexROV 2" class="md-tabs__link">
+          RexROV 2
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../eca_a9/intro/" title="ECA A9" class="md-tabs__link">
+          ECA A9
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../lauv_gazebo/intro/" title="LAUV" class="md-tabs__link">
+          LAUV
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../desistek_saga/intro/" title="Desistek SAGA ROV" class="md-tabs__link">
+          Desistek SAGA ROV
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../../tutorials/config_thruster_manager/" title="Tutorials" class="md-tabs__link">
+          Tutorials
+        </a>
+      
+    </li>
+  
+
+      
+        
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../../about/license/" title="About" class="md-tabs__link">
+          About
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://uuvsimulator.github.io/" title="Unmanned Underwater Vehicle Simulator Documentation" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Unmanned Underwater Vehicle Simulator Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/uuvsimulator/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../installation/" title="Installation" class="md-nav__link">
+      Installation
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../quick_start/" title="Quick start" class="md-nav__link">
+      Quick start
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../api/" title="API" class="md-nav__link">
+      API
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      UUV Simulator
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        UUV Simulator
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-2" type="checkbox" id="nav-5-2">
+    
+    <label class="md-nav__link" for="nav-5-2">
+      Packages
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-2">
+        Packages
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_assistants/" title="uuv_assistants" class="md-nav__link">
+      uuv_assistants
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_auv_control_allocator/" title="uuv_auv_control_allocator" class="md-nav__link">
+      uuv_auv_control_allocator
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_control_cascaded_pid/" title="uuv_control_cascaded_pid" class="md-nav__link">
+      uuv_control_cascaded_pid
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_control_msgs/" title="uuv_control_msgs" class="md-nav__link">
+      uuv_control_msgs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_control_utils/" title="uuv_control_utils" class="md-nav__link">
+      uuv_control_utils
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_descriptions/" title="uuv_descriptions" class="md-nav__link">
+      uuv_descriptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_gazebo_plugins/" title="uuv_gazebo_plugins" class="md-nav__link">
+      uuv_gazebo_plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_gazebo/" title="uuv_gazebo" class="md-nav__link">
+      uuv_gazebo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_gazebo_ros_plugins/" title="uuv_gazebo_ros_plugins" class="md-nav__link">
+      uuv_gazebo_ros_plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_gazebo_ros_plugins_msgs/" title="uuv_gazebo_ros_plugins_msgs" class="md-nav__link">
+      uuv_gazebo_ros_plugins_msgs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_gazebo_worlds/" title="uuv_gazebo_worlds" class="md-nav__link">
+      uuv_gazebo_worlds
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_sensor_ros_plugins/" title="uuv_sensor_ros_plugins" class="md-nav__link">
+      uuv_sensor_ros_plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_sensor_ros_plugins_msgs/" title="uuv_sensor_ros_plugins_msgs" class="md-nav__link">
+      uuv_sensor_ros_plugins_msgs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_teleop/" title="uuv_teleop" class="md-nav__link">
+      uuv_teleop
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_thruster_manager/" title="uuv_thruster_manager" class="md-nav__link">
+      uuv_thruster_manager
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_trajectory_control/" title="uuv_trajectory_control" class="md-nav__link">
+      uuv_trajectory_control
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_world_plugins/" title="uuv_world_plugins" class="md-nav__link">
+      uuv_world_plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_world_ros_plugins/" title="uuv_world_ros_plugins" class="md-nav__link">
+      uuv_world_ros_plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_world_ros_plugins_msgs/" title="uuv_world_ros_plugins_msgs" class="md-nav__link">
+      uuv_world_ros_plugins_msgs
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3" type="checkbox" id="nav-5-3" checked>
+    
+    <label class="md-nav__link" for="nav-5-3">
+      C++ API
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-3">
+        C++ API
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3-1" type="checkbox" id="nav-5-3-1" checked>
+    
+    <label class="md-nav__link" for="nav-5-3-1">
+      uuv_gazebo_plugins
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-5-3-1">
+        uuv_gazebo_plugins
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        BuoyantObject
+      </label>
+    
+    <a href="./" title="BuoyantObject" class="md-nav__link md-nav__link--active">
+      BuoyantObject
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#class-gazebobuoyantobject" title="class gazebo::BuoyantObject" class="md-nav__link">
+    class gazebo::BuoyantObject
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary" title="Summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#members" title="Members" class="md-nav__link">
+    Members
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#publicbuoyantobjectphysicslinkptr-_link" title="publicBuoyantObject(physics::LinkPtr _link)" class="md-nav__link">
+    publicBuoyantObject(physics::LinkPtr _link)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publicbuoyantobject" title="public~BuoyantObject()" class="md-nav__link">
+    public~BuoyantObject()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-voidgetbuoyancyforceconst-ignitionmathpose3d-_poseignitionmathvector3d-buoyancyforceignitionmathvector3d-buoyancytorque" title="public voidGetBuoyancyForce(const ignition::math::Pose3d &amp; _pose,ignition::math::Vector3d &amp; buoyancyForce,ignition::math::Vector3d &amp; buoyancyTorque)" class="md-nav__link">
+    public voidGetBuoyancyForce(const ignition::math::Pose3d &amp; _pose,ignition::math::Vector3d &amp; buoyancyForce,ignition::math::Vector3d &amp; buoyancyTorque)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-voidapplybuoyancyforce" title="public voidApplyBuoyancyForce()" class="md-nav__link">
+    public voidApplyBuoyancyForce()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-voidsetvolumedouble-_volume" title="public voidSetVolume(double _volume)" class="md-nav__link">
+    public voidSetVolume(double _volume)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-doublegetvolume" title="public doubleGetVolume()" class="md-nav__link">
+    public doubleGetVolume()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-voidsetfluiddensitydouble-_fluiddensity" title="public voidSetFluidDensity(double _fluidDensity)" class="md-nav__link">
+    public voidSetFluidDensity(double _fluidDensity)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-doublegetfluiddensity" title="public doubleGetFluidDensity()" class="md-nav__link">
+    public doubleGetFluidDensity()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-voidsetcobconst-ignitionmathvector3d-_centerofbuoyancy" title="public voidSetCoB(const ignition::math::Vector3d &amp; _centerOfBuoyancy)" class="md-nav__link">
+    public voidSetCoB(const ignition::math::Vector3d &amp; _centerOfBuoyancy)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-ignitionmathvector3dgetcob" title="public ignition::math::Vector3dGetCoB()" class="md-nav__link">
+    public ignition::math::Vector3dGetCoB()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-voidsetgravitydouble-_g" title="public voidSetGravity(double _g)" class="md-nav__link">
+    public voidSetGravity(double _g)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-doublegetgravity" title="public doubleGetGravity()" class="md-nav__link">
+    public doubleGetGravity()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-voidsetboundingboxconst-ignitionmathbox-_bbox" title="public voidSetBoundingBox(const ignition::math::Box &amp; _bBox)" class="md-nav__link">
+    public voidSetBoundingBox(const ignition::math::Box &amp; _bBox)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-voidsetstorevectorstdstring-_tag" title="public voidSetStoreVector(std::string _tag)" class="md-nav__link">
+    public voidSetStoreVector(std::string _tag)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-ignitionmathvector3dgetstoredvectorstdstring-_tag" title="public ignition::math::Vector3dGetStoredVector(std::string _tag)" class="md-nav__link">
+    public ignition::math::Vector3dGetStoredVector(std::string _tag)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-voidsetdebugflagbool-_debugon" title="public voidSetDebugFlag(bool _debugOn)" class="md-nav__link">
+    public voidSetDebugFlag(bool _debugOn)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-boolissubmerged" title="public boolIsSubmerged()" class="md-nav__link">
+    public boolIsSubmerged()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-boolisneutrallybuoyant" title="public boolIsNeutrallyBuoyant()" class="md-nav__link">
+    public boolIsNeutrallyBuoyant()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-boolgetdebugflag" title="public boolGetDebugFlag()" class="md-nav__link">
+    public boolGetDebugFlag()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-voidsetneutrallybuoyant" title="public voidSetNeutrallyBuoyant()" class="md-nav__link">
+    public voidSetNeutrallyBuoyant()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-doublevolume" title="protected doublevolume" class="md-nav__link">
+    protected doublevolume
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-doublescalingvolume" title="protected doublescalingVolume" class="md-nav__link">
+    protected doublescalingVolume
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-doubleoffsetvolume" title="protected doubleoffsetVolume" class="md-nav__link">
+    protected doubleoffsetVolume
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-doublefluiddensity" title="protected doublefluidDensity" class="md-nav__link">
+    protected doublefluidDensity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-doubleg" title="protected doubleg" class="md-nav__link">
+    protected doubleg
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-ignitionmathvector3dcenterofbuoyancy" title="protected ignition::math::Vector3dcenterOfBuoyancy" class="md-nav__link">
+    protected ignition::math::Vector3dcenterOfBuoyancy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-ignitionmathboxboundingbox" title="protected ignition::math::BoxboundingBox" class="md-nav__link">
+    protected ignition::math::BoxboundingBox
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-stdmap-stdstring-ignitionmathvector3d-hydrowrench" title="protected std::map&lt; std::string, ignition::math::Vector3d &gt;hydroWrench" class="md-nav__link">
+    protected std::map&lt; std::string, ignition::math::Vector3d &gt;hydroWrench
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-booldebugflag" title="protected booldebugFlag" class="md-nav__link">
+    protected booldebugFlag
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-boolissubmerged" title="protected boolisSubmerged" class="md-nav__link">
+    protected boolisSubmerged
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-physicslinkptrlink" title="protected physics::LinkPtrlink" class="md-nav__link">
+    protected physics::LinkPtrlink
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-boolneutrallybuoyant" title="protected boolneutrallyBuoyant" class="md-nav__link">
+    protected boolneutrallyBuoyant
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-doublemetacentricwidth" title="protected doublemetacentricWidth" class="md-nav__link">
+    protected doublemetacentricWidth
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-doublemetacentriclength" title="protected doublemetacentricLength" class="md-nav__link">
+    protected doublemetacentricLength
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-doublewaterlevelplanearea" title="protected doublewaterLevelPlaneArea" class="md-nav__link">
+    protected doublewaterLevelPlaneArea
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-doublesubmergedheight" title="protected doublesubmergedHeight" class="md-nav__link">
+    protected doublesubmergedHeight
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-boolissurfacevessel" title="protected boolisSurfaceVessel" class="md-nav__link">
+    protected boolisSurfaceVessel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-boolissurfacevesselfloating" title="protected boolisSurfaceVesselFloating" class="md-nav__link">
+    protected boolisSurfaceVesselFloating
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-voidstorevectorstdstring-_tagignitionmathvector3d-_vec" title="protected voidStoreVector(std::string _tag,ignition::math::Vector3d _vec)" class="md-nav__link">
+    protected voidStoreVector(std::string _tag,ignition::math::Vector3d _vec)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3-1-2" type="checkbox" id="nav-5-3-1-2">
+    
+    <label class="md-nav__link" for="nav-5-3-1-2">
+      Dynamics
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-5-3-1-2">
+        Dynamics
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::Dynamics/" title="Dynamics" class="md-nav__link">
+      Dynamics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::DynamicsFactory/" title="DynamicsFactory" class="md-nav__link">
+      DynamicsFactory
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::DynamicsFirstOrder/" title="DynamicsFirstOrder" class="md-nav__link">
+      DynamicsFirstOrder
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::DynamicsZeroOrder/" title="DynamicsZeroOrder" class="md-nav__link">
+      DynamicsZeroOrder
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::ThrusterDynamicsBessa/" title="ThrusterDynamicsBessa" class="md-nav__link">
+      ThrusterDynamicsBessa
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::ThrusterDynamicsYoerger/" title="ThrusterDynamicsYoerger" class="md-nav__link">
+      ThrusterDynamicsYoerger
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::FinPlugin/" title="FinPlugin" class="md-nav__link">
+      FinPlugin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3-1-4" type="checkbox" id="nav-5-3-1-4">
+    
+    <label class="md-nav__link" for="nav-5-3-1-4">
+      HydrodynamicModel
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-5-3-1-4">
+        HydrodynamicModel
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::HydrodynamicModel/" title="HydrodynamicModel" class="md-nav__link">
+      HydrodynamicModel
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::HydrodynamicModelFactory/" title="HydrodynamicModelFactory" class="md-nav__link">
+      HydrodynamicModelFactory
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::HMBox/" title="HMBox" class="md-nav__link">
+      HMBox
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::HMCylinder/" title="HMCylinder" class="md-nav__link">
+      HMCylinder
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::HMFossen/" title="HMFossen" class="md-nav__link">
+      HMFossen
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::HMSphere/" title="HMSphere" class="md-nav__link">
+      HMSphere
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::HMSpheroid/" title="HMSpheroid" class="md-nav__link">
+      HMSpheroid
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3-1-5" type="checkbox" id="nav-5-3-1-5">
+    
+    <label class="md-nav__link" for="nav-5-3-1-5">
+      LiftDragModel
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-5-3-1-5">
+        LiftDragModel
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::LiftDrag/" title="LiftDrag" class="md-nav__link">
+      LiftDrag
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::LiftDragFactory/" title="LiftDragFactory" class="md-nav__link">
+      LiftDragFactory
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::LiftDragQuadratic/" title="LiftDragQuadratic" class="md-nav__link">
+      LiftDragQuadratic
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::LiftDragTwoLines/" title="LiftDragTwoLines" class="md-nav__link">
+      LiftDragTwoLines
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3-1-6" type="checkbox" id="nav-5-3-1-6">
+    
+    <label class="md-nav__link" for="nav-5-3-1-6">
+      ThrusterConversionFcn
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-5-3-1-6">
+        ThrusterConversionFcn
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::ConversionFunction/" title="ConversionFunction" class="md-nav__link">
+      ConversionFunction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::ConversionFunctionFactory/" title="ConversionFunctionFactory" class="md-nav__link">
+      ConversionFunctionFactory
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::ConversionFunctionBasic/" title="ConversionFunctionBasic" class="md-nav__link">
+      ConversionFunctionBasic
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::ConversionFunctionBessa/" title="ConversionFunctionBessa" class="md-nav__link">
+      ConversionFunctionBessa
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::ConversionFunctionLinearInterp/" title="ConversionFunctionLinearInterp" class="md-nav__link">
+      ConversionFunctionLinearInterp
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::ThrusterPlugin/" title="ThrusterPlugin" class="md-nav__link">
+      ThrusterPlugin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::UnderwaterObjectPlugin/" title="UnderwaterObjectPlugin" class="md-nav__link">
+      UnderwaterObjectPlugin
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3-2" type="checkbox" id="nav-5-3-2">
+    
+    <label class="md-nav__link" for="nav-5-3-2">
+      uuv_gazebo_ros_plugins
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-5-3-2">
+        uuv_gazebo_ros_plugins
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::AccelerationsTestPlugin/" title="AccelerationsTestPlugin" class="md-nav__link">
+      AccelerationsTestPlugin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::CustomBatteryConsumerROSPlugin/" title="CustomBatteryConsumerROSPlugin" class="md-nav__link">
+      CustomBatteryConsumerROSPlugin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../uuv_simulator_ros::FinROSPlugin/" title="FinROSPlugin" class="md-nav__link">
+      FinROSPlugin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../uuv_simulator_ros::JointStatePublisher/" title="JointStatePublisher" class="md-nav__link">
+      JointStatePublisher
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::LinearBatteryROSPlugin/" title="LinearBatteryROSPlugin" class="md-nav__link">
+      LinearBatteryROSPlugin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../uuv_simulator_ros::ThrusterROSPlugin/" title="ThrusterROSPlugin" class="md-nav__link">
+      ThrusterROSPlugin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../uuv_simulator_ros::UnderwaterObjectROSPlugin/" title="UnderwaterObjectROSPlugin" class="md-nav__link">
+      UnderwaterObjectROSPlugin
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3-3" type="checkbox" id="nav-5-3-3">
+    
+    <label class="md-nav__link" for="nav-5-3-3">
+      uuv_sensor_ros_plugins
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-5-3-3">
+        uuv_sensor_ros_plugins
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::ROSBasePlugin/" title="ROSBasePlugin" class="md-nav__link">
+      ROSBasePlugin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::ROSBaseModelPlugin/" title="ROSBaseModelPlugin" class="md-nav__link">
+      ROSBaseModelPlugin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::ROSBaseSensorPlugin/" title="ROSBaseSensorPlugin" class="md-nav__link">
+      ROSBaseSensorPlugin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::CPCROSPlugin/" title="CPCROSPlugin" class="md-nav__link">
+      CPCROSPlugin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::DVLROSPlugin/" title="DVLROSPlugin" class="md-nav__link">
+      DVLROSPlugin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::GazeboRosImageSonar/" title="GazeboRosImageSonar" class="md-nav__link">
+      GazeboRosImageSonar
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::GPSROSPlugin/" title="GPSROSPlugin" class="md-nav__link">
+      GPSROSPlugin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3-3-8" type="checkbox" id="nav-5-3-3-8">
+    
+    <label class="md-nav__link" for="nav-5-3-3-8">
+      IMUROSPlugin
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-5-3-3-8">
+        IMUROSPlugin
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::IMUParameters/" title="IMUParameters" class="md-nav__link">
+      IMUParameters
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::IMUROSPlugin/" title="IMUROSPlugin" class="md-nav__link">
+      IMUROSPlugin
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3-3-9" type="checkbox" id="nav-5-3-3-9">
+    
+    <label class="md-nav__link" for="nav-5-3-3-9">
+      MagnetometerROSPlugin
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-5-3-3-9">
+        MagnetometerROSPlugin
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::MagnetometerParameters/" title="MagnetometerParameters" class="md-nav__link">
+      MagnetometerParameters
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::MagnetometerROSPlugin/" title="MagnetometerROSPlugin" class="md-nav__link">
+      MagnetometerROSPlugin
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::PoseGTROSPlugin/" title="PoseGTROSPlugin" class="md-nav__link">
+      PoseGTROSPlugin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::RPTROSPlugin/" title="RPTROSPlugin" class="md-nav__link">
+      RPTROSPlugin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::SubseaPressureROSPlugin/" title="SubseaPressureROSPlugin" class="md-nav__link">
+      SubseaPressureROSPlugin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::UnderwaterCameraROSPlugin/" title="UnderwaterCameraROSPlugin" class="md-nav__link">
+      UnderwaterCameraROSPlugin
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3-4" type="checkbox" id="nav-5-3-4">
+    
+    <label class="md-nav__link" for="nav-5-3-4">
+      uuv_world_plugins
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-5-3-4">
+        uuv_world_plugins
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::GaussMarkovProcess/" title="GaussMarkovProcess" class="md-nav__link">
+      GaussMarkovProcess
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::UnderwaterCurrentPlugin/" title="UnderwaterCurrentPlugin" class="md-nav__link">
+      UnderwaterCurrentPlugin
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3-5" type="checkbox" id="nav-5-3-5">
+    
+    <label class="md-nav__link" for="nav-5-3-5">
+      uuv_world_ros_plugins
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-5-3-5">
+        uuv_world_ros_plugins
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gazebo::SphericalCoordinatesROSInterfacePlugin/" title="SphericalCoordinatesROSInterfacePlugin" class="md-nav__link">
+      SphericalCoordinatesROSInterfacePlugin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../uuv_simulator_ros::UnderwaterCurrentROSPlugin/" title="UnderwaterCurrentROSPlugin" class="md-nav__link">
+      UnderwaterCurrentROSPlugin
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-4" type="checkbox" id="nav-5-4">
+    
+    <label class="md-nav__link" for="nav-5-4">
+      Python API
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-4">
+        Python API
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-4-1" type="checkbox" id="nav-5-4-1">
+    
+    <label class="md-nav__link" for="nav-5-4-1">
+      uuv_auv_control_allocator
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-5-4-1">
+        uuv_auv_control_allocator
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python_api/uuv_auv_actuator_interface/" title="uuv_auv_actuator_interface" class="md-nav__link">
+      uuv_auv_actuator_interface
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-4-2" type="checkbox" id="nav-5-4-2">
+    
+    <label class="md-nav__link" for="nav-5-4-2">
+      uuv_control_cascaded_pids
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-5-4-2">
+        uuv_control_cascaded_pids
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python_api/PID/" title="PID" class="md-nav__link">
+      PID
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-4-3" type="checkbox" id="nav-5-4-3">
+    
+    <label class="md-nav__link" for="nav-5-4-3">
+      uuv_thruster_manager
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-5-4-3">
+        uuv_thruster_manager
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python_api/uuv_thrusters/" title="uuv_thrusters" class="md-nav__link">
+      uuv_thrusters
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-4-4" type="checkbox" id="nav-5-4-4">
+    
+    <label class="md-nav__link" for="nav-5-4-4">
+      uuv_trajectory_control
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-5-4-4">
+        uuv_trajectory_control
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python_api/uuv_control_interfaces/" title="uuv_control_interfaces" class="md-nav__link">
+      uuv_control_interfaces
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python_api/uuv_trajectory_generator/" title="uuv_trajectory_generator" class="md-nav__link">
+      uuv_trajectory_generator
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../python_api/uuv_waypoints/" title="uuv_waypoints" class="md-nav__link">
+      uuv_waypoints
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Plume Simulator
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Plume Simulator
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../uuv_plume_simulator/intro/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-2" type="checkbox" id="nav-6-2">
+    
+    <label class="md-nav__link" for="nav-6-2">
+      User Guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-2">
+        User Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../uuv_plume_simulator/docs/user_guide/introduction/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../uuv_plume_simulator/docs/user_guide/how_to_start_a_turbulent_plume/" title="How to start a turbulent passive plume" class="md-nav__link">
+      How to start a turbulent passive plume
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3" type="checkbox" id="nav-6-3">
+    
+    <label class="md-nav__link" for="nav-6-3">
+      Packages
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-3">
+        Packages
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../uuv_plume_simulator/docs/packages/uuv_plume_simulator/" title="uuv_plume_simulator" class="md-nav__link">
+      uuv_plume_simulator
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../uuv_plume_simulator/docs/packages/uuv_cpc_sensor/" title="uuv_cpc_sensor" class="md-nav__link">
+      uuv_cpc_sensor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../uuv_plume_simulator/docs/packages/uuv_plume_msgs/" title="uuv_plume_msgs" class="md-nav__link">
+      uuv_plume_msgs
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-4" type="checkbox" id="nav-6-4">
+    
+    <label class="md-nav__link" for="nav-6-4">
+      C++ API
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-4">
+        C++ API
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../uuv_plume_simulator/docs/api/uuv_plume_simulator::CPCSensor/" title="CPCSensor" class="md-nav__link">
+      CPCSensor
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-5" type="checkbox" id="nav-6-5">
+    
+    <label class="md-nav__link" for="nav-6-5">
+      Python API
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-5">
+        Python API
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-5-1" type="checkbox" id="nav-6-5-1">
+    
+    <label class="md-nav__link" for="nav-6-5-1">
+      uuv_plume_simulator
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-6-5-1">
+        uuv_plume_simulator
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../uuv_plume_simulator/docs/python_api/uuv_gm_process/" title="uuv_gm_process" class="md-nav__link">
+      uuv_gm_process
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../uuv_plume_simulator/docs/python_api/uuv_plume_model/" title="uuv_plume_model" class="md-nav__link">
+      uuv_plume_model
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      RexROV 2
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        RexROV 2
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../rexrov2/intro/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-2" type="checkbox" id="nav-7-2">
+    
+    <label class="md-nav__link" for="nav-7-2">
+      Packages
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-2">
+        Packages
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../rexrov2/docs/packages/rexrov2_control/" title="rexrov2_control" class="md-nav__link">
+      rexrov2_control
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../rexrov2/docs/packages/rexrov2_description/" title="rexrov2_description" class="md-nav__link">
+      rexrov2_description
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../rexrov2/docs/packages/rexrov2_gazebo/" title="rexrov2_gazebo" class="md-nav__link">
+      rexrov2_gazebo
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      ECA A9
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        ECA A9
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../eca_a9/intro/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-2" type="checkbox" id="nav-8-2">
+    
+    <label class="md-nav__link" for="nav-8-2">
+      Packages
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-2">
+        Packages
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../eca_a9/docs/packages/eca_a9_control/" title="eca_a9_control" class="md-nav__link">
+      eca_a9_control
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../eca_a9/docs/packages/eca_a9_description/" title="eca_a9_description" class="md-nav__link">
+      eca_a9_description
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../eca_a9/docs/packages/eca_a9_gazebo/" title="eca_a9_gazebo" class="md-nav__link">
+      eca_a9_gazebo
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      LAUV
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        LAUV
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../lauv_gazebo/intro/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9-2" type="checkbox" id="nav-9-2">
+    
+    <label class="md-nav__link" for="nav-9-2">
+      Packages
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-9-2">
+        Packages
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../lauv_gazebo/docs/packages/lauv_control/" title="lauv_control" class="md-nav__link">
+      lauv_control
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../lauv_gazebo/docs/packages/lauv_description/" title="lauv_description" class="md-nav__link">
+      lauv_description
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../lauv_gazebo/docs/packages/lauv_gazebo/" title="lauv_gazebo" class="md-nav__link">
+      lauv_gazebo
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+    
+    <label class="md-nav__link" for="nav-10">
+      Desistek SAGA ROV
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        Desistek SAGA ROV
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../desistek_saga/intro/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10-2" type="checkbox" id="nav-10-2">
+    
+    <label class="md-nav__link" for="nav-10-2">
+      Packages
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-10-2">
+        Packages
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../desistek_saga/docs/packages/desistek_saga_control/" title="desistek_saga_control" class="md-nav__link">
+      desistek_saga_control
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../desistek_saga/docs/packages/desistek_saga_description/" title="desistek_saga_description" class="md-nav__link">
+      desistek_saga_description
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../desistek_saga/docs/packages/desistek_saga_gazebo/" title="desistek_saga_gazebo" class="md-nav__link">
+      desistek_saga_gazebo
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
+    
+    <label class="md-nav__link" for="nav-11">
+      Tutorials
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-11">
+        Tutorials
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../tutorials/config_thruster_manager/" title="Configuring the thruster manager" class="md-nav__link">
+      Configuring the thruster manager
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../tutorials/create_new_vehicle/" title="Create new vehicle" class="md-nav__link">
+      Create new vehicle
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../tutorials/creating_new_dp_controller/" title="Creating new dynamic positioning controller" class="md-nav__link">
+      Creating new dynamic positioning controller
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../tutorials/disturbances/" title="Disturbances" class="md-nav__link">
+      Disturbances
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../tutorials/plume_simulation/" title="Plume simulation" class="md-nav__link">
+      Plume simulation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../tutorials/seabed_world/" title="Creating a new world with a custom seabed" class="md-nav__link">
+      Creating a new world with a custom seabed
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../tutorials/simulation_wrapper/" title="Using the simulation wrapper" class="md-nav__link">
+      Using the simulation wrapper
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../faq/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../bibliography/" title="Useful bibliography and other sources" class="md-nav__link">
+      Useful bibliography and other sources
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-14" type="checkbox" id="nav-14">
+    
+    <label class="md-nav__link" for="nav-14">
+      About
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-14">
+        About
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../about/license/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#class-gazebobuoyantobject" title="class gazebo::BuoyantObject" class="md-nav__link">
+    class gazebo::BuoyantObject
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#summary" title="Summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#members" title="Members" class="md-nav__link">
+    Members
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#publicbuoyantobjectphysicslinkptr-_link" title="publicBuoyantObject(physics::LinkPtr _link)" class="md-nav__link">
+    publicBuoyantObject(physics::LinkPtr _link)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publicbuoyantobject" title="public~BuoyantObject()" class="md-nav__link">
+    public~BuoyantObject()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-voidgetbuoyancyforceconst-ignitionmathpose3d-_poseignitionmathvector3d-buoyancyforceignitionmathvector3d-buoyancytorque" title="public voidGetBuoyancyForce(const ignition::math::Pose3d &amp; _pose,ignition::math::Vector3d &amp; buoyancyForce,ignition::math::Vector3d &amp; buoyancyTorque)" class="md-nav__link">
+    public voidGetBuoyancyForce(const ignition::math::Pose3d &amp; _pose,ignition::math::Vector3d &amp; buoyancyForce,ignition::math::Vector3d &amp; buoyancyTorque)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-voidapplybuoyancyforce" title="public voidApplyBuoyancyForce()" class="md-nav__link">
+    public voidApplyBuoyancyForce()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-voidsetvolumedouble-_volume" title="public voidSetVolume(double _volume)" class="md-nav__link">
+    public voidSetVolume(double _volume)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-doublegetvolume" title="public doubleGetVolume()" class="md-nav__link">
+    public doubleGetVolume()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-voidsetfluiddensitydouble-_fluiddensity" title="public voidSetFluidDensity(double _fluidDensity)" class="md-nav__link">
+    public voidSetFluidDensity(double _fluidDensity)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-doublegetfluiddensity" title="public doubleGetFluidDensity()" class="md-nav__link">
+    public doubleGetFluidDensity()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-voidsetcobconst-ignitionmathvector3d-_centerofbuoyancy" title="public voidSetCoB(const ignition::math::Vector3d &amp; _centerOfBuoyancy)" class="md-nav__link">
+    public voidSetCoB(const ignition::math::Vector3d &amp; _centerOfBuoyancy)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-ignitionmathvector3dgetcob" title="public ignition::math::Vector3dGetCoB()" class="md-nav__link">
+    public ignition::math::Vector3dGetCoB()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-voidsetgravitydouble-_g" title="public voidSetGravity(double _g)" class="md-nav__link">
+    public voidSetGravity(double _g)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-doublegetgravity" title="public doubleGetGravity()" class="md-nav__link">
+    public doubleGetGravity()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-voidsetboundingboxconst-ignitionmathbox-_bbox" title="public voidSetBoundingBox(const ignition::math::Box &amp; _bBox)" class="md-nav__link">
+    public voidSetBoundingBox(const ignition::math::Box &amp; _bBox)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-voidsetstorevectorstdstring-_tag" title="public voidSetStoreVector(std::string _tag)" class="md-nav__link">
+    public voidSetStoreVector(std::string _tag)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-ignitionmathvector3dgetstoredvectorstdstring-_tag" title="public ignition::math::Vector3dGetStoredVector(std::string _tag)" class="md-nav__link">
+    public ignition::math::Vector3dGetStoredVector(std::string _tag)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-voidsetdebugflagbool-_debugon" title="public voidSetDebugFlag(bool _debugOn)" class="md-nav__link">
+    public voidSetDebugFlag(bool _debugOn)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-boolissubmerged" title="public boolIsSubmerged()" class="md-nav__link">
+    public boolIsSubmerged()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-boolisneutrallybuoyant" title="public boolIsNeutrallyBuoyant()" class="md-nav__link">
+    public boolIsNeutrallyBuoyant()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-boolgetdebugflag" title="public boolGetDebugFlag()" class="md-nav__link">
+    public boolGetDebugFlag()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#public-voidsetneutrallybuoyant" title="public voidSetNeutrallyBuoyant()" class="md-nav__link">
+    public voidSetNeutrallyBuoyant()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-doublevolume" title="protected doublevolume" class="md-nav__link">
+    protected doublevolume
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-doublescalingvolume" title="protected doublescalingVolume" class="md-nav__link">
+    protected doublescalingVolume
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-doubleoffsetvolume" title="protected doubleoffsetVolume" class="md-nav__link">
+    protected doubleoffsetVolume
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-doublefluiddensity" title="protected doublefluidDensity" class="md-nav__link">
+    protected doublefluidDensity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-doubleg" title="protected doubleg" class="md-nav__link">
+    protected doubleg
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-ignitionmathvector3dcenterofbuoyancy" title="protected ignition::math::Vector3dcenterOfBuoyancy" class="md-nav__link">
+    protected ignition::math::Vector3dcenterOfBuoyancy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-ignitionmathboxboundingbox" title="protected ignition::math::BoxboundingBox" class="md-nav__link">
+    protected ignition::math::BoxboundingBox
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-stdmap-stdstring-ignitionmathvector3d-hydrowrench" title="protected std::map&lt; std::string, ignition::math::Vector3d &gt;hydroWrench" class="md-nav__link">
+    protected std::map&lt; std::string, ignition::math::Vector3d &gt;hydroWrench
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-booldebugflag" title="protected booldebugFlag" class="md-nav__link">
+    protected booldebugFlag
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-boolissubmerged" title="protected boolisSubmerged" class="md-nav__link">
+    protected boolisSubmerged
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-physicslinkptrlink" title="protected physics::LinkPtrlink" class="md-nav__link">
+    protected physics::LinkPtrlink
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-boolneutrallybuoyant" title="protected boolneutrallyBuoyant" class="md-nav__link">
+    protected boolneutrallyBuoyant
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-doublemetacentricwidth" title="protected doublemetacentricWidth" class="md-nav__link">
+    protected doublemetacentricWidth
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-doublemetacentriclength" title="protected doublemetacentricLength" class="md-nav__link">
+    protected doublemetacentricLength
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-doublewaterlevelplanearea" title="protected doublewaterLevelPlaneArea" class="md-nav__link">
+    protected doublewaterLevelPlaneArea
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-doublesubmergedheight" title="protected doublesubmergedHeight" class="md-nav__link">
+    protected doublesubmergedHeight
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-boolissurfacevessel" title="protected boolisSurfaceVessel" class="md-nav__link">
+    protected boolisSurfaceVessel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-boolissurfacevesselfloating" title="protected boolisSurfaceVesselFloating" class="md-nav__link">
+    protected boolisSurfaceVesselFloating
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protected-voidstorevectorstdstring-_tagignitionmathvector3d-_vec" title="protected voidStoreVector(std::string _tag,ignition::math::Vector3d _vec)" class="md-nav__link">
+    protected voidStoreVector(std::string _tag,ignition::math::Vector3d _vec)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/uuvsimulator/edit/master/docs/packages/uuv_simulator/docs/api/gazebo::BuoyantObject.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>BuoyantObject</h1>
+                
+                <h4 id="class-gazebobuoyantobject">class <code class="codehilite">gazebo::BuoyantObject</code><a class="headerlink" href="#class-gazebobuoyantobject" title="Permanent link">&para;</a></h4>
+<p>Class describing the dynamics of a buoyant object, useful for simple representations of underwater structures.</p>
+<h5 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h5>
+<table>
+<thead>
+<tr>
+<th>Members</th>
+<th>Descriptions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="codehilite">public</code><a href="#classgazebo_1_1_buoyant_object_1a359805730b19387b09b949017f4ec98c"><code class="codehilite">BuoyantObject</code></a><code class="codehilite">(physics::LinkPtr _link)</code></td>
+<td>Constructor.</td>
+</tr>
+<tr>
+<td><code class="codehilite">public</code><a href="#classgazebo_1_1_buoyant_object_1aa2bce1d66c086f79021ede0af29b3c35"><code class="codehilite">~BuoyantObject</code></a><code class="codehilite">()</code></td>
+<td>Destructor.</td>
+</tr>
+<tr>
+<td><code class="codehilite">public void</code><a href="#classgazebo_1_1_buoyant_object_1a932cee34723b709eacc09b7faf06c160"><code class="codehilite">GetBuoyancyForce</code></a><code class="codehilite">(const ignition::math::Pose3d &amp; _pose,ignition::math::Vector3d &amp; buoyancyForce,ignition::math::Vector3d &amp; buoyancyTorque)</code></td>
+<td>Returns the buoyancy force vector in the world frame.</td>
+</tr>
+<tr>
+<td><code class="codehilite">public void</code><a href="#classgazebo_1_1_buoyant_object_1a4921e5c67f56246c7db97354907e96b4"><code class="codehilite">ApplyBuoyancyForce</code></a><code class="codehilite">()</code></td>
+<td>Applies buoyancy force on link.</td>
+</tr>
+<tr>
+<td><code class="codehilite">public void</code><a href="#classgazebo_1_1_buoyant_object_1af6d39e740bfb499c20066308dbd4c8db"><code class="codehilite">SetVolume</code></a><code class="codehilite">(double _volume)</code></td>
+<td>Sets the link's submerged volume.</td>
+</tr>
+<tr>
+<td><code class="codehilite">public double</code><a href="#classgazebo_1_1_buoyant_object_1ac68e8561a42b7a735df95b98bc36c9e2"><code class="codehilite">GetVolume</code></a><code class="codehilite">()</code></td>
+<td>Returns the stored link submerged volume.</td>
+</tr>
+<tr>
+<td><code class="codehilite">public void</code><a href="#classgazebo_1_1_buoyant_object_1a678331bb1b31810e0e0cebfc3308e716"><code class="codehilite">SetFluidDensity</code></a><code class="codehilite">(double _fluidDensity)</code></td>
+<td>Sets the fluid density in kg/m^3.</td>
+</tr>
+<tr>
+<td><code class="codehilite">public double</code><a href="#classgazebo_1_1_buoyant_object_1aa5f4f9aa79af1d53bf2abac34c919e3f"><code class="codehilite">GetFluidDensity</code></a><code class="codehilite">()</code></td>
+<td>Returns the stored fluid density.</td>
+</tr>
+<tr>
+<td><code class="codehilite">public void</code><a href="#classgazebo_1_1_buoyant_object_1ab8eb0fcd27dcc5e42493953b5f8a3fbf"><code class="codehilite">SetCoB</code></a><code class="codehilite">(const ignition::math::Vector3d &amp; _centerOfBuoyancy)</code></td>
+<td>Sets the position of the center of buoyancy on the body frame.</td>
+</tr>
+<tr>
+<td><code class="codehilite">public ignition::math::Vector3d</code><a href="#classgazebo_1_1_buoyant_object_1ac650663010209205589444a1b6399d8f"><code class="codehilite">GetCoB</code></a><code class="codehilite">()</code></td>
+<td>Returns the stored center of buoyancy.</td>
+</tr>
+<tr>
+<td><code class="codehilite">public void</code><a href="#classgazebo_1_1_buoyant_object_1a58bf8302392511f120389455b20650d0"><code class="codehilite">SetGravity</code></a><code class="codehilite">(double _g)</code></td>
+<td>Set acceleration of gravity.</td>
+</tr>
+<tr>
+<td><code class="codehilite">public double</code><a href="#classgazebo_1_1_buoyant_object_1a30e79e6d2a15cc72f13f2bdbd4d8ca20"><code class="codehilite">GetGravity</code></a><code class="codehilite">()</code></td>
+<td>Get stored acceleration of gravity.</td>
+</tr>
+<tr>
+<td><code class="codehilite">public void</code><a href="#classgazebo_1_1_buoyant_object_1aa882b38b3a34b53b63387e88b3cf35f8"><code class="codehilite">SetBoundingBox</code></a><code class="codehilite">(const ignition::math::Box &amp; _bBox)</code></td>
+<td>Sets bounding box.</td>
+</tr>
+<tr>
+<td><code class="codehilite">public void</code><a href="#classgazebo_1_1_buoyant_object_1a4eac79e88a01768d2ac57edb9f0c2165"><code class="codehilite">SetStoreVector</code></a><code class="codehilite">(std::string _tag)</code></td>
+<td>Adds a field in the hydroWrench map.</td>
+</tr>
+<tr>
+<td><code class="codehilite">public ignition::math::Vector3d</code><a href="#classgazebo_1_1_buoyant_object_1a54823aae49748ba43a3850a46e6bde54"><code class="codehilite">GetStoredVector</code></a><code class="codehilite">(std::string _tag)</code></td>
+<td>Get vector from the hydroWrench map.</td>
+</tr>
+<tr>
+<td><code class="codehilite">public void</code><a href="#classgazebo_1_1_buoyant_object_1a82d4bf4144197aacc72af095b694646d"><code class="codehilite">SetDebugFlag</code></a><code class="codehilite">(bool _debugOn)</code></td>
+<td>Set debug flag to store intermediate forces and torques.</td>
+</tr>
+<tr>
+<td><code class="codehilite">public bool</code><a href="#classgazebo_1_1_buoyant_object_1a8c463acfd7aff5617ae4eee3b7fce5bd"><code class="codehilite">IsSubmerged</code></a><code class="codehilite">()</code></td>
+<td>Returns true if the robot is completely submerged.</td>
+</tr>
+<tr>
+<td><code class="codehilite">public bool</code><a href="#classgazebo_1_1_buoyant_object_1a1963a046ea32ebd0c5ef8b84e47ffa12"><code class="codehilite">IsNeutrallyBuoyant</code></a><code class="codehilite">()</code></td>
+<td>Returns true if the link was set to be neutrally buoyant.</td>
+</tr>
+<tr>
+<td><code class="codehilite">public bool</code><a href="#classgazebo_1_1_buoyant_object_1a83d4b9929c151d16c2b554a13f6eb999"><code class="codehilite">GetDebugFlag</code></a><code class="codehilite">()</code></td>
+<td>Returns the debug flag.</td>
+</tr>
+<tr>
+<td><code class="codehilite">public void</code><a href="#classgazebo_1_1_buoyant_object_1a28274bff9fd823e3691241d10f4634ba"><code class="codehilite">SetNeutrallyBuoyant</code></a><code class="codehilite">()</code></td>
+<td>Sets this link as neutrally buoyant.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_buoyant_object_1a5df478c848c90966d975f43d23273b68"><code class="codehilite">volume</code></a></td>
+<td>Volume of fluid displaced by the submerged object.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_buoyant_object_1ad5478bc34170f61cc4c5dfa29bc2b652"><code class="codehilite">scalingVolume</code></a></td>
+<td>Scaling factor for the volume.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_buoyant_object_1a87a15b7f37f66ac1042e3d2389c961ae"><code class="codehilite">offsetVolume</code></a></td>
+<td>Offset for the volume.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_buoyant_object_1ac4f954fe80eef93dd1382cd56be9a8c4"><code class="codehilite">fluidDensity</code></a></td>
+<td>Fluid density.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_buoyant_object_1a10e218847e76c2f8d80f7d6e36936b07"><code class="codehilite">g</code></a></td>
+<td>Acceleration of gravity.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_buoyant_object_1ac117d052ffe3b6d64b68931fb02a7cfa"><code class="codehilite">centerOfBuoyancy</code></a></td>
+<td>Center of buoyancy in the body frame.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected ignition::math::Box</code><a href="#classgazebo_1_1_buoyant_object_1ad112205a7f3eafdd5d928053ddcf5b56"><code class="codehilite">boundingBox</code></a></td>
+<td>TEMP for calculation of the buoyancy force close to the surface.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected std::map&lt; std::string, ignition::math::Vector3d &gt;</code><a href="#classgazebo_1_1_buoyant_object_1aa4e2fa73e7befaa26e862b65b374d4cc"><code class="codehilite">hydroWrench</code></a></td>
+<td>Storage for hydrodynamic and hydrostatic forces and torques for debugging purposes.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected bool</code><a href="#classgazebo_1_1_buoyant_object_1ab0183045981acc20a4bb50bec6ef95df"><code class="codehilite">debugFlag</code></a></td>
+<td>Debug flag, storing all intermediate forces and torques.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected bool</code><a href="#classgazebo_1_1_buoyant_object_1a3cebc89074e9c099470dc07dc7b48d4c"><code class="codehilite">isSubmerged</code></a></td>
+<td>Is submerged flag.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected physics::LinkPtr</code><a href="#classgazebo_1_1_buoyant_object_1ac6c3d6cdb2429b08d460c8a73b425faa"><code class="codehilite">link</code></a></td>
+<td>Pointer to the correspondent robot link.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected bool</code><a href="#classgazebo_1_1_buoyant_object_1a7a708207b8bfa11a2b16fdd9760cf7fe"><code class="codehilite">neutrallyBuoyant</code></a></td>
+<td>If true, the restoring force will be equal to the gravitational.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_buoyant_object_1a9ab2bf6881f44a9295dca31c6e7c69f1"><code class="codehilite">metacentricWidth</code></a></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_buoyant_object_1a5f3d6b665a81d6e253f958e2a223cab5"><code class="codehilite">metacentricLength</code></a></td>
+<td>Metacentric length of the robot, used only for surface vessels and floating objects.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_buoyant_object_1a81cdf161131ba5c6b5d0b0375a13e6d4"><code class="codehilite">waterLevelPlaneArea</code></a></td>
+<td>If the cross section area around water level of the surface vessel is not given, it will be computed from the object's bounding box.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_buoyant_object_1ad83cee778e1d1851e3c951a1bbbed73e"><code class="codehilite">submergedHeight</code></a></td>
+<td>Height of the robot that is submerged (only for surface vessels)</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected bool</code><a href="#classgazebo_1_1_buoyant_object_1a3418fd9dd6946135e0d36a5e47c4d47d"><code class="codehilite">isSurfaceVessel</code></a></td>
+<td>Flag set to true if the information about the metacentric width and height is available.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected bool</code><a href="#classgazebo_1_1_buoyant_object_1a894adcdaac90ad400378c15e893efefa"><code class="codehilite">isSurfaceVesselFloating</code></a></td>
+<td>Flag set to true if the vessel has reached its submerged height.</td>
+</tr>
+<tr>
+<td><code class="codehilite">protected void</code><a href="#classgazebo_1_1_buoyant_object_1a72cef0c40933fdad28fbb805ca392ad6"><code class="codehilite">StoreVector</code></a><code class="codehilite">(std::string _tag,ignition::math::Vector3d _vec)</code></td>
+<td>Store vector in the hydroWrench map if the field has been created.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="members">Members<a class="headerlink" href="#members" title="Permanent link">&para;</a></h5>
+<h6 id="publicbuoyantobjectphysicslinkptr-_link"><code class="codehilite">public</code><a href="#classgazebo_1_1_buoyant_object_1a359805730b19387b09b949017f4ec98c"><code class="codehilite">BuoyantObject</code></a><code class="codehilite">(physics::LinkPtr _link)</code><a class="headerlink" href="#publicbuoyantobjectphysicslinkptr-_link" title="Permanent link">&para;</a></h6>
+<p>Constructor.</p>
+<h6 id="publicbuoyantobject"><code class="codehilite">public</code><a href="#classgazebo_1_1_buoyant_object_1aa2bce1d66c086f79021ede0af29b3c35"><code class="codehilite">~BuoyantObject</code></a><code class="codehilite">()</code><a class="headerlink" href="#publicbuoyantobject" title="Permanent link">&para;</a></h6>
+<p>Destructor.</p>
+<h6 id="public-voidgetbuoyancyforceconst-ignitionmathpose3d-_poseignitionmathvector3d-buoyancyforceignitionmathvector3d-buoyancytorque"><code class="codehilite">public void</code><a href="#classgazebo_1_1_buoyant_object_1a932cee34723b709eacc09b7faf06c160"><code class="codehilite">GetBuoyancyForce</code></a><code class="codehilite">(const ignition::math::Pose3d &amp; _pose,ignition::math::Vector3d &amp; buoyancyForce,ignition::math::Vector3d &amp; buoyancyTorque)</code><a class="headerlink" href="#public-voidgetbuoyancyforceconst-ignitionmathpose3d-_poseignitionmathvector3d-buoyancyforceignitionmathvector3d-buoyancytorque" title="Permanent link">&para;</a></h6>
+<p>Returns the buoyancy force vector in the world frame.</p>
+<h6 id="public-voidapplybuoyancyforce"><code class="codehilite">public void</code><a href="#classgazebo_1_1_buoyant_object_1a4921e5c67f56246c7db97354907e96b4"><code class="codehilite">ApplyBuoyancyForce</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-voidapplybuoyancyforce" title="Permanent link">&para;</a></h6>
+<p>Applies buoyancy force on link.</p>
+<h6 id="public-voidsetvolumedouble-_volume"><code class="codehilite">public void</code><a href="#classgazebo_1_1_buoyant_object_1af6d39e740bfb499c20066308dbd4c8db"><code class="codehilite">SetVolume</code></a><code class="codehilite">(double _volume)</code><a class="headerlink" href="#public-voidsetvolumedouble-_volume" title="Permanent link">&para;</a></h6>
+<p>Sets the link's submerged volume.</p>
+<h6 id="public-doublegetvolume"><code class="codehilite">public double</code><a href="#classgazebo_1_1_buoyant_object_1ac68e8561a42b7a735df95b98bc36c9e2"><code class="codehilite">GetVolume</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-doublegetvolume" title="Permanent link">&para;</a></h6>
+<p>Returns the stored link submerged volume.</p>
+<h6 id="public-voidsetfluiddensitydouble-_fluiddensity"><code class="codehilite">public void</code><a href="#classgazebo_1_1_buoyant_object_1a678331bb1b31810e0e0cebfc3308e716"><code class="codehilite">SetFluidDensity</code></a><code class="codehilite">(double _fluidDensity)</code><a class="headerlink" href="#public-voidsetfluiddensitydouble-_fluiddensity" title="Permanent link">&para;</a></h6>
+<p>Sets the fluid density in kg/m^3.</p>
+<h6 id="public-doublegetfluiddensity"><code class="codehilite">public double</code><a href="#classgazebo_1_1_buoyant_object_1aa5f4f9aa79af1d53bf2abac34c919e3f"><code class="codehilite">GetFluidDensity</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-doublegetfluiddensity" title="Permanent link">&para;</a></h6>
+<p>Returns the stored fluid density.</p>
+<h6 id="public-voidsetcobconst-ignitionmathvector3d-_centerofbuoyancy"><code class="codehilite">public void</code><a href="#classgazebo_1_1_buoyant_object_1ab8eb0fcd27dcc5e42493953b5f8a3fbf"><code class="codehilite">SetCoB</code></a><code class="codehilite">(const ignition::math::Vector3d &amp; _centerOfBuoyancy)</code><a class="headerlink" href="#public-voidsetcobconst-ignitionmathvector3d-_centerofbuoyancy" title="Permanent link">&para;</a></h6>
+<p>Sets the position of the center of buoyancy on the body frame.</p>
+<h6 id="public-ignitionmathvector3dgetcob"><code class="codehilite">public ignition::math::Vector3d</code><a href="#classgazebo_1_1_buoyant_object_1ac650663010209205589444a1b6399d8f"><code class="codehilite">GetCoB</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-ignitionmathvector3dgetcob" title="Permanent link">&para;</a></h6>
+<p>Returns the stored center of buoyancy.</p>
+<h6 id="public-voidsetgravitydouble-_g"><code class="codehilite">public void</code><a href="#classgazebo_1_1_buoyant_object_1a58bf8302392511f120389455b20650d0"><code class="codehilite">SetGravity</code></a><code class="codehilite">(double _g)</code><a class="headerlink" href="#public-voidsetgravitydouble-_g" title="Permanent link">&para;</a></h6>
+<p>Set acceleration of gravity.</p>
+<h6 id="public-doublegetgravity"><code class="codehilite">public double</code><a href="#classgazebo_1_1_buoyant_object_1a30e79e6d2a15cc72f13f2bdbd4d8ca20"><code class="codehilite">GetGravity</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-doublegetgravity" title="Permanent link">&para;</a></h6>
+<p>Get stored acceleration of gravity.</p>
+<h6 id="public-voidsetboundingboxconst-ignitionmathbox-_bbox"><code class="codehilite">public void</code><a href="#classgazebo_1_1_buoyant_object_1aa882b38b3a34b53b63387e88b3cf35f8"><code class="codehilite">SetBoundingBox</code></a><code class="codehilite">(const ignition::math::Box &amp; _bBox)</code><a class="headerlink" href="#public-voidsetboundingboxconst-ignitionmathbox-_bbox" title="Permanent link">&para;</a></h6>
+<p>Sets bounding box.</p>
+<h6 id="public-voidsetstorevectorstdstring-_tag"><code class="codehilite">public void</code><a href="#classgazebo_1_1_buoyant_object_1a4eac79e88a01768d2ac57edb9f0c2165"><code class="codehilite">SetStoreVector</code></a><code class="codehilite">(std::string _tag)</code><a class="headerlink" href="#public-voidsetstorevectorstdstring-_tag" title="Permanent link">&para;</a></h6>
+<p>Adds a field in the hydroWrench map.</p>
+<h6 id="public-ignitionmathvector3dgetstoredvectorstdstring-_tag"><code class="codehilite">public ignition::math::Vector3d</code><a href="#classgazebo_1_1_buoyant_object_1a54823aae49748ba43a3850a46e6bde54"><code class="codehilite">GetStoredVector</code></a><code class="codehilite">(std::string _tag)</code><a class="headerlink" href="#public-ignitionmathvector3dgetstoredvectorstdstring-_tag" title="Permanent link">&para;</a></h6>
+<p>Get vector from the hydroWrench map.</p>
+<h6 id="public-voidsetdebugflagbool-_debugon"><code class="codehilite">public void</code><a href="#classgazebo_1_1_buoyant_object_1a82d4bf4144197aacc72af095b694646d"><code class="codehilite">SetDebugFlag</code></a><code class="codehilite">(bool _debugOn)</code><a class="headerlink" href="#public-voidsetdebugflagbool-_debugon" title="Permanent link">&para;</a></h6>
+<p>Set debug flag to store intermediate forces and torques.</p>
+<h6 id="public-boolissubmerged"><code class="codehilite">public bool</code><a href="#classgazebo_1_1_buoyant_object_1a8c463acfd7aff5617ae4eee3b7fce5bd"><code class="codehilite">IsSubmerged</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-boolissubmerged" title="Permanent link">&para;</a></h6>
+<p>Returns true if the robot is completely submerged.</p>
+<h6 id="public-boolisneutrallybuoyant"><code class="codehilite">public bool</code><a href="#classgazebo_1_1_buoyant_object_1a1963a046ea32ebd0c5ef8b84e47ffa12"><code class="codehilite">IsNeutrallyBuoyant</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-boolisneutrallybuoyant" title="Permanent link">&para;</a></h6>
+<p>Returns true if the link was set to be neutrally buoyant.</p>
+<h6 id="public-boolgetdebugflag"><code class="codehilite">public bool</code><a href="#classgazebo_1_1_buoyant_object_1a83d4b9929c151d16c2b554a13f6eb999"><code class="codehilite">GetDebugFlag</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-boolgetdebugflag" title="Permanent link">&para;</a></h6>
+<p>Returns the debug flag.</p>
+<h6 id="public-voidsetneutrallybuoyant"><code class="codehilite">public void</code><a href="#classgazebo_1_1_buoyant_object_1a28274bff9fd823e3691241d10f4634ba"><code class="codehilite">SetNeutrallyBuoyant</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-voidsetneutrallybuoyant" title="Permanent link">&para;</a></h6>
+<p>Sets this link as neutrally buoyant.</p>
+<h6 id="protected-doublevolume"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_buoyant_object_1a5df478c848c90966d975f43d23273b68"><code class="codehilite">volume</code></a><a class="headerlink" href="#protected-doublevolume" title="Permanent link">&para;</a></h6>
+<p>Volume of fluid displaced by the submerged object.</p>
+<h6 id="protected-doublescalingvolume"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_buoyant_object_1ad5478bc34170f61cc4c5dfa29bc2b652"><code class="codehilite">scalingVolume</code></a><a class="headerlink" href="#protected-doublescalingvolume" title="Permanent link">&para;</a></h6>
+<p>Scaling factor for the volume.</p>
+<h6 id="protected-doubleoffsetvolume"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_buoyant_object_1a87a15b7f37f66ac1042e3d2389c961ae"><code class="codehilite">offsetVolume</code></a><a class="headerlink" href="#protected-doubleoffsetvolume" title="Permanent link">&para;</a></h6>
+<p>Offset for the volume.</p>
+<h6 id="protected-doublefluiddensity"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_buoyant_object_1ac4f954fe80eef93dd1382cd56be9a8c4"><code class="codehilite">fluidDensity</code></a><a class="headerlink" href="#protected-doublefluiddensity" title="Permanent link">&para;</a></h6>
+<p>Fluid density.</p>
+<h6 id="protected-doubleg"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_buoyant_object_1a10e218847e76c2f8d80f7d6e36936b07"><code class="codehilite">g</code></a><a class="headerlink" href="#protected-doubleg" title="Permanent link">&para;</a></h6>
+<p>Acceleration of gravity.</p>
+<h6 id="protected-ignitionmathvector3dcenterofbuoyancy"><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_buoyant_object_1ac117d052ffe3b6d64b68931fb02a7cfa"><code class="codehilite">centerOfBuoyancy</code></a><a class="headerlink" href="#protected-ignitionmathvector3dcenterofbuoyancy" title="Permanent link">&para;</a></h6>
+<p>Center of buoyancy in the body frame.</p>
+<h6 id="protected-ignitionmathboxboundingbox"><code class="codehilite">protected ignition::math::Box</code><a href="#classgazebo_1_1_buoyant_object_1ad112205a7f3eafdd5d928053ddcf5b56"><code class="codehilite">boundingBox</code></a><a class="headerlink" href="#protected-ignitionmathboxboundingbox" title="Permanent link">&para;</a></h6>
+<p>TEMP for calculation of the buoyancy force close to the surface.</p>
+<h6 id="protected-stdmap-stdstring-ignitionmathvector3d-hydrowrench"><code class="codehilite">protected std::map&lt; std::string, ignition::math::Vector3d &gt;</code><a href="#classgazebo_1_1_buoyant_object_1aa4e2fa73e7befaa26e862b65b374d4cc"><code class="codehilite">hydroWrench</code></a><a class="headerlink" href="#protected-stdmap-stdstring-ignitionmathvector3d-hydrowrench" title="Permanent link">&para;</a></h6>
+<p>Storage for hydrodynamic and hydrostatic forces and torques for debugging purposes.</p>
+<h6 id="protected-booldebugflag"><code class="codehilite">protected bool</code><a href="#classgazebo_1_1_buoyant_object_1ab0183045981acc20a4bb50bec6ef95df"><code class="codehilite">debugFlag</code></a><a class="headerlink" href="#protected-booldebugflag" title="Permanent link">&para;</a></h6>
+<p>Debug flag, storing all intermediate forces and torques.</p>
+<h6 id="protected-boolissubmerged"><code class="codehilite">protected bool</code><a href="#classgazebo_1_1_buoyant_object_1a3cebc89074e9c099470dc07dc7b48d4c"><code class="codehilite">isSubmerged</code></a><a class="headerlink" href="#protected-boolissubmerged" title="Permanent link">&para;</a></h6>
+<p>Is submerged flag.</p>
+<h6 id="protected-physicslinkptrlink"><code class="codehilite">protected physics::LinkPtr</code><a href="#classgazebo_1_1_buoyant_object_1ac6c3d6cdb2429b08d460c8a73b425faa"><code class="codehilite">link</code></a><a class="headerlink" href="#protected-physicslinkptrlink" title="Permanent link">&para;</a></h6>
+<p>Pointer to the correspondent robot link.</p>
+<h6 id="protected-boolneutrallybuoyant"><code class="codehilite">protected bool</code><a href="#classgazebo_1_1_buoyant_object_1a7a708207b8bfa11a2b16fdd9760cf7fe"><code class="codehilite">neutrallyBuoyant</code></a><a class="headerlink" href="#protected-boolneutrallybuoyant" title="Permanent link">&para;</a></h6>
+<p>If true, the restoring force will be equal to the gravitational.</p>
+<h6 id="protected-doublemetacentricwidth"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_buoyant_object_1a9ab2bf6881f44a9295dca31c6e7c69f1"><code class="codehilite">metacentricWidth</code></a><a class="headerlink" href="#protected-doublemetacentricwidth" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doublemetacentriclength"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_buoyant_object_1a5f3d6b665a81d6e253f958e2a223cab5"><code class="codehilite">metacentricLength</code></a><a class="headerlink" href="#protected-doublemetacentriclength" title="Permanent link">&para;</a></h6>
+<p>Metacentric length of the robot, used only for surface vessels and floating objects.</p>
+<h6 id="protected-doublewaterlevelplanearea"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_buoyant_object_1a81cdf161131ba5c6b5d0b0375a13e6d4"><code class="codehilite">waterLevelPlaneArea</code></a><a class="headerlink" href="#protected-doublewaterlevelplanearea" title="Permanent link">&para;</a></h6>
+<p>If the cross section area around water level of the surface vessel is not given, it will be computed from the object's bounding box.</p>
+<h6 id="protected-doublesubmergedheight"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_buoyant_object_1ad83cee778e1d1851e3c951a1bbbed73e"><code class="codehilite">submergedHeight</code></a><a class="headerlink" href="#protected-doublesubmergedheight" title="Permanent link">&para;</a></h6>
+<p>Height of the robot that is submerged (only for surface vessels)</p>
+<h6 id="protected-boolissurfacevessel"><code class="codehilite">protected bool</code><a href="#classgazebo_1_1_buoyant_object_1a3418fd9dd6946135e0d36a5e47c4d47d"><code class="codehilite">isSurfaceVessel</code></a><a class="headerlink" href="#protected-boolissurfacevessel" title="Permanent link">&para;</a></h6>
+<p>Flag set to true if the information about the metacentric width and height is available.</p>
+<h6 id="protected-boolissurfacevesselfloating"><code class="codehilite">protected bool</code><a href="#classgazebo_1_1_buoyant_object_1a894adcdaac90ad400378c15e893efefa"><code class="codehilite">isSurfaceVesselFloating</code></a><a class="headerlink" href="#protected-boolissurfacevesselfloating" title="Permanent link">&para;</a></h6>
+<p>Flag set to true if the vessel has reached its submerged height.</p>
+<h6 id="protected-voidstorevectorstdstring-_tagignitionmathvector3d-_vec"><code class="codehilite">protected void</code><a href="#classgazebo_1_1_buoyant_object_1a72cef0c40933fdad28fbb805ca392ad6"><code class="codehilite">StoreVector</code></a><code class="codehilite">(std::string _tag,ignition::math::Vector3d _vec)</code><a class="headerlink" href="#protected-voidstorevectorstdstring-_tagignitionmathvector3d-_vec" title="Permanent link">&para;</a></h6>
+<p>Store vector in the hydroWrench map if the field has been created.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../packages/uuv_world_ros_plugins_msgs/" title="uuv_world_ros_plugins_msgs" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                uuv_world_ros_plugins_msgs
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../gazebo::Dynamics/" title="Dynamics" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Dynamics
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright (c) 2016-2019 The UUV Simulator Authors
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://discourse.ros.org/c/maritime" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://github.com/uuvsimulator/" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://discord.gg/zNauF2F" class="md-footer-social__link fa fa-comment"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../../assets/javascripts/application.267712eb.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../../../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

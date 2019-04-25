@@ -1,0 +1,3659 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Unmanned Underwater Vehicle Simulator Documentation.">
+      
+      
+        <link rel="canonical" href="https://uuvsimulator.github.io/packages/uuv_simulator/docs/python_api/uuv_control_interfaces/">
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.2">
+    
+    
+      
+        <title>uuv_control_interfaces - Unmanned Underwater Vehicle Simulator Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/application.3020aac5.css">
+      
+      
+    
+    
+      <script src="../../../../../assets/javascripts/modernizr.01ccdecf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#uuv_control_interfaces" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://uuvsimulator.github.io/" title="Unmanned Underwater Vehicle Simulator Documentation" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Unmanned Underwater Vehicle Simulator Documentation
+            </span>
+            <span class="md-header-nav__topic">
+              uuv_control_interfaces
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/uuvsimulator/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../../../../.." title="Home" class="md-tabs__link">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+      
+        
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../intro/" title="UUV Simulator" class="md-tabs__link md-tabs__link--active">
+          UUV Simulator
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../uuv_plume_simulator/intro/" title="Plume Simulator" class="md-tabs__link">
+          Plume Simulator
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../rexrov2/intro/" title="RexROV 2" class="md-tabs__link">
+          RexROV 2
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../eca_a9/intro/" title="ECA A9" class="md-tabs__link">
+          ECA A9
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../lauv_gazebo/intro/" title="LAUV" class="md-tabs__link">
+          LAUV
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../desistek_saga/intro/" title="Desistek SAGA ROV" class="md-tabs__link">
+          Desistek SAGA ROV
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../../tutorials/config_thruster_manager/" title="Tutorials" class="md-tabs__link">
+          Tutorials
+        </a>
+      
+    </li>
+  
+
+      
+        
+      
+        
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../../about/license/" title="About" class="md-tabs__link">
+          About
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://uuvsimulator.github.io/" title="Unmanned Underwater Vehicle Simulator Documentation" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Unmanned Underwater Vehicle Simulator Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/uuvsimulator/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../installation/" title="Installation" class="md-nav__link">
+      Installation
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../quick_start/" title="Quick start" class="md-nav__link">
+      Quick start
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../api/" title="API" class="md-nav__link">
+      API
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      UUV Simulator
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        UUV Simulator
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../intro/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-2" type="checkbox" id="nav-5-2">
+    
+    <label class="md-nav__link" for="nav-5-2">
+      Packages
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-2">
+        Packages
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_assistants/" title="uuv_assistants" class="md-nav__link">
+      uuv_assistants
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_auv_control_allocator/" title="uuv_auv_control_allocator" class="md-nav__link">
+      uuv_auv_control_allocator
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_control_cascaded_pid/" title="uuv_control_cascaded_pid" class="md-nav__link">
+      uuv_control_cascaded_pid
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_control_msgs/" title="uuv_control_msgs" class="md-nav__link">
+      uuv_control_msgs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_control_utils/" title="uuv_control_utils" class="md-nav__link">
+      uuv_control_utils
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_descriptions/" title="uuv_descriptions" class="md-nav__link">
+      uuv_descriptions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_gazebo_plugins/" title="uuv_gazebo_plugins" class="md-nav__link">
+      uuv_gazebo_plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_gazebo/" title="uuv_gazebo" class="md-nav__link">
+      uuv_gazebo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_gazebo_ros_plugins/" title="uuv_gazebo_ros_plugins" class="md-nav__link">
+      uuv_gazebo_ros_plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_gazebo_ros_plugins_msgs/" title="uuv_gazebo_ros_plugins_msgs" class="md-nav__link">
+      uuv_gazebo_ros_plugins_msgs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_gazebo_worlds/" title="uuv_gazebo_worlds" class="md-nav__link">
+      uuv_gazebo_worlds
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_sensor_ros_plugins/" title="uuv_sensor_ros_plugins" class="md-nav__link">
+      uuv_sensor_ros_plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_sensor_ros_plugins_msgs/" title="uuv_sensor_ros_plugins_msgs" class="md-nav__link">
+      uuv_sensor_ros_plugins_msgs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_teleop/" title="uuv_teleop" class="md-nav__link">
+      uuv_teleop
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_thruster_manager/" title="uuv_thruster_manager" class="md-nav__link">
+      uuv_thruster_manager
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_trajectory_control/" title="uuv_trajectory_control" class="md-nav__link">
+      uuv_trajectory_control
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_world_plugins/" title="uuv_world_plugins" class="md-nav__link">
+      uuv_world_plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_world_ros_plugins/" title="uuv_world_ros_plugins" class="md-nav__link">
+      uuv_world_ros_plugins
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../packages/uuv_world_ros_plugins_msgs/" title="uuv_world_ros_plugins_msgs" class="md-nav__link">
+      uuv_world_ros_plugins_msgs
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3" type="checkbox" id="nav-5-3">
+    
+    <label class="md-nav__link" for="nav-5-3">
+      C++ API
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-3">
+        C++ API
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3-1" type="checkbox" id="nav-5-3-1">
+    
+    <label class="md-nav__link" for="nav-5-3-1">
+      uuv_gazebo_plugins
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-5-3-1">
+        uuv_gazebo_plugins
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::BuoyantObject/" title="BuoyantObject" class="md-nav__link">
+      BuoyantObject
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3-1-2" type="checkbox" id="nav-5-3-1-2">
+    
+    <label class="md-nav__link" for="nav-5-3-1-2">
+      Dynamics
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-5-3-1-2">
+        Dynamics
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::Dynamics/" title="Dynamics" class="md-nav__link">
+      Dynamics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::DynamicsFactory/" title="DynamicsFactory" class="md-nav__link">
+      DynamicsFactory
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::DynamicsFirstOrder/" title="DynamicsFirstOrder" class="md-nav__link">
+      DynamicsFirstOrder
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::DynamicsZeroOrder/" title="DynamicsZeroOrder" class="md-nav__link">
+      DynamicsZeroOrder
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::ThrusterDynamicsBessa/" title="ThrusterDynamicsBessa" class="md-nav__link">
+      ThrusterDynamicsBessa
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::ThrusterDynamicsYoerger/" title="ThrusterDynamicsYoerger" class="md-nav__link">
+      ThrusterDynamicsYoerger
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::FinPlugin/" title="FinPlugin" class="md-nav__link">
+      FinPlugin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3-1-4" type="checkbox" id="nav-5-3-1-4">
+    
+    <label class="md-nav__link" for="nav-5-3-1-4">
+      HydrodynamicModel
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-5-3-1-4">
+        HydrodynamicModel
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::HydrodynamicModel/" title="HydrodynamicModel" class="md-nav__link">
+      HydrodynamicModel
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::HydrodynamicModelFactory/" title="HydrodynamicModelFactory" class="md-nav__link">
+      HydrodynamicModelFactory
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::HMBox/" title="HMBox" class="md-nav__link">
+      HMBox
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::HMCylinder/" title="HMCylinder" class="md-nav__link">
+      HMCylinder
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::HMFossen/" title="HMFossen" class="md-nav__link">
+      HMFossen
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::HMSphere/" title="HMSphere" class="md-nav__link">
+      HMSphere
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::HMSpheroid/" title="HMSpheroid" class="md-nav__link">
+      HMSpheroid
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3-1-5" type="checkbox" id="nav-5-3-1-5">
+    
+    <label class="md-nav__link" for="nav-5-3-1-5">
+      LiftDragModel
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-5-3-1-5">
+        LiftDragModel
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::LiftDrag/" title="LiftDrag" class="md-nav__link">
+      LiftDrag
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::LiftDragFactory/" title="LiftDragFactory" class="md-nav__link">
+      LiftDragFactory
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::LiftDragQuadratic/" title="LiftDragQuadratic" class="md-nav__link">
+      LiftDragQuadratic
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::LiftDragTwoLines/" title="LiftDragTwoLines" class="md-nav__link">
+      LiftDragTwoLines
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3-1-6" type="checkbox" id="nav-5-3-1-6">
+    
+    <label class="md-nav__link" for="nav-5-3-1-6">
+      ThrusterConversionFcn
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-5-3-1-6">
+        ThrusterConversionFcn
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::ConversionFunction/" title="ConversionFunction" class="md-nav__link">
+      ConversionFunction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::ConversionFunctionFactory/" title="ConversionFunctionFactory" class="md-nav__link">
+      ConversionFunctionFactory
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::ConversionFunctionBasic/" title="ConversionFunctionBasic" class="md-nav__link">
+      ConversionFunctionBasic
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::ConversionFunctionBessa/" title="ConversionFunctionBessa" class="md-nav__link">
+      ConversionFunctionBessa
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::ConversionFunctionLinearInterp/" title="ConversionFunctionLinearInterp" class="md-nav__link">
+      ConversionFunctionLinearInterp
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::ThrusterPlugin/" title="ThrusterPlugin" class="md-nav__link">
+      ThrusterPlugin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::UnderwaterObjectPlugin/" title="UnderwaterObjectPlugin" class="md-nav__link">
+      UnderwaterObjectPlugin
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3-2" type="checkbox" id="nav-5-3-2">
+    
+    <label class="md-nav__link" for="nav-5-3-2">
+      uuv_gazebo_ros_plugins
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-5-3-2">
+        uuv_gazebo_ros_plugins
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::AccelerationsTestPlugin/" title="AccelerationsTestPlugin" class="md-nav__link">
+      AccelerationsTestPlugin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::CustomBatteryConsumerROSPlugin/" title="CustomBatteryConsumerROSPlugin" class="md-nav__link">
+      CustomBatteryConsumerROSPlugin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/uuv_simulator_ros::FinROSPlugin/" title="FinROSPlugin" class="md-nav__link">
+      FinROSPlugin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/uuv_simulator_ros::JointStatePublisher/" title="JointStatePublisher" class="md-nav__link">
+      JointStatePublisher
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::LinearBatteryROSPlugin/" title="LinearBatteryROSPlugin" class="md-nav__link">
+      LinearBatteryROSPlugin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/uuv_simulator_ros::ThrusterROSPlugin/" title="ThrusterROSPlugin" class="md-nav__link">
+      ThrusterROSPlugin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/uuv_simulator_ros::UnderwaterObjectROSPlugin/" title="UnderwaterObjectROSPlugin" class="md-nav__link">
+      UnderwaterObjectROSPlugin
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3-3" type="checkbox" id="nav-5-3-3">
+    
+    <label class="md-nav__link" for="nav-5-3-3">
+      uuv_sensor_ros_plugins
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-5-3-3">
+        uuv_sensor_ros_plugins
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::ROSBasePlugin/" title="ROSBasePlugin" class="md-nav__link">
+      ROSBasePlugin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::ROSBaseModelPlugin/" title="ROSBaseModelPlugin" class="md-nav__link">
+      ROSBaseModelPlugin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::ROSBaseSensorPlugin/" title="ROSBaseSensorPlugin" class="md-nav__link">
+      ROSBaseSensorPlugin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::CPCROSPlugin/" title="CPCROSPlugin" class="md-nav__link">
+      CPCROSPlugin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::DVLROSPlugin/" title="DVLROSPlugin" class="md-nav__link">
+      DVLROSPlugin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::GazeboRosImageSonar/" title="GazeboRosImageSonar" class="md-nav__link">
+      GazeboRosImageSonar
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::GPSROSPlugin/" title="GPSROSPlugin" class="md-nav__link">
+      GPSROSPlugin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3-3-8" type="checkbox" id="nav-5-3-3-8">
+    
+    <label class="md-nav__link" for="nav-5-3-3-8">
+      IMUROSPlugin
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-5-3-3-8">
+        IMUROSPlugin
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::IMUParameters/" title="IMUParameters" class="md-nav__link">
+      IMUParameters
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::IMUROSPlugin/" title="IMUROSPlugin" class="md-nav__link">
+      IMUROSPlugin
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3-3-9" type="checkbox" id="nav-5-3-3-9">
+    
+    <label class="md-nav__link" for="nav-5-3-3-9">
+      MagnetometerROSPlugin
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-5-3-3-9">
+        MagnetometerROSPlugin
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::MagnetometerParameters/" title="MagnetometerParameters" class="md-nav__link">
+      MagnetometerParameters
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::MagnetometerROSPlugin/" title="MagnetometerROSPlugin" class="md-nav__link">
+      MagnetometerROSPlugin
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::PoseGTROSPlugin/" title="PoseGTROSPlugin" class="md-nav__link">
+      PoseGTROSPlugin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::RPTROSPlugin/" title="RPTROSPlugin" class="md-nav__link">
+      RPTROSPlugin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::SubseaPressureROSPlugin/" title="SubseaPressureROSPlugin" class="md-nav__link">
+      SubseaPressureROSPlugin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::UnderwaterCameraROSPlugin/" title="UnderwaterCameraROSPlugin" class="md-nav__link">
+      UnderwaterCameraROSPlugin
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3-4" type="checkbox" id="nav-5-3-4">
+    
+    <label class="md-nav__link" for="nav-5-3-4">
+      uuv_world_plugins
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-5-3-4">
+        uuv_world_plugins
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::GaussMarkovProcess/" title="GaussMarkovProcess" class="md-nav__link">
+      GaussMarkovProcess
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::UnderwaterCurrentPlugin/" title="UnderwaterCurrentPlugin" class="md-nav__link">
+      UnderwaterCurrentPlugin
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3-5" type="checkbox" id="nav-5-3-5">
+    
+    <label class="md-nav__link" for="nav-5-3-5">
+      uuv_world_ros_plugins
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-5-3-5">
+        uuv_world_ros_plugins
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/gazebo::SphericalCoordinatesROSInterfacePlugin/" title="SphericalCoordinatesROSInterfacePlugin" class="md-nav__link">
+      SphericalCoordinatesROSInterfacePlugin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/uuv_simulator_ros::UnderwaterCurrentROSPlugin/" title="UnderwaterCurrentROSPlugin" class="md-nav__link">
+      UnderwaterCurrentROSPlugin
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-4" type="checkbox" id="nav-5-4" checked>
+    
+    <label class="md-nav__link" for="nav-5-4">
+      Python API
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-4">
+        Python API
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-4-1" type="checkbox" id="nav-5-4-1">
+    
+    <label class="md-nav__link" for="nav-5-4-1">
+      uuv_auv_control_allocator
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-5-4-1">
+        uuv_auv_control_allocator
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../uuv_auv_actuator_interface/" title="uuv_auv_actuator_interface" class="md-nav__link">
+      uuv_auv_actuator_interface
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-4-2" type="checkbox" id="nav-5-4-2">
+    
+    <label class="md-nav__link" for="nav-5-4-2">
+      uuv_control_cascaded_pids
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-5-4-2">
+        uuv_control_cascaded_pids
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../PID/" title="PID" class="md-nav__link">
+      PID
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-4-3" type="checkbox" id="nav-5-4-3">
+    
+    <label class="md-nav__link" for="nav-5-4-3">
+      uuv_thruster_manager
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-5-4-3">
+        uuv_thruster_manager
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../uuv_thrusters/" title="uuv_thrusters" class="md-nav__link">
+      uuv_thrusters
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-4-4" type="checkbox" id="nav-5-4-4" checked>
+    
+    <label class="md-nav__link" for="nav-5-4-4">
+      uuv_trajectory_control
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-5-4-4">
+        uuv_trajectory_control
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        uuv_control_interfaces
+      </label>
+    
+    <a href="./" title="uuv_control_interfaces" class="md-nav__link md-nav__link--active">
+      uuv_control_interfaces
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#uuv_control_interfaces" title="uuv_control_interfaces" class="md-nav__link">
+    uuv_control_interfaces
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uuv_control_interfacesdp_controller_base" title="uuv_control_interfaces.dp_controller_base" class="md-nav__link">
+    uuv_control_interfaces.dp_controller_base
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dpcontrollerbase" title="DPControllerBase" class="md-nav__link">
+    DPControllerBase
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#error_orientation_rpy" title="error_orientation_rpy" class="md-nav__link">
+    error_orientation_rpy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error_pose_euler" title="error_pose_euler" class="md-nav__link">
+    error_pose_euler
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_controller" title="get_controller" class="md-nav__link">
+    get_controller
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_list_of_controllers" title="get_list_of_controllers" class="md-nav__link">
+    get_list_of_controllers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uuv_control_interfacesdp_controller_local_planner" title="uuv_control_interfaces.dp_controller_local_planner" class="md-nav__link">
+    uuv_control_interfaces.dp_controller_local_planner
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dpcontrollerlocalplanner" title="DPControllerLocalPlanner" class="md-nav__link">
+    DPControllerLocalPlanner
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set_station_keeping" title="set_station_keeping" class="md-nav__link">
+    set_station_keeping
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_automatic_mode" title="set_automatic_mode" class="md-nav__link">
+    set_automatic_mode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_trajectory_running" title="set_trajectory_running" class="md-nav__link">
+    set_trajectory_running
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#has_started" title="has_started" class="md-nav__link">
+    has_started
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hold_vehicle" title="hold_vehicle" class="md-nav__link">
+    hold_vehicle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start_waypoint_list" title="start_waypoint_list" class="md-nav__link">
+    start_waypoint_list
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#go_to_incremental" title="go_to_incremental" class="md-nav__link">
+    go_to_incremental
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interpolate" title="interpolate" class="md-nav__link">
+    interpolate
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uuv_control_interfacesdp_pid_controller_base" title="uuv_control_interfaces.dp_pid_controller_base" class="md-nav__link">
+    uuv_control_interfaces.dp_pid_controller_base
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dppidcontrollerbase" title="DPPIDControllerBase" class="md-nav__link">
+    DPPIDControllerBase
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uuv_control_interfacessym_vehicle" title="uuv_control_interfaces.sym_vehicle" class="md-nav__link">
+    uuv_control_interfaces.sym_vehicle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uuv_control_interfacesvehicle" title="uuv_control_interfaces.vehicle" class="md-nav__link">
+    uuv_control_interfaces.vehicle
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cross_product_operator" title="cross_product_operator" class="md-nav__link">
+    cross_product_operator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vehicle" title="Vehicle" class="md-nav__link">
+    Vehicle
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#acc" title="acc" class="md-nav__link">
+    acc
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#depth" title="depth" class="md-nav__link">
+    depth
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#euler" title="euler" class="md-nav__link">
+    euler
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#euler_dot" title="euler_dot" class="md-nav__link">
+    euler_dot
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#heading" title="heading" class="md-nav__link">
+    heading
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#namespace" title="namespace" class="md-nav__link">
+    namespace
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pos" title="pos" class="md-nav__link">
+    pos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pose_euler" title="pose_euler" class="md-nav__link">
+    pose_euler
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pose_quat" title="pose_quat" class="md-nav__link">
+    pose_quat
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quat" title="quat" class="md-nav__link">
+    quat
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quat_dot" title="quat_dot" class="md-nav__link">
+    quat_dot
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restoring_forces" title="restoring_forces" class="md-nav__link">
+    restoring_forces
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rotbtoi" title="rotBtoI" class="md-nav__link">
+    rotBtoI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rotitob" title="rotItoB" class="md-nav__link">
+    rotItoB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tbtoiquat" title="TBtoIquat" class="md-nav__link">
+    TBtoIquat
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vel" title="vel" class="md-nav__link">
+    vel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#print_info" title="print_info" class="md-nav__link">
+    print_info
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_added_mass" title="set_added_mass" class="md-nav__link">
+    set_added_mass
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_damping_coef" title="set_damping_coef" class="md-nav__link">
+    set_damping_coef
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compute_force" title="compute_force" class="md-nav__link">
+    compute_force
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compute_acc" title="compute_acc" class="md-nav__link">
+    compute_acc
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_jacobian" title="get_jacobian" class="md-nav__link">
+    get_jacobian
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update_odometry" title="update_odometry" class="md-nav__link">
+    update_odometry
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../uuv_trajectory_generator/" title="uuv_trajectory_generator" class="md-nav__link">
+      uuv_trajectory_generator
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../uuv_waypoints/" title="uuv_waypoints" class="md-nav__link">
+      uuv_waypoints
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Plume Simulator
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Plume Simulator
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../uuv_plume_simulator/intro/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-2" type="checkbox" id="nav-6-2">
+    
+    <label class="md-nav__link" for="nav-6-2">
+      User Guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-2">
+        User Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../uuv_plume_simulator/docs/user_guide/introduction/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../uuv_plume_simulator/docs/user_guide/how_to_start_a_turbulent_plume/" title="How to start a turbulent passive plume" class="md-nav__link">
+      How to start a turbulent passive plume
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3" type="checkbox" id="nav-6-3">
+    
+    <label class="md-nav__link" for="nav-6-3">
+      Packages
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-3">
+        Packages
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../uuv_plume_simulator/docs/packages/uuv_plume_simulator/" title="uuv_plume_simulator" class="md-nav__link">
+      uuv_plume_simulator
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../uuv_plume_simulator/docs/packages/uuv_cpc_sensor/" title="uuv_cpc_sensor" class="md-nav__link">
+      uuv_cpc_sensor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../uuv_plume_simulator/docs/packages/uuv_plume_msgs/" title="uuv_plume_msgs" class="md-nav__link">
+      uuv_plume_msgs
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-4" type="checkbox" id="nav-6-4">
+    
+    <label class="md-nav__link" for="nav-6-4">
+      C++ API
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-4">
+        C++ API
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../uuv_plume_simulator/docs/api/uuv_plume_simulator::CPCSensor/" title="CPCSensor" class="md-nav__link">
+      CPCSensor
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-5" type="checkbox" id="nav-6-5">
+    
+    <label class="md-nav__link" for="nav-6-5">
+      Python API
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-5">
+        Python API
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-5-1" type="checkbox" id="nav-6-5-1">
+    
+    <label class="md-nav__link" for="nav-6-5-1">
+      uuv_plume_simulator
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-6-5-1">
+        uuv_plume_simulator
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../uuv_plume_simulator/docs/python_api/uuv_gm_process/" title="uuv_gm_process" class="md-nav__link">
+      uuv_gm_process
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../uuv_plume_simulator/docs/python_api/uuv_plume_model/" title="uuv_plume_model" class="md-nav__link">
+      uuv_plume_model
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      RexROV 2
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        RexROV 2
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../rexrov2/intro/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-2" type="checkbox" id="nav-7-2">
+    
+    <label class="md-nav__link" for="nav-7-2">
+      Packages
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-2">
+        Packages
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../rexrov2/docs/packages/rexrov2_control/" title="rexrov2_control" class="md-nav__link">
+      rexrov2_control
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../rexrov2/docs/packages/rexrov2_description/" title="rexrov2_description" class="md-nav__link">
+      rexrov2_description
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../rexrov2/docs/packages/rexrov2_gazebo/" title="rexrov2_gazebo" class="md-nav__link">
+      rexrov2_gazebo
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      ECA A9
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        ECA A9
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../eca_a9/intro/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-2" type="checkbox" id="nav-8-2">
+    
+    <label class="md-nav__link" for="nav-8-2">
+      Packages
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-8-2">
+        Packages
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../eca_a9/docs/packages/eca_a9_control/" title="eca_a9_control" class="md-nav__link">
+      eca_a9_control
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../eca_a9/docs/packages/eca_a9_description/" title="eca_a9_description" class="md-nav__link">
+      eca_a9_description
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../eca_a9/docs/packages/eca_a9_gazebo/" title="eca_a9_gazebo" class="md-nav__link">
+      eca_a9_gazebo
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      LAUV
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        LAUV
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../lauv_gazebo/intro/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9-2" type="checkbox" id="nav-9-2">
+    
+    <label class="md-nav__link" for="nav-9-2">
+      Packages
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-9-2">
+        Packages
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../lauv_gazebo/docs/packages/lauv_control/" title="lauv_control" class="md-nav__link">
+      lauv_control
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../lauv_gazebo/docs/packages/lauv_description/" title="lauv_description" class="md-nav__link">
+      lauv_description
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../lauv_gazebo/docs/packages/lauv_gazebo/" title="lauv_gazebo" class="md-nav__link">
+      lauv_gazebo
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+    
+    <label class="md-nav__link" for="nav-10">
+      Desistek SAGA ROV
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        Desistek SAGA ROV
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../desistek_saga/intro/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10-2" type="checkbox" id="nav-10-2">
+    
+    <label class="md-nav__link" for="nav-10-2">
+      Packages
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-10-2">
+        Packages
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../desistek_saga/docs/packages/desistek_saga_control/" title="desistek_saga_control" class="md-nav__link">
+      desistek_saga_control
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../desistek_saga/docs/packages/desistek_saga_description/" title="desistek_saga_description" class="md-nav__link">
+      desistek_saga_description
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../desistek_saga/docs/packages/desistek_saga_gazebo/" title="desistek_saga_gazebo" class="md-nav__link">
+      desistek_saga_gazebo
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
+    
+    <label class="md-nav__link" for="nav-11">
+      Tutorials
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-11">
+        Tutorials
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../tutorials/config_thruster_manager/" title="Configuring the thruster manager" class="md-nav__link">
+      Configuring the thruster manager
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../tutorials/create_new_vehicle/" title="Create new vehicle" class="md-nav__link">
+      Create new vehicle
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../tutorials/creating_new_dp_controller/" title="Creating new dynamic positioning controller" class="md-nav__link">
+      Creating new dynamic positioning controller
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../tutorials/disturbances/" title="Disturbances" class="md-nav__link">
+      Disturbances
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../tutorials/plume_simulation/" title="Plume simulation" class="md-nav__link">
+      Plume simulation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../tutorials/seabed_world/" title="Creating a new world with a custom seabed" class="md-nav__link">
+      Creating a new world with a custom seabed
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../tutorials/simulation_wrapper/" title="Using the simulation wrapper" class="md-nav__link">
+      Using the simulation wrapper
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../faq/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../bibliography/" title="Useful bibliography and other sources" class="md-nav__link">
+      Useful bibliography and other sources
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-14" type="checkbox" id="nav-14">
+    
+    <label class="md-nav__link" for="nav-14">
+      About
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-14">
+        About
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../about/license/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#uuv_control_interfaces" title="uuv_control_interfaces" class="md-nav__link">
+    uuv_control_interfaces
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uuv_control_interfacesdp_controller_base" title="uuv_control_interfaces.dp_controller_base" class="md-nav__link">
+    uuv_control_interfaces.dp_controller_base
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dpcontrollerbase" title="DPControllerBase" class="md-nav__link">
+    DPControllerBase
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#error_orientation_rpy" title="error_orientation_rpy" class="md-nav__link">
+    error_orientation_rpy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error_pose_euler" title="error_pose_euler" class="md-nav__link">
+    error_pose_euler
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_controller" title="get_controller" class="md-nav__link">
+    get_controller
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_list_of_controllers" title="get_list_of_controllers" class="md-nav__link">
+    get_list_of_controllers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uuv_control_interfacesdp_controller_local_planner" title="uuv_control_interfaces.dp_controller_local_planner" class="md-nav__link">
+    uuv_control_interfaces.dp_controller_local_planner
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dpcontrollerlocalplanner" title="DPControllerLocalPlanner" class="md-nav__link">
+    DPControllerLocalPlanner
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set_station_keeping" title="set_station_keeping" class="md-nav__link">
+    set_station_keeping
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_automatic_mode" title="set_automatic_mode" class="md-nav__link">
+    set_automatic_mode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_trajectory_running" title="set_trajectory_running" class="md-nav__link">
+    set_trajectory_running
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#has_started" title="has_started" class="md-nav__link">
+    has_started
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hold_vehicle" title="hold_vehicle" class="md-nav__link">
+    hold_vehicle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start_waypoint_list" title="start_waypoint_list" class="md-nav__link">
+    start_waypoint_list
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#go_to_incremental" title="go_to_incremental" class="md-nav__link">
+    go_to_incremental
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interpolate" title="interpolate" class="md-nav__link">
+    interpolate
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uuv_control_interfacesdp_pid_controller_base" title="uuv_control_interfaces.dp_pid_controller_base" class="md-nav__link">
+    uuv_control_interfaces.dp_pid_controller_base
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dppidcontrollerbase" title="DPPIDControllerBase" class="md-nav__link">
+    DPPIDControllerBase
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uuv_control_interfacessym_vehicle" title="uuv_control_interfaces.sym_vehicle" class="md-nav__link">
+    uuv_control_interfaces.sym_vehicle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uuv_control_interfacesvehicle" title="uuv_control_interfaces.vehicle" class="md-nav__link">
+    uuv_control_interfaces.vehicle
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cross_product_operator" title="cross_product_operator" class="md-nav__link">
+    cross_product_operator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vehicle" title="Vehicle" class="md-nav__link">
+    Vehicle
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#acc" title="acc" class="md-nav__link">
+    acc
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#depth" title="depth" class="md-nav__link">
+    depth
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#euler" title="euler" class="md-nav__link">
+    euler
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#euler_dot" title="euler_dot" class="md-nav__link">
+    euler_dot
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#heading" title="heading" class="md-nav__link">
+    heading
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#namespace" title="namespace" class="md-nav__link">
+    namespace
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pos" title="pos" class="md-nav__link">
+    pos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pose_euler" title="pose_euler" class="md-nav__link">
+    pose_euler
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pose_quat" title="pose_quat" class="md-nav__link">
+    pose_quat
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quat" title="quat" class="md-nav__link">
+    quat
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quat_dot" title="quat_dot" class="md-nav__link">
+    quat_dot
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restoring_forces" title="restoring_forces" class="md-nav__link">
+    restoring_forces
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rotbtoi" title="rotBtoI" class="md-nav__link">
+    rotBtoI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rotitob" title="rotItoB" class="md-nav__link">
+    rotItoB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tbtoiquat" title="TBtoIquat" class="md-nav__link">
+    TBtoIquat
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vel" title="vel" class="md-nav__link">
+    vel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#print_info" title="print_info" class="md-nav__link">
+    print_info
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_added_mass" title="set_added_mass" class="md-nav__link">
+    set_added_mass
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_damping_coef" title="set_damping_coef" class="md-nav__link">
+    set_damping_coef
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compute_force" title="compute_force" class="md-nav__link">
+    compute_force
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compute_acc" title="compute_acc" class="md-nav__link">
+    compute_acc
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_jacobian" title="get_jacobian" class="md-nav__link">
+    get_jacobian
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update_odometry" title="update_odometry" class="md-nav__link">
+    update_odometry
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/uuvsimulator/edit/master/docs/packages/uuv_simulator/docs/python_api/uuv_control_interfaces.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>uuv_control_interfaces</h1>
+                
+                <h4 id="uuv_control_interfaces">uuv_control_interfaces<a class="headerlink" href="#uuv_control_interfaces" title="Permanent link">&para;</a></h4>
+<h4 id="uuv_control_interfacesdp_controller_base">uuv_control_interfaces.dp_controller_base<a class="headerlink" href="#uuv_control_interfacesdp_controller_base" title="Permanent link">&para;</a></h4>
+<h5 id="dpcontrollerbase">DPControllerBase<a class="headerlink" href="#dpcontrollerbase" title="Permanent link">&para;</a></h5>
+<p><div class="codehilite"><pre><span></span><span class="n">DPControllerBase</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">is_model_based</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">list_odometry_callbacks</span><span class="o">=</span><span class="p">[],</span> <span class="n">planner_full_dof</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</pre></div>
+General abstract class for DP controllers for underwater vehicles.
+This is an abstract class, must be inherited by a controller module that
+overrides the update_controller method. If the controller is set to be
+model based (is_model_based=True), than the vehicle parameters are going
+to be read from the ROS parameter server.</p>
+<h6 id="error_orientation_rpy">error_orientation_rpy<a class="headerlink" href="#error_orientation_rpy" title="Permanent link">&para;</a></h6>
+<p>Return orientation error in Euler angles.</p>
+<h6 id="error_pose_euler">error_pose_euler<a class="headerlink" href="#error_pose_euler" title="Permanent link">&para;</a></h6>
+<p>Pose error with orientation represented in Euler angles.</p>
+<h6 id="get_controller">get_controller<a class="headerlink" href="#get_controller" title="Permanent link">&para;</a></h6>
+<p><div class="codehilite"><pre><span></span><span class="n">DPControllerBase</span><span class="o">.</span><span class="n">get_controller</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+</pre></div>
+Create instance of a specific DP controller.</p>
+<h6 id="get_list_of_controllers">get_list_of_controllers<a class="headerlink" href="#get_list_of_controllers" title="Permanent link">&para;</a></h6>
+<p><div class="codehilite"><pre><span></span><span class="n">DPControllerBase</span><span class="o">.</span><span class="n">get_list_of_controllers</span><span class="p">()</span>
+</pre></div>
+Return list of DP controllers using this interface.</p>
+<h4 id="uuv_control_interfacesdp_controller_local_planner">uuv_control_interfaces.dp_controller_local_planner<a class="headerlink" href="#uuv_control_interfacesdp_controller_local_planner" title="Permanent link">&para;</a></h4>
+<h5 id="dpcontrollerlocalplanner">DPControllerLocalPlanner<a class="headerlink" href="#dpcontrollerlocalplanner" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span><span class="n">DPControllerLocalPlanner</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">full_dof</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">stamped_pose_only</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">thrusters_only</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+
+<p>Local planner for the dynamic positioning controllers to interpolate
+trajectories and generate trajectories from interpolated waypoint paths.</p>
+<h6 id="set_station_keeping">set_station_keeping<a class="headerlink" href="#set_station_keeping" title="Permanent link">&para;</a></h6>
+<p><div class="codehilite"><pre><span></span><span class="n">DPControllerLocalPlanner</span><span class="o">.</span><span class="n">set_station_keeping</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">is_on</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+Set station keeping mode flag.</p>
+<h6 id="set_automatic_mode">set_automatic_mode<a class="headerlink" href="#set_automatic_mode" title="Permanent link">&para;</a></h6>
+<p><div class="codehilite"><pre><span></span><span class="n">DPControllerLocalPlanner</span><span class="o">.</span><span class="n">set_automatic_mode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">is_on</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+Set automatic mode flag.</p>
+<h6 id="set_trajectory_running">set_trajectory_running<a class="headerlink" href="#set_trajectory_running" title="Permanent link">&para;</a></h6>
+<p><div class="codehilite"><pre><span></span><span class="n">DPControllerLocalPlanner</span><span class="o">.</span><span class="n">set_trajectory_running</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">is_on</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+Set trajectory tracking flag.</p>
+<h6 id="has_started">has_started<a class="headerlink" href="#has_started" title="Permanent link">&para;</a></h6>
+<div class="codehilite"><pre><span></span><span class="n">DPControllerLocalPlanner</span><span class="o">.</span><span class="n">has_started</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</pre></div>
+
+<p>Return if the trajectory interpolator has started generating reference
+points.</p>
+<h6 id="hold_vehicle">hold_vehicle<a class="headerlink" href="#hold_vehicle" title="Permanent link">&para;</a></h6>
+<div class="codehilite"><pre><span></span><span class="n">DPControllerLocalPlanner</span><span class="o">.</span><span class="n">hold_vehicle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">)</span>
+</pre></div>
+
+<p>Service callback function to hold the vehicle's current position.</p>
+<h6 id="start_waypoint_list">start_waypoint_list<a class="headerlink" href="#start_waypoint_list" title="Permanent link">&para;</a></h6>
+<div class="codehilite"><pre><span></span><span class="n">DPControllerLocalPlanner</span><span class="o">.</span><span class="n">start_waypoint_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">)</span>
+</pre></div>
+
+<p>Service callback function to follow a set of waypoints
+Args:
+    request (InitWaypointSet)</p>
+<h6 id="go_to_incremental">go_to_incremental<a class="headerlink" href="#go_to_incremental" title="Permanent link">&para;</a></h6>
+<div class="codehilite"><pre><span></span><span class="n">DPControllerLocalPlanner</span><span class="o">.</span><span class="n">go_to_incremental</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">)</span>
+</pre></div>
+
+<p>Service callback to set the command to the vehicle to move to a
+relative position in the world.</p>
+<h6 id="interpolate">interpolate<a class="headerlink" href="#interpolate" title="Permanent link">&para;</a></h6>
+<div class="codehilite"><pre><span></span><span class="n">DPControllerLocalPlanner</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+</pre></div>
+
+<p>Function interface to the controller. Calls the interpolator to
+calculate the current trajectory sample or returns a fixed position
+based on the past odometry measurements for station keeping.</p>
+<h4 id="uuv_control_interfacesdp_pid_controller_base">uuv_control_interfaces.dp_pid_controller_base<a class="headerlink" href="#uuv_control_interfacesdp_pid_controller_base" title="Permanent link">&para;</a></h4>
+<h5 id="dppidcontrollerbase">DPPIDControllerBase<a class="headerlink" href="#dppidcontrollerbase" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span><span class="n">DPPIDControllerBase</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+</pre></div>
+
+<p>This is an abstract class for PID-based controllers. The base class method
+update_controller must be overridden in other for a controller to work.</p>
+<h4 id="uuv_control_interfacessym_vehicle">uuv_control_interfaces.sym_vehicle<a class="headerlink" href="#uuv_control_interfacessym_vehicle" title="Permanent link">&para;</a></h4>
+<h4 id="uuv_control_interfacesvehicle">uuv_control_interfaces.vehicle<a class="headerlink" href="#uuv_control_interfacesvehicle" title="Permanent link">&para;</a></h4>
+<h5 id="cross_product_operator">cross_product_operator<a class="headerlink" href="#cross_product_operator" title="Permanent link">&para;</a></h5>
+<p><div class="codehilite"><pre><span></span><span class="n">cross_product_operator</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+Return a cross product operator for the given vector.</p>
+<h5 id="vehicle">Vehicle<a class="headerlink" href="#vehicle" title="Permanent link">&para;</a></h5>
+<p><div class="codehilite"><pre><span></span><span class="n">Vehicle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inertial_frame_id</span><span class="o">=</span><span class="s1">&#39;world&#39;</span><span class="p">)</span>
+</pre></div>
+Vehicle interface to be used by model-based controllers. It receives the
+parameters necessary to compute the vehicle's motion according to Fossen's.</p>
+<h6 id="acc">acc<a class="headerlink" href="#acc" title="Permanent link">&para;</a></h6>
+<p>Return linear and angular acceleration vector.</p>
+<h6 id="depth">depth<a class="headerlink" href="#depth" title="Permanent link">&para;</a></h6>
+<p>Return depth of the vehicle.</p>
+<h6 id="euler">euler<a class="headerlink" href="#euler" title="Permanent link">&para;</a></h6>
+<p>Return orientation in Euler angles as described in Fossen, 2011.</p>
+<h6 id="euler_dot">euler_dot<a class="headerlink" href="#euler_dot" title="Permanent link">&para;</a></h6>
+<p>Return time derivative of the Euler angles.</p>
+<h6 id="heading">heading<a class="headerlink" href="#heading" title="Permanent link">&para;</a></h6>
+<p>Return the heading of the vehicle.</p>
+<h6 id="namespace">namespace<a class="headerlink" href="#namespace" title="Permanent link">&para;</a></h6>
+<p>Return robot namespace.</p>
+<h6 id="pos">pos<a class="headerlink" href="#pos" title="Permanent link">&para;</a></h6>
+<p>Return the position of the vehicle.</p>
+<h6 id="pose_euler">pose_euler<a class="headerlink" href="#pose_euler" title="Permanent link">&para;</a></h6>
+<p>Return pose as a vector, orientation in Euler angles.</p>
+<h6 id="pose_quat">pose_quat<a class="headerlink" href="#pose_quat" title="Permanent link">&para;</a></h6>
+<p>Return pose as a vector, orientation as quaternion.</p>
+<h6 id="quat">quat<a class="headerlink" href="#quat" title="Permanent link">&para;</a></h6>
+<p>Return orientation quaternion.</p>
+<h6 id="quat_dot">quat_dot<a class="headerlink" href="#quat_dot" title="Permanent link">&para;</a></h6>
+<p>Return the time derivative of the quaternion vector.</p>
+<h6 id="restoring_forces">restoring_forces<a class="headerlink" href="#restoring_forces" title="Permanent link">&para;</a></h6>
+<p>Return the restoring force vector.</p>
+<h6 id="rotbtoi">rotBtoI<a class="headerlink" href="#rotbtoi" title="Permanent link">&para;</a></h6>
+<p>Return rotation from BODY to INERTIAL frame using the zyx convention
+to retrieve Euler angles from the quaternion vector (Fossen, 2011).</p>
+<h6 id="rotitob">rotItoB<a class="headerlink" href="#rotitob" title="Permanent link">&para;</a></h6>
+<p>Return rotation from INERTIAL to BODY frame</p>
+<h6 id="tbtoiquat">TBtoIquat<a class="headerlink" href="#tbtoiquat" title="Permanent link">&para;</a></h6>
+<p>Return matrix for transformation of BODY-fixed angular velocities in the
+BODY frame in relation to the INERTIAL frame into quaternion rate.</p>
+<h6 id="vel">vel<a class="headerlink" href="#vel" title="Permanent link">&para;</a></h6>
+<p>Return linear and angular velocity vector.</p>
+<h6 id="print_info">print_info<a class="headerlink" href="#print_info" title="Permanent link">&para;</a></h6>
+<p><div class="codehilite"><pre><span></span><span class="n">Vehicle</span><span class="o">.</span><span class="n">print_info</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</pre></div>
+Print the vehicle's parameters.</p>
+<h6 id="set_added_mass">set_added_mass<a class="headerlink" href="#set_added_mass" title="Permanent link">&para;</a></h6>
+<p><div class="codehilite"><pre><span></span><span class="n">Vehicle</span><span class="o">.</span><span class="n">set_added_mass</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Ma</span><span class="p">)</span>
+</pre></div>
+Set added-mass matrix coefficients.</p>
+<h6 id="set_damping_coef">set_damping_coef<a class="headerlink" href="#set_damping_coef" title="Permanent link">&para;</a></h6>
+<p><div class="codehilite"><pre><span></span><span class="n">Vehicle</span><span class="o">.</span><span class="n">set_damping_coef</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">linear_damping</span><span class="p">,</span> <span class="n">quad_damping</span><span class="p">)</span>
+</pre></div>
+Set linear and quadratic damping coefficients.</p>
+<h6 id="compute_force">compute_force<a class="headerlink" href="#compute_force" title="Permanent link">&para;</a></h6>
+<p><div class="codehilite"><pre><span></span><span class="n">Vehicle</span><span class="o">.</span><span class="n">compute_force</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">acc</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">vel</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">with_restoring</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">use_sname</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+Return the sum of forces acting on the vehicle.</p>
+<p>Given acceleration and velocity vectors, this function returns the
+sum of forces given the rigid-body and hydrodynamic models for the
+marine vessel.</p>
+<h6 id="compute_acc">compute_acc<a class="headerlink" href="#compute_acc" title="Permanent link">&para;</a></h6>
+<p><div class="codehilite"><pre><span></span><span class="n">Vehicle</span><span class="o">.</span><span class="n">compute_acc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gen_forces</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">use_sname</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+Calculate inverse dynamics to obtain the acceleration vector.</p>
+<h6 id="get_jacobian">get_jacobian<a class="headerlink" href="#get_jacobian" title="Permanent link">&para;</a></h6>
+<div class="codehilite"><pre><span></span><span class="n">Vehicle</span><span class="o">.</span><span class="n">get_jacobian</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</pre></div>
+
+<p>Return the Jacobian for the current orientation using transformations
+from BODY to INERTIAL frame.</p>
+<h6 id="update_odometry">update_odometry<a class="headerlink" href="#update_odometry" title="Permanent link">&para;</a></h6>
+<p><div class="codehilite"><pre><span></span><span class="n">Vehicle</span><span class="o">.</span><span class="n">update_odometry</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+</pre></div>
+Odometry topic subscriber callback function.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../uuv_thrusters/" title="uuv_thrusters" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                uuv_thrusters
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../uuv_trajectory_generator/" title="uuv_trajectory_generator" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                uuv_trajectory_generator
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright (c) 2016-2019 The UUV Simulator Authors
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://discourse.ros.org/c/maritime" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://github.com/uuvsimulator/" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://discord.gg/zNauF2F" class="md-footer-social__link fa fa-comment"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../../assets/javascripts/application.267712eb.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../../../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
