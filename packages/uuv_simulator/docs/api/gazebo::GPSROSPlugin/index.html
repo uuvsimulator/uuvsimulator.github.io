@@ -456,6 +456,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -2840,9 +2852,9 @@
                 
                   <h1>GPSROSPlugin</h1>
                 
-                <h4 id="class-gazebogpsrosplugin">class <code class="codehilite">gazebo::GPSROSPlugin</code><a class="headerlink" href="#class-gazebogpsrosplugin" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><span class="kr">class</span> <span class="nx">gazebo</span><span class="o">::</span><span class="nx">GPSROSPlugin</span>
-  : <span class="kt">public</span> <span class="nx">gazebo</span><span class="o">::</span><span class="nx">ROSBaseSensorPlugin</span>
+                <h4 id="class-gazebogpsrosplugin">class <code class="codehilite"><span class="n">gazebo</span><span class="p">::</span><span class="n">GPSROSPlugin</span></code><a class="headerlink" href="#class-gazebogpsrosplugin" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="n">gazebo::GPSROSPlugin</span>
+  : <span class="n">public</span> <span class="n">gazebo::ROSBaseSensorPlugin</span>
 </pre></div>
 
 <h5 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h5>
@@ -2855,43 +2867,43 @@
 </thead>
 <tbody>
 <tr>
-<td><code class="codehilite">public</code><a href="#classgazebo_1_1_g_p_s_r_o_s_plugin_1ab969180b479e77d98f8cb29e8c94b269"><code class="codehilite">GPSROSPlugin</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span></code><a href="#classgazebo_1_1_g_p_s_r_o_s_plugin_1ab969180b479e77d98f8cb29e8c94b269"><code class="codehilite"><span class="n">GPSROSPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Class constructor.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual</code><a href="#classgazebo_1_1_g_p_s_r_o_s_plugin_1ae4a602032a43f1a3cc904fa4ff938fc3"><code class="codehilite">~GPSROSPlugin</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span></code><a href="#classgazebo_1_1_g_p_s_r_o_s_plugin_1ae4a602032a43f1a3cc904fa4ff938fc3"><code class="codehilite"><span class="o">~</span><span class="n">GPSROSPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Class destructor.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_g_p_s_r_o_s_plugin_1ac59efd08373c7f691308609836a2a03d"><code class="codehilite">Load</code></a><code class="codehilite">(sensors::SensorPtr _parent,sdf::ElementPtr _sdf)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_g_p_s_r_o_s_plugin_1ac59efd08373c7f691308609836a2a03d"><code class="codehilite"><span class="k">Load</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">sensors</span><span class="p">::</span><span class="n">SensorPtr</span> <span class="n">_parent</span><span class="p">,</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">)</span></code></td>
 <td>Load module and read parameters from SDF.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public bool</code><a href="#classgazebo_1_1_g_p_s_r_o_s_plugin_1a255822b5790c6202d5ab5f3bca0eca8b"><code class="codehilite">OnUpdateGPS</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_g_p_s_r_o_s_plugin_1a255822b5790c6202d5ab5f3bca0eca8b"><code class="codehilite"><span class="n">OnUpdateGPS</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Update GPS ROS message.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected sensors::GpsSensorPtr</code><a href="#classgazebo_1_1_g_p_s_r_o_s_plugin_1aaa97f3a5236f6c5d9914d042848f97d6"><code class="codehilite">gazeboGPSSensor</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">sensors</span><span class="p">::</span><span class="n">GpsSensorPtr</span></code><a href="#classgazebo_1_1_g_p_s_r_o_s_plugin_1aaa97f3a5236f6c5d9914d042848f97d6"><code class="codehilite"><span class="n">gazeboGPSSensor</span></code></a></td>
 <td>Pointer to the parent sensor.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected sensor_msgs::NavSatFix</code><a href="#classgazebo_1_1_g_p_s_r_o_s_plugin_1aa365281835351f7720482bd36611733d"><code class="codehilite">gpsMessage</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">sensor_msgs</span><span class="p">::</span><span class="n">NavSatFix</span></code><a href="#classgazebo_1_1_g_p_s_r_o_s_plugin_1aa365281835351f7720482bd36611733d"><code class="codehilite"><span class="n">gpsMessage</span></code></a></td>
 <td>Output GPS ROS message.</td>
 </tr>
 </tbody>
 </table>
 <h5 id="members">Members<a class="headerlink" href="#members" title="Permanent link">&para;</a></h5>
-<h6 id="publicgpsrosplugin"><code class="codehilite">public</code><a href="#classgazebo_1_1_g_p_s_r_o_s_plugin_1ab969180b479e77d98f8cb29e8c94b269"><code class="codehilite">GPSROSPlugin</code></a><code class="codehilite">()</code><a class="headerlink" href="#publicgpsrosplugin" title="Permanent link">&para;</a></h6>
+<h6 id="publicgpsrosplugin"><code class="codehilite"><span class="k">public</span></code><a href="#classgazebo_1_1_g_p_s_r_o_s_plugin_1ab969180b479e77d98f8cb29e8c94b269"><code class="codehilite"><span class="n">GPSROSPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#publicgpsrosplugin" title="Permanent link">&para;</a></h6>
 <p>Class constructor.</p>
-<h6 id="public-virtualgpsrosplugin"><code class="codehilite">public virtual</code><a href="#classgazebo_1_1_g_p_s_r_o_s_plugin_1ae4a602032a43f1a3cc904fa4ff938fc3"><code class="codehilite">~GPSROSPlugin</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-virtualgpsrosplugin" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtualgpsrosplugin"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span></code><a href="#classgazebo_1_1_g_p_s_r_o_s_plugin_1ae4a602032a43f1a3cc904fa4ff938fc3"><code class="codehilite"><span class="o">~</span><span class="n">GPSROSPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-virtualgpsrosplugin" title="Permanent link">&para;</a></h6>
 <p>Class destructor.</p>
-<h6 id="public-virtual-voidloadsensorssensorptr-_parentsdfelementptr-_sdf"><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_g_p_s_r_o_s_plugin_1ac59efd08373c7f691308609836a2a03d"><code class="codehilite">Load</code></a><code class="codehilite">(sensors::SensorPtr _parent,sdf::ElementPtr _sdf)</code><a class="headerlink" href="#public-virtual-voidloadsensorssensorptr-_parentsdfelementptr-_sdf" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtual-voidloadsensorssensorptr-_parentsdfelementptr-_sdf"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_g_p_s_r_o_s_plugin_1ac59efd08373c7f691308609836a2a03d"><code class="codehilite"><span class="k">Load</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">sensors</span><span class="p">::</span><span class="n">SensorPtr</span> <span class="n">_parent</span><span class="p">,</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">)</span></code><a class="headerlink" href="#public-virtual-voidloadsensorssensorptr-_parentsdfelementptr-_sdf" title="Permanent link">&para;</a></h6>
 <p>Load module and read parameters from SDF.</p>
-<h6 id="public-boolonupdategps"><code class="codehilite">public bool</code><a href="#classgazebo_1_1_g_p_s_r_o_s_plugin_1a255822b5790c6202d5ab5f3bca0eca8b"><code class="codehilite">OnUpdateGPS</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-boolonupdategps" title="Permanent link">&para;</a></h6>
+<h6 id="public-boolonupdategps"><code class="codehilite"><span class="k">public</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_g_p_s_r_o_s_plugin_1a255822b5790c6202d5ab5f3bca0eca8b"><code class="codehilite"><span class="n">OnUpdateGPS</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-boolonupdategps" title="Permanent link">&para;</a></h6>
 <p>Update GPS ROS message.</p>
-<h6 id="protected-sensorsgpssensorptrgazebogpssensor"><code class="codehilite">protected sensors::GpsSensorPtr</code><a href="#classgazebo_1_1_g_p_s_r_o_s_plugin_1aaa97f3a5236f6c5d9914d042848f97d6"><code class="codehilite">gazeboGPSSensor</code></a><a class="headerlink" href="#protected-sensorsgpssensorptrgazebogpssensor" title="Permanent link">&para;</a></h6>
+<h6 id="protected-sensorsgpssensorptrgazebogpssensor"><code class="codehilite"><span class="n">protected</span> <span class="n">sensors</span><span class="p">::</span><span class="n">GpsSensorPtr</span></code><a href="#classgazebo_1_1_g_p_s_r_o_s_plugin_1aaa97f3a5236f6c5d9914d042848f97d6"><code class="codehilite"><span class="n">gazeboGPSSensor</span></code></a><a class="headerlink" href="#protected-sensorsgpssensorptrgazebogpssensor" title="Permanent link">&para;</a></h6>
 <p>Pointer to the parent sensor.</p>
-<h6 id="protected-sensor_msgsnavsatfixgpsmessage"><code class="codehilite">protected sensor_msgs::NavSatFix</code><a href="#classgazebo_1_1_g_p_s_r_o_s_plugin_1aa365281835351f7720482bd36611733d"><code class="codehilite">gpsMessage</code></a><a class="headerlink" href="#protected-sensor_msgsnavsatfixgpsmessage" title="Permanent link">&para;</a></h6>
+<h6 id="protected-sensor_msgsnavsatfixgpsmessage"><code class="codehilite"><span class="n">protected</span> <span class="n">sensor_msgs</span><span class="p">::</span><span class="n">NavSatFix</span></code><a href="#classgazebo_1_1_g_p_s_r_o_s_plugin_1aa365281835351f7720482bd36611733d"><code class="codehilite"><span class="n">gpsMessage</span></code></a><a class="headerlink" href="#protected-sensor_msgsnavsatfixgpsmessage" title="Permanent link">&para;</a></h6>
 <p>Output GPS ROS message.</p>
                 
                   

@@ -450,6 +450,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../../uuv_simulator/docs/features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../../uuv_simulator/docs/features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -2642,9 +2654,9 @@
                 
                   <h1>Add CPC sensor model to simulated vehicle</h1>
                 
-                <p>To measure the particle concentration using the algorithm described in <a href="https://ieeexplore.ieee.org/abstract/document/5456812/"><code class="codehilite">Tian, 2010</code></a>, the vehicle must have a sensor unit from the chemical particle concentration available in the <a href="../packages/uuv_simulator/docs/packages/uuv_sensor_ros_plugins.md"><code class="codehilite">uuv_sensor_ros_plugins</code></a>.
+                <p>To measure the particle concentration using the algorithm described in <a href="https://ieeexplore.ieee.org/abstract/document/5456812/"><code class="codehilite"><span class="n">Tian</span><span class="p">,</span> <span class="mi">2010</span></code></a>, the vehicle must have a sensor unit from the chemical particle concentration available in the <a href="../packages/uuv_simulator/docs/packages/uuv_sensor_ros_plugins.md"><code class="codehilite"><span class="n">uuv_sensor_ros_plugins</span></code></a>.
 A number of URDF snippets to initialize this sensor in the URDF robot description can be found in the <a href="https://github.com/uuvsimulator/uuv_simulator/blob/master/uuv_sensor_plugins/uuv_sensor_ros_plugins/urdf/chemical_concentration_snippets.xacro">sensor package</a>.
-One example of implementation is already presented in the description of the <a href="../packages/rexrov2/intro.md"><code class="codehilite">rexrov2</code></a> vehicle in the declaration of its <a href="https://github.com/uuvsimulator/rexrov2/blob/master/rexrov2_description/urdf/rexrov2_sensors.xacro">sensor units</a> as shown below </p>
+One example of implementation is already presented in the description of the <a href="../packages/rexrov2/intro.md"><code class="codehilite"><span class="n">rexrov2</span></code></a> vehicle in the declaration of its <a href="https://github.com/uuvsimulator/rexrov2/blob/master/rexrov2_description/urdf/rexrov2_sensors.xacro">sensor units</a> as shown below </p>
 <div class="codehilite"><pre><span></span><span class="c">&lt;!-- Mount chemical particle concentration sensor --&gt;</span>
 <span class="nt">&lt;xacro:default_chemical_concentration_sensor_macro</span>
   <span class="na">namespace=</span><span class="s">&quot;${namespace}&quot;</span>
@@ -2654,7 +2666,7 @@ One example of implementation is already presented in the description of the <a 
 <span class="nt">&lt;/xacro:default_chemical_concentration_sensor_macro&gt;</span>
 </pre></div>
 
-<p>A sample of the output in <code class="codehilite">rviz</code> and <code class="codehilite">rqt</code> can be seen below.
+<p>A sample of the output in <code class="codehilite"><span class="n">rviz</span></code> and <code class="codehilite"><span class="n">rqt</span></code> can be seen below.
 Feel free to check the sample <a href="https://github.com/uuvsimulator/uuv_plume_simulator/blob/master/uuv_plume_simulator/scripts/set_demo_turbulent_plume">plume script</a> and the <a href="https://github.com/uuvsimulator/uuv_simulator/blob/master/uuv_sensor_plugins/uuv_sensor_ros_plugins/urdf/chemical_concentration_snippets.xacro">URDF sensor snippets</a> to see the input arguments that can be changed to modify both the plume and concentration sensor settings.</p>
 <p><img alt="Plume" src="../images/tutorial_plume.png" /></p>
 <p><img alt="Plume RViz" src="../images/gazebo_plume_rviz.png" /></p>

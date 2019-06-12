@@ -456,6 +456,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -3022,252 +3034,252 @@
                 
                 <p><img alt="Version" src="https://img.shields.io/badge/version-0.6.12-brightgreen.svg" /></p>
 <blockquote>
-<p>Link to the <code class="codehilite">uuv_simulator</code> repository <a href="https://github.com/uuvsimulator/uuv_simulator">here</a></p>
+<p>Link to the <code class="codehilite"><span class="n">uuv_simulator</span></code> repository <a href="https://github.com/uuvsimulator/uuv_simulator">here</a></p>
 </blockquote>
 <h4 id="description">Description<a class="headerlink" href="#description" title="Permanent link">&para;</a></h4>
 <p>The uuv_trajectory_control package</p>
 <h4 id="launch-files">Launch files<a class="headerlink" href="#launch-files" title="Permanent link">&para;</a></h4>
-<h5 id="rov_pid_controllerlaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_trajectory_control/launch/rov_pid_controller.launch"><code class="codehilite">rov_pid_controller.launch</code></a><a class="headerlink" href="#rov_pid_controllerlaunch" title="Permanent link">&para;</a></h5>
+<h5 id="rov_pid_controllerlaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_trajectory_control/launch/rov_pid_controller.launch"><code class="codehilite"><span class="n">rov_pid_controller</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#rov_pid_controllerlaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
 <li><strong>uuv_name</strong></li>
-<li><strong>model_name</strong> (<em>default:</em> <code class="codehilite">$(arg uuv_name)</code>)</li>
-<li><strong>saturation</strong> (<em>default:</em> <code class="codehilite">1200</code>)</li>
-<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite">true</code>)</li>
-<li><strong>use_params_file</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
-<li><strong>use_ned_frame</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
-<li><strong>Kp</strong> (<em>default:</em> <code class="codehilite">11993.888,11993.888,11993.888,19460.069,19460.069,19460.069</code>)</li>
-<li><strong>Kd</strong> (<em>default:</em> <code class="codehilite">9077.459,9077.459,9077.459,18880.925,18880.925,18880.925</code>)</li>
-<li><strong>Ki</strong> (<em>default:</em> <code class="codehilite">321.417,321.417,321.417,2096.951,2096.951,2096.951</code>)</li>
-<li><strong>controller_config_file</strong> (<em>default:</em> <code class="codehilite">$(find uuv_trajectory_control)/config/controllers/pid/$(arg model_name)/params.yaml</code>)</li>
-<li><strong>thruster_manager_output_dir</strong> (<em>default:</em> <code class="codehilite">$(find uuv_thruster_manager)/config/$(arg model_name)</code>)</li>
-<li><strong>thruster_manager_config_file</strong> (<em>default:</em> <code class="codehilite">$(find uuv_thruster_manager)/config/$(arg model_name)/thruster_manager.yaml</code>)</li>
-<li><strong>tam_file</strong> (<em>default:</em> <code class="codehilite">$(find uuv_thruster_manager)/config/$(arg model_name)/TAM.yaml</code>)</li>
+<li><strong>model_name</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">uuv_name</span><span class="p">)</span></code>)</li>
+<li><strong>saturation</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1200</span></code>)</li>
+<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite"><span class="k">true</span></code>)</li>
+<li><strong>use_params_file</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>)</li>
+<li><strong>use_ned_frame</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>)</li>
+<li><strong>Kp</strong> (<em>default:</em> <code class="codehilite"><span class="mi">11993</span><span class="p">.</span><span class="mi">888</span><span class="p">,</span><span class="mi">11993</span><span class="p">.</span><span class="mi">888</span><span class="p">,</span><span class="mi">11993</span><span class="p">.</span><span class="mi">888</span><span class="p">,</span><span class="mi">19460</span><span class="p">.</span><span class="mi">069</span><span class="p">,</span><span class="mi">19460</span><span class="p">.</span><span class="mi">069</span><span class="p">,</span><span class="mi">19460</span><span class="p">.</span><span class="mi">069</span></code>)</li>
+<li><strong>Kd</strong> (<em>default:</em> <code class="codehilite"><span class="mi">9077</span><span class="p">.</span><span class="mi">459</span><span class="p">,</span><span class="mi">9077</span><span class="p">.</span><span class="mi">459</span><span class="p">,</span><span class="mi">9077</span><span class="p">.</span><span class="mi">459</span><span class="p">,</span><span class="mi">18880</span><span class="p">.</span><span class="mi">925</span><span class="p">,</span><span class="mi">18880</span><span class="p">.</span><span class="mi">925</span><span class="p">,</span><span class="mi">18880</span><span class="p">.</span><span class="mi">925</span></code>)</li>
+<li><strong>Ki</strong> (<em>default:</em> <code class="codehilite"><span class="mi">321</span><span class="p">.</span><span class="mi">417</span><span class="p">,</span><span class="mi">321</span><span class="p">.</span><span class="mi">417</span><span class="p">,</span><span class="mi">321</span><span class="p">.</span><span class="mi">417</span><span class="p">,</span><span class="mi">2096</span><span class="p">.</span><span class="mi">951</span><span class="p">,</span><span class="mi">2096</span><span class="p">.</span><span class="mi">951</span><span class="p">,</span><span class="mi">2096</span><span class="p">.</span><span class="mi">951</span></code>)</li>
+<li><strong>controller_config_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">uuv_trajectory_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">controllers</span><span class="o">/</span><span class="n">pid</span><span class="o">/</span><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">model_name</span><span class="p">)</span><span class="o">/</span><span class="n">params</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
+<li><strong>thruster_manager_output_dir</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">uuv_thruster_manager</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">model_name</span><span class="p">)</span></code>)</li>
+<li><strong>thruster_manager_config_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">uuv_thruster_manager</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">model_name</span><span class="p">)</span><span class="o">/</span><span class="n">thruster_manager</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
+<li><strong>tam_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">uuv_thruster_manager</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">model_name</span><span class="p">)</span><span class="o">/</span><span class="n">TAM</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
 </ul>
-<h5 id="rov_mb_sm_controllerlaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_trajectory_control/launch/rov_mb_sm_controller.launch"><code class="codehilite">rov_mb_sm_controller.launch</code></a><a class="headerlink" href="#rov_mb_sm_controllerlaunch" title="Permanent link">&para;</a></h5>
+<h5 id="rov_mb_sm_controllerlaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_trajectory_control/launch/rov_mb_sm_controller.launch"><code class="codehilite"><span class="n">rov_mb_sm_controller</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#rov_mb_sm_controllerlaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
 <li><strong>uuv_name</strong></li>
-<li><strong>model_name</strong> (<em>default:</em> <code class="codehilite">$(arg uuv_name)</code>)</li>
-<li><strong>saturation</strong> (<em>default:</em> <code class="codehilite">1200</code>)</li>
-<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite">true</code>)</li>
-<li><strong>use_params_file</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
-<li><strong>use_ned_frame</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
-<li><strong>lambda</strong> (<em>default:</em> <code class="codehilite">10,10,10,10,10,10</code>)</li>
-<li><strong>rho_constant</strong> (<em>default:</em> <code class="codehilite">10000,10000,10000,10000,10000,10000</code>)</li>
-<li><strong>k</strong> (<em>default:</em> <code class="codehilite">500,500,500,500,500,500</code>)</li>
-<li><strong>c</strong> (<em>default:</em> <code class="codehilite">50,50,50,1,1,1</code>)</li>
-<li><strong>adapt_slope</strong> (<em>default:</em> <code class="codehilite">100,10,10</code>)</li>
-<li><strong>rho_0</strong> (<em>default:</em> <code class="codehilite">3000,3000,8000,1500,1500,8000</code>)</li>
-<li><strong>drift_prevent</strong> (<em>default:</em> <code class="codehilite">0.03</code>)</li>
-<li><strong>controller_config_file</strong> (<em>default:</em> <code class="codehilite">$(find uuv_trajectory_control)/config/controllers/mb_sm/$(arg model_name)/params.yaml</code>)</li>
-<li><strong>model_params_file</strong> (<em>default:</em> <code class="codehilite">$(find uuv_trajectory_control)/config/models/$(arg model_name)/params.yaml</code>)</li>
-<li><strong>thruster_manager_output_dir</strong> (<em>default:</em> <code class="codehilite">$(find uuv_thruster_manager)/config/$(arg model_name)</code>)</li>
-<li><strong>thruster_manager_config_file</strong> (<em>default:</em> <code class="codehilite">$(find uuv_thruster_manager)/config/$(arg model_name)/thruster_manager.yaml</code>)</li>
-<li><strong>tam_file</strong> (<em>default:</em> <code class="codehilite">$(find uuv_thruster_manager)/config/$(arg model_name)/TAM.yaml</code>)</li>
+<li><strong>model_name</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">uuv_name</span><span class="p">)</span></code>)</li>
+<li><strong>saturation</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1200</span></code>)</li>
+<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite"><span class="k">true</span></code>)</li>
+<li><strong>use_params_file</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>)</li>
+<li><strong>use_ned_frame</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>)</li>
+<li><strong>lambda</strong> (<em>default:</em> <code class="codehilite"><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span></code>)</li>
+<li><strong>rho_constant</strong> (<em>default:</em> <code class="codehilite"><span class="mi">10000</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">10000</span><span class="p">,</span><span class="mi">10000</span></code>)</li>
+<li><strong>k</strong> (<em>default:</em> <code class="codehilite"><span class="mi">500</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">500</span></code>)</li>
+<li><strong>c</strong> (<em>default:</em> <code class="codehilite"><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span></code>)</li>
+<li><strong>adapt_slope</strong> (<em>default:</em> <code class="codehilite"><span class="mi">100</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span></code>)</li>
+<li><strong>rho_0</strong> (<em>default:</em> <code class="codehilite"><span class="mi">3000</span><span class="p">,</span><span class="mi">3000</span><span class="p">,</span><span class="mi">8000</span><span class="p">,</span><span class="mi">1500</span><span class="p">,</span><span class="mi">1500</span><span class="p">,</span><span class="mi">8000</span></code>)</li>
+<li><strong>drift_prevent</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">03</span></code>)</li>
+<li><strong>controller_config_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">uuv_trajectory_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">controllers</span><span class="o">/</span><span class="n">mb_sm</span><span class="o">/</span><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">model_name</span><span class="p">)</span><span class="o">/</span><span class="n">params</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
+<li><strong>model_params_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">uuv_trajectory_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">models</span><span class="o">/</span><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">model_name</span><span class="p">)</span><span class="o">/</span><span class="n">params</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
+<li><strong>thruster_manager_output_dir</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">uuv_thruster_manager</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">model_name</span><span class="p">)</span></code>)</li>
+<li><strong>thruster_manager_config_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">uuv_thruster_manager</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">model_name</span><span class="p">)</span><span class="o">/</span><span class="n">thruster_manager</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
+<li><strong>tam_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">uuv_thruster_manager</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">model_name</span><span class="p">)</span><span class="o">/</span><span class="n">TAM</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
 </ul>
-<h5 id="auv_geometric_tracking_controllerlaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_trajectory_control/launch/auv_geometric_tracking_controller.launch"><code class="codehilite">auv_geometric_tracking_controller.launch</code></a><a class="headerlink" href="#auv_geometric_tracking_controllerlaunch" title="Permanent link">&para;</a></h5>
+<h5 id="auv_geometric_tracking_controllerlaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_trajectory_control/launch/auv_geometric_tracking_controller.launch"><code class="codehilite"><span class="n">auv_geometric_tracking_controller</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#auv_geometric_tracking_controllerlaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
 <li><strong>uuv_name</strong></li>
-<li><strong>use_params_file</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
-<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite">true</code>)</li>
-<li><strong>use_ned_frame</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
-<li><strong>max_forward_speed</strong> (<em>default:</em> <code class="codehilite">2</code>)</li>
-<li><strong>dubins_radius</strong> (<em>default:</em> <code class="codehilite">10</code>)</li>
-<li><strong>dubins_max_pitch</strong> (<em>default:</em> <code class="codehilite">0.09</code>)</li>
-<li><strong>min_thrust</strong> (<em>default:</em> <code class="codehilite">70</code>)</li>
-<li><strong>max_thrust</strong> (<em>default:</em> <code class="codehilite">200</code>)</li>
-<li><strong>thruster_topic</strong> (<em>default:</em> <code class="codehilite">thrusters/0/input</code>)</li>
-<li><strong>thrust_p_gain</strong> (<em>default:</em> <code class="codehilite">1</code>)</li>
-<li><strong>thrust_d_gain</strong> (<em>default:</em> <code class="codehilite">1</code>)</li>
-<li><strong>gain_roll</strong> (<em>default:</em> <code class="codehilite">1</code>)</li>
-<li><strong>gain_pitch</strong> (<em>default:</em> <code class="codehilite">1</code>)</li>
-<li><strong>gain_yaw</strong> (<em>default:</em> <code class="codehilite">1</code>)</li>
-<li><strong>n_fins</strong> (<em>default:</em> <code class="codehilite">4</code>)</li>
-<li><strong>map_roll</strong> (<em>default:</em> <code class="codehilite">0,0,0,0</code>)</li>
-<li><strong>map_pitch</strong> (<em>default:</em> <code class="codehilite">0,0,0,0</code>)</li>
-<li><strong>map_yaw</strong> (<em>default:</em> <code class="codehilite">0,0,0,0</code>)</li>
-<li><strong>max_fin_angle</strong> (<em>default:</em> <code class="codehilite">0.0</code>)</li>
-<li><strong>fin_topic_prefix</strong> (<em>default:</em> <code class="codehilite">fins</code>)</li>
-<li><strong>fin_topic_suffix</strong> (<em>default:</em> <code class="codehilite">input</code>)</li>
-<li><strong>idle_radius</strong> (<em>default:</em> <code class="codehilite">10.0</code>)</li>
-<li><strong>look_ahead_delay</strong> (<em>default:</em> <code class="codehilite">5.0</code>)</li>
-<li><strong>desired_pitch_limit</strong> (<em>default:</em> <code class="codehilite">0.26</code>)</li>
-<li><strong>yaw_error_limit</strong> (<em>default:</em> <code class="codehilite">1.0</code>)</li>
-<li><strong>thruster_topic_prefix</strong> (<em>default:</em> <code class="codehilite">thrusters</code>)</li>
-<li><strong>thruster_topic_suffix</strong> (<em>default:</em> <code class="codehilite">input</code>)</li>
-<li><strong>thruster_frame_base</strong> (<em>default:</em> <code class="codehilite">thruster_</code>)</li>
-<li><strong>thruster_conversion_fcn</strong> (<em>default:</em> <code class="codehilite">proportional</code>)</li>
-<li><strong>thruster_gain</strong> (<em>default:</em> <code class="codehilite">0.0</code>)</li>
-<li><strong>thruster_input</strong> (<em>default:</em> <code class="codehilite">0,1,2,3</code>)</li>
-<li><strong>thruster_output</strong> (<em>default:</em> <code class="codehilite">0,1,2,3</code>)</li>
+<li><strong>use_params_file</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>)</li>
+<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite"><span class="k">true</span></code>)</li>
+<li><strong>use_ned_frame</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>)</li>
+<li><strong>max_forward_speed</strong> (<em>default:</em> <code class="codehilite"><span class="mi">2</span></code>)</li>
+<li><strong>dubins_radius</strong> (<em>default:</em> <code class="codehilite"><span class="mi">10</span></code>)</li>
+<li><strong>dubins_max_pitch</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">09</span></code>)</li>
+<li><strong>min_thrust</strong> (<em>default:</em> <code class="codehilite"><span class="mi">70</span></code>)</li>
+<li><strong>max_thrust</strong> (<em>default:</em> <code class="codehilite"><span class="mi">200</span></code>)</li>
+<li><strong>thruster_topic</strong> (<em>default:</em> <code class="codehilite"><span class="n">thrusters</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="k">input</span></code>)</li>
+<li><strong>thrust_p_gain</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1</span></code>)</li>
+<li><strong>thrust_d_gain</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1</span></code>)</li>
+<li><strong>gain_roll</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1</span></code>)</li>
+<li><strong>gain_pitch</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1</span></code>)</li>
+<li><strong>gain_yaw</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1</span></code>)</li>
+<li><strong>n_fins</strong> (<em>default:</em> <code class="codehilite"><span class="mi">4</span></code>)</li>
+<li><strong>map_roll</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span></code>)</li>
+<li><strong>map_pitch</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span></code>)</li>
+<li><strong>map_yaw</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span></code>)</li>
+<li><strong>max_fin_angle</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">0</span></code>)</li>
+<li><strong>fin_topic_prefix</strong> (<em>default:</em> <code class="codehilite"><span class="n">fins</span></code>)</li>
+<li><strong>fin_topic_suffix</strong> (<em>default:</em> <code class="codehilite"><span class="k">input</span></code>)</li>
+<li><strong>idle_radius</strong> (<em>default:</em> <code class="codehilite"><span class="mi">10</span><span class="p">.</span><span class="mi">0</span></code>)</li>
+<li><strong>look_ahead_delay</strong> (<em>default:</em> <code class="codehilite"><span class="mi">5</span><span class="p">.</span><span class="mi">0</span></code>)</li>
+<li><strong>desired_pitch_limit</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">26</span></code>)</li>
+<li><strong>yaw_error_limit</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1</span><span class="p">.</span><span class="mi">0</span></code>)</li>
+<li><strong>thruster_topic_prefix</strong> (<em>default:</em> <code class="codehilite"><span class="n">thrusters</span></code>)</li>
+<li><strong>thruster_topic_suffix</strong> (<em>default:</em> <code class="codehilite"><span class="k">input</span></code>)</li>
+<li><strong>thruster_frame_base</strong> (<em>default:</em> <code class="codehilite"><span class="n">thruster_</span></code>)</li>
+<li><strong>thruster_conversion_fcn</strong> (<em>default:</em> <code class="codehilite"><span class="n">proportional</span></code>)</li>
+<li><strong>thruster_gain</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">0</span></code>)</li>
+<li><strong>thruster_input</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span></code>)</li>
+<li><strong>thruster_output</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span></code>)</li>
 </ul>
-<h5 id="rov_mb_fl_controllerlaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_trajectory_control/launch/rov_mb_fl_controller.launch"><code class="codehilite">rov_mb_fl_controller.launch</code></a><a class="headerlink" href="#rov_mb_fl_controllerlaunch" title="Permanent link">&para;</a></h5>
+<h5 id="rov_mb_fl_controllerlaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_trajectory_control/launch/rov_mb_fl_controller.launch"><code class="codehilite"><span class="n">rov_mb_fl_controller</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#rov_mb_fl_controllerlaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
 <li><strong>uuv_name</strong></li>
-<li><strong>model_name</strong> (<em>default:</em> <code class="codehilite">$(arg uuv_name)</code>)</li>
-<li><strong>saturation</strong> (<em>default:</em> <code class="codehilite">1200</code>)</li>
-<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite">true</code>)</li>
-<li><strong>use_params_file</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
-<li><strong>use_ned_frame</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
-<li><strong>Kp</strong> (<em>default:</em> <code class="codehilite">19987.218,19987.218,19987.218,19460.293,19460.293,19460.293</code>)</li>
-<li><strong>Kd</strong> (<em>default:</em> <code class="codehilite">11458.051,11458.051,11458.051,17068.778,17068.778,17068.778</code>)</li>
-<li><strong>Ki</strong> (<em>default:</em> <code class="codehilite">1689.976,1689.976,1689.976,186.198,186.198,186.198</code>)</li>
-<li><strong>controller_config_file</strong> (<em>default:</em> <code class="codehilite">$(find uuv_trajectory_control)/config/controllers/pid/$(arg model_name)/params.yaml</code>)</li>
-<li><strong>model_params_file</strong> (<em>default:</em> <code class="codehilite">$(find uuv_trajectory_control)/config/models/$(arg model_name)/params.yaml</code>)</li>
-<li><strong>thruster_manager_output_dir</strong> (<em>default:</em> <code class="codehilite">$(find uuv_thruster_manager)/config/$(arg model_name)</code>)</li>
-<li><strong>thruster_manager_config_file</strong> (<em>default:</em> <code class="codehilite">$(find uuv_thruster_manager)/config/$(arg model_name)/thruster_manager.yaml</code>)</li>
-<li><strong>tam_file</strong> (<em>default:</em> <code class="codehilite">$(find uuv_thruster_manager)/config/$(arg model_name)/TAM.yaml</code>)</li>
+<li><strong>model_name</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">uuv_name</span><span class="p">)</span></code>)</li>
+<li><strong>saturation</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1200</span></code>)</li>
+<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite"><span class="k">true</span></code>)</li>
+<li><strong>use_params_file</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>)</li>
+<li><strong>use_ned_frame</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>)</li>
+<li><strong>Kp</strong> (<em>default:</em> <code class="codehilite"><span class="mi">19987</span><span class="p">.</span><span class="mi">218</span><span class="p">,</span><span class="mi">19987</span><span class="p">.</span><span class="mi">218</span><span class="p">,</span><span class="mi">19987</span><span class="p">.</span><span class="mi">218</span><span class="p">,</span><span class="mi">19460</span><span class="p">.</span><span class="mi">293</span><span class="p">,</span><span class="mi">19460</span><span class="p">.</span><span class="mi">293</span><span class="p">,</span><span class="mi">19460</span><span class="p">.</span><span class="mi">293</span></code>)</li>
+<li><strong>Kd</strong> (<em>default:</em> <code class="codehilite"><span class="mi">11458</span><span class="p">.</span><span class="mi">051</span><span class="p">,</span><span class="mi">11458</span><span class="p">.</span><span class="mi">051</span><span class="p">,</span><span class="mi">11458</span><span class="p">.</span><span class="mi">051</span><span class="p">,</span><span class="mi">17068</span><span class="p">.</span><span class="mi">778</span><span class="p">,</span><span class="mi">17068</span><span class="p">.</span><span class="mi">778</span><span class="p">,</span><span class="mi">17068</span><span class="p">.</span><span class="mi">778</span></code>)</li>
+<li><strong>Ki</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1689</span><span class="p">.</span><span class="mi">976</span><span class="p">,</span><span class="mi">1689</span><span class="p">.</span><span class="mi">976</span><span class="p">,</span><span class="mi">1689</span><span class="p">.</span><span class="mi">976</span><span class="p">,</span><span class="mi">186</span><span class="p">.</span><span class="mi">198</span><span class="p">,</span><span class="mi">186</span><span class="p">.</span><span class="mi">198</span><span class="p">,</span><span class="mi">186</span><span class="p">.</span><span class="mi">198</span></code>)</li>
+<li><strong>controller_config_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">uuv_trajectory_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">controllers</span><span class="o">/</span><span class="n">pid</span><span class="o">/</span><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">model_name</span><span class="p">)</span><span class="o">/</span><span class="n">params</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
+<li><strong>model_params_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">uuv_trajectory_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">models</span><span class="o">/</span><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">model_name</span><span class="p">)</span><span class="o">/</span><span class="n">params</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
+<li><strong>thruster_manager_output_dir</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">uuv_thruster_manager</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">model_name</span><span class="p">)</span></code>)</li>
+<li><strong>thruster_manager_config_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">uuv_thruster_manager</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">model_name</span><span class="p">)</span><span class="o">/</span><span class="n">thruster_manager</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
+<li><strong>tam_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">uuv_thruster_manager</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">model_name</span><span class="p">)</span><span class="o">/</span><span class="n">TAM</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
 </ul>
-<h5 id="rov_nmb_sm_controllerlaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_trajectory_control/launch/rov_nmb_sm_controller.launch"><code class="codehilite">rov_nmb_sm_controller.launch</code></a><a class="headerlink" href="#rov_nmb_sm_controllerlaunch" title="Permanent link">&para;</a></h5>
+<h5 id="rov_nmb_sm_controllerlaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_trajectory_control/launch/rov_nmb_sm_controller.launch"><code class="codehilite"><span class="n">rov_nmb_sm_controller</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#rov_nmb_sm_controllerlaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
 <li><strong>uuv_name</strong></li>
-<li><strong>model_name</strong> (<em>default:</em> <code class="codehilite">$(arg uuv_name)</code>)</li>
-<li><strong>saturation</strong> (<em>default:</em> <code class="codehilite">1200</code>)</li>
-<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite">true</code>)</li>
-<li><strong>use_params_file</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
-<li><strong>use_ned_frame</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
-<li><strong>max_forward_speed</strong> (<em>default:</em> <code class="codehilite">0.5</code>)</li>
-<li><strong>K</strong> (<em>default:</em> <code class="codehilite">5,5,5,5,5,5</code>)</li>
-<li><strong>Kd</strong> (<em>default:</em> <code class="codehilite">4118.98,4118.98,4118.98,8000.0,8000.0,8000.0</code>)</li>
-<li><strong>Ki</strong> (<em>default:</em> <code class="codehilite">0.06144,0.06144,0.06144,0.078,0.078,0.078</code>)</li>
-<li><strong>slope</strong> (<em>default:</em> <code class="codehilite">0.182,0.182,0.182,3.348,3.348,3.348</code>)</li>
-<li><strong>controller_config_file</strong> (<em>default:</em> <code class="codehilite">$(find uuv_trajectory_control)/config/controllers/nmb_sm/$(arg model_name)/params.yaml</code>)</li>
-<li><strong>thruster_manager_output_dir</strong> (<em>default:</em> <code class="codehilite">$(find uuv_thruster_manager)/config/$(arg model_name)</code>)</li>
-<li><strong>thruster_manager_config_file</strong> (<em>default:</em> <code class="codehilite">$(find uuv_thruster_manager)/config/$(arg model_name)/thruster_manager.yaml</code>)</li>
-<li><strong>tam_file</strong> (<em>default:</em> <code class="codehilite">$(find uuv_thruster_manager)/config/$(arg model_name)/TAM.yaml</code>)</li>
+<li><strong>model_name</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">uuv_name</span><span class="p">)</span></code>)</li>
+<li><strong>saturation</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1200</span></code>)</li>
+<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite"><span class="k">true</span></code>)</li>
+<li><strong>use_params_file</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>)</li>
+<li><strong>use_ned_frame</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>)</li>
+<li><strong>max_forward_speed</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">5</span></code>)</li>
+<li><strong>K</strong> (<em>default:</em> <code class="codehilite"><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span></code>)</li>
+<li><strong>Kd</strong> (<em>default:</em> <code class="codehilite"><span class="mi">4118</span><span class="p">.</span><span class="mi">98</span><span class="p">,</span><span class="mi">4118</span><span class="p">.</span><span class="mi">98</span><span class="p">,</span><span class="mi">4118</span><span class="p">.</span><span class="mi">98</span><span class="p">,</span><span class="mi">8000</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">8000</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">8000</span><span class="p">.</span><span class="mi">0</span></code>)</li>
+<li><strong>Ki</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">06144</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">06144</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">06144</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">078</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">078</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">078</span></code>)</li>
+<li><strong>slope</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">182</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">182</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">182</span><span class="p">,</span><span class="mi">3</span><span class="p">.</span><span class="mi">348</span><span class="p">,</span><span class="mi">3</span><span class="p">.</span><span class="mi">348</span><span class="p">,</span><span class="mi">3</span><span class="p">.</span><span class="mi">348</span></code>)</li>
+<li><strong>controller_config_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">uuv_trajectory_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">controllers</span><span class="o">/</span><span class="n">nmb_sm</span><span class="o">/</span><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">model_name</span><span class="p">)</span><span class="o">/</span><span class="n">params</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
+<li><strong>thruster_manager_output_dir</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">uuv_thruster_manager</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">model_name</span><span class="p">)</span></code>)</li>
+<li><strong>thruster_manager_config_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">uuv_thruster_manager</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">model_name</span><span class="p">)</span><span class="o">/</span><span class="n">thruster_manager</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
+<li><strong>tam_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">uuv_thruster_manager</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">model_name</span><span class="p">)</span><span class="o">/</span><span class="n">TAM</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
 </ul>
-<h5 id="rov_nl_pid_controllerlaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_trajectory_control/launch/rov_nl_pid_controller.launch"><code class="codehilite">rov_nl_pid_controller.launch</code></a><a class="headerlink" href="#rov_nl_pid_controllerlaunch" title="Permanent link">&para;</a></h5>
+<h5 id="rov_nl_pid_controllerlaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_trajectory_control/launch/rov_nl_pid_controller.launch"><code class="codehilite"><span class="n">rov_nl_pid_controller</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#rov_nl_pid_controllerlaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
 <li><strong>uuv_name</strong></li>
 <li><strong>model_name</strong></li>
-<li><strong>saturation</strong> (<em>default:</em> <code class="codehilite">6000</code>)</li>
-<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite">true</code>)</li>
-<li><strong>use_params_file</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
-<li><strong>use_ned_frame</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
-<li><strong>Kp</strong> (<em>default:</em> <code class="codehilite">6017.059667616178,6017.059667616178,6017.059667616178,9731.391095849109,9731.391095849109,9731.391095849109</code>)</li>
-<li><strong>Kd</strong> (<em>default:</em> <code class="codehilite">2682.9509286089447,2682.9509286089447,2682.9509286089447,9440.462338720527,9440.462338720527,9440.462338720527</code>)</li>
-<li><strong>Ki</strong> (<em>default:</em> <code class="codehilite">0,0,0,0,0,0</code>)</li>
-<li><strong>Hm</strong> (<em>default:</em> <code class="codehilite">1657.655912647713,1657.655912647713,1657.655912647713,4193.901741127024,4193.901741127024,4193.901741127024</code>)</li>
-<li><strong>controller_config_file</strong> (<em>default:</em> <code class="codehilite">$(find uuv_trajectory_control)/config/controllers/nl_pid/$(arg model_name)/params.yaml</code>)</li>
-<li><strong>model_params_file</strong> (<em>default:</em> <code class="codehilite">$(find uuv_trajectory_control)/config/models/$(arg model_name)/params.yaml</code>)</li>
-<li><strong>thruster_manager_output_dir</strong> (<em>default:</em> <code class="codehilite">$(find uuv_thruster_manager)/config/$(arg model_name)</code>)</li>
-<li><strong>thruster_manager_config_file</strong> (<em>default:</em> <code class="codehilite">$(find uuv_thruster_manager)/config/$(arg model_name)/thruster_manager.yaml</code>)</li>
-<li><strong>tam_file</strong> (<em>default:</em> <code class="codehilite">$(find uuv_thruster_manager)/config/$(arg model_name)/TAM.yaml</code>)</li>
+<li><strong>saturation</strong> (<em>default:</em> <code class="codehilite"><span class="mi">6000</span></code>)</li>
+<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite"><span class="k">true</span></code>)</li>
+<li><strong>use_params_file</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>)</li>
+<li><strong>use_ned_frame</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>)</li>
+<li><strong>Kp</strong> (<em>default:</em> <code class="codehilite"><span class="mi">6017</span><span class="p">.</span><span class="mi">059667616178</span><span class="p">,</span><span class="mi">6017</span><span class="p">.</span><span class="mi">059667616178</span><span class="p">,</span><span class="mi">6017</span><span class="p">.</span><span class="mi">059667616178</span><span class="p">,</span><span class="mi">9731</span><span class="p">.</span><span class="mi">391095849109</span><span class="p">,</span><span class="mi">9731</span><span class="p">.</span><span class="mi">391095849109</span><span class="p">,</span><span class="mi">9731</span><span class="p">.</span><span class="mi">391095849109</span></code>)</li>
+<li><strong>Kd</strong> (<em>default:</em> <code class="codehilite"><span class="mi">2682</span><span class="p">.</span><span class="mi">9509286089447</span><span class="p">,</span><span class="mi">2682</span><span class="p">.</span><span class="mi">9509286089447</span><span class="p">,</span><span class="mi">2682</span><span class="p">.</span><span class="mi">9509286089447</span><span class="p">,</span><span class="mi">9440</span><span class="p">.</span><span class="mi">462338720527</span><span class="p">,</span><span class="mi">9440</span><span class="p">.</span><span class="mi">462338720527</span><span class="p">,</span><span class="mi">9440</span><span class="p">.</span><span class="mi">462338720527</span></code>)</li>
+<li><strong>Ki</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span></code>)</li>
+<li><strong>Hm</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1657</span><span class="p">.</span><span class="mi">655912647713</span><span class="p">,</span><span class="mi">1657</span><span class="p">.</span><span class="mi">655912647713</span><span class="p">,</span><span class="mi">1657</span><span class="p">.</span><span class="mi">655912647713</span><span class="p">,</span><span class="mi">4193</span><span class="p">.</span><span class="mi">901741127024</span><span class="p">,</span><span class="mi">4193</span><span class="p">.</span><span class="mi">901741127024</span><span class="p">,</span><span class="mi">4193</span><span class="p">.</span><span class="mi">901741127024</span></code>)</li>
+<li><strong>controller_config_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">uuv_trajectory_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">controllers</span><span class="o">/</span><span class="n">nl_pid</span><span class="o">/</span><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">model_name</span><span class="p">)</span><span class="o">/</span><span class="n">params</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
+<li><strong>model_params_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">uuv_trajectory_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">models</span><span class="o">/</span><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">model_name</span><span class="p">)</span><span class="o">/</span><span class="n">params</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
+<li><strong>thruster_manager_output_dir</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">uuv_thruster_manager</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">model_name</span><span class="p">)</span></code>)</li>
+<li><strong>thruster_manager_config_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">uuv_thruster_manager</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">model_name</span><span class="p">)</span><span class="o">/</span><span class="n">thruster_manager</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
+<li><strong>tam_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">uuv_thruster_manager</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">model_name</span><span class="p">)</span><span class="o">/</span><span class="n">TAM</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
 </ul>
-<h5 id="rov_sf_controllerlaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_trajectory_control/launch/rov_sf_controller.launch"><code class="codehilite">rov_sf_controller.launch</code></a><a class="headerlink" href="#rov_sf_controllerlaunch" title="Permanent link">&para;</a></h5>
+<h5 id="rov_sf_controllerlaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_trajectory_control/launch/rov_sf_controller.launch"><code class="codehilite"><span class="n">rov_sf_controller</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#rov_sf_controllerlaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
 <li><strong>uuv_name</strong></li>
-<li><strong>model_name</strong> (<em>default:</em> <code class="codehilite">$(arg uuv_name)</code>)</li>
-<li><strong>saturation</strong> (<em>default:</em> <code class="codehilite">5000</code>)</li>
-<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite">true</code>)</li>
-<li><strong>use_params_file</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
-<li><strong>use_ned_frame</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
-<li><strong>Kd</strong> (<em>default:</em> <code class="codehilite">100.0,100.0,100.0,100.0,100.0,100.0</code>)</li>
-<li><strong>lambda</strong> (<em>default:</em> <code class="codehilite">1.0</code>)</li>
-<li><strong>c</strong> (<em>default:</em> <code class="codehilite">1.0</code>)</li>
-<li><strong>controller_config_file</strong> (<em>default:</em> <code class="codehilite">$(find uuv_trajectory_control)/config/controllers/pid/$(arg model_name)/params.yaml</code>)</li>
-<li><strong>model_params_file</strong> (<em>default:</em> <code class="codehilite">$(find uuv_trajectory_control)/config/models/$(arg model_name)/params.yaml</code>)</li>
-<li><strong>thruster_manager_output_dir</strong> (<em>default:</em> <code class="codehilite">$(find uuv_thruster_manager)/config/$(arg model_name)</code>)</li>
-<li><strong>thruster_manager_config_file</strong> (<em>default:</em> <code class="codehilite">$(find uuv_thruster_manager)/config/$(arg model_name)/thruster_manager.yaml</code>)</li>
-<li><strong>tam_file</strong> (<em>default:</em> <code class="codehilite">$(find uuv_thruster_manager)/config/$(arg model_name)/TAM.yaml</code>)</li>
+<li><strong>model_name</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">uuv_name</span><span class="p">)</span></code>)</li>
+<li><strong>saturation</strong> (<em>default:</em> <code class="codehilite"><span class="mi">5000</span></code>)</li>
+<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite"><span class="k">true</span></code>)</li>
+<li><strong>use_params_file</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>)</li>
+<li><strong>use_ned_frame</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>)</li>
+<li><strong>Kd</strong> (<em>default:</em> <code class="codehilite"><span class="mi">100</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">.</span><span class="mi">0</span></code>)</li>
+<li><strong>lambda</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1</span><span class="p">.</span><span class="mi">0</span></code>)</li>
+<li><strong>c</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1</span><span class="p">.</span><span class="mi">0</span></code>)</li>
+<li><strong>controller_config_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">uuv_trajectory_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">controllers</span><span class="o">/</span><span class="n">pid</span><span class="o">/</span><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">model_name</span><span class="p">)</span><span class="o">/</span><span class="n">params</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
+<li><strong>model_params_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">uuv_trajectory_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">models</span><span class="o">/</span><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">model_name</span><span class="p">)</span><span class="o">/</span><span class="n">params</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
+<li><strong>thruster_manager_output_dir</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">uuv_thruster_manager</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">model_name</span><span class="p">)</span></code>)</li>
+<li><strong>thruster_manager_config_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">uuv_thruster_manager</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">model_name</span><span class="p">)</span><span class="o">/</span><span class="n">thruster_manager</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
+<li><strong>tam_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">uuv_thruster_manager</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">model_name</span><span class="p">)</span><span class="o">/</span><span class="n">TAM</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
 </ul>
-<h5 id="rov_pd_grav_compensation_controllerlaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_trajectory_control/launch/rov_pd_grav_compensation_controller.launch"><code class="codehilite">rov_pd_grav_compensation_controller.launch</code></a><a class="headerlink" href="#rov_pd_grav_compensation_controllerlaunch" title="Permanent link">&para;</a></h5>
+<h5 id="rov_pd_grav_compensation_controllerlaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_trajectory_control/launch/rov_pd_grav_compensation_controller.launch"><code class="codehilite"><span class="n">rov_pd_grav_compensation_controller</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#rov_pd_grav_compensation_controllerlaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
 <li><strong>uuv_name</strong></li>
-<li><strong>model_name</strong> (<em>default:</em> <code class="codehilite">$(arg uuv_name)</code>)</li>
-<li><strong>saturation</strong> (<em>default:</em> <code class="codehilite">1200</code>)</li>
-<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite">true</code>)</li>
-<li><strong>use_params_file</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
-<li><strong>use_ned_frame</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
-<li><strong>Kp</strong> (<em>default:</em> <code class="codehilite">11993.888,11993.888,11993.888,19460.069,19460.069,19460.069</code>)</li>
-<li><strong>Kd</strong> (<em>default:</em> <code class="codehilite">9077.459,9077.459,9077.459,18880.925,18880.925,18880.925</code>)</li>
-<li><strong>controller_config_file</strong> (<em>default:</em> <code class="codehilite">$(find uuv_trajectory_control)/config/controllers/pid/$(arg model_name)/params.yaml</code>)</li>
-<li><strong>model_params_file</strong> (<em>default:</em> <code class="codehilite">$(find uuv_trajectory_control)/config/models/$(arg model_name)/params.yaml</code>)</li>
-<li><strong>thruster_manager_output_dir</strong> (<em>default:</em> <code class="codehilite">$(find uuv_thruster_manager)/config/$(arg model_name)</code>)</li>
-<li><strong>thruster_manager_config_file</strong> (<em>default:</em> <code class="codehilite">$(find uuv_thruster_manager)/config/$(arg model_name)/thruster_manager.yaml</code>)</li>
-<li><strong>tam_file</strong> (<em>default:</em> <code class="codehilite">$(find uuv_thruster_manager)/config/$(arg model_name)/TAM.yaml</code>)</li>
+<li><strong>model_name</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">uuv_name</span><span class="p">)</span></code>)</li>
+<li><strong>saturation</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1200</span></code>)</li>
+<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite"><span class="k">true</span></code>)</li>
+<li><strong>use_params_file</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>)</li>
+<li><strong>use_ned_frame</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>)</li>
+<li><strong>Kp</strong> (<em>default:</em> <code class="codehilite"><span class="mi">11993</span><span class="p">.</span><span class="mi">888</span><span class="p">,</span><span class="mi">11993</span><span class="p">.</span><span class="mi">888</span><span class="p">,</span><span class="mi">11993</span><span class="p">.</span><span class="mi">888</span><span class="p">,</span><span class="mi">19460</span><span class="p">.</span><span class="mi">069</span><span class="p">,</span><span class="mi">19460</span><span class="p">.</span><span class="mi">069</span><span class="p">,</span><span class="mi">19460</span><span class="p">.</span><span class="mi">069</span></code>)</li>
+<li><strong>Kd</strong> (<em>default:</em> <code class="codehilite"><span class="mi">9077</span><span class="p">.</span><span class="mi">459</span><span class="p">,</span><span class="mi">9077</span><span class="p">.</span><span class="mi">459</span><span class="p">,</span><span class="mi">9077</span><span class="p">.</span><span class="mi">459</span><span class="p">,</span><span class="mi">18880</span><span class="p">.</span><span class="mi">925</span><span class="p">,</span><span class="mi">18880</span><span class="p">.</span><span class="mi">925</span><span class="p">,</span><span class="mi">18880</span><span class="p">.</span><span class="mi">925</span></code>)</li>
+<li><strong>controller_config_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">uuv_trajectory_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">controllers</span><span class="o">/</span><span class="n">pid</span><span class="o">/</span><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">model_name</span><span class="p">)</span><span class="o">/</span><span class="n">params</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
+<li><strong>model_params_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">uuv_trajectory_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">models</span><span class="o">/</span><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">model_name</span><span class="p">)</span><span class="o">/</span><span class="n">params</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
+<li><strong>thruster_manager_output_dir</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">uuv_thruster_manager</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">model_name</span><span class="p">)</span></code>)</li>
+<li><strong>thruster_manager_config_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">uuv_thruster_manager</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">model_name</span><span class="p">)</span><span class="o">/</span><span class="n">thruster_manager</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
+<li><strong>tam_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">uuv_thruster_manager</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">model_name</span><span class="p">)</span><span class="o">/</span><span class="n">TAM</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
 </ul>
-<h5 id="rov_ua_pid_controllerlaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_trajectory_control/launch/rov_ua_pid_controller.launch"><code class="codehilite">rov_ua_pid_controller.launch</code></a><a class="headerlink" href="#rov_ua_pid_controllerlaunch" title="Permanent link">&para;</a></h5>
+<h5 id="rov_ua_pid_controllerlaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_trajectory_control/launch/rov_ua_pid_controller.launch"><code class="codehilite"><span class="n">rov_ua_pid_controller</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#rov_ua_pid_controllerlaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
 <li><strong>uuv_name</strong></li>
-<li><strong>model_name</strong> (<em>default:</em> <code class="codehilite">$(arg uuv_name)</code>)</li>
-<li><strong>saturation</strong> (<em>default:</em> <code class="codehilite">1200</code>)</li>
-<li><strong>use_params_file</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
-<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite">true</code>)</li>
-<li><strong>Kp</strong> (<em>default:</em> <code class="codehilite">10.0,10.0,10.0,10.0</code>)</li>
-<li><strong>Kd</strong> (<em>default:</em> <code class="codehilite">1.0,1.0,1.0,1.0</code>)</li>
-<li><strong>Ki</strong> (<em>default:</em> <code class="codehilite">0.5,0.5,0.5,0.5</code>)</li>
-<li><strong>controller_config_file</strong> (<em>default:</em> <code class="codehilite">$(find uuv_trajectory_control)/config/controllers/ua_pid/$(arg model_name)/params.yaml</code>)</li>
-<li><strong>thruster_manager_output_dir</strong> (<em>default:</em> <code class="codehilite">$(find uuv_thruster_manager)/config/$(arg model_name)</code>)</li>
-<li><strong>thruster_manager_config_file</strong> (<em>default:</em> <code class="codehilite">$(find uuv_thruster_manager)/config/$(arg model_name)/thruster_manager.yaml</code>)</li>
-<li><strong>tam_file</strong> (<em>default:</em> <code class="codehilite">$(find uuv_thruster_manager)/config/$(arg model_name)/TAM.yaml</code>)</li>
+<li><strong>model_name</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">uuv_name</span><span class="p">)</span></code>)</li>
+<li><strong>saturation</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1200</span></code>)</li>
+<li><strong>use_params_file</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>)</li>
+<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite"><span class="k">true</span></code>)</li>
+<li><strong>Kp</strong> (<em>default:</em> <code class="codehilite"><span class="mi">10</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">.</span><span class="mi">0</span></code>)</li>
+<li><strong>Kd</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span></code>)</li>
+<li><strong>Ki</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">5</span></code>)</li>
+<li><strong>controller_config_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">uuv_trajectory_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">controllers</span><span class="o">/</span><span class="n">ua_pid</span><span class="o">/</span><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">model_name</span><span class="p">)</span><span class="o">/</span><span class="n">params</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
+<li><strong>thruster_manager_output_dir</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">uuv_thruster_manager</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">model_name</span><span class="p">)</span></code>)</li>
+<li><strong>thruster_manager_config_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">uuv_thruster_manager</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">model_name</span><span class="p">)</span><span class="o">/</span><span class="n">thruster_manager</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
+<li><strong>tam_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">uuv_thruster_manager</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">model_name</span><span class="p">)</span><span class="o">/</span><span class="n">TAM</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
 </ul>
 <h4 id="scripts">Scripts<a class="headerlink" href="#scripts" title="Permanent link">&para;</a></h4>
-<h5 id="rov_mb_fl_controllerpy"><code class="codehilite">rov_mb_fl_controller.py</code><a class="headerlink" href="#rov_mb_fl_controllerpy" title="Permanent link">&para;</a></h5>
+<h5 id="rov_mb_fl_controllerpy"><code class="codehilite"><span class="n">rov_mb_fl_controller</span><span class="p">.</span><span class="n">py</span></code><a class="headerlink" href="#rov_mb_fl_controllerpy" title="Permanent link">&para;</a></h5>
 <blockquote>
-<p><strong>Script type:</strong> <code class="codehilite">python</code></p>
+<p><strong>Script type:</strong> <code class="codehilite"><span class="n">python</span></code></p>
 </blockquote>
-<h5 id="rov_pd_grav_compensation_controllerpy"><code class="codehilite">rov_pd_grav_compensation_controller.py</code><a class="headerlink" href="#rov_pd_grav_compensation_controllerpy" title="Permanent link">&para;</a></h5>
+<h5 id="rov_pd_grav_compensation_controllerpy"><code class="codehilite"><span class="n">rov_pd_grav_compensation_controller</span><span class="p">.</span><span class="n">py</span></code><a class="headerlink" href="#rov_pd_grav_compensation_controllerpy" title="Permanent link">&para;</a></h5>
 <blockquote>
-<p><strong>Script type:</strong> <code class="codehilite">python</code></p>
+<p><strong>Script type:</strong> <code class="codehilite"><span class="n">python</span></code></p>
 </blockquote>
-<h5 id="rov_mb_sm_controllerpy"><code class="codehilite">rov_mb_sm_controller.py</code><a class="headerlink" href="#rov_mb_sm_controllerpy" title="Permanent link">&para;</a></h5>
+<h5 id="rov_mb_sm_controllerpy"><code class="codehilite"><span class="n">rov_mb_sm_controller</span><span class="p">.</span><span class="n">py</span></code><a class="headerlink" href="#rov_mb_sm_controllerpy" title="Permanent link">&para;</a></h5>
 <blockquote>
-<p><strong>Script type:</strong> <code class="codehilite">python</code></p>
+<p><strong>Script type:</strong> <code class="codehilite"><span class="n">python</span></code></p>
 </blockquote>
-<h5 id="rov_sf_controllerpy"><code class="codehilite">rov_sf_controller.py</code><a class="headerlink" href="#rov_sf_controllerpy" title="Permanent link">&para;</a></h5>
+<h5 id="rov_sf_controllerpy"><code class="codehilite"><span class="n">rov_sf_controller</span><span class="p">.</span><span class="n">py</span></code><a class="headerlink" href="#rov_sf_controllerpy" title="Permanent link">&para;</a></h5>
 <blockquote>
-<p><strong>Script type:</strong> <code class="codehilite">python</code></p>
+<p><strong>Script type:</strong> <code class="codehilite"><span class="n">python</span></code></p>
 </blockquote>
-<h5 id="rov_nmb_sm_controllerpy"><code class="codehilite">rov_nmb_sm_controller.py</code><a class="headerlink" href="#rov_nmb_sm_controllerpy" title="Permanent link">&para;</a></h5>
+<h5 id="rov_nmb_sm_controllerpy"><code class="codehilite"><span class="n">rov_nmb_sm_controller</span><span class="p">.</span><span class="n">py</span></code><a class="headerlink" href="#rov_nmb_sm_controllerpy" title="Permanent link">&para;</a></h5>
 <blockquote>
-<p><strong>Script type:</strong> <code class="codehilite">python</code></p>
+<p><strong>Script type:</strong> <code class="codehilite"><span class="n">python</span></code></p>
 </blockquote>
-<h5 id="rov_ua_pid_controllerpy"><code class="codehilite">rov_ua_pid_controller.py</code><a class="headerlink" href="#rov_ua_pid_controllerpy" title="Permanent link">&para;</a></h5>
+<h5 id="rov_ua_pid_controllerpy"><code class="codehilite"><span class="n">rov_ua_pid_controller</span><span class="p">.</span><span class="n">py</span></code><a class="headerlink" href="#rov_ua_pid_controllerpy" title="Permanent link">&para;</a></h5>
 <blockquote>
-<p><strong>Script type:</strong> <code class="codehilite">python</code></p>
+<p><strong>Script type:</strong> <code class="codehilite"><span class="n">python</span></code></p>
 </blockquote>
-<h5 id="rov_pid_controllerpy"><code class="codehilite">rov_pid_controller.py</code><a class="headerlink" href="#rov_pid_controllerpy" title="Permanent link">&para;</a></h5>
+<h5 id="rov_pid_controllerpy"><code class="codehilite"><span class="n">rov_pid_controller</span><span class="p">.</span><span class="n">py</span></code><a class="headerlink" href="#rov_pid_controllerpy" title="Permanent link">&para;</a></h5>
 <blockquote>
-<p><strong>Script type:</strong> <code class="codehilite">python</code></p>
+<p><strong>Script type:</strong> <code class="codehilite"><span class="n">python</span></code></p>
 </blockquote>
-<h5 id="rov_nl_pid_controllerpy"><code class="codehilite">rov_nl_pid_controller.py</code><a class="headerlink" href="#rov_nl_pid_controllerpy" title="Permanent link">&para;</a></h5>
+<h5 id="rov_nl_pid_controllerpy"><code class="codehilite"><span class="n">rov_nl_pid_controller</span><span class="p">.</span><span class="n">py</span></code><a class="headerlink" href="#rov_nl_pid_controllerpy" title="Permanent link">&para;</a></h5>
 <blockquote>
-<p><strong>Script type:</strong> <code class="codehilite">python</code></p>
+<p><strong>Script type:</strong> <code class="codehilite"><span class="n">python</span></code></p>
 </blockquote>
-<h5 id="auv_geometric_tracking_controllerpy"><code class="codehilite">auv_geometric_tracking_controller.py</code><a class="headerlink" href="#auv_geometric_tracking_controllerpy" title="Permanent link">&para;</a></h5>
+<h5 id="auv_geometric_tracking_controllerpy"><code class="codehilite"><span class="n">auv_geometric_tracking_controller</span><span class="p">.</span><span class="n">py</span></code><a class="headerlink" href="#auv_geometric_tracking_controllerpy" title="Permanent link">&para;</a></h5>
 <blockquote>
-<p><strong>Script type:</strong> <code class="codehilite">python</code></p>
+<p><strong>Script type:</strong> <code class="codehilite"><span class="n">python</span></code></p>
 </blockquote>
-<h5 id="demo_wp_trajectory_generatorpy"><code class="codehilite">demo_wp_trajectory_generator.py</code><a class="headerlink" href="#demo_wp_trajectory_generatorpy" title="Permanent link">&para;</a></h5>
+<h5 id="demo_wp_trajectory_generatorpy"><code class="codehilite"><span class="n">demo_wp_trajectory_generator</span><span class="p">.</span><span class="n">py</span></code><a class="headerlink" href="#demo_wp_trajectory_generatorpy" title="Permanent link">&para;</a></h5>
 <blockquote>
-<p><strong>Script type:</strong> <code class="codehilite">python</code></p>
+<p><strong>Script type:</strong> <code class="codehilite"><span class="n">python</span></code></p>
 </blockquote>
                 
                   

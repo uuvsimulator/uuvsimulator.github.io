@@ -456,6 +456,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -3148,9 +3160,9 @@
                 
                   <h1>UnderwaterObjectPlugin</h1>
                 
-                <h4 id="class-gazebounderwaterobjectplugin">class <code class="codehilite">gazebo::UnderwaterObjectPlugin</code><a class="headerlink" href="#class-gazebounderwaterobjectplugin" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><span class="kr">class</span> <span class="nx">gazebo</span><span class="o">::</span><span class="nx">UnderwaterObjectPlugin</span>
-  : <span class="kt">public</span> <span class="nx">ModelPlugin</span>
+                <h4 id="class-gazebounderwaterobjectplugin">class <code class="codehilite"><span class="n">gazebo</span><span class="p">::</span><span class="n">UnderwaterObjectPlugin</span></code><a class="headerlink" href="#class-gazebounderwaterobjectplugin" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="n">gazebo::UnderwaterObjectPlugin</span>
+  : <span class="n">public</span> <span class="n">ModelPlugin</span>
 </pre></div>
 
 <p>Gazebo model plugin class for underwater objects.</p>
@@ -3164,175 +3176,175 @@
 </thead>
 <tbody>
 <tr>
-<td><code class="codehilite">public</code><a href="#classgazebo_1_1_underwater_object_plugin_1ac875088ebde0583e6f3e07cdeaea53ae"><code class="codehilite">UnderwaterObjectPlugin</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1ac875088ebde0583e6f3e07cdeaea53ae"><code class="codehilite"><span class="n">UnderwaterObjectPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Constructor.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual</code><a href="#classgazebo_1_1_underwater_object_plugin_1af97f83bac0327ebc2671839c56f44207"><code class="codehilite">~UnderwaterObjectPlugin</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1af97f83bac0327ebc2671839c56f44207"><code class="codehilite"><span class="o">~</span><span class="n">UnderwaterObjectPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Destructor.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_underwater_object_plugin_1acaa3bd6b66429cb588fbcba3ae70be74"><code class="codehilite">Load</code></a><code class="codehilite">(gazebo::physics::ModelPtr _model,sdf::ElementPtr _sdf)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1acaa3bd6b66429cb588fbcba3ae70be74"><code class="codehilite"><span class="k">Load</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">gazebo</span><span class="p">::</span><span class="n">physics</span><span class="p">::</span><span class="n">ModelPtr</span> <span class="n">_model</span><span class="p">,</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">)</span></code></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_underwater_object_plugin_1afbe0672e704e832adf5619fd7c34cd5c"><code class="codehilite">Init</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1afbe0672e704e832adf5619fd7c34cd5c"><code class="codehilite"><span class="n">Init</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_underwater_object_plugin_1ad5893829b75bed2bb052bef467d6dcf4"><code class="codehilite">Update</code></a><code class="codehilite">(const gazebo::common::UpdateInfo &amp; _info)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1ad5893829b75bed2bb052bef467d6dcf4"><code class="codehilite"><span class="k">Update</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">gazebo</span><span class="p">::</span><span class="n">common</span><span class="p">::</span><span class="n">UpdateInfo</span> <span class="o">&amp;</span> <span class="n">_info</span><span class="p">)</span></code></td>
 <td>Update the simulation state.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected std::map&lt; gazebo::physics::LinkPtr,</code><a href="docs/packages/uuv_simulator/docs/api/HydrodynamicModelPtr.md#_hydrodynamic_model_8hh_1ab7e72448c3e86f93ab214d73c0cd4414"><code class="codehilite">HydrodynamicModelPtr</code></a><code class="codehilite">&gt;</code><a href="#classgazebo_1_1_underwater_object_plugin_1abbc883398252e410563c657648743e3e"><code class="codehilite">models</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="k">map</span><span class="o">&lt;</span> <span class="n">gazebo</span><span class="p">::</span><span class="n">physics</span><span class="p">::</span><span class="n">LinkPtr</span><span class="p">,</span></code><a href="docs/packages/uuv_simulator/docs/api/HydrodynamicModelPtr.md#_hydrodynamic_model_8hh_1ab7e72448c3e86f93ab214d73c0cd4414"><code class="codehilite"><span class="n">HydrodynamicModelPtr</span></code></a><code class="codehilite"><span class="o">&gt;</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1abbc883398252e410563c657648743e3e"><code class="codehilite"><span class="n">models</span></code></a></td>
 <td>Pairs of links &amp; corresponding hydrodynamic models.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_underwater_object_plugin_1ac5bf6578ef4434438ba7d7647b69b971"><code class="codehilite">flowVelocity</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1ac5bf6578ef4434438ba7d7647b69b971"><code class="codehilite"><span class="n">flowVelocity</span></code></a></td>
 <td>Flow velocity vector read from topic.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected gazebo::event::ConnectionPtr</code><a href="#classgazebo_1_1_underwater_object_plugin_1a1a4d81782ad2d21fc01598e0d9b42d27"><code class="codehilite">updateConnection</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">gazebo</span><span class="p">::</span><span class="n">event</span><span class="p">::</span><span class="n">ConnectionPtr</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1a1a4d81782ad2d21fc01598e0d9b42d27"><code class="codehilite"><span class="n">updateConnection</span></code></a></td>
 <td>Update event.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected gazebo::physics::WorldPtr</code><a href="#classgazebo_1_1_underwater_object_plugin_1a9f16fc2908d17c0975331cc825d14cb0"><code class="codehilite">world</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">gazebo</span><span class="p">::</span><span class="n">physics</span><span class="p">::</span><span class="n">WorldPtr</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1a9f16fc2908d17c0975331cc825d14cb0"><code class="codehilite"><span class="n">world</span></code></a></td>
 <td>Pointer to the world plugin.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected gazebo::physics::ModelPtr</code><a href="#classgazebo_1_1_underwater_object_plugin_1a896d92ed527a0d9f7b47208614eaba0c"><code class="codehilite">model</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">gazebo</span><span class="p">::</span><span class="n">physics</span><span class="p">::</span><span class="n">ModelPtr</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1a896d92ed527a0d9f7b47208614eaba0c"><code class="codehilite"><span class="n">model</span></code></a></td>
 <td>Pointer to the model structure.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected gazebo::transport::NodePtr</code><a href="#classgazebo_1_1_underwater_object_plugin_1a5422d922731696d2767e5be09c2cb5c2"><code class="codehilite">node</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">gazebo</span><span class="p">::</span><span class="n">transport</span><span class="p">::</span><span class="n">NodePtr</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1a5422d922731696d2767e5be09c2cb5c2"><code class="codehilite"><span class="n">node</span></code></a></td>
 <td>Gazebo node.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected std::string</code><a href="#classgazebo_1_1_underwater_object_plugin_1a08b0e6dfab6a63945ea6d1c71c858df1"><code class="codehilite">baseLinkName</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1a08b0e6dfab6a63945ea6d1c71c858df1"><code class="codehilite"><span class="n">baseLinkName</span></code></a></td>
 <td>Name of vehicle's base_link.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected gazebo::transport::SubscriberPtr</code><a href="#classgazebo_1_1_underwater_object_plugin_1adb22008a9f57f11659e2b2a18d57bcc6"><code class="codehilite">flowSubscriber</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">gazebo</span><span class="p">::</span><span class="n">transport</span><span class="p">::</span><span class="n">SubscriberPtr</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1adb22008a9f57f11659e2b2a18d57bcc6"><code class="codehilite"><span class="n">flowSubscriber</span></code></a></td>
 <td>Subcriber to flow message.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected bool</code><a href="#classgazebo_1_1_underwater_object_plugin_1a0bfd19ce74a42666f26fefa0ded488f3"><code class="codehilite">useGlobalCurrent</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1a0bfd19ce74a42666f26fefa0ded488f3"><code class="codehilite"><span class="n">useGlobalCurrent</span></code></a></td>
 <td>Flag to use the global current velocity or the individually assigned current velocity.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected std::map&lt; std::string, gazebo::transport::PublisherPtr &gt;</code><a href="#classgazebo_1_1_underwater_object_plugin_1a33989646c81bc47fe86dae3052846ea2"><code class="codehilite">hydroPub</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="k">map</span><span class="o">&lt;</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span><span class="p">,</span> <span class="n">gazebo</span><span class="p">::</span><span class="n">transport</span><span class="p">::</span><span class="n">PublisherPtr</span> <span class="o">&gt;</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1a33989646c81bc47fe86dae3052846ea2"><code class="codehilite"><span class="n">hydroPub</span></code></a></td>
 <td>Publishers of hydrodynamic and hydrostatic forces and torques in the case the debug flag is on.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected virtual void</code><a href="#classgazebo_1_1_underwater_object_plugin_1a7497acca39dc0a4f338bd863b002ec33"><code class="codehilite">Connect</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1a7497acca39dc0a4f338bd863b002ec33"><code class="codehilite"><span class="k">Connect</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Connects the update event callback.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected void</code><a href="#classgazebo_1_1_underwater_object_plugin_1a22bb6d230cc76b4a838ffffe5a6ba722"><code class="codehilite">UpdateFlowVelocity</code></a><code class="codehilite">(ConstVector3dPtr &amp; _msg)</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">void</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1a22bb6d230cc76b4a838ffffe5a6ba722"><code class="codehilite"><span class="n">UpdateFlowVelocity</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">ConstVector3dPtr</span> <span class="o">&amp;</span> <span class="n">_msg</span><span class="p">)</span></code></td>
 <td>Reads flow velocity topic.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected virtual void</code><a href="#classgazebo_1_1_underwater_object_plugin_1a89d8430bc839e0ff477fd893be829060"><code class="codehilite">PublishCurrentVelocityMarker</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1a89d8430bc839e0ff477fd893be829060"><code class="codehilite"><span class="n">PublishCurrentVelocityMarker</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Publish current velocity marker.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected virtual void</code><a href="#classgazebo_1_1_underwater_object_plugin_1adc2e3f16a6fa8ce79497b5664fb66b82"><code class="codehilite">PublishIsSubmerged</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1adc2e3f16a6fa8ce79497b5664fb66b82"><code class="codehilite"><span class="n">PublishIsSubmerged</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Publishes the state of the vehicle (is submerged)</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected virtual void</code><a href="#classgazebo_1_1_underwater_object_plugin_1ae5da81b93706dded6de765628f57ad05"><code class="codehilite">PublishRestoringForce</code></a><code class="codehilite">(gazebo::physics::LinkPtr _link)</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1ae5da81b93706dded6de765628f57ad05"><code class="codehilite"><span class="n">PublishRestoringForce</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">gazebo</span><span class="p">::</span><span class="n">physics</span><span class="p">::</span><span class="n">LinkPtr</span> <span class="n">_link</span><span class="p">)</span></code></td>
 <td>Publish restoring force.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected virtual void</code><a href="#classgazebo_1_1_underwater_object_plugin_1af1b5370bf8ebd626fd9eafb2b46075b9"><code class="codehilite">PublishHydrodynamicWrenches</code></a><code class="codehilite">(gazebo::physics::LinkPtr _link)</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1af1b5370bf8ebd626fd9eafb2b46075b9"><code class="codehilite"><span class="n">PublishHydrodynamicWrenches</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">gazebo</span><span class="p">::</span><span class="n">physics</span><span class="p">::</span><span class="n">LinkPtr</span> <span class="n">_link</span><span class="p">)</span></code></td>
 <td>Publish hydrodynamic wrenches.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected virtual void</code><a href="#classgazebo_1_1_underwater_object_plugin_1a6deb4663c719f288b671539020257bb0"><code class="codehilite">GenWrenchMsg</code></a><code class="codehilite">(ignition::math::Vector3d _force,ignition::math::Vector3d _torque,gazebo::msgs::WrenchStamped &amp; _output)</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1a6deb4663c719f288b671539020257bb0"><code class="codehilite"><span class="n">GenWrenchMsg</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span> <span class="n">_force</span><span class="p">,</span><span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span> <span class="n">_torque</span><span class="p">,</span><span class="n">gazebo</span><span class="p">::</span><span class="n">msgs</span><span class="p">::</span><span class="n">WrenchStamped</span> <span class="o">&amp;</span> <span class="n">_output</span><span class="p">)</span></code></td>
 <td>Returns the wrench message for debugging topics.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected virtual void</code><a href="#classgazebo_1_1_underwater_object_plugin_1a86136f608b56ecd79bd6530f92724a75"><code class="codehilite">InitDebug</code></a><code class="codehilite">(gazebo::physics::LinkPtr _link,</code><a href="docs/packages/uuv_simulator/docs/api/HydrodynamicModelPtr.md#_hydrodynamic_model_8hh_1ab7e72448c3e86f93ab214d73c0cd4414"><code class="codehilite">gazebo::HydrodynamicModelPtr</code></a><code class="codehilite">_hydro)</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1a86136f608b56ecd79bd6530f92724a75"><code class="codehilite"><span class="n">InitDebug</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">gazebo</span><span class="p">::</span><span class="n">physics</span><span class="p">::</span><span class="n">LinkPtr</span> <span class="n">_link</span><span class="p">,</span></code><a href="docs/packages/uuv_simulator/docs/api/HydrodynamicModelPtr.md#_hydrodynamic_model_8hh_1ab7e72448c3e86f93ab214d73c0cd4414"><code class="codehilite"><span class="n">gazebo</span><span class="p">::</span><span class="n">HydrodynamicModelPtr</span></code></a><code class="codehilite"><span class="n">_hydro</span><span class="p">)</span></code></td>
 <td>Sets the topics used for publishing the intermediate data during the simulation.</td>
 </tr>
 </tbody>
 </table>
 <h5 id="members">Members<a class="headerlink" href="#members" title="Permanent link">&para;</a></h5>
-<h6 id="publicunderwaterobjectplugin"><code class="codehilite">public</code><a href="#classgazebo_1_1_underwater_object_plugin_1ac875088ebde0583e6f3e07cdeaea53ae"><code class="codehilite">UnderwaterObjectPlugin</code></a><code class="codehilite">()</code><a class="headerlink" href="#publicunderwaterobjectplugin" title="Permanent link">&para;</a></h6>
+<h6 id="publicunderwaterobjectplugin"><code class="codehilite"><span class="k">public</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1ac875088ebde0583e6f3e07cdeaea53ae"><code class="codehilite"><span class="n">UnderwaterObjectPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#publicunderwaterobjectplugin" title="Permanent link">&para;</a></h6>
 <p>Constructor.</p>
-<h6 id="public-virtualunderwaterobjectplugin"><code class="codehilite">public virtual</code><a href="#classgazebo_1_1_underwater_object_plugin_1af97f83bac0327ebc2671839c56f44207"><code class="codehilite">~UnderwaterObjectPlugin</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-virtualunderwaterobjectplugin" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtualunderwaterobjectplugin"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1af97f83bac0327ebc2671839c56f44207"><code class="codehilite"><span class="o">~</span><span class="n">UnderwaterObjectPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-virtualunderwaterobjectplugin" title="Permanent link">&para;</a></h6>
 <p>Destructor.</p>
-<h6 id="public-virtual-voidloadgazebophysicsmodelptr-_modelsdfelementptr-_sdf"><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_underwater_object_plugin_1acaa3bd6b66429cb588fbcba3ae70be74"><code class="codehilite">Load</code></a><code class="codehilite">(gazebo::physics::ModelPtr _model,sdf::ElementPtr _sdf)</code><a class="headerlink" href="#public-virtual-voidloadgazebophysicsmodelptr-_modelsdfelementptr-_sdf" title="Permanent link">&para;</a></h6>
-<h6 id="public-virtual-voidinit"><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_underwater_object_plugin_1afbe0672e704e832adf5619fd7c34cd5c"><code class="codehilite">Init</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-virtual-voidinit" title="Permanent link">&para;</a></h6>
-<h6 id="public-virtual-voidupdateconst-gazebocommonupdateinfo-_info"><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_underwater_object_plugin_1ad5893829b75bed2bb052bef467d6dcf4"><code class="codehilite">Update</code></a><code class="codehilite">(const gazebo::common::UpdateInfo &amp; _info)</code><a class="headerlink" href="#public-virtual-voidupdateconst-gazebocommonupdateinfo-_info" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtual-voidloadgazebophysicsmodelptr-_modelsdfelementptr-_sdf"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1acaa3bd6b66429cb588fbcba3ae70be74"><code class="codehilite"><span class="k">Load</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">gazebo</span><span class="p">::</span><span class="n">physics</span><span class="p">::</span><span class="n">ModelPtr</span> <span class="n">_model</span><span class="p">,</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">)</span></code><a class="headerlink" href="#public-virtual-voidloadgazebophysicsmodelptr-_modelsdfelementptr-_sdf" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtual-voidinit"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1afbe0672e704e832adf5619fd7c34cd5c"><code class="codehilite"><span class="n">Init</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-virtual-voidinit" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtual-voidupdateconst-gazebocommonupdateinfo-_info"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1ad5893829b75bed2bb052bef467d6dcf4"><code class="codehilite"><span class="k">Update</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">gazebo</span><span class="p">::</span><span class="n">common</span><span class="p">::</span><span class="n">UpdateInfo</span> <span class="o">&amp;</span> <span class="n">_info</span><span class="p">)</span></code><a class="headerlink" href="#public-virtual-voidupdateconst-gazebocommonupdateinfo-_info" title="Permanent link">&para;</a></h6>
 <p>Update the simulation state.</p>
 <h6 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h6>
 <ul>
-<li><code class="codehilite">_info</code> Information used in the update event.</li>
+<li><code class="codehilite"><span class="n">_info</span></code> Information used in the update event.</li>
 </ul>
-<h6 id="protected-stdmap-gazebophysicslinkptrhydrodynamicmodelptrmodels"><code class="codehilite">protected std::map&lt; gazebo::physics::LinkPtr,</code><a href="docs/packages/uuv_simulator/docs/api/HydrodynamicModelPtr.md#_hydrodynamic_model_8hh_1ab7e72448c3e86f93ab214d73c0cd4414"><code class="codehilite">HydrodynamicModelPtr</code></a><code class="codehilite">&gt;</code><a href="#classgazebo_1_1_underwater_object_plugin_1abbc883398252e410563c657648743e3e"><code class="codehilite">models</code></a><a class="headerlink" href="#protected-stdmap-gazebophysicslinkptrhydrodynamicmodelptrmodels" title="Permanent link">&para;</a></h6>
+<h6 id="protected-stdmap-gazebophysicslinkptrhydrodynamicmodelptrmodels"><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="k">map</span><span class="o">&lt;</span> <span class="n">gazebo</span><span class="p">::</span><span class="n">physics</span><span class="p">::</span><span class="n">LinkPtr</span><span class="p">,</span></code><a href="docs/packages/uuv_simulator/docs/api/HydrodynamicModelPtr.md#_hydrodynamic_model_8hh_1ab7e72448c3e86f93ab214d73c0cd4414"><code class="codehilite"><span class="n">HydrodynamicModelPtr</span></code></a><code class="codehilite"><span class="o">&gt;</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1abbc883398252e410563c657648743e3e"><code class="codehilite"><span class="n">models</span></code></a><a class="headerlink" href="#protected-stdmap-gazebophysicslinkptrhydrodynamicmodelptrmodels" title="Permanent link">&para;</a></h6>
 <p>Pairs of links &amp; corresponding hydrodynamic models.</p>
-<h6 id="protected-ignitionmathvector3dflowvelocity"><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_underwater_object_plugin_1ac5bf6578ef4434438ba7d7647b69b971"><code class="codehilite">flowVelocity</code></a><a class="headerlink" href="#protected-ignitionmathvector3dflowvelocity" title="Permanent link">&para;</a></h6>
+<h6 id="protected-ignitionmathvector3dflowvelocity"><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1ac5bf6578ef4434438ba7d7647b69b971"><code class="codehilite"><span class="n">flowVelocity</span></code></a><a class="headerlink" href="#protected-ignitionmathvector3dflowvelocity" title="Permanent link">&para;</a></h6>
 <p>Flow velocity vector read from topic.</p>
-<h6 id="protected-gazeboeventconnectionptrupdateconnection"><code class="codehilite">protected gazebo::event::ConnectionPtr</code><a href="#classgazebo_1_1_underwater_object_plugin_1a1a4d81782ad2d21fc01598e0d9b42d27"><code class="codehilite">updateConnection</code></a><a class="headerlink" href="#protected-gazeboeventconnectionptrupdateconnection" title="Permanent link">&para;</a></h6>
+<h6 id="protected-gazeboeventconnectionptrupdateconnection"><code class="codehilite"><span class="n">protected</span> <span class="n">gazebo</span><span class="p">::</span><span class="n">event</span><span class="p">::</span><span class="n">ConnectionPtr</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1a1a4d81782ad2d21fc01598e0d9b42d27"><code class="codehilite"><span class="n">updateConnection</span></code></a><a class="headerlink" href="#protected-gazeboeventconnectionptrupdateconnection" title="Permanent link">&para;</a></h6>
 <p>Update event.</p>
-<h6 id="protected-gazebophysicsworldptrworld"><code class="codehilite">protected gazebo::physics::WorldPtr</code><a href="#classgazebo_1_1_underwater_object_plugin_1a9f16fc2908d17c0975331cc825d14cb0"><code class="codehilite">world</code></a><a class="headerlink" href="#protected-gazebophysicsworldptrworld" title="Permanent link">&para;</a></h6>
+<h6 id="protected-gazebophysicsworldptrworld"><code class="codehilite"><span class="n">protected</span> <span class="n">gazebo</span><span class="p">::</span><span class="n">physics</span><span class="p">::</span><span class="n">WorldPtr</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1a9f16fc2908d17c0975331cc825d14cb0"><code class="codehilite"><span class="n">world</span></code></a><a class="headerlink" href="#protected-gazebophysicsworldptrworld" title="Permanent link">&para;</a></h6>
 <p>Pointer to the world plugin.</p>
-<h6 id="protected-gazebophysicsmodelptrmodel"><code class="codehilite">protected gazebo::physics::ModelPtr</code><a href="#classgazebo_1_1_underwater_object_plugin_1a896d92ed527a0d9f7b47208614eaba0c"><code class="codehilite">model</code></a><a class="headerlink" href="#protected-gazebophysicsmodelptrmodel" title="Permanent link">&para;</a></h6>
+<h6 id="protected-gazebophysicsmodelptrmodel"><code class="codehilite"><span class="n">protected</span> <span class="n">gazebo</span><span class="p">::</span><span class="n">physics</span><span class="p">::</span><span class="n">ModelPtr</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1a896d92ed527a0d9f7b47208614eaba0c"><code class="codehilite"><span class="n">model</span></code></a><a class="headerlink" href="#protected-gazebophysicsmodelptrmodel" title="Permanent link">&para;</a></h6>
 <p>Pointer to the model structure.</p>
-<h6 id="protected-gazebotransportnodeptrnode"><code class="codehilite">protected gazebo::transport::NodePtr</code><a href="#classgazebo_1_1_underwater_object_plugin_1a5422d922731696d2767e5be09c2cb5c2"><code class="codehilite">node</code></a><a class="headerlink" href="#protected-gazebotransportnodeptrnode" title="Permanent link">&para;</a></h6>
+<h6 id="protected-gazebotransportnodeptrnode"><code class="codehilite"><span class="n">protected</span> <span class="n">gazebo</span><span class="p">::</span><span class="n">transport</span><span class="p">::</span><span class="n">NodePtr</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1a5422d922731696d2767e5be09c2cb5c2"><code class="codehilite"><span class="n">node</span></code></a><a class="headerlink" href="#protected-gazebotransportnodeptrnode" title="Permanent link">&para;</a></h6>
 <p>Gazebo node.</p>
-<h6 id="protected-stdstringbaselinkname"><code class="codehilite">protected std::string</code><a href="#classgazebo_1_1_underwater_object_plugin_1a08b0e6dfab6a63945ea6d1c71c858df1"><code class="codehilite">baseLinkName</code></a><a class="headerlink" href="#protected-stdstringbaselinkname" title="Permanent link">&para;</a></h6>
+<h6 id="protected-stdstringbaselinkname"><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1a08b0e6dfab6a63945ea6d1c71c858df1"><code class="codehilite"><span class="n">baseLinkName</span></code></a><a class="headerlink" href="#protected-stdstringbaselinkname" title="Permanent link">&para;</a></h6>
 <p>Name of vehicle's base_link.</p>
-<h6 id="protected-gazebotransportsubscriberptrflowsubscriber"><code class="codehilite">protected gazebo::transport::SubscriberPtr</code><a href="#classgazebo_1_1_underwater_object_plugin_1adb22008a9f57f11659e2b2a18d57bcc6"><code class="codehilite">flowSubscriber</code></a><a class="headerlink" href="#protected-gazebotransportsubscriberptrflowsubscriber" title="Permanent link">&para;</a></h6>
+<h6 id="protected-gazebotransportsubscriberptrflowsubscriber"><code class="codehilite"><span class="n">protected</span> <span class="n">gazebo</span><span class="p">::</span><span class="n">transport</span><span class="p">::</span><span class="n">SubscriberPtr</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1adb22008a9f57f11659e2b2a18d57bcc6"><code class="codehilite"><span class="n">flowSubscriber</span></code></a><a class="headerlink" href="#protected-gazebotransportsubscriberptrflowsubscriber" title="Permanent link">&para;</a></h6>
 <p>Subcriber to flow message.</p>
-<h6 id="protected-booluseglobalcurrent"><code class="codehilite">protected bool</code><a href="#classgazebo_1_1_underwater_object_plugin_1a0bfd19ce74a42666f26fefa0ded488f3"><code class="codehilite">useGlobalCurrent</code></a><a class="headerlink" href="#protected-booluseglobalcurrent" title="Permanent link">&para;</a></h6>
+<h6 id="protected-booluseglobalcurrent"><code class="codehilite"><span class="n">protected</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1a0bfd19ce74a42666f26fefa0ded488f3"><code class="codehilite"><span class="n">useGlobalCurrent</span></code></a><a class="headerlink" href="#protected-booluseglobalcurrent" title="Permanent link">&para;</a></h6>
 <p>Flag to use the global current velocity or the individually assigned current velocity.</p>
-<h6 id="protected-stdmap-stdstring-gazebotransportpublisherptr-hydropub"><code class="codehilite">protected std::map&lt; std::string, gazebo::transport::PublisherPtr &gt;</code><a href="#classgazebo_1_1_underwater_object_plugin_1a33989646c81bc47fe86dae3052846ea2"><code class="codehilite">hydroPub</code></a><a class="headerlink" href="#protected-stdmap-stdstring-gazebotransportpublisherptr-hydropub" title="Permanent link">&para;</a></h6>
+<h6 id="protected-stdmap-stdstring-gazebotransportpublisherptr-hydropub"><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="k">map</span><span class="o">&lt;</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span><span class="p">,</span> <span class="n">gazebo</span><span class="p">::</span><span class="n">transport</span><span class="p">::</span><span class="n">PublisherPtr</span> <span class="o">&gt;</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1a33989646c81bc47fe86dae3052846ea2"><code class="codehilite"><span class="n">hydroPub</span></code></a><a class="headerlink" href="#protected-stdmap-stdstring-gazebotransportpublisherptr-hydropub" title="Permanent link">&para;</a></h6>
 <p>Publishers of hydrodynamic and hydrostatic forces and torques in the case the debug flag is on.</p>
-<h6 id="protected-virtual-voidconnect"><code class="codehilite">protected virtual void</code><a href="#classgazebo_1_1_underwater_object_plugin_1a7497acca39dc0a4f338bd863b002ec33"><code class="codehilite">Connect</code></a><code class="codehilite">()</code><a class="headerlink" href="#protected-virtual-voidconnect" title="Permanent link">&para;</a></h6>
+<h6 id="protected-virtual-voidconnect"><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1a7497acca39dc0a4f338bd863b002ec33"><code class="codehilite"><span class="k">Connect</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#protected-virtual-voidconnect" title="Permanent link">&para;</a></h6>
 <p>Connects the update event callback.</p>
-<h6 id="protected-voidupdateflowvelocityconstvector3dptr-_msg"><code class="codehilite">protected void</code><a href="#classgazebo_1_1_underwater_object_plugin_1a22bb6d230cc76b4a838ffffe5a6ba722"><code class="codehilite">UpdateFlowVelocity</code></a><code class="codehilite">(ConstVector3dPtr &amp; _msg)</code><a class="headerlink" href="#protected-voidupdateflowvelocityconstvector3dptr-_msg" title="Permanent link">&para;</a></h6>
+<h6 id="protected-voidupdateflowvelocityconstvector3dptr-_msg"><code class="codehilite"><span class="n">protected</span> <span class="n">void</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1a22bb6d230cc76b4a838ffffe5a6ba722"><code class="codehilite"><span class="n">UpdateFlowVelocity</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">ConstVector3dPtr</span> <span class="o">&amp;</span> <span class="n">_msg</span><span class="p">)</span></code><a class="headerlink" href="#protected-voidupdateflowvelocityconstvector3dptr-_msg" title="Permanent link">&para;</a></h6>
 <p>Reads flow velocity topic.</p>
-<h6 id="protected-virtual-voidpublishcurrentvelocitymarker"><code class="codehilite">protected virtual void</code><a href="#classgazebo_1_1_underwater_object_plugin_1a89d8430bc839e0ff477fd893be829060"><code class="codehilite">PublishCurrentVelocityMarker</code></a><code class="codehilite">()</code><a class="headerlink" href="#protected-virtual-voidpublishcurrentvelocitymarker" title="Permanent link">&para;</a></h6>
+<h6 id="protected-virtual-voidpublishcurrentvelocitymarker"><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1a89d8430bc839e0ff477fd893be829060"><code class="codehilite"><span class="n">PublishCurrentVelocityMarker</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#protected-virtual-voidpublishcurrentvelocitymarker" title="Permanent link">&para;</a></h6>
 <p>Publish current velocity marker.</p>
-<h6 id="protected-virtual-voidpublishissubmerged"><code class="codehilite">protected virtual void</code><a href="#classgazebo_1_1_underwater_object_plugin_1adc2e3f16a6fa8ce79497b5664fb66b82"><code class="codehilite">PublishIsSubmerged</code></a><code class="codehilite">()</code><a class="headerlink" href="#protected-virtual-voidpublishissubmerged" title="Permanent link">&para;</a></h6>
+<h6 id="protected-virtual-voidpublishissubmerged"><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1adc2e3f16a6fa8ce79497b5664fb66b82"><code class="codehilite"><span class="n">PublishIsSubmerged</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#protected-virtual-voidpublishissubmerged" title="Permanent link">&para;</a></h6>
 <p>Publishes the state of the vehicle (is submerged)</p>
-<h6 id="protected-virtual-voidpublishrestoringforcegazebophysicslinkptr-_link"><code class="codehilite">protected virtual void</code><a href="#classgazebo_1_1_underwater_object_plugin_1ae5da81b93706dded6de765628f57ad05"><code class="codehilite">PublishRestoringForce</code></a><code class="codehilite">(gazebo::physics::LinkPtr _link)</code><a class="headerlink" href="#protected-virtual-voidpublishrestoringforcegazebophysicslinkptr-_link" title="Permanent link">&para;</a></h6>
+<h6 id="protected-virtual-voidpublishrestoringforcegazebophysicslinkptr-_link"><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1ae5da81b93706dded6de765628f57ad05"><code class="codehilite"><span class="n">PublishRestoringForce</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">gazebo</span><span class="p">::</span><span class="n">physics</span><span class="p">::</span><span class="n">LinkPtr</span> <span class="n">_link</span><span class="p">)</span></code><a class="headerlink" href="#protected-virtual-voidpublishrestoringforcegazebophysicslinkptr-_link" title="Permanent link">&para;</a></h6>
 <p>Publish restoring force.</p>
 <h6 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h6>
 <ul>
-<li><code class="codehilite">_link</code> Pointer to the link where the force information will be extracted from</li>
+<li><code class="codehilite"><span class="n">_link</span></code> Pointer to the link where the force information will be extracted from</li>
 </ul>
-<h6 id="protected-virtual-voidpublishhydrodynamicwrenchesgazebophysicslinkptr-_link"><code class="codehilite">protected virtual void</code><a href="#classgazebo_1_1_underwater_object_plugin_1af1b5370bf8ebd626fd9eafb2b46075b9"><code class="codehilite">PublishHydrodynamicWrenches</code></a><code class="codehilite">(gazebo::physics::LinkPtr _link)</code><a class="headerlink" href="#protected-virtual-voidpublishhydrodynamicwrenchesgazebophysicslinkptr-_link" title="Permanent link">&para;</a></h6>
+<h6 id="protected-virtual-voidpublishhydrodynamicwrenchesgazebophysicslinkptr-_link"><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1af1b5370bf8ebd626fd9eafb2b46075b9"><code class="codehilite"><span class="n">PublishHydrodynamicWrenches</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">gazebo</span><span class="p">::</span><span class="n">physics</span><span class="p">::</span><span class="n">LinkPtr</span> <span class="n">_link</span><span class="p">)</span></code><a class="headerlink" href="#protected-virtual-voidpublishhydrodynamicwrenchesgazebophysicslinkptr-_link" title="Permanent link">&para;</a></h6>
 <p>Publish hydrodynamic wrenches.</p>
 <h6 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h6>
 <ul>
-<li><code class="codehilite">_link</code> Pointer to the link where the force information will be extracted from</li>
+<li><code class="codehilite"><span class="n">_link</span></code> Pointer to the link where the force information will be extracted from</li>
 </ul>
-<h6 id="protected-virtual-voidgenwrenchmsgignitionmathvector3d-_forceignitionmathvector3d-_torquegazebomsgswrenchstamped-_output"><code class="codehilite">protected virtual void</code><a href="#classgazebo_1_1_underwater_object_plugin_1a6deb4663c719f288b671539020257bb0"><code class="codehilite">GenWrenchMsg</code></a><code class="codehilite">(ignition::math::Vector3d _force,ignition::math::Vector3d _torque,gazebo::msgs::WrenchStamped &amp; _output)</code><a class="headerlink" href="#protected-virtual-voidgenwrenchmsgignitionmathvector3d-_forceignitionmathvector3d-_torquegazebomsgswrenchstamped-_output" title="Permanent link">&para;</a></h6>
+<h6 id="protected-virtual-voidgenwrenchmsgignitionmathvector3d-_forceignitionmathvector3d-_torquegazebomsgswrenchstamped-_output"><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1a6deb4663c719f288b671539020257bb0"><code class="codehilite"><span class="n">GenWrenchMsg</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span> <span class="n">_force</span><span class="p">,</span><span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span> <span class="n">_torque</span><span class="p">,</span><span class="n">gazebo</span><span class="p">::</span><span class="n">msgs</span><span class="p">::</span><span class="n">WrenchStamped</span> <span class="o">&amp;</span> <span class="n">_output</span><span class="p">)</span></code><a class="headerlink" href="#protected-virtual-voidgenwrenchmsgignitionmathvector3d-_forceignitionmathvector3d-_torquegazebomsgswrenchstamped-_output" title="Permanent link">&para;</a></h6>
 <p>Returns the wrench message for debugging topics.</p>
 <h6 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link">&para;</a></h6>
 <ul>
 <li>
-<p><code class="codehilite">_force</code> Force vector </p>
+<p><code class="codehilite"><span class="n">_force</span></code> Force vector </p>
 </li>
 <li>
-<p><code class="codehilite">_torque</code> Torque vector </p>
+<p><code class="codehilite"><span class="n">_torque</span></code> Torque vector </p>
 </li>
 <li>
-<p><code class="codehilite">_output</code> Stamped wrench message to be updated</p>
+<p><code class="codehilite"><span class="n">_output</span></code> Stamped wrench message to be updated</p>
 </li>
 </ul>
-<h6 id="protected-virtual-voidinitdebuggazebophysicslinkptr-_linkgazebohydrodynamicmodelptr_hydro"><code class="codehilite">protected virtual void</code><a href="#classgazebo_1_1_underwater_object_plugin_1a86136f608b56ecd79bd6530f92724a75"><code class="codehilite">InitDebug</code></a><code class="codehilite">(gazebo::physics::LinkPtr _link,</code><a href="docs/packages/uuv_simulator/docs/api/HydrodynamicModelPtr.md#_hydrodynamic_model_8hh_1ab7e72448c3e86f93ab214d73c0cd4414"><code class="codehilite">gazebo::HydrodynamicModelPtr</code></a><code class="codehilite">_hydro)</code><a class="headerlink" href="#protected-virtual-voidinitdebuggazebophysicslinkptr-_linkgazebohydrodynamicmodelptr_hydro" title="Permanent link">&para;</a></h6>
+<h6 id="protected-virtual-voidinitdebuggazebophysicslinkptr-_linkgazebohydrodynamicmodelptr_hydro"><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_underwater_object_plugin_1a86136f608b56ecd79bd6530f92724a75"><code class="codehilite"><span class="n">InitDebug</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">gazebo</span><span class="p">::</span><span class="n">physics</span><span class="p">::</span><span class="n">LinkPtr</span> <span class="n">_link</span><span class="p">,</span></code><a href="docs/packages/uuv_simulator/docs/api/HydrodynamicModelPtr.md#_hydrodynamic_model_8hh_1ab7e72448c3e86f93ab214d73c0cd4414"><code class="codehilite"><span class="n">gazebo</span><span class="p">::</span><span class="n">HydrodynamicModelPtr</span></code></a><code class="codehilite"><span class="n">_hydro</span><span class="p">)</span></code><a class="headerlink" href="#protected-virtual-voidinitdebuggazebophysicslinkptr-_linkgazebohydrodynamicmodelptr_hydro" title="Permanent link">&para;</a></h6>
 <p>Sets the topics used for publishing the intermediate data during the simulation.</p>
 <h6 id="parameters_4">Parameters<a class="headerlink" href="#parameters_4" title="Permanent link">&para;</a></h6>
 <ul>
 <li>
-<p><code class="codehilite">_link</code> Pointer to the link </p>
+<p><code class="codehilite"><span class="n">_link</span></code> Pointer to the link </p>
 </li>
 <li>
-<p><code class="codehilite">_hydro</code> Pointer to the hydrodynamic model</p>
+<p><code class="codehilite"><span class="n">_hydro</span></code> Pointer to the hydrodynamic model</p>
 </li>
 </ul>
                 

@@ -452,6 +452,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -2702,9 +2714,9 @@
                 
                   <h1>class `gazebo::UmbilicalModelBerg`</h1>
                 
-                <h4 id="class-gazeboumbilicalmodelberg">class <code class="codehilite">gazebo::UmbilicalModelBerg</code><a class="headerlink" href="#class-gazeboumbilicalmodelberg" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><span class="kr">class</span> <span class="nx">gazebo</span><span class="o">::</span><span class="nx">UmbilicalModelBerg</span>
-  : <span class="kt">public</span> <span class="nx">gazebo</span><span class="o">::</span><span class="nx">UmbilicalModel</span>
+                <h4 id="class-gazeboumbilicalmodelberg">class <code class="codehilite"><span class="n">gazebo</span><span class="p">::</span><span class="n">UmbilicalModelBerg</span></code><a class="headerlink" href="#class-gazeboumbilicalmodelberg" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="n">gazebo::UmbilicalModelBerg</span>
+  : <span class="n">public</span> <span class="n">gazebo::UmbilicalModel</span>
 </pre></div>
 
 <h5 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h5>
@@ -2717,19 +2729,19 @@
 </thead>
 <tbody>
 <tr>
-<td><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_umbilical_model_berg_1a192a711adeb0f052eb0b07d67b4629f4"><code class="codehilite">OnUpdate</code></a><code class="codehilite">(const common::UpdateInfo &amp; _info,const ignition::math::Vector3d &amp; _flow)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_umbilical_model_berg_1a192a711adeb0f052eb0b07d67b4629f4"><code class="codehilite"><span class="n">OnUpdate</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">common</span><span class="p">::</span><span class="n">UpdateInfo</span> <span class="o">&amp;</span> <span class="n">_info</span><span class="p">,</span><span class="n">const</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span> <span class="o">&amp;</span> <span class="n">_flow</span><span class="p">)</span></code></td>
 <td>Update Umbilical (and apply forces)</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected</code><a href="#classgazebo_1_1_umbilical_model_berg_1a3f1ce2888fe8ef1fa0da035c97926b48"><code class="codehilite">UmbilicalModelBerg</code></a><code class="codehilite">(sdf::ElementPtr _sdf,physics::ModelPtr _model)</code></td>
+<td><code class="codehilite"><span class="n">protected</span></code><a href="#classgazebo_1_1_umbilical_model_berg_1a3f1ce2888fe8ef1fa0da035c97926b48"><code class="codehilite"><span class="n">UmbilicalModelBerg</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">,</span><span class="n">physics</span><span class="p">::</span><span class="n">ModelPtr</span> <span class="n">_model</span><span class="p">)</span></code></td>
 <td>Protected constructor: Use the factory instead.</td>
 </tr>
 </tbody>
 </table>
 <h5 id="members">Members<a class="headerlink" href="#members" title="Permanent link">&para;</a></h5>
-<h6 id="public-virtual-voidonupdateconst-commonupdateinfo-_infoconst-ignitionmathvector3d-_flow"><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_umbilical_model_berg_1a192a711adeb0f052eb0b07d67b4629f4"><code class="codehilite">OnUpdate</code></a><code class="codehilite">(const common::UpdateInfo &amp; _info,const ignition::math::Vector3d &amp; _flow)</code><a class="headerlink" href="#public-virtual-voidonupdateconst-commonupdateinfo-_infoconst-ignitionmathvector3d-_flow" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtual-voidonupdateconst-commonupdateinfo-_infoconst-ignitionmathvector3d-_flow"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_umbilical_model_berg_1a192a711adeb0f052eb0b07d67b4629f4"><code class="codehilite"><span class="n">OnUpdate</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">common</span><span class="p">::</span><span class="n">UpdateInfo</span> <span class="o">&amp;</span> <span class="n">_info</span><span class="p">,</span><span class="n">const</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span> <span class="o">&amp;</span> <span class="n">_flow</span><span class="p">)</span></code><a class="headerlink" href="#public-virtual-voidonupdateconst-commonupdateinfo-_infoconst-ignitionmathvector3d-_flow" title="Permanent link">&para;</a></h6>
 <p>Update Umbilical (and apply forces)</p>
-<h6 id="protectedumbilicalmodelbergsdfelementptr-_sdfphysicsmodelptr-_model"><code class="codehilite">protected</code><a href="#classgazebo_1_1_umbilical_model_berg_1a3f1ce2888fe8ef1fa0da035c97926b48"><code class="codehilite">UmbilicalModelBerg</code></a><code class="codehilite">(sdf::ElementPtr _sdf,physics::ModelPtr _model)</code><a class="headerlink" href="#protectedumbilicalmodelbergsdfelementptr-_sdfphysicsmodelptr-_model" title="Permanent link">&para;</a></h6>
+<h6 id="protectedumbilicalmodelbergsdfelementptr-_sdfphysicsmodelptr-_model"><code class="codehilite"><span class="n">protected</span></code><a href="#classgazebo_1_1_umbilical_model_berg_1a3f1ce2888fe8ef1fa0da035c97926b48"><code class="codehilite"><span class="n">UmbilicalModelBerg</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">,</span><span class="n">physics</span><span class="p">::</span><span class="n">ModelPtr</span> <span class="n">_model</span><span class="p">)</span></code><a class="headerlink" href="#protectedumbilicalmodelbergsdfelementptr-_sdfphysicsmodelptr-_model" title="Permanent link">&para;</a></h6>
 <p>Protected constructor: Use the factory instead.</p>
                 
                   

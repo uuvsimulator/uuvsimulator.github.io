@@ -452,6 +452,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -2643,25 +2655,25 @@
                   <h1>Create new vehicle</h1>
                 
                 <p>To create the catkin package and file structure necessary to create a new underwater vehicle, you can run the following script in your catkin workspace </p>
-<div class="codehilite"><pre><span></span>rosrun uuv_assistants create_new_robot_model --robot_name &lt;ROBOT_NAME&gt;
+<div class="codehilite"><pre><span></span><span class="n">rosrun</span> <span class="n">uuv_assistants</span> <span class="n">create_new_robot_model</span> <span class="c1">--robot_name &lt;ROBOT_NAME&gt;</span>
 </pre></div>
 
-<p>This will create a catkin package named <code class="codehilite">&lt;ROBOT_NAME&gt;_description</code> with templates for launch and URDF files. The snippets to use the UUV simulator's plugins are included and should be modified in order to be used. The template files do <strong>NOT</strong> describe any vehicle in particular. Meshes should also be included by the user in the <code class="codehilite">meshes</code> folder. The complete folder structure can be seen below. </p>
-<div class="codehilite"><pre><span></span>&lt;ROBOT_NAME&gt;_description
-|-- launch
-    |-- upload.launch
-|-- meshes
-    |-- README.md
-|-- robots
-    |-- default.xacro
-|-- urdf
-    |-- actuators.xacro
-    |-- base.xacro
-    |-- gazebo.xacro
-    |-- sensors.xacro
-    |-- snippets.xacro
-`-- CMakeLists.txt
-`-- package.xml
+<p>This will create a catkin package named <code class="codehilite"><span class="o">&lt;</span><span class="n">ROBOT_NAME</span><span class="o">&gt;</span><span class="n">_description</span></code> with templates for launch and URDF files. The snippets to use the UUV simulator's plugins are included and should be modified in order to be used. The template files do <strong>NOT</strong> describe any vehicle in particular. Meshes should also be included by the user in the <code class="codehilite"><span class="n">meshes</span></code> folder. The complete folder structure can be seen below. </p>
+<div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">ROBOT_NAME</span><span class="o">&gt;</span><span class="n">_description</span>
+<span class="o">|</span><span class="c1">-- launch</span>
+    <span class="o">|</span><span class="c1">-- upload.launch</span>
+<span class="o">|</span><span class="c1">-- meshes</span>
+    <span class="o">|</span><span class="c1">-- README.md</span>
+<span class="o">|</span><span class="c1">-- robots</span>
+    <span class="o">|</span><span class="c1">-- default.xacro</span>
+<span class="o">|</span><span class="c1">-- urdf</span>
+    <span class="o">|</span><span class="c1">-- actuators.xacro</span>
+    <span class="o">|</span><span class="c1">-- base.xacro</span>
+    <span class="o">|</span><span class="c1">-- gazebo.xacro</span>
+    <span class="o">|</span><span class="c1">-- sensors.xacro</span>
+    <span class="o">|</span><span class="c1">-- snippets.xacro</span>
+<span class="o">`</span><span class="c1">-- CMakeLists.txt</span>
+<span class="o">`</span><span class="c1">-- package.xml</span>
 </pre></div>
 
 <p>Actuators and vehicles are modeled separately in the robot description and should also have separate mesh files. The thruster plugin macros set the axis of rotation of the thruster as the X axis, so it is better to setup the mesh accordingly, like in the example below showing the mesh for the RexROV thruster.</p>
@@ -2676,12 +2688,12 @@ configuring its origin and orientation in the URDF file.</p>
 <p>.. image:: ../images/tutorial_new_vehicle/fin_mesh.png</p>
 <p>The template files should have the necessary macros for ROVs, AUVs and simple
 surface vessels. If you want to check more macros of URDF snippets for UUV
-simulator plugins, you should check the <code class="codehilite">uuv_gazebo_ros_plugins XACRO macros &lt;https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_gazebo_plugins/uuv_gazebo_ros_plugins/urdf&gt;</code>_
-and the <code class="codehilite">uuv_sensor_plugins_ros XACRO macros &lt;https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_sensor_plugins/uuv_sensor_plugins_ros/urdf&gt;</code>_.</p>
+simulator plugins, you should check the <code class="codehilite"><span class="n">uuv_gazebo_ros_plugins</span> <span class="n">XACRO</span> <span class="n">macros</span> <span class="o">&lt;</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">uuvsimulator</span><span class="o">/</span><span class="n">uuv_simulator</span><span class="o">/</span><span class="n">tree</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">uuv_gazebo_plugins</span><span class="o">/</span><span class="n">uuv_gazebo_ros_plugins</span><span class="o">/</span><span class="n">urdf</span><span class="o">&gt;</span></code>_
+and the <code class="codehilite"><span class="n">uuv_sensor_plugins_ros</span> <span class="n">XACRO</span> <span class="n">macros</span> <span class="o">&lt;</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">uuvsimulator</span><span class="o">/</span><span class="n">uuv_simulator</span><span class="o">/</span><span class="n">tree</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">uuv_sensor_plugins</span><span class="o">/</span><span class="n">uuv_sensor_plugins_ros</span><span class="o">/</span><span class="n">urdf</span><span class="o">&gt;</span></code>_.</p>
 <p>.. note::</p>
 <p>The position and orientation for sensors, actuators and center of buoyancy
   must be set with respect to the center of gravity of the vehicle's base link.
-  ROS and Gazebo also use per default the <code class="codehilite">ENU (East-North-Up) reference frame &lt;http://www.ros.org/reps/rep-0103.html&gt;</code>_
+  ROS and Gazebo also use per default the <code class="codehilite"><span class="n">ENU</span> <span class="p">(</span><span class="n">East</span><span class="o">-</span><span class="n">North</span><span class="o">-</span><span class="n">Up</span><span class="p">)</span> <span class="n">reference</span> <span class="n">frame</span> <span class="o">&lt;</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">ros</span><span class="p">.</span><span class="n">org</span><span class="o">/</span><span class="n">reps</span><span class="o">/</span><span class="n">rep</span><span class="o">-</span><span class="mi">0103</span><span class="p">.</span><span class="n">html</span><span class="o">&gt;</span></code>_
   convention, not NED (North-East-Down).</p>
                 
                   

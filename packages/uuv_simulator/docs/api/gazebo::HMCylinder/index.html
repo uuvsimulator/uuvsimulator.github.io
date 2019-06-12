@@ -456,6 +456,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -2884,9 +2896,9 @@
                 
                   <h1>HMCylinder</h1>
                 
-                <h4 id="class-gazebohmcylinder">class <code class="codehilite">gazebo::HMCylinder</code><a class="headerlink" href="#class-gazebohmcylinder" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><span class="kr">class</span> <span class="nx">gazebo</span><span class="o">::</span><span class="nx">HMCylinder</span>
-  : <span class="kt">public</span> <span class="nx">gazebo</span><span class="o">::</span><span class="nx">HMFossen</span>
+                <h4 id="class-gazebohmcylinder">class <code class="codehilite"><span class="n">gazebo</span><span class="p">::</span><span class="n">HMCylinder</span></code><a class="headerlink" href="#class-gazebohmcylinder" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="n">gazebo::HMCylinder</span>
+  : <span class="n">public</span> <span class="n">gazebo::HMFossen</span>
 </pre></div>
 
 <p>Class containing the methods and attributes for a hydrodynamic model for a cylinder in the fluid.</p>
@@ -2900,61 +2912,61 @@
 </thead>
 <tbody>
 <tr>
-<td><code class="codehilite">public inline virtual std::string</code><a href="#classgazebo_1_1_h_m_cylinder_1af03d6bf3387a364000b7f40fca710ec5"><code class="codehilite">GetType</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">inline</span> <span class="n">virtual</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classgazebo_1_1_h_m_cylinder_1af03d6bf3387a364000b7f40fca710ec5"><code class="codehilite"><span class="n">GetType</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Return (derived) type of hydrodynamic model.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_h_m_cylinder_1afacc200562d7f89d6b04bf18a1d0cfb7"><code class="codehilite">Print</code></a><code class="codehilite">(std::string _paramName,std::string _message)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_h_m_cylinder_1afacc200562d7f89d6b04bf18a1d0cfb7"><code class="codehilite"><span class="n">Print</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="n">_paramName</span><span class="p">,</span><span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="n">_message</span><span class="p">)</span></code></td>
 <td>Prints parameters.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_h_m_cylinder_1a396afa964665d8f0702391b2cfdf6cc4"><code class="codehilite">length</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_h_m_cylinder_1a396afa964665d8f0702391b2cfdf6cc4"><code class="codehilite"><span class="k">length</span></code></a></td>
 <td>Length of the cylinder.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_h_m_cylinder_1aba2dc883b09294d82f9a87cc197e4a25"><code class="codehilite">radius</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_h_m_cylinder_1aba2dc883b09294d82f9a87cc197e4a25"><code class="codehilite"><span class="n">radius</span></code></a></td>
 <td>Sphere radius.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected std::string</code><a href="#classgazebo_1_1_h_m_cylinder_1ae872f7cb144c935dd22e84e33b1cdf7e"><code class="codehilite">axis</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classgazebo_1_1_h_m_cylinder_1ae872f7cb144c935dd22e84e33b1cdf7e"><code class="codehilite"><span class="n">axis</span></code></a></td>
 <td>Name of the unit rotation axis (just a tag for x, y or z)</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_h_m_cylinder_1af173fe2078a149180c5bd7a36c746265"><code class="codehilite">dimRatio</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_h_m_cylinder_1af173fe2078a149180c5bd7a36c746265"><code class="codehilite"><span class="n">dimRatio</span></code></a></td>
 <td>Ratio between length and diameter.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_h_m_cylinder_1af6ee1fcee5b899e82b5ffdd114d01c49"><code class="codehilite">cdCirc</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_h_m_cylinder_1af6ee1fcee5b899e82b5ffdd114d01c49"><code class="codehilite"><span class="n">cdCirc</span></code></a></td>
 <td>Approximated drag coefficient for the circular area.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_h_m_cylinder_1a2c81fea33f924981d87c7213d75916fe"><code class="codehilite">cdLength</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_h_m_cylinder_1a2c81fea33f924981d87c7213d75916fe"><code class="codehilite"><span class="n">cdLength</span></code></a></td>
 <td>Approximated drag coefficient for the rectangular section.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected</code><a href="#classgazebo_1_1_h_m_cylinder_1a84ee35b71884652b527c57e80620176f"><code class="codehilite">HMCylinder</code></a><code class="codehilite">(sdf::ElementPtr _sdf,physics::LinkPtr _link)</code></td>
+<td><code class="codehilite"><span class="n">protected</span></code><a href="#classgazebo_1_1_h_m_cylinder_1a84ee35b71884652b527c57e80620176f"><code class="codehilite"><span class="n">HMCylinder</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">,</span><span class="n">physics</span><span class="p">::</span><span class="n">LinkPtr</span> <span class="n">_link</span><span class="p">)</span></code></td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <h5 id="members">Members<a class="headerlink" href="#members" title="Permanent link">&para;</a></h5>
-<h6 id="public-inline-virtual-stdstringgettype"><code class="codehilite">public inline virtual std::string</code><a href="#classgazebo_1_1_h_m_cylinder_1af03d6bf3387a364000b7f40fca710ec5"><code class="codehilite">GetType</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-inline-virtual-stdstringgettype" title="Permanent link">&para;</a></h6>
+<h6 id="public-inline-virtual-stdstringgettype"><code class="codehilite"><span class="k">public</span> <span class="n">inline</span> <span class="n">virtual</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classgazebo_1_1_h_m_cylinder_1af03d6bf3387a364000b7f40fca710ec5"><code class="codehilite"><span class="n">GetType</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-inline-virtual-stdstringgettype" title="Permanent link">&para;</a></h6>
 <p>Return (derived) type of hydrodynamic model.</p>
-<h6 id="public-virtual-voidprintstdstring-_paramnamestdstring-_message"><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_h_m_cylinder_1afacc200562d7f89d6b04bf18a1d0cfb7"><code class="codehilite">Print</code></a><code class="codehilite">(std::string _paramName,std::string _message)</code><a class="headerlink" href="#public-virtual-voidprintstdstring-_paramnamestdstring-_message" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtual-voidprintstdstring-_paramnamestdstring-_message"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_h_m_cylinder_1afacc200562d7f89d6b04bf18a1d0cfb7"><code class="codehilite"><span class="n">Print</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="n">_paramName</span><span class="p">,</span><span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="n">_message</span><span class="p">)</span></code><a class="headerlink" href="#public-virtual-voidprintstdstring-_paramnamestdstring-_message" title="Permanent link">&para;</a></h6>
 <p>Prints parameters.</p>
-<h6 id="protected-doublelength"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_h_m_cylinder_1a396afa964665d8f0702391b2cfdf6cc4"><code class="codehilite">length</code></a><a class="headerlink" href="#protected-doublelength" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doublelength"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_h_m_cylinder_1a396afa964665d8f0702391b2cfdf6cc4"><code class="codehilite"><span class="k">length</span></code></a><a class="headerlink" href="#protected-doublelength" title="Permanent link">&para;</a></h6>
 <p>Length of the cylinder.</p>
-<h6 id="protected-doubleradius"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_h_m_cylinder_1aba2dc883b09294d82f9a87cc197e4a25"><code class="codehilite">radius</code></a><a class="headerlink" href="#protected-doubleradius" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doubleradius"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_h_m_cylinder_1aba2dc883b09294d82f9a87cc197e4a25"><code class="codehilite"><span class="n">radius</span></code></a><a class="headerlink" href="#protected-doubleradius" title="Permanent link">&para;</a></h6>
 <p>Sphere radius.</p>
-<h6 id="protected-stdstringaxis"><code class="codehilite">protected std::string</code><a href="#classgazebo_1_1_h_m_cylinder_1ae872f7cb144c935dd22e84e33b1cdf7e"><code class="codehilite">axis</code></a><a class="headerlink" href="#protected-stdstringaxis" title="Permanent link">&para;</a></h6>
+<h6 id="protected-stdstringaxis"><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classgazebo_1_1_h_m_cylinder_1ae872f7cb144c935dd22e84e33b1cdf7e"><code class="codehilite"><span class="n">axis</span></code></a><a class="headerlink" href="#protected-stdstringaxis" title="Permanent link">&para;</a></h6>
 <p>Name of the unit rotation axis (just a tag for x, y or z)</p>
-<h6 id="protected-doubledimratio"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_h_m_cylinder_1af173fe2078a149180c5bd7a36c746265"><code class="codehilite">dimRatio</code></a><a class="headerlink" href="#protected-doubledimratio" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doubledimratio"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_h_m_cylinder_1af173fe2078a149180c5bd7a36c746265"><code class="codehilite"><span class="n">dimRatio</span></code></a><a class="headerlink" href="#protected-doubledimratio" title="Permanent link">&para;</a></h6>
 <p>Ratio between length and diameter.</p>
-<h6 id="protected-doublecdcirc"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_h_m_cylinder_1af6ee1fcee5b899e82b5ffdd114d01c49"><code class="codehilite">cdCirc</code></a><a class="headerlink" href="#protected-doublecdcirc" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doublecdcirc"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_h_m_cylinder_1af6ee1fcee5b899e82b5ffdd114d01c49"><code class="codehilite"><span class="n">cdCirc</span></code></a><a class="headerlink" href="#protected-doublecdcirc" title="Permanent link">&para;</a></h6>
 <p>Approximated drag coefficient for the circular area.</p>
-<h6 id="protected-doublecdlength"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_h_m_cylinder_1a2c81fea33f924981d87c7213d75916fe"><code class="codehilite">cdLength</code></a><a class="headerlink" href="#protected-doublecdlength" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doublecdlength"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_h_m_cylinder_1a2c81fea33f924981d87c7213d75916fe"><code class="codehilite"><span class="n">cdLength</span></code></a><a class="headerlink" href="#protected-doublecdlength" title="Permanent link">&para;</a></h6>
 <p>Approximated drag coefficient for the rectangular section.</p>
-<h6 id="protectedhmcylindersdfelementptr-_sdfphysicslinkptr-_link"><code class="codehilite">protected</code><a href="#classgazebo_1_1_h_m_cylinder_1a84ee35b71884652b527c57e80620176f"><code class="codehilite">HMCylinder</code></a><code class="codehilite">(sdf::ElementPtr _sdf,physics::LinkPtr _link)</code><a class="headerlink" href="#protectedhmcylindersdfelementptr-_sdfphysicslinkptr-_link" title="Permanent link">&para;</a></h6>
+<h6 id="protectedhmcylindersdfelementptr-_sdfphysicslinkptr-_link"><code class="codehilite"><span class="n">protected</span></code><a href="#classgazebo_1_1_h_m_cylinder_1a84ee35b71884652b527c57e80620176f"><code class="codehilite"><span class="n">HMCylinder</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">,</span><span class="n">physics</span><span class="p">::</span><span class="n">LinkPtr</span> <span class="n">_link</span><span class="p">)</span></code><a class="headerlink" href="#protectedhmcylindersdfelementptr-_sdfphysicslinkptr-_link" title="Permanent link">&para;</a></h6>
                 
                   
                 

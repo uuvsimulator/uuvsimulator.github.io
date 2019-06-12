@@ -454,6 +454,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../../uuv_simulator/docs/features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../../uuv_simulator/docs/features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -2730,8 +2742,8 @@
                 
                   <h1>Introduction</h1>
                 
-                <p>This package is the implementation of the algorithm presented in <a href="https://ieeexplore.ieee.org/abstract/document/5456812"><code class="codehilite">Tian and Zhang, 2010</code></a> for the generation of passive turbulent underwater plumes.</p>
-<p>The plume is represented by a set of particles and to model the dynamics of the plume particles, the Lagrangian particle random walk approach from <a href="http://scimar.icm.csic.es/scimar/pdf/67/sm67n4379.pdf"><code class="codehilite">Mestres et al., 2003</code></a> is used.
+                <p>This package is the implementation of the algorithm presented in <a href="https://ieeexplore.ieee.org/abstract/document/5456812"><code class="codehilite"><span class="n">Tian</span> <span class="k">and</span> <span class="n">Zhang</span><span class="p">,</span> <span class="mi">2010</span></code></a> for the generation of passive turbulent underwater plumes.</p>
+<p>The plume is represented by a set of particles and to model the dynamics of the plume particles, the Lagrangian particle random walk approach from <a href="http://scimar.icm.csic.es/scimar/pdf/67/sm67n4379.pdf"><code class="codehilite"><span class="n">Mestres</span> <span class="n">et</span> <span class="n">al</span><span class="p">.,</span> <span class="mi">2003</span></code></a> is used.
 The particles are generated from a pre-defined source position in space in batches at each iteration to ensure a steady flow.
 Per default, 10 particles are generated at each iteration until the maximum number of particles is reached.</p>
 <p>Each <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>-th particle has its position <span><span class="MathJax_Preview">(x_{i_k}, y_{i_k}, z_{i_k})</span><script type="math/tex">(x_{i_k}, y_{i_k}, z_{i_k})</script></span> described at the instant <span><span class="MathJax_Preview">t_k</span><script type="math/tex">t_k</script></span> as:</p>
@@ -2766,7 +2778,7 @@ Once the particles reach the limits of the box, they are destroyed and it allows
 </div>
 <p><span><span class="MathJax_Preview">\text{rand()}</span><script type="math/tex">\text{rand()}</script></span> being a random number from an uniform distribution generated in the interval <span><span class="MathJax_Preview">[0, 1]</span><script type="math/tex">[0, 1]</script></span> and <span><span class="MathJax_Preview">\Delta t</span><script type="math/tex">\Delta t</script></span> being the simulation time step.</p>
 <h4 id="plume-rise">Plume rise<a class="headerlink" href="#plume-rise" title="Permanent link">&para;</a></h4>
-<p>The plume rise equation is used to compute the vertical buoyant velocity <span><span class="MathJax_Preview">w_b</span><script type="math/tex">w_b</script></span>. It is based on the experimental results presented in <code class="codehilite">Domenico, 1985</code> and can be written as</p>
+<p>The plume rise equation is used to compute the vertical buoyant velocity <span><span class="MathJax_Preview">w_b</span><script type="math/tex">w_b</script></span>. It is based on the experimental results presented in <code class="codehilite"><span class="n">Domenico</span><span class="p">,</span> <span class="mi">1985</span></code> and can be written as</p>
 <div>
 <div class="MathJax_Preview">
     H(u, s, t) = 2.6 \left ( \frac{F t^2}{u} \right )^{1/3} (t^2 s + 4.3)^{-1/3}
@@ -2786,20 +2798,20 @@ Once the particles reach the limits of the box, they are destroyed and it allows
 </div>
 <h4 id="bibliography">Bibliography<a class="headerlink" href="#bibliography" title="Permanent link">&para;</a></h4>
 <div class="admonition note">
-<p class="admonition-title"><code class="codehilite">Tian and Zhang, 2010</code></p>
+<p class="admonition-title"><code class="codehilite"><span class="n">Tian</span> <span class="k">and</span> <span class="n">Zhang</span><span class="p">,</span> <span class="mi">2010</span></code></p>
 <p>Yu Tian and Aiqun Zhang, "Simulation environment and guidance system
 for AUV tracing chemical plume in 3-dimensions," 2010 2<sup>nd</sup> International
 Asia Conference on Informatics in Control, Automation and Robotics
 (CAR 2010), Mar. 2010.</p>
 </div>
 <div class="admonition note">
-<p class="admonition-title"><code class="codehilite">Mestres et al., 2003</code></p>
+<p class="admonition-title"><code class="codehilite"><span class="n">Mestres</span> <span class="n">et</span> <span class="n">al</span><span class="p">.,</span> <span class="mi">2003</span></code></p>
 <p>M. Mestres et al., "Modelling of the Ebro River plume. Validation with
 field observations," Scientia Marina, vol. 67, no. 4, pp. 379-391,
 Dec. 2003.</p>
 </div>
 <div class="admonition note">
-<p class="admonition-title"><code class="codehilite">Domenico, 1985</code></p>
+<p class="admonition-title"><code class="codehilite"><span class="n">Domenico</span><span class="p">,</span> <span class="mi">1985</span></code></p>
 <p>Anfossi, Domenico. "Analysis of plume rise data from five TVA steam
 plants." Journal of climate and applied meteorology 24.11 (1985):
 1225-1236.</p>

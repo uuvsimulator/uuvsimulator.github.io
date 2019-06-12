@@ -456,6 +456,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -2824,65 +2836,65 @@
                 
                 <p><img alt="Version" src="https://img.shields.io/badge/version-0.6.12-brightgreen.svg" /></p>
 <blockquote>
-<p>Link to the <code class="codehilite">uuv_simulator</code> repository <a href="https://github.com/uuvsimulator/uuv_simulator">here</a></p>
+<p>Link to the <code class="codehilite"><span class="n">uuv_simulator</span></code> repository <a href="https://github.com/uuvsimulator/uuv_simulator">here</a></p>
 </blockquote>
 <h4 id="description">Description<a class="headerlink" href="#description" title="Permanent link">&para;</a></h4>
 <p>Optimal allocation of forces and torques to thruster and fins of AUVs</p>
 <h4 id="launch-files">Launch files<a class="headerlink" href="#launch-files" title="Permanent link">&para;</a></h4>
-<h5 id="start_control_allocatorlaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_auv_control_allocator/launch/start_control_allocator.launch"><code class="codehilite">start_control_allocator.launch</code></a><a class="headerlink" href="#start_control_allocatorlaunch" title="Permanent link">&para;</a></h5>
+<h5 id="start_control_allocatorlaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_auv_control_allocator/launch/start_control_allocator.launch"><code class="codehilite"><span class="n">start_control_allocator</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#start_control_allocatorlaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
 <li><strong>uuv_name</strong></li>
-<li><strong>base_link</strong> (<em>default:</em> <code class="codehilite">base_link</code>)</li>
+<li><strong>base_link</strong> (<em>default:</em> <code class="codehilite"><span class="n">base_link</span></code>)</li>
 <li><strong>output_dir</strong></li>
-<li><strong>input_topic</strong> (<em>default:</em> <code class="codehilite">control_allocation/control_input</code>)</li>
-<li><strong>thruster_topic_prefix</strong> (<em>default:</em> <code class="codehilite">thrusters</code>)</li>
-<li><strong>thruster_topic_suffix</strong> (<em>default:</em> <code class="codehilite">input</code>)</li>
-<li><strong>thruster_frame_base</strong> (<em>default:</em> <code class="codehilite">thruster_</code>)</li>
-<li><strong>max_thrust</strong> (<em>default:</em> <code class="codehilite">120</code>)</li>
-<li><strong>thruster_conversion_fcn</strong> (<em>default:</em> <code class="codehilite">proportional</code>)</li>
-<li><strong>thruster_gain</strong> (<em>default:</em> <code class="codehilite">0.0</code>)</li>
-<li><strong>thruster_input</strong> (<em>default:</em> <code class="codehilite">0,1,2,3</code>)</li>
-<li><strong>thruster_output</strong> (<em>default:</em> <code class="codehilite">0,1,2,3</code>)</li>
-<li><strong>fin_frame_base</strong> (<em>default:</em> <code class="codehilite">fin</code>)</li>
-<li><strong>fluid_density</strong> (<em>default:</em> <code class="codehilite">1028.0</code>)</li>
-<li><strong>lift_coefficient</strong> (<em>default:</em> <code class="codehilite">0.0</code>)</li>
-<li><strong>fin_area</strong> (<em>default:</em> <code class="codehilite">0.0</code>)</li>
-<li><strong>fin_topic_prefix</strong> (<em>default:</em> <code class="codehilite">fins</code>)</li>
-<li><strong>fin_topic_suffix</strong> (<em>default:</em> <code class="codehilite">input</code>)</li>
-<li><strong>fin_lower_joint_limit</strong> (<em>default:</em> <code class="codehilite">-1.57</code>)</li>
-<li><strong>fin_upper_joint_limit</strong> (<em>default:</em> <code class="codehilite">1.57</code>)</li>
-<li><strong>timeout</strong> (<em>default:</em> <code class="codehilite">-1</code>)</li>
-<li><strong>update_rate</strong> (<em>default:</em> <code class="codehilite">10</code>)</li>
+<li><strong>input_topic</strong> (<em>default:</em> <code class="codehilite"><span class="n">control_allocation</span><span class="o">/</span><span class="n">control_input</span></code>)</li>
+<li><strong>thruster_topic_prefix</strong> (<em>default:</em> <code class="codehilite"><span class="n">thrusters</span></code>)</li>
+<li><strong>thruster_topic_suffix</strong> (<em>default:</em> <code class="codehilite"><span class="k">input</span></code>)</li>
+<li><strong>thruster_frame_base</strong> (<em>default:</em> <code class="codehilite"><span class="n">thruster_</span></code>)</li>
+<li><strong>max_thrust</strong> (<em>default:</em> <code class="codehilite"><span class="mi">120</span></code>)</li>
+<li><strong>thruster_conversion_fcn</strong> (<em>default:</em> <code class="codehilite"><span class="n">proportional</span></code>)</li>
+<li><strong>thruster_gain</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">0</span></code>)</li>
+<li><strong>thruster_input</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span></code>)</li>
+<li><strong>thruster_output</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span></code>)</li>
+<li><strong>fin_frame_base</strong> (<em>default:</em> <code class="codehilite"><span class="n">fin</span></code>)</li>
+<li><strong>fluid_density</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1028</span><span class="p">.</span><span class="mi">0</span></code>)</li>
+<li><strong>lift_coefficient</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">0</span></code>)</li>
+<li><strong>fin_area</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">0</span></code>)</li>
+<li><strong>fin_topic_prefix</strong> (<em>default:</em> <code class="codehilite"><span class="n">fins</span></code>)</li>
+<li><strong>fin_topic_suffix</strong> (<em>default:</em> <code class="codehilite"><span class="k">input</span></code>)</li>
+<li><strong>fin_lower_joint_limit</strong> (<em>default:</em> <code class="codehilite"><span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">57</span></code>)</li>
+<li><strong>fin_upper_joint_limit</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1</span><span class="p">.</span><span class="mi">57</span></code>)</li>
+<li><strong>timeout</strong> (<em>default:</em> <code class="codehilite"><span class="o">-</span><span class="mi">1</span></code>)</li>
+<li><strong>update_rate</strong> (<em>default:</em> <code class="codehilite"><span class="mi">10</span></code>)</li>
 </ul>
 <h4 id="ros-messages">ROS Messages<a class="headerlink" href="#ros-messages" title="Permanent link">&para;</a></h4>
-<h5 id="auvcommand"><code class="codehilite">AUVCommand</code><a class="headerlink" href="#auvcommand" title="Permanent link">&para;</a></h5>
-<div class="codehilite"><pre><span></span># Copyright (c) 2016 The UUV Simulator Authors.
-# All rights reserved.
+<h5 id="auvcommand"><code class="codehilite"><span class="n">AUVCommand</span></code><a class="headerlink" href="#auvcommand" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span># <span class="nv">Copyright</span> <span class="ss">(</span><span class="nv">c</span><span class="ss">)</span> <span class="mi">2016</span> <span class="nv">The</span> <span class="nv">UUV</span> <span class="nv">Simulator</span> <span class="nv">Authors</span>.
+# <span class="nv">All</span> <span class="nv">rights</span> <span class="nv">reserved</span>.
 #
-# Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# <span class="nv">Licensed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">Apache</span> <span class="nv">License</span>, <span class="nv">Version</span> <span class="mi">2</span>.<span class="mi">0</span> <span class="ss">(</span><span class="nv">the</span> <span class="s2">&quot;</span><span class="s">License</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+# <span class="nv">you</span> <span class="nv">may</span> <span class="nv">not</span> <span class="nv">use</span> <span class="nv">this</span> <span class="nv">file</span> <span class="nv">except</span> <span class="nv">in</span> <span class="nv">compliance</span> <span class="nv">with</span> <span class="nv">the</span> <span class="nv">License</span>.
+# <span class="nv">You</span> <span class="nv">may</span> <span class="nv">obtain</span> <span class="nv">a</span> <span class="nv">copy</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">at</span>
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+#     <span class="nv">http</span>:<span class="o">//</span><span class="nv">www</span>.<span class="nv">apache</span>.<span class="nv">org</span><span class="o">/</span><span class="nv">licenses</span><span class="o">/</span><span class="nv">LICENSE</span><span class="o">-</span><span class="mi">2</span>.<span class="mi">0</span>
 #
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# <span class="nv">Unless</span> <span class="nv">required</span> <span class="nv">by</span> <span class="nv">applicable</span> <span class="nv">law</span> <span class="nv">or</span> <span class="nv">agreed</span> <span class="nv">to</span> <span class="nv">in</span> <span class="nv">writing</span>, <span class="nv">software</span>
+# <span class="nv">distributed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">is</span> <span class="nv">distributed</span> <span class="nv">on</span> <span class="nv">an</span> <span class="s2">&quot;</span><span class="s">AS IS</span><span class="s2">&quot;</span> <span class="nv">BASIS</span>,
+# <span class="nv">WITHOUT</span> <span class="nv">WARRANTIES</span> <span class="nv">OR</span> <span class="nv">CONDITIONS</span> <span class="nv">OF</span> <span class="nv">ANY</span> <span class="nv">KIND</span>, <span class="nv">either</span> <span class="nv">express</span> <span class="nv">or</span> <span class="nv">implied</span>.
+# <span class="nv">See</span> <span class="nv">the</span> <span class="nv">License</span> <span class="k">for</span> <span class="nv">the</span> <span class="nv">specific</span> <span class="nv">language</span> <span class="nv">governing</span> <span class="nv">permissions</span> <span class="nv">and</span>
+# <span class="nv">limitations</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span>.
 
-std_msgs/Header header
-float64 surge_speed
-geometry_msgs/Wrench command
+<span class="nv">std_msgs</span><span class="o">/</span><span class="nv">Header</span> <span class="nv">header</span>
+<span class="nv">float64</span> <span class="nv">surge_speed</span>
+<span class="nv">geometry_msgs</span><span class="o">/</span><span class="nv">Wrench</span> <span class="nv">command</span>
 </pre></div>
 
 <h4 id="scripts">Scripts<a class="headerlink" href="#scripts" title="Permanent link">&para;</a></h4>
-<h5 id="control_allocator"><code class="codehilite">control_allocator</code><a class="headerlink" href="#control_allocator" title="Permanent link">&para;</a></h5>
+<h5 id="control_allocator"><code class="codehilite"><span class="n">control_allocator</span></code><a class="headerlink" href="#control_allocator" title="Permanent link">&para;</a></h5>
 <blockquote>
-<p><strong>Script type:</strong> <code class="codehilite">python</code></p>
+<p><strong>Script type:</strong> <code class="codehilite"><span class="n">python</span></code></p>
 </blockquote>
                 
                   

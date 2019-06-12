@@ -454,6 +454,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../../uuv_simulator/docs/features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../../uuv_simulator/docs/features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -2789,13 +2801,13 @@
 <div class="codehilite"><pre><span></span>roslaunch uuv_plume_simulator start_plume_server.launch current_velocity_topic:<span class="o">=</span>/hydrodynamics/current_velocity update_rate:<span class="o">=</span><span class="m">5</span>
 </pre></div>
 
-<p>The current velocity topic must be generated either from a Gazebo underwater scenario running the underwater current ROS plugin (<code class="codehilite">libuuv_underwater_current_ros_plugin.so</code>). 
-It must publish the current velocity as a <a href="https://docs.ros.org/api/geometry_msgs/html/msg/Twist.html"><code class="codehilite">geometry_msgs/Twist</code></a> message.
+<p>The current velocity topic must be generated either from a Gazebo underwater scenario running the underwater current ROS plugin (<code class="codehilite"><span class="n">libuuv_underwater_current_ros_plugin</span><span class="p">.</span><span class="n">so</span></code>). 
+It must publish the current velocity as a <a href="https://docs.ros.org/api/geometry_msgs/html/msg/Twist.html"><code class="codehilite"><span class="n">geometry_msgs</span><span class="o">/</span><span class="n">Twist</span></code></a> message.
 The current velocity will steer the plume and control its rise. 
 Without any current, the plume particles will accumulate around the plume source.</p>
 <h4 id="generation-of-the-current-velocity-topic">Generation of the current velocity topic<a class="headerlink" href="#generation-of-the-current-velocity-topic" title="Permanent link">&para;</a></h4>
 <h5 id="start-the-plume-simulaton-with-gazebo-for-current-velocity-generation">Start the plume simulaton with Gazebo for current velocity generation<a class="headerlink" href="#start-the-plume-simulaton-with-gazebo-for-current-velocity-generation" title="Permanent link">&para;</a></h5>
-<p>All Gazebo worlds included in the <a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_gazebo_worlds"><code class="codehilite">uuv_gazebo_worlds</code></a> include the underwater current plugin and can be started as:</p>
+<p>All Gazebo worlds included in the <a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_gazebo_worlds"><code class="codehilite"><span class="n">uuv_gazebo_worlds</span></code></a> include the underwater current plugin and can be started as:</p>
 <div class="codehilite"><pre><span></span>roslaunch uuv_gazebo_worlds ocean_waves.launch
 </pre></div>
 
@@ -2831,7 +2843,7 @@ Without any current, the plume particles will accumulate around the plume source
 <span class="nt">&lt;/plugin&gt;</span>
 </pre></div>
 
-<p>The current velocity will be published in <code class="codehilite">/hydrodynamics/current_velocity</code> and the same topic must be read by the plume server.</p>
+<p>The current velocity will be published in <code class="codehilite"><span class="o">/</span><span class="n">hydrodynamics</span><span class="o">/</span><span class="n">current_velocity</span></code> and the same topic must be read by the plume server.</p>
 <h5 id="start-the-current-velocity-server">Start the current velocity server<a class="headerlink" href="#start-the-current-velocity-server" title="Permanent link">&para;</a></h5>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -2842,7 +2854,7 @@ Without any current, the plume particles will accumulate around the plume source
 </pre></div>
 
 <h4 id="start-the-passive-turbulent-plume">Start the passive turbulent plume<a class="headerlink" href="#start-the-passive-turbulent-plume" title="Permanent link">&para;</a></h4>
-<p>The can be started by using a plume server's service <code class="codehilite">create_passive_scalar_turbulent_plume</code> as follows:</p>
+<p>The can be started by using a plume server's service <code class="codehilite"><span class="n">create_passive_scalar_turbulent_plume</span></code> as follows:</p>
 <div class="codehilite"><pre><span></span>rosservice call /create_passive_scalar_turbulent_plume <span class="s2">&quot;turbulent_diffusion_coefficients: {x: 0.05, y: 0.05, z: 0.05}</span>
 <span class="s2">source: {x: -0.0, y: 0.0, z: -40.0}</span>
 <span class="s2">buoyancy_flux: 0.05</span>
@@ -2860,13 +2872,13 @@ Without any current, the plume particles will accumulate around the plume source
 
 <p>where</p>
 <ul>
-<li><code class="codehilite">turbulent_diffusion_coefficients</code> are the coefficients used for the computation of the turbulent diffusion velocity components</li>
-<li><code class="codehilite">source</code> is the position of the source of the plume in the ENU frame</li>
-<li><code class="codehilite">buoyancy_flux</code> and <code class="codehilite">stability_param</code> are the parameters used for computation of the vertical buoyant velocity (see the <a href="../introduction/">previous tutorial</a> for more details)</li>
-<li><code class="codehilite">n_points</code> is the maximum number of particles allowed to exist at any time</li>
-<li><code class="codehilite">max_particles_per_iter</code> is the maximum number of particles generated by the source at each iteration</li>
-<li><code class="codehilite">x_min</code>, <code class="codehilite">x_max</code>, <code class="codehilite">y_min</code>, <code class="codehilite">y_max</code>, <code class="codehilite">z_min</code>, <code class="codehilite">z_max</code> are the limits of the bounding box where the particles are allowed to exist in</li>
-<li><code class="codehilite">max_life_time</code> is the maximum amount of seconds each particle is allowed to exist before being destroyed (-1 for not limit, the particles will then only be destroyed when they reach the limits of the bounding box)</li>
+<li><code class="codehilite"><span class="n">turbulent_diffusion_coefficients</span></code> are the coefficients used for the computation of the turbulent diffusion velocity components</li>
+<li><code class="codehilite"><span class="k">source</span></code> is the position of the source of the plume in the ENU frame</li>
+<li><code class="codehilite"><span class="n">buoyancy_flux</span></code> and <code class="codehilite"><span class="n">stability_param</span></code> are the parameters used for computation of the vertical buoyant velocity (see the <a href="../introduction/">previous tutorial</a> for more details)</li>
+<li><code class="codehilite"><span class="n">n_points</span></code> is the maximum number of particles allowed to exist at any time</li>
+<li><code class="codehilite"><span class="n">max_particles_per_iter</span></code> is the maximum number of particles generated by the source at each iteration</li>
+<li><code class="codehilite"><span class="n">x_min</span></code>, <code class="codehilite"><span class="n">x_max</span></code>, <code class="codehilite"><span class="n">y_min</span></code>, <code class="codehilite"><span class="n">y_max</span></code>, <code class="codehilite"><span class="n">z_min</span></code>, <code class="codehilite"><span class="n">z_max</span></code> are the limits of the bounding box where the particles are allowed to exist in</li>
+<li><code class="codehilite"><span class="n">max_life_time</span></code> is the maximum amount of seconds each particle is allowed to exist before being destroyed (-1 for not limit, the particles will then only be destroyed when they reach the limits of the bounding box)</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>

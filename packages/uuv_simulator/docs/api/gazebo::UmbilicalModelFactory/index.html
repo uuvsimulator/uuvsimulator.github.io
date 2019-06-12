@@ -452,6 +452,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -2702,7 +2714,7 @@
                 
                   <h1>class `gazebo::UmbilicalModelFactory`</h1>
                 
-                <h4 id="class-gazeboumbilicalmodelfactory">class <code class="codehilite">gazebo::UmbilicalModelFactory</code><a class="headerlink" href="#class-gazeboumbilicalmodelfactory" title="Permanent link">&para;</a></h4>
+                <h4 id="class-gazeboumbilicalmodelfactory">class <code class="codehilite"><span class="n">gazebo</span><span class="p">::</span><span class="n">UmbilicalModelFactory</span></code><a class="headerlink" href="#class-gazeboumbilicalmodelfactory" title="Permanent link">&para;</a></h4>
 <p>Factory singleton class that creates an <a href="docs/packages/uuv_simulator/docs/api/gazebo::UmbilicalModel.md#classgazebo_1_1_umbilical_model">UmbilicalModel</a> from sdf.</p>
 <h5 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h5>
 <table>
@@ -2714,19 +2726,19 @@
 </thead>
 <tbody>
 <tr>
-<td><code class="codehilite">public</code><a href="docs/packages/uuv_simulator/docs/api/gazebo::UmbilicalModel.md#classgazebo_1_1_umbilical_model"><code class="codehilite">UmbilicalModel</code></a><code class="codehilite">*</code><a href="#classgazebo_1_1_umbilical_model_factory_1ac7a7245f47500ee02e68f84c5e7a5032"><code class="codehilite">CreateUmbilicalModel</code></a><code class="codehilite">(sdf::ElementPtr _sdf,physics::ModelPtr _model)</code></td>
+<td><code class="codehilite"><span class="k">public</span></code><a href="docs/packages/uuv_simulator/docs/api/gazebo::UmbilicalModel.md#classgazebo_1_1_umbilical_model"><code class="codehilite"><span class="n">UmbilicalModel</span></code></a><code class="codehilite"><span class="o">*</span></code><a href="#classgazebo_1_1_umbilical_model_factory_1ac7a7245f47500ee02e68f84c5e7a5032"><code class="codehilite"><span class="n">CreateUmbilicalModel</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">,</span><span class="n">physics</span><span class="p">::</span><span class="n">ModelPtr</span> <span class="n">_model</span><span class="p">)</span></code></td>
 <td>Create a <a href="docs/packages/uuv_simulator/docs/api/gazebo::ConversionFunction.md#classgazebo_1_1_conversion_function">ConversionFunction</a> object according to its sdf Description.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public bool</code><a href="#classgazebo_1_1_umbilical_model_factory_1a97c20262e741c090c7616f082a23869e"><code class="codehilite">RegisterCreator</code></a><code class="codehilite">(const std::string &amp; _identifier,UmbilicalModelCreator _creator)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_umbilical_model_factory_1a97c20262e741c090c7616f082a23869e"><code class="codehilite"><span class="n">RegisterCreator</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="o">&amp;</span> <span class="n">_identifier</span><span class="p">,</span><span class="n">UmbilicalModelCreator</span> <span class="n">_creator</span><span class="p">)</span></code></td>
 <td>Register an <a href="docs/packages/uuv_simulator/docs/api/gazebo::UmbilicalModel.md#classgazebo_1_1_umbilical_model">UmbilicalModel</a> class with its creator.</td>
 </tr>
 </tbody>
 </table>
 <h5 id="members">Members<a class="headerlink" href="#members" title="Permanent link">&para;</a></h5>
-<h6 id="publicumbilicalmodelcreateumbilicalmodelsdfelementptr-_sdfphysicsmodelptr-_model"><code class="codehilite">public</code><a href="docs/packages/uuv_simulator/docs/api/gazebo::UmbilicalModel.md#classgazebo_1_1_umbilical_model"><code class="codehilite">UmbilicalModel</code></a><code class="codehilite">*</code><a href="#classgazebo_1_1_umbilical_model_factory_1ac7a7245f47500ee02e68f84c5e7a5032"><code class="codehilite">CreateUmbilicalModel</code></a><code class="codehilite">(sdf::ElementPtr _sdf,physics::ModelPtr _model)</code><a class="headerlink" href="#publicumbilicalmodelcreateumbilicalmodelsdfelementptr-_sdfphysicsmodelptr-_model" title="Permanent link">&para;</a></h6>
+<h6 id="publicumbilicalmodelcreateumbilicalmodelsdfelementptr-_sdfphysicsmodelptr-_model"><code class="codehilite"><span class="k">public</span></code><a href="docs/packages/uuv_simulator/docs/api/gazebo::UmbilicalModel.md#classgazebo_1_1_umbilical_model"><code class="codehilite"><span class="n">UmbilicalModel</span></code></a><code class="codehilite"><span class="o">*</span></code><a href="#classgazebo_1_1_umbilical_model_factory_1ac7a7245f47500ee02e68f84c5e7a5032"><code class="codehilite"><span class="n">CreateUmbilicalModel</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">,</span><span class="n">physics</span><span class="p">::</span><span class="n">ModelPtr</span> <span class="n">_model</span><span class="p">)</span></code><a class="headerlink" href="#publicumbilicalmodelcreateumbilicalmodelsdfelementptr-_sdfphysicsmodelptr-_model" title="Permanent link">&para;</a></h6>
 <p>Create a <a href="docs/packages/uuv_simulator/docs/api/gazebo::ConversionFunction.md#classgazebo_1_1_conversion_function">ConversionFunction</a> object according to its sdf Description.</p>
-<h6 id="public-boolregistercreatorconst-stdstring-_identifierumbilicalmodelcreator-_creator"><code class="codehilite">public bool</code><a href="#classgazebo_1_1_umbilical_model_factory_1a97c20262e741c090c7616f082a23869e"><code class="codehilite">RegisterCreator</code></a><code class="codehilite">(const std::string &amp; _identifier,UmbilicalModelCreator _creator)</code><a class="headerlink" href="#public-boolregistercreatorconst-stdstring-_identifierumbilicalmodelcreator-_creator" title="Permanent link">&para;</a></h6>
+<h6 id="public-boolregistercreatorconst-stdstring-_identifierumbilicalmodelcreator-_creator"><code class="codehilite"><span class="k">public</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_umbilical_model_factory_1a97c20262e741c090c7616f082a23869e"><code class="codehilite"><span class="n">RegisterCreator</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="o">&amp;</span> <span class="n">_identifier</span><span class="p">,</span><span class="n">UmbilicalModelCreator</span> <span class="n">_creator</span><span class="p">)</span></code><a class="headerlink" href="#public-boolregistercreatorconst-stdstring-_identifierumbilicalmodelcreator-_creator" title="Permanent link">&para;</a></h6>
 <p>Register an <a href="docs/packages/uuv_simulator/docs/api/gazebo::UmbilicalModel.md#classgazebo_1_1_umbilical_model">UmbilicalModel</a> class with its creator.</p>
                 
                   

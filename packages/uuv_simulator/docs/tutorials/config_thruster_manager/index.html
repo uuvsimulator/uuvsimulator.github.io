@@ -456,6 +456,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -2710,9 +2722,9 @@ represented in the vehicle's body frame, where <span><span class="MathJax_Previe
 and <span><span class="MathJax_Preview">\tau_i</span><script type="math/tex">\tau_i</script></span> represents the torques, into the output thruster forces
 <span><span class="MathJax_Preview">\tau_i</span><script type="math/tex">\tau_i</script></span> for each.</p>
 <p>The simulation expects each thruster unit to have its own unique frame, which
-enables the use of <a href="http://wiki.ros.org/tf"><code class="codehilite">tf</code></a> to lookup the transformation
+enables the use of <a href="http://wiki.ros.org/tf"><code class="codehilite"><span class="n">tf</span></code></a> to lookup the transformation
 matrix between the vehicle's body frame and each thruster during runtime.
-Using this possibility, a package called <a href="../../packages/uuv_thruster_manager/"><code class="codehilite">uuv_thruster_manager</code></a> has been
+Using this possibility, a package called <a href="../../packages/uuv_thruster_manager/"><code class="codehilite"><span class="n">uuv_thruster_manager</span></code></a> has been
 developed to generate the thruster allocation matrix automatically and
 translating the control vector into commands to each thruster.</p>
 <div class="admonition note">
@@ -2724,23 +2736,23 @@ run the following in your catkin workspace </p>
 <div class="codehilite"><pre><span></span>rosrun uuv_assistants create_thruster_manager_configuration --robot_name &lt;ROBOT_NAME&gt;
 </pre></div>
 
-<p>This script will create a new <code class="codehilite">&lt;ROBOT_NAME&gt;_control</code> package with initial
+<p>This script will create a new <code class="codehilite"><span class="o">&lt;</span><span class="n">ROBOT_NAME</span><span class="o">&gt;</span><span class="n">_control</span></code> package with initial
 templates for the launch and parameter files. If you already have catkin package
 where you want to store these files, run </p>
 <div class="codehilite"><pre><span></span>rosrun uuv_assistants create_thruster_manager_configuration --robot_name &lt;ROBOT_NAME&gt; --output_dir &lt;CATKIN_PKG&gt;
 </pre></div>
 
 <p>The folder structure will look like the following </p>
-<div class="codehilite"><pre><span></span>&lt;ROBOT_NAME&gt;_control
-|-- config
-    |-- thruster_manager.yaml
-|-- launch
-    |-- start_thruster_manager.launch
-`-- CMakeLists.txt
-`-- package.xml
+<div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">ROBOT_NAME</span><span class="o">&gt;</span><span class="n">_control</span>
+<span class="o">|</span><span class="c1">-- config</span>
+    <span class="o">|</span><span class="c1">-- thruster_manager.yaml</span>
+<span class="o">|</span><span class="c1">-- launch</span>
+    <span class="o">|</span><span class="c1">-- start_thruster_manager.launch</span>
+<span class="o">`</span><span class="c1">-- CMakeLists.txt</span>
+<span class="o">`</span><span class="c1">-- package.xml</span>
 </pre></div>
 
-<p>You should edit the <code class="codehilite">thruster_manager.yaml</code> file to include the correct thruster model parameters and topics. Instructions on how to do it can be found in the comments on the same file. Here is an example from the RexROV vehicle thruster manager configuration:</p>
+<p>You should edit the <code class="codehilite"><span class="n">thruster_manager</span><span class="p">.</span><span class="n">yaml</span></code> file to include the correct thruster model parameters and topics. Instructions on how to do it can be found in the comments on the same file. Here is an example from the RexROV vehicle thruster manager configuration:</p>
 <div class="codehilite"><pre><span></span><span class="n">thruster_manager</span><span class="o">:</span>
   <span class="n">tf_prefix</span><span class="o">:</span> <span class="n">rexrov</span>
   <span class="n">base_link</span><span class="o">:</span> <span class="n">base_link</span>
@@ -2755,7 +2767,7 @@ where you want to store these files, run </p>
     <span class="n">gain</span><span class="o">:</span> <span class="mf">0.00031</span>
 </pre></div>
 
-<p>Once the configuration is done, the thruster allocation matrix file should be generated and stored. The <code class="codehilite">tam</code> matrix can be generated in runtime everytime the simulation starts, but it is recommended to store and read it from a file since the <code class="codehilite">tf_listener</code> can take a long time to find all frames and will therefore make the vehicle inactive for a while at the beginning of the simulation. To do this, you must compile you catkin workspace </p>
+<p>Once the configuration is done, the thruster allocation matrix file should be generated and stored. The <code class="codehilite"><span class="n">tam</span></code> matrix can be generated in runtime everytime the simulation starts, but it is recommended to store and read it from a file since the <code class="codehilite"><span class="n">tf_listener</span></code> can take a long time to find all frames and will therefore make the vehicle inactive for a while at the beginning of the simulation. To do this, you must compile you catkin workspace </p>
 <div class="codehilite"><pre><span></span><span class="nb">cd</span> ~/catkin_ws
 catkin_make
 </pre></div>
@@ -2774,8 +2786,8 @@ catkin build
 
 <p>if after compiling your package seems to not be found.</p>
 </div>
-<p>A <code class="codehilite">TAM.yaml</code> file will be stored in the <code class="codehilite">config</code> folder once you start a Gazebo world ::</p>
-<div class="codehilite"><pre><span></span>roslaunch uuv_gazebo_worlds empty_underwater_world.launch
+<p>A <code class="codehilite"><span class="n">TAM</span><span class="p">.</span><span class="n">yaml</span></code> file will be stored in the <code class="codehilite"><span class="n">config</span></code> folder once you start a Gazebo world ::</p>
+<div class="codehilite"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_gazebo_worlds</span> <span class="n">empty_underwater_world</span><span class="p">.</span><span class="n">launch</span>
 </pre></div>
 
 <p>and then include the vehicle </p>
@@ -2786,7 +2798,7 @@ catkin build
 <div class="codehilite"><pre><span></span>roslaunch &lt;ROBOT_NAME&gt;_control start_thruster_manager.launch reset_tam:<span class="o">=</span><span class="nb">true</span>
 </pre></div>
 
-<p>From now on, if you always start the thruster manager using the launch file above (using the <code class="codehilite">reset_tam</code> as <code class="codehilite">false</code>), you can load the TAM matrix.</p>
+<p>From now on, if you always start the thruster manager using the launch file above (using the <code class="codehilite"><span class="n">reset_tam</span></code> as <code class="codehilite"><span class="k">false</span></code>), you can load the TAM matrix.</p>
 <p>To command the vehicle, you have to start the thruster manager and publish a <a href="http://docs.ros.org/api/geometry_msgs/html/msg/Wrench.html">ROS Wrench message</a> to the input topic</p>
 <div class="codehilite"><pre><span></span>/&lt;ROBOT_NAME or ROBOT_NAMESPACE&gt;/thruster_manager/input
 </pre></div>

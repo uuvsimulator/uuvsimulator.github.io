@@ -456,6 +456,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -2868,9 +2880,9 @@
                 
                   <h1>SubseaPressureROSPlugin</h1>
                 
-                <h4 id="class-gazebosubseapressurerosplugin">class <code class="codehilite">gazebo::SubseaPressureROSPlugin</code><a class="headerlink" href="#class-gazebosubseapressurerosplugin" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><span class="kr">class</span> <span class="nx">gazebo</span><span class="o">::</span><span class="nx">SubseaPressureROSPlugin</span>
-  : <span class="kt">public</span> <span class="nx">gazebo</span><span class="o">::</span><span class="nx">ROSBaseModelPlugin</span>
+                <h4 id="class-gazebosubseapressurerosplugin">class <code class="codehilite"><span class="n">gazebo</span><span class="p">::</span><span class="n">SubseaPressureROSPlugin</span></code><a class="headerlink" href="#class-gazebosubseapressurerosplugin" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="n">gazebo::SubseaPressureROSPlugin</span>
+  : <span class="n">public</span> <span class="n">gazebo::ROSBaseModelPlugin</span>
 </pre></div>
 
 <h5 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h5>
@@ -2883,55 +2895,55 @@
 </thead>
 <tbody>
 <tr>
-<td><code class="codehilite">public</code><a href="#classgazebo_1_1_subsea_pressure_r_o_s_plugin_1a47f980a1ea644753d5142dc1e57e781e"><code class="codehilite">SubseaPressureROSPlugin</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span></code><a href="#classgazebo_1_1_subsea_pressure_r_o_s_plugin_1a47f980a1ea644753d5142dc1e57e781e"><code class="codehilite"><span class="n">SubseaPressureROSPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Class constructor.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public</code><a href="#classgazebo_1_1_subsea_pressure_r_o_s_plugin_1ad0f101bb1409a2b8954036eb9e25b734"><code class="codehilite">~SubseaPressureROSPlugin</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span></code><a href="#classgazebo_1_1_subsea_pressure_r_o_s_plugin_1ad0f101bb1409a2b8954036eb9e25b734"><code class="codehilite"><span class="o">~</span><span class="n">SubseaPressureROSPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Class destructor.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_subsea_pressure_r_o_s_plugin_1a217c4fafaaba64b533dacbe906a01cf1"><code class="codehilite">Load</code></a><code class="codehilite">(physics::ModelPtr _model,sdf::ElementPtr _sdf)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_subsea_pressure_r_o_s_plugin_1a217c4fafaaba64b533dacbe906a01cf1"><code class="codehilite"><span class="k">Load</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">physics</span><span class="p">::</span><span class="n">ModelPtr</span> <span class="n">_model</span><span class="p">,</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">)</span></code></td>
 <td>Load the plugin.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_subsea_pressure_r_o_s_plugin_1aacf4f877eb2e21f3e6e1362985c77198"><code class="codehilite">saturation</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_subsea_pressure_r_o_s_plugin_1aacf4f877eb2e21f3e6e1362985c77198"><code class="codehilite"><span class="n">saturation</span></code></a></td>
 <td>Sensor saturation (max. value for output pressure in Pa)</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected bool</code><a href="#classgazebo_1_1_subsea_pressure_r_o_s_plugin_1a2b8e32c2bda5fb24d426be8d9a6ef934"><code class="codehilite">estimateDepth</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_subsea_pressure_r_o_s_plugin_1a2b8e32c2bda5fb24d426be8d9a6ef934"><code class="codehilite"><span class="n">estimateDepth</span></code></a></td>
 <td>If flag is set to true, estimate depth according to pressure measurement.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_subsea_pressure_r_o_s_plugin_1a523d3a012251a4c06dd3496535f1ddc5"><code class="codehilite">standardPressure</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_subsea_pressure_r_o_s_plugin_1a523d3a012251a4c06dd3496535f1ddc5"><code class="codehilite"><span class="n">standardPressure</span></code></a></td>
 <td>Standard pressure.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_subsea_pressure_r_o_s_plugin_1a955abbff8454905f89687886ba27cae4"><code class="codehilite">kPaPerM</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_subsea_pressure_r_o_s_plugin_1a955abbff8454905f89687886ba27cae4"><code class="codehilite"><span class="n">kPaPerM</span></code></a></td>
 <td>Factor of kPa per meter.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected virtual bool</code><a href="#classgazebo_1_1_subsea_pressure_r_o_s_plugin_1a17a9977c098924d6f7511ff6dd2d3cc4"><code class="codehilite">OnUpdate</code></a><code class="codehilite">(const common::UpdateInfo &amp; _info)</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_subsea_pressure_r_o_s_plugin_1a17a9977c098924d6f7511ff6dd2d3cc4"><code class="codehilite"><span class="n">OnUpdate</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">common</span><span class="p">::</span><span class="n">UpdateInfo</span> <span class="o">&amp;</span> <span class="n">_info</span><span class="p">)</span></code></td>
 <td>Update sensor measurement.</td>
 </tr>
 </tbody>
 </table>
 <h5 id="members">Members<a class="headerlink" href="#members" title="Permanent link">&para;</a></h5>
-<h6 id="publicsubseapressurerosplugin"><code class="codehilite">public</code><a href="#classgazebo_1_1_subsea_pressure_r_o_s_plugin_1a47f980a1ea644753d5142dc1e57e781e"><code class="codehilite">SubseaPressureROSPlugin</code></a><code class="codehilite">()</code><a class="headerlink" href="#publicsubseapressurerosplugin" title="Permanent link">&para;</a></h6>
+<h6 id="publicsubseapressurerosplugin"><code class="codehilite"><span class="k">public</span></code><a href="#classgazebo_1_1_subsea_pressure_r_o_s_plugin_1a47f980a1ea644753d5142dc1e57e781e"><code class="codehilite"><span class="n">SubseaPressureROSPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#publicsubseapressurerosplugin" title="Permanent link">&para;</a></h6>
 <p>Class constructor.</p>
-<h6 id="publicsubseapressurerosplugin_1"><code class="codehilite">public</code><a href="#classgazebo_1_1_subsea_pressure_r_o_s_plugin_1ad0f101bb1409a2b8954036eb9e25b734"><code class="codehilite">~SubseaPressureROSPlugin</code></a><code class="codehilite">()</code><a class="headerlink" href="#publicsubseapressurerosplugin_1" title="Permanent link">&para;</a></h6>
+<h6 id="publicsubseapressurerosplugin_1"><code class="codehilite"><span class="k">public</span></code><a href="#classgazebo_1_1_subsea_pressure_r_o_s_plugin_1ad0f101bb1409a2b8954036eb9e25b734"><code class="codehilite"><span class="o">~</span><span class="n">SubseaPressureROSPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#publicsubseapressurerosplugin_1" title="Permanent link">&para;</a></h6>
 <p>Class destructor.</p>
-<h6 id="public-virtual-voidloadphysicsmodelptr-_modelsdfelementptr-_sdf"><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_subsea_pressure_r_o_s_plugin_1a217c4fafaaba64b533dacbe906a01cf1"><code class="codehilite">Load</code></a><code class="codehilite">(physics::ModelPtr _model,sdf::ElementPtr _sdf)</code><a class="headerlink" href="#public-virtual-voidloadphysicsmodelptr-_modelsdfelementptr-_sdf" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtual-voidloadphysicsmodelptr-_modelsdfelementptr-_sdf"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_subsea_pressure_r_o_s_plugin_1a217c4fafaaba64b533dacbe906a01cf1"><code class="codehilite"><span class="k">Load</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">physics</span><span class="p">::</span><span class="n">ModelPtr</span> <span class="n">_model</span><span class="p">,</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">)</span></code><a class="headerlink" href="#public-virtual-voidloadphysicsmodelptr-_modelsdfelementptr-_sdf" title="Permanent link">&para;</a></h6>
 <p>Load the plugin.</p>
-<h6 id="protected-doublesaturation"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_subsea_pressure_r_o_s_plugin_1aacf4f877eb2e21f3e6e1362985c77198"><code class="codehilite">saturation</code></a><a class="headerlink" href="#protected-doublesaturation" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doublesaturation"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_subsea_pressure_r_o_s_plugin_1aacf4f877eb2e21f3e6e1362985c77198"><code class="codehilite"><span class="n">saturation</span></code></a><a class="headerlink" href="#protected-doublesaturation" title="Permanent link">&para;</a></h6>
 <p>Sensor saturation (max. value for output pressure in Pa)</p>
-<h6 id="protected-boolestimatedepth"><code class="codehilite">protected bool</code><a href="#classgazebo_1_1_subsea_pressure_r_o_s_plugin_1a2b8e32c2bda5fb24d426be8d9a6ef934"><code class="codehilite">estimateDepth</code></a><a class="headerlink" href="#protected-boolestimatedepth" title="Permanent link">&para;</a></h6>
+<h6 id="protected-boolestimatedepth"><code class="codehilite"><span class="n">protected</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_subsea_pressure_r_o_s_plugin_1a2b8e32c2bda5fb24d426be8d9a6ef934"><code class="codehilite"><span class="n">estimateDepth</span></code></a><a class="headerlink" href="#protected-boolestimatedepth" title="Permanent link">&para;</a></h6>
 <p>If flag is set to true, estimate depth according to pressure measurement.</p>
-<h6 id="protected-doublestandardpressure"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_subsea_pressure_r_o_s_plugin_1a523d3a012251a4c06dd3496535f1ddc5"><code class="codehilite">standardPressure</code></a><a class="headerlink" href="#protected-doublestandardpressure" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doublestandardpressure"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_subsea_pressure_r_o_s_plugin_1a523d3a012251a4c06dd3496535f1ddc5"><code class="codehilite"><span class="n">standardPressure</span></code></a><a class="headerlink" href="#protected-doublestandardpressure" title="Permanent link">&para;</a></h6>
 <p>Standard pressure.</p>
-<h6 id="protected-doublekpaperm"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_subsea_pressure_r_o_s_plugin_1a955abbff8454905f89687886ba27cae4"><code class="codehilite">kPaPerM</code></a><a class="headerlink" href="#protected-doublekpaperm" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doublekpaperm"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_subsea_pressure_r_o_s_plugin_1a955abbff8454905f89687886ba27cae4"><code class="codehilite"><span class="n">kPaPerM</span></code></a><a class="headerlink" href="#protected-doublekpaperm" title="Permanent link">&para;</a></h6>
 <p>Factor of kPa per meter.</p>
-<h6 id="protected-virtual-boolonupdateconst-commonupdateinfo-_info"><code class="codehilite">protected virtual bool</code><a href="#classgazebo_1_1_subsea_pressure_r_o_s_plugin_1a17a9977c098924d6f7511ff6dd2d3cc4"><code class="codehilite">OnUpdate</code></a><code class="codehilite">(const common::UpdateInfo &amp; _info)</code><a class="headerlink" href="#protected-virtual-boolonupdateconst-commonupdateinfo-_info" title="Permanent link">&para;</a></h6>
+<h6 id="protected-virtual-boolonupdateconst-commonupdateinfo-_info"><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_subsea_pressure_r_o_s_plugin_1a17a9977c098924d6f7511ff6dd2d3cc4"><code class="codehilite"><span class="n">OnUpdate</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">common</span><span class="p">::</span><span class="n">UpdateInfo</span> <span class="o">&amp;</span> <span class="n">_info</span><span class="p">)</span></code><a class="headerlink" href="#protected-virtual-boolonupdateconst-commonupdateinfo-_info" title="Permanent link">&para;</a></h6>
 <p>Update sensor measurement.</p>
                 
                   

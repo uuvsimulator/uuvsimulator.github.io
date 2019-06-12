@@ -456,6 +456,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -2968,9 +2980,9 @@
                 
                   <h1>IMUROSPlugin</h1>
                 
-                <h4 id="class-gazeboimurosplugin">class <code class="codehilite">gazebo::IMUROSPlugin</code><a class="headerlink" href="#class-gazeboimurosplugin" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><span class="kr">class</span> <span class="nx">gazebo</span><span class="o">::</span><span class="nx">IMUROSPlugin</span>
-  : <span class="kt">public</span> <span class="nx">gazebo</span><span class="o">::</span><span class="nx">ROSBaseModelPlugin</span>
+                <h4 id="class-gazeboimurosplugin">class <code class="codehilite"><span class="n">gazebo</span><span class="p">::</span><span class="n">IMUROSPlugin</span></code><a class="headerlink" href="#class-gazeboimurosplugin" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="n">gazebo::IMUROSPlugin</span>
+  : <span class="n">public</span> <span class="n">gazebo::ROSBaseModelPlugin</span>
 </pre></div>
 
 <h5 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h5>
@@ -2983,97 +2995,97 @@
 </thead>
 <tbody>
 <tr>
-<td><code class="codehilite">public</code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1a5c7035a09686f2688c235b17a3d8a7db"><code class="codehilite">IMUROSPlugin</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span></code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1a5c7035a09686f2688c235b17a3d8a7db"><code class="codehilite"><span class="n">IMUROSPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Class constructor.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual</code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1ab19c7cfef17c9a660f495841e494edd6"><code class="codehilite">~IMUROSPlugin</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span></code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1ab19c7cfef17c9a660f495841e494edd6"><code class="codehilite"><span class="o">~</span><span class="n">IMUROSPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Class destructor.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1a91f9dd3cb212d8b2207e4b51bd06bc79"><code class="codehilite">Load</code></a><code class="codehilite">(physics::ModelPtr _model,sdf::ElementPtr _sdf)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1a91f9dd3cb212d8b2207e4b51bd06bc79"><code class="codehilite"><span class="k">Load</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">physics</span><span class="p">::</span><span class="n">ModelPtr</span> <span class="n">_model</span><span class="p">,</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">)</span></code></td>
 <td>Load the plugin.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1ae376a7d63023a8fe4246251a59fe3636"><code class="codehilite">measLinearAcc</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1ae376a7d63023a8fe4246251a59fe3636"><code class="codehilite"><span class="n">measLinearAcc</span></code></a></td>
 <td>Last measurement of linear acceleration..</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1aa8b6ebdfdd7c36570214121a479185ae"><code class="codehilite">measAngularVel</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1aa8b6ebdfdd7c36570214121a479185ae"><code class="codehilite"><span class="n">measAngularVel</span></code></a></td>
 <td>Last measurement of angular velocity.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ignition::math::Quaterniond</code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1a237f775ebb67751d4c0a3dd5b806b1b5"><code class="codehilite">measOrientation</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Quaterniond</span></code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1a237f775ebb67751d4c0a3dd5b806b1b5"><code class="codehilite"><span class="n">measOrientation</span></code></a></td>
 <td>(Simulation) time when the last sensor measurement was generated.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1ac5c80e66a5029f008a776dd3ca5c7585"><code class="codehilite">gravityWorld</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1ac5c80e66a5029f008a776dd3ca5c7585"><code class="codehilite"><span class="n">gravityWorld</span></code></a></td>
 <td>Gravity vector wrt. reference frame.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1a78de6a1ae264ea41a4297b6789120cc9"><code class="codehilite">gyroscopeBias</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1a78de6a1ae264ea41a4297b6789120cc9"><code class="codehilite"><span class="n">gyroscopeBias</span></code></a></td>
 <td>Current (drifting) gyroscope bias.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1aedcd0a802dc7598c88347bdad2e952e4"><code class="codehilite">accelerometerBias</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1aedcd0a802dc7598c88347bdad2e952e4"><code class="codehilite"><span class="n">accelerometerBias</span></code></a></td>
 <td>Current (drifting) accelerometer bias.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1a5f49ef5082c887fe00818b1153ad8d43"><code class="codehilite">gyroscopeTurnOnBias</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1a5f49ef5082c887fe00818b1153ad8d43"><code class="codehilite"><span class="n">gyroscopeTurnOnBias</span></code></a></td>
 <td>Constant turn-on gyroscope bias.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1a21b7f5a23e79eeb076bc89182890e5a3"><code class="codehilite">accelerometerTurnOnBias</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1a21b7f5a23e79eeb076bc89182890e5a3"><code class="codehilite"><span class="n">accelerometerTurnOnBias</span></code></a></td>
 <td>Constant turn-on accelerometer bias.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected</code><a href="docs/packages/uuv_simulator/docs/api/gazebo::IMUParameters.md#structgazebo_1_1_i_m_u_parameters"><code class="codehilite">IMUParameters</code></a><code class="codehilite"></code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1a9c4660a48d5365bd6c1465e8e2e33f57"><code class="codehilite">imuParameters</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span></code><a href="docs/packages/uuv_simulator/docs/api/gazebo::IMUParameters.md#structgazebo_1_1_i_m_u_parameters"><code class="codehilite"><span class="n">IMUParameters</span></code></a><code class="codehilite"></code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1a9c4660a48d5365bd6c1465e8e2e33f57"><code class="codehilite"><span class="n">imuParameters</span></code></a></td>
 <td>IMU model parameters.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected sensor_msgs::Imu</code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1a9270c9a643245555dffac3768f380fc4"><code class="codehilite">imuROSMessage</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">sensor_msgs</span><span class="p">::</span><span class="n">Imu</span></code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1a9270c9a643245555dffac3768f380fc4"><code class="codehilite"><span class="n">imuROSMessage</span></code></a></td>
 <td>ROS IMU message.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected virtual bool</code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1aa15397b1f75e506ddb42841966306392"><code class="codehilite">OnUpdate</code></a><code class="codehilite">(const common::UpdateInfo &amp; _info)</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1aa15397b1f75e506ddb42841966306392"><code class="codehilite"><span class="n">OnUpdate</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">common</span><span class="p">::</span><span class="n">UpdateInfo</span> <span class="o">&amp;</span> <span class="n">_info</span><span class="p">)</span></code></td>
 <td>Update sensor measurement.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected void</code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1af354ab1547a4509481807e08c959655f"><code class="codehilite">AddNoise</code></a><code class="codehilite">(ignition::math::Vector3d &amp; _linAcc,ignition::math::Vector3d &amp; _angVel,ignition::math::Quaterniond &amp; _orientation,double _dt)</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">void</span></code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1af354ab1547a4509481807e08c959655f"><code class="codehilite"><span class="n">AddNoise</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span> <span class="o">&amp;</span> <span class="n">_linAcc</span><span class="p">,</span><span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span> <span class="o">&amp;</span> <span class="n">_angVel</span><span class="p">,</span><span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Quaterniond</span> <span class="o">&amp;</span> <span class="n">_orientation</span><span class="p">,</span><span class="n">double</span> <span class="n">_dt</span><span class="p">)</span></code></td>
 <td>Apply and add nosie model to ideal measurements.</td>
 </tr>
 </tbody>
 </table>
 <h5 id="members">Members<a class="headerlink" href="#members" title="Permanent link">&para;</a></h5>
-<h6 id="publicimurosplugin"><code class="codehilite">public</code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1a5c7035a09686f2688c235b17a3d8a7db"><code class="codehilite">IMUROSPlugin</code></a><code class="codehilite">()</code><a class="headerlink" href="#publicimurosplugin" title="Permanent link">&para;</a></h6>
+<h6 id="publicimurosplugin"><code class="codehilite"><span class="k">public</span></code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1a5c7035a09686f2688c235b17a3d8a7db"><code class="codehilite"><span class="n">IMUROSPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#publicimurosplugin" title="Permanent link">&para;</a></h6>
 <p>Class constructor.</p>
-<h6 id="public-virtualimurosplugin"><code class="codehilite">public virtual</code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1ab19c7cfef17c9a660f495841e494edd6"><code class="codehilite">~IMUROSPlugin</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-virtualimurosplugin" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtualimurosplugin"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span></code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1ab19c7cfef17c9a660f495841e494edd6"><code class="codehilite"><span class="o">~</span><span class="n">IMUROSPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-virtualimurosplugin" title="Permanent link">&para;</a></h6>
 <p>Class destructor.</p>
-<h6 id="public-virtual-voidloadphysicsmodelptr-_modelsdfelementptr-_sdf"><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1a91f9dd3cb212d8b2207e4b51bd06bc79"><code class="codehilite">Load</code></a><code class="codehilite">(physics::ModelPtr _model,sdf::ElementPtr _sdf)</code><a class="headerlink" href="#public-virtual-voidloadphysicsmodelptr-_modelsdfelementptr-_sdf" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtual-voidloadphysicsmodelptr-_modelsdfelementptr-_sdf"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1a91f9dd3cb212d8b2207e4b51bd06bc79"><code class="codehilite"><span class="k">Load</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">physics</span><span class="p">::</span><span class="n">ModelPtr</span> <span class="n">_model</span><span class="p">,</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">)</span></code><a class="headerlink" href="#public-virtual-voidloadphysicsmodelptr-_modelsdfelementptr-_sdf" title="Permanent link">&para;</a></h6>
 <p>Load the plugin.</p>
-<h6 id="protected-ignitionmathvector3dmeaslinearacc"><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1ae376a7d63023a8fe4246251a59fe3636"><code class="codehilite">measLinearAcc</code></a><a class="headerlink" href="#protected-ignitionmathvector3dmeaslinearacc" title="Permanent link">&para;</a></h6>
+<h6 id="protected-ignitionmathvector3dmeaslinearacc"><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1ae376a7d63023a8fe4246251a59fe3636"><code class="codehilite"><span class="n">measLinearAcc</span></code></a><a class="headerlink" href="#protected-ignitionmathvector3dmeaslinearacc" title="Permanent link">&para;</a></h6>
 <p>Last measurement of linear acceleration..</p>
-<h6 id="protected-ignitionmathvector3dmeasangularvel"><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1aa8b6ebdfdd7c36570214121a479185ae"><code class="codehilite">measAngularVel</code></a><a class="headerlink" href="#protected-ignitionmathvector3dmeasangularvel" title="Permanent link">&para;</a></h6>
+<h6 id="protected-ignitionmathvector3dmeasangularvel"><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1aa8b6ebdfdd7c36570214121a479185ae"><code class="codehilite"><span class="n">measAngularVel</span></code></a><a class="headerlink" href="#protected-ignitionmathvector3dmeasangularvel" title="Permanent link">&para;</a></h6>
 <p>Last measurement of angular velocity.</p>
-<h6 id="protected-ignitionmathquaterniondmeasorientation"><code class="codehilite">protected ignition::math::Quaterniond</code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1a237f775ebb67751d4c0a3dd5b806b1b5"><code class="codehilite">measOrientation</code></a><a class="headerlink" href="#protected-ignitionmathquaterniondmeasorientation" title="Permanent link">&para;</a></h6>
+<h6 id="protected-ignitionmathquaterniondmeasorientation"><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Quaterniond</span></code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1a237f775ebb67751d4c0a3dd5b806b1b5"><code class="codehilite"><span class="n">measOrientation</span></code></a><a class="headerlink" href="#protected-ignitionmathquaterniondmeasorientation" title="Permanent link">&para;</a></h6>
 <p>(Simulation) time when the last sensor measurement was generated.</p>
-<h6 id="protected-ignitionmathvector3dgravityworld"><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1ac5c80e66a5029f008a776dd3ca5c7585"><code class="codehilite">gravityWorld</code></a><a class="headerlink" href="#protected-ignitionmathvector3dgravityworld" title="Permanent link">&para;</a></h6>
+<h6 id="protected-ignitionmathvector3dgravityworld"><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1ac5c80e66a5029f008a776dd3ca5c7585"><code class="codehilite"><span class="n">gravityWorld</span></code></a><a class="headerlink" href="#protected-ignitionmathvector3dgravityworld" title="Permanent link">&para;</a></h6>
 <p>Gravity vector wrt. reference frame.</p>
-<h6 id="protected-ignitionmathvector3dgyroscopebias"><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1a78de6a1ae264ea41a4297b6789120cc9"><code class="codehilite">gyroscopeBias</code></a><a class="headerlink" href="#protected-ignitionmathvector3dgyroscopebias" title="Permanent link">&para;</a></h6>
+<h6 id="protected-ignitionmathvector3dgyroscopebias"><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1a78de6a1ae264ea41a4297b6789120cc9"><code class="codehilite"><span class="n">gyroscopeBias</span></code></a><a class="headerlink" href="#protected-ignitionmathvector3dgyroscopebias" title="Permanent link">&para;</a></h6>
 <p>Current (drifting) gyroscope bias.</p>
-<h6 id="protected-ignitionmathvector3daccelerometerbias"><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1aedcd0a802dc7598c88347bdad2e952e4"><code class="codehilite">accelerometerBias</code></a><a class="headerlink" href="#protected-ignitionmathvector3daccelerometerbias" title="Permanent link">&para;</a></h6>
+<h6 id="protected-ignitionmathvector3daccelerometerbias"><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1aedcd0a802dc7598c88347bdad2e952e4"><code class="codehilite"><span class="n">accelerometerBias</span></code></a><a class="headerlink" href="#protected-ignitionmathvector3daccelerometerbias" title="Permanent link">&para;</a></h6>
 <p>Current (drifting) accelerometer bias.</p>
-<h6 id="protected-ignitionmathvector3dgyroscopeturnonbias"><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1a5f49ef5082c887fe00818b1153ad8d43"><code class="codehilite">gyroscopeTurnOnBias</code></a><a class="headerlink" href="#protected-ignitionmathvector3dgyroscopeturnonbias" title="Permanent link">&para;</a></h6>
+<h6 id="protected-ignitionmathvector3dgyroscopeturnonbias"><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1a5f49ef5082c887fe00818b1153ad8d43"><code class="codehilite"><span class="n">gyroscopeTurnOnBias</span></code></a><a class="headerlink" href="#protected-ignitionmathvector3dgyroscopeturnonbias" title="Permanent link">&para;</a></h6>
 <p>Constant turn-on gyroscope bias.</p>
-<h6 id="protected-ignitionmathvector3daccelerometerturnonbias"><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1a21b7f5a23e79eeb076bc89182890e5a3"><code class="codehilite">accelerometerTurnOnBias</code></a><a class="headerlink" href="#protected-ignitionmathvector3daccelerometerturnonbias" title="Permanent link">&para;</a></h6>
+<h6 id="protected-ignitionmathvector3daccelerometerturnonbias"><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1a21b7f5a23e79eeb076bc89182890e5a3"><code class="codehilite"><span class="n">accelerometerTurnOnBias</span></code></a><a class="headerlink" href="#protected-ignitionmathvector3daccelerometerturnonbias" title="Permanent link">&para;</a></h6>
 <p>Constant turn-on accelerometer bias.</p>
-<h6 id="protectedimuparametersimuparameters"><code class="codehilite">protected</code><a href="docs/packages/uuv_simulator/docs/api/gazebo::IMUParameters.md#structgazebo_1_1_i_m_u_parameters"><code class="codehilite">IMUParameters</code></a><code class="codehilite"></code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1a9c4660a48d5365bd6c1465e8e2e33f57"><code class="codehilite">imuParameters</code></a><a class="headerlink" href="#protectedimuparametersimuparameters" title="Permanent link">&para;</a></h6>
+<h6 id="protectedimuparametersimuparameters"><code class="codehilite"><span class="n">protected</span></code><a href="docs/packages/uuv_simulator/docs/api/gazebo::IMUParameters.md#structgazebo_1_1_i_m_u_parameters"><code class="codehilite"><span class="n">IMUParameters</span></code></a><code class="codehilite"></code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1a9c4660a48d5365bd6c1465e8e2e33f57"><code class="codehilite"><span class="n">imuParameters</span></code></a><a class="headerlink" href="#protectedimuparametersimuparameters" title="Permanent link">&para;</a></h6>
 <p>IMU model parameters.</p>
-<h6 id="protected-sensor_msgsimuimurosmessage"><code class="codehilite">protected sensor_msgs::Imu</code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1a9270c9a643245555dffac3768f380fc4"><code class="codehilite">imuROSMessage</code></a><a class="headerlink" href="#protected-sensor_msgsimuimurosmessage" title="Permanent link">&para;</a></h6>
+<h6 id="protected-sensor_msgsimuimurosmessage"><code class="codehilite"><span class="n">protected</span> <span class="n">sensor_msgs</span><span class="p">::</span><span class="n">Imu</span></code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1a9270c9a643245555dffac3768f380fc4"><code class="codehilite"><span class="n">imuROSMessage</span></code></a><a class="headerlink" href="#protected-sensor_msgsimuimurosmessage" title="Permanent link">&para;</a></h6>
 <p>ROS IMU message.</p>
-<h6 id="protected-virtual-boolonupdateconst-commonupdateinfo-_info"><code class="codehilite">protected virtual bool</code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1aa15397b1f75e506ddb42841966306392"><code class="codehilite">OnUpdate</code></a><code class="codehilite">(const common::UpdateInfo &amp; _info)</code><a class="headerlink" href="#protected-virtual-boolonupdateconst-commonupdateinfo-_info" title="Permanent link">&para;</a></h6>
+<h6 id="protected-virtual-boolonupdateconst-commonupdateinfo-_info"><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1aa15397b1f75e506ddb42841966306392"><code class="codehilite"><span class="n">OnUpdate</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">common</span><span class="p">::</span><span class="n">UpdateInfo</span> <span class="o">&amp;</span> <span class="n">_info</span><span class="p">)</span></code><a class="headerlink" href="#protected-virtual-boolonupdateconst-commonupdateinfo-_info" title="Permanent link">&para;</a></h6>
 <p>Update sensor measurement.</p>
-<h6 id="protected-voidaddnoiseignitionmathvector3d-_linaccignitionmathvector3d-_angvelignitionmathquaterniond-_orientationdouble-_dt"><code class="codehilite">protected void</code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1af354ab1547a4509481807e08c959655f"><code class="codehilite">AddNoise</code></a><code class="codehilite">(ignition::math::Vector3d &amp; _linAcc,ignition::math::Vector3d &amp; _angVel,ignition::math::Quaterniond &amp; _orientation,double _dt)</code><a class="headerlink" href="#protected-voidaddnoiseignitionmathvector3d-_linaccignitionmathvector3d-_angvelignitionmathquaterniond-_orientationdouble-_dt" title="Permanent link">&para;</a></h6>
+<h6 id="protected-voidaddnoiseignitionmathvector3d-_linaccignitionmathvector3d-_angvelignitionmathquaterniond-_orientationdouble-_dt"><code class="codehilite"><span class="n">protected</span> <span class="n">void</span></code><a href="#classgazebo_1_1_i_m_u_r_o_s_plugin_1af354ab1547a4509481807e08c959655f"><code class="codehilite"><span class="n">AddNoise</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span> <span class="o">&amp;</span> <span class="n">_linAcc</span><span class="p">,</span><span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span> <span class="o">&amp;</span> <span class="n">_angVel</span><span class="p">,</span><span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Quaterniond</span> <span class="o">&amp;</span> <span class="n">_orientation</span><span class="p">,</span><span class="n">double</span> <span class="n">_dt</span><span class="p">)</span></code><a class="headerlink" href="#protected-voidaddnoiseignitionmathvector3d-_linaccignitionmathvector3d-_angvelignitionmathquaterniond-_orientationdouble-_dt" title="Permanent link">&para;</a></h6>
 <p>Apply and add nosie model to ideal measurements.</p>
                 
                   

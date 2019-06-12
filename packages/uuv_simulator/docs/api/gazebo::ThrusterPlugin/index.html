@@ -456,6 +456,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -3176,9 +3188,9 @@
                 
                   <h1>ThrusterPlugin</h1>
                 
-                <h4 id="class-gazebothrusterplugin">class <code class="codehilite">gazebo::ThrusterPlugin</code><a class="headerlink" href="#class-gazebothrusterplugin" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><span class="kr">class</span> <span class="nx">gazebo</span><span class="o">::</span><span class="nx">ThrusterPlugin</span>
-  : <span class="kt">public</span> <span class="nx">ModelPlugin</span>
+                <h4 id="class-gazebothrusterplugin">class <code class="codehilite"><span class="n">gazebo</span><span class="p">::</span><span class="n">ThrusterPlugin</span></code><a class="headerlink" href="#class-gazebothrusterplugin" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="n">gazebo::ThrusterPlugin</span>
+  : <span class="n">public</span> <span class="n">ModelPlugin</span>
 </pre></div>
 
 <p>Class for the thruster plugin.</p>
@@ -3192,193 +3204,193 @@
 </thead>
 <tbody>
 <tr>
-<td><code class="codehilite">public</code><a href="#classgazebo_1_1_thruster_plugin_1a6b5841ff33686cc450313e03cf294d9c"><code class="codehilite">ThrusterPlugin</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span></code><a href="#classgazebo_1_1_thruster_plugin_1a6b5841ff33686cc450313e03cf294d9c"><code class="codehilite"><span class="n">ThrusterPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Constructor.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual</code><a href="#classgazebo_1_1_thruster_plugin_1a06d1a5a37d484a2ce88329fd2fed8f59"><code class="codehilite">~ThrusterPlugin</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span></code><a href="#classgazebo_1_1_thruster_plugin_1a06d1a5a37d484a2ce88329fd2fed8f59"><code class="codehilite"><span class="o">~</span><span class="n">ThrusterPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Destructor.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_thruster_plugin_1a1b4f788380387681886f65531ceb0f25"><code class="codehilite">Load</code></a><code class="codehilite">(physics::ModelPtr _model,sdf::ElementPtr _sdf)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_thruster_plugin_1a1b4f788380387681886f65531ceb0f25"><code class="codehilite"><span class="k">Load</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">physics</span><span class="p">::</span><span class="n">ModelPtr</span> <span class="n">_model</span><span class="p">,</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">)</span></code></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_thruster_plugin_1a976abc5ac54372004630800a7d83aa8e"><code class="codehilite">Init</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_thruster_plugin_1a976abc5ac54372004630800a7d83aa8e"><code class="codehilite"><span class="n">Init</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_thruster_plugin_1a3a445ef9af6ff415eb3d2e319c232841"><code class="codehilite">Reset</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_thruster_plugin_1a3a445ef9af6ff415eb3d2e319c232841"><code class="codehilite"><span class="k">Reset</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Custom plugin reset behavior.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public void</code><a href="#classgazebo_1_1_thruster_plugin_1a4cd1505e012721530e09cc346500ff12"><code class="codehilite">Update</code></a><code class="codehilite">(const common::UpdateInfo &amp; _info)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">void</span></code><a href="#classgazebo_1_1_thruster_plugin_1a4cd1505e012721530e09cc346500ff12"><code class="codehilite"><span class="k">Update</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">common</span><span class="p">::</span><span class="n">UpdateInfo</span> <span class="o">&amp;</span> <span class="n">_info</span><span class="p">)</span></code></td>
 <td>Update the simulation state.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected std::shared_ptr&lt;</code><a href="docs/packages/uuv_simulator/docs/api/gazebo::Dynamics.md#classgazebo_1_1_dynamics"><code class="codehilite">Dynamics</code></a><code class="codehilite">&gt;</code><a href="#classgazebo_1_1_thruster_plugin_1a2a5bdae0148178c1688362257e59dbfa"><code class="codehilite">thrusterDynamics</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span></code><a href="docs/packages/uuv_simulator/docs/api/gazebo::Dynamics.md#classgazebo_1_1_dynamics"><code class="codehilite"><span class="n">Dynamics</span></code></a><code class="codehilite"><span class="o">&gt;</span></code><a href="#classgazebo_1_1_thruster_plugin_1a2a5bdae0148178c1688362257e59dbfa"><code class="codehilite"><span class="n">thrusterDynamics</span></code></a></td>
 <td>Thruster dynamic model.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected std::shared_ptr&lt;</code><a href="docs/packages/uuv_simulator/docs/api/gazebo::ConversionFunction.md#classgazebo_1_1_conversion_function"><code class="codehilite">ConversionFunction</code></a><code class="codehilite">&gt;</code><a href="#classgazebo_1_1_thruster_plugin_1aab369c9f214021b0e3372dd61907c257"><code class="codehilite">conversionFunction</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span></code><a href="docs/packages/uuv_simulator/docs/api/gazebo::ConversionFunction.md#classgazebo_1_1_conversion_function"><code class="codehilite"><span class="n">ConversionFunction</span></code></a><code class="codehilite"><span class="o">&gt;</span></code><a href="#classgazebo_1_1_thruster_plugin_1aab369c9f214021b0e3372dd61907c257"><code class="codehilite"><span class="n">conversionFunction</span></code></a></td>
 <td>Thruster conversion function.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected event::ConnectionPtr</code><a href="#classgazebo_1_1_thruster_plugin_1a23c4d67fd108db7dabc2727244934a30"><code class="codehilite">updateConnection</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">event</span><span class="p">::</span><span class="n">ConnectionPtr</span></code><a href="#classgazebo_1_1_thruster_plugin_1a23c4d67fd108db7dabc2727244934a30"><code class="codehilite"><span class="n">updateConnection</span></code></a></td>
 <td>Update event.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected physics::LinkPtr</code><a href="#classgazebo_1_1_thruster_plugin_1a141de7a7aedb56861b9046ee7897399f"><code class="codehilite">thrusterLink</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">physics</span><span class="p">::</span><span class="n">LinkPtr</span></code><a href="#classgazebo_1_1_thruster_plugin_1a141de7a7aedb56861b9046ee7897399f"><code class="codehilite"><span class="n">thrusterLink</span></code></a></td>
 <td>Pointer to the thruster link.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected transport::NodePtr</code><a href="#classgazebo_1_1_thruster_plugin_1afedb1c79f0a9c060cd4bc6c1ef541b68"><code class="codehilite">node</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">transport</span><span class="p">::</span><span class="n">NodePtr</span></code><a href="#classgazebo_1_1_thruster_plugin_1afedb1c79f0a9c060cd4bc6c1ef541b68"><code class="codehilite"><span class="n">node</span></code></a></td>
 <td>Gazebo node.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected transport::SubscriberPtr</code><a href="#classgazebo_1_1_thruster_plugin_1ae4054a7444082b7f0195b3cf72bfad6f"><code class="codehilite">commandSubscriber</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">transport</span><span class="p">::</span><span class="n">SubscriberPtr</span></code><a href="#classgazebo_1_1_thruster_plugin_1ae4054a7444082b7f0195b3cf72bfad6f"><code class="codehilite"><span class="n">commandSubscriber</span></code></a></td>
 <td>Subscriber to the reference signal topic.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected transport::PublisherPtr</code><a href="#classgazebo_1_1_thruster_plugin_1a8ad82769e76b0844a87763446f03a267"><code class="codehilite">thrustTopicPublisher</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">transport</span><span class="p">::</span><span class="n">PublisherPtr</span></code><a href="#classgazebo_1_1_thruster_plugin_1a8ad82769e76b0844a87763446f03a267"><code class="codehilite"><span class="n">thrustTopicPublisher</span></code></a></td>
 <td>Publisher to the output thrust topic.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_thruster_plugin_1a617d0e909a0d82397d95954c8c103035"><code class="codehilite">inputCommand</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_thruster_plugin_1a617d0e909a0d82397d95954c8c103035"><code class="codehilite"><span class="n">inputCommand</span></code></a></td>
 <td>Input command, typically desired angular velocity of the rotor.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_thruster_plugin_1a3dd6123930d825ae14ca56b253b9c8a2"><code class="codehilite">thrustForce</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_thruster_plugin_1a3dd6123930d825ae14ca56b253b9c8a2"><code class="codehilite"><span class="n">thrustForce</span></code></a></td>
 <td>Latest thrust force in [N].</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected common::Time</code><a href="#classgazebo_1_1_thruster_plugin_1afc2f42b3a4d4dfe1d59bdb06a15bf8e7"><code class="codehilite">thrustForceStamp</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">common</span><span class="p">::</span><span class="n">Time</span></code><a href="#classgazebo_1_1_thruster_plugin_1afc2f42b3a4d4dfe1d59bdb06a15bf8e7"><code class="codehilite"><span class="n">thrustForceStamp</span></code></a></td>
 <td>Time stamp of latest thrust force.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected physics::JointPtr</code><a href="#classgazebo_1_1_thruster_plugin_1a5df1a3ae7ee6363498bf3221d7c70f93"><code class="codehilite">joint</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">physics</span><span class="p">::</span><span class="n">JointPtr</span></code><a href="#classgazebo_1_1_thruster_plugin_1a5df1a3ae7ee6363498bf3221d7c70f93"><code class="codehilite"><span class="n">joint</span></code></a></td>
 <td>Optional: The rotor joint, used for visualization.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_thruster_plugin_1ab2e98f8b4a89488d0455d7d57b84ec52"><code class="codehilite">clampMin</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_thruster_plugin_1ab2e98f8b4a89488d0455d7d57b84ec52"><code class="codehilite"><span class="n">clampMin</span></code></a></td>
 <td>: Optional: Commands less than this value will be clamped.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_thruster_plugin_1a58ee9e27895d9921cc40cd0c64aa086d"><code class="codehilite">clampMax</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_thruster_plugin_1a58ee9e27895d9921cc40cd0c64aa086d"><code class="codehilite"><span class="n">clampMax</span></code></a></td>
 <td>: Optional: Commands greater than this value will be clamped.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_thruster_plugin_1aad3011318655f542756926e0633de05e"><code class="codehilite">thrustMin</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_thruster_plugin_1aad3011318655f542756926e0633de05e"><code class="codehilite"><span class="n">thrustMin</span></code></a></td>
 <td>: Optional: Minimum thrust force output</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_thruster_plugin_1a7730c8c0b69432591ab15e42f4deef35"><code class="codehilite">thrustMax</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_thruster_plugin_1a7730c8c0b69432591ab15e42f4deef35"><code class="codehilite"><span class="n">thrustMax</span></code></a></td>
 <td>: Optional: Maximum thrust force output</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected int</code><a href="#classgazebo_1_1_thruster_plugin_1a2e6fb5eaaa297788fabb51bd8dc578e3"><code class="codehilite">thrusterID</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="nb">int</span></code><a href="#classgazebo_1_1_thruster_plugin_1a2e6fb5eaaa297788fabb51bd8dc578e3"><code class="codehilite"><span class="n">thrusterID</span></code></a></td>
 <td>Thruster ID, used to generated topic names automatically.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected std::string</code><a href="#classgazebo_1_1_thruster_plugin_1acde9d0318e86dfbc9e6e2af723ea9c3b"><code class="codehilite">topicPrefix</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classgazebo_1_1_thruster_plugin_1acde9d0318e86dfbc9e6e2af723ea9c3b"><code class="codehilite"><span class="n">topicPrefix</span></code></a></td>
 <td>Thruster topics prefix.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_thruster_plugin_1a76067d3ea096103f7d6f3f43106e0e23"><code class="codehilite">gain</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_thruster_plugin_1a76067d3ea096103f7d6f3f43106e0e23"><code class="codehilite"><span class="n">gain</span></code></a></td>
 <td>: Optional: Gain factor: Desired angular velocity = command * gain</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected bool</code><a href="#classgazebo_1_1_thruster_plugin_1a86031b28be7600d3eedaecf3d11a9ea5"><code class="codehilite">isOn</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_thruster_plugin_1a86031b28be7600d3eedaecf3d11a9ea5"><code class="codehilite"><span class="n">isOn</span></code></a></td>
 <td>Optional: Flag to indicate if the thruster is turned on or off.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_thruster_plugin_1a36d3369e6481b21d8450c012b21ea7a7"><code class="codehilite">thrustEfficiency</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_thruster_plugin_1a36d3369e6481b21d8450c012b21ea7a7"><code class="codehilite"><span class="n">thrustEfficiency</span></code></a></td>
 <td>Optional: Output thrust efficiency factor of the thruster.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_thruster_plugin_1a0e8f044924d12715aba76aa95555641d"><code class="codehilite">propellerEfficiency</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_thruster_plugin_1a0e8f044924d12715aba76aa95555641d"><code class="codehilite"><span class="n">propellerEfficiency</span></code></a></td>
 <td>Optional: Propeller angular velocity efficiency term.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_thruster_plugin_1a961eff0b01402bf7a56117a35e064b06"><code class="codehilite">thrusterAxis</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_thruster_plugin_1a961eff0b01402bf7a56117a35e064b06"><code class="codehilite"><span class="n">thrusterAxis</span></code></a></td>
 <td>The axis about which the thruster rotates.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected void</code><a href="#classgazebo_1_1_thruster_plugin_1a8ede5b7013c52fd890a429f55a0d0c74"><code class="codehilite">UpdateInput</code></a><code class="codehilite">(</code><a href="docs/packages/uuv_simulator/docs/api/ConstDoublePtr.md#_fin_plugin_8hh_1adec3148dfa71d908caf33660a62187d4"><code class="codehilite">ConstDoublePtr</code></a><code class="codehilite">&amp; _msg)</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">void</span></code><a href="#classgazebo_1_1_thruster_plugin_1a8ede5b7013c52fd890a429f55a0d0c74"><code class="codehilite"><span class="n">UpdateInput</span></code></a><code class="codehilite"><span class="p">(</span></code><a href="docs/packages/uuv_simulator/docs/api/ConstDoublePtr.md#_fin_plugin_8hh_1adec3148dfa71d908caf33660a62187d4"><code class="codehilite"><span class="n">ConstDoublePtr</span></code></a><code class="codehilite"><span class="o">&amp;</span> <span class="n">_msg</span><span class="p">)</span></code></td>
 <td>Callback for the input topic subscriber.</td>
 </tr>
 </tbody>
 </table>
 <h5 id="members">Members<a class="headerlink" href="#members" title="Permanent link">&para;</a></h5>
-<h6 id="publicthrusterplugin"><code class="codehilite">public</code><a href="#classgazebo_1_1_thruster_plugin_1a6b5841ff33686cc450313e03cf294d9c"><code class="codehilite">ThrusterPlugin</code></a><code class="codehilite">()</code><a class="headerlink" href="#publicthrusterplugin" title="Permanent link">&para;</a></h6>
+<h6 id="publicthrusterplugin"><code class="codehilite"><span class="k">public</span></code><a href="#classgazebo_1_1_thruster_plugin_1a6b5841ff33686cc450313e03cf294d9c"><code class="codehilite"><span class="n">ThrusterPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#publicthrusterplugin" title="Permanent link">&para;</a></h6>
 <p>Constructor.</p>
-<h6 id="public-virtualthrusterplugin"><code class="codehilite">public virtual</code><a href="#classgazebo_1_1_thruster_plugin_1a06d1a5a37d484a2ce88329fd2fed8f59"><code class="codehilite">~ThrusterPlugin</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-virtualthrusterplugin" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtualthrusterplugin"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span></code><a href="#classgazebo_1_1_thruster_plugin_1a06d1a5a37d484a2ce88329fd2fed8f59"><code class="codehilite"><span class="o">~</span><span class="n">ThrusterPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-virtualthrusterplugin" title="Permanent link">&para;</a></h6>
 <p>Destructor.</p>
-<h6 id="public-virtual-voidloadphysicsmodelptr-_modelsdfelementptr-_sdf"><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_thruster_plugin_1a1b4f788380387681886f65531ceb0f25"><code class="codehilite">Load</code></a><code class="codehilite">(physics::ModelPtr _model,sdf::ElementPtr _sdf)</code><a class="headerlink" href="#public-virtual-voidloadphysicsmodelptr-_modelsdfelementptr-_sdf" title="Permanent link">&para;</a></h6>
-<h6 id="public-virtual-voidinit"><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_thruster_plugin_1a976abc5ac54372004630800a7d83aa8e"><code class="codehilite">Init</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-virtual-voidinit" title="Permanent link">&para;</a></h6>
-<h6 id="public-virtual-voidreset"><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_thruster_plugin_1a3a445ef9af6ff415eb3d2e319c232841"><code class="codehilite">Reset</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-virtual-voidreset" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtual-voidloadphysicsmodelptr-_modelsdfelementptr-_sdf"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_thruster_plugin_1a1b4f788380387681886f65531ceb0f25"><code class="codehilite"><span class="k">Load</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">physics</span><span class="p">::</span><span class="n">ModelPtr</span> <span class="n">_model</span><span class="p">,</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">)</span></code><a class="headerlink" href="#public-virtual-voidloadphysicsmodelptr-_modelsdfelementptr-_sdf" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtual-voidinit"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_thruster_plugin_1a976abc5ac54372004630800a7d83aa8e"><code class="codehilite"><span class="n">Init</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-virtual-voidinit" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtual-voidreset"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_thruster_plugin_1a3a445ef9af6ff415eb3d2e319c232841"><code class="codehilite"><span class="k">Reset</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-virtual-voidreset" title="Permanent link">&para;</a></h6>
 <p>Custom plugin reset behavior.</p>
-<h6 id="public-voidupdateconst-commonupdateinfo-_info"><code class="codehilite">public void</code><a href="#classgazebo_1_1_thruster_plugin_1a4cd1505e012721530e09cc346500ff12"><code class="codehilite">Update</code></a><code class="codehilite">(const common::UpdateInfo &amp; _info)</code><a class="headerlink" href="#public-voidupdateconst-commonupdateinfo-_info" title="Permanent link">&para;</a></h6>
+<h6 id="public-voidupdateconst-commonupdateinfo-_info"><code class="codehilite"><span class="k">public</span> <span class="n">void</span></code><a href="#classgazebo_1_1_thruster_plugin_1a4cd1505e012721530e09cc346500ff12"><code class="codehilite"><span class="k">Update</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">common</span><span class="p">::</span><span class="n">UpdateInfo</span> <span class="o">&amp;</span> <span class="n">_info</span><span class="p">)</span></code><a class="headerlink" href="#public-voidupdateconst-commonupdateinfo-_info" title="Permanent link">&para;</a></h6>
 <p>Update the simulation state.</p>
 <h6 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h6>
 <ul>
-<li><code class="codehilite">_info</code> Information used in the update event.</li>
+<li><code class="codehilite"><span class="n">_info</span></code> Information used in the update event.</li>
 </ul>
-<h6 id="protected-stdshared_ptrdynamicsthrusterdynamics"><code class="codehilite">protected std::shared_ptr&lt;</code><a href="docs/packages/uuv_simulator/docs/api/gazebo::Dynamics.md#classgazebo_1_1_dynamics"><code class="codehilite">Dynamics</code></a><code class="codehilite">&gt;</code><a href="#classgazebo_1_1_thruster_plugin_1a2a5bdae0148178c1688362257e59dbfa"><code class="codehilite">thrusterDynamics</code></a><a class="headerlink" href="#protected-stdshared_ptrdynamicsthrusterdynamics" title="Permanent link">&para;</a></h6>
+<h6 id="protected-stdshared_ptrdynamicsthrusterdynamics"><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span></code><a href="docs/packages/uuv_simulator/docs/api/gazebo::Dynamics.md#classgazebo_1_1_dynamics"><code class="codehilite"><span class="n">Dynamics</span></code></a><code class="codehilite"><span class="o">&gt;</span></code><a href="#classgazebo_1_1_thruster_plugin_1a2a5bdae0148178c1688362257e59dbfa"><code class="codehilite"><span class="n">thrusterDynamics</span></code></a><a class="headerlink" href="#protected-stdshared_ptrdynamicsthrusterdynamics" title="Permanent link">&para;</a></h6>
 <p>Thruster dynamic model.</p>
-<h6 id="protected-stdshared_ptrconversionfunctionconversionfunction"><code class="codehilite">protected std::shared_ptr&lt;</code><a href="docs/packages/uuv_simulator/docs/api/gazebo::ConversionFunction.md#classgazebo_1_1_conversion_function"><code class="codehilite">ConversionFunction</code></a><code class="codehilite">&gt;</code><a href="#classgazebo_1_1_thruster_plugin_1aab369c9f214021b0e3372dd61907c257"><code class="codehilite">conversionFunction</code></a><a class="headerlink" href="#protected-stdshared_ptrconversionfunctionconversionfunction" title="Permanent link">&para;</a></h6>
+<h6 id="protected-stdshared_ptrconversionfunctionconversionfunction"><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span></code><a href="docs/packages/uuv_simulator/docs/api/gazebo::ConversionFunction.md#classgazebo_1_1_conversion_function"><code class="codehilite"><span class="n">ConversionFunction</span></code></a><code class="codehilite"><span class="o">&gt;</span></code><a href="#classgazebo_1_1_thruster_plugin_1aab369c9f214021b0e3372dd61907c257"><code class="codehilite"><span class="n">conversionFunction</span></code></a><a class="headerlink" href="#protected-stdshared_ptrconversionfunctionconversionfunction" title="Permanent link">&para;</a></h6>
 <p>Thruster conversion function.</p>
-<h6 id="protected-eventconnectionptrupdateconnection"><code class="codehilite">protected event::ConnectionPtr</code><a href="#classgazebo_1_1_thruster_plugin_1a23c4d67fd108db7dabc2727244934a30"><code class="codehilite">updateConnection</code></a><a class="headerlink" href="#protected-eventconnectionptrupdateconnection" title="Permanent link">&para;</a></h6>
+<h6 id="protected-eventconnectionptrupdateconnection"><code class="codehilite"><span class="n">protected</span> <span class="n">event</span><span class="p">::</span><span class="n">ConnectionPtr</span></code><a href="#classgazebo_1_1_thruster_plugin_1a23c4d67fd108db7dabc2727244934a30"><code class="codehilite"><span class="n">updateConnection</span></code></a><a class="headerlink" href="#protected-eventconnectionptrupdateconnection" title="Permanent link">&para;</a></h6>
 <p>Update event.</p>
-<h6 id="protected-physicslinkptrthrusterlink"><code class="codehilite">protected physics::LinkPtr</code><a href="#classgazebo_1_1_thruster_plugin_1a141de7a7aedb56861b9046ee7897399f"><code class="codehilite">thrusterLink</code></a><a class="headerlink" href="#protected-physicslinkptrthrusterlink" title="Permanent link">&para;</a></h6>
+<h6 id="protected-physicslinkptrthrusterlink"><code class="codehilite"><span class="n">protected</span> <span class="n">physics</span><span class="p">::</span><span class="n">LinkPtr</span></code><a href="#classgazebo_1_1_thruster_plugin_1a141de7a7aedb56861b9046ee7897399f"><code class="codehilite"><span class="n">thrusterLink</span></code></a><a class="headerlink" href="#protected-physicslinkptrthrusterlink" title="Permanent link">&para;</a></h6>
 <p>Pointer to the thruster link.</p>
-<h6 id="protected-transportnodeptrnode"><code class="codehilite">protected transport::NodePtr</code><a href="#classgazebo_1_1_thruster_plugin_1afedb1c79f0a9c060cd4bc6c1ef541b68"><code class="codehilite">node</code></a><a class="headerlink" href="#protected-transportnodeptrnode" title="Permanent link">&para;</a></h6>
+<h6 id="protected-transportnodeptrnode"><code class="codehilite"><span class="n">protected</span> <span class="n">transport</span><span class="p">::</span><span class="n">NodePtr</span></code><a href="#classgazebo_1_1_thruster_plugin_1afedb1c79f0a9c060cd4bc6c1ef541b68"><code class="codehilite"><span class="n">node</span></code></a><a class="headerlink" href="#protected-transportnodeptrnode" title="Permanent link">&para;</a></h6>
 <p>Gazebo node.</p>
-<h6 id="protected-transportsubscriberptrcommandsubscriber"><code class="codehilite">protected transport::SubscriberPtr</code><a href="#classgazebo_1_1_thruster_plugin_1ae4054a7444082b7f0195b3cf72bfad6f"><code class="codehilite">commandSubscriber</code></a><a class="headerlink" href="#protected-transportsubscriberptrcommandsubscriber" title="Permanent link">&para;</a></h6>
+<h6 id="protected-transportsubscriberptrcommandsubscriber"><code class="codehilite"><span class="n">protected</span> <span class="n">transport</span><span class="p">::</span><span class="n">SubscriberPtr</span></code><a href="#classgazebo_1_1_thruster_plugin_1ae4054a7444082b7f0195b3cf72bfad6f"><code class="codehilite"><span class="n">commandSubscriber</span></code></a><a class="headerlink" href="#protected-transportsubscriberptrcommandsubscriber" title="Permanent link">&para;</a></h6>
 <p>Subscriber to the reference signal topic.</p>
-<h6 id="protected-transportpublisherptrthrusttopicpublisher"><code class="codehilite">protected transport::PublisherPtr</code><a href="#classgazebo_1_1_thruster_plugin_1a8ad82769e76b0844a87763446f03a267"><code class="codehilite">thrustTopicPublisher</code></a><a class="headerlink" href="#protected-transportpublisherptrthrusttopicpublisher" title="Permanent link">&para;</a></h6>
+<h6 id="protected-transportpublisherptrthrusttopicpublisher"><code class="codehilite"><span class="n">protected</span> <span class="n">transport</span><span class="p">::</span><span class="n">PublisherPtr</span></code><a href="#classgazebo_1_1_thruster_plugin_1a8ad82769e76b0844a87763446f03a267"><code class="codehilite"><span class="n">thrustTopicPublisher</span></code></a><a class="headerlink" href="#protected-transportpublisherptrthrusttopicpublisher" title="Permanent link">&para;</a></h6>
 <p>Publisher to the output thrust topic.</p>
-<h6 id="protected-doubleinputcommand"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_thruster_plugin_1a617d0e909a0d82397d95954c8c103035"><code class="codehilite">inputCommand</code></a><a class="headerlink" href="#protected-doubleinputcommand" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doubleinputcommand"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_thruster_plugin_1a617d0e909a0d82397d95954c8c103035"><code class="codehilite"><span class="n">inputCommand</span></code></a><a class="headerlink" href="#protected-doubleinputcommand" title="Permanent link">&para;</a></h6>
 <p>Input command, typically desired angular velocity of the rotor.</p>
-<h6 id="protected-doublethrustforce"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_thruster_plugin_1a3dd6123930d825ae14ca56b253b9c8a2"><code class="codehilite">thrustForce</code></a><a class="headerlink" href="#protected-doublethrustforce" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doublethrustforce"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_thruster_plugin_1a3dd6123930d825ae14ca56b253b9c8a2"><code class="codehilite"><span class="n">thrustForce</span></code></a><a class="headerlink" href="#protected-doublethrustforce" title="Permanent link">&para;</a></h6>
 <p>Latest thrust force in [N].</p>
-<h6 id="protected-commontimethrustforcestamp"><code class="codehilite">protected common::Time</code><a href="#classgazebo_1_1_thruster_plugin_1afc2f42b3a4d4dfe1d59bdb06a15bf8e7"><code class="codehilite">thrustForceStamp</code></a><a class="headerlink" href="#protected-commontimethrustforcestamp" title="Permanent link">&para;</a></h6>
+<h6 id="protected-commontimethrustforcestamp"><code class="codehilite"><span class="n">protected</span> <span class="n">common</span><span class="p">::</span><span class="n">Time</span></code><a href="#classgazebo_1_1_thruster_plugin_1afc2f42b3a4d4dfe1d59bdb06a15bf8e7"><code class="codehilite"><span class="n">thrustForceStamp</span></code></a><a class="headerlink" href="#protected-commontimethrustforcestamp" title="Permanent link">&para;</a></h6>
 <p>Time stamp of latest thrust force.</p>
-<h6 id="protected-physicsjointptrjoint"><code class="codehilite">protected physics::JointPtr</code><a href="#classgazebo_1_1_thruster_plugin_1a5df1a3ae7ee6363498bf3221d7c70f93"><code class="codehilite">joint</code></a><a class="headerlink" href="#protected-physicsjointptrjoint" title="Permanent link">&para;</a></h6>
+<h6 id="protected-physicsjointptrjoint"><code class="codehilite"><span class="n">protected</span> <span class="n">physics</span><span class="p">::</span><span class="n">JointPtr</span></code><a href="#classgazebo_1_1_thruster_plugin_1a5df1a3ae7ee6363498bf3221d7c70f93"><code class="codehilite"><span class="n">joint</span></code></a><a class="headerlink" href="#protected-physicsjointptrjoint" title="Permanent link">&para;</a></h6>
 <p>Optional: The rotor joint, used for visualization.</p>
-<h6 id="protected-doubleclampmin"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_thruster_plugin_1ab2e98f8b4a89488d0455d7d57b84ec52"><code class="codehilite">clampMin</code></a><a class="headerlink" href="#protected-doubleclampmin" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doubleclampmin"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_thruster_plugin_1ab2e98f8b4a89488d0455d7d57b84ec52"><code class="codehilite"><span class="n">clampMin</span></code></a><a class="headerlink" href="#protected-doubleclampmin" title="Permanent link">&para;</a></h6>
 <dl>
 <dd>Optional: Commands less than this value will be clamped.</dd>
 </dl>
-<h6 id="protected-doubleclampmax"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_thruster_plugin_1a58ee9e27895d9921cc40cd0c64aa086d"><code class="codehilite">clampMax</code></a><a class="headerlink" href="#protected-doubleclampmax" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doubleclampmax"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_thruster_plugin_1a58ee9e27895d9921cc40cd0c64aa086d"><code class="codehilite"><span class="n">clampMax</span></code></a><a class="headerlink" href="#protected-doubleclampmax" title="Permanent link">&para;</a></h6>
 <dl>
 <dd>Optional: Commands greater than this value will be clamped.</dd>
 </dl>
-<h6 id="protected-doublethrustmin"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_thruster_plugin_1aad3011318655f542756926e0633de05e"><code class="codehilite">thrustMin</code></a><a class="headerlink" href="#protected-doublethrustmin" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doublethrustmin"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_thruster_plugin_1aad3011318655f542756926e0633de05e"><code class="codehilite"><span class="n">thrustMin</span></code></a><a class="headerlink" href="#protected-doublethrustmin" title="Permanent link">&para;</a></h6>
 <dl>
 <dd>Optional: Minimum thrust force output</dd>
 </dl>
-<h6 id="protected-doublethrustmax"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_thruster_plugin_1a7730c8c0b69432591ab15e42f4deef35"><code class="codehilite">thrustMax</code></a><a class="headerlink" href="#protected-doublethrustmax" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doublethrustmax"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_thruster_plugin_1a7730c8c0b69432591ab15e42f4deef35"><code class="codehilite"><span class="n">thrustMax</span></code></a><a class="headerlink" href="#protected-doublethrustmax" title="Permanent link">&para;</a></h6>
 <dl>
 <dd>Optional: Maximum thrust force output</dd>
 </dl>
-<h6 id="protected-intthrusterid"><code class="codehilite">protected int</code><a href="#classgazebo_1_1_thruster_plugin_1a2e6fb5eaaa297788fabb51bd8dc578e3"><code class="codehilite">thrusterID</code></a><a class="headerlink" href="#protected-intthrusterid" title="Permanent link">&para;</a></h6>
+<h6 id="protected-intthrusterid"><code class="codehilite"><span class="n">protected</span> <span class="nb">int</span></code><a href="#classgazebo_1_1_thruster_plugin_1a2e6fb5eaaa297788fabb51bd8dc578e3"><code class="codehilite"><span class="n">thrusterID</span></code></a><a class="headerlink" href="#protected-intthrusterid" title="Permanent link">&para;</a></h6>
 <p>Thruster ID, used to generated topic names automatically.</p>
-<h6 id="protected-stdstringtopicprefix"><code class="codehilite">protected std::string</code><a href="#classgazebo_1_1_thruster_plugin_1acde9d0318e86dfbc9e6e2af723ea9c3b"><code class="codehilite">topicPrefix</code></a><a class="headerlink" href="#protected-stdstringtopicprefix" title="Permanent link">&para;</a></h6>
+<h6 id="protected-stdstringtopicprefix"><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classgazebo_1_1_thruster_plugin_1acde9d0318e86dfbc9e6e2af723ea9c3b"><code class="codehilite"><span class="n">topicPrefix</span></code></a><a class="headerlink" href="#protected-stdstringtopicprefix" title="Permanent link">&para;</a></h6>
 <p>Thruster topics prefix.</p>
-<h6 id="protected-doublegain"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_thruster_plugin_1a76067d3ea096103f7d6f3f43106e0e23"><code class="codehilite">gain</code></a><a class="headerlink" href="#protected-doublegain" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doublegain"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_thruster_plugin_1a76067d3ea096103f7d6f3f43106e0e23"><code class="codehilite"><span class="n">gain</span></code></a><a class="headerlink" href="#protected-doublegain" title="Permanent link">&para;</a></h6>
 <dl>
 <dd>Optional: Gain factor: Desired angular velocity = command * gain</dd>
 </dl>
-<h6 id="protected-boolison"><code class="codehilite">protected bool</code><a href="#classgazebo_1_1_thruster_plugin_1a86031b28be7600d3eedaecf3d11a9ea5"><code class="codehilite">isOn</code></a><a class="headerlink" href="#protected-boolison" title="Permanent link">&para;</a></h6>
+<h6 id="protected-boolison"><code class="codehilite"><span class="n">protected</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_thruster_plugin_1a86031b28be7600d3eedaecf3d11a9ea5"><code class="codehilite"><span class="n">isOn</span></code></a><a class="headerlink" href="#protected-boolison" title="Permanent link">&para;</a></h6>
 <p>Optional: Flag to indicate if the thruster is turned on or off.</p>
-<h6 id="protected-doublethrustefficiency"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_thruster_plugin_1a36d3369e6481b21d8450c012b21ea7a7"><code class="codehilite">thrustEfficiency</code></a><a class="headerlink" href="#protected-doublethrustefficiency" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doublethrustefficiency"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_thruster_plugin_1a36d3369e6481b21d8450c012b21ea7a7"><code class="codehilite"><span class="n">thrustEfficiency</span></code></a><a class="headerlink" href="#protected-doublethrustefficiency" title="Permanent link">&para;</a></h6>
 <p>Optional: Output thrust efficiency factor of the thruster.</p>
-<h6 id="protected-doublepropellerefficiency"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_thruster_plugin_1a0e8f044924d12715aba76aa95555641d"><code class="codehilite">propellerEfficiency</code></a><a class="headerlink" href="#protected-doublepropellerefficiency" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doublepropellerefficiency"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_thruster_plugin_1a0e8f044924d12715aba76aa95555641d"><code class="codehilite"><span class="n">propellerEfficiency</span></code></a><a class="headerlink" href="#protected-doublepropellerefficiency" title="Permanent link">&para;</a></h6>
 <p>Optional: Propeller angular velocity efficiency term.</p>
-<h6 id="protected-ignitionmathvector3dthrusteraxis"><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_thruster_plugin_1a961eff0b01402bf7a56117a35e064b06"><code class="codehilite">thrusterAxis</code></a><a class="headerlink" href="#protected-ignitionmathvector3dthrusteraxis" title="Permanent link">&para;</a></h6>
+<h6 id="protected-ignitionmathvector3dthrusteraxis"><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_thruster_plugin_1a961eff0b01402bf7a56117a35e064b06"><code class="codehilite"><span class="n">thrusterAxis</span></code></a><a class="headerlink" href="#protected-ignitionmathvector3dthrusteraxis" title="Permanent link">&para;</a></h6>
 <p>The axis about which the thruster rotates.</p>
-<h6 id="protected-voidupdateinputconstdoubleptr-_msg"><code class="codehilite">protected void</code><a href="#classgazebo_1_1_thruster_plugin_1a8ede5b7013c52fd890a429f55a0d0c74"><code class="codehilite">UpdateInput</code></a><code class="codehilite">(</code><a href="docs/packages/uuv_simulator/docs/api/ConstDoublePtr.md#_fin_plugin_8hh_1adec3148dfa71d908caf33660a62187d4"><code class="codehilite">ConstDoublePtr</code></a><code class="codehilite">&amp; _msg)</code><a class="headerlink" href="#protected-voidupdateinputconstdoubleptr-_msg" title="Permanent link">&para;</a></h6>
+<h6 id="protected-voidupdateinputconstdoubleptr-_msg"><code class="codehilite"><span class="n">protected</span> <span class="n">void</span></code><a href="#classgazebo_1_1_thruster_plugin_1a8ede5b7013c52fd890a429f55a0d0c74"><code class="codehilite"><span class="n">UpdateInput</span></code></a><code class="codehilite"><span class="p">(</span></code><a href="docs/packages/uuv_simulator/docs/api/ConstDoublePtr.md#_fin_plugin_8hh_1adec3148dfa71d908caf33660a62187d4"><code class="codehilite"><span class="n">ConstDoublePtr</span></code></a><code class="codehilite"><span class="o">&amp;</span> <span class="n">_msg</span><span class="p">)</span></code><a class="headerlink" href="#protected-voidupdateinputconstdoubleptr-_msg" title="Permanent link">&para;</a></h6>
 <p>Callback for the input topic subscriber.</p>
                 
                   

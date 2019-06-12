@@ -456,6 +456,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -3008,7 +3020,7 @@
                 
                   <h1>GaussMarkovProcess</h1>
                 
-                <h4 id="class-gazebogaussmarkovprocess">class <code class="codehilite">gazebo::GaussMarkovProcess</code><a class="headerlink" href="#class-gazebogaussmarkovprocess" title="Permanent link">&para;</a></h4>
+                <h4 id="class-gazebogaussmarkovprocess">class <code class="codehilite"><span class="n">gazebo</span><span class="p">::</span><span class="n">GaussMarkovProcess</span></code><a class="headerlink" href="#class-gazebogaussmarkovprocess" title="Permanent link">&para;</a></h4>
 <p>Implementation of a Gauss-Markov process to model the current velocity and direction according to [1] [1] Fossen, Thor I. Handbook of marine craft hydrodynamics and motion control. John Wiley &amp; Sons, 2011.</p>
 <h5 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h5>
 <table>
@@ -3020,115 +3032,115 @@
 </thead>
 <tbody>
 <tr>
-<td><code class="codehilite">public double</code><a href="#classgazebo_1_1_gauss_markov_process_1a1e4fb7902c13ed7f5ed4b081b8c750a1"><code class="codehilite">var</code></a></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">double</span></code><a href="#classgazebo_1_1_gauss_markov_process_1a1e4fb7902c13ed7f5ed4b081b8c750a1"><code class="codehilite"><span class="n">var</span></code></a></td>
 <td>Process variable.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public double</code><a href="#classgazebo_1_1_gauss_markov_process_1ac245edf6d8fa0b6926cb8d83d29e3457"><code class="codehilite">mean</code></a></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">double</span></code><a href="#classgazebo_1_1_gauss_markov_process_1ac245edf6d8fa0b6926cb8d83d29e3457"><code class="codehilite"><span class="n">mean</span></code></a></td>
 <td>Mean process value.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public double</code><a href="#classgazebo_1_1_gauss_markov_process_1a5becb64490649244d6ee0370dd9e9952"><code class="codehilite">min</code></a></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">double</span></code><a href="#classgazebo_1_1_gauss_markov_process_1a5becb64490649244d6ee0370dd9e9952"><code class="codehilite"><span class="k">min</span></code></a></td>
 <td>Minimum limit for the process variable.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public double</code><a href="#classgazebo_1_1_gauss_markov_process_1a36c94fb3fd89d6b8ec095ff2fd61fd1a"><code class="codehilite">max</code></a></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">double</span></code><a href="#classgazebo_1_1_gauss_markov_process_1a36c94fb3fd89d6b8ec095ff2fd61fd1a"><code class="codehilite"><span class="k">max</span></code></a></td>
 <td>Maximum limit for the process variable.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public double</code><a href="#classgazebo_1_1_gauss_markov_process_1af0c51962ec2392d734c0ee79f45866a8"><code class="codehilite">mu</code></a></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">double</span></code><a href="#classgazebo_1_1_gauss_markov_process_1af0c51962ec2392d734c0ee79f45866a8"><code class="codehilite"><span class="n">mu</span></code></a></td>
 <td>Process constant, if zero, process becomes a random walk.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public double</code><a href="#classgazebo_1_1_gauss_markov_process_1a094afee00b782c741a5edfdea42f0644"><code class="codehilite">noiseAmp</code></a></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">double</span></code><a href="#classgazebo_1_1_gauss_markov_process_1a094afee00b782c741a5edfdea42f0644"><code class="codehilite"><span class="n">noiseAmp</span></code></a></td>
 <td>Gaussian white noise amplitude.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public double</code><a href="#classgazebo_1_1_gauss_markov_process_1a21d7006da353d3a20fdb0faba2a24da7"><code class="codehilite">lastUpdate</code></a></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">double</span></code><a href="#classgazebo_1_1_gauss_markov_process_1a21d7006da353d3a20fdb0faba2a24da7"><code class="codehilite"><span class="n">lastUpdate</span></code></a></td>
 <td>Timestamp for the last update.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public</code><a href="#classgazebo_1_1_gauss_markov_process_1af1e11c49f71e6fd8f260f69db1e45e61"><code class="codehilite">GaussMarkovProcess</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span></code><a href="#classgazebo_1_1_gauss_markov_process_1af1e11c49f71e6fd8f260f69db1e45e61"><code class="codehilite"><span class="n">GaussMarkovProcess</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Class constructor.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public void</code><a href="#classgazebo_1_1_gauss_markov_process_1abb7d9286aa8162e074b64188908017fe"><code class="codehilite">Reset</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">void</span></code><a href="#classgazebo_1_1_gauss_markov_process_1abb7d9286aa8162e074b64188908017fe"><code class="codehilite"><span class="k">Reset</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Resets the process parameters.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public bool</code><a href="#classgazebo_1_1_gauss_markov_process_1aa987aee49f6f4a2f460138c93b11d3e8"><code class="codehilite">SetModel</code></a><code class="codehilite">(double _mean,double _min,double _max,double _mu,double _noise)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_gauss_markov_process_1aa987aee49f6f4a2f460138c93b11d3e8"><code class="codehilite"><span class="n">SetModel</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">double</span> <span class="n">_mean</span><span class="p">,</span><span class="n">double</span> <span class="n">_min</span><span class="p">,</span><span class="n">double</span> <span class="n">_max</span><span class="p">,</span><span class="n">double</span> <span class="n">_mu</span><span class="p">,</span><span class="n">double</span> <span class="n">_noise</span><span class="p">)</span></code></td>
 <td>Sets all the necessary parameters for the computation.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public bool</code><a href="#classgazebo_1_1_gauss_markov_process_1a02d2ce1deb17930eb2b6d87ffc93d3f0"><code class="codehilite">SetMean</code></a><code class="codehilite">(double _mean)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_gauss_markov_process_1a02d2ce1deb17930eb2b6d87ffc93d3f0"><code class="codehilite"><span class="n">SetMean</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">double</span> <span class="n">_mean</span><span class="p">)</span></code></td>
 <td>Set mean process value.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public double</code><a href="#classgazebo_1_1_gauss_markov_process_1a4fe5c320c4fbdf4c6e5211381cf6e96a"><code class="codehilite">Update</code></a><code class="codehilite">(double _time)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">double</span></code><a href="#classgazebo_1_1_gauss_markov_process_1a4fe5c320c4fbdf4c6e5211381cf6e96a"><code class="codehilite"><span class="k">Update</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">double</span> <span class="n">_time</span><span class="p">)</span></code></td>
 <td>Update function for a new time stamp.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public void</code><a href="#classgazebo_1_1_gauss_markov_process_1a5933e94170a0b8ab0b32e8eaba5281bf"><code class="codehilite">Print</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">void</span></code><a href="#classgazebo_1_1_gauss_markov_process_1a5933e94170a0b8ab0b32e8eaba5281bf"><code class="codehilite"><span class="n">Print</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Print current model paramters.</td>
 </tr>
 </tbody>
 </table>
 <h5 id="members">Members<a class="headerlink" href="#members" title="Permanent link">&para;</a></h5>
-<h6 id="public-doublevar"><code class="codehilite">public double</code><a href="#classgazebo_1_1_gauss_markov_process_1a1e4fb7902c13ed7f5ed4b081b8c750a1"><code class="codehilite">var</code></a><a class="headerlink" href="#public-doublevar" title="Permanent link">&para;</a></h6>
+<h6 id="public-doublevar"><code class="codehilite"><span class="k">public</span> <span class="n">double</span></code><a href="#classgazebo_1_1_gauss_markov_process_1a1e4fb7902c13ed7f5ed4b081b8c750a1"><code class="codehilite"><span class="n">var</span></code></a><a class="headerlink" href="#public-doublevar" title="Permanent link">&para;</a></h6>
 <p>Process variable.</p>
-<h6 id="public-doublemean"><code class="codehilite">public double</code><a href="#classgazebo_1_1_gauss_markov_process_1ac245edf6d8fa0b6926cb8d83d29e3457"><code class="codehilite">mean</code></a><a class="headerlink" href="#public-doublemean" title="Permanent link">&para;</a></h6>
+<h6 id="public-doublemean"><code class="codehilite"><span class="k">public</span> <span class="n">double</span></code><a href="#classgazebo_1_1_gauss_markov_process_1ac245edf6d8fa0b6926cb8d83d29e3457"><code class="codehilite"><span class="n">mean</span></code></a><a class="headerlink" href="#public-doublemean" title="Permanent link">&para;</a></h6>
 <p>Mean process value.</p>
-<h6 id="public-doublemin"><code class="codehilite">public double</code><a href="#classgazebo_1_1_gauss_markov_process_1a5becb64490649244d6ee0370dd9e9952"><code class="codehilite">min</code></a><a class="headerlink" href="#public-doublemin" title="Permanent link">&para;</a></h6>
+<h6 id="public-doublemin"><code class="codehilite"><span class="k">public</span> <span class="n">double</span></code><a href="#classgazebo_1_1_gauss_markov_process_1a5becb64490649244d6ee0370dd9e9952"><code class="codehilite"><span class="k">min</span></code></a><a class="headerlink" href="#public-doublemin" title="Permanent link">&para;</a></h6>
 <p>Minimum limit for the process variable.</p>
-<h6 id="public-doublemax"><code class="codehilite">public double</code><a href="#classgazebo_1_1_gauss_markov_process_1a36c94fb3fd89d6b8ec095ff2fd61fd1a"><code class="codehilite">max</code></a><a class="headerlink" href="#public-doublemax" title="Permanent link">&para;</a></h6>
+<h6 id="public-doublemax"><code class="codehilite"><span class="k">public</span> <span class="n">double</span></code><a href="#classgazebo_1_1_gauss_markov_process_1a36c94fb3fd89d6b8ec095ff2fd61fd1a"><code class="codehilite"><span class="k">max</span></code></a><a class="headerlink" href="#public-doublemax" title="Permanent link">&para;</a></h6>
 <p>Maximum limit for the process variable.</p>
-<h6 id="public-doublemu"><code class="codehilite">public double</code><a href="#classgazebo_1_1_gauss_markov_process_1af0c51962ec2392d734c0ee79f45866a8"><code class="codehilite">mu</code></a><a class="headerlink" href="#public-doublemu" title="Permanent link">&para;</a></h6>
+<h6 id="public-doublemu"><code class="codehilite"><span class="k">public</span> <span class="n">double</span></code><a href="#classgazebo_1_1_gauss_markov_process_1af0c51962ec2392d734c0ee79f45866a8"><code class="codehilite"><span class="n">mu</span></code></a><a class="headerlink" href="#public-doublemu" title="Permanent link">&para;</a></h6>
 <p>Process constant, if zero, process becomes a random walk.</p>
-<h6 id="public-doublenoiseamp"><code class="codehilite">public double</code><a href="#classgazebo_1_1_gauss_markov_process_1a094afee00b782c741a5edfdea42f0644"><code class="codehilite">noiseAmp</code></a><a class="headerlink" href="#public-doublenoiseamp" title="Permanent link">&para;</a></h6>
+<h6 id="public-doublenoiseamp"><code class="codehilite"><span class="k">public</span> <span class="n">double</span></code><a href="#classgazebo_1_1_gauss_markov_process_1a094afee00b782c741a5edfdea42f0644"><code class="codehilite"><span class="n">noiseAmp</span></code></a><a class="headerlink" href="#public-doublenoiseamp" title="Permanent link">&para;</a></h6>
 <p>Gaussian white noise amplitude.</p>
-<h6 id="public-doublelastupdate"><code class="codehilite">public double</code><a href="#classgazebo_1_1_gauss_markov_process_1a21d7006da353d3a20fdb0faba2a24da7"><code class="codehilite">lastUpdate</code></a><a class="headerlink" href="#public-doublelastupdate" title="Permanent link">&para;</a></h6>
+<h6 id="public-doublelastupdate"><code class="codehilite"><span class="k">public</span> <span class="n">double</span></code><a href="#classgazebo_1_1_gauss_markov_process_1a21d7006da353d3a20fdb0faba2a24da7"><code class="codehilite"><span class="n">lastUpdate</span></code></a><a class="headerlink" href="#public-doublelastupdate" title="Permanent link">&para;</a></h6>
 <p>Timestamp for the last update.</p>
-<h6 id="publicgaussmarkovprocess"><code class="codehilite">public</code><a href="#classgazebo_1_1_gauss_markov_process_1af1e11c49f71e6fd8f260f69db1e45e61"><code class="codehilite">GaussMarkovProcess</code></a><code class="codehilite">()</code><a class="headerlink" href="#publicgaussmarkovprocess" title="Permanent link">&para;</a></h6>
+<h6 id="publicgaussmarkovprocess"><code class="codehilite"><span class="k">public</span></code><a href="#classgazebo_1_1_gauss_markov_process_1af1e11c49f71e6fd8f260f69db1e45e61"><code class="codehilite"><span class="n">GaussMarkovProcess</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#publicgaussmarkovprocess" title="Permanent link">&para;</a></h6>
 <p>Class constructor.</p>
-<h6 id="public-voidreset"><code class="codehilite">public void</code><a href="#classgazebo_1_1_gauss_markov_process_1abb7d9286aa8162e074b64188908017fe"><code class="codehilite">Reset</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-voidreset" title="Permanent link">&para;</a></h6>
+<h6 id="public-voidreset"><code class="codehilite"><span class="k">public</span> <span class="n">void</span></code><a href="#classgazebo_1_1_gauss_markov_process_1abb7d9286aa8162e074b64188908017fe"><code class="codehilite"><span class="k">Reset</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-voidreset" title="Permanent link">&para;</a></h6>
 <p>Resets the process parameters.</p>
-<h6 id="public-boolsetmodeldouble-_meandouble-_mindouble-_maxdouble-_mudouble-_noise"><code class="codehilite">public bool</code><a href="#classgazebo_1_1_gauss_markov_process_1aa987aee49f6f4a2f460138c93b11d3e8"><code class="codehilite">SetModel</code></a><code class="codehilite">(double _mean,double _min,double _max,double _mu,double _noise)</code><a class="headerlink" href="#public-boolsetmodeldouble-_meandouble-_mindouble-_maxdouble-_mudouble-_noise" title="Permanent link">&para;</a></h6>
+<h6 id="public-boolsetmodeldouble-_meandouble-_mindouble-_maxdouble-_mudouble-_noise"><code class="codehilite"><span class="k">public</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_gauss_markov_process_1aa987aee49f6f4a2f460138c93b11d3e8"><code class="codehilite"><span class="n">SetModel</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">double</span> <span class="n">_mean</span><span class="p">,</span><span class="n">double</span> <span class="n">_min</span><span class="p">,</span><span class="n">double</span> <span class="n">_max</span><span class="p">,</span><span class="n">double</span> <span class="n">_mu</span><span class="p">,</span><span class="n">double</span> <span class="n">_noise</span><span class="p">)</span></code><a class="headerlink" href="#public-boolsetmodeldouble-_meandouble-_mindouble-_maxdouble-_mudouble-_noise" title="Permanent link">&para;</a></h6>
 <p>Sets all the necessary parameters for the computation.</p>
 <h6 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h6>
 <ul>
 <li>
-<p><code class="codehilite">_mean</code> Mean value </p>
+<p><code class="codehilite"><span class="n">_mean</span></code> Mean value </p>
 </li>
 <li>
-<p><code class="codehilite">_min</code> Minimum limit </p>
+<p><code class="codehilite"><span class="n">_min</span></code> Minimum limit </p>
 </li>
 <li>
-<p><code class="codehilite">_max</code> Maximum limit </p>
+<p><code class="codehilite"><span class="n">_max</span></code> Maximum limit </p>
 </li>
 <li>
-<p><code class="codehilite">_mu</code> Process constant </p>
+<p><code class="codehilite"><span class="n">_mu</span></code> Process constant </p>
 </li>
 <li>
-<p><code class="codehilite">_noise</code> Amplitude for the Gaussian white noise </p>
+<p><code class="codehilite"><span class="n">_noise</span></code> Amplitude for the Gaussian white noise </p>
 </li>
 </ul>
 <h6 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h6>
 <p>True, if all parameters were valid</p>
-<h6 id="public-boolsetmeandouble-_mean"><code class="codehilite">public bool</code><a href="#classgazebo_1_1_gauss_markov_process_1a02d2ce1deb17930eb2b6d87ffc93d3f0"><code class="codehilite">SetMean</code></a><code class="codehilite">(double _mean)</code><a class="headerlink" href="#public-boolsetmeandouble-_mean" title="Permanent link">&para;</a></h6>
+<h6 id="public-boolsetmeandouble-_mean"><code class="codehilite"><span class="k">public</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_gauss_markov_process_1a02d2ce1deb17930eb2b6d87ffc93d3f0"><code class="codehilite"><span class="n">SetMean</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">double</span> <span class="n">_mean</span><span class="p">)</span></code><a class="headerlink" href="#public-boolsetmeandouble-_mean" title="Permanent link">&para;</a></h6>
 <p>Set mean process value.</p>
 <h6 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h6>
 <ul>
-<li><code class="codehilite">_mean</code> New mean value </li>
+<li><code class="codehilite"><span class="n">_mean</span></code> New mean value </li>
 </ul>
 <h6 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h6>
 <p>True, if value inside the limit range</p>
-<h6 id="public-doubleupdatedouble-_time"><code class="codehilite">public double</code><a href="#classgazebo_1_1_gauss_markov_process_1a4fe5c320c4fbdf4c6e5211381cf6e96a"><code class="codehilite">Update</code></a><code class="codehilite">(double _time)</code><a class="headerlink" href="#public-doubleupdatedouble-_time" title="Permanent link">&para;</a></h6>
+<h6 id="public-doubleupdatedouble-_time"><code class="codehilite"><span class="k">public</span> <span class="n">double</span></code><a href="#classgazebo_1_1_gauss_markov_process_1a4fe5c320c4fbdf4c6e5211381cf6e96a"><code class="codehilite"><span class="k">Update</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">double</span> <span class="n">_time</span><span class="p">)</span></code><a class="headerlink" href="#public-doubleupdatedouble-_time" title="Permanent link">&para;</a></h6>
 <p>Update function for a new time stamp.</p>
 <h6 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h6>
 <ul>
-<li><code class="codehilite">_time</code> Current time stamp</li>
+<li><code class="codehilite"><span class="n">_time</span></code> Current time stamp</li>
 </ul>
-<h6 id="public-voidprint"><code class="codehilite">public void</code><a href="#classgazebo_1_1_gauss_markov_process_1a5933e94170a0b8ab0b32e8eaba5281bf"><code class="codehilite">Print</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-voidprint" title="Permanent link">&para;</a></h6>
+<h6 id="public-voidprint"><code class="codehilite"><span class="k">public</span> <span class="n">void</span></code><a href="#classgazebo_1_1_gauss_markov_process_1a5933e94170a0b8ab0b32e8eaba5281bf"><code class="codehilite"><span class="n">Print</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-voidprint" title="Permanent link">&para;</a></h6>
 <p>Print current model paramters.</p>
                 
                   

@@ -454,6 +454,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../../uuv_simulator/docs/features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../../uuv_simulator/docs/features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -2842,12 +2854,12 @@
                 
                 <p><img alt="Version" src="https://img.shields.io/badge/version-0.1.3-brightgreen.svg" /></p>
 <blockquote>
-<p>Link to the <code class="codehilite">rexrov2</code> repository <a href="https://github.com/uuvsimulator/rexrov2">here</a></p>
+<p>Link to the <code class="codehilite"><span class="n">rexrov2</span></code> repository <a href="https://github.com/uuvsimulator/rexrov2">here</a></p>
 </blockquote>
 <h4 id="description">Description<a class="headerlink" href="#description" title="Permanent link">&para;</a></h4>
-<p>Launch and configuration files to start controllers nodes from the <a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_control/uuv_trajectory_control"><code class="codehilite">uuv_trajectory_control</code></a> package for the RexROV 2 vehicle.</p>
+<p>Launch and configuration files to start controllers nodes from the <a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_control/uuv_trajectory_control"><code class="codehilite"><span class="n">uuv_trajectory_control</span></code></a> package for the RexROV 2 vehicle.</p>
 <h4 id="launch-files">Launch files<a class="headerlink" href="#launch-files" title="Permanent link">&para;</a></h4>
-<h5 id="start_sf_controllerlaunch"><a href="https://github.com/uuvsimulator/rexrov2/tree/master/rexrov2_control/launch/start_sf_controller.launch"><code class="codehilite">start_sf_controller.launch</code></a><a class="headerlink" href="#start_sf_controllerlaunch" title="Permanent link">&para;</a></h5>
+<h5 id="start_sf_controllerlaunch"><a href="https://github.com/uuvsimulator/rexrov2/tree/master/rexrov2_control/launch/start_sf_controller.launch"><code class="codehilite"><span class="n">start_sf_controller</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#start_sf_controllerlaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Description</strong></p>
 </blockquote>
@@ -2856,47 +2868,47 @@ node with the configurations for the RexROV 2 vehicle.</p>
 <blockquote>
 <p><strong>Example</strong></p>
 </blockquote>
-<div class="codehilite"><pre><span></span>roslaunch uuv_gazebo_worlds ocean_waves.launch
+<div class="codehilite"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_gazebo_worlds</span> <span class="n">ocean_waves</span><span class="p">.</span><span class="n">launch</span>
 </pre></div>
 
-<div class="codehilite"><pre><span></span>roslaunch rexrov2_description upload_rexrov2.launch
+<div class="codehilite"><pre><span></span><span class="n">roslaunch</span> <span class="n">rexrov2_description</span> <span class="n">upload_rexrov2</span><span class="p">.</span><span class="n">launch</span>
 </pre></div>
 
-<div class="codehilite"><pre><span></span>roslaunch rexrov2_control start_sf_controller.launch
+<div class="codehilite"><pre><span></span><span class="n">roslaunch</span> <span class="n">rexrov2_control</span> <span class="n">start_sf_controller</span><span class="p">.</span><span class="n">launch</span>
 </pre></div>
 
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
-<li><strong>uuv_name</strong> (<em>default:</em> <code class="codehilite">rexrov2</code>): Namespace of the vehicle to be controller</li>
-<li><strong>record</strong> (<em>default:</em> <code class="codehilite">false</code>): Record ROS bag</li>
-<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite">true</code>)</li>
-<li><strong>use_ned_frame</strong> (<em>default:</em> <code class="codehilite">true</code>)</li>
-<li><strong>Kd</strong> (<em>default:</em> <code class="codehilite">1000.0,1000.0,1000.0,100.0,100.0,100.0</code>)</li>
-<li><strong>lambda</strong> (<em>default:</em> <code class="codehilite">100.0</code>)</li>
-<li><strong>c</strong> (<em>default:</em> <code class="codehilite">100.0</code>)</li>
-<li><strong>teleop_on</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
-<li><strong>joy_id</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>axis_yaw</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>axis_x</strong> (<em>default:</em> <code class="codehilite">4</code>)</li>
-<li><strong>axis_y</strong> (<em>default:</em> <code class="codehilite">3</code>)</li>
-<li><strong>axis_z</strong> (<em>default:</em> <code class="codehilite">1</code>)</li>
-<li><strong>model_params_file</strong> (<em>default:</em> <code class="codehilite">$(find rexrov2_control)/config/model_params.yaml</code>)</li>
-<li><strong>thruster_manager_output_dir</strong> (<em>default:</em> <code class="codehilite">$(find rexrov2_control)/config</code>)</li>
-<li><strong>thruster_manager_config_file</strong> (<em>default:</em> <code class="codehilite">$(find rexrov2_control)/config/thruster_manager.yaml</code>)</li>
-<li><strong>tam_file</strong> (<em>default:</em> <code class="codehilite">$(find rexrov2_control)/config/TAM.yaml</code>)</li>
+<li><strong>uuv_name</strong> (<em>default:</em> <code class="codehilite"><span class="n">rexrov2</span></code>): Namespace of the vehicle to be controller</li>
+<li><strong>record</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>): Record ROS bag</li>
+<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite"><span class="k">true</span></code>)</li>
+<li><strong>use_ned_frame</strong> (<em>default:</em> <code class="codehilite"><span class="k">true</span></code>)</li>
+<li><strong>Kd</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1000</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">.</span><span class="mi">0</span></code>)</li>
+<li><strong>lambda</strong> (<em>default:</em> <code class="codehilite"><span class="mi">100</span><span class="p">.</span><span class="mi">0</span></code>)</li>
+<li><strong>c</strong> (<em>default:</em> <code class="codehilite"><span class="mi">100</span><span class="p">.</span><span class="mi">0</span></code>)</li>
+<li><strong>teleop_on</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>)</li>
+<li><strong>joy_id</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>axis_yaw</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>axis_x</strong> (<em>default:</em> <code class="codehilite"><span class="mi">4</span></code>)</li>
+<li><strong>axis_y</strong> (<em>default:</em> <code class="codehilite"><span class="mi">3</span></code>)</li>
+<li><strong>axis_z</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1</span></code>)</li>
+<li><strong>model_params_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">rexrov2_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">model_params</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
+<li><strong>thruster_manager_output_dir</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">rexrov2_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span></code>)</li>
+<li><strong>thruster_manager_config_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">rexrov2_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">thruster_manager</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
+<li><strong>tam_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">rexrov2_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">TAM</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
 </ul>
-<h5 id="start_velocity_controllaunch"><a href="https://github.com/uuvsimulator/rexrov2/tree/master/rexrov2_control/launch/start_velocity_control.launch"><code class="codehilite">start_velocity_control.launch</code></a><a class="headerlink" href="#start_velocity_controllaunch" title="Permanent link">&para;</a></h5>
+<h5 id="start_velocity_controllaunch"><a href="https://github.com/uuvsimulator/rexrov2/tree/master/rexrov2_control/launch/start_velocity_control.launch"><code class="codehilite"><span class="n">start_velocity_control</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#start_velocity_controllaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
-<li><strong>model_name</strong> (<em>default:</em> <code class="codehilite">rexrov2</code>)</li>
-<li><strong>uuv_name</strong> (<em>default:</em> <code class="codehilite">$(arg model_name)</code>)</li>
-<li><strong>joy_id</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
+<li><strong>model_name</strong> (<em>default:</em> <code class="codehilite"><span class="n">rexrov2</span></code>)</li>
+<li><strong>uuv_name</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">model_name</span><span class="p">)</span></code>)</li>
+<li><strong>joy_id</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
 </ul>
-<h5 id="start_pd_grav_compensation_controllerlaunch"><a href="https://github.com/uuvsimulator/rexrov2/tree/master/rexrov2_control/launch/start_pd_grav_compensation_controller.launch"><code class="codehilite">start_pd_grav_compensation_controller.launch</code></a><a class="headerlink" href="#start_pd_grav_compensation_controllerlaunch" title="Permanent link">&para;</a></h5>
+<h5 id="start_pd_grav_compensation_controllerlaunch"><a href="https://github.com/uuvsimulator/rexrov2/tree/master/rexrov2_control/launch/start_pd_grav_compensation_controller.launch"><code class="codehilite"><span class="n">start_pd_grav_compensation_controller</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#start_pd_grav_compensation_controllerlaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Description</strong></p>
 </blockquote>
@@ -2905,231 +2917,231 @@ node with the configurations for the RexROV 2 vehicle.</p>
 <blockquote>
 <p><strong>Example</strong></p>
 </blockquote>
-<div class="codehilite"><pre><span></span>roslaunch uuv_gazebo_worlds ocean_waves.launch
+<div class="codehilite"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_gazebo_worlds</span> <span class="n">ocean_waves</span><span class="p">.</span><span class="n">launch</span>
 </pre></div>
 
-<div class="codehilite"><pre><span></span>roslaunch rexrov2_description upload_rexrov2.launch
+<div class="codehilite"><pre><span></span><span class="n">roslaunch</span> <span class="n">rexrov2_description</span> <span class="n">upload_rexrov2</span><span class="p">.</span><span class="n">launch</span>
 </pre></div>
 
-<div class="codehilite"><pre><span></span>roslaunch rexrov2_control start_pd_grav_compensation_controller.launch
+<div class="codehilite"><pre><span></span><span class="n">roslaunch</span> <span class="n">rexrov2_control</span> <span class="n">start_pd_grav_compensation_controller</span><span class="p">.</span><span class="n">launch</span>
 </pre></div>
 
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
-<li><strong>uuv_name</strong> (<em>default:</em> <code class="codehilite">rexrov2</code>): Namespace of the vehicle to be controller</li>
-<li><strong>record</strong> (<em>default:</em> <code class="codehilite">false</code>): Record ROS bag</li>
-<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite">true</code>): Start Gazebo client and RViz</li>
-<li><strong>use_ned_frame</strong> (<em>default:</em> <code class="codehilite">false</code>): If true, the reference frame is set to be NED (North-East-Down) instead of Gazebo's default ENU (East-North-Up)</li>
-<li><strong>Kp</strong> (<em>default:</em> <code class="codehilite">1000,1000,1000,1000,1000,1000</code>): Coefficients for the <span><span class="MathJax_Preview">K_p</span><script type="math/tex">K_p</script></span> diagonal matrix</li>
-<li><strong>Kd</strong> (<em>default:</em> <code class="codehilite">100,100,100,100,100,100</code>): Coefficients for the <span><span class="MathJax_Preview">K_d</span><script type="math/tex">K_d</script></span> diagonal matrix</li>
-<li><strong>teleop_on</strong> (<em>default:</em> <code class="codehilite">false</code>): Start joystick teleop node</li>
-<li><strong>joy_id</strong> (<em>default:</em> <code class="codehilite">0</code>): ID of the joystick device</li>
-<li><strong>axis_yaw</strong> (<em>default:</em> <code class="codehilite">0</code>): Joystick mapping for yaw angle input</li>
-<li><strong>axis_x</strong> (<em>default:</em> <code class="codehilite">4</code>): Joystick mapping for X component of velocity reference input</li>
-<li><strong>axis_y</strong> (<em>default:</em> <code class="codehilite">3</code>): Joystick mapping for Y component of velocity reference input</li>
-<li><strong>axis_z</strong> (<em>default:</em> <code class="codehilite">1</code>): Joystick mapping for Z component of velocity reference input</li>
-<li><strong>thruster_manager_output_dir</strong> (<em>default:</em> <code class="codehilite">$(find rexrov2_control)/config</code>): Output directory for the generated thruster manager</li>
-<li><strong>thruster_manager_config_file</strong> (<em>default:</em> <code class="codehilite">$(find rexrov2_control)/config/thruster_manager.yaml</code>): File storing the configuration of the thruster manager</li>
-<li><strong>tam_file</strong> (<em>default:</em> <code class="codehilite">$(find rexrov2_control)/config/TAM.yaml</code>): File storing the thruster allocation matrix</li>
-<li><strong>model_params_file</strong> (<em>default:</em> <code class="codehilite">$(find rexrov2_control)/config/model_params.yaml</code>): File storing the vehicle model parameters loaded by the controller</li>
+<li><strong>uuv_name</strong> (<em>default:</em> <code class="codehilite"><span class="n">rexrov2</span></code>): Namespace of the vehicle to be controller</li>
+<li><strong>record</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>): Record ROS bag</li>
+<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite"><span class="k">true</span></code>): Start Gazebo client and RViz</li>
+<li><strong>use_ned_frame</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>): If true, the reference frame is set to be NED (North-East-Down) instead of Gazebo's default ENU (East-North-Up)</li>
+<li><strong>Kp</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1000</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mi">1000</span></code>): Coefficients for the <span><span class="MathJax_Preview">K_p</span><script type="math/tex">K_p</script></span> diagonal matrix</li>
+<li><strong>Kd</strong> (<em>default:</em> <code class="codehilite"><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span></code>): Coefficients for the <span><span class="MathJax_Preview">K_d</span><script type="math/tex">K_d</script></span> diagonal matrix</li>
+<li><strong>teleop_on</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>): Start joystick teleop node</li>
+<li><strong>joy_id</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>): ID of the joystick device</li>
+<li><strong>axis_yaw</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>): Joystick mapping for yaw angle input</li>
+<li><strong>axis_x</strong> (<em>default:</em> <code class="codehilite"><span class="mi">4</span></code>): Joystick mapping for X component of velocity reference input</li>
+<li><strong>axis_y</strong> (<em>default:</em> <code class="codehilite"><span class="mi">3</span></code>): Joystick mapping for Y component of velocity reference input</li>
+<li><strong>axis_z</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1</span></code>): Joystick mapping for Z component of velocity reference input</li>
+<li><strong>thruster_manager_output_dir</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">rexrov2_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span></code>): Output directory for the generated thruster manager</li>
+<li><strong>thruster_manager_config_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">rexrov2_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">thruster_manager</span><span class="p">.</span><span class="n">yaml</span></code>): File storing the configuration of the thruster manager</li>
+<li><strong>tam_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">rexrov2_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">TAM</span><span class="p">.</span><span class="n">yaml</span></code>): File storing the thruster allocation matrix</li>
+<li><strong>model_params_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">rexrov2_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">model_params</span><span class="p">.</span><span class="n">yaml</span></code>): File storing the vehicle model parameters loaded by the controller</li>
 </ul>
-<h5 id="start_mb_fl_controllerlaunch"><a href="https://github.com/uuvsimulator/rexrov2/tree/master/rexrov2_control/launch/start_mb_fl_controller.launch"><code class="codehilite">start_mb_fl_controller.launch</code></a><a class="headerlink" href="#start_mb_fl_controllerlaunch" title="Permanent link">&para;</a></h5>
+<h5 id="start_mb_fl_controllerlaunch"><a href="https://github.com/uuvsimulator/rexrov2/tree/master/rexrov2_control/launch/start_mb_fl_controller.launch"><code class="codehilite"><span class="n">start_mb_fl_controller</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#start_mb_fl_controllerlaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Description</strong></p>
 </blockquote>
 <p>Starts the <a href="https://github.com/uuvsimulator/uuv_simulator/blob/master/uuv_control/uuv_trajectory_control/scripts/rov_mb_fl_controller.py">model-based feedback linearization controller</a> 
 node with the configurations for the RexROV 2 vehicle.
-The controller's default parameters <code class="codehilite">Kp</code>, <code class="codehilite">Kd</code> and <code class="codehilite">Ki</code><br />
+The controller's default parameters <code class="codehilite"><span class="n">Kp</span></code>, <code class="codehilite"><span class="n">Kd</span></code> and <code class="codehilite"><span class="n">Ki</span></code><br />
 were optimized using <a href="https://github.com/automl/SMAC3">SMAC</a>.</p>
 <blockquote>
 <p><strong>Example</strong></p>
 </blockquote>
-<div class="codehilite"><pre><span></span>roslaunch uuv_gazebo_worlds ocean_waves.launch
+<div class="codehilite"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_gazebo_worlds</span> <span class="n">ocean_waves</span><span class="p">.</span><span class="n">launch</span>
 </pre></div>
 
-<div class="codehilite"><pre><span></span>roslaunch rexrov2_description upload_rexrov2.launch
+<div class="codehilite"><pre><span></span><span class="n">roslaunch</span> <span class="n">rexrov2_description</span> <span class="n">upload_rexrov2</span><span class="p">.</span><span class="n">launch</span>
 </pre></div>
 
-<div class="codehilite"><pre><span></span>roslaunch rexrov2_control start_mb_fl_controller.launch
+<div class="codehilite"><pre><span></span><span class="n">roslaunch</span> <span class="n">rexrov2_control</span> <span class="n">start_mb_fl_controller</span><span class="p">.</span><span class="n">launch</span>
 </pre></div>
 
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
-<li><strong>uuv_name</strong> (<em>default:</em> <code class="codehilite">rexrov2</code>)</li>
-<li><strong>record</strong> (<em>default:</em> <code class="codehilite">false</code>): Record ROS bag</li>
-<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite">true</code>)</li>
-<li><strong>use_ned_frame</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
-<li><strong>Kp</strong> (<em>default:</em> <code class="codehilite">7750.307,7750.307,7750.307,7430.825,7430.825,7430.825</code>)</li>
-<li><strong>Kd</strong> (<em>default:</em> <code class="codehilite">8953.924,8953.924,8953.924,8267.137,8267.137,8267.137</code>)</li>
-<li><strong>Ki</strong> (<em>default:</em> <code class="codehilite">9144.575,9144.575,9144.575,2095.077,2095.077,2095.077</code>)</li>
-<li><strong>teleop_on</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
-<li><strong>joy_id</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>axis_yaw</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>axis_x</strong> (<em>default:</em> <code class="codehilite">4</code>)</li>
-<li><strong>axis_y</strong> (<em>default:</em> <code class="codehilite">3</code>)</li>
-<li><strong>axis_z</strong> (<em>default:</em> <code class="codehilite">1</code>)</li>
-<li><strong>model_params_file</strong> (<em>default:</em> <code class="codehilite">$(find rexrov2_control)/config/model_params.yaml</code>)</li>
-<li><strong>thruster_manager_output_dir</strong> (<em>default:</em> <code class="codehilite">$(find rexrov2_control)/config</code>)</li>
-<li><strong>thruster_manager_config_file</strong> (<em>default:</em> <code class="codehilite">$(find rexrov2_control)/config/thruster_manager.yaml</code>)</li>
-<li><strong>tam_file</strong> (<em>default:</em> <code class="codehilite">$(find rexrov2_control)/config/TAM.yaml</code>)</li>
+<li><strong>uuv_name</strong> (<em>default:</em> <code class="codehilite"><span class="n">rexrov2</span></code>)</li>
+<li><strong>record</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>): Record ROS bag</li>
+<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite"><span class="k">true</span></code>)</li>
+<li><strong>use_ned_frame</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>)</li>
+<li><strong>Kp</strong> (<em>default:</em> <code class="codehilite"><span class="mi">7750</span><span class="p">.</span><span class="mi">307</span><span class="p">,</span><span class="mi">7750</span><span class="p">.</span><span class="mi">307</span><span class="p">,</span><span class="mi">7750</span><span class="p">.</span><span class="mi">307</span><span class="p">,</span><span class="mi">7430</span><span class="p">.</span><span class="mi">825</span><span class="p">,</span><span class="mi">7430</span><span class="p">.</span><span class="mi">825</span><span class="p">,</span><span class="mi">7430</span><span class="p">.</span><span class="mi">825</span></code>)</li>
+<li><strong>Kd</strong> (<em>default:</em> <code class="codehilite"><span class="mi">8953</span><span class="p">.</span><span class="mi">924</span><span class="p">,</span><span class="mi">8953</span><span class="p">.</span><span class="mi">924</span><span class="p">,</span><span class="mi">8953</span><span class="p">.</span><span class="mi">924</span><span class="p">,</span><span class="mi">8267</span><span class="p">.</span><span class="mi">137</span><span class="p">,</span><span class="mi">8267</span><span class="p">.</span><span class="mi">137</span><span class="p">,</span><span class="mi">8267</span><span class="p">.</span><span class="mi">137</span></code>)</li>
+<li><strong>Ki</strong> (<em>default:</em> <code class="codehilite"><span class="mi">9144</span><span class="p">.</span><span class="mi">575</span><span class="p">,</span><span class="mi">9144</span><span class="p">.</span><span class="mi">575</span><span class="p">,</span><span class="mi">9144</span><span class="p">.</span><span class="mi">575</span><span class="p">,</span><span class="mi">2095</span><span class="p">.</span><span class="mi">077</span><span class="p">,</span><span class="mi">2095</span><span class="p">.</span><span class="mi">077</span><span class="p">,</span><span class="mi">2095</span><span class="p">.</span><span class="mi">077</span></code>)</li>
+<li><strong>teleop_on</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>)</li>
+<li><strong>joy_id</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>axis_yaw</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>axis_x</strong> (<em>default:</em> <code class="codehilite"><span class="mi">4</span></code>)</li>
+<li><strong>axis_y</strong> (<em>default:</em> <code class="codehilite"><span class="mi">3</span></code>)</li>
+<li><strong>axis_z</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1</span></code>)</li>
+<li><strong>model_params_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">rexrov2_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">model_params</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
+<li><strong>thruster_manager_output_dir</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">rexrov2_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span></code>)</li>
+<li><strong>thruster_manager_config_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">rexrov2_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">thruster_manager</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
+<li><strong>tam_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">rexrov2_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">TAM</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
 </ul>
-<h5 id="start_nmb_sm_controllerlaunch"><a href="https://github.com/uuvsimulator/rexrov2/tree/master/rexrov2_control/launch/start_nmb_sm_controller.launch"><code class="codehilite">start_nmb_sm_controller.launch</code></a><a class="headerlink" href="#start_nmb_sm_controllerlaunch" title="Permanent link">&para;</a></h5>
+<h5 id="start_nmb_sm_controllerlaunch"><a href="https://github.com/uuvsimulator/rexrov2/tree/master/rexrov2_control/launch/start_nmb_sm_controller.launch"><code class="codehilite"><span class="n">start_nmb_sm_controller</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#start_nmb_sm_controllerlaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Description</strong></p>
 </blockquote>
 <p>Starts the <a href="https://github.com/uuvsimulator/uuv_simulator/blob/master/uuv_control/uuv_trajectory_control/scripts/rov_nmb_sm_controller.py">non-model-based sliding mode controller</a> 
 node with the configurations for the RexROV 2 vehicle.
-The controller's default parameters <code class="codehilite">K</code>, <code class="codehilite">Kd</code>, <code class="codehilite">Ki</code> and <code class="codehilite">slope</code> 
+The controller's default parameters <code class="codehilite"><span class="n">K</span></code>, <code class="codehilite"><span class="n">Kd</span></code>, <code class="codehilite"><span class="n">Ki</span></code> and <code class="codehilite"><span class="n">slope</span></code> 
 were optimized using <a href="https://github.com/automl/SMAC3">SMAC</a>.</p>
 <blockquote>
 <p><strong>Example</strong></p>
 </blockquote>
-<div class="codehilite"><pre><span></span>roslaunch uuv_gazebo_worlds ocean_waves.launch
+<div class="codehilite"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_gazebo_worlds</span> <span class="n">ocean_waves</span><span class="p">.</span><span class="n">launch</span>
 </pre></div>
 
-<div class="codehilite"><pre><span></span>roslaunch rexrov2_description upload_rexrov2.launch
+<div class="codehilite"><pre><span></span><span class="n">roslaunch</span> <span class="n">rexrov2_description</span> <span class="n">upload_rexrov2</span><span class="p">.</span><span class="n">launch</span>
 </pre></div>
 
-<div class="codehilite"><pre><span></span>roslaunch rexrov2_control start_nmb_sm_controller.launch
+<div class="codehilite"><pre><span></span><span class="n">roslaunch</span> <span class="n">rexrov2_control</span> <span class="n">start_nmb_sm_controller</span><span class="p">.</span><span class="n">launch</span>
 </pre></div>
 
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
-<li><strong>uuv_name</strong> (<em>default:</em> <code class="codehilite">rexrov2</code>): Namespace of the vehicle to be controller</li>
-<li><strong>record</strong> (<em>default:</em> <code class="codehilite">false</code>): Record ROS bag</li>
-<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite">true</code>): Start Gazebo client and RViz</li>
-<li><strong>use_ned_frame</strong> (<em>default:</em> <code class="codehilite">false</code>): If true, the reference frame is set to be NED (North-East-Down) instead of Gazebo's default ENU (East-North-Up)</li>
-<li><strong>K</strong> (<em>default:</em> <code class="codehilite">5,5,5,5,5,5</code>): Coefficients for the <span><span class="MathJax_Preview">K</span><script type="math/tex">K</script></span> diagonal matrix</li>
-<li><strong>Kd</strong> (<em>default:</em> <code class="codehilite">4490.0,4490.0,4490.0,19541.395,19541.395,19541.395</code>): Coefficients for the <span><span class="MathJax_Preview">K_d</span><script type="math/tex">K_d</script></span> diagonal matrix</li>
-<li><strong>Ki</strong> (<em>default:</em> <code class="codehilite">0.1,0.1,0.1,0.476,0.476,0.476</code>): Coefficients for the <span><span class="MathJax_Preview">K_i</span><script type="math/tex">K_i</script></span> diagonal matrix</li>
-<li><strong>slope</strong> (<em>default:</em> <code class="codehilite">3.83,3.83,3.83,0.508,0.508,0.508</code>): Coefficients for the <span><span class="MathJax_Preview">\alpha</span><script type="math/tex">\alpha</script></span> diagonal matrix</li>
-<li><strong>teleop_on</strong> (<em>default:</em> <code class="codehilite">false</code>): Start joystick teleop node</li>
-<li><strong>joy_id</strong> (<em>default:</em> <code class="codehilite">0</code>): ID of the joystick device</li>
-<li><strong>axis_yaw</strong> (<em>default:</em> <code class="codehilite">0</code>): Joystick mapping for yaw angle input</li>
-<li><strong>axis_x</strong> (<em>default:</em> <code class="codehilite">4</code>): Joystick mapping for X component of velocity reference input</li>
-<li><strong>axis_y</strong> (<em>default:</em> <code class="codehilite">3</code>): Joystick mapping for Y component of velocity reference input</li>
-<li><strong>axis_z</strong> (<em>default:</em> <code class="codehilite">1</code>): Joystick mapping for Z component of velocity reference input</li>
-<li><strong>max_forward_speed</strong> (<em>default:</em> <code class="codehilite">0.5</code>): Maximum forward speed in m/s</li>
-<li><strong>thruster_manager_output_dir</strong> (<em>default:</em> <code class="codehilite">$(find rexrov2_control)/config</code>): Output directory for the generated thruster manager</li>
-<li><strong>thruster_manager_config_file</strong> (<em>default:</em> <code class="codehilite">$(find rexrov2_control)/config/thruster_manager.yaml</code>): File storing the configuration of the thruster manager</li>
-<li><strong>tam_file</strong> (<em>default:</em> <code class="codehilite">$(find rexrov2_control)/config/TAM.yaml</code>): File storing the thruster allocation matrix</li>
+<li><strong>uuv_name</strong> (<em>default:</em> <code class="codehilite"><span class="n">rexrov2</span></code>): Namespace of the vehicle to be controller</li>
+<li><strong>record</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>): Record ROS bag</li>
+<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite"><span class="k">true</span></code>): Start Gazebo client and RViz</li>
+<li><strong>use_ned_frame</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>): If true, the reference frame is set to be NED (North-East-Down) instead of Gazebo's default ENU (East-North-Up)</li>
+<li><strong>K</strong> (<em>default:</em> <code class="codehilite"><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span></code>): Coefficients for the <span><span class="MathJax_Preview">K</span><script type="math/tex">K</script></span> diagonal matrix</li>
+<li><strong>Kd</strong> (<em>default:</em> <code class="codehilite"><span class="mi">4490</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">4490</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">4490</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">19541</span><span class="p">.</span><span class="mi">395</span><span class="p">,</span><span class="mi">19541</span><span class="p">.</span><span class="mi">395</span><span class="p">,</span><span class="mi">19541</span><span class="p">.</span><span class="mi">395</span></code>): Coefficients for the <span><span class="MathJax_Preview">K_d</span><script type="math/tex">K_d</script></span> diagonal matrix</li>
+<li><strong>Ki</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">476</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">476</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">476</span></code>): Coefficients for the <span><span class="MathJax_Preview">K_i</span><script type="math/tex">K_i</script></span> diagonal matrix</li>
+<li><strong>slope</strong> (<em>default:</em> <code class="codehilite"><span class="mi">3</span><span class="p">.</span><span class="mi">83</span><span class="p">,</span><span class="mi">3</span><span class="p">.</span><span class="mi">83</span><span class="p">,</span><span class="mi">3</span><span class="p">.</span><span class="mi">83</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">508</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">508</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">508</span></code>): Coefficients for the <span><span class="MathJax_Preview">\alpha</span><script type="math/tex">\alpha</script></span> diagonal matrix</li>
+<li><strong>teleop_on</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>): Start joystick teleop node</li>
+<li><strong>joy_id</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>): ID of the joystick device</li>
+<li><strong>axis_yaw</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>): Joystick mapping for yaw angle input</li>
+<li><strong>axis_x</strong> (<em>default:</em> <code class="codehilite"><span class="mi">4</span></code>): Joystick mapping for X component of velocity reference input</li>
+<li><strong>axis_y</strong> (<em>default:</em> <code class="codehilite"><span class="mi">3</span></code>): Joystick mapping for Y component of velocity reference input</li>
+<li><strong>axis_z</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1</span></code>): Joystick mapping for Z component of velocity reference input</li>
+<li><strong>max_forward_speed</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">5</span></code>): Maximum forward speed in m/s</li>
+<li><strong>thruster_manager_output_dir</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">rexrov2_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span></code>): Output directory for the generated thruster manager</li>
+<li><strong>thruster_manager_config_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">rexrov2_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">thruster_manager</span><span class="p">.</span><span class="n">yaml</span></code>): File storing the configuration of the thruster manager</li>
+<li><strong>tam_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">rexrov2_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">TAM</span><span class="p">.</span><span class="n">yaml</span></code>): File storing the thruster allocation matrix</li>
 </ul>
-<h5 id="start_thruster_managerlaunch"><a href="https://github.com/uuvsimulator/rexrov2/tree/master/rexrov2_control/launch/start_thruster_manager.launch"><code class="codehilite">start_thruster_manager.launch</code></a><a class="headerlink" href="#start_thruster_managerlaunch" title="Permanent link">&para;</a></h5>
+<h5 id="start_thruster_managerlaunch"><a href="https://github.com/uuvsimulator/rexrov2/tree/master/rexrov2_control/launch/start_thruster_manager.launch"><code class="codehilite"><span class="n">start_thruster_manager</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#start_thruster_managerlaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Description</strong></p>
 </blockquote>
 <p>Starts the <a href="https://github.com/uuvsimulator/uuv_simulator/blob/master/uuv_control/uuv_thruster_manager/scripts/thruster_allocator.py">thruster allocator node</a> 
 with the configuration for the RexROV 2 vehicle.</p>
 <p>The thruster allocator uses the <a href="https://github.com/uuvsimulator/rexrov2/blob/master/rexrov2_control/config/TAM.yaml">thruster allocation matrix</a>
-to convert the <a href="https://docs.ros.org/lunar/api/geometry_msgs/html/msg/Wrench.html">geometry_msgs/Wrench message</a> from the <code class="codehilite">/&lt;uuv_name&gt;/thruster_manager/input</code> topic
+to convert the <a href="https://docs.ros.org/lunar/api/geometry_msgs/html/msg/Wrench.html">geometry_msgs/Wrench message</a> from the <code class="codehilite"><span class="o">/&lt;</span><span class="n">uuv_name</span><span class="o">&gt;/</span><span class="n">thruster_manager</span><span class="o">/</span><span class="k">input</span></code> topic
 into reference input for each thruster unit.</p>
 <blockquote>
 <p><strong>Create or reset the thruster allocation matrix</strong></p>
 </blockquote>
 <p>In case the <a href="https://github.com/uuvsimulator/rexrov2/blob/master/rexrov2_control/config/TAM.yaml">thruster allocation matrix</a>
 has to be created or recalculated, start the simulation as follows</p>
-<div class="codehilite"><pre><span></span>roslaunch uuv_gazebo_worlds ocean_waves.launch
+<div class="codehilite"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_gazebo_worlds</span> <span class="n">ocean_waves</span><span class="p">.</span><span class="n">launch</span>
 </pre></div>
 
-<div class="codehilite"><pre><span></span>roslaunch rexrov2_description upload_rexrov2.launch
+<div class="codehilite"><pre><span></span><span class="n">roslaunch</span> <span class="n">rexrov2_description</span> <span class="n">upload_rexrov2</span><span class="p">.</span><span class="n">launch</span>
 </pre></div>
 
-<p>and then start the thruster manager with the <code class="codehilite">reset_tam</code> set to true. The file will be stored 
-under the filename provided with the path under the input <code class="codehilite">tam_file</code> as follows</p>
-<div class="codehilite"><pre><span></span>roslaunch rexrov2_control start_thruster_manager.launch reset_tam:=true
+<p>and then start the thruster manager with the <code class="codehilite"><span class="n">reset_tam</span></code> set to true. The file will be stored 
+under the filename provided with the path under the input <code class="codehilite"><span class="n">tam_file</span></code> as follows</p>
+<div class="codehilite"><pre><span></span><span class="n">roslaunch</span> <span class="n">rexrov2_control</span> <span class="n">start_thruster_manager</span><span class="p">.</span><span class="n">launch</span> <span class="n">reset_tam</span><span class="p">:</span><span class="o">=</span><span class="k">true</span>
 </pre></div>
 
 <blockquote>
 <p><strong>Example</strong></p>
 </blockquote>
 <p>Start the simulation, spawn the RexROV 2 vehicle and then start the thruster allocation node as follows</p>
-<div class="codehilite"><pre><span></span>roslaunch uuv_gazebo_worlds ocean_waves.launch
+<div class="codehilite"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_gazebo_worlds</span> <span class="n">ocean_waves</span><span class="p">.</span><span class="n">launch</span>
 </pre></div>
 
-<div class="codehilite"><pre><span></span>roslaunch rexrov2_description upload_rexrov2.launch
+<div class="codehilite"><pre><span></span><span class="n">roslaunch</span> <span class="n">rexrov2_description</span> <span class="n">upload_rexrov2</span><span class="p">.</span><span class="n">launch</span>
 </pre></div>
 
-<div class="codehilite"><pre><span></span>roslaunch rexrov2_control start_thruster_manager.launch 
+<div class="codehilite"><pre><span></span><span class="n">roslaunch</span> <span class="n">rexrov2_control</span> <span class="n">start_thruster_manager</span><span class="p">.</span><span class="n">launch</span> 
 </pre></div>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>A controller node or similar must publish the geometry_msgs/Wrench message in the 
-<code class="codehilite">/&lt;uuv_name&gt;/thruster_manager/input</code> topic for the vehicle to move.</p>
+<code class="codehilite"><span class="o">/&lt;</span><span class="n">uuv_name</span><span class="o">&gt;/</span><span class="n">thruster_manager</span><span class="o">/</span><span class="k">input</span></code> topic for the vehicle to move.</p>
 </div>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
-<li><strong>model_name</strong> (<em>default:</em> <code class="codehilite">rexrov2</code>): Name of the model of the vehicle</li>
-<li><strong>uuv_name</strong> (<em>default:</em> <code class="codehilite">$(arg model_name)</code>): Namespace for the vehicle instance</li>
-<li><strong>base_link</strong> (<em>default:</em> <code class="codehilite">base_link</code>): Name of the base link frame</li>
-<li><strong>timeout</strong> (<em>default:</em> <code class="codehilite">-1</code>)</li>
-<li><strong>reset_tam</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
-<li><strong>output_dir</strong> (<em>default:</em> <code class="codehilite">$(find rexrov2_control)/config</code>)</li>
-<li><strong>config_file</strong> (<em>default:</em> <code class="codehilite">$(find rexrov2_control)/config/thruster_manager.yaml</code>)</li>
-<li><strong>tam_file</strong> (<em>default:</em> <code class="codehilite">$(find rexrov2_control)/config/TAM.yaml</code>)</li>
+<li><strong>model_name</strong> (<em>default:</em> <code class="codehilite"><span class="n">rexrov2</span></code>): Name of the model of the vehicle</li>
+<li><strong>uuv_name</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">model_name</span><span class="p">)</span></code>): Namespace for the vehicle instance</li>
+<li><strong>base_link</strong> (<em>default:</em> <code class="codehilite"><span class="n">base_link</span></code>): Name of the base link frame</li>
+<li><strong>timeout</strong> (<em>default:</em> <code class="codehilite"><span class="o">-</span><span class="mi">1</span></code>)</li>
+<li><strong>reset_tam</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>)</li>
+<li><strong>output_dir</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">rexrov2_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span></code>)</li>
+<li><strong>config_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">rexrov2_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">thruster_manager</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
+<li><strong>tam_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">rexrov2_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">TAM</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
 </ul>
-<h5 id="record_demolaunch"><a href="https://github.com/uuvsimulator/rexrov2/tree/master/rexrov2_control/launch/record_demo.launch"><code class="codehilite">record_demo.launch</code></a><a class="headerlink" href="#record_demolaunch" title="Permanent link">&para;</a></h5>
+<h5 id="record_demolaunch"><a href="https://github.com/uuvsimulator/rexrov2/tree/master/rexrov2_control/launch/record_demo.launch"><code class="codehilite"><span class="n">record_demo</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#record_demolaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Description</strong></p>
 </blockquote>
-<p>Starts the <code class="codehilite">rosbag record</code> node and records a set of topics for the RexROV 2.</p>
+<p>Starts the <code class="codehilite"><span class="n">rosbag</span> <span class="n">record</span></code> node and records a set of topics for the RexROV 2.</p>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
-<li><strong>record</strong> (<em>default:</em> <code class="codehilite">false</code>): Starts the recording node if set to true</li>
-<li><strong>bag_filename</strong> (<em>default:</em> <code class="codehilite">recording.bag</code>): Filename for the recording ROS bag</li>
-<li><strong>use_ned_frame</strong> (<em>default:</em> <code class="codehilite">false</code>): If set to true, stores the odometry with respect to NED frame</li>
-<li><strong>uuv_name</strong> (<em>default:</em> <code class="codehilite">rexrov2</code>): Namespace of the vehicle</li>
+<li><strong>record</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>): Starts the recording node if set to true</li>
+<li><strong>bag_filename</strong> (<em>default:</em> <code class="codehilite"><span class="n">recording</span><span class="p">.</span><span class="n">bag</span></code>): Filename for the recording ROS bag</li>
+<li><strong>use_ned_frame</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>): If set to true, stores the odometry with respect to NED frame</li>
+<li><strong>uuv_name</strong> (<em>default:</em> <code class="codehilite"><span class="n">rexrov2</span></code>): Namespace of the vehicle</li>
 </ul>
-<h5 id="start_pid_controllerlaunch"><a href="https://github.com/uuvsimulator/rexrov2/tree/master/rexrov2_control/launch/start_pid_controller.launch"><code class="codehilite">start_pid_controller.launch</code></a><a class="headerlink" href="#start_pid_controllerlaunch" title="Permanent link">&para;</a></h5>
+<h5 id="start_pid_controllerlaunch"><a href="https://github.com/uuvsimulator/rexrov2/tree/master/rexrov2_control/launch/start_pid_controller.launch"><code class="codehilite"><span class="n">start_pid_controller</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#start_pid_controllerlaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Description</strong></p>
 </blockquote>
 <p>Starts the <a href="https://github.com/uuvsimulator/uuv_simulator/blob/master/uuv_control/uuv_trajectory_control/scripts/rov_pid_controller.py">6-DoF PID controller</a> 
 node with the configurations for the RexROV 2 vehicle.
-The controller's default parameters <code class="codehilite">Kp</code>, <code class="codehilite">Kd</code> and <code class="codehilite">Ki</code>
+The controller's default parameters <code class="codehilite"><span class="n">Kp</span></code>, <code class="codehilite"><span class="n">Kd</span></code> and <code class="codehilite"><span class="n">Ki</span></code>
 were optimized using <a href="https://github.com/automl/SMAC3">SMAC</a>.</p>
 <blockquote>
 <p><strong>Example</strong></p>
 </blockquote>
-<div class="codehilite"><pre><span></span>roslaunch uuv_gazebo_worlds ocean_waves.launch
+<div class="codehilite"><pre><span></span><span class="n">roslaunch</span> <span class="n">uuv_gazebo_worlds</span> <span class="n">ocean_waves</span><span class="p">.</span><span class="n">launch</span>
 </pre></div>
 
-<div class="codehilite"><pre><span></span>roslaunch rexrov2_description upload_rexrov2.launch
+<div class="codehilite"><pre><span></span><span class="n">roslaunch</span> <span class="n">rexrov2_description</span> <span class="n">upload_rexrov2</span><span class="p">.</span><span class="n">launch</span>
 </pre></div>
 
-<div class="codehilite"><pre><span></span>roslaunch rexrov2_control start_pid_controller.launch
+<div class="codehilite"><pre><span></span><span class="n">roslaunch</span> <span class="n">rexrov2_control</span> <span class="n">start_pid_controller</span><span class="p">.</span><span class="n">launch</span>
 </pre></div>
 
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
-<li><strong>uuv_name</strong> (<em>default:</em> <code class="codehilite">rexrov2</code>): Namespace of the vehicle to be controller</li>
-<li><strong>record</strong> (<em>default:</em> <code class="codehilite">false</code>): Record ROS bag</li>
-<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite">true</code>): Start Gazebo client and RViz</li>
-<li><strong>use_ned_frame</strong> (<em>default:</em> <code class="codehilite">false</code>): If true, the reference frame is set to be NED (North-East-Down) instead of Gazebo's default ENU (East-North-Up)</li>
-<li><strong>Kp</strong> (<em>default:</em> <code class="codehilite">11993.888,11993.888,11993.888,19460.069,19460.069,19460.069</code>): Coefficients for the <span><span class="MathJax_Preview">K_p</span><script type="math/tex">K_p</script></span> diagonal matrix</li>
-<li><strong>Kd</strong> (<em>default:</em> <code class="codehilite">9077.459,9077.459,9077.459,18880.925,18880.925,18880.925</code>): Coefficients for the <span><span class="MathJax_Preview">K_d</span><script type="math/tex">K_d</script></span> diagonal matrix</li>
-<li><strong>Ki</strong> (<em>default:</em> <code class="codehilite">321.417,321.417,321.417,2096.951,2096.951,2096.951</code>): Coefficients for the <span><span class="MathJax_Preview">K_i</span><script type="math/tex">K_i</script></span> diagonal matrix</li>
-<li><strong>teleop_on</strong> (<em>default:</em> <code class="codehilite">false</code>): Start joystick teleop node</li>
-<li><strong>joy_id</strong> (<em>default:</em> <code class="codehilite">0</code>): ID of the joystick device</li>
-<li><strong>axis_yaw</strong> (<em>default:</em> <code class="codehilite">0</code>): Joystick mapping for yaw angle input</li>
-<li><strong>axis_x</strong> (<em>default:</em> <code class="codehilite">4</code>): Joystick mapping for X component of velocity reference input</li>
-<li><strong>axis_y</strong> (<em>default:</em> <code class="codehilite">3</code>): Joystick mapping for Y component of velocity reference input</li>
-<li><strong>axis_z</strong> (<em>default:</em> <code class="codehilite">1</code>): Joystick mapping for Z component of velocity reference input</li>
-<li><strong>thruster_manager_output_dir</strong> (<em>default:</em> <code class="codehilite">$(find rexrov2_control)/config</code>): Output directory for the generated thruster manager</li>
-<li><strong>thruster_manager_config_file</strong> (<em>default:</em> <code class="codehilite">$(find rexrov2_control)/config/thruster_manager.yaml</code>): File storing the configuration of the thruster manager</li>
-<li><strong>tam_file</strong> (<em>default:</em> <code class="codehilite">$(find rexrov2_control)/config/TAM.yaml</code>): File storing the thruster allocation matrix</li>
+<li><strong>uuv_name</strong> (<em>default:</em> <code class="codehilite"><span class="n">rexrov2</span></code>): Namespace of the vehicle to be controller</li>
+<li><strong>record</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>): Record ROS bag</li>
+<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite"><span class="k">true</span></code>): Start Gazebo client and RViz</li>
+<li><strong>use_ned_frame</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>): If true, the reference frame is set to be NED (North-East-Down) instead of Gazebo's default ENU (East-North-Up)</li>
+<li><strong>Kp</strong> (<em>default:</em> <code class="codehilite"><span class="mi">11993</span><span class="p">.</span><span class="mi">888</span><span class="p">,</span><span class="mi">11993</span><span class="p">.</span><span class="mi">888</span><span class="p">,</span><span class="mi">11993</span><span class="p">.</span><span class="mi">888</span><span class="p">,</span><span class="mi">19460</span><span class="p">.</span><span class="mi">069</span><span class="p">,</span><span class="mi">19460</span><span class="p">.</span><span class="mi">069</span><span class="p">,</span><span class="mi">19460</span><span class="p">.</span><span class="mi">069</span></code>): Coefficients for the <span><span class="MathJax_Preview">K_p</span><script type="math/tex">K_p</script></span> diagonal matrix</li>
+<li><strong>Kd</strong> (<em>default:</em> <code class="codehilite"><span class="mi">9077</span><span class="p">.</span><span class="mi">459</span><span class="p">,</span><span class="mi">9077</span><span class="p">.</span><span class="mi">459</span><span class="p">,</span><span class="mi">9077</span><span class="p">.</span><span class="mi">459</span><span class="p">,</span><span class="mi">18880</span><span class="p">.</span><span class="mi">925</span><span class="p">,</span><span class="mi">18880</span><span class="p">.</span><span class="mi">925</span><span class="p">,</span><span class="mi">18880</span><span class="p">.</span><span class="mi">925</span></code>): Coefficients for the <span><span class="MathJax_Preview">K_d</span><script type="math/tex">K_d</script></span> diagonal matrix</li>
+<li><strong>Ki</strong> (<em>default:</em> <code class="codehilite"><span class="mi">321</span><span class="p">.</span><span class="mi">417</span><span class="p">,</span><span class="mi">321</span><span class="p">.</span><span class="mi">417</span><span class="p">,</span><span class="mi">321</span><span class="p">.</span><span class="mi">417</span><span class="p">,</span><span class="mi">2096</span><span class="p">.</span><span class="mi">951</span><span class="p">,</span><span class="mi">2096</span><span class="p">.</span><span class="mi">951</span><span class="p">,</span><span class="mi">2096</span><span class="p">.</span><span class="mi">951</span></code>): Coefficients for the <span><span class="MathJax_Preview">K_i</span><script type="math/tex">K_i</script></span> diagonal matrix</li>
+<li><strong>teleop_on</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>): Start joystick teleop node</li>
+<li><strong>joy_id</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>): ID of the joystick device</li>
+<li><strong>axis_yaw</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>): Joystick mapping for yaw angle input</li>
+<li><strong>axis_x</strong> (<em>default:</em> <code class="codehilite"><span class="mi">4</span></code>): Joystick mapping for X component of velocity reference input</li>
+<li><strong>axis_y</strong> (<em>default:</em> <code class="codehilite"><span class="mi">3</span></code>): Joystick mapping for Y component of velocity reference input</li>
+<li><strong>axis_z</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1</span></code>): Joystick mapping for Z component of velocity reference input</li>
+<li><strong>thruster_manager_output_dir</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">rexrov2_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span></code>): Output directory for the generated thruster manager</li>
+<li><strong>thruster_manager_config_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">rexrov2_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">thruster_manager</span><span class="p">.</span><span class="n">yaml</span></code>): File storing the configuration of the thruster manager</li>
+<li><strong>tam_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">rexrov2_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">TAM</span><span class="p">.</span><span class="n">yaml</span></code>): File storing the thruster allocation matrix</li>
 </ul>
                 
                   

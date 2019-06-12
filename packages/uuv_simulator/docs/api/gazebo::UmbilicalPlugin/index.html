@@ -452,6 +452,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -2772,9 +2784,9 @@
                 
                   <h1>class `gazebo::UmbilicalPlugin`</h1>
                 
-                <h4 id="class-gazeboumbilicalplugin">class <code class="codehilite">gazebo::UmbilicalPlugin</code><a class="headerlink" href="#class-gazeboumbilicalplugin" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><span class="kr">class</span> <span class="nx">gazebo</span><span class="o">::</span><span class="nx">UmbilicalPlugin</span>
-  : <span class="kt">public</span> <span class="nx">ModelPlugin</span>
+                <h4 id="class-gazeboumbilicalplugin">class <code class="codehilite"><span class="n">gazebo</span><span class="p">::</span><span class="n">UmbilicalPlugin</span></code><a class="headerlink" href="#class-gazeboumbilicalplugin" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="n">gazebo::UmbilicalPlugin</span>
+  : <span class="n">public</span> <span class="n">ModelPlugin</span>
 </pre></div>
 
 <h5 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h5>
@@ -2787,79 +2799,79 @@
 </thead>
 <tbody>
 <tr>
-<td><code class="codehilite">public</code><a href="#classgazebo_1_1_umbilical_plugin_1a057f26aba6131c97efcfad72864c1c96"><code class="codehilite">UmbilicalPlugin</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span></code><a href="#classgazebo_1_1_umbilical_plugin_1a057f26aba6131c97efcfad72864c1c96"><code class="codehilite"><span class="n">UmbilicalPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Destructor.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public</code><a href="#classgazebo_1_1_umbilical_plugin_1afd11fddc7265c89ce53a665688ea4baa"><code class="codehilite">~UmbilicalPlugin</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span></code><a href="#classgazebo_1_1_umbilical_plugin_1afd11fddc7265c89ce53a665688ea4baa"><code class="codehilite"><span class="o">~</span><span class="n">UmbilicalPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Constructor.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected event::ConnectionPtr</code><a href="#classgazebo_1_1_umbilical_plugin_1a23741aa2b2775fb58db688c19b338c7f"><code class="codehilite">updateConnection</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">event</span><span class="p">::</span><span class="n">ConnectionPtr</span></code><a href="#classgazebo_1_1_umbilical_plugin_1a23741aa2b2775fb58db688c19b338c7f"><code class="codehilite"><span class="n">updateConnection</span></code></a></td>
 <td>Pointer to the update event connection.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected gazebo::physics::ModelPtr</code><a href="#classgazebo_1_1_umbilical_plugin_1aa495d0dd46d56e18550dfa30ec6a5ccf"><code class="codehilite">model</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">gazebo</span><span class="p">::</span><span class="n">physics</span><span class="p">::</span><span class="n">ModelPtr</span></code><a href="#classgazebo_1_1_umbilical_plugin_1aa495d0dd46d56e18550dfa30ec6a5ccf"><code class="codehilite"><span class="n">model</span></code></a></td>
 <td>Pointer to the model structure.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected gazebo::physics::WorldPtr</code><a href="#classgazebo_1_1_umbilical_plugin_1a9299893f7d97eb66ee07fb725ca165d4"><code class="codehilite">world</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">gazebo</span><span class="p">::</span><span class="n">physics</span><span class="p">::</span><span class="n">WorldPtr</span></code><a href="#classgazebo_1_1_umbilical_plugin_1a9299893f7d97eb66ee07fb725ca165d4"><code class="codehilite"><span class="n">world</span></code></a></td>
 <td>Pointer to the world plugin.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected gazebo::transport::NodePtr</code><a href="#classgazebo_1_1_umbilical_plugin_1a552cee3d43b51eb33048ad88120bf879"><code class="codehilite">node</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">gazebo</span><span class="p">::</span><span class="n">transport</span><span class="p">::</span><span class="n">NodePtr</span></code><a href="#classgazebo_1_1_umbilical_plugin_1a552cee3d43b51eb33048ad88120bf879"><code class="codehilite"><span class="n">node</span></code></a></td>
 <td>Gazebo node.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected gazebo::transport::SubscriberPtr</code><a href="#classgazebo_1_1_umbilical_plugin_1a5f7d8aee1c7f91bcfdc680484a60b4db"><code class="codehilite">flowSubscriber</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">gazebo</span><span class="p">::</span><span class="n">transport</span><span class="p">::</span><span class="n">SubscriberPtr</span></code><a href="#classgazebo_1_1_umbilical_plugin_1a5f7d8aee1c7f91bcfdc680484a60b4db"><code class="codehilite"><span class="n">flowSubscriber</span></code></a></td>
 <td>Subcriber to flow message.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_umbilical_plugin_1a6b65710780f67008b0b167840d19d781"><code class="codehilite">flowVelocity</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_umbilical_plugin_1a6b65710780f67008b0b167840d19d781"><code class="codehilite"><span class="n">flowVelocity</span></code></a></td>
 <td>Flow velocity vector read from topic.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected std::shared_ptr&lt;</code><a href="docs/packages/uuv_simulator/docs/api/gazebo::UmbilicalModel.md#classgazebo_1_1_umbilical_model"><code class="codehilite">UmbilicalModel</code></a><code class="codehilite">&gt;</code><a href="#classgazebo_1_1_umbilical_plugin_1a02c19fdf4ddac48e3a46b5e72522c938"><code class="codehilite">umbilical</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span></code><a href="docs/packages/uuv_simulator/docs/api/gazebo::UmbilicalModel.md#classgazebo_1_1_umbilical_model"><code class="codehilite"><span class="n">UmbilicalModel</span></code></a><code class="codehilite"><span class="o">&gt;</span></code><a href="#classgazebo_1_1_umbilical_plugin_1a02c19fdf4ddac48e3a46b5e72522c938"><code class="codehilite"><span class="n">umbilical</span></code></a></td>
 <td>Pointer to <a href="docs/packages/uuv_simulator/docs/api/gazebo::UmbilicalModel.md#classgazebo_1_1_umbilical_model">UmbilicalModel</a> used in this plugin.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected virtual void</code><a href="#classgazebo_1_1_umbilical_plugin_1af44b8802650eb0c0d9842558db614914"><code class="codehilite">Load</code></a><code class="codehilite">(physics::ModelPtr _model,sdf::ElementPtr _sdf)</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_umbilical_plugin_1af44b8802650eb0c0d9842558db614914"><code class="codehilite"><span class="k">Load</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">physics</span><span class="p">::</span><span class="n">ModelPtr</span> <span class="n">_model</span><span class="p">,</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">)</span></code></td>
 <td>Load plugin and its configuration from sdf.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected virtual void</code><a href="#classgazebo_1_1_umbilical_plugin_1a27b0bf9ff8f9face03db37b7882e9195"><code class="codehilite">OnUpdate</code></a><code class="codehilite">(const common::UpdateInfo &amp;)</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_umbilical_plugin_1a27b0bf9ff8f9face03db37b7882e9195"><code class="codehilite"><span class="n">OnUpdate</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">common</span><span class="p">::</span><span class="n">UpdateInfo</span> <span class="o">&amp;</span><span class="p">)</span></code></td>
 <td>Update callback from simulation.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected void</code><a href="#classgazebo_1_1_umbilical_plugin_1aafce9f28f1b7438e2585c9d5fe5d434c"><code class="codehilite">UpdateFlowVelocity</code></a><code class="codehilite">(ConstVector3dPtr &amp; _msg)</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">void</span></code><a href="#classgazebo_1_1_umbilical_plugin_1aafce9f28f1b7438e2585c9d5fe5d434c"><code class="codehilite"><span class="n">UpdateFlowVelocity</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">ConstVector3dPtr</span> <span class="o">&amp;</span> <span class="n">_msg</span><span class="p">)</span></code></td>
 <td>Reads flow velocity topic.</td>
 </tr>
 </tbody>
 </table>
 <h5 id="members">Members<a class="headerlink" href="#members" title="Permanent link">&para;</a></h5>
-<h6 id="publicumbilicalplugin"><code class="codehilite">public</code><a href="#classgazebo_1_1_umbilical_plugin_1a057f26aba6131c97efcfad72864c1c96"><code class="codehilite">UmbilicalPlugin</code></a><code class="codehilite">()</code><a class="headerlink" href="#publicumbilicalplugin" title="Permanent link">&para;</a></h6>
+<h6 id="publicumbilicalplugin"><code class="codehilite"><span class="k">public</span></code><a href="#classgazebo_1_1_umbilical_plugin_1a057f26aba6131c97efcfad72864c1c96"><code class="codehilite"><span class="n">UmbilicalPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#publicumbilicalplugin" title="Permanent link">&para;</a></h6>
 <p>Destructor.</p>
-<h6 id="publicumbilicalplugin_1"><code class="codehilite">public</code><a href="#classgazebo_1_1_umbilical_plugin_1afd11fddc7265c89ce53a665688ea4baa"><code class="codehilite">~UmbilicalPlugin</code></a><code class="codehilite">()</code><a class="headerlink" href="#publicumbilicalplugin_1" title="Permanent link">&para;</a></h6>
+<h6 id="publicumbilicalplugin_1"><code class="codehilite"><span class="k">public</span></code><a href="#classgazebo_1_1_umbilical_plugin_1afd11fddc7265c89ce53a665688ea4baa"><code class="codehilite"><span class="o">~</span><span class="n">UmbilicalPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#publicumbilicalplugin_1" title="Permanent link">&para;</a></h6>
 <p>Constructor.</p>
-<h6 id="protected-eventconnectionptrupdateconnection"><code class="codehilite">protected event::ConnectionPtr</code><a href="#classgazebo_1_1_umbilical_plugin_1a23741aa2b2775fb58db688c19b338c7f"><code class="codehilite">updateConnection</code></a><a class="headerlink" href="#protected-eventconnectionptrupdateconnection" title="Permanent link">&para;</a></h6>
+<h6 id="protected-eventconnectionptrupdateconnection"><code class="codehilite"><span class="n">protected</span> <span class="n">event</span><span class="p">::</span><span class="n">ConnectionPtr</span></code><a href="#classgazebo_1_1_umbilical_plugin_1a23741aa2b2775fb58db688c19b338c7f"><code class="codehilite"><span class="n">updateConnection</span></code></a><a class="headerlink" href="#protected-eventconnectionptrupdateconnection" title="Permanent link">&para;</a></h6>
 <p>Pointer to the update event connection.</p>
-<h6 id="protected-gazebophysicsmodelptrmodel"><code class="codehilite">protected gazebo::physics::ModelPtr</code><a href="#classgazebo_1_1_umbilical_plugin_1aa495d0dd46d56e18550dfa30ec6a5ccf"><code class="codehilite">model</code></a><a class="headerlink" href="#protected-gazebophysicsmodelptrmodel" title="Permanent link">&para;</a></h6>
+<h6 id="protected-gazebophysicsmodelptrmodel"><code class="codehilite"><span class="n">protected</span> <span class="n">gazebo</span><span class="p">::</span><span class="n">physics</span><span class="p">::</span><span class="n">ModelPtr</span></code><a href="#classgazebo_1_1_umbilical_plugin_1aa495d0dd46d56e18550dfa30ec6a5ccf"><code class="codehilite"><span class="n">model</span></code></a><a class="headerlink" href="#protected-gazebophysicsmodelptrmodel" title="Permanent link">&para;</a></h6>
 <p>Pointer to the model structure.</p>
-<h6 id="protected-gazebophysicsworldptrworld"><code class="codehilite">protected gazebo::physics::WorldPtr</code><a href="#classgazebo_1_1_umbilical_plugin_1a9299893f7d97eb66ee07fb725ca165d4"><code class="codehilite">world</code></a><a class="headerlink" href="#protected-gazebophysicsworldptrworld" title="Permanent link">&para;</a></h6>
+<h6 id="protected-gazebophysicsworldptrworld"><code class="codehilite"><span class="n">protected</span> <span class="n">gazebo</span><span class="p">::</span><span class="n">physics</span><span class="p">::</span><span class="n">WorldPtr</span></code><a href="#classgazebo_1_1_umbilical_plugin_1a9299893f7d97eb66ee07fb725ca165d4"><code class="codehilite"><span class="n">world</span></code></a><a class="headerlink" href="#protected-gazebophysicsworldptrworld" title="Permanent link">&para;</a></h6>
 <p>Pointer to the world plugin.</p>
-<h6 id="protected-gazebotransportnodeptrnode"><code class="codehilite">protected gazebo::transport::NodePtr</code><a href="#classgazebo_1_1_umbilical_plugin_1a552cee3d43b51eb33048ad88120bf879"><code class="codehilite">node</code></a><a class="headerlink" href="#protected-gazebotransportnodeptrnode" title="Permanent link">&para;</a></h6>
+<h6 id="protected-gazebotransportnodeptrnode"><code class="codehilite"><span class="n">protected</span> <span class="n">gazebo</span><span class="p">::</span><span class="n">transport</span><span class="p">::</span><span class="n">NodePtr</span></code><a href="#classgazebo_1_1_umbilical_plugin_1a552cee3d43b51eb33048ad88120bf879"><code class="codehilite"><span class="n">node</span></code></a><a class="headerlink" href="#protected-gazebotransportnodeptrnode" title="Permanent link">&para;</a></h6>
 <p>Gazebo node.</p>
-<h6 id="protected-gazebotransportsubscriberptrflowsubscriber"><code class="codehilite">protected gazebo::transport::SubscriberPtr</code><a href="#classgazebo_1_1_umbilical_plugin_1a5f7d8aee1c7f91bcfdc680484a60b4db"><code class="codehilite">flowSubscriber</code></a><a class="headerlink" href="#protected-gazebotransportsubscriberptrflowsubscriber" title="Permanent link">&para;</a></h6>
+<h6 id="protected-gazebotransportsubscriberptrflowsubscriber"><code class="codehilite"><span class="n">protected</span> <span class="n">gazebo</span><span class="p">::</span><span class="n">transport</span><span class="p">::</span><span class="n">SubscriberPtr</span></code><a href="#classgazebo_1_1_umbilical_plugin_1a5f7d8aee1c7f91bcfdc680484a60b4db"><code class="codehilite"><span class="n">flowSubscriber</span></code></a><a class="headerlink" href="#protected-gazebotransportsubscriberptrflowsubscriber" title="Permanent link">&para;</a></h6>
 <p>Subcriber to flow message.</p>
-<h6 id="protected-ignitionmathvector3dflowvelocity"><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_umbilical_plugin_1a6b65710780f67008b0b167840d19d781"><code class="codehilite">flowVelocity</code></a><a class="headerlink" href="#protected-ignitionmathvector3dflowvelocity" title="Permanent link">&para;</a></h6>
+<h6 id="protected-ignitionmathvector3dflowvelocity"><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_umbilical_plugin_1a6b65710780f67008b0b167840d19d781"><code class="codehilite"><span class="n">flowVelocity</span></code></a><a class="headerlink" href="#protected-ignitionmathvector3dflowvelocity" title="Permanent link">&para;</a></h6>
 <p>Flow velocity vector read from topic.</p>
-<h6 id="protected-stdshared_ptrumbilicalmodelumbilical"><code class="codehilite">protected std::shared_ptr&lt;</code><a href="docs/packages/uuv_simulator/docs/api/gazebo::UmbilicalModel.md#classgazebo_1_1_umbilical_model"><code class="codehilite">UmbilicalModel</code></a><code class="codehilite">&gt;</code><a href="#classgazebo_1_1_umbilical_plugin_1a02c19fdf4ddac48e3a46b5e72522c938"><code class="codehilite">umbilical</code></a><a class="headerlink" href="#protected-stdshared_ptrumbilicalmodelumbilical" title="Permanent link">&para;</a></h6>
+<h6 id="protected-stdshared_ptrumbilicalmodelumbilical"><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span></code><a href="docs/packages/uuv_simulator/docs/api/gazebo::UmbilicalModel.md#classgazebo_1_1_umbilical_model"><code class="codehilite"><span class="n">UmbilicalModel</span></code></a><code class="codehilite"><span class="o">&gt;</span></code><a href="#classgazebo_1_1_umbilical_plugin_1a02c19fdf4ddac48e3a46b5e72522c938"><code class="codehilite"><span class="n">umbilical</span></code></a><a class="headerlink" href="#protected-stdshared_ptrumbilicalmodelumbilical" title="Permanent link">&para;</a></h6>
 <p>Pointer to <a href="docs/packages/uuv_simulator/docs/api/gazebo::UmbilicalModel.md#classgazebo_1_1_umbilical_model">UmbilicalModel</a> used in this plugin.</p>
-<h6 id="protected-virtual-voidloadphysicsmodelptr-_modelsdfelementptr-_sdf"><code class="codehilite">protected virtual void</code><a href="#classgazebo_1_1_umbilical_plugin_1af44b8802650eb0c0d9842558db614914"><code class="codehilite">Load</code></a><code class="codehilite">(physics::ModelPtr _model,sdf::ElementPtr _sdf)</code><a class="headerlink" href="#protected-virtual-voidloadphysicsmodelptr-_modelsdfelementptr-_sdf" title="Permanent link">&para;</a></h6>
+<h6 id="protected-virtual-voidloadphysicsmodelptr-_modelsdfelementptr-_sdf"><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_umbilical_plugin_1af44b8802650eb0c0d9842558db614914"><code class="codehilite"><span class="k">Load</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">physics</span><span class="p">::</span><span class="n">ModelPtr</span> <span class="n">_model</span><span class="p">,</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">)</span></code><a class="headerlink" href="#protected-virtual-voidloadphysicsmodelptr-_modelsdfelementptr-_sdf" title="Permanent link">&para;</a></h6>
 <p>Load plugin and its configuration from sdf.</p>
-<h6 id="protected-virtual-voidonupdateconst-commonupdateinfo"><code class="codehilite">protected virtual void</code><a href="#classgazebo_1_1_umbilical_plugin_1a27b0bf9ff8f9face03db37b7882e9195"><code class="codehilite">OnUpdate</code></a><code class="codehilite">(const common::UpdateInfo &amp;)</code><a class="headerlink" href="#protected-virtual-voidonupdateconst-commonupdateinfo" title="Permanent link">&para;</a></h6>
+<h6 id="protected-virtual-voidonupdateconst-commonupdateinfo"><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_umbilical_plugin_1a27b0bf9ff8f9face03db37b7882e9195"><code class="codehilite"><span class="n">OnUpdate</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">common</span><span class="p">::</span><span class="n">UpdateInfo</span> <span class="o">&amp;</span><span class="p">)</span></code><a class="headerlink" href="#protected-virtual-voidonupdateconst-commonupdateinfo" title="Permanent link">&para;</a></h6>
 <p>Update callback from simulation.</p>
-<h6 id="protected-voidupdateflowvelocityconstvector3dptr-_msg"><code class="codehilite">protected void</code><a href="#classgazebo_1_1_umbilical_plugin_1aafce9f28f1b7438e2585c9d5fe5d434c"><code class="codehilite">UpdateFlowVelocity</code></a><code class="codehilite">(ConstVector3dPtr &amp; _msg)</code><a class="headerlink" href="#protected-voidupdateflowvelocityconstvector3dptr-_msg" title="Permanent link">&para;</a></h6>
+<h6 id="protected-voidupdateflowvelocityconstvector3dptr-_msg"><code class="codehilite"><span class="n">protected</span> <span class="n">void</span></code><a href="#classgazebo_1_1_umbilical_plugin_1aafce9f28f1b7438e2585c9d5fe5d434c"><code class="codehilite"><span class="n">UpdateFlowVelocity</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">ConstVector3dPtr</span> <span class="o">&amp;</span> <span class="n">_msg</span><span class="p">)</span></code><a class="headerlink" href="#protected-voidupdateflowvelocityconstvector3dptr-_msg" title="Permanent link">&para;</a></h6>
 <p>Reads flow velocity topic.</p>
                 
                   

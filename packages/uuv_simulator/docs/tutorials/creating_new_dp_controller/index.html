@@ -456,6 +456,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -2760,25 +2772,25 @@
                 
                 <p>To facilitate the implementation of new control algorithms for the vehicle modelled in this package, a few Python modules were created as an interface to the vehicle's thruster manager, the local planner and setup the necessary publishers and subscribers needed to receive trajectory messages and send thruster commands. 
 The module also includes an implementation of Fossen's equations of motion that can be used by model-based controllers. 
-To create a controller based on this Python modules, see the following steps. All the files discussed below are available in the package <a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_tutorials/uuv_tutorial_dp_controller"><code class="codehilite">uuv_tutorial_dp_controller</code></a> in the <a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_tutorials">uuv_tutorials</a> folder. 
+To create a controller based on this Python modules, see the following steps. All the files discussed below are available in the package <a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_tutorials/uuv_tutorial_dp_controller"><code class="codehilite"><span class="n">uuv_tutorial_dp_controller</span></code></a> in the <a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_tutorials">uuv_tutorials</a> folder. 
 Remember to change the name of the package when developing your own module to avoid conflicts when compiling the catkin workspace.</p>
 <h4 id="creating-the-custom-controller-package">Creating the custom controller package<a class="headerlink" href="#creating-the-custom-controller-package" title="Permanent link">&para;</a></h4>
-<p>First, a new catkin package will be created to include the scripts and launch files necessary for this implementation. Replace the name of the catkin workspace <code class="codehilite">catkin_ws</code> below if yours is named differently.</p>
+<p>First, a new catkin package will be created to include the scripts and launch files necessary for this implementation. Replace the name of the catkin workspace <code class="codehilite"><span class="n">catkin_ws</span></code> below if yours is named differently.</p>
 <div class="codehilite"><pre><span></span><span class="nb">cd</span> ~/catkin_ws/src
 catkin_create_pkg uuv_tutorial_dp_controller
 </pre></div>
 
-<p>This command will create the necessary files for the new package which will be edited further on in this tutorial. Next, two folders are needed, one <code class="codehilite">launch</code> folder to the launch files and one <code class="codehilite">scripts</code> folder, where the implementation of the custom controller will be stored. </p>
+<p>This command will create the necessary files for the new package which will be edited further on in this tutorial. Next, two folders are needed, one <code class="codehilite"><span class="n">launch</span></code> folder to the launch files and one <code class="codehilite"><span class="n">scripts</span></code> folder, where the implementation of the custom controller will be stored. </p>
 <div class="codehilite"><pre><span></span><span class="nb">cd</span> ~/catkin_ws/src/uuv_tutorial_dp_controller
 mkdir launch scripts
 </pre></div>
 
 <h4 id="creating-the-controller-node">Creating the controller node<a class="headerlink" href="#creating-the-controller-node" title="Permanent link">&para;</a></h4>
-<p>In the <code class="codehilite">scripts</code> folder, a Python file has to be created, here we will name it <code class="codehilite">tutorial_dp_controller.py</code>. </p>
+<p>In the <code class="codehilite"><span class="n">scripts</span></code> folder, a Python file has to be created, here we will name it <code class="codehilite"><span class="n">tutorial_dp_controller</span><span class="p">.</span><span class="n">py</span></code>. </p>
 <div class="codehilite"><pre><span></span>touch scripts/tutorial_dp_controller.py
 </pre></div>
 
-<p>This file will have the implementation of the controller named <code class="codehilite">TutorialDPController</code>, a very simple PID controller, as shown below.</p>
+<p>This file will have the implementation of the controller named <code class="codehilite"><span class="n">TutorialDPController</span></code>, a very simple PID controller, as shown below.</p>
 <div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="kn">import</span> <span class="nn">rospy</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
@@ -2853,7 +2865,7 @@ mkdir launch scripts
   <span class="k">print</span><span class="p">(</span><span class="s1">&#39;exiting&#39;</span><span class="p">)</span>
 </pre></div>
 
-<p>Analyzing the file in detail, for the controller to use the controller modules from <a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_control/uuv_trajectory_control/src/uuv_control_interfaces"><code class="codehilite">uuv_control_interfaces</code></a>, it has to inherit the <code class="codehilite">DPControllerBase</code> class and initialize it</p>
+<p>Analyzing the file in detail, for the controller to use the controller modules from <a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_control/uuv_trajectory_control/src/uuv_control_interfaces"><code class="codehilite"><span class="n">uuv_control_interfaces</span></code></a>, it has to inherit the <code class="codehilite"><span class="n">DPControllerBase</span></code> class and initialize it</p>
 <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">TutorialDPController</span><span class="p">(</span><span class="n">DPControllerBase</span><span class="p">):</span>
   <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
       <span class="nb">super</span><span class="p">(</span><span class="n">TutorialDPController</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
@@ -2865,7 +2877,7 @@ For model-based controllers, the super class constructor has to be called as</p>
 </pre></div>
 
 <p>The controller's parameters, in this case <span><span class="MathJax_Preview">K_p</span><script type="math/tex">K_p</script></span>, <span><span class="MathJax_Preview">K_d</span><script type="math/tex">K_d</script></span> and <span><span class="MathJax_Preview">K_i</span><script type="math/tex">K_i</script></span> should retrieved from the parameter server to allow the controller to be used in different configurations. One alternative is to read this information from the node's private parameter namespace as shown below. 
-This is done by adding a <code class="codehilite">~</code> in front of the parameters's tag. The parameter has to be provided at the controller's launch file accordingly, which will be discussed later on.</p>
+This is done by adding a <code class="codehilite"><span class="o">~</span></code> in front of the parameters's tag. The parameter has to be provided at the controller's launch file accordingly, which will be discussed later on.</p>
 <div class="codehilite"><pre><span></span><span class="k">if</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s1">&#39;~Kd&#39;</span><span class="p">):</span>
   <span class="n">diag</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s1">&#39;~Kd&#39;</span><span class="p">)</span>
   <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">diag</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
@@ -2876,14 +2888,14 @@ This is done by adding a <code class="codehilite">~</code> in front of the param
       <span class="k">raise</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ROSException</span><span class="p">(</span><span class="s1">&#39;For the Kd diagonal matrix, 6 coefficients are needed&#39;</span><span class="p">)</span>
 </pre></div>
 
-<p>The <code class="codehilite">_reset_controller</code> method can be overriden in case internal variables must be reset when the reset service call is received.
+<p>The <code class="codehilite"><span class="n">_reset_controller</span></code> method can be overriden in case internal variables must be reset when the reset service call is received.
 It is important to also call the super class' reset method as seen below to ensure that error and reference vectors are also going to be cleared.</p>
 <div class="codehilite"><pre><span></span>  <span class="nb">super</span><span class="p">(</span><span class="n">TutorialDPController</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">_reset_controller</span><span class="p">()</span>
 </pre></div>
 
-<p>When using the super class <code class="codehilite">DPControllerBase</code>, there is no need to add an controller update sequence or a timer. 
-Once the method <code class="codehilite">update_controller</code> is implemented in the controller class, it will be given as a callback function to the odometry update method.
-This update method should include the controller's algorithm and generate the control effort vector (in this case <span><span class="MathJax_Preview">\tau</span><script type="math/tex">\tau</script></span>) and use the super class function <code class="codehilite">publish_control_wrench</code> to publish it to the thruster manager input.</p>
+<p>When using the super class <code class="codehilite"><span class="n">DPControllerBase</span></code>, there is no need to add an controller update sequence or a timer. 
+Once the method <code class="codehilite"><span class="n">update_controller</span></code> is implemented in the controller class, it will be given as a callback function to the odometry update method.
+This update method should include the controller's algorithm and generate the control effort vector (in this case <span><span class="MathJax_Preview">\tau</span><script type="math/tex">\tau</script></span>) and use the super class function <code class="codehilite"><span class="n">publish_control_wrench</span></code> to publish it to the thruster manager input.</p>
 <p>The last part of the file is necessary for the ROS node to be executed.</p>
 <div class="codehilite"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
   <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Tutorial - DP Controller&#39;</span><span class="p">)</span>
@@ -2960,12 +2972,12 @@ This update method should include the controller's algorithm and generate the co
 <span class="nt">&lt;/launch&gt;</span>
 </pre></div>
 
-<p>The most important parts of the launch file to notice is that the vehicle namespace <code class="codehilite">uuv_name</code> must always be provided, since the simulation per default will have nodes specific to the operation of each vehicle created inside their namespaces. The thruster manager must also be initialized.</p>
+<p>The most important parts of the launch file to notice is that the vehicle namespace <code class="codehilite"><span class="n">uuv_name</span></code> must always be provided, since the simulation per default will have nodes specific to the operation of each vehicle created inside their namespaces. The thruster manager must also be initialized.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>For more information on how to setup the thruster manager, check the <a href="../config_thruster_manager/">tutorial about configuration of the thruster manager</a>.</p>
 </div>
-<p>Finally, the controller node has to be called, along with the correct parameters set by the arguments <span><span class="MathJax_Preview">K_p</span><script type="math/tex">K_p</script></span>, <span><span class="MathJax_Preview">K_d</span><script type="math/tex">K_d</script></span> and <span><span class="MathJax_Preview">K_i</span><script type="math/tex">K_i</script></span> in this example. You can pass this parameters by command line or set default vectors as seen above, but there should be no spaces between commas and values. They have to be set in the <code class="codehilite">rosparam</code> block. The <code class="codehilite">trajectory_marker_publisher</code> is an optional node used only to publish visual markers.</p>
+<p>Finally, the controller node has to be called, along with the correct parameters set by the arguments <span><span class="MathJax_Preview">K_p</span><script type="math/tex">K_p</script></span>, <span><span class="MathJax_Preview">K_d</span><script type="math/tex">K_d</script></span> and <span><span class="MathJax_Preview">K_i</span><script type="math/tex">K_i</script></span> in this example. You can pass this parameters by command line or set default vectors as seen above, but there should be no spaces between commas and values. They have to be set in the <code class="codehilite"><span class="n">rosparam</span></code> block. The <code class="codehilite"><span class="n">trajectory_marker_publisher</span></code> is an optional node used only to publish visual markers.</p>
 <p>To start a small demonstration using the RexROV vehicle, you can create another launch file as follows </p>
 <div class="codehilite"><pre><span></span><span class="nb">cd</span> ~/catkin_ws/src/uuv_tutorial_dp_controller/launch
 touch start_tutorial_dp_controller_demo.launch
@@ -3085,7 +3097,7 @@ touch start_tutorial_dp_controller_demo.launch
 
 <p>Before you can run this demo, the package has to be configured.</p>
 <h4 id="configuring-the-package">Configuring the package<a class="headerlink" href="#configuring-the-package" title="Permanent link">&para;</a></h4>
-<p>To allow catkin to install all your modules, you can open the <code class="codehilite">CMakeLists.txt</code> file from your catkin package and edit it to look like in the example below.</p>
+<p>To allow catkin to install all your modules, you can open the <code class="codehilite"><span class="n">CMakeLists</span><span class="p">.</span><span class="n">txt</span></code> file from your catkin package and edit it to look like in the example below.</p>
 <div class="codehilite"><pre><span></span><span class="nb">cmake_minimum_required</span><span class="p">(</span><span class="s">VERSION</span> <span class="s">2.8.3</span><span class="p">)</span>
 <span class="nb">project</span><span class="p">(</span><span class="s">uuv_tutorial_dp_controller</span><span class="p">)</span>
 
@@ -3101,17 +3113,17 @@ touch start_tutorial_dp_controller_demo.launch
 </pre></div>
 
 <h4 id="running-the-simulation">Running the simulation<a class="headerlink" href="#running-the-simulation" title="Permanent link">&para;</a></h4>
-<p>After you compile you workspace again with <code class="codehilite">catkin_make</code> or <code class="codehilite">catkin build</code>, you can run the demo launch file created before. </p>
+<p>After you compile you workspace again with <code class="codehilite"><span class="n">catkin_make</span></code> or <code class="codehilite"><span class="n">catkin</span> <span class="n">build</span></code>, you can run the demo launch file created before. </p>
 <div class="codehilite"><pre><span></span>roslaunch uuv_tutorial_dp_controller start_tutorial_dp_controller_demo.launch
 </pre></div>
 
 <p>This will start the Gazebo simulator with an instance of the RexROV vehicle with this custom controller being used for positioning.</p>
 <p><img alt="RViz view" src="../../images/rviz_view.png" /></p>
-<p>You can use one the modules from the <a href="../packages/uuv_simulator/docs/packages/uuv_control_utils.md"><code class="codehilite">uuv_control_utils</code></a> package to send the vehicle some waypoints and see the controller in action. For example, use the <a href="https://github.com/uuvsimulator/uuv_simulator/blob/master/uuv_control/uuv_control_utils/config/example_waypoints.yaml">default list of waypoints</a> and send them to the controller by using </p>
+<p>You can use one the modules from the <a href="../packages/uuv_simulator/docs/packages/uuv_control_utils.md"><code class="codehilite"><span class="n">uuv_control_utils</span></code></a> package to send the vehicle some waypoints and see the controller in action. For example, use the <a href="https://github.com/uuvsimulator/uuv_simulator/blob/master/uuv_control/uuv_control_utils/config/example_waypoints.yaml">default list of waypoints</a> and send them to the controller by using </p>
 <div class="codehilite"><pre><span></span>roslaunch uuv_control_utils send_waypoints_file.launch uuv_name:<span class="o">=</span>rexrov
 </pre></div>
 
-<p>The local planner in <code class="codehilite">uuv_control_interfaces</code> that is used per default by the <code class="codehilite">DPControllerBase</code> class will receive the waypoints and apply a linear interpolation with polynomial blends to generate a path to be followed by the vehicle.</p>
+<p>The local planner in <code class="codehilite"><span class="n">uuv_control_interfaces</span></code> that is used per default by the <code class="codehilite"><span class="n">DPControllerBase</span></code> class will receive the waypoints and apply a linear interpolation with polynomial blends to generate a path to be followed by the vehicle.</p>
 <p><img alt="Waypoint following" src="../../images/waypoint_following.png" /></p>
                 
                   

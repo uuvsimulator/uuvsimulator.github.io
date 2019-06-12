@@ -456,6 +456,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -2814,9 +2826,9 @@
                 
                   <h1>ConversionFunctionLinearInterp</h1>
                 
-                <h4 id="class-gazeboconversionfunctionlinearinterp">class <code class="codehilite">gazebo::ConversionFunctionLinearInterp</code><a class="headerlink" href="#class-gazeboconversionfunctionlinearinterp" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><span class="kr">class</span> <span class="nx">gazebo</span><span class="o">::</span><span class="nx">ConversionFunctionLinearInterp</span>
-  : <span class="kt">public</span> <span class="nx">gazebo</span><span class="o">::</span><span class="nx">ConversionFunction</span>
+                <h4 id="class-gazeboconversionfunctionlinearinterp">class <code class="codehilite"><span class="n">gazebo</span><span class="p">::</span><span class="n">ConversionFunctionLinearInterp</span></code><a class="headerlink" href="#class-gazeboconversionfunctionlinearinterp" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="n">gazebo::ConversionFunctionLinearInterp</span>
+  : <span class="n">public</span> <span class="n">gazebo::ConversionFunction</span>
 </pre></div>
 
 <p>Conversion using linear interpolation between given data points.</p>
@@ -2830,31 +2842,31 @@
 </thead>
 <tbody>
 <tr>
-<td><code class="codehilite">public inline virtual std::string</code><a href="#classgazebo_1_1_conversion_function_linear_interp_1a949ed2e6176730ef0322a25a1a86c92c"><code class="codehilite">GetType</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">inline</span> <span class="n">virtual</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classgazebo_1_1_conversion_function_linear_interp_1a949ed2e6176730ef0322a25a1a86c92c"><code class="codehilite"><span class="n">GetType</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Return (derived) type of conversion function.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual bool</code><a href="#classgazebo_1_1_conversion_function_linear_interp_1aa443515bbf8913e8d5fef758a6f21b71"><code class="codehilite">GetParam</code></a><code class="codehilite">(std::string _tag,double &amp; _output)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_conversion_function_linear_interp_1aa443515bbf8913e8d5fef758a6f21b71"><code class="codehilite"><span class="n">GetParam</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="n">_tag</span><span class="p">,</span><span class="n">double</span> <span class="o">&amp;</span> <span class="n">_output</span><span class="p">)</span></code></td>
 <td>Return paramater in scalar form for the given tag.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual std::map&lt; double, double &gt;</code><a href="#classgazebo_1_1_conversion_function_linear_interp_1a2252ec3701319511a8d7ef2bbdf25a70"><code class="codehilite">GetTable</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">std</span><span class="p">::</span><span class="k">map</span><span class="o">&lt;</span> <span class="n">double</span><span class="p">,</span> <span class="n">double</span> <span class="o">&gt;</span></code><a href="#classgazebo_1_1_conversion_function_linear_interp_1a2252ec3701319511a8d7ef2bbdf25a70"><code class="codehilite"><span class="n">GetTable</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Return input and output vectors of the lookup table.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual double</code><a href="#classgazebo_1_1_conversion_function_linear_interp_1ae0bfc703bbbe5eef389fedf5565b10c1"><code class="codehilite">convert</code></a><code class="codehilite">(double _cmd)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">double</span></code><a href="#classgazebo_1_1_conversion_function_linear_interp_1ae0bfc703bbbe5eef389fedf5565b10c1"><code class="codehilite"><span class="k">convert</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">double</span> <span class="n">_cmd</span><span class="p">)</span></code></td>
 <td>Convert thruster state (e.g. angular velocity) to thrust force.</td>
 </tr>
 </tbody>
 </table>
 <h5 id="members">Members<a class="headerlink" href="#members" title="Permanent link">&para;</a></h5>
-<h6 id="public-inline-virtual-stdstringgettype"><code class="codehilite">public inline virtual std::string</code><a href="#classgazebo_1_1_conversion_function_linear_interp_1a949ed2e6176730ef0322a25a1a86c92c"><code class="codehilite">GetType</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-inline-virtual-stdstringgettype" title="Permanent link">&para;</a></h6>
+<h6 id="public-inline-virtual-stdstringgettype"><code class="codehilite"><span class="k">public</span> <span class="n">inline</span> <span class="n">virtual</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classgazebo_1_1_conversion_function_linear_interp_1a949ed2e6176730ef0322a25a1a86c92c"><code class="codehilite"><span class="n">GetType</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-inline-virtual-stdstringgettype" title="Permanent link">&para;</a></h6>
 <p>Return (derived) type of conversion function.</p>
-<h6 id="public-virtual-boolgetparamstdstring-_tagdouble-_output"><code class="codehilite">public virtual bool</code><a href="#classgazebo_1_1_conversion_function_linear_interp_1aa443515bbf8913e8d5fef758a6f21b71"><code class="codehilite">GetParam</code></a><code class="codehilite">(std::string _tag,double &amp; _output)</code><a class="headerlink" href="#public-virtual-boolgetparamstdstring-_tagdouble-_output" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtual-boolgetparamstdstring-_tagdouble-_output"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_conversion_function_linear_interp_1aa443515bbf8913e8d5fef758a6f21b71"><code class="codehilite"><span class="n">GetParam</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="n">_tag</span><span class="p">,</span><span class="n">double</span> <span class="o">&amp;</span> <span class="n">_output</span><span class="p">)</span></code><a class="headerlink" href="#public-virtual-boolgetparamstdstring-_tagdouble-_output" title="Permanent link">&para;</a></h6>
 <p>Return paramater in scalar form for the given tag.</p>
-<h6 id="public-virtual-stdmap-double-double-gettable"><code class="codehilite">public virtual std::map&lt; double, double &gt;</code><a href="#classgazebo_1_1_conversion_function_linear_interp_1a2252ec3701319511a8d7ef2bbdf25a70"><code class="codehilite">GetTable</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-virtual-stdmap-double-double-gettable" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtual-stdmap-double-double-gettable"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">std</span><span class="p">::</span><span class="k">map</span><span class="o">&lt;</span> <span class="n">double</span><span class="p">,</span> <span class="n">double</span> <span class="o">&gt;</span></code><a href="#classgazebo_1_1_conversion_function_linear_interp_1a2252ec3701319511a8d7ef2bbdf25a70"><code class="codehilite"><span class="n">GetTable</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-virtual-stdmap-double-double-gettable" title="Permanent link">&para;</a></h6>
 <p>Return input and output vectors of the lookup table.</p>
-<h6 id="public-virtual-doubleconvertdouble-_cmd"><code class="codehilite">public virtual double</code><a href="#classgazebo_1_1_conversion_function_linear_interp_1ae0bfc703bbbe5eef389fedf5565b10c1"><code class="codehilite">convert</code></a><code class="codehilite">(double _cmd)</code><a class="headerlink" href="#public-virtual-doubleconvertdouble-_cmd" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtual-doubleconvertdouble-_cmd"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">double</span></code><a href="#classgazebo_1_1_conversion_function_linear_interp_1ae0bfc703bbbe5eef389fedf5565b10c1"><code class="codehilite"><span class="k">convert</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">double</span> <span class="n">_cmd</span><span class="p">)</span></code><a class="headerlink" href="#public-virtual-doubleconvertdouble-_cmd" title="Permanent link">&para;</a></h6>
 <p>Convert thruster state (e.g. angular velocity) to thrust force.</p>
                 
                   

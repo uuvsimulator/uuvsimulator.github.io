@@ -456,6 +456,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -2826,9 +2838,9 @@
                 
                   <h1>JointStatePublisher</h1>
                 
-                <h4 id="class-uuv_simulator_rosjointstatepublisher">class <code class="codehilite">uuv_simulator_ros::JointStatePublisher</code><a class="headerlink" href="#class-uuv_simulator_rosjointstatepublisher" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><span class="kr">class</span> <span class="nx">uuv_simulator_ros</span><span class="o">::</span><span class="nx">JointStatePublisher</span>
-  : <span class="kt">public</span> <span class="nx">ModelPlugin</span>
+                <h4 id="class-uuv_simulator_rosjointstatepublisher">class <code class="codehilite"><span class="n">uuv_simulator_ros</span><span class="p">::</span><span class="n">JointStatePublisher</span></code><a class="headerlink" href="#class-uuv_simulator_rosjointstatepublisher" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="n">uuv_simulator_ros::JointStatePublisher</span>
+  : <span class="n">public</span> <span class="n">ModelPlugin</span>
 </pre></div>
 
 <h5 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h5>
@@ -2841,33 +2853,33 @@
 </thead>
 <tbody>
 <tr>
-<td><code class="codehilite">public</code><a href="#classuuv__simulator__ros_1_1_joint_state_publisher_1a8845851dbc4b8416f8d6e142ad4361c3"><code class="codehilite">JointStatePublisher</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span></code><a href="#classuuv__simulator__ros_1_1_joint_state_publisher_1a8845851dbc4b8416f8d6e142ad4361c3"><code class="codehilite"><span class="n">JointStatePublisher</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">public</code><a href="#classuuv__simulator__ros_1_1_joint_state_publisher_1a795abdb7e09dda4ff9e7aa404c1e642f"><code class="codehilite">~JointStatePublisher</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span></code><a href="#classuuv__simulator__ros_1_1_joint_state_publisher_1a795abdb7e09dda4ff9e7aa404c1e642f"><code class="codehilite"><span class="o">~</span><span class="n">JointStatePublisher</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">public void</code><a href="#classuuv__simulator__ros_1_1_joint_state_publisher_1a68a2588c08f13a8286e7d9bb5cc2546e"><code class="codehilite">Load</code></a><code class="codehilite">(gazebo::physics::ModelPtr _parent,sdf::ElementPtr _sdf)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">void</span></code><a href="#classuuv__simulator__ros_1_1_joint_state_publisher_1a68a2588c08f13a8286e7d9bb5cc2546e"><code class="codehilite"><span class="k">Load</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">gazebo</span><span class="p">::</span><span class="n">physics</span><span class="p">::</span><span class="n">ModelPtr</span> <span class="n">_parent</span><span class="p">,</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">)</span></code></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">public void</code><a href="#classuuv__simulator__ros_1_1_joint_state_publisher_1af075fe8b44c6ee07f5a578b1bee99800"><code class="codehilite">OnUpdate</code></a><code class="codehilite">(const gazebo::common::UpdateInfo &amp; _info)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">void</span></code><a href="#classuuv__simulator__ros_1_1_joint_state_publisher_1af075fe8b44c6ee07f5a578b1bee99800"><code class="codehilite"><span class="n">OnUpdate</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">gazebo</span><span class="p">::</span><span class="n">common</span><span class="p">::</span><span class="n">UpdateInfo</span> <span class="o">&amp;</span> <span class="n">_info</span><span class="p">)</span></code></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">public void</code><a href="#classuuv__simulator__ros_1_1_joint_state_publisher_1a3c00e22e725df8df3b3f314edd87cce6"><code class="codehilite">PublishJointStates</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">void</span></code><a href="#classuuv__simulator__ros_1_1_joint_state_publisher_1a3c00e22e725df8df3b3f314edd87cce6"><code class="codehilite"><span class="n">PublishJointStates</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <h5 id="members">Members<a class="headerlink" href="#members" title="Permanent link">&para;</a></h5>
-<h6 id="publicjointstatepublisher"><code class="codehilite">public</code><a href="#classuuv__simulator__ros_1_1_joint_state_publisher_1a8845851dbc4b8416f8d6e142ad4361c3"><code class="codehilite">JointStatePublisher</code></a><code class="codehilite">()</code><a class="headerlink" href="#publicjointstatepublisher" title="Permanent link">&para;</a></h6>
-<h6 id="publicjointstatepublisher_1"><code class="codehilite">public</code><a href="#classuuv__simulator__ros_1_1_joint_state_publisher_1a795abdb7e09dda4ff9e7aa404c1e642f"><code class="codehilite">~JointStatePublisher</code></a><code class="codehilite">()</code><a class="headerlink" href="#publicjointstatepublisher_1" title="Permanent link">&para;</a></h6>
-<h6 id="public-voidloadgazebophysicsmodelptr-_parentsdfelementptr-_sdf"><code class="codehilite">public void</code><a href="#classuuv__simulator__ros_1_1_joint_state_publisher_1a68a2588c08f13a8286e7d9bb5cc2546e"><code class="codehilite">Load</code></a><code class="codehilite">(gazebo::physics::ModelPtr _parent,sdf::ElementPtr _sdf)</code><a class="headerlink" href="#public-voidloadgazebophysicsmodelptr-_parentsdfelementptr-_sdf" title="Permanent link">&para;</a></h6>
-<h6 id="public-voidonupdateconst-gazebocommonupdateinfo-_info"><code class="codehilite">public void</code><a href="#classuuv__simulator__ros_1_1_joint_state_publisher_1af075fe8b44c6ee07f5a578b1bee99800"><code class="codehilite">OnUpdate</code></a><code class="codehilite">(const gazebo::common::UpdateInfo &amp; _info)</code><a class="headerlink" href="#public-voidonupdateconst-gazebocommonupdateinfo-_info" title="Permanent link">&para;</a></h6>
-<h6 id="public-voidpublishjointstates"><code class="codehilite">public void</code><a href="#classuuv__simulator__ros_1_1_joint_state_publisher_1a3c00e22e725df8df3b3f314edd87cce6"><code class="codehilite">PublishJointStates</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-voidpublishjointstates" title="Permanent link">&para;</a></h6>
+<h6 id="publicjointstatepublisher"><code class="codehilite"><span class="k">public</span></code><a href="#classuuv__simulator__ros_1_1_joint_state_publisher_1a8845851dbc4b8416f8d6e142ad4361c3"><code class="codehilite"><span class="n">JointStatePublisher</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#publicjointstatepublisher" title="Permanent link">&para;</a></h6>
+<h6 id="publicjointstatepublisher_1"><code class="codehilite"><span class="k">public</span></code><a href="#classuuv__simulator__ros_1_1_joint_state_publisher_1a795abdb7e09dda4ff9e7aa404c1e642f"><code class="codehilite"><span class="o">~</span><span class="n">JointStatePublisher</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#publicjointstatepublisher_1" title="Permanent link">&para;</a></h6>
+<h6 id="public-voidloadgazebophysicsmodelptr-_parentsdfelementptr-_sdf"><code class="codehilite"><span class="k">public</span> <span class="n">void</span></code><a href="#classuuv__simulator__ros_1_1_joint_state_publisher_1a68a2588c08f13a8286e7d9bb5cc2546e"><code class="codehilite"><span class="k">Load</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">gazebo</span><span class="p">::</span><span class="n">physics</span><span class="p">::</span><span class="n">ModelPtr</span> <span class="n">_parent</span><span class="p">,</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">)</span></code><a class="headerlink" href="#public-voidloadgazebophysicsmodelptr-_parentsdfelementptr-_sdf" title="Permanent link">&para;</a></h6>
+<h6 id="public-voidonupdateconst-gazebocommonupdateinfo-_info"><code class="codehilite"><span class="k">public</span> <span class="n">void</span></code><a href="#classuuv__simulator__ros_1_1_joint_state_publisher_1af075fe8b44c6ee07f5a578b1bee99800"><code class="codehilite"><span class="n">OnUpdate</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">gazebo</span><span class="p">::</span><span class="n">common</span><span class="p">::</span><span class="n">UpdateInfo</span> <span class="o">&amp;</span> <span class="n">_info</span><span class="p">)</span></code><a class="headerlink" href="#public-voidonupdateconst-gazebocommonupdateinfo-_info" title="Permanent link">&para;</a></h6>
+<h6 id="public-voidpublishjointstates"><code class="codehilite"><span class="k">public</span> <span class="n">void</span></code><a href="#classuuv__simulator__ros_1_1_joint_state_publisher_1a3c00e22e725df8df3b3f314edd87cce6"><code class="codehilite"><span class="n">PublishJointStates</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-voidpublishjointstates" title="Permanent link">&para;</a></h6>
                 
                   
                 

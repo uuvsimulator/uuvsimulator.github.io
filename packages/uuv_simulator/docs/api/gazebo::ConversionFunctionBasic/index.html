@@ -456,6 +456,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -2800,9 +2812,9 @@
                 
                   <h1>ConversionFunctionBasic</h1>
                 
-                <h4 id="class-gazeboconversionfunctionbasic">class <code class="codehilite">gazebo::ConversionFunctionBasic</code><a class="headerlink" href="#class-gazeboconversionfunctionbasic" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><span class="kr">class</span> <span class="nx">gazebo</span><span class="o">::</span><span class="nx">ConversionFunctionBasic</span>
-  : <span class="kt">public</span> <span class="nx">gazebo</span><span class="o">::</span><span class="nx">ConversionFunction</span>
+                <h4 id="class-gazeboconversionfunctionbasic">class <code class="codehilite"><span class="n">gazebo</span><span class="p">::</span><span class="n">ConversionFunctionBasic</span></code><a class="headerlink" href="#class-gazeboconversionfunctionbasic" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="n">gazebo::ConversionFunctionBasic</span>
+  : <span class="n">public</span> <span class="n">gazebo::ConversionFunction</span>
 </pre></div>
 
 <p>The most basic conversion function: Thrust = const.*w*abs(w) This corresponds to what is attrributed to Yoerger et al. and called Model 1 in Bessa et al.: Dynamic Positioning of Underwater Robotic Vehicles with Thruster <a href="docs/packages/uuv_simulator/docs/api/gazebo::Dynamics.md#classgazebo_1_1_dynamics">Dynamics</a> Compensation.</p>
@@ -2816,25 +2828,25 @@
 </thead>
 <tbody>
 <tr>
-<td><code class="codehilite">public inline virtual std::string</code><a href="#classgazebo_1_1_conversion_function_basic_1a2ce48db471c7706abede19a724ef08fe"><code class="codehilite">GetType</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">inline</span> <span class="n">virtual</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classgazebo_1_1_conversion_function_basic_1a2ce48db471c7706abede19a724ef08fe"><code class="codehilite"><span class="n">GetType</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Return (derived) type of conversion function.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual bool</code><a href="#classgazebo_1_1_conversion_function_basic_1a943dbcaa6720093a775ebb7f3a1e3bea"><code class="codehilite">GetParam</code></a><code class="codehilite">(std::string _tag,double &amp; _output)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_conversion_function_basic_1a943dbcaa6720093a775ebb7f3a1e3bea"><code class="codehilite"><span class="n">GetParam</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="n">_tag</span><span class="p">,</span><span class="n">double</span> <span class="o">&amp;</span> <span class="n">_output</span><span class="p">)</span></code></td>
 <td>Return paramater in scalar form for the given tag.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual double</code><a href="#classgazebo_1_1_conversion_function_basic_1a8f10f33118aeda7560214d915cee892e"><code class="codehilite">convert</code></a><code class="codehilite">(double _cmd)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">double</span></code><a href="#classgazebo_1_1_conversion_function_basic_1a8f10f33118aeda7560214d915cee892e"><code class="codehilite"><span class="k">convert</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">double</span> <span class="n">_cmd</span><span class="p">)</span></code></td>
 <td>Convert thruster state (e.g. angular velocity) to thrust force.</td>
 </tr>
 </tbody>
 </table>
 <h5 id="members">Members<a class="headerlink" href="#members" title="Permanent link">&para;</a></h5>
-<h6 id="public-inline-virtual-stdstringgettype"><code class="codehilite">public inline virtual std::string</code><a href="#classgazebo_1_1_conversion_function_basic_1a2ce48db471c7706abede19a724ef08fe"><code class="codehilite">GetType</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-inline-virtual-stdstringgettype" title="Permanent link">&para;</a></h6>
+<h6 id="public-inline-virtual-stdstringgettype"><code class="codehilite"><span class="k">public</span> <span class="n">inline</span> <span class="n">virtual</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classgazebo_1_1_conversion_function_basic_1a2ce48db471c7706abede19a724ef08fe"><code class="codehilite"><span class="n">GetType</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-inline-virtual-stdstringgettype" title="Permanent link">&para;</a></h6>
 <p>Return (derived) type of conversion function.</p>
-<h6 id="public-virtual-boolgetparamstdstring-_tagdouble-_output"><code class="codehilite">public virtual bool</code><a href="#classgazebo_1_1_conversion_function_basic_1a943dbcaa6720093a775ebb7f3a1e3bea"><code class="codehilite">GetParam</code></a><code class="codehilite">(std::string _tag,double &amp; _output)</code><a class="headerlink" href="#public-virtual-boolgetparamstdstring-_tagdouble-_output" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtual-boolgetparamstdstring-_tagdouble-_output"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_conversion_function_basic_1a943dbcaa6720093a775ebb7f3a1e3bea"><code class="codehilite"><span class="n">GetParam</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="n">_tag</span><span class="p">,</span><span class="n">double</span> <span class="o">&amp;</span> <span class="n">_output</span><span class="p">)</span></code><a class="headerlink" href="#public-virtual-boolgetparamstdstring-_tagdouble-_output" title="Permanent link">&para;</a></h6>
 <p>Return paramater in scalar form for the given tag.</p>
-<h6 id="public-virtual-doubleconvertdouble-_cmd"><code class="codehilite">public virtual double</code><a href="#classgazebo_1_1_conversion_function_basic_1a8f10f33118aeda7560214d915cee892e"><code class="codehilite">convert</code></a><code class="codehilite">(double _cmd)</code><a class="headerlink" href="#public-virtual-doubleconvertdouble-_cmd" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtual-doubleconvertdouble-_cmd"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">double</span></code><a href="#classgazebo_1_1_conversion_function_basic_1a8f10f33118aeda7560214d915cee892e"><code class="codehilite"><span class="k">convert</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">double</span> <span class="n">_cmd</span><span class="p">)</span></code><a class="headerlink" href="#public-virtual-doubleconvertdouble-_cmd" title="Permanent link">&para;</a></h6>
 <p>Convert thruster state (e.g. angular velocity) to thrust force.</p>
                 
                   

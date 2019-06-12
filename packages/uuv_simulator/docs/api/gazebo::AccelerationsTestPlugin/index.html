@@ -456,6 +456,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -3008,9 +3020,9 @@
                 
                   <h1>AccelerationsTestPlugin</h1>
                 
-                <h4 id="class-gazeboaccelerationstestplugin">class <code class="codehilite">gazebo::AccelerationsTestPlugin</code><a class="headerlink" href="#class-gazeboaccelerationstestplugin" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><span class="kr">class</span> <span class="nx">gazebo</span><span class="o">::</span><span class="nx">AccelerationsTestPlugin</span>
-  : <span class="kt">public</span> <span class="nx">ModelPlugin</span>
+                <h4 id="class-gazeboaccelerationstestplugin">class <code class="codehilite"><span class="n">gazebo</span><span class="p">::</span><span class="n">AccelerationsTestPlugin</span></code><a class="headerlink" href="#class-gazeboaccelerationstestplugin" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="n">gazebo::AccelerationsTestPlugin</span>
+  : <span class="n">public</span> <span class="n">ModelPlugin</span>
 </pre></div>
 
 <p>Gazebo model plugin class for underwater objects.</p>
@@ -3024,107 +3036,107 @@
 </thead>
 <tbody>
 <tr>
-<td><code class="codehilite">public</code><a href="#classgazebo_1_1_accelerations_test_plugin_1a55aab0da39c4400e84646b11caa72507"><code class="codehilite">AccelerationsTestPlugin</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span></code><a href="#classgazebo_1_1_accelerations_test_plugin_1a55aab0da39c4400e84646b11caa72507"><code class="codehilite"><span class="n">AccelerationsTestPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Constructor.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual</code><a href="#classgazebo_1_1_accelerations_test_plugin_1a6e91ba8c0d0817eea3f16480f5b5137b"><code class="codehilite">~AccelerationsTestPlugin</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span></code><a href="#classgazebo_1_1_accelerations_test_plugin_1a6e91ba8c0d0817eea3f16480f5b5137b"><code class="codehilite"><span class="o">~</span><span class="n">AccelerationsTestPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Destructor.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_accelerations_test_plugin_1a8122bf6caafdee89d84f6a17059f1864"><code class="codehilite">Load</code></a><code class="codehilite">(gazebo::physics::ModelPtr _model,sdf::ElementPtr _sdf)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_accelerations_test_plugin_1a8122bf6caafdee89d84f6a17059f1864"><code class="codehilite"><span class="k">Load</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">gazebo</span><span class="p">::</span><span class="n">physics</span><span class="p">::</span><span class="n">ModelPtr</span> <span class="n">_model</span><span class="p">,</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">)</span></code></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_accelerations_test_plugin_1a44dd56d9db03bd76aae7dee71d186a56"><code class="codehilite">Init</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_accelerations_test_plugin_1a44dd56d9db03bd76aae7dee71d186a56"><code class="codehilite"><span class="n">Init</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">public void</code><a href="#classgazebo_1_1_accelerations_test_plugin_1affd8910814c560e28e926827fa70e70c"><code class="codehilite">Update</code></a><code class="codehilite">(const gazebo::common::UpdateInfo &amp; _info)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">void</span></code><a href="#classgazebo_1_1_accelerations_test_plugin_1affd8910814c560e28e926827fa70e70c"><code class="codehilite"><span class="k">Update</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">gazebo</span><span class="p">::</span><span class="n">common</span><span class="p">::</span><span class="n">UpdateInfo</span> <span class="o">&amp;</span> <span class="n">_info</span><span class="p">)</span></code></td>
 <td>Update the simulation state.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected gazebo::event::ConnectionPtr</code><a href="#classgazebo_1_1_accelerations_test_plugin_1a0ca115f72985faf7538a4af8761ace97"><code class="codehilite">updateConnection</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">gazebo</span><span class="p">::</span><span class="n">event</span><span class="p">::</span><span class="n">ConnectionPtr</span></code><a href="#classgazebo_1_1_accelerations_test_plugin_1a0ca115f72985faf7538a4af8761ace97"><code class="codehilite"><span class="n">updateConnection</span></code></a></td>
 <td>Update event.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected gazebo::physics::WorldPtr</code><a href="#classgazebo_1_1_accelerations_test_plugin_1ae3fb62216782f354834b5000ffb290fc"><code class="codehilite">world</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">gazebo</span><span class="p">::</span><span class="n">physics</span><span class="p">::</span><span class="n">WorldPtr</span></code><a href="#classgazebo_1_1_accelerations_test_plugin_1ae3fb62216782f354834b5000ffb290fc"><code class="codehilite"><span class="n">world</span></code></a></td>
 <td>Pointer to the world plugin.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected gazebo::physics::ModelPtr</code><a href="#classgazebo_1_1_accelerations_test_plugin_1affe319c6bc7669cadac84a248a0113ad"><code class="codehilite">model</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">gazebo</span><span class="p">::</span><span class="n">physics</span><span class="p">::</span><span class="n">ModelPtr</span></code><a href="#classgazebo_1_1_accelerations_test_plugin_1affe319c6bc7669cadac84a248a0113ad"><code class="codehilite"><span class="n">model</span></code></a></td>
 <td>Pointer to the model structure.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected gazebo::transport::NodePtr</code><a href="#classgazebo_1_1_accelerations_test_plugin_1a78096f01be7e0804b178f565862315bf"><code class="codehilite">node</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">gazebo</span><span class="p">::</span><span class="n">transport</span><span class="p">::</span><span class="n">NodePtr</span></code><a href="#classgazebo_1_1_accelerations_test_plugin_1a78096f01be7e0804b178f565862315bf"><code class="codehilite"><span class="n">node</span></code></a></td>
 <td>Gazebo node.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected physics::LinkPtr</code><a href="#classgazebo_1_1_accelerations_test_plugin_1af0c72cd442cedea70084db09fef483ad"><code class="codehilite">link</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">physics</span><span class="p">::</span><span class="n">LinkPtr</span></code><a href="#classgazebo_1_1_accelerations_test_plugin_1af0c72cd442cedea70084db09fef483ad"><code class="codehilite"><span class="n">link</span></code></a></td>
 <td>Link of test object.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ros::Publisher</code><a href="#classgazebo_1_1_accelerations_test_plugin_1a491b199de59266f1e559ab0667cdc602"><code class="codehilite">pub_accel_b_gazebo</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ros</span><span class="p">::</span><span class="n">Publisher</span></code><a href="#classgazebo_1_1_accelerations_test_plugin_1a491b199de59266f1e559ab0667cdc602"><code class="codehilite"><span class="n">pub_accel_b_gazebo</span></code></a></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ros::Publisher</code><a href="#classgazebo_1_1_accelerations_test_plugin_1af15a43ec01edd5d0d0d5c00ecc93bbfe"><code class="codehilite">pub_accel_b_numeric</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ros</span><span class="p">::</span><span class="n">Publisher</span></code><a href="#classgazebo_1_1_accelerations_test_plugin_1af15a43ec01edd5d0d0d5c00ecc93bbfe"><code class="codehilite"><span class="n">pub_accel_b_numeric</span></code></a></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ros::Publisher</code><a href="#classgazebo_1_1_accelerations_test_plugin_1a51d748b8442b3856eeff4de3d8fbc83a"><code class="codehilite">pub_accel_w_gazebo</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ros</span><span class="p">::</span><span class="n">Publisher</span></code><a href="#classgazebo_1_1_accelerations_test_plugin_1a51d748b8442b3856eeff4de3d8fbc83a"><code class="codehilite"><span class="n">pub_accel_w_gazebo</span></code></a></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ros::Publisher</code><a href="#classgazebo_1_1_accelerations_test_plugin_1aa2bf1016615f64d5cb4d29592af494f7"><code class="codehilite">pub_accel_w_numeric</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ros</span><span class="p">::</span><span class="n">Publisher</span></code><a href="#classgazebo_1_1_accelerations_test_plugin_1aa2bf1016615f64d5cb4d29592af494f7"><code class="codehilite"><span class="n">pub_accel_w_numeric</span></code></a></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">protected Eigen::Vector6d</code><a href="#classgazebo_1_1_accelerations_test_plugin_1a0829056785ddad0daad41f40b61b1421"><code class="codehilite">last_w_v_w_b</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">Eigen</span><span class="p">::</span><span class="n">Vector6d</span></code><a href="#classgazebo_1_1_accelerations_test_plugin_1a0829056785ddad0daad41f40b61b1421"><code class="codehilite"><span class="n">last_w_v_w_b</span></code></a></td>
 <td>Velocity of link with respect to world frame in previous time step.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected common::Time</code><a href="#classgazebo_1_1_accelerations_test_plugin_1afedb74b4ade15db6baf2cc9fdcef5e7c"><code class="codehilite">lastTime</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">common</span><span class="p">::</span><span class="n">Time</span></code><a href="#classgazebo_1_1_accelerations_test_plugin_1afedb74b4ade15db6baf2cc9fdcef5e7c"><code class="codehilite"><span class="n">lastTime</span></code></a></td>
 <td>Time stamp of previous time step.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected virtual void</code><a href="#classgazebo_1_1_accelerations_test_plugin_1afbfdb6e1ed425f0f4194f32fd69e36d0"><code class="codehilite">Connect</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_accelerations_test_plugin_1afbfdb6e1ed425f0f4194f32fd69e36d0"><code class="codehilite"><span class="k">Connect</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Connects the update event callback.</td>
 </tr>
 </tbody>
 </table>
 <h5 id="members">Members<a class="headerlink" href="#members" title="Permanent link">&para;</a></h5>
-<h6 id="publicaccelerationstestplugin"><code class="codehilite">public</code><a href="#classgazebo_1_1_accelerations_test_plugin_1a55aab0da39c4400e84646b11caa72507"><code class="codehilite">AccelerationsTestPlugin</code></a><code class="codehilite">()</code><a class="headerlink" href="#publicaccelerationstestplugin" title="Permanent link">&para;</a></h6>
+<h6 id="publicaccelerationstestplugin"><code class="codehilite"><span class="k">public</span></code><a href="#classgazebo_1_1_accelerations_test_plugin_1a55aab0da39c4400e84646b11caa72507"><code class="codehilite"><span class="n">AccelerationsTestPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#publicaccelerationstestplugin" title="Permanent link">&para;</a></h6>
 <p>Constructor.</p>
-<h6 id="public-virtualaccelerationstestplugin"><code class="codehilite">public virtual</code><a href="#classgazebo_1_1_accelerations_test_plugin_1a6e91ba8c0d0817eea3f16480f5b5137b"><code class="codehilite">~AccelerationsTestPlugin</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-virtualaccelerationstestplugin" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtualaccelerationstestplugin"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span></code><a href="#classgazebo_1_1_accelerations_test_plugin_1a6e91ba8c0d0817eea3f16480f5b5137b"><code class="codehilite"><span class="o">~</span><span class="n">AccelerationsTestPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-virtualaccelerationstestplugin" title="Permanent link">&para;</a></h6>
 <p>Destructor.</p>
-<h6 id="public-virtual-voidloadgazebophysicsmodelptr-_modelsdfelementptr-_sdf"><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_accelerations_test_plugin_1a8122bf6caafdee89d84f6a17059f1864"><code class="codehilite">Load</code></a><code class="codehilite">(gazebo::physics::ModelPtr _model,sdf::ElementPtr _sdf)</code><a class="headerlink" href="#public-virtual-voidloadgazebophysicsmodelptr-_modelsdfelementptr-_sdf" title="Permanent link">&para;</a></h6>
-<h6 id="public-virtual-voidinit"><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_accelerations_test_plugin_1a44dd56d9db03bd76aae7dee71d186a56"><code class="codehilite">Init</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-virtual-voidinit" title="Permanent link">&para;</a></h6>
-<h6 id="public-voidupdateconst-gazebocommonupdateinfo-_info"><code class="codehilite">public void</code><a href="#classgazebo_1_1_accelerations_test_plugin_1affd8910814c560e28e926827fa70e70c"><code class="codehilite">Update</code></a><code class="codehilite">(const gazebo::common::UpdateInfo &amp; _info)</code><a class="headerlink" href="#public-voidupdateconst-gazebocommonupdateinfo-_info" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtual-voidloadgazebophysicsmodelptr-_modelsdfelementptr-_sdf"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_accelerations_test_plugin_1a8122bf6caafdee89d84f6a17059f1864"><code class="codehilite"><span class="k">Load</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">gazebo</span><span class="p">::</span><span class="n">physics</span><span class="p">::</span><span class="n">ModelPtr</span> <span class="n">_model</span><span class="p">,</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">)</span></code><a class="headerlink" href="#public-virtual-voidloadgazebophysicsmodelptr-_modelsdfelementptr-_sdf" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtual-voidinit"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_accelerations_test_plugin_1a44dd56d9db03bd76aae7dee71d186a56"><code class="codehilite"><span class="n">Init</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-virtual-voidinit" title="Permanent link">&para;</a></h6>
+<h6 id="public-voidupdateconst-gazebocommonupdateinfo-_info"><code class="codehilite"><span class="k">public</span> <span class="n">void</span></code><a href="#classgazebo_1_1_accelerations_test_plugin_1affd8910814c560e28e926827fa70e70c"><code class="codehilite"><span class="k">Update</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">gazebo</span><span class="p">::</span><span class="n">common</span><span class="p">::</span><span class="n">UpdateInfo</span> <span class="o">&amp;</span> <span class="n">_info</span><span class="p">)</span></code><a class="headerlink" href="#public-voidupdateconst-gazebocommonupdateinfo-_info" title="Permanent link">&para;</a></h6>
 <p>Update the simulation state.</p>
 <h6 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h6>
 <ul>
-<li><code class="codehilite">_info</code> Information used in the update event.</li>
+<li><code class="codehilite"><span class="n">_info</span></code> Information used in the update event.</li>
 </ul>
-<h6 id="protected-gazeboeventconnectionptrupdateconnection"><code class="codehilite">protected gazebo::event::ConnectionPtr</code><a href="#classgazebo_1_1_accelerations_test_plugin_1a0ca115f72985faf7538a4af8761ace97"><code class="codehilite">updateConnection</code></a><a class="headerlink" href="#protected-gazeboeventconnectionptrupdateconnection" title="Permanent link">&para;</a></h6>
+<h6 id="protected-gazeboeventconnectionptrupdateconnection"><code class="codehilite"><span class="n">protected</span> <span class="n">gazebo</span><span class="p">::</span><span class="n">event</span><span class="p">::</span><span class="n">ConnectionPtr</span></code><a href="#classgazebo_1_1_accelerations_test_plugin_1a0ca115f72985faf7538a4af8761ace97"><code class="codehilite"><span class="n">updateConnection</span></code></a><a class="headerlink" href="#protected-gazeboeventconnectionptrupdateconnection" title="Permanent link">&para;</a></h6>
 <p>Update event.</p>
-<h6 id="protected-gazebophysicsworldptrworld"><code class="codehilite">protected gazebo::physics::WorldPtr</code><a href="#classgazebo_1_1_accelerations_test_plugin_1ae3fb62216782f354834b5000ffb290fc"><code class="codehilite">world</code></a><a class="headerlink" href="#protected-gazebophysicsworldptrworld" title="Permanent link">&para;</a></h6>
+<h6 id="protected-gazebophysicsworldptrworld"><code class="codehilite"><span class="n">protected</span> <span class="n">gazebo</span><span class="p">::</span><span class="n">physics</span><span class="p">::</span><span class="n">WorldPtr</span></code><a href="#classgazebo_1_1_accelerations_test_plugin_1ae3fb62216782f354834b5000ffb290fc"><code class="codehilite"><span class="n">world</span></code></a><a class="headerlink" href="#protected-gazebophysicsworldptrworld" title="Permanent link">&para;</a></h6>
 <p>Pointer to the world plugin.</p>
-<h6 id="protected-gazebophysicsmodelptrmodel"><code class="codehilite">protected gazebo::physics::ModelPtr</code><a href="#classgazebo_1_1_accelerations_test_plugin_1affe319c6bc7669cadac84a248a0113ad"><code class="codehilite">model</code></a><a class="headerlink" href="#protected-gazebophysicsmodelptrmodel" title="Permanent link">&para;</a></h6>
+<h6 id="protected-gazebophysicsmodelptrmodel"><code class="codehilite"><span class="n">protected</span> <span class="n">gazebo</span><span class="p">::</span><span class="n">physics</span><span class="p">::</span><span class="n">ModelPtr</span></code><a href="#classgazebo_1_1_accelerations_test_plugin_1affe319c6bc7669cadac84a248a0113ad"><code class="codehilite"><span class="n">model</span></code></a><a class="headerlink" href="#protected-gazebophysicsmodelptrmodel" title="Permanent link">&para;</a></h6>
 <p>Pointer to the model structure.</p>
-<h6 id="protected-gazebotransportnodeptrnode"><code class="codehilite">protected gazebo::transport::NodePtr</code><a href="#classgazebo_1_1_accelerations_test_plugin_1a78096f01be7e0804b178f565862315bf"><code class="codehilite">node</code></a><a class="headerlink" href="#protected-gazebotransportnodeptrnode" title="Permanent link">&para;</a></h6>
+<h6 id="protected-gazebotransportnodeptrnode"><code class="codehilite"><span class="n">protected</span> <span class="n">gazebo</span><span class="p">::</span><span class="n">transport</span><span class="p">::</span><span class="n">NodePtr</span></code><a href="#classgazebo_1_1_accelerations_test_plugin_1a78096f01be7e0804b178f565862315bf"><code class="codehilite"><span class="n">node</span></code></a><a class="headerlink" href="#protected-gazebotransportnodeptrnode" title="Permanent link">&para;</a></h6>
 <p>Gazebo node.</p>
-<h6 id="protected-physicslinkptrlink"><code class="codehilite">protected physics::LinkPtr</code><a href="#classgazebo_1_1_accelerations_test_plugin_1af0c72cd442cedea70084db09fef483ad"><code class="codehilite">link</code></a><a class="headerlink" href="#protected-physicslinkptrlink" title="Permanent link">&para;</a></h6>
+<h6 id="protected-physicslinkptrlink"><code class="codehilite"><span class="n">protected</span> <span class="n">physics</span><span class="p">::</span><span class="n">LinkPtr</span></code><a href="#classgazebo_1_1_accelerations_test_plugin_1af0c72cd442cedea70084db09fef483ad"><code class="codehilite"><span class="n">link</span></code></a><a class="headerlink" href="#protected-physicslinkptrlink" title="Permanent link">&para;</a></h6>
 <p>Link of test object.</p>
-<h6 id="protected-rospublisherpub_accel_b_gazebo"><code class="codehilite">protected ros::Publisher</code><a href="#classgazebo_1_1_accelerations_test_plugin_1a491b199de59266f1e559ab0667cdc602"><code class="codehilite">pub_accel_b_gazebo</code></a><a class="headerlink" href="#protected-rospublisherpub_accel_b_gazebo" title="Permanent link">&para;</a></h6>
-<h6 id="protected-rospublisherpub_accel_b_numeric"><code class="codehilite">protected ros::Publisher</code><a href="#classgazebo_1_1_accelerations_test_plugin_1af15a43ec01edd5d0d0d5c00ecc93bbfe"><code class="codehilite">pub_accel_b_numeric</code></a><a class="headerlink" href="#protected-rospublisherpub_accel_b_numeric" title="Permanent link">&para;</a></h6>
-<h6 id="protected-rospublisherpub_accel_w_gazebo"><code class="codehilite">protected ros::Publisher</code><a href="#classgazebo_1_1_accelerations_test_plugin_1a51d748b8442b3856eeff4de3d8fbc83a"><code class="codehilite">pub_accel_w_gazebo</code></a><a class="headerlink" href="#protected-rospublisherpub_accel_w_gazebo" title="Permanent link">&para;</a></h6>
-<h6 id="protected-rospublisherpub_accel_w_numeric"><code class="codehilite">protected ros::Publisher</code><a href="#classgazebo_1_1_accelerations_test_plugin_1aa2bf1016615f64d5cb4d29592af494f7"><code class="codehilite">pub_accel_w_numeric</code></a><a class="headerlink" href="#protected-rospublisherpub_accel_w_numeric" title="Permanent link">&para;</a></h6>
-<h6 id="protected-eigenvector6dlast_w_v_w_b"><code class="codehilite">protected Eigen::Vector6d</code><a href="#classgazebo_1_1_accelerations_test_plugin_1a0829056785ddad0daad41f40b61b1421"><code class="codehilite">last_w_v_w_b</code></a><a class="headerlink" href="#protected-eigenvector6dlast_w_v_w_b" title="Permanent link">&para;</a></h6>
+<h6 id="protected-rospublisherpub_accel_b_gazebo"><code class="codehilite"><span class="n">protected</span> <span class="n">ros</span><span class="p">::</span><span class="n">Publisher</span></code><a href="#classgazebo_1_1_accelerations_test_plugin_1a491b199de59266f1e559ab0667cdc602"><code class="codehilite"><span class="n">pub_accel_b_gazebo</span></code></a><a class="headerlink" href="#protected-rospublisherpub_accel_b_gazebo" title="Permanent link">&para;</a></h6>
+<h6 id="protected-rospublisherpub_accel_b_numeric"><code class="codehilite"><span class="n">protected</span> <span class="n">ros</span><span class="p">::</span><span class="n">Publisher</span></code><a href="#classgazebo_1_1_accelerations_test_plugin_1af15a43ec01edd5d0d0d5c00ecc93bbfe"><code class="codehilite"><span class="n">pub_accel_b_numeric</span></code></a><a class="headerlink" href="#protected-rospublisherpub_accel_b_numeric" title="Permanent link">&para;</a></h6>
+<h6 id="protected-rospublisherpub_accel_w_gazebo"><code class="codehilite"><span class="n">protected</span> <span class="n">ros</span><span class="p">::</span><span class="n">Publisher</span></code><a href="#classgazebo_1_1_accelerations_test_plugin_1a51d748b8442b3856eeff4de3d8fbc83a"><code class="codehilite"><span class="n">pub_accel_w_gazebo</span></code></a><a class="headerlink" href="#protected-rospublisherpub_accel_w_gazebo" title="Permanent link">&para;</a></h6>
+<h6 id="protected-rospublisherpub_accel_w_numeric"><code class="codehilite"><span class="n">protected</span> <span class="n">ros</span><span class="p">::</span><span class="n">Publisher</span></code><a href="#classgazebo_1_1_accelerations_test_plugin_1aa2bf1016615f64d5cb4d29592af494f7"><code class="codehilite"><span class="n">pub_accel_w_numeric</span></code></a><a class="headerlink" href="#protected-rospublisherpub_accel_w_numeric" title="Permanent link">&para;</a></h6>
+<h6 id="protected-eigenvector6dlast_w_v_w_b"><code class="codehilite"><span class="n">protected</span> <span class="n">Eigen</span><span class="p">::</span><span class="n">Vector6d</span></code><a href="#classgazebo_1_1_accelerations_test_plugin_1a0829056785ddad0daad41f40b61b1421"><code class="codehilite"><span class="n">last_w_v_w_b</span></code></a><a class="headerlink" href="#protected-eigenvector6dlast_w_v_w_b" title="Permanent link">&para;</a></h6>
 <p>Velocity of link with respect to world frame in previous time step.</p>
-<h6 id="protected-commontimelasttime"><code class="codehilite">protected common::Time</code><a href="#classgazebo_1_1_accelerations_test_plugin_1afedb74b4ade15db6baf2cc9fdcef5e7c"><code class="codehilite">lastTime</code></a><a class="headerlink" href="#protected-commontimelasttime" title="Permanent link">&para;</a></h6>
+<h6 id="protected-commontimelasttime"><code class="codehilite"><span class="n">protected</span> <span class="n">common</span><span class="p">::</span><span class="n">Time</span></code><a href="#classgazebo_1_1_accelerations_test_plugin_1afedb74b4ade15db6baf2cc9fdcef5e7c"><code class="codehilite"><span class="n">lastTime</span></code></a><a class="headerlink" href="#protected-commontimelasttime" title="Permanent link">&para;</a></h6>
 <p>Time stamp of previous time step.</p>
-<h6 id="protected-virtual-voidconnect"><code class="codehilite">protected virtual void</code><a href="#classgazebo_1_1_accelerations_test_plugin_1afbfdb6e1ed425f0f4194f32fd69e36d0"><code class="codehilite">Connect</code></a><code class="codehilite">()</code><a class="headerlink" href="#protected-virtual-voidconnect" title="Permanent link">&para;</a></h6>
+<h6 id="protected-virtual-voidconnect"><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_accelerations_test_plugin_1afbfdb6e1ed425f0f4194f32fd69e36d0"><code class="codehilite"><span class="k">Connect</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#protected-virtual-voidconnect" title="Permanent link">&para;</a></h6>
 <p>Connects the update event callback.</p>
                 
                   

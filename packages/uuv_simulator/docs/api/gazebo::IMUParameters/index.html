@@ -456,6 +456,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -2898,7 +2910,7 @@
                 
                   <h1>IMUParameters</h1>
                 
-                <h4 id="struct-gazeboimuparameters">struct <code class="codehilite">gazebo::IMUParameters</code><a class="headerlink" href="#struct-gazeboimuparameters" title="Permanent link">&para;</a></h4>
+                <h4 id="struct-gazeboimuparameters">struct <code class="codehilite"><span class="n">gazebo</span><span class="p">::</span><span class="n">IMUParameters</span></code><a class="headerlink" href="#struct-gazeboimuparameters" title="Permanent link">&para;</a></h4>
 <p><a href="#structgazebo_1_1_i_m_u_parameters">IMUParameters</a> stores all IMU model parameters. A description of these parameters can be found here: <a href="https://github.com/ethz-asl/kalibr/wiki/IMU-Noise-Model-and-Intrinsics">https://github.com/ethz-asl/kalibr/wiki/IMU-Noise-Model-and-Intrinsics</a>.</p>
 <h5 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h5>
 <table>
@@ -2910,67 +2922,67 @@
 </thead>
 <tbody>
 <tr>
-<td><code class="codehilite">public double</code><a href="#structgazebo_1_1_i_m_u_parameters_1a25f7a443bbabe24709fef7902f253686"><code class="codehilite">gyroscopeNoiseDensity</code></a></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">double</span></code><a href="#structgazebo_1_1_i_m_u_parameters_1a25f7a443bbabe24709fef7902f253686"><code class="codehilite"><span class="n">gyroscopeNoiseDensity</span></code></a></td>
 <td>Gyroscope noise density (two-sided spectrum) [rad/s/sqrt(Hz)].</td>
 </tr>
 <tr>
-<td><code class="codehilite">public double</code><a href="#structgazebo_1_1_i_m_u_parameters_1ae252c3f9cc0692111ce5d34603db2c1b"><code class="codehilite">gyroscopeRandomWalk</code></a></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">double</span></code><a href="#structgazebo_1_1_i_m_u_parameters_1ae252c3f9cc0692111ce5d34603db2c1b"><code class="codehilite"><span class="n">gyroscopeRandomWalk</span></code></a></td>
 <td>Gyroscope bias random walk [rad/s/s/sqrt(Hz)].</td>
 </tr>
 <tr>
-<td><code class="codehilite">public double</code><a href="#structgazebo_1_1_i_m_u_parameters_1ab9fa9588c7a67ae9c38e71910a510661"><code class="codehilite">gyroscopeBiasCorrelationTime</code></a></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">double</span></code><a href="#structgazebo_1_1_i_m_u_parameters_1ab9fa9588c7a67ae9c38e71910a510661"><code class="codehilite"><span class="n">gyroscopeBiasCorrelationTime</span></code></a></td>
 <td>Gyroscope bias correlation time constant [s].</td>
 </tr>
 <tr>
-<td><code class="codehilite">public double</code><a href="#structgazebo_1_1_i_m_u_parameters_1aa90e85c829fb5a8a7079c670feaa1513"><code class="codehilite">gyroscopeTurnOnBiasSigma</code></a></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">double</span></code><a href="#structgazebo_1_1_i_m_u_parameters_1aa90e85c829fb5a8a7079c670feaa1513"><code class="codehilite"><span class="n">gyroscopeTurnOnBiasSigma</span></code></a></td>
 <td>Gyroscope turn on bias standard deviation [rad/s].</td>
 </tr>
 <tr>
-<td><code class="codehilite">public double</code><a href="#structgazebo_1_1_i_m_u_parameters_1a2b4bca730c38f081af8c9b73f4b6bad4"><code class="codehilite">accelerometerNoiseDensity</code></a></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">double</span></code><a href="#structgazebo_1_1_i_m_u_parameters_1a2b4bca730c38f081af8c9b73f4b6bad4"><code class="codehilite"><span class="n">accelerometerNoiseDensity</span></code></a></td>
 <td>Accelerometer noise density (two-sided spectrum) [m/s^2/sqrt(Hz)].</td>
 </tr>
 <tr>
-<td><code class="codehilite">public double</code><a href="#structgazebo_1_1_i_m_u_parameters_1a2d6b2fd03ddb35a1e61653745bbfb8fb"><code class="codehilite">accelerometerRandomWalk</code></a></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">double</span></code><a href="#structgazebo_1_1_i_m_u_parameters_1a2d6b2fd03ddb35a1e61653745bbfb8fb"><code class="codehilite"><span class="n">accelerometerRandomWalk</span></code></a></td>
 <td>Accelerometer bias random walk. [m/s^2/s/sqrt(Hz)].</td>
 </tr>
 <tr>
-<td><code class="codehilite">public double</code><a href="#structgazebo_1_1_i_m_u_parameters_1ae3ee5ba06f1f4c1982bfd85d50edf07d"><code class="codehilite">accelerometerBiasCorrelationTime</code></a></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">double</span></code><a href="#structgazebo_1_1_i_m_u_parameters_1ae3ee5ba06f1f4c1982bfd85d50edf07d"><code class="codehilite"><span class="n">accelerometerBiasCorrelationTime</span></code></a></td>
 <td>Accelerometer bias correlation time constant [s].</td>
 </tr>
 <tr>
-<td><code class="codehilite">public double</code><a href="#structgazebo_1_1_i_m_u_parameters_1ad9ed56456fb2bfbe95d4caeb73631613"><code class="codehilite">accelerometerTurnOnBiasSigma</code></a></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">double</span></code><a href="#structgazebo_1_1_i_m_u_parameters_1ad9ed56456fb2bfbe95d4caeb73631613"><code class="codehilite"><span class="n">accelerometerTurnOnBiasSigma</span></code></a></td>
 <td>Accelerometer turn on bias standard deviation [m/s^2].</td>
 </tr>
 <tr>
-<td><code class="codehilite">public double</code><a href="#structgazebo_1_1_i_m_u_parameters_1a6c283963ffe5ce1e1552238d3bd00541"><code class="codehilite">orientationNoise</code></a></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">double</span></code><a href="#structgazebo_1_1_i_m_u_parameters_1a6c283963ffe5ce1e1552238d3bd00541"><code class="codehilite"><span class="n">orientationNoise</span></code></a></td>
 <td>Standard deviation of orientation noise per axis [rad].</td>
 </tr>
 <tr>
-<td><code class="codehilite">public inline</code><a href="#structgazebo_1_1_i_m_u_parameters_1a458153650853d5e46e0c8ebfbcc3982f"><code class="codehilite">IMUParameters</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">inline</span></code><a href="#structgazebo_1_1_i_m_u_parameters_1a458153650853d5e46e0c8ebfbcc3982f"><code class="codehilite"><span class="n">IMUParameters</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Constructor.</td>
 </tr>
 </tbody>
 </table>
 <h5 id="members">Members<a class="headerlink" href="#members" title="Permanent link">&para;</a></h5>
-<h6 id="public-doublegyroscopenoisedensity"><code class="codehilite">public double</code><a href="#structgazebo_1_1_i_m_u_parameters_1a25f7a443bbabe24709fef7902f253686"><code class="codehilite">gyroscopeNoiseDensity</code></a><a class="headerlink" href="#public-doublegyroscopenoisedensity" title="Permanent link">&para;</a></h6>
+<h6 id="public-doublegyroscopenoisedensity"><code class="codehilite"><span class="k">public</span> <span class="n">double</span></code><a href="#structgazebo_1_1_i_m_u_parameters_1a25f7a443bbabe24709fef7902f253686"><code class="codehilite"><span class="n">gyroscopeNoiseDensity</span></code></a><a class="headerlink" href="#public-doublegyroscopenoisedensity" title="Permanent link">&para;</a></h6>
 <p>Gyroscope noise density (two-sided spectrum) [rad/s/sqrt(Hz)].</p>
-<h6 id="public-doublegyroscoperandomwalk"><code class="codehilite">public double</code><a href="#structgazebo_1_1_i_m_u_parameters_1ae252c3f9cc0692111ce5d34603db2c1b"><code class="codehilite">gyroscopeRandomWalk</code></a><a class="headerlink" href="#public-doublegyroscoperandomwalk" title="Permanent link">&para;</a></h6>
+<h6 id="public-doublegyroscoperandomwalk"><code class="codehilite"><span class="k">public</span> <span class="n">double</span></code><a href="#structgazebo_1_1_i_m_u_parameters_1ae252c3f9cc0692111ce5d34603db2c1b"><code class="codehilite"><span class="n">gyroscopeRandomWalk</span></code></a><a class="headerlink" href="#public-doublegyroscoperandomwalk" title="Permanent link">&para;</a></h6>
 <p>Gyroscope bias random walk [rad/s/s/sqrt(Hz)].</p>
-<h6 id="public-doublegyroscopebiascorrelationtime"><code class="codehilite">public double</code><a href="#structgazebo_1_1_i_m_u_parameters_1ab9fa9588c7a67ae9c38e71910a510661"><code class="codehilite">gyroscopeBiasCorrelationTime</code></a><a class="headerlink" href="#public-doublegyroscopebiascorrelationtime" title="Permanent link">&para;</a></h6>
+<h6 id="public-doublegyroscopebiascorrelationtime"><code class="codehilite"><span class="k">public</span> <span class="n">double</span></code><a href="#structgazebo_1_1_i_m_u_parameters_1ab9fa9588c7a67ae9c38e71910a510661"><code class="codehilite"><span class="n">gyroscopeBiasCorrelationTime</span></code></a><a class="headerlink" href="#public-doublegyroscopebiascorrelationtime" title="Permanent link">&para;</a></h6>
 <p>Gyroscope bias correlation time constant [s].</p>
-<h6 id="public-doublegyroscopeturnonbiassigma"><code class="codehilite">public double</code><a href="#structgazebo_1_1_i_m_u_parameters_1aa90e85c829fb5a8a7079c670feaa1513"><code class="codehilite">gyroscopeTurnOnBiasSigma</code></a><a class="headerlink" href="#public-doublegyroscopeturnonbiassigma" title="Permanent link">&para;</a></h6>
+<h6 id="public-doublegyroscopeturnonbiassigma"><code class="codehilite"><span class="k">public</span> <span class="n">double</span></code><a href="#structgazebo_1_1_i_m_u_parameters_1aa90e85c829fb5a8a7079c670feaa1513"><code class="codehilite"><span class="n">gyroscopeTurnOnBiasSigma</span></code></a><a class="headerlink" href="#public-doublegyroscopeturnonbiassigma" title="Permanent link">&para;</a></h6>
 <p>Gyroscope turn on bias standard deviation [rad/s].</p>
-<h6 id="public-doubleaccelerometernoisedensity"><code class="codehilite">public double</code><a href="#structgazebo_1_1_i_m_u_parameters_1a2b4bca730c38f081af8c9b73f4b6bad4"><code class="codehilite">accelerometerNoiseDensity</code></a><a class="headerlink" href="#public-doubleaccelerometernoisedensity" title="Permanent link">&para;</a></h6>
+<h6 id="public-doubleaccelerometernoisedensity"><code class="codehilite"><span class="k">public</span> <span class="n">double</span></code><a href="#structgazebo_1_1_i_m_u_parameters_1a2b4bca730c38f081af8c9b73f4b6bad4"><code class="codehilite"><span class="n">accelerometerNoiseDensity</span></code></a><a class="headerlink" href="#public-doubleaccelerometernoisedensity" title="Permanent link">&para;</a></h6>
 <p>Accelerometer noise density (two-sided spectrum) [m/s^2/sqrt(Hz)].</p>
-<h6 id="public-doubleaccelerometerrandomwalk"><code class="codehilite">public double</code><a href="#structgazebo_1_1_i_m_u_parameters_1a2d6b2fd03ddb35a1e61653745bbfb8fb"><code class="codehilite">accelerometerRandomWalk</code></a><a class="headerlink" href="#public-doubleaccelerometerrandomwalk" title="Permanent link">&para;</a></h6>
+<h6 id="public-doubleaccelerometerrandomwalk"><code class="codehilite"><span class="k">public</span> <span class="n">double</span></code><a href="#structgazebo_1_1_i_m_u_parameters_1a2d6b2fd03ddb35a1e61653745bbfb8fb"><code class="codehilite"><span class="n">accelerometerRandomWalk</span></code></a><a class="headerlink" href="#public-doubleaccelerometerrandomwalk" title="Permanent link">&para;</a></h6>
 <p>Accelerometer bias random walk. [m/s^2/s/sqrt(Hz)].</p>
-<h6 id="public-doubleaccelerometerbiascorrelationtime"><code class="codehilite">public double</code><a href="#structgazebo_1_1_i_m_u_parameters_1ae3ee5ba06f1f4c1982bfd85d50edf07d"><code class="codehilite">accelerometerBiasCorrelationTime</code></a><a class="headerlink" href="#public-doubleaccelerometerbiascorrelationtime" title="Permanent link">&para;</a></h6>
+<h6 id="public-doubleaccelerometerbiascorrelationtime"><code class="codehilite"><span class="k">public</span> <span class="n">double</span></code><a href="#structgazebo_1_1_i_m_u_parameters_1ae3ee5ba06f1f4c1982bfd85d50edf07d"><code class="codehilite"><span class="n">accelerometerBiasCorrelationTime</span></code></a><a class="headerlink" href="#public-doubleaccelerometerbiascorrelationtime" title="Permanent link">&para;</a></h6>
 <p>Accelerometer bias correlation time constant [s].</p>
-<h6 id="public-doubleaccelerometerturnonbiassigma"><code class="codehilite">public double</code><a href="#structgazebo_1_1_i_m_u_parameters_1ad9ed56456fb2bfbe95d4caeb73631613"><code class="codehilite">accelerometerTurnOnBiasSigma</code></a><a class="headerlink" href="#public-doubleaccelerometerturnonbiassigma" title="Permanent link">&para;</a></h6>
+<h6 id="public-doubleaccelerometerturnonbiassigma"><code class="codehilite"><span class="k">public</span> <span class="n">double</span></code><a href="#structgazebo_1_1_i_m_u_parameters_1ad9ed56456fb2bfbe95d4caeb73631613"><code class="codehilite"><span class="n">accelerometerTurnOnBiasSigma</span></code></a><a class="headerlink" href="#public-doubleaccelerometerturnonbiassigma" title="Permanent link">&para;</a></h6>
 <p>Accelerometer turn on bias standard deviation [m/s^2].</p>
-<h6 id="public-doubleorientationnoise"><code class="codehilite">public double</code><a href="#structgazebo_1_1_i_m_u_parameters_1a6c283963ffe5ce1e1552238d3bd00541"><code class="codehilite">orientationNoise</code></a><a class="headerlink" href="#public-doubleorientationnoise" title="Permanent link">&para;</a></h6>
+<h6 id="public-doubleorientationnoise"><code class="codehilite"><span class="k">public</span> <span class="n">double</span></code><a href="#structgazebo_1_1_i_m_u_parameters_1a6c283963ffe5ce1e1552238d3bd00541"><code class="codehilite"><span class="n">orientationNoise</span></code></a><a class="headerlink" href="#public-doubleorientationnoise" title="Permanent link">&para;</a></h6>
 <p>Standard deviation of orientation noise per axis [rad].</p>
-<h6 id="public-inlineimuparameters"><code class="codehilite">public inline</code><a href="#structgazebo_1_1_i_m_u_parameters_1a458153650853d5e46e0c8ebfbcc3982f"><code class="codehilite">IMUParameters</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-inlineimuparameters" title="Permanent link">&para;</a></h6>
+<h6 id="public-inlineimuparameters"><code class="codehilite"><span class="k">public</span> <span class="n">inline</span></code><a href="#structgazebo_1_1_i_m_u_parameters_1a458153650853d5e46e0c8ebfbcc3982f"><code class="codehilite"><span class="n">IMUParameters</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-inlineimuparameters" title="Permanent link">&para;</a></h6>
 <p>Constructor.</p>
                 
                   

@@ -456,6 +456,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -2828,9 +2840,9 @@
                 
                   <h1>HMSpheroid</h1>
                 
-                <h4 id="class-gazebohmspheroid">class <code class="codehilite">gazebo::HMSpheroid</code><a class="headerlink" href="#class-gazebohmspheroid" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><span class="kr">class</span> <span class="nx">gazebo</span><span class="o">::</span><span class="nx">HMSpheroid</span>
-  : <span class="kt">public</span> <span class="nx">gazebo</span><span class="o">::</span><span class="nx">HMFossen</span>
+                <h4 id="class-gazebohmspheroid">class <code class="codehilite"><span class="n">gazebo</span><span class="p">::</span><span class="n">HMSpheroid</span></code><a class="headerlink" href="#class-gazebohmspheroid" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="n">gazebo::HMSpheroid</span>
+  : <span class="n">public</span> <span class="n">gazebo::HMFossen</span>
 </pre></div>
 
 <p>Class containing the methods and attributes for a hydrodynamic model for a spheroid in the fluid Reference: Antonelli - Underwater Robots.</p>
@@ -2844,37 +2856,37 @@
 </thead>
 <tbody>
 <tr>
-<td><code class="codehilite">public inline virtual std::string</code><a href="#classgazebo_1_1_h_m_spheroid_1a2af19270ed7d89121ad909c2d295d2ff"><code class="codehilite">GetType</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">inline</span> <span class="n">virtual</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classgazebo_1_1_h_m_spheroid_1a2af19270ed7d89121ad909c2d295d2ff"><code class="codehilite"><span class="n">GetType</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Return (derived) type of hydrodynamic model.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_h_m_spheroid_1a76aa73929b7c32a19d578bea07dea1f1"><code class="codehilite">Print</code></a><code class="codehilite">(std::string _paramName,std::string _message)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_h_m_spheroid_1a76aa73929b7c32a19d578bea07dea1f1"><code class="codehilite"><span class="n">Print</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="n">_paramName</span><span class="p">,</span><span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="n">_message</span><span class="p">)</span></code></td>
 <td>Prints parameters.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_h_m_spheroid_1a3de304ad70f38d3ef85501c5533c39a3"><code class="codehilite">length</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_h_m_spheroid_1a3de304ad70f38d3ef85501c5533c39a3"><code class="codehilite"><span class="k">length</span></code></a></td>
 <td>Length of the sphroid.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_h_m_spheroid_1a1aab5b64e948769bf729157ce0f3ae8d"><code class="codehilite">radius</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_h_m_spheroid_1a1aab5b64e948769bf729157ce0f3ae8d"><code class="codehilite"><span class="n">radius</span></code></a></td>
 <td>Prolate spheroid's smaller radius.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected</code><a href="#classgazebo_1_1_h_m_spheroid_1afdf9b645d329cd9d774375d2f167d03d"><code class="codehilite">HMSpheroid</code></a><code class="codehilite">(sdf::ElementPtr _sdf,physics::LinkPtr _link)</code></td>
+<td><code class="codehilite"><span class="n">protected</span></code><a href="#classgazebo_1_1_h_m_spheroid_1afdf9b645d329cd9d774375d2f167d03d"><code class="codehilite"><span class="n">HMSpheroid</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">,</span><span class="n">physics</span><span class="p">::</span><span class="n">LinkPtr</span> <span class="n">_link</span><span class="p">)</span></code></td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <h5 id="members">Members<a class="headerlink" href="#members" title="Permanent link">&para;</a></h5>
-<h6 id="public-inline-virtual-stdstringgettype"><code class="codehilite">public inline virtual std::string</code><a href="#classgazebo_1_1_h_m_spheroid_1a2af19270ed7d89121ad909c2d295d2ff"><code class="codehilite">GetType</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-inline-virtual-stdstringgettype" title="Permanent link">&para;</a></h6>
+<h6 id="public-inline-virtual-stdstringgettype"><code class="codehilite"><span class="k">public</span> <span class="n">inline</span> <span class="n">virtual</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classgazebo_1_1_h_m_spheroid_1a2af19270ed7d89121ad909c2d295d2ff"><code class="codehilite"><span class="n">GetType</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-inline-virtual-stdstringgettype" title="Permanent link">&para;</a></h6>
 <p>Return (derived) type of hydrodynamic model.</p>
-<h6 id="public-virtual-voidprintstdstring-_paramnamestdstring-_message"><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_h_m_spheroid_1a76aa73929b7c32a19d578bea07dea1f1"><code class="codehilite">Print</code></a><code class="codehilite">(std::string _paramName,std::string _message)</code><a class="headerlink" href="#public-virtual-voidprintstdstring-_paramnamestdstring-_message" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtual-voidprintstdstring-_paramnamestdstring-_message"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_h_m_spheroid_1a76aa73929b7c32a19d578bea07dea1f1"><code class="codehilite"><span class="n">Print</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="n">_paramName</span><span class="p">,</span><span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="n">_message</span><span class="p">)</span></code><a class="headerlink" href="#public-virtual-voidprintstdstring-_paramnamestdstring-_message" title="Permanent link">&para;</a></h6>
 <p>Prints parameters.</p>
-<h6 id="protected-doublelength"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_h_m_spheroid_1a3de304ad70f38d3ef85501c5533c39a3"><code class="codehilite">length</code></a><a class="headerlink" href="#protected-doublelength" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doublelength"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_h_m_spheroid_1a3de304ad70f38d3ef85501c5533c39a3"><code class="codehilite"><span class="k">length</span></code></a><a class="headerlink" href="#protected-doublelength" title="Permanent link">&para;</a></h6>
 <p>Length of the sphroid.</p>
-<h6 id="protected-doubleradius"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_h_m_spheroid_1a1aab5b64e948769bf729157ce0f3ae8d"><code class="codehilite">radius</code></a><a class="headerlink" href="#protected-doubleradius" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doubleradius"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_h_m_spheroid_1a1aab5b64e948769bf729157ce0f3ae8d"><code class="codehilite"><span class="n">radius</span></code></a><a class="headerlink" href="#protected-doubleradius" title="Permanent link">&para;</a></h6>
 <p>Prolate spheroid's smaller radius.</p>
-<h6 id="protectedhmspheroidsdfelementptr-_sdfphysicslinkptr-_link"><code class="codehilite">protected</code><a href="#classgazebo_1_1_h_m_spheroid_1afdf9b645d329cd9d774375d2f167d03d"><code class="codehilite">HMSpheroid</code></a><code class="codehilite">(sdf::ElementPtr _sdf,physics::LinkPtr _link)</code><a class="headerlink" href="#protectedhmspheroidsdfelementptr-_sdfphysicslinkptr-_link" title="Permanent link">&para;</a></h6>
+<h6 id="protectedhmspheroidsdfelementptr-_sdfphysicslinkptr-_link"><code class="codehilite"><span class="n">protected</span></code><a href="#classgazebo_1_1_h_m_spheroid_1afdf9b645d329cd9d774375d2f167d03d"><code class="codehilite"><span class="n">HMSpheroid</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">,</span><span class="n">physics</span><span class="p">::</span><span class="n">LinkPtr</span> <span class="n">_link</span><span class="p">)</span></code><a class="headerlink" href="#protectedhmspheroidsdfelementptr-_sdfphysicslinkptr-_link" title="Permanent link">&para;</a></h6>
                 
                   
                 

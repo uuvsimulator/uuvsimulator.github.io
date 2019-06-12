@@ -456,6 +456,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -2870,7 +2882,7 @@
                 
                   <h1>Dynamics</h1>
                 
-                <h4 id="class-gazebodynamics">class <code class="codehilite">gazebo::Dynamics</code><a class="headerlink" href="#class-gazebodynamics" title="Permanent link">&para;</a></h4>
+                <h4 id="class-gazebodynamics">class <code class="codehilite"><span class="n">gazebo</span><span class="p">::</span><span class="n">Dynamics</span></code><a class="headerlink" href="#class-gazebodynamics" title="Permanent link">&para;</a></h4>
 <p>Abstract base class for thruster dynamics.</p>
 <h5 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h5>
 <table>
@@ -2882,57 +2894,57 @@
 </thead>
 <tbody>
 <tr>
-<td><code class="codehilite">public inline virtual</code><a href="#classgazebo_1_1_dynamics_1a93c023678bcde05d9cc280afe071b889"><code class="codehilite">~Dynamics</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">inline</span> <span class="n">virtual</span></code><a href="#classgazebo_1_1_dynamics_1a93c023678bcde05d9cc280afe071b889"><code class="codehilite"><span class="o">~</span><span class="n">Dynamics</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Destructor.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public std::string</code><a href="#classgazebo_1_1_dynamics_1ae9efe1854032da39ab230063c0303549"><code class="codehilite">GetType</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classgazebo_1_1_dynamics_1ae9efe1854032da39ab230063c0303549"><code class="codehilite"><span class="n">GetType</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Return (derived) type of thruster dynamics.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public double</code><a href="#classgazebo_1_1_dynamics_1a7cae772ac89944d52757c7883d75f93a"><code class="codehilite">update</code></a><code class="codehilite">(double _cmd,double _t)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">double</span></code><a href="#classgazebo_1_1_dynamics_1a7cae772ac89944d52757c7883d75f93a"><code class="codehilite"><span class="k">update</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">double</span> <span class="n">_cmd</span><span class="p">,</span><span class="n">double</span> <span class="n">_t</span><span class="p">)</span></code></td>
 <td>Update the dynamic model.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_dynamics_1a4ca9ecc33bdd2e3cf8a42a928a9eec8f"><code class="codehilite">Reset</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_dynamics_1a4ca9ecc33bdd2e3cf8a42a928a9eec8f"><code class="codehilite"><span class="k">Reset</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_dynamics_1a27de443c5e85c6ab6ddcbb31e880d4b2"><code class="codehilite">prevTime</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_dynamics_1a27de443c5e85c6ab6ddcbb31e880d4b2"><code class="codehilite"><span class="n">prevTime</span></code></a></td>
 <td>Time of last state update.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_dynamics_1a4c2f128d2d0ef4d312936f66106cf229"><code class="codehilite">state</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_dynamics_1a4c2f128d2d0ef4d312936f66106cf229"><code class="codehilite"><span class="k">state</span></code></a></td>
 <td>Latest state.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected inline</code><a href="#classgazebo_1_1_dynamics_1a4e590f9f7264d3d7e22c08d9b7737f1a"><code class="codehilite">Dynamics</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">inline</span></code><a href="#classgazebo_1_1_dynamics_1a4e590f9f7264d3d7e22c08d9b7737f1a"><code class="codehilite"><span class="n">Dynamics</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Protected constructor: Use the factory for object creation.</td>
 </tr>
 </tbody>
 </table>
 <h5 id="members">Members<a class="headerlink" href="#members" title="Permanent link">&para;</a></h5>
-<h6 id="public-inline-virtualdynamics"><code class="codehilite">public inline virtual</code><a href="#classgazebo_1_1_dynamics_1a93c023678bcde05d9cc280afe071b889"><code class="codehilite">~Dynamics</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-inline-virtualdynamics" title="Permanent link">&para;</a></h6>
+<h6 id="public-inline-virtualdynamics"><code class="codehilite"><span class="k">public</span> <span class="n">inline</span> <span class="n">virtual</span></code><a href="#classgazebo_1_1_dynamics_1a93c023678bcde05d9cc280afe071b889"><code class="codehilite"><span class="o">~</span><span class="n">Dynamics</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-inline-virtualdynamics" title="Permanent link">&para;</a></h6>
 <p>Destructor.</p>
-<h6 id="public-stdstringgettype"><code class="codehilite">public std::string</code><a href="#classgazebo_1_1_dynamics_1ae9efe1854032da39ab230063c0303549"><code class="codehilite">GetType</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-stdstringgettype" title="Permanent link">&para;</a></h6>
+<h6 id="public-stdstringgettype"><code class="codehilite"><span class="k">public</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classgazebo_1_1_dynamics_1ae9efe1854032da39ab230063c0303549"><code class="codehilite"><span class="n">GetType</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-stdstringgettype" title="Permanent link">&para;</a></h6>
 <p>Return (derived) type of thruster dynamics.</p>
-<h6 id="public-doubleupdatedouble-_cmddouble-_t"><code class="codehilite">public double</code><a href="#classgazebo_1_1_dynamics_1a7cae772ac89944d52757c7883d75f93a"><code class="codehilite">update</code></a><code class="codehilite">(double _cmd,double _t)</code><a class="headerlink" href="#public-doubleupdatedouble-_cmddouble-_t" title="Permanent link">&para;</a></h6>
+<h6 id="public-doubleupdatedouble-_cmddouble-_t"><code class="codehilite"><span class="k">public</span> <span class="n">double</span></code><a href="#classgazebo_1_1_dynamics_1a7cae772ac89944d52757c7883d75f93a"><code class="codehilite"><span class="k">update</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">double</span> <span class="n">_cmd</span><span class="p">,</span><span class="n">double</span> <span class="n">_t</span><span class="p">)</span></code><a class="headerlink" href="#public-doubleupdatedouble-_cmddouble-_t" title="Permanent link">&para;</a></h6>
 <p>Update the dynamic model.</p>
 <h6 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h6>
 <ul>
 <li>
-<p><code class="codehilite">_cmd</code> The commanded value. </p>
+<p><code class="codehilite"><span class="n">_cmd</span></code> The commanded value. </p>
 </li>
 <li>
-<p><code class="codehilite">_t</code> Time stamp of command.</p>
+<p><code class="codehilite"><span class="n">_t</span></code> Time stamp of command.</p>
 </li>
 </ul>
-<h6 id="public-virtual-voidreset"><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_dynamics_1a4ca9ecc33bdd2e3cf8a42a928a9eec8f"><code class="codehilite">Reset</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-virtual-voidreset" title="Permanent link">&para;</a></h6>
-<h6 id="protected-doubleprevtime"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_dynamics_1a27de443c5e85c6ab6ddcbb31e880d4b2"><code class="codehilite">prevTime</code></a><a class="headerlink" href="#protected-doubleprevtime" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtual-voidreset"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_dynamics_1a4ca9ecc33bdd2e3cf8a42a928a9eec8f"><code class="codehilite"><span class="k">Reset</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-virtual-voidreset" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doubleprevtime"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_dynamics_1a27de443c5e85c6ab6ddcbb31e880d4b2"><code class="codehilite"><span class="n">prevTime</span></code></a><a class="headerlink" href="#protected-doubleprevtime" title="Permanent link">&para;</a></h6>
 <p>Time of last state update.</p>
-<h6 id="protected-doublestate"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_dynamics_1a4c2f128d2d0ef4d312936f66106cf229"><code class="codehilite">state</code></a><a class="headerlink" href="#protected-doublestate" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doublestate"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_dynamics_1a4c2f128d2d0ef4d312936f66106cf229"><code class="codehilite"><span class="k">state</span></code></a><a class="headerlink" href="#protected-doublestate" title="Permanent link">&para;</a></h6>
 <p>Latest state.</p>
-<h6 id="protected-inlinedynamics"><code class="codehilite">protected inline</code><a href="#classgazebo_1_1_dynamics_1a4e590f9f7264d3d7e22c08d9b7737f1a"><code class="codehilite">Dynamics</code></a><code class="codehilite">()</code><a class="headerlink" href="#protected-inlinedynamics" title="Permanent link">&para;</a></h6>
+<h6 id="protected-inlinedynamics"><code class="codehilite"><span class="n">protected</span> <span class="n">inline</span></code><a href="#classgazebo_1_1_dynamics_1a4e590f9f7264d3d7e22c08d9b7737f1a"><code class="codehilite"><span class="n">Dynamics</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#protected-inlinedynamics" title="Permanent link">&para;</a></h6>
 <p>Protected constructor: Use the factory for object creation.</p>
                 
                   

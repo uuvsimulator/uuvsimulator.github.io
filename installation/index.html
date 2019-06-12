@@ -547,6 +547,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../packages/uuv_simulator/docs/features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../packages/uuv_simulator/docs/features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -2820,11 +2832,11 @@
                 
                 <p>We assume you are using at least Ubuntu 14.04.4 LTS and ROS Indigo, even though the simulator package should also work with later versions (minor adjustments may be required). Please refer to the installation instructions for</p>
 <ul>
-<li><a href="http://wiki.ros.org/indigo/Installation/Ubuntu"><code class="codehilite">indigo</code></a></li>
-<li><a href="http://wiki.ros.org/kinetic/Installation/Ubuntu"><code class="codehilite">kinetic</code></a></li>
-<li><a href="http://wiki.ros.org/melodic/Installation/Ubuntu"><code class="codehilite">melodic</code></a></li>
+<li><a href="http://wiki.ros.org/indigo/Installation/Ubuntu"><code class="codehilite"><span class="n">indigo</span></code></a></li>
+<li><a href="http://wiki.ros.org/kinetic/Installation/Ubuntu"><code class="codehilite"><span class="n">kinetic</span></code></a></li>
+<li><a href="http://wiki.ros.org/melodic/Installation/Ubuntu"><code class="codehilite"><span class="n">melodic</span></code></a></li>
 </ul>
-<p>The <code class="codehilite">uuv_simulator</code> package has currently been released for <code class="codehilite">kinetic</code>, <code class="codehilite">lunar</code> and <code class="codehilite">melodic</code>. To install all the packages, run </p>
+<p>The <code class="codehilite"><span class="n">uuv_simulator</span></code> package has currently been released for <code class="codehilite"><span class="n">kinetic</span></code>, <code class="codehilite"><span class="n">lunar</span></code> and <code class="codehilite"><span class="n">melodic</span></code>. To install all the packages, run </p>
 <div class="codehilite"><pre><span></span>sudo apt install ros-kinetic-uuv-simulator
 </pre></div>
 
@@ -2838,13 +2850,13 @@
 
 <h4 id="installation-from-source">Installation from source<a class="headerlink" href="#installation-from-source" title="Permanent link">&para;</a></h4>
 <h5 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h5>
-<p>Checkout below the needed dependencies for ROS <code class="codehilite">indigo</code>, <code class="codehilite">kinetic</code> and <code class="codehilite">melodic</code>. 
+<p>Checkout below the needed dependencies for ROS <code class="codehilite"><span class="n">indigo</span></code>, <code class="codehilite"><span class="n">kinetic</span></code> and <code class="codehilite"><span class="n">melodic</span></code>. 
 Choose the ones you need according to the ROS version you are using. 
-It is recommended to also install <a href="https://catkin-tools.readthedocs.io/en/latest/installing.html"><code class="codehilite">catkin_tools</code></a>.</p>
-<h6 id="using-uuv_simulator-with-indigo-and-gazebo-7">Using <code class="codehilite">uuv_simulator</code> with <code class="codehilite">indigo</code> and Gazebo 7<a class="headerlink" href="#using-uuv_simulator-with-indigo-and-gazebo-7" title="Permanent link">&para;</a></h6>
+It is recommended to also install <a href="https://catkin-tools.readthedocs.io/en/latest/installing.html"><code class="codehilite"><span class="n">catkin_tools</span></code></a>.</p>
+<h6 id="using-uuv_simulator-with-indigo-and-gazebo-7">Using <code class="codehilite"><span class="n">uuv_simulator</span></code> with <code class="codehilite"><span class="n">indigo</span></code> and Gazebo 7<a class="headerlink" href="#using-uuv_simulator-with-indigo-and-gazebo-7" title="Permanent link">&para;</a></h6>
 <ul>
 <li>
-<p>To install ROS Indigo, first follow the installation instructions in this <a href="http://wiki.ros.org/indigo/Installation/Ubuntu">wiki page</a> and choose the installation of the <code class="codehilite">ros-indigo-desktop-full</code> package.</p>
+<p>To install ROS Indigo, first follow the installation instructions in this <a href="http://wiki.ros.org/indigo/Installation/Ubuntu">wiki page</a> and choose the installation of the <code class="codehilite"><span class="n">ros</span><span class="o">-</span><span class="n">indigo</span><span class="o">-</span><span class="n">desktop</span><span class="o">-</span><span class="k">full</span></code> package.</p>
 </li>
 <li>
 <p>Follow the instructions from the <a href="http://gazebosim.org/tutorials?cat=install&amp;tut=install_ubuntu&amp;ver=7.0">Gazebo 7 installation tutorial</a></p>
@@ -2859,89 +2871,89 @@ It is recommended to also install <a href="https://catkin-tools.readthedocs.io/e
 <ul>
 <li>Some extra packages that might also be needed</li>
 </ul>
-<div class="codehilite"><pre><span></span>sudo apt-get install protobuf-compiler protobuf-c-compiler
+<div class="codehilite"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">install</span> <span class="n">protobuf</span><span class="o">-</span><span class="n">compiler</span> <span class="n">protobuf</span><span class="o">-</span><span class="k">c</span><span class="o">-</span><span class="n">compiler</span>
 </pre></div>
 
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>To use the vehicles with robotic manipulators using <code class="codehilite">indigo</code>, it might also be necessary to use a different version of the <code class="codehilite">ros-control</code> modules (listed below). In that case, clone the following repositories in the <code class="codehilite">src</code> folder </p>
-<div class="codehilite"><pre><span></span>git clone https://github.com/ros-controls/control_msgs.git
-cd control_msgs
-git checkout c0b322b
-cd ..
+<p>To use the vehicles with robotic manipulators using <code class="codehilite"><span class="n">indigo</span></code>, it might also be necessary to use a different version of the <code class="codehilite"><span class="n">ros</span><span class="o">-</span><span class="n">control</span></code> modules (listed below). In that case, clone the following repositories in the <code class="codehilite"><span class="n">src</span></code> folder </p>
+<div class="codehilite"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">ros</span><span class="o">-</span><span class="n">controls</span><span class="o">/</span><span class="n">control_msgs</span><span class="p">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">control_msgs</span>
+<span class="n">git</span> <span class="n">checkout</span> <span class="n">c0b322b</span>
+<span class="n">cd</span> <span class="p">..</span>
 
-git clone https://github.com/ros-controls/control_toolbox.git
-cd control_toolbox
-git checkout 5ccdc6d
-cd ..
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">ros</span><span class="o">-</span><span class="n">controls</span><span class="o">/</span><span class="n">control_toolbox</span><span class="p">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">control_toolbox</span>
+<span class="n">git</span> <span class="n">checkout</span> <span class="mi">5</span><span class="n">ccdc6d</span>
+<span class="n">cd</span> <span class="p">..</span>
 
-git clone https://github.com/ros-simulation/gazebo_ros_pkgs.git
-cd gazebo_ros_pkgs
-git checkout 231b76d
-cd ..
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">ros</span><span class="o">-</span><span class="n">simulation</span><span class="o">/</span><span class="n">gazebo_ros_pkgs</span><span class="p">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">gazebo_ros_pkgs</span>
+<span class="n">git</span> <span class="n">checkout</span> <span class="mi">231</span><span class="n">b76d</span>
+<span class="n">cd</span> <span class="p">..</span>
 
-git clone https://github.com/ros-controls/realtime_tools.git
-cd realtime_tools
-git checkout bf55298
-cd ..
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">ros</span><span class="o">-</span><span class="n">controls</span><span class="o">/</span><span class="n">realtime_tools</span><span class="p">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">realtime_tools</span>
+<span class="n">git</span> <span class="n">checkout</span> <span class="n">bf55298</span>
+<span class="n">cd</span> <span class="p">..</span>
 
-git clone https://github.com/ros-controls/ros_controllers.git
-cd ros_controllers
-git checkout b4dc152
-cd ..
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">ros</span><span class="o">-</span><span class="n">controls</span><span class="o">/</span><span class="n">ros_controllers</span><span class="p">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">ros_controllers</span>
+<span class="n">git</span> <span class="n">checkout</span> <span class="n">b4dc152</span>
+<span class="n">cd</span> <span class="p">..</span>
 </pre></div>
 
 </div>
-<h6 id="using-uuv_simulator-with-kinetic-and-gazebo-7">Using <code class="codehilite">uuv_simulator</code> with <code class="codehilite">kinetic</code> and Gazebo 7<a class="headerlink" href="#using-uuv_simulator-with-kinetic-and-gazebo-7" title="Permanent link">&para;</a></h6>
+<h6 id="using-uuv_simulator-with-kinetic-and-gazebo-7">Using <code class="codehilite"><span class="n">uuv_simulator</span></code> with <code class="codehilite"><span class="n">kinetic</span></code> and Gazebo 7<a class="headerlink" href="#using-uuv_simulator-with-kinetic-and-gazebo-7" title="Permanent link">&para;</a></h6>
 <ul>
 <li>
-<p>If you installed <code class="codehilite">ros-kinetic-desktop-full</code> after following the <a href="http://wiki.ros.org/kinetic/Installation/Ubuntu">installation instructions for ROS Kinetic</a>, Gazebo 7.0 should already be installed.</p>
+<p>If you installed <code class="codehilite"><span class="n">ros</span><span class="o">-</span><span class="n">kinetic</span><span class="o">-</span><span class="n">desktop</span><span class="o">-</span><span class="k">full</span></code> after following the <a href="http://wiki.ros.org/kinetic/Installation/Ubuntu">installation instructions for ROS Kinetic</a>, Gazebo 7.0 should already be installed.</p>
 </li>
 <li>
-<p>In case you want to update Gazebo 7, follow the <a href="http://gazebosim.org/tutorials?cat=install&amp;tut=install_ubuntu&amp;ver=7.0">instructions to add the mirror from OSRF</a> and then upgrade <code class="codehilite">gazebo7</code> and <code class="codehilite">libgazebo7-dev</code></p>
+<p>In case you want to update Gazebo 7, follow the <a href="http://gazebosim.org/tutorials?cat=install&amp;tut=install_ubuntu&amp;ver=7.0">instructions to add the mirror from OSRF</a> and then upgrade <code class="codehilite"><span class="n">gazebo7</span></code> and <code class="codehilite"><span class="n">libgazebo7</span><span class="o">-</span><span class="n">dev</span></code></p>
 </li>
 </ul>
 <div class="codehilite"><pre><span></span>sudo apt-get install --only-upgrade gazebo7 libgazebo7-dev
 </pre></div>
 
-<h6 id="using-uuv_simulator-with-kinetic-and-gazebo-9">Using <code class="codehilite">uuv_simulator</code> with <code class="codehilite">kinetic</code> and Gazebo 9<a class="headerlink" href="#using-uuv_simulator-with-kinetic-and-gazebo-9" title="Permanent link">&para;</a></h6>
+<h6 id="using-uuv_simulator-with-kinetic-and-gazebo-9">Using <code class="codehilite"><span class="n">uuv_simulator</span></code> with <code class="codehilite"><span class="n">kinetic</span></code> and Gazebo 9<a class="headerlink" href="#using-uuv_simulator-with-kinetic-and-gazebo-9" title="Permanent link">&para;</a></h6>
 <ul>
 <li>
-<p>Install the package <code class="codehilite">ros-kinetic-desktop-full</code> following these <a href="http://wiki.ros.org/kinetic/Installation/Ubuntu">installation instructions</a>. </p>
+<p>Install the package <code class="codehilite"><span class="n">ros</span><span class="o">-</span><span class="n">kinetic</span><span class="o">-</span><span class="n">desktop</span><span class="o">-</span><span class="k">full</span></code> following these <a href="http://wiki.ros.org/kinetic/Installation/Ubuntu">installation instructions</a>. </p>
 </li>
 <li>
 <p>Follow the <a href="http://gazebosim.org/tutorials?cat=install&amp;tut=install_ubuntu&amp;ver=9.0">installation instructions for Gazebo 9 in this wiki page</a>.</p>
 </li>
 <li>
-<p>Install the additional packages necessary to work with <code class="codehilite">kinetic</code> and Gazebo 9</p>
+<p>Install the additional packages necessary to work with <code class="codehilite"><span class="n">kinetic</span></code> and Gazebo 9</p>
 </li>
 </ul>
 <div class="codehilite"><pre><span></span>sudo apt-get install ros-kinetic-gazebo9-*
 </pre></div>
 
-<h6 id="using-uuv_simulator-with-melodic-and-gazebo-9">Using <code class="codehilite">uuv_simulator</code> with <code class="codehilite">melodic</code> and Gazebo 9<a class="headerlink" href="#using-uuv_simulator-with-melodic-and-gazebo-9" title="Permanent link">&para;</a></h6>
+<h6 id="using-uuv_simulator-with-melodic-and-gazebo-9">Using <code class="codehilite"><span class="n">uuv_simulator</span></code> with <code class="codehilite"><span class="n">melodic</span></code> and Gazebo 9<a class="headerlink" href="#using-uuv_simulator-with-melodic-and-gazebo-9" title="Permanent link">&para;</a></h6>
 <h5 id="creating-and-configuring-a-workspace">Creating and configuring a workspace<a class="headerlink" href="#creating-and-configuring-a-workspace" title="Permanent link">&para;</a></h5>
-<p>If you don't have the ROS workspace yet, you should run the following and then clone the <code class="codehilite">uuv_simulator</code> package in the <code class="codehilite">~/catkin_ws/src</code> folder</p>
+<p>If you don't have the ROS workspace yet, you should run the following and then clone the <code class="codehilite"><span class="n">uuv_simulator</span></code> package in the <code class="codehilite"><span class="o">~/</span><span class="n">catkin_ws</span><span class="o">/</span><span class="n">src</span></code> folder</p>
 <div class="codehilite"><pre><span></span>mkdir -p ~/catkin_ws/src
 <span class="nb">cd</span> ~/catkin_ws/src
 </pre></div>
 
-<p>Be sure to install <code class="codehilite">catkin tools</code> package by following the installation instructions on the <a href="https://catkin-tools.readthedocs.io/en/latest/installing.html">catkin tools documentation page</a>. After the installation, initialize the catkin workspace</p>
+<p>Be sure to install <code class="codehilite"><span class="n">catkin</span> <span class="n">tools</span></code> package by following the installation instructions on the <a href="https://catkin-tools.readthedocs.io/en/latest/installing.html">catkin tools documentation page</a>. After the installation, initialize the catkin workspace</p>
 <div class="codehilite"><pre><span></span><span class="nb">cd</span> ~/catkin_ws
 catkin init
 </pre></div>
 
-<p>You can then clone the UUV simulator into your <code class="codehilite">src</code> folder</p>
+<p>You can then clone the UUV simulator into your <code class="codehilite"><span class="n">src</span></code> folder</p>
 <div class="codehilite"><pre><span></span><span class="nb">cd</span> ~/catkin_ws/src
 git clone https://github.com/uuvsimulator/uuv_simulator.git
 </pre></div>
 
-<p>Configure the environment variables by adding the following lines in <code class="codehilite">~/.bashrc</code> (replace <code class="codehilite">kinetic</code> with the ROS version you are using).</p>
+<p>Configure the environment variables by adding the following lines in <code class="codehilite"><span class="o">~/</span><span class="p">.</span><span class="n">bashrc</span></code> (replace <code class="codehilite"><span class="n">kinetic</span></code> with the ROS version you are using).</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>If you install a version of Gazebo newer than 7.X, you might need to adjust <code class="codehilite">gazebo-7</code> below (e.g. <code class="codehilite">gazebo-9</code>).
+<p>If you install a version of Gazebo newer than 7.X, you might need to adjust <code class="codehilite"><span class="n">gazebo</span><span class="o">-</span><span class="mi">7</span></code> below (e.g. <code class="codehilite"><span class="n">gazebo</span><span class="o">-</span><span class="mi">9</span></code>).
 You can find out which version you are using by typing</p>
-<div class="codehilite"><pre><span></span>gazebo --version
+<div class="codehilite"><pre><span></span><span class="n">gazebo</span> <span class="c1">--version</span>
 </pre></div>
 
 <p>in your terminal.</p>
@@ -2958,21 +2970,21 @@ You can find out which version you are using by typing</p>
 <h5 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h5>
 <p>To install the simulator's dependencies, you can run one of the following commands (see which of the ROS/Gazebo combinations from dependencies you have on your machine):</p>
 <ul>
-<li>For <code class="codehilite">indigo</code> + Gazebo 7</li>
+<li>For <code class="codehilite"><span class="n">indigo</span></code> + Gazebo 7</li>
 </ul>
 <div class="codehilite"><pre><span></span><span class="nb">cd</span> ~/catkin_ws
 rosdep install --from-paths src --ignore-src --rosdistro<span class="o">=</span>indigo -y --skip-keys <span class="s2">&quot;gazebo gazebo_msgs gazebo_plugins gazebo_ros gazebo_ros_control gazebo_ros_pkgs&quot;</span>
 </pre></div>
 
 <ul>
-<li>For <code class="codehilite">kinetic</code> + Gazebo 7 </li>
+<li>For <code class="codehilite"><span class="n">kinetic</span></code> + Gazebo 7 </li>
 </ul>
 <div class="codehilite"><pre><span></span><span class="nb">cd</span> ~/catkin_ws
 rosdep install --from-paths src --ignore-src --rosdistro<span class="o">=</span>kinetic -y
 </pre></div>
 
 <ul>
-<li>For <code class="codehilite">kinetic</code> + Gazebo 9 </li>
+<li>For <code class="codehilite"><span class="n">kinetic</span></code> + Gazebo 9 </li>
 </ul>
 <div class="codehilite"><pre><span></span><span class="nb">cd</span> ~/catkin_ws
 rosdep install --from-paths src --ignore-src --rosdistro<span class="o">=</span>kinetic -y --skip-keys <span class="s2">&quot;gazebo gazebo_msgs gazebo_plugins gazebo_ros gazebo_ros_control gazebo_ros_pkgs&quot;</span>
@@ -2980,7 +2992,7 @@ rosdep install --from-paths src --ignore-src --rosdistro<span class="o">=</span>
 
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>In case you are using <code class="codehilite">lunar</code>, you might need to clone the following repositories directly to your <code class="codehilite">~/catkin_ws/src</code> folder and build them with the rest of the packages
+<p>In case you are using <code class="codehilite"><span class="n">lunar</span></code>, you might need to clone the following repositories directly to your <code class="codehilite"><span class="o">~/</span><span class="n">catkin_ws</span><span class="o">/</span><span class="n">src</span></code> folder and build them with the rest of the packages
 <div class="codehilite"><pre><span></span><span class="nb">cd</span> ~/catkin/src
 git clone https://github.com/tu-darmstadt-ros-pkg/hector_localization 
 git clone https://github.com/ros-teleop/teleop_tools
@@ -2996,15 +3008,15 @@ catkin_make install
 catkin build
 </pre></div>
 
-<p>in case you are using <code class="codehilite">catkin_tools</code>.</p>
+<p>in case you are using <code class="codehilite"><span class="n">catkin_tools</span></code>.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>If after compiling your catkin workspace using <code class="codehilite">catkin build</code> ROS seems to not update the paths to the packages even after you run</p>
+<p>If after compiling your catkin workspace using <code class="codehilite"><span class="n">catkin</span> <span class="n">build</span></code> ROS seems to not update the paths to the packages even after you run</p>
 <div class="codehilite"><pre><span></span><span class="nb">cd</span> ~/catkin_ws
 <span class="nb">source</span> devel/setup.bash
 </pre></div>
 
-<p>you can try disabling the option to source the <code class="codehilite">install</code> folder of your catkin workspace by running
+<p>you can try disabling the option to source the <code class="codehilite"><span class="n">install</span></code> folder of your catkin workspace by running
 <div class="codehilite"><pre><span></span><span class="nb">cd</span> ~/catkin_ws
 catkin config --no-install
 catkin clean --all

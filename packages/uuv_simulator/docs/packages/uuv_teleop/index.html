@@ -456,6 +456,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -2812,67 +2824,67 @@
                 
                 <p><img alt="Version" src="https://img.shields.io/badge/version-0.6.12-brightgreen.svg" /></p>
 <blockquote>
-<p>Link to the <code class="codehilite">uuv_simulator</code> repository <a href="https://github.com/uuvsimulator/uuv_simulator">here</a></p>
+<p>Link to the <code class="codehilite"><span class="n">uuv_simulator</span></code> repository <a href="https://github.com/uuvsimulator/uuv_simulator">here</a></p>
 </blockquote>
 <h4 id="description">Description<a class="headerlink" href="#description" title="Permanent link">&para;</a></h4>
 <p>ROS nodes to generate command topics for vehicles and manipulators using a joystick input</p>
 <h4 id="launch-files">Launch files<a class="headerlink" href="#launch-files" title="Permanent link">&para;</a></h4>
-<h5 id="uuv_teleoplaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_teleop/launch/uuv_teleop.launch"><code class="codehilite">uuv_teleop.launch</code></a><a class="headerlink" href="#uuv_teleoplaunch" title="Permanent link">&para;</a></h5>
+<h5 id="uuv_teleoplaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_teleop/launch/uuv_teleop.launch"><code class="codehilite"><span class="n">uuv_teleop</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#uuv_teleoplaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
 <li><strong>uuv_name</strong></li>
-<li><strong>joy_id</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>deadman_button</strong> (<em>default:</em> <code class="codehilite">-1</code>)</li>
-<li><strong>exclusion_buttons</strong> (<em>default:</em> <code class="codehilite">4,5</code>)</li>
-<li><strong>axis_roll</strong> (<em>default:</em> <code class="codehilite">-1</code>)</li>
-<li><strong>axis_pitch</strong> (<em>default:</em> <code class="codehilite">-1</code>)</li>
-<li><strong>axis_yaw</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>axis_x</strong> (<em>default:</em> <code class="codehilite">4</code>)</li>
-<li><strong>axis_y</strong> (<em>default:</em> <code class="codehilite">3</code>)</li>
-<li><strong>axis_z</strong> (<em>default:</em> <code class="codehilite">1</code>)</li>
-<li><strong>gain_roll</strong> (<em>default:</em> <code class="codehilite">0.0</code>)</li>
-<li><strong>gain_pitch</strong> (<em>default:</em> <code class="codehilite">0.0</code>)</li>
-<li><strong>gain_yaw</strong> (<em>default:</em> <code class="codehilite">0.2</code>)</li>
-<li><strong>gain_x</strong> (<em>default:</em> <code class="codehilite">0.3</code>)</li>
-<li><strong>gain_y</strong> (<em>default:</em> <code class="codehilite">0.3</code>)</li>
-<li><strong>gain_z</strong> (<em>default:</em> <code class="codehilite">0.3</code>)</li>
-<li><strong>output_topic</strong> (<em>default:</em> <code class="codehilite">cmd_vel</code>)</li>
-<li><strong>message_type</strong> (<em>default:</em> <code class="codehilite">twist</code>)</li>
+<li><strong>joy_id</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>deadman_button</strong> (<em>default:</em> <code class="codehilite"><span class="o">-</span><span class="mi">1</span></code>)</li>
+<li><strong>exclusion_buttons</strong> (<em>default:</em> <code class="codehilite"><span class="mi">4</span><span class="p">,</span><span class="mi">5</span></code>)</li>
+<li><strong>axis_roll</strong> (<em>default:</em> <code class="codehilite"><span class="o">-</span><span class="mi">1</span></code>)</li>
+<li><strong>axis_pitch</strong> (<em>default:</em> <code class="codehilite"><span class="o">-</span><span class="mi">1</span></code>)</li>
+<li><strong>axis_yaw</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>axis_x</strong> (<em>default:</em> <code class="codehilite"><span class="mi">4</span></code>)</li>
+<li><strong>axis_y</strong> (<em>default:</em> <code class="codehilite"><span class="mi">3</span></code>)</li>
+<li><strong>axis_z</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1</span></code>)</li>
+<li><strong>gain_roll</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">0</span></code>)</li>
+<li><strong>gain_pitch</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">0</span></code>)</li>
+<li><strong>gain_yaw</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">2</span></code>)</li>
+<li><strong>gain_x</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">3</span></code>)</li>
+<li><strong>gain_y</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">3</span></code>)</li>
+<li><strong>gain_z</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">3</span></code>)</li>
+<li><strong>output_topic</strong> (<em>default:</em> <code class="codehilite"><span class="n">cmd_vel</span></code>)</li>
+<li><strong>message_type</strong> (<em>default:</em> <code class="codehilite"><span class="n">twist</span></code>)</li>
 </ul>
-<h5 id="finned_uuv_teleoplaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_teleop/launch/finned_uuv_teleop.launch"><code class="codehilite">finned_uuv_teleop.launch</code></a><a class="headerlink" href="#finned_uuv_teleoplaunch" title="Permanent link">&para;</a></h5>
+<h5 id="finned_uuv_teleoplaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_teleop/launch/finned_uuv_teleop.launch"><code class="codehilite"><span class="n">finned_uuv_teleop</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#finned_uuv_teleoplaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
 <li><strong>uuv_name</strong></li>
-<li><strong>joy_id</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>use_param_file</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>filename</strong> (<em>default:</em> <code class="codehilite">.</code>)</li>
-<li><strong>axis_thruster</strong> (<em>default:</em> <code class="codehilite">1</code>)</li>
-<li><strong>axis_roll</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>axis_pitch</strong> (<em>default:</em> <code class="codehilite">4</code>)</li>
-<li><strong>axis_yaw</strong> (<em>default:</em> <code class="codehilite">3</code>)</li>
-<li><strong>thruster_rotor_gain</strong> (<em>default:</em> <code class="codehilite">0.0009</code>)</li>
-<li><strong>max_thrust</strong> (<em>default:</em> <code class="codehilite">200</code>)</li>
-<li><strong>thruster_topic</strong> (<em>default:</em> <code class="codehilite">thrusters/0/input</code>)</li>
-<li><strong>fin_topic_prefix</strong> (<em>default:</em> <code class="codehilite">fins/</code>)</li>
-<li><strong>fin_topic_suffix</strong> (<em>default:</em> <code class="codehilite">/input</code>)</li>
-<li><strong>thruster_joy_gain</strong> (<em>default:</em> <code class="codehilite">1.0</code>)</li>
-<li><strong>n_fins</strong> (<em>default:</em> <code class="codehilite">4</code>)</li>
-<li><strong>gain_roll</strong> (<em>default:</em> <code class="codehilite">1,1,1,1</code>)</li>
-<li><strong>gain_pitch</strong> (<em>default:</em> <code class="codehilite">1,1,-1,-1</code>)</li>
-<li><strong>gain_yaw</strong> (<em>default:</em> <code class="codehilite">-1,1,1,-1</code>)</li>
+<li><strong>joy_id</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>use_param_file</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>filename</strong> (<em>default:</em> <code class="codehilite"><span class="p">.</span></code>)</li>
+<li><strong>axis_thruster</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1</span></code>)</li>
+<li><strong>axis_roll</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>axis_pitch</strong> (<em>default:</em> <code class="codehilite"><span class="mi">4</span></code>)</li>
+<li><strong>axis_yaw</strong> (<em>default:</em> <code class="codehilite"><span class="mi">3</span></code>)</li>
+<li><strong>thruster_rotor_gain</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">0009</span></code>)</li>
+<li><strong>max_thrust</strong> (<em>default:</em> <code class="codehilite"><span class="mi">200</span></code>)</li>
+<li><strong>thruster_topic</strong> (<em>default:</em> <code class="codehilite"><span class="n">thrusters</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="k">input</span></code>)</li>
+<li><strong>fin_topic_prefix</strong> (<em>default:</em> <code class="codehilite"><span class="n">fins</span><span class="o">/</span></code>)</li>
+<li><strong>fin_topic_suffix</strong> (<em>default:</em> <code class="codehilite"><span class="o">/</span><span class="k">input</span></code>)</li>
+<li><strong>thruster_joy_gain</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1</span><span class="p">.</span><span class="mi">0</span></code>)</li>
+<li><strong>n_fins</strong> (<em>default:</em> <code class="codehilite"><span class="mi">4</span></code>)</li>
+<li><strong>gain_roll</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span></code>)</li>
+<li><strong>gain_pitch</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span></code>)</li>
+<li><strong>gain_yaw</strong> (<em>default:</em> <code class="codehilite"><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span></code>)</li>
 </ul>
 <h4 id="scripts">Scripts<a class="headerlink" href="#scripts" title="Permanent link">&para;</a></h4>
-<h5 id="finned_uuv_teleoppy"><code class="codehilite">finned_uuv_teleop.py</code><a class="headerlink" href="#finned_uuv_teleoppy" title="Permanent link">&para;</a></h5>
+<h5 id="finned_uuv_teleoppy"><code class="codehilite"><span class="n">finned_uuv_teleop</span><span class="p">.</span><span class="n">py</span></code><a class="headerlink" href="#finned_uuv_teleoppy" title="Permanent link">&para;</a></h5>
 <blockquote>
-<p><strong>Script type:</strong> <code class="codehilite">python</code></p>
+<p><strong>Script type:</strong> <code class="codehilite"><span class="n">python</span></code></p>
 </blockquote>
-<h5 id="vehicle_teleoppy"><code class="codehilite">vehicle_teleop.py</code><a class="headerlink" href="#vehicle_teleoppy" title="Permanent link">&para;</a></h5>
+<h5 id="vehicle_teleoppy"><code class="codehilite"><span class="n">vehicle_teleop</span><span class="p">.</span><span class="n">py</span></code><a class="headerlink" href="#vehicle_teleoppy" title="Permanent link">&para;</a></h5>
 <blockquote>
-<p><strong>Script type:</strong> <code class="codehilite">python</code></p>
+<p><strong>Script type:</strong> <code class="codehilite"><span class="n">python</span></code></p>
 </blockquote>
                 
                   

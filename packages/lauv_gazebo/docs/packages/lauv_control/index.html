@@ -454,6 +454,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../../uuv_simulator/docs/features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../../uuv_simulator/docs/features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -2786,81 +2798,81 @@
                 
                 <p><img alt="Version" src="https://img.shields.io/badge/version-0.1.6-brightgreen.svg" /></p>
 <blockquote>
-<p>Link to the <code class="codehilite">lauv_gazebo</code> repository <a href="https://github.com/uuvsimulator/lauv_gazebo">here</a></p>
+<p>Link to the <code class="codehilite"><span class="n">lauv_gazebo</span></code> repository <a href="https://github.com/uuvsimulator/lauv_gazebo">here</a></p>
 </blockquote>
 <h4 id="description">Description<a class="headerlink" href="#description" title="Permanent link">&para;</a></h4>
 <p>Collection of configuration and launch files to start controllers for the LAUV.</p>
 <h4 id="launch-files">Launch files<a class="headerlink" href="#launch-files" title="Permanent link">&para;</a></h4>
-<h5 id="start_control_allocatorlaunch"><a href="https://github.com/uuvsimulator/lauv_gazebo/tree/master/lauv_control/launch/start_control_allocator.launch"><code class="codehilite">start_control_allocator.launch</code></a><a class="headerlink" href="#start_control_allocatorlaunch" title="Permanent link">&para;</a></h5>
-<h5 id="start_nmb_sm_controllaunch"><a href="https://github.com/uuvsimulator/lauv_gazebo/tree/master/lauv_control/launch/start_nmb_sm_control.launch"><code class="codehilite">start_nmb_sm_control.launch</code></a><a class="headerlink" href="#start_nmb_sm_controllaunch" title="Permanent link">&para;</a></h5>
+<h5 id="start_control_allocatorlaunch"><a href="https://github.com/uuvsimulator/lauv_gazebo/tree/master/lauv_control/launch/start_control_allocator.launch"><code class="codehilite"><span class="n">start_control_allocator</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#start_control_allocatorlaunch" title="Permanent link">&para;</a></h5>
+<h5 id="start_nmb_sm_controllaunch"><a href="https://github.com/uuvsimulator/lauv_gazebo/tree/master/lauv_control/launch/start_nmb_sm_control.launch"><code class="codehilite"><span class="n">start_nmb_sm_control</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#start_nmb_sm_controllaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
-<li><strong>uuv_name</strong> (<em>default:</em> <code class="codehilite">lauv</code>)</li>
-<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite">true</code>)</li>
-<li><strong>use_ned_frame</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
-<li><strong>max_forward_speed</strong> (<em>default:</em> <code class="codehilite">2</code>)</li>
-<li><strong>look_ahead_delay</strong> (<em>default:</em> <code class="codehilite">0.1</code>)</li>
-<li><strong>teleop_on</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
-<li><strong>joy_id</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>axis_yaw</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>axis_x</strong> (<em>default:</em> <code class="codehilite">4</code>)</li>
-<li><strong>axis_y</strong> (<em>default:</em> <code class="codehilite">3</code>)</li>
-<li><strong>axis_z</strong> (<em>default:</em> <code class="codehilite">1</code>)</li>
-<li><strong>dubins_radius</strong> (<em>default:</em> <code class="codehilite">9</code>)</li>
-<li><strong>dubins_max_pitch</strong> (<em>default:</em> <code class="codehilite">0.26</code>)</li>
-<li><strong>Kd</strong> (<em>default:</em> <code class="codehilite">24.328999405818507,95.16574836816616,25.943377407248825,0,6.388371356010936,79.2844976871164</code>)</li>
-<li><strong>Ki</strong> (<em>default:</em> <code class="codehilite">0.0010232768152540483,0.0010232768152540483,0.0010232768152540483,0,0.11901644069756079,0.11901644069756079</code>)</li>
-<li><strong>slope</strong> (<em>default:</em> <code class="codehilite">0.9903858668992097,0.9903858668992097,0.9903858668992097,0,0.20796465986893387,0.20796465986893387</code>)</li>
+<li><strong>uuv_name</strong> (<em>default:</em> <code class="codehilite"><span class="n">lauv</span></code>)</li>
+<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite"><span class="k">true</span></code>)</li>
+<li><strong>use_ned_frame</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>)</li>
+<li><strong>max_forward_speed</strong> (<em>default:</em> <code class="codehilite"><span class="mi">2</span></code>)</li>
+<li><strong>look_ahead_delay</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">1</span></code>)</li>
+<li><strong>teleop_on</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>)</li>
+<li><strong>joy_id</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>axis_yaw</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>axis_x</strong> (<em>default:</em> <code class="codehilite"><span class="mi">4</span></code>)</li>
+<li><strong>axis_y</strong> (<em>default:</em> <code class="codehilite"><span class="mi">3</span></code>)</li>
+<li><strong>axis_z</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1</span></code>)</li>
+<li><strong>dubins_radius</strong> (<em>default:</em> <code class="codehilite"><span class="mi">9</span></code>)</li>
+<li><strong>dubins_max_pitch</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">26</span></code>)</li>
+<li><strong>Kd</strong> (<em>default:</em> <code class="codehilite"><span class="mi">24</span><span class="p">.</span><span class="mi">328999405818507</span><span class="p">,</span><span class="mi">95</span><span class="p">.</span><span class="mi">16574836816616</span><span class="p">,</span><span class="mi">25</span><span class="p">.</span><span class="mi">943377407248825</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="p">.</span><span class="mi">388371356010936</span><span class="p">,</span><span class="mi">79</span><span class="p">.</span><span class="mi">2844976871164</span></code>)</li>
+<li><strong>Ki</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">0010232768152540483</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">0010232768152540483</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">0010232768152540483</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">11901644069756079</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">11901644069756079</span></code>)</li>
+<li><strong>slope</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">9903858668992097</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">9903858668992097</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">9903858668992097</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">20796465986893387</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">20796465986893387</span></code>)</li>
 </ul>
-<h5 id="start_auv_trajectory_controllaunch"><a href="https://github.com/uuvsimulator/lauv_gazebo/tree/master/lauv_control/launch/start_auv_trajectory_control.launch"><code class="codehilite">start_auv_trajectory_control.launch</code></a><a class="headerlink" href="#start_auv_trajectory_controllaunch" title="Permanent link">&para;</a></h5>
+<h5 id="start_auv_trajectory_controllaunch"><a href="https://github.com/uuvsimulator/lauv_gazebo/tree/master/lauv_control/launch/start_auv_trajectory_control.launch"><code class="codehilite"><span class="n">start_auv_trajectory_control</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#start_auv_trajectory_controllaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
-<li><strong>uuv_name</strong> (<em>default:</em> <code class="codehilite">lauv</code>)</li>
-<li><strong>max_forward_speed</strong> (<em>default:</em> <code class="codehilite">2</code>)</li>
-<li><strong>dubins_radius</strong> (<em>default:</em> <code class="codehilite">15</code>)</li>
-<li><strong>min_thrust</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>max_thrust</strong> (<em>default:</em> <code class="codehilite">30</code>)</li>
-<li><strong>thrust_p_gain</strong> (<em>default:</em> <code class="codehilite">2.5</code>)</li>
-<li><strong>thrust_d_gain</strong> (<em>default:</em> <code class="codehilite">2.0</code>)</li>
-<li><strong>p_roll</strong> (<em>default:</em> <code class="codehilite">0.1</code>)</li>
-<li><strong>p_pitch</strong> (<em>default:</em> <code class="codehilite">3.0</code>)</li>
-<li><strong>d_pitch</strong> (<em>default:</em> <code class="codehilite">0.5</code>)</li>
-<li><strong>p_yaw</strong> (<em>default:</em> <code class="codehilite">2.0</code>)</li>
-<li><strong>d_yaw</strong> (<em>default:</em> <code class="codehilite">0.1</code>)</li>
-<li><strong>n_fins</strong> (<em>default:</em> <code class="codehilite">4</code>)</li>
-<li><strong>map_roll</strong> (<em>default:</em> <code class="codehilite">1,1,1,1</code>)</li>
-<li><strong>map_pitch</strong> (<em>default:</em> <code class="codehilite">0,1,0,-1</code>)</li>
-<li><strong>map_yaw</strong> (<em>default:</em> <code class="codehilite">-1,0,1,0</code>)</li>
-<li><strong>max_fin_angle</strong> (<em>default:</em> <code class="codehilite">1.396263402</code>)</li>
-<li><strong>idle_radius</strong> (<em>default:</em> <code class="codehilite">15</code>)</li>
-<li><strong>look_ahead_delay</strong> (<em>default:</em> <code class="codehilite">0.0</code>)</li>
-<li><strong>dubins_max_pitch</strong> (<em>default:</em> <code class="codehilite">0.26</code>)</li>
-<li><strong>desired_pitch_limit</strong> (<em>default:</em> <code class="codehilite">0.26</code>)</li>
-<li><strong>yaw_error_limit</strong> (<em>default:</em> <code class="codehilite">1.57</code>)</li>
-<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite">true</code>)</li>
-<li><strong>use_ned_frame</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
-<li><strong>stamped_pose_only</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
-<li><strong>timeout_idle_mode</strong> (<em>default:</em> <code class="codehilite">50</code>)</li>
-<li><strong>thruster_topic</strong> (<em>default:</em> <code class="codehilite">thrusters/0/input</code>)</li>
-<li><strong>thruster_topic_prefix</strong> (<em>default:</em> <code class="codehilite">thrusters</code>)</li>
-<li><strong>thruster_topic_suffix</strong> (<em>default:</em> <code class="codehilite">input</code>)</li>
-<li><strong>thruster_frame_base</strong> (<em>default:</em> <code class="codehilite">thruster_</code>)</li>
-<li><strong>thruster_conversion_fcn</strong> (<em>default:</em> <code class="codehilite">proportional</code>)</li>
-<li><strong>thruster_gain</strong> (<em>default:</em> <code class="codehilite">0.0002</code>)</li>
-<li><strong>fin_topic_prefix</strong> (<em>default:</em> <code class="codehilite">fins</code>)</li>
-<li><strong>fin_topic_suffix</strong> (<em>default:</em> <code class="codehilite">input</code>)</li>
+<li><strong>uuv_name</strong> (<em>default:</em> <code class="codehilite"><span class="n">lauv</span></code>)</li>
+<li><strong>max_forward_speed</strong> (<em>default:</em> <code class="codehilite"><span class="mi">2</span></code>)</li>
+<li><strong>dubins_radius</strong> (<em>default:</em> <code class="codehilite"><span class="mi">15</span></code>)</li>
+<li><strong>min_thrust</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>max_thrust</strong> (<em>default:</em> <code class="codehilite"><span class="mi">30</span></code>)</li>
+<li><strong>thrust_p_gain</strong> (<em>default:</em> <code class="codehilite"><span class="mi">2</span><span class="p">.</span><span class="mi">5</span></code>)</li>
+<li><strong>thrust_d_gain</strong> (<em>default:</em> <code class="codehilite"><span class="mi">2</span><span class="p">.</span><span class="mi">0</span></code>)</li>
+<li><strong>p_roll</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">1</span></code>)</li>
+<li><strong>p_pitch</strong> (<em>default:</em> <code class="codehilite"><span class="mi">3</span><span class="p">.</span><span class="mi">0</span></code>)</li>
+<li><strong>d_pitch</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">5</span></code>)</li>
+<li><strong>p_yaw</strong> (<em>default:</em> <code class="codehilite"><span class="mi">2</span><span class="p">.</span><span class="mi">0</span></code>)</li>
+<li><strong>d_yaw</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">1</span></code>)</li>
+<li><strong>n_fins</strong> (<em>default:</em> <code class="codehilite"><span class="mi">4</span></code>)</li>
+<li><strong>map_roll</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span></code>)</li>
+<li><strong>map_pitch</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span></code>)</li>
+<li><strong>map_yaw</strong> (<em>default:</em> <code class="codehilite"><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span></code>)</li>
+<li><strong>max_fin_angle</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1</span><span class="p">.</span><span class="mi">396263402</span></code>)</li>
+<li><strong>idle_radius</strong> (<em>default:</em> <code class="codehilite"><span class="mi">15</span></code>)</li>
+<li><strong>look_ahead_delay</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">0</span></code>)</li>
+<li><strong>dubins_max_pitch</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">26</span></code>)</li>
+<li><strong>desired_pitch_limit</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">26</span></code>)</li>
+<li><strong>yaw_error_limit</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1</span><span class="p">.</span><span class="mi">57</span></code>)</li>
+<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite"><span class="k">true</span></code>)</li>
+<li><strong>use_ned_frame</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>)</li>
+<li><strong>stamped_pose_only</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>)</li>
+<li><strong>timeout_idle_mode</strong> (<em>default:</em> <code class="codehilite"><span class="mi">50</span></code>)</li>
+<li><strong>thruster_topic</strong> (<em>default:</em> <code class="codehilite"><span class="n">thrusters</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="k">input</span></code>)</li>
+<li><strong>thruster_topic_prefix</strong> (<em>default:</em> <code class="codehilite"><span class="n">thrusters</span></code>)</li>
+<li><strong>thruster_topic_suffix</strong> (<em>default:</em> <code class="codehilite"><span class="k">input</span></code>)</li>
+<li><strong>thruster_frame_base</strong> (<em>default:</em> <code class="codehilite"><span class="n">thruster_</span></code>)</li>
+<li><strong>thruster_conversion_fcn</strong> (<em>default:</em> <code class="codehilite"><span class="n">proportional</span></code>)</li>
+<li><strong>thruster_gain</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">0002</span></code>)</li>
+<li><strong>fin_topic_prefix</strong> (<em>default:</em> <code class="codehilite"><span class="n">fins</span></code>)</li>
+<li><strong>fin_topic_suffix</strong> (<em>default:</em> <code class="codehilite"><span class="k">input</span></code>)</li>
 </ul>
-<h5 id="start_auv_teleoplaunch"><a href="https://github.com/uuvsimulator/lauv_gazebo/tree/master/lauv_control/launch/start_auv_teleop.launch"><code class="codehilite">start_auv_teleop.launch</code></a><a class="headerlink" href="#start_auv_teleoplaunch" title="Permanent link">&para;</a></h5>
+<h5 id="start_auv_teleoplaunch"><a href="https://github.com/uuvsimulator/lauv_gazebo/tree/master/lauv_control/launch/start_auv_teleop.launch"><code class="codehilite"><span class="n">start_auv_teleop</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#start_auv_teleoplaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
-<li><strong>uuv_name</strong> (<em>default:</em> <code class="codehilite">lauv</code>)</li>
-<li><strong>joy_id</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
+<li><strong>uuv_name</strong> (<em>default:</em> <code class="codehilite"><span class="n">lauv</span></code>)</li>
+<li><strong>joy_id</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
 </ul>
                 
                   

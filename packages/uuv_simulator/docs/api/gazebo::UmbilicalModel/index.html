@@ -452,6 +452,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -2730,7 +2742,7 @@
                 
                   <h1>class `gazebo::UmbilicalModel`</h1>
                 
-                <h4 id="class-gazeboumbilicalmodel">class <code class="codehilite">gazebo::UmbilicalModel</code><a class="headerlink" href="#class-gazeboumbilicalmodel" title="Permanent link">&para;</a></h4>
+                <h4 id="class-gazeboumbilicalmodel">class <code class="codehilite"><span class="n">gazebo</span><span class="p">::</span><span class="n">UmbilicalModel</span></code><a class="headerlink" href="#class-gazeboumbilicalmodel" title="Permanent link">&para;</a></h4>
 <h5 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h5>
 <table>
 <thead>
@@ -2741,43 +2753,43 @@
 </thead>
 <tbody>
 <tr>
-<td><code class="codehilite">public inline virtual</code><a href="#classgazebo_1_1_umbilical_model_1a6219268fde521f1873477227342e22f8"><code class="codehilite">~UmbilicalModel</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">inline</span> <span class="n">virtual</span></code><a href="#classgazebo_1_1_umbilical_model_1a6219268fde521f1873477227342e22f8"><code class="codehilite"><span class="o">~</span><span class="n">UmbilicalModel</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Destructor.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_umbilical_model_1adbc3a2261e2f18bf139ebcd4bdad9a2e"><code class="codehilite">Init</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_umbilical_model_1adbc3a2261e2f18bf139ebcd4bdad9a2e"><code class="codehilite"><span class="n">Init</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Initialize model.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public void</code><a href="#classgazebo_1_1_umbilical_model_1ae2c720369c5eea2d3562a73d9031571b"><code class="codehilite">OnUpdate</code></a><code class="codehilite">(const common::UpdateInfo &amp; _info,const ignition::math::Vector3d &amp; _flow)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">void</span></code><a href="#classgazebo_1_1_umbilical_model_1ae2c720369c5eea2d3562a73d9031571b"><code class="codehilite"><span class="n">OnUpdate</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">common</span><span class="p">::</span><span class="n">UpdateInfo</span> <span class="o">&amp;</span> <span class="n">_info</span><span class="p">,</span><span class="n">const</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span> <span class="o">&amp;</span> <span class="n">_flow</span><span class="p">)</span></code></td>
 <td>Update Umbilical (and apply forces)</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected physics::ModelPtr</code><a href="#classgazebo_1_1_umbilical_model_1a48ea9fa0b8db157b948b1a6f21e94be1"><code class="codehilite">model</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">physics</span><span class="p">::</span><span class="n">ModelPtr</span></code><a href="#classgazebo_1_1_umbilical_model_1a48ea9fa0b8db157b948b1a6f21e94be1"><code class="codehilite"><span class="n">model</span></code></a></td>
 <td>Gazebo model to which this umbilical belongs.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected physics::LinkPtr</code><a href="#classgazebo_1_1_umbilical_model_1a83ea6576e2b766d962be574e576413bd"><code class="codehilite">connector</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">physics</span><span class="p">::</span><span class="n">LinkPtr</span></code><a href="#classgazebo_1_1_umbilical_model_1a83ea6576e2b766d962be574e576413bd"><code class="codehilite"><span class="n">connector</span></code></a></td>
 <td>Moving connector link of this umbilical.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected inline</code><a href="#classgazebo_1_1_umbilical_model_1a71941e80b15a64440d87138956e93774"><code class="codehilite">UmbilicalModel</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">inline</span></code><a href="#classgazebo_1_1_umbilical_model_1a71941e80b15a64440d87138956e93774"><code class="codehilite"><span class="n">UmbilicalModel</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Protected constructor: Use the factory instead.</td>
 </tr>
 </tbody>
 </table>
 <h5 id="members">Members<a class="headerlink" href="#members" title="Permanent link">&para;</a></h5>
-<h6 id="public-inline-virtualumbilicalmodel"><code class="codehilite">public inline virtual</code><a href="#classgazebo_1_1_umbilical_model_1a6219268fde521f1873477227342e22f8"><code class="codehilite">~UmbilicalModel</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-inline-virtualumbilicalmodel" title="Permanent link">&para;</a></h6>
+<h6 id="public-inline-virtualumbilicalmodel"><code class="codehilite"><span class="k">public</span> <span class="n">inline</span> <span class="n">virtual</span></code><a href="#classgazebo_1_1_umbilical_model_1a6219268fde521f1873477227342e22f8"><code class="codehilite"><span class="o">~</span><span class="n">UmbilicalModel</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-inline-virtualumbilicalmodel" title="Permanent link">&para;</a></h6>
 <p>Destructor.</p>
-<h6 id="public-virtual-voidinit"><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_umbilical_model_1adbc3a2261e2f18bf139ebcd4bdad9a2e"><code class="codehilite">Init</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-virtual-voidinit" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtual-voidinit"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_umbilical_model_1adbc3a2261e2f18bf139ebcd4bdad9a2e"><code class="codehilite"><span class="n">Init</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-virtual-voidinit" title="Permanent link">&para;</a></h6>
 <p>Initialize model.</p>
-<h6 id="public-voidonupdateconst-commonupdateinfo-_infoconst-ignitionmathvector3d-_flow"><code class="codehilite">public void</code><a href="#classgazebo_1_1_umbilical_model_1ae2c720369c5eea2d3562a73d9031571b"><code class="codehilite">OnUpdate</code></a><code class="codehilite">(const common::UpdateInfo &amp; _info,const ignition::math::Vector3d &amp; _flow)</code><a class="headerlink" href="#public-voidonupdateconst-commonupdateinfo-_infoconst-ignitionmathvector3d-_flow" title="Permanent link">&para;</a></h6>
+<h6 id="public-voidonupdateconst-commonupdateinfo-_infoconst-ignitionmathvector3d-_flow"><code class="codehilite"><span class="k">public</span> <span class="n">void</span></code><a href="#classgazebo_1_1_umbilical_model_1ae2c720369c5eea2d3562a73d9031571b"><code class="codehilite"><span class="n">OnUpdate</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">common</span><span class="p">::</span><span class="n">UpdateInfo</span> <span class="o">&amp;</span> <span class="n">_info</span><span class="p">,</span><span class="n">const</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span> <span class="o">&amp;</span> <span class="n">_flow</span><span class="p">)</span></code><a class="headerlink" href="#public-voidonupdateconst-commonupdateinfo-_infoconst-ignitionmathvector3d-_flow" title="Permanent link">&para;</a></h6>
 <p>Update Umbilical (and apply forces)</p>
-<h6 id="protected-physicsmodelptrmodel"><code class="codehilite">protected physics::ModelPtr</code><a href="#classgazebo_1_1_umbilical_model_1a48ea9fa0b8db157b948b1a6f21e94be1"><code class="codehilite">model</code></a><a class="headerlink" href="#protected-physicsmodelptrmodel" title="Permanent link">&para;</a></h6>
+<h6 id="protected-physicsmodelptrmodel"><code class="codehilite"><span class="n">protected</span> <span class="n">physics</span><span class="p">::</span><span class="n">ModelPtr</span></code><a href="#classgazebo_1_1_umbilical_model_1a48ea9fa0b8db157b948b1a6f21e94be1"><code class="codehilite"><span class="n">model</span></code></a><a class="headerlink" href="#protected-physicsmodelptrmodel" title="Permanent link">&para;</a></h6>
 <p>Gazebo model to which this umbilical belongs.</p>
-<h6 id="protected-physicslinkptrconnector"><code class="codehilite">protected physics::LinkPtr</code><a href="#classgazebo_1_1_umbilical_model_1a83ea6576e2b766d962be574e576413bd"><code class="codehilite">connector</code></a><a class="headerlink" href="#protected-physicslinkptrconnector" title="Permanent link">&para;</a></h6>
+<h6 id="protected-physicslinkptrconnector"><code class="codehilite"><span class="n">protected</span> <span class="n">physics</span><span class="p">::</span><span class="n">LinkPtr</span></code><a href="#classgazebo_1_1_umbilical_model_1a83ea6576e2b766d962be574e576413bd"><code class="codehilite"><span class="n">connector</span></code></a><a class="headerlink" href="#protected-physicslinkptrconnector" title="Permanent link">&para;</a></h6>
 <p>Moving connector link of this umbilical.</p>
-<h6 id="protected-inlineumbilicalmodel"><code class="codehilite">protected inline</code><a href="#classgazebo_1_1_umbilical_model_1a71941e80b15a64440d87138956e93774"><code class="codehilite">UmbilicalModel</code></a><code class="codehilite">()</code><a class="headerlink" href="#protected-inlineumbilicalmodel" title="Permanent link">&para;</a></h6>
+<h6 id="protected-inlineumbilicalmodel"><code class="codehilite"><span class="n">protected</span> <span class="n">inline</span></code><a href="#classgazebo_1_1_umbilical_model_1a71941e80b15a64440d87138956e93774"><code class="codehilite"><span class="n">UmbilicalModel</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#protected-inlineumbilicalmodel" title="Permanent link">&para;</a></h6>
 <p>Protected constructor: Use the factory instead.</p>
                 
                   

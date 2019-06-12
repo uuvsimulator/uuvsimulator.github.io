@@ -456,6 +456,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -3038,537 +3050,537 @@
                 
                 <p><img alt="Version" src="https://img.shields.io/badge/version-0.6.12-brightgreen.svg" /></p>
 <blockquote>
-<p>Link to the <code class="codehilite">uuv_simulator</code> repository <a href="https://github.com/uuvsimulator/uuv_simulator">here</a></p>
+<p>Link to the <code class="codehilite"><span class="n">uuv_simulator</span></code> repository <a href="https://github.com/uuvsimulator/uuv_simulator">here</a></p>
 </blockquote>
 <h4 id="description">Description<a class="headerlink" href="#description" title="Permanent link">&para;</a></h4>
 <p>The uuv_control_msgs package</p>
 <h4 id="ros-services">ROS Services<a class="headerlink" href="#ros-services" title="Permanent link">&para;</a></h4>
-<h5 id="initcirculartrajectory"><code class="codehilite">InitCircularTrajectory</code><a class="headerlink" href="#initcirculartrajectory" title="Permanent link">&para;</a></h5>
-<div class="codehilite"><pre><span></span># Copyright (c) 2016 The UUV Simulator Authors.
-# All rights reserved.
+<h5 id="initcirculartrajectory"><code class="codehilite"><span class="n">InitCircularTrajectory</span></code><a class="headerlink" href="#initcirculartrajectory" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span># <span class="nv">Copyright</span> <span class="ss">(</span><span class="nv">c</span><span class="ss">)</span> <span class="mi">2016</span> <span class="nv">The</span> <span class="nv">UUV</span> <span class="nv">Simulator</span> <span class="nv">Authors</span>.
+# <span class="nv">All</span> <span class="nv">rights</span> <span class="nv">reserved</span>.
 #
-# Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# <span class="nv">Licensed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">Apache</span> <span class="nv">License</span>, <span class="nv">Version</span> <span class="mi">2</span>.<span class="mi">0</span> <span class="ss">(</span><span class="nv">the</span> <span class="s2">&quot;</span><span class="s">License</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+# <span class="nv">you</span> <span class="nv">may</span> <span class="nv">not</span> <span class="nv">use</span> <span class="nv">this</span> <span class="nv">file</span> <span class="nv">except</span> <span class="nv">in</span> <span class="nv">compliance</span> <span class="nv">with</span> <span class="nv">the</span> <span class="nv">License</span>.
+# <span class="nv">You</span> <span class="nv">may</span> <span class="nv">obtain</span> <span class="nv">a</span> <span class="nv">copy</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">at</span>
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+#     <span class="nv">http</span>:<span class="o">//</span><span class="nv">www</span>.<span class="nv">apache</span>.<span class="nv">org</span><span class="o">/</span><span class="nv">licenses</span><span class="o">/</span><span class="nv">LICENSE</span><span class="o">-</span><span class="mi">2</span>.<span class="mi">0</span>
 #
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# <span class="nv">Unless</span> <span class="nv">required</span> <span class="nv">by</span> <span class="nv">applicable</span> <span class="nv">law</span> <span class="nv">or</span> <span class="nv">agreed</span> <span class="nv">to</span> <span class="nv">in</span> <span class="nv">writing</span>, <span class="nv">software</span>
+# <span class="nv">distributed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">is</span> <span class="nv">distributed</span> <span class="nv">on</span> <span class="nv">an</span> <span class="s2">&quot;</span><span class="s">AS IS</span><span class="s2">&quot;</span> <span class="nv">BASIS</span>,
+# <span class="nv">WITHOUT</span> <span class="nv">WARRANTIES</span> <span class="nv">OR</span> <span class="nv">CONDITIONS</span> <span class="nv">OF</span> <span class="nv">ANY</span> <span class="nv">KIND</span>, <span class="nv">either</span> <span class="nv">express</span> <span class="nv">or</span> <span class="nv">implied</span>.
+# <span class="nv">See</span> <span class="nv">the</span> <span class="nv">License</span> <span class="k">for</span> <span class="nv">the</span> <span class="nv">specific</span> <span class="nv">language</span> <span class="nv">governing</span> <span class="nv">permissions</span> <span class="nv">and</span>
+# <span class="nv">limitations</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span>.
 
-std_msgs/Time start_time
-bool start_now
-float64 radius
-geometry_msgs/Point center
-bool is_clockwise
-float64 angle_offset
-int32 n_points
-float64 heading_offset
-float64 max_forward_speed
-float64 duration
----
-bool success
+<span class="nv">std_msgs</span><span class="o">/</span><span class="nv">Time</span> <span class="nv">start_time</span>
+<span class="nv">bool</span> <span class="nv">start_now</span>
+<span class="nv">float64</span> <span class="nv">radius</span>
+<span class="nv">geometry_msgs</span><span class="o">/</span><span class="nv">Point</span> <span class="nv">center</span>
+<span class="nv">bool</span> <span class="nv">is_clockwise</span>
+<span class="nv">float64</span> <span class="nv">angle_offset</span>
+<span class="nv">int32</span> <span class="nv">n_points</span>
+<span class="nv">float64</span> <span class="nv">heading_offset</span>
+<span class="nv">float64</span> <span class="nv">max_forward_speed</span>
+<span class="nv">float64</span> <span class="nv">duration</span>
+<span class="o">---</span>
+<span class="nv">bool</span> <span class="nv">success</span>
 </pre></div>
 
-<h5 id="hold"><code class="codehilite">Hold</code><a class="headerlink" href="#hold" title="Permanent link">&para;</a></h5>
-<div class="codehilite"><pre><span></span># Copyright (c) 2016 The UUV Simulator Authors.
-# All rights reserved.
+<h5 id="hold"><code class="codehilite"><span class="k">Hold</span></code><a class="headerlink" href="#hold" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span># <span class="nv">Copyright</span> <span class="ss">(</span><span class="nv">c</span><span class="ss">)</span> <span class="mi">2016</span> <span class="nv">The</span> <span class="nv">UUV</span> <span class="nv">Simulator</span> <span class="nv">Authors</span>.
+# <span class="nv">All</span> <span class="nv">rights</span> <span class="nv">reserved</span>.
 #
-# Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# <span class="nv">Licensed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">Apache</span> <span class="nv">License</span>, <span class="nv">Version</span> <span class="mi">2</span>.<span class="mi">0</span> <span class="ss">(</span><span class="nv">the</span> <span class="s2">&quot;</span><span class="s">License</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+# <span class="nv">you</span> <span class="nv">may</span> <span class="nv">not</span> <span class="nv">use</span> <span class="nv">this</span> <span class="nv">file</span> <span class="nv">except</span> <span class="nv">in</span> <span class="nv">compliance</span> <span class="nv">with</span> <span class="nv">the</span> <span class="nv">License</span>.
+# <span class="nv">You</span> <span class="nv">may</span> <span class="nv">obtain</span> <span class="nv">a</span> <span class="nv">copy</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">at</span>
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+#     <span class="nv">http</span>:<span class="o">//</span><span class="nv">www</span>.<span class="nv">apache</span>.<span class="nv">org</span><span class="o">/</span><span class="nv">licenses</span><span class="o">/</span><span class="nv">LICENSE</span><span class="o">-</span><span class="mi">2</span>.<span class="mi">0</span>
 #
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# <span class="nv">Unless</span> <span class="nv">required</span> <span class="nv">by</span> <span class="nv">applicable</span> <span class="nv">law</span> <span class="nv">or</span> <span class="nv">agreed</span> <span class="nv">to</span> <span class="nv">in</span> <span class="nv">writing</span>, <span class="nv">software</span>
+# <span class="nv">distributed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">is</span> <span class="nv">distributed</span> <span class="nv">on</span> <span class="nv">an</span> <span class="s2">&quot;</span><span class="s">AS IS</span><span class="s2">&quot;</span> <span class="nv">BASIS</span>,
+# <span class="nv">WITHOUT</span> <span class="nv">WARRANTIES</span> <span class="nv">OR</span> <span class="nv">CONDITIONS</span> <span class="nv">OF</span> <span class="nv">ANY</span> <span class="nv">KIND</span>, <span class="nv">either</span> <span class="nv">express</span> <span class="nv">or</span> <span class="nv">implied</span>.
+# <span class="nv">See</span> <span class="nv">the</span> <span class="nv">License</span> <span class="k">for</span> <span class="nv">the</span> <span class="nv">specific</span> <span class="nv">language</span> <span class="nv">governing</span> <span class="nv">permissions</span> <span class="nv">and</span>
+# <span class="nv">limitations</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span>.
 
----
-bool success
+<span class="o">---</span>
+<span class="nv">bool</span> <span class="nv">success</span>
 </pre></div>
 
-<h5 id="setsmcontrollerparams"><code class="codehilite">SetSMControllerParams</code><a class="headerlink" href="#setsmcontrollerparams" title="Permanent link">&para;</a></h5>
-<div class="codehilite"><pre><span></span># Copyright (c) 2016 The UUV Simulator Authors.
-# All rights reserved.
+<h5 id="setsmcontrollerparams"><code class="codehilite"><span class="n">SetSMControllerParams</span></code><a class="headerlink" href="#setsmcontrollerparams" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span># <span class="nv">Copyright</span> <span class="ss">(</span><span class="nv">c</span><span class="ss">)</span> <span class="mi">2016</span> <span class="nv">The</span> <span class="nv">UUV</span> <span class="nv">Simulator</span> <span class="nv">Authors</span>.
+# <span class="nv">All</span> <span class="nv">rights</span> <span class="nv">reserved</span>.
 #
-# Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# <span class="nv">Licensed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">Apache</span> <span class="nv">License</span>, <span class="nv">Version</span> <span class="mi">2</span>.<span class="mi">0</span> <span class="ss">(</span><span class="nv">the</span> <span class="s2">&quot;</span><span class="s">License</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+# <span class="nv">you</span> <span class="nv">may</span> <span class="nv">not</span> <span class="nv">use</span> <span class="nv">this</span> <span class="nv">file</span> <span class="nv">except</span> <span class="nv">in</span> <span class="nv">compliance</span> <span class="nv">with</span> <span class="nv">the</span> <span class="nv">License</span>.
+# <span class="nv">You</span> <span class="nv">may</span> <span class="nv">obtain</span> <span class="nv">a</span> <span class="nv">copy</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">at</span>
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+#     <span class="nv">http</span>:<span class="o">//</span><span class="nv">www</span>.<span class="nv">apache</span>.<span class="nv">org</span><span class="o">/</span><span class="nv">licenses</span><span class="o">/</span><span class="nv">LICENSE</span><span class="o">-</span><span class="mi">2</span>.<span class="mi">0</span>
 #
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# <span class="nv">Unless</span> <span class="nv">required</span> <span class="nv">by</span> <span class="nv">applicable</span> <span class="nv">law</span> <span class="nv">or</span> <span class="nv">agreed</span> <span class="nv">to</span> <span class="nv">in</span> <span class="nv">writing</span>, <span class="nv">software</span>
+# <span class="nv">distributed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">is</span> <span class="nv">distributed</span> <span class="nv">on</span> <span class="nv">an</span> <span class="s2">&quot;</span><span class="s">AS IS</span><span class="s2">&quot;</span> <span class="nv">BASIS</span>,
+# <span class="nv">WITHOUT</span> <span class="nv">WARRANTIES</span> <span class="nv">OR</span> <span class="nv">CONDITIONS</span> <span class="nv">OF</span> <span class="nv">ANY</span> <span class="nv">KIND</span>, <span class="nv">either</span> <span class="nv">express</span> <span class="nv">or</span> <span class="nv">implied</span>.
+# <span class="nv">See</span> <span class="nv">the</span> <span class="nv">License</span> <span class="k">for</span> <span class="nv">the</span> <span class="nv">specific</span> <span class="nv">language</span> <span class="nv">governing</span> <span class="nv">permissions</span> <span class="nv">and</span>
+# <span class="nv">limitations</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span>.
 
-float64[] K
-float64[] Kd
-float64[] Ki
-float64[] slope
----
-bool success
+<span class="nv">float64</span>[] <span class="nv">K</span>
+<span class="nv">float64</span>[] <span class="nv">Kd</span>
+<span class="nv">float64</span>[] <span class="nv">Ki</span>
+<span class="nv">float64</span>[] <span class="nv">slope</span>
+<span class="o">---</span>
+<span class="nv">bool</span> <span class="nv">success</span>
 </pre></div>
 
-<h5 id="getpidparams"><code class="codehilite">GetPIDParams</code><a class="headerlink" href="#getpidparams" title="Permanent link">&para;</a></h5>
-<div class="codehilite"><pre><span></span># Copyright (c) 2016 The UUV Simulator Authors.
-# All rights reserved.
+<h5 id="getpidparams"><code class="codehilite"><span class="n">GetPIDParams</span></code><a class="headerlink" href="#getpidparams" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span># <span class="nv">Copyright</span> <span class="ss">(</span><span class="nv">c</span><span class="ss">)</span> <span class="mi">2016</span> <span class="nv">The</span> <span class="nv">UUV</span> <span class="nv">Simulator</span> <span class="nv">Authors</span>.
+# <span class="nv">All</span> <span class="nv">rights</span> <span class="nv">reserved</span>.
 #
-# Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# <span class="nv">Licensed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">Apache</span> <span class="nv">License</span>, <span class="nv">Version</span> <span class="mi">2</span>.<span class="mi">0</span> <span class="ss">(</span><span class="nv">the</span> <span class="s2">&quot;</span><span class="s">License</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+# <span class="nv">you</span> <span class="nv">may</span> <span class="nv">not</span> <span class="nv">use</span> <span class="nv">this</span> <span class="nv">file</span> <span class="nv">except</span> <span class="nv">in</span> <span class="nv">compliance</span> <span class="nv">with</span> <span class="nv">the</span> <span class="nv">License</span>.
+# <span class="nv">You</span> <span class="nv">may</span> <span class="nv">obtain</span> <span class="nv">a</span> <span class="nv">copy</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">at</span>
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+#     <span class="nv">http</span>:<span class="o">//</span><span class="nv">www</span>.<span class="nv">apache</span>.<span class="nv">org</span><span class="o">/</span><span class="nv">licenses</span><span class="o">/</span><span class="nv">LICENSE</span><span class="o">-</span><span class="mi">2</span>.<span class="mi">0</span>
 #
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# <span class="nv">Unless</span> <span class="nv">required</span> <span class="nv">by</span> <span class="nv">applicable</span> <span class="nv">law</span> <span class="nv">or</span> <span class="nv">agreed</span> <span class="nv">to</span> <span class="nv">in</span> <span class="nv">writing</span>, <span class="nv">software</span>
+# <span class="nv">distributed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">is</span> <span class="nv">distributed</span> <span class="nv">on</span> <span class="nv">an</span> <span class="s2">&quot;</span><span class="s">AS IS</span><span class="s2">&quot;</span> <span class="nv">BASIS</span>,
+# <span class="nv">WITHOUT</span> <span class="nv">WARRANTIES</span> <span class="nv">OR</span> <span class="nv">CONDITIONS</span> <span class="nv">OF</span> <span class="nv">ANY</span> <span class="nv">KIND</span>, <span class="nv">either</span> <span class="nv">express</span> <span class="nv">or</span> <span class="nv">implied</span>.
+# <span class="nv">See</span> <span class="nv">the</span> <span class="nv">License</span> <span class="k">for</span> <span class="nv">the</span> <span class="nv">specific</span> <span class="nv">language</span> <span class="nv">governing</span> <span class="nv">permissions</span> <span class="nv">and</span>
+# <span class="nv">limitations</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span>.
 
----
-float64[] Kp
-float64[] Kd
-float64[] Ki
+<span class="o">---</span>
+<span class="nv">float64</span>[] <span class="nv">Kp</span>
+<span class="nv">float64</span>[] <span class="nv">Kd</span>
+<span class="nv">float64</span>[] <span class="nv">Ki</span>
 </pre></div>
 
-<h5 id="setpidparams"><code class="codehilite">SetPIDParams</code><a class="headerlink" href="#setpidparams" title="Permanent link">&para;</a></h5>
-<div class="codehilite"><pre><span></span># Copyright (c) 2016 The UUV Simulator Authors.
-# All rights reserved.
+<h5 id="setpidparams"><code class="codehilite"><span class="n">SetPIDParams</span></code><a class="headerlink" href="#setpidparams" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span># <span class="nv">Copyright</span> <span class="ss">(</span><span class="nv">c</span><span class="ss">)</span> <span class="mi">2016</span> <span class="nv">The</span> <span class="nv">UUV</span> <span class="nv">Simulator</span> <span class="nv">Authors</span>.
+# <span class="nv">All</span> <span class="nv">rights</span> <span class="nv">reserved</span>.
 #
-# Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# <span class="nv">Licensed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">Apache</span> <span class="nv">License</span>, <span class="nv">Version</span> <span class="mi">2</span>.<span class="mi">0</span> <span class="ss">(</span><span class="nv">the</span> <span class="s2">&quot;</span><span class="s">License</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+# <span class="nv">you</span> <span class="nv">may</span> <span class="nv">not</span> <span class="nv">use</span> <span class="nv">this</span> <span class="nv">file</span> <span class="nv">except</span> <span class="nv">in</span> <span class="nv">compliance</span> <span class="nv">with</span> <span class="nv">the</span> <span class="nv">License</span>.
+# <span class="nv">You</span> <span class="nv">may</span> <span class="nv">obtain</span> <span class="nv">a</span> <span class="nv">copy</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">at</span>
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+#     <span class="nv">http</span>:<span class="o">//</span><span class="nv">www</span>.<span class="nv">apache</span>.<span class="nv">org</span><span class="o">/</span><span class="nv">licenses</span><span class="o">/</span><span class="nv">LICENSE</span><span class="o">-</span><span class="mi">2</span>.<span class="mi">0</span>
 #
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# <span class="nv">Unless</span> <span class="nv">required</span> <span class="nv">by</span> <span class="nv">applicable</span> <span class="nv">law</span> <span class="nv">or</span> <span class="nv">agreed</span> <span class="nv">to</span> <span class="nv">in</span> <span class="nv">writing</span>, <span class="nv">software</span>
+# <span class="nv">distributed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">is</span> <span class="nv">distributed</span> <span class="nv">on</span> <span class="nv">an</span> <span class="s2">&quot;</span><span class="s">AS IS</span><span class="s2">&quot;</span> <span class="nv">BASIS</span>,
+# <span class="nv">WITHOUT</span> <span class="nv">WARRANTIES</span> <span class="nv">OR</span> <span class="nv">CONDITIONS</span> <span class="nv">OF</span> <span class="nv">ANY</span> <span class="nv">KIND</span>, <span class="nv">either</span> <span class="nv">express</span> <span class="nv">or</span> <span class="nv">implied</span>.
+# <span class="nv">See</span> <span class="nv">the</span> <span class="nv">License</span> <span class="k">for</span> <span class="nv">the</span> <span class="nv">specific</span> <span class="nv">language</span> <span class="nv">governing</span> <span class="nv">permissions</span> <span class="nv">and</span>
+# <span class="nv">limitations</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span>.
 
-float64[] Kp
-float64[] Kd
-float64[] Ki
----
-bool success
+<span class="nv">float64</span>[] <span class="nv">Kp</span>
+<span class="nv">float64</span>[] <span class="nv">Kd</span>
+<span class="nv">float64</span>[] <span class="nv">Ki</span>
+<span class="o">---</span>
+<span class="nv">bool</span> <span class="nv">success</span>
 </pre></div>
 
-<h5 id="starttrajectory"><code class="codehilite">StartTrajectory</code><a class="headerlink" href="#starttrajectory" title="Permanent link">&para;</a></h5>
-<div class="codehilite"><pre><span></span># Copyright (c) 2016 The UUV Simulator Authors.
-# All rights reserved.
+<h5 id="starttrajectory"><code class="codehilite"><span class="n">StartTrajectory</span></code><a class="headerlink" href="#starttrajectory" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span># <span class="nv">Copyright</span> <span class="ss">(</span><span class="nv">c</span><span class="ss">)</span> <span class="mi">2016</span> <span class="nv">The</span> <span class="nv">UUV</span> <span class="nv">Simulator</span> <span class="nv">Authors</span>.
+# <span class="nv">All</span> <span class="nv">rights</span> <span class="nv">reserved</span>.
 #
-# Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# <span class="nv">Licensed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">Apache</span> <span class="nv">License</span>, <span class="nv">Version</span> <span class="mi">2</span>.<span class="mi">0</span> <span class="ss">(</span><span class="nv">the</span> <span class="s2">&quot;</span><span class="s">License</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+# <span class="nv">you</span> <span class="nv">may</span> <span class="nv">not</span> <span class="nv">use</span> <span class="nv">this</span> <span class="nv">file</span> <span class="nv">except</span> <span class="nv">in</span> <span class="nv">compliance</span> <span class="nv">with</span> <span class="nv">the</span> <span class="nv">License</span>.
+# <span class="nv">You</span> <span class="nv">may</span> <span class="nv">obtain</span> <span class="nv">a</span> <span class="nv">copy</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">at</span>
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+#     <span class="nv">http</span>:<span class="o">//</span><span class="nv">www</span>.<span class="nv">apache</span>.<span class="nv">org</span><span class="o">/</span><span class="nv">licenses</span><span class="o">/</span><span class="nv">LICENSE</span><span class="o">-</span><span class="mi">2</span>.<span class="mi">0</span>
 #
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# <span class="nv">Unless</span> <span class="nv">required</span> <span class="nv">by</span> <span class="nv">applicable</span> <span class="nv">law</span> <span class="nv">or</span> <span class="nv">agreed</span> <span class="nv">to</span> <span class="nv">in</span> <span class="nv">writing</span>, <span class="nv">software</span>
+# <span class="nv">distributed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">is</span> <span class="nv">distributed</span> <span class="nv">on</span> <span class="nv">an</span> <span class="s2">&quot;</span><span class="s">AS IS</span><span class="s2">&quot;</span> <span class="nv">BASIS</span>,
+# <span class="nv">WITHOUT</span> <span class="nv">WARRANTIES</span> <span class="nv">OR</span> <span class="nv">CONDITIONS</span> <span class="nv">OF</span> <span class="nv">ANY</span> <span class="nv">KIND</span>, <span class="nv">either</span> <span class="nv">express</span> <span class="nv">or</span> <span class="nv">implied</span>.
+# <span class="nv">See</span> <span class="nv">the</span> <span class="nv">License</span> <span class="k">for</span> <span class="nv">the</span> <span class="nv">specific</span> <span class="nv">language</span> <span class="nv">governing</span> <span class="nv">permissions</span> <span class="nv">and</span>
+# <span class="nv">limitations</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span>.
 
----
-bool success
+<span class="o">---</span>
+<span class="nv">bool</span> <span class="nv">success</span>
 </pre></div>
 
-<h5 id="resetcontroller"><code class="codehilite">ResetController</code><a class="headerlink" href="#resetcontroller" title="Permanent link">&para;</a></h5>
-<div class="codehilite"><pre><span></span># Copyright (c) 2016 The UUV Simulator Authors.
-# All rights reserved.
+<h5 id="resetcontroller"><code class="codehilite"><span class="n">ResetController</span></code><a class="headerlink" href="#resetcontroller" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span># <span class="nv">Copyright</span> <span class="ss">(</span><span class="nv">c</span><span class="ss">)</span> <span class="mi">2016</span> <span class="nv">The</span> <span class="nv">UUV</span> <span class="nv">Simulator</span> <span class="nv">Authors</span>.
+# <span class="nv">All</span> <span class="nv">rights</span> <span class="nv">reserved</span>.
 #
-# Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# <span class="nv">Licensed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">Apache</span> <span class="nv">License</span>, <span class="nv">Version</span> <span class="mi">2</span>.<span class="mi">0</span> <span class="ss">(</span><span class="nv">the</span> <span class="s2">&quot;</span><span class="s">License</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+# <span class="nv">you</span> <span class="nv">may</span> <span class="nv">not</span> <span class="nv">use</span> <span class="nv">this</span> <span class="nv">file</span> <span class="nv">except</span> <span class="nv">in</span> <span class="nv">compliance</span> <span class="nv">with</span> <span class="nv">the</span> <span class="nv">License</span>.
+# <span class="nv">You</span> <span class="nv">may</span> <span class="nv">obtain</span> <span class="nv">a</span> <span class="nv">copy</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">at</span>
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+#     <span class="nv">http</span>:<span class="o">//</span><span class="nv">www</span>.<span class="nv">apache</span>.<span class="nv">org</span><span class="o">/</span><span class="nv">licenses</span><span class="o">/</span><span class="nv">LICENSE</span><span class="o">-</span><span class="mi">2</span>.<span class="mi">0</span>
 #
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# <span class="nv">Unless</span> <span class="nv">required</span> <span class="nv">by</span> <span class="nv">applicable</span> <span class="nv">law</span> <span class="nv">or</span> <span class="nv">agreed</span> <span class="nv">to</span> <span class="nv">in</span> <span class="nv">writing</span>, <span class="nv">software</span>
+# <span class="nv">distributed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">is</span> <span class="nv">distributed</span> <span class="nv">on</span> <span class="nv">an</span> <span class="s2">&quot;</span><span class="s">AS IS</span><span class="s2">&quot;</span> <span class="nv">BASIS</span>,
+# <span class="nv">WITHOUT</span> <span class="nv">WARRANTIES</span> <span class="nv">OR</span> <span class="nv">CONDITIONS</span> <span class="nv">OF</span> <span class="nv">ANY</span> <span class="nv">KIND</span>, <span class="nv">either</span> <span class="nv">express</span> <span class="nv">or</span> <span class="nv">implied</span>.
+# <span class="nv">See</span> <span class="nv">the</span> <span class="nv">License</span> <span class="k">for</span> <span class="nv">the</span> <span class="nv">specific</span> <span class="nv">language</span> <span class="nv">governing</span> <span class="nv">permissions</span> <span class="nv">and</span>
+# <span class="nv">limitations</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span>.
 
----
-bool success
+<span class="o">---</span>
+<span class="nv">bool</span> <span class="nv">success</span>
 </pre></div>
 
-<h5 id="addwaypoint"><code class="codehilite">AddWaypoint</code><a class="headerlink" href="#addwaypoint" title="Permanent link">&para;</a></h5>
-<div class="codehilite"><pre><span></span># Copyright (c) 2016 The UUV Simulator Authors.
-# All rights reserved.
+<h5 id="addwaypoint"><code class="codehilite"><span class="n">AddWaypoint</span></code><a class="headerlink" href="#addwaypoint" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span># <span class="nv">Copyright</span> <span class="ss">(</span><span class="nv">c</span><span class="ss">)</span> <span class="mi">2016</span> <span class="nv">The</span> <span class="nv">UUV</span> <span class="nv">Simulator</span> <span class="nv">Authors</span>.
+# <span class="nv">All</span> <span class="nv">rights</span> <span class="nv">reserved</span>.
 #
-# Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# <span class="nv">Licensed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">Apache</span> <span class="nv">License</span>, <span class="nv">Version</span> <span class="mi">2</span>.<span class="mi">0</span> <span class="ss">(</span><span class="nv">the</span> <span class="s2">&quot;</span><span class="s">License</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+# <span class="nv">you</span> <span class="nv">may</span> <span class="nv">not</span> <span class="nv">use</span> <span class="nv">this</span> <span class="nv">file</span> <span class="nv">except</span> <span class="nv">in</span> <span class="nv">compliance</span> <span class="nv">with</span> <span class="nv">the</span> <span class="nv">License</span>.
+# <span class="nv">You</span> <span class="nv">may</span> <span class="nv">obtain</span> <span class="nv">a</span> <span class="nv">copy</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">at</span>
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+#     <span class="nv">http</span>:<span class="o">//</span><span class="nv">www</span>.<span class="nv">apache</span>.<span class="nv">org</span><span class="o">/</span><span class="nv">licenses</span><span class="o">/</span><span class="nv">LICENSE</span><span class="o">-</span><span class="mi">2</span>.<span class="mi">0</span>
 #
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# <span class="nv">Unless</span> <span class="nv">required</span> <span class="nv">by</span> <span class="nv">applicable</span> <span class="nv">law</span> <span class="nv">or</span> <span class="nv">agreed</span> <span class="nv">to</span> <span class="nv">in</span> <span class="nv">writing</span>, <span class="nv">software</span>
+# <span class="nv">distributed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">is</span> <span class="nv">distributed</span> <span class="nv">on</span> <span class="nv">an</span> <span class="s2">&quot;</span><span class="s">AS IS</span><span class="s2">&quot;</span> <span class="nv">BASIS</span>,
+# <span class="nv">WITHOUT</span> <span class="nv">WARRANTIES</span> <span class="nv">OR</span> <span class="nv">CONDITIONS</span> <span class="nv">OF</span> <span class="nv">ANY</span> <span class="nv">KIND</span>, <span class="nv">either</span> <span class="nv">express</span> <span class="nv">or</span> <span class="nv">implied</span>.
+# <span class="nv">See</span> <span class="nv">the</span> <span class="nv">License</span> <span class="k">for</span> <span class="nv">the</span> <span class="nv">specific</span> <span class="nv">language</span> <span class="nv">governing</span> <span class="nv">permissions</span> <span class="nv">and</span>
+# <span class="nv">limitations</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span>.
 
-uuv_control_msgs/Waypoint waypoint
----
-bool success
-uuv_control_msgs/Waypoint[] waypoints
+<span class="nv">uuv_control_msgs</span><span class="o">/</span><span class="nv">Waypoint</span> <span class="nv">waypoint</span>
+<span class="o">---</span>
+<span class="nv">bool</span> <span class="nv">success</span>
+<span class="nv">uuv_control_msgs</span><span class="o">/</span><span class="nv">Waypoint</span>[] <span class="nv">waypoints</span>
 </pre></div>
 
-<h5 id="setmbsmcontrollerparams"><code class="codehilite">SetMBSMControllerParams</code><a class="headerlink" href="#setmbsmcontrollerparams" title="Permanent link">&para;</a></h5>
-<div class="codehilite"><pre><span></span># Copyright (c) 2016 The UUV Simulator Authors.
-# All rights reserved.
+<h5 id="setmbsmcontrollerparams"><code class="codehilite"><span class="n">SetMBSMControllerParams</span></code><a class="headerlink" href="#setmbsmcontrollerparams" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span># <span class="nv">Copyright</span> <span class="ss">(</span><span class="nv">c</span><span class="ss">)</span> <span class="mi">2016</span> <span class="nv">The</span> <span class="nv">UUV</span> <span class="nv">Simulator</span> <span class="nv">Authors</span>.
+# <span class="nv">All</span> <span class="nv">rights</span> <span class="nv">reserved</span>.
 #
-# Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# <span class="nv">Licensed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">Apache</span> <span class="nv">License</span>, <span class="nv">Version</span> <span class="mi">2</span>.<span class="mi">0</span> <span class="ss">(</span><span class="nv">the</span> <span class="s2">&quot;</span><span class="s">License</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+# <span class="nv">you</span> <span class="nv">may</span> <span class="nv">not</span> <span class="nv">use</span> <span class="nv">this</span> <span class="nv">file</span> <span class="nv">except</span> <span class="nv">in</span> <span class="nv">compliance</span> <span class="nv">with</span> <span class="nv">the</span> <span class="nv">License</span>.
+# <span class="nv">You</span> <span class="nv">may</span> <span class="nv">obtain</span> <span class="nv">a</span> <span class="nv">copy</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">at</span>
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+#     <span class="nv">http</span>:<span class="o">//</span><span class="nv">www</span>.<span class="nv">apache</span>.<span class="nv">org</span><span class="o">/</span><span class="nv">licenses</span><span class="o">/</span><span class="nv">LICENSE</span><span class="o">-</span><span class="mi">2</span>.<span class="mi">0</span>
 #
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# <span class="nv">Unless</span> <span class="nv">required</span> <span class="nv">by</span> <span class="nv">applicable</span> <span class="nv">law</span> <span class="nv">or</span> <span class="nv">agreed</span> <span class="nv">to</span> <span class="nv">in</span> <span class="nv">writing</span>, <span class="nv">software</span>
+# <span class="nv">distributed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">is</span> <span class="nv">distributed</span> <span class="nv">on</span> <span class="nv">an</span> <span class="s2">&quot;</span><span class="s">AS IS</span><span class="s2">&quot;</span> <span class="nv">BASIS</span>,
+# <span class="nv">WITHOUT</span> <span class="nv">WARRANTIES</span> <span class="nv">OR</span> <span class="nv">CONDITIONS</span> <span class="nv">OF</span> <span class="nv">ANY</span> <span class="nv">KIND</span>, <span class="nv">either</span> <span class="nv">express</span> <span class="nv">or</span> <span class="nv">implied</span>.
+# <span class="nv">See</span> <span class="nv">the</span> <span class="nv">License</span> <span class="k">for</span> <span class="nv">the</span> <span class="nv">specific</span> <span class="nv">language</span> <span class="nv">governing</span> <span class="nv">permissions</span> <span class="nv">and</span>
+# <span class="nv">limitations</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span>.
 
-float64[] lambda
-float64[] rho_constant
-float64[] k
-float64[] c
-float64[] adapt_slope
-float64[] rho_0
-float64 drift_prevent
----
-bool success
+<span class="nv">float64</span>[] <span class="nv">lambda</span>
+<span class="nv">float64</span>[] <span class="nv">rho_constant</span>
+<span class="nv">float64</span>[] <span class="nv">k</span>
+<span class="nv">float64</span>[] <span class="nv">c</span>
+<span class="nv">float64</span>[] <span class="nv">adapt_slope</span>
+<span class="nv">float64</span>[] <span class="nv">rho_0</span>
+<span class="nv">float64</span> <span class="nv">drift_prevent</span>
+<span class="o">---</span>
+<span class="nv">bool</span> <span class="nv">success</span>
 </pre></div>
 
-<h5 id="switchtoautomatic"><code class="codehilite">SwitchToAutomatic</code><a class="headerlink" href="#switchtoautomatic" title="Permanent link">&para;</a></h5>
-<div class="codehilite"><pre><span></span># Copyright (c) 2016 The UUV Simulator Authors.
-# All rights reserved.
+<h5 id="switchtoautomatic"><code class="codehilite"><span class="n">SwitchToAutomatic</span></code><a class="headerlink" href="#switchtoautomatic" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span># <span class="nv">Copyright</span> <span class="ss">(</span><span class="nv">c</span><span class="ss">)</span> <span class="mi">2016</span> <span class="nv">The</span> <span class="nv">UUV</span> <span class="nv">Simulator</span> <span class="nv">Authors</span>.
+# <span class="nv">All</span> <span class="nv">rights</span> <span class="nv">reserved</span>.
 #
-# Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# <span class="nv">Licensed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">Apache</span> <span class="nv">License</span>, <span class="nv">Version</span> <span class="mi">2</span>.<span class="mi">0</span> <span class="ss">(</span><span class="nv">the</span> <span class="s2">&quot;</span><span class="s">License</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+# <span class="nv">you</span> <span class="nv">may</span> <span class="nv">not</span> <span class="nv">use</span> <span class="nv">this</span> <span class="nv">file</span> <span class="nv">except</span> <span class="nv">in</span> <span class="nv">compliance</span> <span class="nv">with</span> <span class="nv">the</span> <span class="nv">License</span>.
+# <span class="nv">You</span> <span class="nv">may</span> <span class="nv">obtain</span> <span class="nv">a</span> <span class="nv">copy</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">at</span>
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+#     <span class="nv">http</span>:<span class="o">//</span><span class="nv">www</span>.<span class="nv">apache</span>.<span class="nv">org</span><span class="o">/</span><span class="nv">licenses</span><span class="o">/</span><span class="nv">LICENSE</span><span class="o">-</span><span class="mi">2</span>.<span class="mi">0</span>
 #
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# <span class="nv">Unless</span> <span class="nv">required</span> <span class="nv">by</span> <span class="nv">applicable</span> <span class="nv">law</span> <span class="nv">or</span> <span class="nv">agreed</span> <span class="nv">to</span> <span class="nv">in</span> <span class="nv">writing</span>, <span class="nv">software</span>
+# <span class="nv">distributed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">is</span> <span class="nv">distributed</span> <span class="nv">on</span> <span class="nv">an</span> <span class="s2">&quot;</span><span class="s">AS IS</span><span class="s2">&quot;</span> <span class="nv">BASIS</span>,
+# <span class="nv">WITHOUT</span> <span class="nv">WARRANTIES</span> <span class="nv">OR</span> <span class="nv">CONDITIONS</span> <span class="nv">OF</span> <span class="nv">ANY</span> <span class="nv">KIND</span>, <span class="nv">either</span> <span class="nv">express</span> <span class="nv">or</span> <span class="nv">implied</span>.
+# <span class="nv">See</span> <span class="nv">the</span> <span class="nv">License</span> <span class="k">for</span> <span class="nv">the</span> <span class="nv">specific</span> <span class="nv">language</span> <span class="nv">governing</span> <span class="nv">permissions</span> <span class="nv">and</span>
+# <span class="nv">limitations</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span>.
 
----
-bool success
+<span class="o">---</span>
+<span class="nv">bool</span> <span class="nv">success</span>
 </pre></div>
 
-<h5 id="clearwaypoints"><code class="codehilite">ClearWaypoints</code><a class="headerlink" href="#clearwaypoints" title="Permanent link">&para;</a></h5>
-<div class="codehilite"><pre><span></span># Copyright (c) 2016 The UUV Simulator Authors.
-# All rights reserved.
+<h5 id="clearwaypoints"><code class="codehilite"><span class="n">ClearWaypoints</span></code><a class="headerlink" href="#clearwaypoints" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span># <span class="nv">Copyright</span> <span class="ss">(</span><span class="nv">c</span><span class="ss">)</span> <span class="mi">2016</span> <span class="nv">The</span> <span class="nv">UUV</span> <span class="nv">Simulator</span> <span class="nv">Authors</span>.
+# <span class="nv">All</span> <span class="nv">rights</span> <span class="nv">reserved</span>.
 #
-# Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# <span class="nv">Licensed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">Apache</span> <span class="nv">License</span>, <span class="nv">Version</span> <span class="mi">2</span>.<span class="mi">0</span> <span class="ss">(</span><span class="nv">the</span> <span class="s2">&quot;</span><span class="s">License</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+# <span class="nv">you</span> <span class="nv">may</span> <span class="nv">not</span> <span class="nv">use</span> <span class="nv">this</span> <span class="nv">file</span> <span class="nv">except</span> <span class="nv">in</span> <span class="nv">compliance</span> <span class="nv">with</span> <span class="nv">the</span> <span class="nv">License</span>.
+# <span class="nv">You</span> <span class="nv">may</span> <span class="nv">obtain</span> <span class="nv">a</span> <span class="nv">copy</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">at</span>
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+#     <span class="nv">http</span>:<span class="o">//</span><span class="nv">www</span>.<span class="nv">apache</span>.<span class="nv">org</span><span class="o">/</span><span class="nv">licenses</span><span class="o">/</span><span class="nv">LICENSE</span><span class="o">-</span><span class="mi">2</span>.<span class="mi">0</span>
 #
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# <span class="nv">Unless</span> <span class="nv">required</span> <span class="nv">by</span> <span class="nv">applicable</span> <span class="nv">law</span> <span class="nv">or</span> <span class="nv">agreed</span> <span class="nv">to</span> <span class="nv">in</span> <span class="nv">writing</span>, <span class="nv">software</span>
+# <span class="nv">distributed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">is</span> <span class="nv">distributed</span> <span class="nv">on</span> <span class="nv">an</span> <span class="s2">&quot;</span><span class="s">AS IS</span><span class="s2">&quot;</span> <span class="nv">BASIS</span>,
+# <span class="nv">WITHOUT</span> <span class="nv">WARRANTIES</span> <span class="nv">OR</span> <span class="nv">CONDITIONS</span> <span class="nv">OF</span> <span class="nv">ANY</span> <span class="nv">KIND</span>, <span class="nv">either</span> <span class="nv">express</span> <span class="nv">or</span> <span class="nv">implied</span>.
+# <span class="nv">See</span> <span class="nv">the</span> <span class="nv">License</span> <span class="k">for</span> <span class="nv">the</span> <span class="nv">specific</span> <span class="nv">language</span> <span class="nv">governing</span> <span class="nv">permissions</span> <span class="nv">and</span>
+# <span class="nv">limitations</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span>.
 
----
-bool success
+<span class="o">---</span>
+<span class="nv">bool</span> <span class="nv">success</span>
 </pre></div>
 
-<h5 id="getsmcontrollerparams"><code class="codehilite">GetSMControllerParams</code><a class="headerlink" href="#getsmcontrollerparams" title="Permanent link">&para;</a></h5>
-<div class="codehilite"><pre><span></span># Copyright (c) 2016 The UUV Simulator Authors.
-# All rights reserved.
+<h5 id="getsmcontrollerparams"><code class="codehilite"><span class="n">GetSMControllerParams</span></code><a class="headerlink" href="#getsmcontrollerparams" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span># <span class="nv">Copyright</span> <span class="ss">(</span><span class="nv">c</span><span class="ss">)</span> <span class="mi">2016</span> <span class="nv">The</span> <span class="nv">UUV</span> <span class="nv">Simulator</span> <span class="nv">Authors</span>.
+# <span class="nv">All</span> <span class="nv">rights</span> <span class="nv">reserved</span>.
 #
-# Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# <span class="nv">Licensed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">Apache</span> <span class="nv">License</span>, <span class="nv">Version</span> <span class="mi">2</span>.<span class="mi">0</span> <span class="ss">(</span><span class="nv">the</span> <span class="s2">&quot;</span><span class="s">License</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+# <span class="nv">you</span> <span class="nv">may</span> <span class="nv">not</span> <span class="nv">use</span> <span class="nv">this</span> <span class="nv">file</span> <span class="nv">except</span> <span class="nv">in</span> <span class="nv">compliance</span> <span class="nv">with</span> <span class="nv">the</span> <span class="nv">License</span>.
+# <span class="nv">You</span> <span class="nv">may</span> <span class="nv">obtain</span> <span class="nv">a</span> <span class="nv">copy</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">at</span>
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+#     <span class="nv">http</span>:<span class="o">//</span><span class="nv">www</span>.<span class="nv">apache</span>.<span class="nv">org</span><span class="o">/</span><span class="nv">licenses</span><span class="o">/</span><span class="nv">LICENSE</span><span class="o">-</span><span class="mi">2</span>.<span class="mi">0</span>
 #
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# <span class="nv">Unless</span> <span class="nv">required</span> <span class="nv">by</span> <span class="nv">applicable</span> <span class="nv">law</span> <span class="nv">or</span> <span class="nv">agreed</span> <span class="nv">to</span> <span class="nv">in</span> <span class="nv">writing</span>, <span class="nv">software</span>
+# <span class="nv">distributed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">is</span> <span class="nv">distributed</span> <span class="nv">on</span> <span class="nv">an</span> <span class="s2">&quot;</span><span class="s">AS IS</span><span class="s2">&quot;</span> <span class="nv">BASIS</span>,
+# <span class="nv">WITHOUT</span> <span class="nv">WARRANTIES</span> <span class="nv">OR</span> <span class="nv">CONDITIONS</span> <span class="nv">OF</span> <span class="nv">ANY</span> <span class="nv">KIND</span>, <span class="nv">either</span> <span class="nv">express</span> <span class="nv">or</span> <span class="nv">implied</span>.
+# <span class="nv">See</span> <span class="nv">the</span> <span class="nv">License</span> <span class="k">for</span> <span class="nv">the</span> <span class="nv">specific</span> <span class="nv">language</span> <span class="nv">governing</span> <span class="nv">permissions</span> <span class="nv">and</span>
+# <span class="nv">limitations</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span>.
 
----
-float64[] K
-float64[] Kd
-float64[] Ki
-float64[] slope
+<span class="o">---</span>
+<span class="nv">float64</span>[] <span class="nv">K</span>
+<span class="nv">float64</span>[] <span class="nv">Kd</span>
+<span class="nv">float64</span>[] <span class="nv">Ki</span>
+<span class="nv">float64</span>[] <span class="nv">slope</span>
 </pre></div>
 
-<h5 id="isrunningtrajectory"><code class="codehilite">IsRunningTrajectory</code><a class="headerlink" href="#isrunningtrajectory" title="Permanent link">&para;</a></h5>
-<div class="codehilite"><pre><span></span># Copyright (c) 2016 The UUV Simulator Authors.
-# All rights reserved.
+<h5 id="isrunningtrajectory"><code class="codehilite"><span class="n">IsRunningTrajectory</span></code><a class="headerlink" href="#isrunningtrajectory" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span># <span class="nv">Copyright</span> <span class="ss">(</span><span class="nv">c</span><span class="ss">)</span> <span class="mi">2016</span> <span class="nv">The</span> <span class="nv">UUV</span> <span class="nv">Simulator</span> <span class="nv">Authors</span>.
+# <span class="nv">All</span> <span class="nv">rights</span> <span class="nv">reserved</span>.
 #
-# Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# <span class="nv">Licensed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">Apache</span> <span class="nv">License</span>, <span class="nv">Version</span> <span class="mi">2</span>.<span class="mi">0</span> <span class="ss">(</span><span class="nv">the</span> <span class="s2">&quot;</span><span class="s">License</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+# <span class="nv">you</span> <span class="nv">may</span> <span class="nv">not</span> <span class="nv">use</span> <span class="nv">this</span> <span class="nv">file</span> <span class="nv">except</span> <span class="nv">in</span> <span class="nv">compliance</span> <span class="nv">with</span> <span class="nv">the</span> <span class="nv">License</span>.
+# <span class="nv">You</span> <span class="nv">may</span> <span class="nv">obtain</span> <span class="nv">a</span> <span class="nv">copy</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">at</span>
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+#     <span class="nv">http</span>:<span class="o">//</span><span class="nv">www</span>.<span class="nv">apache</span>.<span class="nv">org</span><span class="o">/</span><span class="nv">licenses</span><span class="o">/</span><span class="nv">LICENSE</span><span class="o">-</span><span class="mi">2</span>.<span class="mi">0</span>
 #
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# <span class="nv">Unless</span> <span class="nv">required</span> <span class="nv">by</span> <span class="nv">applicable</span> <span class="nv">law</span> <span class="nv">or</span> <span class="nv">agreed</span> <span class="nv">to</span> <span class="nv">in</span> <span class="nv">writing</span>, <span class="nv">software</span>
+# <span class="nv">distributed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">is</span> <span class="nv">distributed</span> <span class="nv">on</span> <span class="nv">an</span> <span class="s2">&quot;</span><span class="s">AS IS</span><span class="s2">&quot;</span> <span class="nv">BASIS</span>,
+# <span class="nv">WITHOUT</span> <span class="nv">WARRANTIES</span> <span class="nv">OR</span> <span class="nv">CONDITIONS</span> <span class="nv">OF</span> <span class="nv">ANY</span> <span class="nv">KIND</span>, <span class="nv">either</span> <span class="nv">express</span> <span class="nv">or</span> <span class="nv">implied</span>.
+# <span class="nv">See</span> <span class="nv">the</span> <span class="nv">License</span> <span class="k">for</span> <span class="nv">the</span> <span class="nv">specific</span> <span class="nv">language</span> <span class="nv">governing</span> <span class="nv">permissions</span> <span class="nv">and</span>
+# <span class="nv">limitations</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span>.
 
----
-float64 progress
+<span class="o">---</span>
+<span class="nv">float64</span> <span class="nv">progress</span>
 </pre></div>
 
-<h5 id="initwaypointsfromfile"><code class="codehilite">InitWaypointsFromFile</code><a class="headerlink" href="#initwaypointsfromfile" title="Permanent link">&para;</a></h5>
-<div class="codehilite"><pre><span></span># Copyright (c) 2016 The UUV Simulator Authors.
-# All rights reserved.
+<h5 id="initwaypointsfromfile"><code class="codehilite"><span class="n">InitWaypointsFromFile</span></code><a class="headerlink" href="#initwaypointsfromfile" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span># <span class="nv">Copyright</span> <span class="ss">(</span><span class="nv">c</span><span class="ss">)</span> <span class="mi">2016</span> <span class="nv">The</span> <span class="nv">UUV</span> <span class="nv">Simulator</span> <span class="nv">Authors</span>.
+# <span class="nv">All</span> <span class="nv">rights</span> <span class="nv">reserved</span>.
 #
-# Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# <span class="nv">Licensed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">Apache</span> <span class="nv">License</span>, <span class="nv">Version</span> <span class="mi">2</span>.<span class="mi">0</span> <span class="ss">(</span><span class="nv">the</span> <span class="s2">&quot;</span><span class="s">License</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+# <span class="nv">you</span> <span class="nv">may</span> <span class="nv">not</span> <span class="nv">use</span> <span class="nv">this</span> <span class="nv">file</span> <span class="nv">except</span> <span class="nv">in</span> <span class="nv">compliance</span> <span class="nv">with</span> <span class="nv">the</span> <span class="nv">License</span>.
+# <span class="nv">You</span> <span class="nv">may</span> <span class="nv">obtain</span> <span class="nv">a</span> <span class="nv">copy</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">at</span>
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+#     <span class="nv">http</span>:<span class="o">//</span><span class="nv">www</span>.<span class="nv">apache</span>.<span class="nv">org</span><span class="o">/</span><span class="nv">licenses</span><span class="o">/</span><span class="nv">LICENSE</span><span class="o">-</span><span class="mi">2</span>.<span class="mi">0</span>
 #
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# <span class="nv">Unless</span> <span class="nv">required</span> <span class="nv">by</span> <span class="nv">applicable</span> <span class="nv">law</span> <span class="nv">or</span> <span class="nv">agreed</span> <span class="nv">to</span> <span class="nv">in</span> <span class="nv">writing</span>, <span class="nv">software</span>
+# <span class="nv">distributed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">is</span> <span class="nv">distributed</span> <span class="nv">on</span> <span class="nv">an</span> <span class="s2">&quot;</span><span class="s">AS IS</span><span class="s2">&quot;</span> <span class="nv">BASIS</span>,
+# <span class="nv">WITHOUT</span> <span class="nv">WARRANTIES</span> <span class="nv">OR</span> <span class="nv">CONDITIONS</span> <span class="nv">OF</span> <span class="nv">ANY</span> <span class="nv">KIND</span>, <span class="nv">either</span> <span class="nv">express</span> <span class="nv">or</span> <span class="nv">implied</span>.
+# <span class="nv">See</span> <span class="nv">the</span> <span class="nv">License</span> <span class="k">for</span> <span class="nv">the</span> <span class="nv">specific</span> <span class="nv">language</span> <span class="nv">governing</span> <span class="nv">permissions</span> <span class="nv">and</span>
+# <span class="nv">limitations</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span>.
 
-string LIPB=&#39;lipb&#39;
-string CUBIC=&#39;cubic&#39;
-string DUBINS=&#39;dubins&#39;
-string LINEAR=&#39;linear&#39;
+<span class="nv">string</span> <span class="nv">LIPB</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">lipb</span><span class="s1">&#39;</span>
+<span class="nv">string</span> <span class="nv">CUBIC</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">cubic</span><span class="s1">&#39;</span>
+<span class="nv">string</span> <span class="nv">DUBINS</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">dubins</span><span class="s1">&#39;</span>
+<span class="nv">string</span> <span class="nv">LINEAR</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">linear</span><span class="s1">&#39;</span>
 
-std_msgs/Time start_time
-bool start_now
-std_msgs/String filename
-std_msgs/String interpolator
----
-bool success
+<span class="nv">std_msgs</span><span class="o">/</span><span class="nv">Time</span> <span class="nv">start_time</span>
+<span class="nv">bool</span> <span class="nv">start_now</span>
+<span class="nv">std_msgs</span><span class="o">/</span><span class="nv">String</span> <span class="nv">filename</span>
+<span class="nv">std_msgs</span><span class="o">/</span><span class="nv">String</span> <span class="nv">interpolator</span>
+<span class="o">---</span>
+<span class="nv">bool</span> <span class="nv">success</span>
 </pre></div>
 
-<h5 id="inithelicaltrajectory"><code class="codehilite">InitHelicalTrajectory</code><a class="headerlink" href="#inithelicaltrajectory" title="Permanent link">&para;</a></h5>
-<div class="codehilite"><pre><span></span># Copyright (c) 2016 The UUV Simulator Authors.
-# All rights reserved.
+<h5 id="inithelicaltrajectory"><code class="codehilite"><span class="n">InitHelicalTrajectory</span></code><a class="headerlink" href="#inithelicaltrajectory" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span># <span class="nv">Copyright</span> <span class="ss">(</span><span class="nv">c</span><span class="ss">)</span> <span class="mi">2016</span> <span class="nv">The</span> <span class="nv">UUV</span> <span class="nv">Simulator</span> <span class="nv">Authors</span>.
+# <span class="nv">All</span> <span class="nv">rights</span> <span class="nv">reserved</span>.
 #
-# Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# <span class="nv">Licensed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">Apache</span> <span class="nv">License</span>, <span class="nv">Version</span> <span class="mi">2</span>.<span class="mi">0</span> <span class="ss">(</span><span class="nv">the</span> <span class="s2">&quot;</span><span class="s">License</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+# <span class="nv">you</span> <span class="nv">may</span> <span class="nv">not</span> <span class="nv">use</span> <span class="nv">this</span> <span class="nv">file</span> <span class="nv">except</span> <span class="nv">in</span> <span class="nv">compliance</span> <span class="nv">with</span> <span class="nv">the</span> <span class="nv">License</span>.
+# <span class="nv">You</span> <span class="nv">may</span> <span class="nv">obtain</span> <span class="nv">a</span> <span class="nv">copy</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">at</span>
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+#     <span class="nv">http</span>:<span class="o">//</span><span class="nv">www</span>.<span class="nv">apache</span>.<span class="nv">org</span><span class="o">/</span><span class="nv">licenses</span><span class="o">/</span><span class="nv">LICENSE</span><span class="o">-</span><span class="mi">2</span>.<span class="mi">0</span>
 #
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# <span class="nv">Unless</span> <span class="nv">required</span> <span class="nv">by</span> <span class="nv">applicable</span> <span class="nv">law</span> <span class="nv">or</span> <span class="nv">agreed</span> <span class="nv">to</span> <span class="nv">in</span> <span class="nv">writing</span>, <span class="nv">software</span>
+# <span class="nv">distributed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">is</span> <span class="nv">distributed</span> <span class="nv">on</span> <span class="nv">an</span> <span class="s2">&quot;</span><span class="s">AS IS</span><span class="s2">&quot;</span> <span class="nv">BASIS</span>,
+# <span class="nv">WITHOUT</span> <span class="nv">WARRANTIES</span> <span class="nv">OR</span> <span class="nv">CONDITIONS</span> <span class="nv">OF</span> <span class="nv">ANY</span> <span class="nv">KIND</span>, <span class="nv">either</span> <span class="nv">express</span> <span class="nv">or</span> <span class="nv">implied</span>.
+# <span class="nv">See</span> <span class="nv">the</span> <span class="nv">License</span> <span class="k">for</span> <span class="nv">the</span> <span class="nv">specific</span> <span class="nv">language</span> <span class="nv">governing</span> <span class="nv">permissions</span> <span class="nv">and</span>
+# <span class="nv">limitations</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span>.
 
-std_msgs/Time start_time
-bool start_now
-float64 radius
-geometry_msgs/Point center
-bool is_clockwise
-float64 angle_offset
-int32 n_points
-float64 heading_offset
-float64 max_forward_speed
-float64 duration
-float64 n_turns
-float64 delta_z
----
-bool success
+<span class="nv">std_msgs</span><span class="o">/</span><span class="nv">Time</span> <span class="nv">start_time</span>
+<span class="nv">bool</span> <span class="nv">start_now</span>
+<span class="nv">float64</span> <span class="nv">radius</span>
+<span class="nv">geometry_msgs</span><span class="o">/</span><span class="nv">Point</span> <span class="nv">center</span>
+<span class="nv">bool</span> <span class="nv">is_clockwise</span>
+<span class="nv">float64</span> <span class="nv">angle_offset</span>
+<span class="nv">int32</span> <span class="nv">n_points</span>
+<span class="nv">float64</span> <span class="nv">heading_offset</span>
+<span class="nv">float64</span> <span class="nv">max_forward_speed</span>
+<span class="nv">float64</span> <span class="nv">duration</span>
+<span class="nv">float64</span> <span class="nv">n_turns</span>
+<span class="nv">float64</span> <span class="nv">delta_z</span>
+<span class="o">---</span>
+<span class="nv">bool</span> <span class="nv">success</span>
 </pre></div>
 
-<h5 id="initwaypointset"><code class="codehilite">InitWaypointSet</code><a class="headerlink" href="#initwaypointset" title="Permanent link">&para;</a></h5>
-<div class="codehilite"><pre><span></span># Copyright (c) 2016 The UUV Simulator Authors.
-# All rights reserved.
+<h5 id="initwaypointset"><code class="codehilite"><span class="n">InitWaypointSet</span></code><a class="headerlink" href="#initwaypointset" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span># <span class="nv">Copyright</span> <span class="ss">(</span><span class="nv">c</span><span class="ss">)</span> <span class="mi">2016</span> <span class="nv">The</span> <span class="nv">UUV</span> <span class="nv">Simulator</span> <span class="nv">Authors</span>.
+# <span class="nv">All</span> <span class="nv">rights</span> <span class="nv">reserved</span>.
 #
-# Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# <span class="nv">Licensed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">Apache</span> <span class="nv">License</span>, <span class="nv">Version</span> <span class="mi">2</span>.<span class="mi">0</span> <span class="ss">(</span><span class="nv">the</span> <span class="s2">&quot;</span><span class="s">License</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+# <span class="nv">you</span> <span class="nv">may</span> <span class="nv">not</span> <span class="nv">use</span> <span class="nv">this</span> <span class="nv">file</span> <span class="nv">except</span> <span class="nv">in</span> <span class="nv">compliance</span> <span class="nv">with</span> <span class="nv">the</span> <span class="nv">License</span>.
+# <span class="nv">You</span> <span class="nv">may</span> <span class="nv">obtain</span> <span class="nv">a</span> <span class="nv">copy</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">at</span>
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+#     <span class="nv">http</span>:<span class="o">//</span><span class="nv">www</span>.<span class="nv">apache</span>.<span class="nv">org</span><span class="o">/</span><span class="nv">licenses</span><span class="o">/</span><span class="nv">LICENSE</span><span class="o">-</span><span class="mi">2</span>.<span class="mi">0</span>
 #
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# <span class="nv">Unless</span> <span class="nv">required</span> <span class="nv">by</span> <span class="nv">applicable</span> <span class="nv">law</span> <span class="nv">or</span> <span class="nv">agreed</span> <span class="nv">to</span> <span class="nv">in</span> <span class="nv">writing</span>, <span class="nv">software</span>
+# <span class="nv">distributed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">is</span> <span class="nv">distributed</span> <span class="nv">on</span> <span class="nv">an</span> <span class="s2">&quot;</span><span class="s">AS IS</span><span class="s2">&quot;</span> <span class="nv">BASIS</span>,
+# <span class="nv">WITHOUT</span> <span class="nv">WARRANTIES</span> <span class="nv">OR</span> <span class="nv">CONDITIONS</span> <span class="nv">OF</span> <span class="nv">ANY</span> <span class="nv">KIND</span>, <span class="nv">either</span> <span class="nv">express</span> <span class="nv">or</span> <span class="nv">implied</span>.
+# <span class="nv">See</span> <span class="nv">the</span> <span class="nv">License</span> <span class="k">for</span> <span class="nv">the</span> <span class="nv">specific</span> <span class="nv">language</span> <span class="nv">governing</span> <span class="nv">permissions</span> <span class="nv">and</span>
+# <span class="nv">limitations</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span>.
 
-std_msgs/Time start_time
-bool start_now
-uuv_control_msgs/Waypoint[] waypoints
-float64 max_forward_speed
-float64 heading_offset
-std_msgs/String interpolator
----
-bool success
+<span class="nv">std_msgs</span><span class="o">/</span><span class="nv">Time</span> <span class="nv">start_time</span>
+<span class="nv">bool</span> <span class="nv">start_now</span>
+<span class="nv">uuv_control_msgs</span><span class="o">/</span><span class="nv">Waypoint</span>[] <span class="nv">waypoints</span>
+<span class="nv">float64</span> <span class="nv">max_forward_speed</span>
+<span class="nv">float64</span> <span class="nv">heading_offset</span>
+<span class="nv">std_msgs</span><span class="o">/</span><span class="nv">String</span> <span class="nv">interpolator</span>
+<span class="o">---</span>
+<span class="nv">bool</span> <span class="nv">success</span>
 </pre></div>
 
-<h5 id="getwaypoints"><code class="codehilite">GetWaypoints</code><a class="headerlink" href="#getwaypoints" title="Permanent link">&para;</a></h5>
-<div class="codehilite"><pre><span></span># Copyright (c) 2016 The UUV Simulator Authors.
-# All rights reserved.
+<h5 id="getwaypoints"><code class="codehilite"><span class="n">GetWaypoints</span></code><a class="headerlink" href="#getwaypoints" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span># <span class="nv">Copyright</span> <span class="ss">(</span><span class="nv">c</span><span class="ss">)</span> <span class="mi">2016</span> <span class="nv">The</span> <span class="nv">UUV</span> <span class="nv">Simulator</span> <span class="nv">Authors</span>.
+# <span class="nv">All</span> <span class="nv">rights</span> <span class="nv">reserved</span>.
 #
-# Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# <span class="nv">Licensed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">Apache</span> <span class="nv">License</span>, <span class="nv">Version</span> <span class="mi">2</span>.<span class="mi">0</span> <span class="ss">(</span><span class="nv">the</span> <span class="s2">&quot;</span><span class="s">License</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+# <span class="nv">you</span> <span class="nv">may</span> <span class="nv">not</span> <span class="nv">use</span> <span class="nv">this</span> <span class="nv">file</span> <span class="nv">except</span> <span class="nv">in</span> <span class="nv">compliance</span> <span class="nv">with</span> <span class="nv">the</span> <span class="nv">License</span>.
+# <span class="nv">You</span> <span class="nv">may</span> <span class="nv">obtain</span> <span class="nv">a</span> <span class="nv">copy</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">at</span>
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+#     <span class="nv">http</span>:<span class="o">//</span><span class="nv">www</span>.<span class="nv">apache</span>.<span class="nv">org</span><span class="o">/</span><span class="nv">licenses</span><span class="o">/</span><span class="nv">LICENSE</span><span class="o">-</span><span class="mi">2</span>.<span class="mi">0</span>
 #
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# <span class="nv">Unless</span> <span class="nv">required</span> <span class="nv">by</span> <span class="nv">applicable</span> <span class="nv">law</span> <span class="nv">or</span> <span class="nv">agreed</span> <span class="nv">to</span> <span class="nv">in</span> <span class="nv">writing</span>, <span class="nv">software</span>
+# <span class="nv">distributed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">is</span> <span class="nv">distributed</span> <span class="nv">on</span> <span class="nv">an</span> <span class="s2">&quot;</span><span class="s">AS IS</span><span class="s2">&quot;</span> <span class="nv">BASIS</span>,
+# <span class="nv">WITHOUT</span> <span class="nv">WARRANTIES</span> <span class="nv">OR</span> <span class="nv">CONDITIONS</span> <span class="nv">OF</span> <span class="nv">ANY</span> <span class="nv">KIND</span>, <span class="nv">either</span> <span class="nv">express</span> <span class="nv">or</span> <span class="nv">implied</span>.
+# <span class="nv">See</span> <span class="nv">the</span> <span class="nv">License</span> <span class="k">for</span> <span class="nv">the</span> <span class="nv">specific</span> <span class="nv">language</span> <span class="nv">governing</span> <span class="nv">permissions</span> <span class="nv">and</span>
+# <span class="nv">limitations</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span>.
 
----
-uuv_control_msgs/Waypoint[] waypoints
+<span class="o">---</span>
+<span class="nv">uuv_control_msgs</span><span class="o">/</span><span class="nv">Waypoint</span>[] <span class="nv">waypoints</span>
 </pre></div>
 
-<h5 id="goto"><code class="codehilite">GoTo</code><a class="headerlink" href="#goto" title="Permanent link">&para;</a></h5>
-<div class="codehilite"><pre><span></span># Copyright (c) 2016 The UUV Simulator Authors.
-# All rights reserved.
+<h5 id="goto"><code class="codehilite"><span class="k">GoTo</span></code><a class="headerlink" href="#goto" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span># <span class="nv">Copyright</span> <span class="ss">(</span><span class="nv">c</span><span class="ss">)</span> <span class="mi">2016</span> <span class="nv">The</span> <span class="nv">UUV</span> <span class="nv">Simulator</span> <span class="nv">Authors</span>.
+# <span class="nv">All</span> <span class="nv">rights</span> <span class="nv">reserved</span>.
 #
-# Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# <span class="nv">Licensed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">Apache</span> <span class="nv">License</span>, <span class="nv">Version</span> <span class="mi">2</span>.<span class="mi">0</span> <span class="ss">(</span><span class="nv">the</span> <span class="s2">&quot;</span><span class="s">License</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+# <span class="nv">you</span> <span class="nv">may</span> <span class="nv">not</span> <span class="nv">use</span> <span class="nv">this</span> <span class="nv">file</span> <span class="nv">except</span> <span class="nv">in</span> <span class="nv">compliance</span> <span class="nv">with</span> <span class="nv">the</span> <span class="nv">License</span>.
+# <span class="nv">You</span> <span class="nv">may</span> <span class="nv">obtain</span> <span class="nv">a</span> <span class="nv">copy</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">at</span>
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+#     <span class="nv">http</span>:<span class="o">//</span><span class="nv">www</span>.<span class="nv">apache</span>.<span class="nv">org</span><span class="o">/</span><span class="nv">licenses</span><span class="o">/</span><span class="nv">LICENSE</span><span class="o">-</span><span class="mi">2</span>.<span class="mi">0</span>
 #
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# <span class="nv">Unless</span> <span class="nv">required</span> <span class="nv">by</span> <span class="nv">applicable</span> <span class="nv">law</span> <span class="nv">or</span> <span class="nv">agreed</span> <span class="nv">to</span> <span class="nv">in</span> <span class="nv">writing</span>, <span class="nv">software</span>
+# <span class="nv">distributed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">is</span> <span class="nv">distributed</span> <span class="nv">on</span> <span class="nv">an</span> <span class="s2">&quot;</span><span class="s">AS IS</span><span class="s2">&quot;</span> <span class="nv">BASIS</span>,
+# <span class="nv">WITHOUT</span> <span class="nv">WARRANTIES</span> <span class="nv">OR</span> <span class="nv">CONDITIONS</span> <span class="nv">OF</span> <span class="nv">ANY</span> <span class="nv">KIND</span>, <span class="nv">either</span> <span class="nv">express</span> <span class="nv">or</span> <span class="nv">implied</span>.
+# <span class="nv">See</span> <span class="nv">the</span> <span class="nv">License</span> <span class="k">for</span> <span class="nv">the</span> <span class="nv">specific</span> <span class="nv">language</span> <span class="nv">governing</span> <span class="nv">permissions</span> <span class="nv">and</span>
+# <span class="nv">limitations</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span>.
 
-string LIPB=&#39;lipb&#39;
-string CUBIC=&#39;cubic&#39;
-string DUBINS=&#39;dubins&#39;
-string LINEAR=&#39;linear&#39;
+<span class="nv">string</span> <span class="nv">LIPB</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">lipb</span><span class="s1">&#39;</span>
+<span class="nv">string</span> <span class="nv">CUBIC</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">cubic</span><span class="s1">&#39;</span>
+<span class="nv">string</span> <span class="nv">DUBINS</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">dubins</span><span class="s1">&#39;</span>
+<span class="nv">string</span> <span class="nv">LINEAR</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">linear</span><span class="s1">&#39;</span>
 
-uuv_control_msgs/Waypoint waypoint
-float64 max_forward_speed
-string interpolator
----
-bool success
+<span class="nv">uuv_control_msgs</span><span class="o">/</span><span class="nv">Waypoint</span> <span class="nv">waypoint</span>
+<span class="nv">float64</span> <span class="nv">max_forward_speed</span>
+<span class="nv">string</span> <span class="nv">interpolator</span>
+<span class="o">---</span>
+<span class="nv">bool</span> <span class="nv">success</span>
 </pre></div>
 
-<h5 id="initrecttrajectory"><code class="codehilite">InitRectTrajectory</code><a class="headerlink" href="#initrecttrajectory" title="Permanent link">&para;</a></h5>
-<div class="codehilite"><pre><span></span># Copyright (c) 2016 The UUV Simulator Authors.
-# All rights reserved.
+<h5 id="initrecttrajectory"><code class="codehilite"><span class="n">InitRectTrajectory</span></code><a class="headerlink" href="#initrecttrajectory" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span># <span class="nv">Copyright</span> <span class="ss">(</span><span class="nv">c</span><span class="ss">)</span> <span class="mi">2016</span> <span class="nv">The</span> <span class="nv">UUV</span> <span class="nv">Simulator</span> <span class="nv">Authors</span>.
+# <span class="nv">All</span> <span class="nv">rights</span> <span class="nv">reserved</span>.
 #
-# Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# <span class="nv">Licensed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">Apache</span> <span class="nv">License</span>, <span class="nv">Version</span> <span class="mi">2</span>.<span class="mi">0</span> <span class="ss">(</span><span class="nv">the</span> <span class="s2">&quot;</span><span class="s">License</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+# <span class="nv">you</span> <span class="nv">may</span> <span class="nv">not</span> <span class="nv">use</span> <span class="nv">this</span> <span class="nv">file</span> <span class="nv">except</span> <span class="nv">in</span> <span class="nv">compliance</span> <span class="nv">with</span> <span class="nv">the</span> <span class="nv">License</span>.
+# <span class="nv">You</span> <span class="nv">may</span> <span class="nv">obtain</span> <span class="nv">a</span> <span class="nv">copy</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">at</span>
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+#     <span class="nv">http</span>:<span class="o">//</span><span class="nv">www</span>.<span class="nv">apache</span>.<span class="nv">org</span><span class="o">/</span><span class="nv">licenses</span><span class="o">/</span><span class="nv">LICENSE</span><span class="o">-</span><span class="mi">2</span>.<span class="mi">0</span>
 #
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# <span class="nv">Unless</span> <span class="nv">required</span> <span class="nv">by</span> <span class="nv">applicable</span> <span class="nv">law</span> <span class="nv">or</span> <span class="nv">agreed</span> <span class="nv">to</span> <span class="nv">in</span> <span class="nv">writing</span>, <span class="nv">software</span>
+# <span class="nv">distributed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">is</span> <span class="nv">distributed</span> <span class="nv">on</span> <span class="nv">an</span> <span class="s2">&quot;</span><span class="s">AS IS</span><span class="s2">&quot;</span> <span class="nv">BASIS</span>,
+# <span class="nv">WITHOUT</span> <span class="nv">WARRANTIES</span> <span class="nv">OR</span> <span class="nv">CONDITIONS</span> <span class="nv">OF</span> <span class="nv">ANY</span> <span class="nv">KIND</span>, <span class="nv">either</span> <span class="nv">express</span> <span class="nv">or</span> <span class="nv">implied</span>.
+# <span class="nv">See</span> <span class="nv">the</span> <span class="nv">License</span> <span class="k">for</span> <span class="nv">the</span> <span class="nv">specific</span> <span class="nv">language</span> <span class="nv">governing</span> <span class="nv">permissions</span> <span class="nv">and</span>
+# <span class="nv">limitations</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span>.
 
-std_msgs/Time start_time
-bool start_now
-geometry_msgs/Point origin
-float64 height
-float64 width
-float64 angle_offset
-float64 heading_offset
-float64 max_forward_speed
----
-bool success
+<span class="nv">std_msgs</span><span class="o">/</span><span class="nv">Time</span> <span class="nv">start_time</span>
+<span class="nv">bool</span> <span class="nv">start_now</span>
+<span class="nv">geometry_msgs</span><span class="o">/</span><span class="nv">Point</span> <span class="nv">origin</span>
+<span class="nv">float64</span> <span class="nv">height</span>
+<span class="nv">float64</span> <span class="nv">width</span>
+<span class="nv">float64</span> <span class="nv">angle_offset</span>
+<span class="nv">float64</span> <span class="nv">heading_offset</span>
+<span class="nv">float64</span> <span class="nv">max_forward_speed</span>
+<span class="o">---</span>
+<span class="nv">bool</span> <span class="nv">success</span>
 </pre></div>
 
-<h5 id="gotoincremental"><code class="codehilite">GoToIncremental</code><a class="headerlink" href="#gotoincremental" title="Permanent link">&para;</a></h5>
-<div class="codehilite"><pre><span></span># Copyright (c) 2016 The UUV Simulator Authors.
-# All rights reserved.
+<h5 id="gotoincremental"><code class="codehilite"><span class="n">GoToIncremental</span></code><a class="headerlink" href="#gotoincremental" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span># <span class="nv">Copyright</span> <span class="ss">(</span><span class="nv">c</span><span class="ss">)</span> <span class="mi">2016</span> <span class="nv">The</span> <span class="nv">UUV</span> <span class="nv">Simulator</span> <span class="nv">Authors</span>.
+# <span class="nv">All</span> <span class="nv">rights</span> <span class="nv">reserved</span>.
 #
-# Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# <span class="nv">Licensed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">Apache</span> <span class="nv">License</span>, <span class="nv">Version</span> <span class="mi">2</span>.<span class="mi">0</span> <span class="ss">(</span><span class="nv">the</span> <span class="s2">&quot;</span><span class="s">License</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+# <span class="nv">you</span> <span class="nv">may</span> <span class="nv">not</span> <span class="nv">use</span> <span class="nv">this</span> <span class="nv">file</span> <span class="nv">except</span> <span class="nv">in</span> <span class="nv">compliance</span> <span class="nv">with</span> <span class="nv">the</span> <span class="nv">License</span>.
+# <span class="nv">You</span> <span class="nv">may</span> <span class="nv">obtain</span> <span class="nv">a</span> <span class="nv">copy</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">at</span>
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+#     <span class="nv">http</span>:<span class="o">//</span><span class="nv">www</span>.<span class="nv">apache</span>.<span class="nv">org</span><span class="o">/</span><span class="nv">licenses</span><span class="o">/</span><span class="nv">LICENSE</span><span class="o">-</span><span class="mi">2</span>.<span class="mi">0</span>
 #
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# <span class="nv">Unless</span> <span class="nv">required</span> <span class="nv">by</span> <span class="nv">applicable</span> <span class="nv">law</span> <span class="nv">or</span> <span class="nv">agreed</span> <span class="nv">to</span> <span class="nv">in</span> <span class="nv">writing</span>, <span class="nv">software</span>
+# <span class="nv">distributed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">is</span> <span class="nv">distributed</span> <span class="nv">on</span> <span class="nv">an</span> <span class="s2">&quot;</span><span class="s">AS IS</span><span class="s2">&quot;</span> <span class="nv">BASIS</span>,
+# <span class="nv">WITHOUT</span> <span class="nv">WARRANTIES</span> <span class="nv">OR</span> <span class="nv">CONDITIONS</span> <span class="nv">OF</span> <span class="nv">ANY</span> <span class="nv">KIND</span>, <span class="nv">either</span> <span class="nv">express</span> <span class="nv">or</span> <span class="nv">implied</span>.
+# <span class="nv">See</span> <span class="nv">the</span> <span class="nv">License</span> <span class="k">for</span> <span class="nv">the</span> <span class="nv">specific</span> <span class="nv">language</span> <span class="nv">governing</span> <span class="nv">permissions</span> <span class="nv">and</span>
+# <span class="nv">limitations</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span>.
 
-string LIPB=&#39;lipb&#39;
-string CUBIC=&#39;cubic&#39;
-string DUBINS=&#39;dubins&#39;
-string LINEAR=&#39;linear&#39;
+<span class="nv">string</span> <span class="nv">LIPB</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">lipb</span><span class="s1">&#39;</span>
+<span class="nv">string</span> <span class="nv">CUBIC</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">cubic</span><span class="s1">&#39;</span>
+<span class="nv">string</span> <span class="nv">DUBINS</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">dubins</span><span class="s1">&#39;</span>
+<span class="nv">string</span> <span class="nv">LINEAR</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">linear</span><span class="s1">&#39;</span>
 
-geometry_msgs/Point step
-float64 max_forward_speed
-string interpolator
----
-bool success
+<span class="nv">geometry_msgs</span><span class="o">/</span><span class="nv">Point</span> <span class="nv">step</span>
+<span class="nv">float64</span> <span class="nv">max_forward_speed</span>
+<span class="nv">string</span> <span class="nv">interpolator</span>
+<span class="o">---</span>
+<span class="nv">bool</span> <span class="nv">success</span>
 </pre></div>
 
-<h5 id="switchtomanual"><code class="codehilite">SwitchToManual</code><a class="headerlink" href="#switchtomanual" title="Permanent link">&para;</a></h5>
-<div class="codehilite"><pre><span></span># Copyright (c) 2016 The UUV Simulator Authors.
-# All rights reserved.
+<h5 id="switchtomanual"><code class="codehilite"><span class="n">SwitchToManual</span></code><a class="headerlink" href="#switchtomanual" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span># <span class="nv">Copyright</span> <span class="ss">(</span><span class="nv">c</span><span class="ss">)</span> <span class="mi">2016</span> <span class="nv">The</span> <span class="nv">UUV</span> <span class="nv">Simulator</span> <span class="nv">Authors</span>.
+# <span class="nv">All</span> <span class="nv">rights</span> <span class="nv">reserved</span>.
 #
-# Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# <span class="nv">Licensed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">Apache</span> <span class="nv">License</span>, <span class="nv">Version</span> <span class="mi">2</span>.<span class="mi">0</span> <span class="ss">(</span><span class="nv">the</span> <span class="s2">&quot;</span><span class="s">License</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+# <span class="nv">you</span> <span class="nv">may</span> <span class="nv">not</span> <span class="nv">use</span> <span class="nv">this</span> <span class="nv">file</span> <span class="nv">except</span> <span class="nv">in</span> <span class="nv">compliance</span> <span class="nv">with</span> <span class="nv">the</span> <span class="nv">License</span>.
+# <span class="nv">You</span> <span class="nv">may</span> <span class="nv">obtain</span> <span class="nv">a</span> <span class="nv">copy</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">at</span>
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+#     <span class="nv">http</span>:<span class="o">//</span><span class="nv">www</span>.<span class="nv">apache</span>.<span class="nv">org</span><span class="o">/</span><span class="nv">licenses</span><span class="o">/</span><span class="nv">LICENSE</span><span class="o">-</span><span class="mi">2</span>.<span class="mi">0</span>
 #
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# <span class="nv">Unless</span> <span class="nv">required</span> <span class="nv">by</span> <span class="nv">applicable</span> <span class="nv">law</span> <span class="nv">or</span> <span class="nv">agreed</span> <span class="nv">to</span> <span class="nv">in</span> <span class="nv">writing</span>, <span class="nv">software</span>
+# <span class="nv">distributed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">is</span> <span class="nv">distributed</span> <span class="nv">on</span> <span class="nv">an</span> <span class="s2">&quot;</span><span class="s">AS IS</span><span class="s2">&quot;</span> <span class="nv">BASIS</span>,
+# <span class="nv">WITHOUT</span> <span class="nv">WARRANTIES</span> <span class="nv">OR</span> <span class="nv">CONDITIONS</span> <span class="nv">OF</span> <span class="nv">ANY</span> <span class="nv">KIND</span>, <span class="nv">either</span> <span class="nv">express</span> <span class="nv">or</span> <span class="nv">implied</span>.
+# <span class="nv">See</span> <span class="nv">the</span> <span class="nv">License</span> <span class="k">for</span> <span class="nv">the</span> <span class="nv">specific</span> <span class="nv">language</span> <span class="nv">governing</span> <span class="nv">permissions</span> <span class="nv">and</span>
+# <span class="nv">limitations</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span>.
 
----
-bool success
+<span class="o">---</span>
+<span class="nv">bool</span> <span class="nv">success</span>
 </pre></div>
 
-<h5 id="getmbsmcontrollerparams"><code class="codehilite">GetMBSMControllerParams</code><a class="headerlink" href="#getmbsmcontrollerparams" title="Permanent link">&para;</a></h5>
-<div class="codehilite"><pre><span></span># Copyright (c) 2016 The UUV Simulator Authors.
-# All rights reserved.
+<h5 id="getmbsmcontrollerparams"><code class="codehilite"><span class="n">GetMBSMControllerParams</span></code><a class="headerlink" href="#getmbsmcontrollerparams" title="Permanent link">&para;</a></h5>
+<div class="codehilite"><pre><span></span># <span class="nv">Copyright</span> <span class="ss">(</span><span class="nv">c</span><span class="ss">)</span> <span class="mi">2016</span> <span class="nv">The</span> <span class="nv">UUV</span> <span class="nv">Simulator</span> <span class="nv">Authors</span>.
+# <span class="nv">All</span> <span class="nv">rights</span> <span class="nv">reserved</span>.
 #
-# Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# <span class="nv">Licensed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">Apache</span> <span class="nv">License</span>, <span class="nv">Version</span> <span class="mi">2</span>.<span class="mi">0</span> <span class="ss">(</span><span class="nv">the</span> <span class="s2">&quot;</span><span class="s">License</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+# <span class="nv">you</span> <span class="nv">may</span> <span class="nv">not</span> <span class="nv">use</span> <span class="nv">this</span> <span class="nv">file</span> <span class="nv">except</span> <span class="nv">in</span> <span class="nv">compliance</span> <span class="nv">with</span> <span class="nv">the</span> <span class="nv">License</span>.
+# <span class="nv">You</span> <span class="nv">may</span> <span class="nv">obtain</span> <span class="nv">a</span> <span class="nv">copy</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">at</span>
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+#     <span class="nv">http</span>:<span class="o">//</span><span class="nv">www</span>.<span class="nv">apache</span>.<span class="nv">org</span><span class="o">/</span><span class="nv">licenses</span><span class="o">/</span><span class="nv">LICENSE</span><span class="o">-</span><span class="mi">2</span>.<span class="mi">0</span>
 #
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# <span class="nv">Unless</span> <span class="nv">required</span> <span class="nv">by</span> <span class="nv">applicable</span> <span class="nv">law</span> <span class="nv">or</span> <span class="nv">agreed</span> <span class="nv">to</span> <span class="nv">in</span> <span class="nv">writing</span>, <span class="nv">software</span>
+# <span class="nv">distributed</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span> <span class="nv">is</span> <span class="nv">distributed</span> <span class="nv">on</span> <span class="nv">an</span> <span class="s2">&quot;</span><span class="s">AS IS</span><span class="s2">&quot;</span> <span class="nv">BASIS</span>,
+# <span class="nv">WITHOUT</span> <span class="nv">WARRANTIES</span> <span class="nv">OR</span> <span class="nv">CONDITIONS</span> <span class="nv">OF</span> <span class="nv">ANY</span> <span class="nv">KIND</span>, <span class="nv">either</span> <span class="nv">express</span> <span class="nv">or</span> <span class="nv">implied</span>.
+# <span class="nv">See</span> <span class="nv">the</span> <span class="nv">License</span> <span class="k">for</span> <span class="nv">the</span> <span class="nv">specific</span> <span class="nv">language</span> <span class="nv">governing</span> <span class="nv">permissions</span> <span class="nv">and</span>
+# <span class="nv">limitations</span> <span class="nv">under</span> <span class="nv">the</span> <span class="nv">License</span>.
 
----
-float64[] lambda
-float64[] rho_constant
-float64[] k
-float64[] c
-float64[] adapt_slope
-float64[] rho_0
-float64 drift_prevent
+<span class="o">---</span>
+<span class="nv">float64</span>[] <span class="nv">lambda</span>
+<span class="nv">float64</span>[] <span class="nv">rho_constant</span>
+<span class="nv">float64</span>[] <span class="nv">k</span>
+<span class="nv">float64</span>[] <span class="nv">c</span>
+<span class="nv">float64</span>[] <span class="nv">adapt_slope</span>
+<span class="nv">float64</span>[] <span class="nv">rho_0</span>
+<span class="nv">float64</span> <span class="nv">drift_prevent</span>
 </pre></div>
                 
                   

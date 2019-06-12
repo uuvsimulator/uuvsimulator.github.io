@@ -456,6 +456,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -2786,7 +2798,7 @@
                 
                   <h1>HydrodynamicModelFactory</h1>
                 
-                <h4 id="class-gazebohydrodynamicmodelfactory">class <code class="codehilite">gazebo::HydrodynamicModelFactory</code><a class="headerlink" href="#class-gazebohydrodynamicmodelfactory" title="Permanent link">&para;</a></h4>
+                <h4 id="class-gazebohydrodynamicmodelfactory">class <code class="codehilite"><span class="n">gazebo</span><span class="p">::</span><span class="n">HydrodynamicModelFactory</span></code><a class="headerlink" href="#class-gazebohydrodynamicmodelfactory" title="Permanent link">&para;</a></h4>
 <p>Factory singleton class that creates a <a href="docs/packages/uuv_simulator/docs/api/gazebo::HydrodynamicModel.md#classgazebo_1_1_hydrodynamic_model">HydrodynamicModel</a> from sdf.</p>
 <h5 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h5>
 <table>
@@ -2798,19 +2810,19 @@
 </thead>
 <tbody>
 <tr>
-<td><code class="codehilite">public</code><a href="docs/packages/uuv_simulator/docs/api/gazebo::HydrodynamicModel.md#classgazebo_1_1_hydrodynamic_model"><code class="codehilite">HydrodynamicModel</code></a><code class="codehilite">*</code><a href="#classgazebo_1_1_hydrodynamic_model_factory_1a4113b1faaf8277574e4a4b3854f51884"><code class="codehilite">CreateHydrodynamicModel</code></a><code class="codehilite">(sdf::ElementPtr _sdf,physics::LinkPtr _link)</code></td>
+<td><code class="codehilite"><span class="k">public</span></code><a href="docs/packages/uuv_simulator/docs/api/gazebo::HydrodynamicModel.md#classgazebo_1_1_hydrodynamic_model"><code class="codehilite"><span class="n">HydrodynamicModel</span></code></a><code class="codehilite"><span class="o">*</span></code><a href="#classgazebo_1_1_hydrodynamic_model_factory_1a4113b1faaf8277574e4a4b3854f51884"><code class="codehilite"><span class="n">CreateHydrodynamicModel</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">,</span><span class="n">physics</span><span class="p">::</span><span class="n">LinkPtr</span> <span class="n">_link</span><span class="p">)</span></code></td>
 <td>Create <a href="docs/packages/uuv_simulator/docs/api/gazebo::HydrodynamicModel.md#classgazebo_1_1_hydrodynamic_model">HydrodynamicModel</a> object according to its sdf Description.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public bool</code><a href="#classgazebo_1_1_hydrodynamic_model_factory_1acc1cc6c8730ee4e0d558d4fbfa96ecb5"><code class="codehilite">RegisterCreator</code></a><code class="codehilite">(const std::string &amp; _identifier,HydrodynamicModelCreator _creator)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_hydrodynamic_model_factory_1acc1cc6c8730ee4e0d558d4fbfa96ecb5"><code class="codehilite"><span class="n">RegisterCreator</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="o">&amp;</span> <span class="n">_identifier</span><span class="p">,</span><span class="n">HydrodynamicModelCreator</span> <span class="n">_creator</span><span class="p">)</span></code></td>
 <td>Register a class with its creator.</td>
 </tr>
 </tbody>
 </table>
 <h5 id="members">Members<a class="headerlink" href="#members" title="Permanent link">&para;</a></h5>
-<h6 id="publichydrodynamicmodelcreatehydrodynamicmodelsdfelementptr-_sdfphysicslinkptr-_link"><code class="codehilite">public</code><a href="docs/packages/uuv_simulator/docs/api/gazebo::HydrodynamicModel.md#classgazebo_1_1_hydrodynamic_model"><code class="codehilite">HydrodynamicModel</code></a><code class="codehilite">*</code><a href="#classgazebo_1_1_hydrodynamic_model_factory_1a4113b1faaf8277574e4a4b3854f51884"><code class="codehilite">CreateHydrodynamicModel</code></a><code class="codehilite">(sdf::ElementPtr _sdf,physics::LinkPtr _link)</code><a class="headerlink" href="#publichydrodynamicmodelcreatehydrodynamicmodelsdfelementptr-_sdfphysicslinkptr-_link" title="Permanent link">&para;</a></h6>
+<h6 id="publichydrodynamicmodelcreatehydrodynamicmodelsdfelementptr-_sdfphysicslinkptr-_link"><code class="codehilite"><span class="k">public</span></code><a href="docs/packages/uuv_simulator/docs/api/gazebo::HydrodynamicModel.md#classgazebo_1_1_hydrodynamic_model"><code class="codehilite"><span class="n">HydrodynamicModel</span></code></a><code class="codehilite"><span class="o">*</span></code><a href="#classgazebo_1_1_hydrodynamic_model_factory_1a4113b1faaf8277574e4a4b3854f51884"><code class="codehilite"><span class="n">CreateHydrodynamicModel</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">,</span><span class="n">physics</span><span class="p">::</span><span class="n">LinkPtr</span> <span class="n">_link</span><span class="p">)</span></code><a class="headerlink" href="#publichydrodynamicmodelcreatehydrodynamicmodelsdfelementptr-_sdfphysicslinkptr-_link" title="Permanent link">&para;</a></h6>
 <p>Create <a href="docs/packages/uuv_simulator/docs/api/gazebo::HydrodynamicModel.md#classgazebo_1_1_hydrodynamic_model">HydrodynamicModel</a> object according to its sdf Description.</p>
-<h6 id="public-boolregistercreatorconst-stdstring-_identifierhydrodynamicmodelcreator-_creator"><code class="codehilite">public bool</code><a href="#classgazebo_1_1_hydrodynamic_model_factory_1acc1cc6c8730ee4e0d558d4fbfa96ecb5"><code class="codehilite">RegisterCreator</code></a><code class="codehilite">(const std::string &amp; _identifier,HydrodynamicModelCreator _creator)</code><a class="headerlink" href="#public-boolregistercreatorconst-stdstring-_identifierhydrodynamicmodelcreator-_creator" title="Permanent link">&para;</a></h6>
+<h6 id="public-boolregistercreatorconst-stdstring-_identifierhydrodynamicmodelcreator-_creator"><code class="codehilite"><span class="k">public</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_hydrodynamic_model_factory_1acc1cc6c8730ee4e0d558d4fbfa96ecb5"><code class="codehilite"><span class="n">RegisterCreator</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="o">&amp;</span> <span class="n">_identifier</span><span class="p">,</span><span class="n">HydrodynamicModelCreator</span> <span class="n">_creator</span><span class="p">)</span></code><a class="headerlink" href="#public-boolregistercreatorconst-stdstring-_identifierhydrodynamicmodelcreator-_creator" title="Permanent link">&para;</a></h6>
 <p>Register a class with its creator.</p>
                 
                   

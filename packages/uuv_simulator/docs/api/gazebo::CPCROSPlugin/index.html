@@ -456,6 +456,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -2980,9 +2992,9 @@
                 
                   <h1>CPCROSPlugin</h1>
                 
-                <h4 id="class-gazebocpcrosplugin">class <code class="codehilite">gazebo::CPCROSPlugin</code><a class="headerlink" href="#class-gazebocpcrosplugin" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><span class="kr">class</span> <span class="nx">gazebo</span><span class="o">::</span><span class="nx">CPCROSPlugin</span>
-  : <span class="kt">public</span> <span class="nx">gazebo</span><span class="o">::</span><span class="nx">ROSBaseModelPlugin</span>
+                <h4 id="class-gazebocpcrosplugin">class <code class="codehilite"><span class="n">gazebo</span><span class="p">::</span><span class="n">CPCROSPlugin</span></code><a class="headerlink" href="#class-gazebocpcrosplugin" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="n">gazebo::CPCROSPlugin</span>
+  : <span class="n">public</span> <span class="n">gazebo::ROSBaseModelPlugin</span>
 </pre></div>
 
 <h5 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h5>
@@ -2995,100 +3007,100 @@
 </thead>
 <tbody>
 <tr>
-<td><code class="codehilite">public</code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1abf89ec7c696e6b8e951d4de445ac48b0"><code class="codehilite">CPCROSPlugin</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span></code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1abf89ec7c696e6b8e951d4de445ac48b0"><code class="codehilite"><span class="n">CPCROSPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Class constructor.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual</code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1a7343db5b061ebc15862d08845df1f5fd"><code class="codehilite">~CPCROSPlugin</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span></code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1a7343db5b061ebc15862d08845df1f5fd"><code class="codehilite"><span class="o">~</span><span class="n">CPCROSPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Class destructor.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1a03283b375faba8649fa76a1a91b3540c"><code class="codehilite">Load</code></a><code class="codehilite">(physics::ModelPtr _model,sdf::ElementPtr _sdf)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1a03283b375faba8649fa76a1a91b3540c"><code class="codehilite"><span class="k">Load</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">physics</span><span class="p">::</span><span class="n">ModelPtr</span> <span class="n">_model</span><span class="p">,</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">)</span></code></td>
 <td>Load the plugin.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ros::Subscriber</code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1ae3fc2556d76aff734f95ecd211603dae"><code class="codehilite">particlesSub</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ros</span><span class="p">::</span><span class="n">Subscriber</span></code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1ae3fc2556d76aff734f95ecd211603dae"><code class="codehilite"><span class="n">particlesSub</span></code></a></td>
 <td>Input topic for the plume particle point cloud.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ros::Publisher</code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1aa583d13a2ea37a2551e4aec472a41242"><code class="codehilite">salinityPub</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ros</span><span class="p">::</span><span class="n">Publisher</span></code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1aa583d13a2ea37a2551e4aec472a41242"><code class="codehilite"><span class="n">salinityPub</span></code></a></td>
 <td>Output topic for salinity measurements based on the particle concentration.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected bool</code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1ac796aa57d93c2e9d389631b1734b8732"><code class="codehilite">updatingCloud</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1ac796aa57d93c2e9d389631b1734b8732"><code class="codehilite"><span class="n">updatingCloud</span></code></a></td>
 <td>Flag to ensure the cloud and measurement update don't coincide.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1a36f263fa3d261cee3f0521bb5aa2aadb"><code class="codehilite">gamma</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1a36f263fa3d261cee3f0521bb5aa2aadb"><code class="codehilite"><span class="n">gamma</span></code></a></td>
 <td>Gamma velocity parameter for the smoothing function.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1afb382bc909b25221287384e58b5016ad"><code class="codehilite">gain</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1afb382bc909b25221287384e58b5016ad"><code class="codehilite"><span class="n">gain</span></code></a></td>
 <td>Sensor gain.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1ab6ef0ff9f9bf89717618d2a6714de9a7"><code class="codehilite">smoothingLength</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1ab6ef0ff9f9bf89717618d2a6714de9a7"><code class="codehilite"><span class="n">smoothingLength</span></code></a></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ros::Time</code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1a1fbc82365f09bd32d5122daf77a5252d"><code class="codehilite">lastUpdateTimestamp</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ros</span><span class="p">::</span><span class="n">Time</span></code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1a1fbc82365f09bd32d5122daf77a5252d"><code class="codehilite"><span class="n">lastUpdateTimestamp</span></code></a></td>
 <td>Last update from the point cloud callback.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected uuv_sensor_ros_plugins_msgs::ChemicalParticleConcentration</code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1a5728f434aa04158487bb9b7028cb6c3e"><code class="codehilite">outputMsg</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">uuv_sensor_ros_plugins_msgs</span><span class="p">::</span><span class="n">ChemicalParticleConcentration</span></code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1a5728f434aa04158487bb9b7028cb6c3e"><code class="codehilite"><span class="n">outputMsg</span></code></a></td>
 <td>Output measurement topic.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected uuv_sensor_ros_plugins_msgs::Salinity</code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1a1b752dffdf6538176fbdded30afe972e"><code class="codehilite">salinityMsg</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">uuv_sensor_ros_plugins_msgs</span><span class="p">::</span><span class="n">Salinity</span></code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1a1b752dffdf6538176fbdded30afe972e"><code class="codehilite"><span class="n">salinityMsg</span></code></a></td>
 <td>Output salinity measurement message.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1af826cad9b0845aa89b389ab9d05a8b44"><code class="codehilite">waterSalinityValue</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1af826cad9b0845aa89b389ab9d05a8b44"><code class="codehilite"><span class="n">waterSalinityValue</span></code></a></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1a503041ce7db678b30bf7da4fa4c2a02a"><code class="codehilite">plumeSalinityValue</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1a503041ce7db678b30bf7da4fa4c2a02a"><code class="codehilite"><span class="n">plumeSalinityValue</span></code></a></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">protected virtual bool</code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1a40020feac24af0035cc376c00fb9d755"><code class="codehilite">OnUpdate</code></a><code class="codehilite">(const common::UpdateInfo &amp; _info)</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1a40020feac24af0035cc376c00fb9d755"><code class="codehilite"><span class="n">OnUpdate</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">common</span><span class="p">::</span><span class="n">UpdateInfo</span> <span class="o">&amp;</span> <span class="n">_info</span><span class="p">)</span></code></td>
 <td>Update sensor measurement.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected virtual void</code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1a4df41586ec6bca66f1b9cc6b1f80af73"><code class="codehilite">OnPlumeParticlesUpdate</code></a><code class="codehilite">(const sensor_msgs::PointCloud::ConstPtr &amp; _msg)</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1a4df41586ec6bca66f1b9cc6b1f80af73"><code class="codehilite"><span class="n">OnPlumeParticlesUpdate</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">sensor_msgs</span><span class="p">::</span><span class="n">PointCloud</span><span class="p">::</span><span class="n">ConstPtr</span> <span class="o">&amp;</span> <span class="n">_msg</span><span class="p">)</span></code></td>
 <td>Update callback from simulator.</td>
 </tr>
 </tbody>
 </table>
 <h5 id="members">Members<a class="headerlink" href="#members" title="Permanent link">&para;</a></h5>
-<h6 id="publiccpcrosplugin"><code class="codehilite">public</code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1abf89ec7c696e6b8e951d4de445ac48b0"><code class="codehilite">CPCROSPlugin</code></a><code class="codehilite">()</code><a class="headerlink" href="#publiccpcrosplugin" title="Permanent link">&para;</a></h6>
+<h6 id="publiccpcrosplugin"><code class="codehilite"><span class="k">public</span></code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1abf89ec7c696e6b8e951d4de445ac48b0"><code class="codehilite"><span class="n">CPCROSPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#publiccpcrosplugin" title="Permanent link">&para;</a></h6>
 <p>Class constructor.</p>
-<h6 id="public-virtualcpcrosplugin"><code class="codehilite">public virtual</code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1a7343db5b061ebc15862d08845df1f5fd"><code class="codehilite">~CPCROSPlugin</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-virtualcpcrosplugin" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtualcpcrosplugin"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span></code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1a7343db5b061ebc15862d08845df1f5fd"><code class="codehilite"><span class="o">~</span><span class="n">CPCROSPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-virtualcpcrosplugin" title="Permanent link">&para;</a></h6>
 <p>Class destructor.</p>
-<h6 id="public-virtual-voidloadphysicsmodelptr-_modelsdfelementptr-_sdf"><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1a03283b375faba8649fa76a1a91b3540c"><code class="codehilite">Load</code></a><code class="codehilite">(physics::ModelPtr _model,sdf::ElementPtr _sdf)</code><a class="headerlink" href="#public-virtual-voidloadphysicsmodelptr-_modelsdfelementptr-_sdf" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtual-voidloadphysicsmodelptr-_modelsdfelementptr-_sdf"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1a03283b375faba8649fa76a1a91b3540c"><code class="codehilite"><span class="k">Load</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">physics</span><span class="p">::</span><span class="n">ModelPtr</span> <span class="n">_model</span><span class="p">,</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">)</span></code><a class="headerlink" href="#public-virtual-voidloadphysicsmodelptr-_modelsdfelementptr-_sdf" title="Permanent link">&para;</a></h6>
 <p>Load the plugin.</p>
-<h6 id="protected-rossubscriberparticlessub"><code class="codehilite">protected ros::Subscriber</code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1ae3fc2556d76aff734f95ecd211603dae"><code class="codehilite">particlesSub</code></a><a class="headerlink" href="#protected-rossubscriberparticlessub" title="Permanent link">&para;</a></h6>
+<h6 id="protected-rossubscriberparticlessub"><code class="codehilite"><span class="n">protected</span> <span class="n">ros</span><span class="p">::</span><span class="n">Subscriber</span></code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1ae3fc2556d76aff734f95ecd211603dae"><code class="codehilite"><span class="n">particlesSub</span></code></a><a class="headerlink" href="#protected-rossubscriberparticlessub" title="Permanent link">&para;</a></h6>
 <p>Input topic for the plume particle point cloud.</p>
-<h6 id="protected-rospublishersalinitypub"><code class="codehilite">protected ros::Publisher</code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1aa583d13a2ea37a2551e4aec472a41242"><code class="codehilite">salinityPub</code></a><a class="headerlink" href="#protected-rospublishersalinitypub" title="Permanent link">&para;</a></h6>
+<h6 id="protected-rospublishersalinitypub"><code class="codehilite"><span class="n">protected</span> <span class="n">ros</span><span class="p">::</span><span class="n">Publisher</span></code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1aa583d13a2ea37a2551e4aec472a41242"><code class="codehilite"><span class="n">salinityPub</span></code></a><a class="headerlink" href="#protected-rospublishersalinitypub" title="Permanent link">&para;</a></h6>
 <p>Output topic for salinity measurements based on the particle concentration.</p>
-<h6 id="protected-boolupdatingcloud"><code class="codehilite">protected bool</code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1ac796aa57d93c2e9d389631b1734b8732"><code class="codehilite">updatingCloud</code></a><a class="headerlink" href="#protected-boolupdatingcloud" title="Permanent link">&para;</a></h6>
+<h6 id="protected-boolupdatingcloud"><code class="codehilite"><span class="n">protected</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1ac796aa57d93c2e9d389631b1734b8732"><code class="codehilite"><span class="n">updatingCloud</span></code></a><a class="headerlink" href="#protected-boolupdatingcloud" title="Permanent link">&para;</a></h6>
 <p>Flag to ensure the cloud and measurement update don't coincide.</p>
-<h6 id="protected-doublegamma"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1a36f263fa3d261cee3f0521bb5aa2aadb"><code class="codehilite">gamma</code></a><a class="headerlink" href="#protected-doublegamma" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doublegamma"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1a36f263fa3d261cee3f0521bb5aa2aadb"><code class="codehilite"><span class="n">gamma</span></code></a><a class="headerlink" href="#protected-doublegamma" title="Permanent link">&para;</a></h6>
 <p>Gamma velocity parameter for the smoothing function.</p>
-<h6 id="protected-doublegain"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1afb382bc909b25221287384e58b5016ad"><code class="codehilite">gain</code></a><a class="headerlink" href="#protected-doublegain" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doublegain"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1afb382bc909b25221287384e58b5016ad"><code class="codehilite"><span class="n">gain</span></code></a><a class="headerlink" href="#protected-doublegain" title="Permanent link">&para;</a></h6>
 <p>Sensor gain.</p>
-<h6 id="protected-doublesmoothinglength"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1ab6ef0ff9f9bf89717618d2a6714de9a7"><code class="codehilite">smoothingLength</code></a><a class="headerlink" href="#protected-doublesmoothinglength" title="Permanent link">&para;</a></h6>
-<h6 id="protected-rostimelastupdatetimestamp"><code class="codehilite">protected ros::Time</code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1a1fbc82365f09bd32d5122daf77a5252d"><code class="codehilite">lastUpdateTimestamp</code></a><a class="headerlink" href="#protected-rostimelastupdatetimestamp" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doublesmoothinglength"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1ab6ef0ff9f9bf89717618d2a6714de9a7"><code class="codehilite"><span class="n">smoothingLength</span></code></a><a class="headerlink" href="#protected-doublesmoothinglength" title="Permanent link">&para;</a></h6>
+<h6 id="protected-rostimelastupdatetimestamp"><code class="codehilite"><span class="n">protected</span> <span class="n">ros</span><span class="p">::</span><span class="n">Time</span></code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1a1fbc82365f09bd32d5122daf77a5252d"><code class="codehilite"><span class="n">lastUpdateTimestamp</span></code></a><a class="headerlink" href="#protected-rostimelastupdatetimestamp" title="Permanent link">&para;</a></h6>
 <p>Last update from the point cloud callback.</p>
-<h6 id="protected-uuv_sensor_ros_plugins_msgschemicalparticleconcentrationoutputmsg"><code class="codehilite">protected uuv_sensor_ros_plugins_msgs::ChemicalParticleConcentration</code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1a5728f434aa04158487bb9b7028cb6c3e"><code class="codehilite">outputMsg</code></a><a class="headerlink" href="#protected-uuv_sensor_ros_plugins_msgschemicalparticleconcentrationoutputmsg" title="Permanent link">&para;</a></h6>
+<h6 id="protected-uuv_sensor_ros_plugins_msgschemicalparticleconcentrationoutputmsg"><code class="codehilite"><span class="n">protected</span> <span class="n">uuv_sensor_ros_plugins_msgs</span><span class="p">::</span><span class="n">ChemicalParticleConcentration</span></code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1a5728f434aa04158487bb9b7028cb6c3e"><code class="codehilite"><span class="n">outputMsg</span></code></a><a class="headerlink" href="#protected-uuv_sensor_ros_plugins_msgschemicalparticleconcentrationoutputmsg" title="Permanent link">&para;</a></h6>
 <p>Output measurement topic.</p>
-<h6 id="protected-uuv_sensor_ros_plugins_msgssalinitysalinitymsg"><code class="codehilite">protected uuv_sensor_ros_plugins_msgs::Salinity</code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1a1b752dffdf6538176fbdded30afe972e"><code class="codehilite">salinityMsg</code></a><a class="headerlink" href="#protected-uuv_sensor_ros_plugins_msgssalinitysalinitymsg" title="Permanent link">&para;</a></h6>
+<h6 id="protected-uuv_sensor_ros_plugins_msgssalinitysalinitymsg"><code class="codehilite"><span class="n">protected</span> <span class="n">uuv_sensor_ros_plugins_msgs</span><span class="p">::</span><span class="n">Salinity</span></code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1a1b752dffdf6538176fbdded30afe972e"><code class="codehilite"><span class="n">salinityMsg</span></code></a><a class="headerlink" href="#protected-uuv_sensor_ros_plugins_msgssalinitysalinitymsg" title="Permanent link">&para;</a></h6>
 <p>Output salinity measurement message.</p>
-<h6 id="protected-doublewatersalinityvalue"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1af826cad9b0845aa89b389ab9d05a8b44"><code class="codehilite">waterSalinityValue</code></a><a class="headerlink" href="#protected-doublewatersalinityvalue" title="Permanent link">&para;</a></h6>
-<h6 id="protected-doubleplumesalinityvalue"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1a503041ce7db678b30bf7da4fa4c2a02a"><code class="codehilite">plumeSalinityValue</code></a><a class="headerlink" href="#protected-doubleplumesalinityvalue" title="Permanent link">&para;</a></h6>
-<h6 id="protected-virtual-boolonupdateconst-commonupdateinfo-_info"><code class="codehilite">protected virtual bool</code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1a40020feac24af0035cc376c00fb9d755"><code class="codehilite">OnUpdate</code></a><code class="codehilite">(const common::UpdateInfo &amp; _info)</code><a class="headerlink" href="#protected-virtual-boolonupdateconst-commonupdateinfo-_info" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doublewatersalinityvalue"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1af826cad9b0845aa89b389ab9d05a8b44"><code class="codehilite"><span class="n">waterSalinityValue</span></code></a><a class="headerlink" href="#protected-doublewatersalinityvalue" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doubleplumesalinityvalue"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1a503041ce7db678b30bf7da4fa4c2a02a"><code class="codehilite"><span class="n">plumeSalinityValue</span></code></a><a class="headerlink" href="#protected-doubleplumesalinityvalue" title="Permanent link">&para;</a></h6>
+<h6 id="protected-virtual-boolonupdateconst-commonupdateinfo-_info"><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1a40020feac24af0035cc376c00fb9d755"><code class="codehilite"><span class="n">OnUpdate</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">common</span><span class="p">::</span><span class="n">UpdateInfo</span> <span class="o">&amp;</span> <span class="n">_info</span><span class="p">)</span></code><a class="headerlink" href="#protected-virtual-boolonupdateconst-commonupdateinfo-_info" title="Permanent link">&para;</a></h6>
 <p>Update sensor measurement.</p>
-<h6 id="protected-virtual-voidonplumeparticlesupdateconst-sensor_msgspointcloudconstptr-_msg"><code class="codehilite">protected virtual void</code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1a4df41586ec6bca66f1b9cc6b1f80af73"><code class="codehilite">OnPlumeParticlesUpdate</code></a><code class="codehilite">(const sensor_msgs::PointCloud::ConstPtr &amp; _msg)</code><a class="headerlink" href="#protected-virtual-voidonplumeparticlesupdateconst-sensor_msgspointcloudconstptr-_msg" title="Permanent link">&para;</a></h6>
+<h6 id="protected-virtual-voidonplumeparticlesupdateconst-sensor_msgspointcloudconstptr-_msg"><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_c_p_c_r_o_s_plugin_1a4df41586ec6bca66f1b9cc6b1f80af73"><code class="codehilite"><span class="n">OnPlumeParticlesUpdate</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">sensor_msgs</span><span class="p">::</span><span class="n">PointCloud</span><span class="p">::</span><span class="n">ConstPtr</span> <span class="o">&amp;</span> <span class="n">_msg</span><span class="p">)</span></code><a class="headerlink" href="#protected-virtual-voidonplumeparticlesupdateconst-sensor_msgspointcloudconstptr-_msg" title="Permanent link">&para;</a></h6>
 <p>Update callback from simulator.</p>
                 
                   

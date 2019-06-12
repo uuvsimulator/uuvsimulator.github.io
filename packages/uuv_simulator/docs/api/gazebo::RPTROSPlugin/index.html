@@ -456,6 +456,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -2840,9 +2852,9 @@
                 
                   <h1>RPTROSPlugin</h1>
                 
-                <h4 id="class-gazeborptrosplugin">class <code class="codehilite">gazebo::RPTROSPlugin</code><a class="headerlink" href="#class-gazeborptrosplugin" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><span class="kr">class</span> <span class="nx">gazebo</span><span class="o">::</span><span class="nx">RPTROSPlugin</span>
-  : <span class="kt">public</span> <span class="nx">gazebo</span><span class="o">::</span><span class="nx">ROSBaseModelPlugin</span>
+                <h4 id="class-gazeborptrosplugin">class <code class="codehilite"><span class="n">gazebo</span><span class="p">::</span><span class="n">RPTROSPlugin</span></code><a class="headerlink" href="#class-gazeborptrosplugin" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="n">gazebo::RPTROSPlugin</span>
+  : <span class="n">public</span> <span class="n">gazebo::ROSBaseModelPlugin</span>
 </pre></div>
 
 <h5 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h5>
@@ -2855,43 +2867,43 @@
 </thead>
 <tbody>
 <tr>
-<td><code class="codehilite">public</code><a href="#classgazebo_1_1_r_p_t_r_o_s_plugin_1a657fc78325cb07243a81e215f5138eca"><code class="codehilite">RPTROSPlugin</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span></code><a href="#classgazebo_1_1_r_p_t_r_o_s_plugin_1a657fc78325cb07243a81e215f5138eca"><code class="codehilite"><span class="n">RPTROSPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Class constructor.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual</code><a href="#classgazebo_1_1_r_p_t_r_o_s_plugin_1a9d2ac490915bf9e382483acfda626973"><code class="codehilite">~RPTROSPlugin</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span></code><a href="#classgazebo_1_1_r_p_t_r_o_s_plugin_1a9d2ac490915bf9e382483acfda626973"><code class="codehilite"><span class="o">~</span><span class="n">RPTROSPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Class destructor.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_r_p_t_r_o_s_plugin_1a69902969c25c0cc413899848e9b77296"><code class="codehilite">Load</code></a><code class="codehilite">(physics::ModelPtr _model,sdf::ElementPtr _sdf)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_r_p_t_r_o_s_plugin_1a69902969c25c0cc413899848e9b77296"><code class="codehilite"><span class="k">Load</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">physics</span><span class="p">::</span><span class="n">ModelPtr</span> <span class="n">_model</span><span class="p">,</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">)</span></code></td>
 <td>Load the plugin.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_r_p_t_r_o_s_plugin_1a8fd907c796413bfd0985520d2527c56b"><code class="codehilite">position</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_r_p_t_r_o_s_plugin_1a8fd907c796413bfd0985520d2527c56b"><code class="codehilite"><span class="k">position</span></code></a></td>
 <td>Latest measured position.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected uuv_sensor_ros_plugins_msgs::PositionWithCovarianceStamped</code><a href="#classgazebo_1_1_r_p_t_r_o_s_plugin_1ac866e78fbe92ce2cda59b1d0d2a067c4"><code class="codehilite">rosMessage</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">uuv_sensor_ros_plugins_msgs</span><span class="p">::</span><span class="n">PositionWithCovarianceStamped</span></code><a href="#classgazebo_1_1_r_p_t_r_o_s_plugin_1ac866e78fbe92ce2cda59b1d0d2a067c4"><code class="codehilite"><span class="n">rosMessage</span></code></a></td>
 <td>Store message since many attributes do not change (cov.).</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected virtual bool</code><a href="#classgazebo_1_1_r_p_t_r_o_s_plugin_1a1a354ec7d3a72bf8313d84bb044f8fce"><code class="codehilite">OnUpdate</code></a><code class="codehilite">(const common::UpdateInfo &amp; _info)</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_r_p_t_r_o_s_plugin_1a1a354ec7d3a72bf8313d84bb044f8fce"><code class="codehilite"><span class="n">OnUpdate</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">common</span><span class="p">::</span><span class="n">UpdateInfo</span> <span class="o">&amp;</span> <span class="n">_info</span><span class="p">)</span></code></td>
 <td>Update sensor measurement.</td>
 </tr>
 </tbody>
 </table>
 <h5 id="members">Members<a class="headerlink" href="#members" title="Permanent link">&para;</a></h5>
-<h6 id="publicrptrosplugin"><code class="codehilite">public</code><a href="#classgazebo_1_1_r_p_t_r_o_s_plugin_1a657fc78325cb07243a81e215f5138eca"><code class="codehilite">RPTROSPlugin</code></a><code class="codehilite">()</code><a class="headerlink" href="#publicrptrosplugin" title="Permanent link">&para;</a></h6>
+<h6 id="publicrptrosplugin"><code class="codehilite"><span class="k">public</span></code><a href="#classgazebo_1_1_r_p_t_r_o_s_plugin_1a657fc78325cb07243a81e215f5138eca"><code class="codehilite"><span class="n">RPTROSPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#publicrptrosplugin" title="Permanent link">&para;</a></h6>
 <p>Class constructor.</p>
-<h6 id="public-virtualrptrosplugin"><code class="codehilite">public virtual</code><a href="#classgazebo_1_1_r_p_t_r_o_s_plugin_1a9d2ac490915bf9e382483acfda626973"><code class="codehilite">~RPTROSPlugin</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-virtualrptrosplugin" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtualrptrosplugin"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span></code><a href="#classgazebo_1_1_r_p_t_r_o_s_plugin_1a9d2ac490915bf9e382483acfda626973"><code class="codehilite"><span class="o">~</span><span class="n">RPTROSPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-virtualrptrosplugin" title="Permanent link">&para;</a></h6>
 <p>Class destructor.</p>
-<h6 id="public-virtual-voidloadphysicsmodelptr-_modelsdfelementptr-_sdf"><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_r_p_t_r_o_s_plugin_1a69902969c25c0cc413899848e9b77296"><code class="codehilite">Load</code></a><code class="codehilite">(physics::ModelPtr _model,sdf::ElementPtr _sdf)</code><a class="headerlink" href="#public-virtual-voidloadphysicsmodelptr-_modelsdfelementptr-_sdf" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtual-voidloadphysicsmodelptr-_modelsdfelementptr-_sdf"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_r_p_t_r_o_s_plugin_1a69902969c25c0cc413899848e9b77296"><code class="codehilite"><span class="k">Load</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">physics</span><span class="p">::</span><span class="n">ModelPtr</span> <span class="n">_model</span><span class="p">,</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">)</span></code><a class="headerlink" href="#public-virtual-voidloadphysicsmodelptr-_modelsdfelementptr-_sdf" title="Permanent link">&para;</a></h6>
 <p>Load the plugin.</p>
-<h6 id="protected-ignitionmathvector3dposition"><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_r_p_t_r_o_s_plugin_1a8fd907c796413bfd0985520d2527c56b"><code class="codehilite">position</code></a><a class="headerlink" href="#protected-ignitionmathvector3dposition" title="Permanent link">&para;</a></h6>
+<h6 id="protected-ignitionmathvector3dposition"><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_r_p_t_r_o_s_plugin_1a8fd907c796413bfd0985520d2527c56b"><code class="codehilite"><span class="k">position</span></code></a><a class="headerlink" href="#protected-ignitionmathvector3dposition" title="Permanent link">&para;</a></h6>
 <p>Latest measured position.</p>
-<h6 id="protected-uuv_sensor_ros_plugins_msgspositionwithcovariancestampedrosmessage"><code class="codehilite">protected uuv_sensor_ros_plugins_msgs::PositionWithCovarianceStamped</code><a href="#classgazebo_1_1_r_p_t_r_o_s_plugin_1ac866e78fbe92ce2cda59b1d0d2a067c4"><code class="codehilite">rosMessage</code></a><a class="headerlink" href="#protected-uuv_sensor_ros_plugins_msgspositionwithcovariancestampedrosmessage" title="Permanent link">&para;</a></h6>
+<h6 id="protected-uuv_sensor_ros_plugins_msgspositionwithcovariancestampedrosmessage"><code class="codehilite"><span class="n">protected</span> <span class="n">uuv_sensor_ros_plugins_msgs</span><span class="p">::</span><span class="n">PositionWithCovarianceStamped</span></code><a href="#classgazebo_1_1_r_p_t_r_o_s_plugin_1ac866e78fbe92ce2cda59b1d0d2a067c4"><code class="codehilite"><span class="n">rosMessage</span></code></a><a class="headerlink" href="#protected-uuv_sensor_ros_plugins_msgspositionwithcovariancestampedrosmessage" title="Permanent link">&para;</a></h6>
 <p>Store message since many attributes do not change (cov.).</p>
-<h6 id="protected-virtual-boolonupdateconst-commonupdateinfo-_info"><code class="codehilite">protected virtual bool</code><a href="#classgazebo_1_1_r_p_t_r_o_s_plugin_1a1a354ec7d3a72bf8313d84bb044f8fce"><code class="codehilite">OnUpdate</code></a><code class="codehilite">(const common::UpdateInfo &amp; _info)</code><a class="headerlink" href="#protected-virtual-boolonupdateconst-commonupdateinfo-_info" title="Permanent link">&para;</a></h6>
+<h6 id="protected-virtual-boolonupdateconst-commonupdateinfo-_info"><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_r_p_t_r_o_s_plugin_1a1a354ec7d3a72bf8313d84bb044f8fce"><code class="codehilite"><span class="n">OnUpdate</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">common</span><span class="p">::</span><span class="n">UpdateInfo</span> <span class="o">&amp;</span> <span class="n">_info</span><span class="p">)</span></code><a class="headerlink" href="#protected-virtual-boolonupdateconst-commonupdateinfo-_info" title="Permanent link">&para;</a></h6>
 <p>Update sensor measurement.</p>
                 
                   

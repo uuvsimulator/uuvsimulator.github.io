@@ -456,6 +456,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -680,6 +692,13 @@
           <li class="md-nav__item">
   <a href="#publish_world_modelspy" title="publish_world_models.py" class="md-nav__link">
     publish_world_models.py
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate_urdf" title="generate_urdf" class="md-nav__link">
+    generate_urdf
   </a>
   
 </li>
@@ -2883,6 +2902,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#generate_urdf" title="generate_urdf" class="md-nav__link">
+    generate_urdf
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#publish_footprintspy" title="publish_footprints.py" class="md-nav__link">
     publish_footprints.py
   </a>
@@ -2952,49 +2978,49 @@
                 
                 <p><img alt="Version" src="https://img.shields.io/badge/version-0.6.12-brightgreen.svg" /></p>
 <blockquote>
-<p>Link to the <code class="codehilite">uuv_simulator</code> repository <a href="https://github.com/uuvsimulator/uuv_simulator">here</a></p>
+<p>Link to the <code class="codehilite"><span class="n">uuv_simulator</span></code> repository <a href="https://github.com/uuvsimulator/uuv_simulator">here</a></p>
 </blockquote>
 <h4 id="description">Description<a class="headerlink" href="#description" title="Permanent link">&para;</a></h4>
 <p>Tools and utilities to monitor and analyze the simulation</p>
 <h4 id="launch-files">Launch files<a class="headerlink" href="#launch-files" title="Permanent link">&para;</a></h4>
-<h5 id="publish_footprintslaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_assistants/launch/publish_footprints.launch"><code class="codehilite">publish_footprints.launch</code></a><a class="headerlink" href="#publish_footprintslaunch" title="Permanent link">&para;</a></h5>
-<h5 id="message_to_tflaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_assistants/launch/message_to_tf.launch"><code class="codehilite">message_to_tf.launch</code></a><a class="headerlink" href="#message_to_tflaunch" title="Permanent link">&para;</a></h5>
+<h5 id="publish_footprintslaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_assistants/launch/publish_footprints.launch"><code class="codehilite"><span class="n">publish_footprints</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#publish_footprintslaunch" title="Permanent link">&para;</a></h5>
+<h5 id="message_to_tflaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_assistants/launch/message_to_tf.launch"><code class="codehilite"><span class="n">message_to_tf</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#message_to_tflaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
-<li><strong>namespace</strong> (<em>default:</em> <code class="codehilite">rexrov</code>)</li>
-<li><strong>world_frame</strong> (<em>default:</em> <code class="codehilite">world</code>)</li>
-<li><strong>child_frame_id</strong> (<em>default:</em> <code class="codehilite">/$(arg namespace)/base_link</code>)</li>
-<li><strong>odometry_topic</strong> (<em>default:</em> <code class="codehilite">/$(arg namespace)/pose_gt</code>)</li>
+<li><strong>namespace</strong> (<em>default:</em> <code class="codehilite"><span class="n">rexrov</span></code>)</li>
+<li><strong>world_frame</strong> (<em>default:</em> <code class="codehilite"><span class="n">world</span></code>)</li>
+<li><strong>child_frame_id</strong> (<em>default:</em> <code class="codehilite"><span class="o">/</span><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">namespace</span><span class="p">)</span><span class="o">/</span><span class="n">base_link</span></code>)</li>
+<li><strong>odometry_topic</strong> (<em>default:</em> <code class="codehilite"><span class="o">/</span><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">namespace</span><span class="p">)</span><span class="o">/</span><span class="n">pose_gt</span></code>)</li>
 </ul>
-<h5 id="publish_vehicle_footprintlaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_assistants/launch/publish_vehicle_footprint.launch"><code class="codehilite">publish_vehicle_footprint.launch</code></a><a class="headerlink" href="#publish_vehicle_footprintlaunch" title="Permanent link">&para;</a></h5>
+<h5 id="publish_vehicle_footprintlaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_assistants/launch/publish_vehicle_footprint.launch"><code class="codehilite"><span class="n">publish_vehicle_footprint</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#publish_vehicle_footprintlaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
 <li><strong>uuv_name</strong></li>
-<li><strong>scale_footprint</strong> (<em>default:</em> <code class="codehilite">10</code>)</li>
-<li><strong>scale_label</strong> (<em>default:</em> <code class="codehilite">10</code>)</li>
-<li><strong>label_x_offset</strong> (<em>default:</em> <code class="codehilite">60</code>)</li>
-<li><strong>odom_topic</strong> (<em>default:</em> <code class="codehilite">pose_gt</code>)</li>
+<li><strong>scale_footprint</strong> (<em>default:</em> <code class="codehilite"><span class="mi">10</span></code>)</li>
+<li><strong>scale_label</strong> (<em>default:</em> <code class="codehilite"><span class="mi">10</span></code>)</li>
+<li><strong>label_x_offset</strong> (<em>default:</em> <code class="codehilite"><span class="mi">60</span></code>)</li>
+<li><strong>odom_topic</strong> (<em>default:</em> <code class="codehilite"><span class="n">pose_gt</span></code>)</li>
 </ul>
-<h5 id="publish_world_ned_framelaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_assistants/launch/publish_world_ned_frame.launch"><code class="codehilite">publish_world_ned_frame.launch</code></a><a class="headerlink" href="#publish_world_ned_framelaunch" title="Permanent link">&para;</a></h5>
-<h5 id="set_simulation_timerlaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_assistants/launch/set_simulation_timer.launch"><code class="codehilite">set_simulation_timer.launch</code></a><a class="headerlink" href="#set_simulation_timerlaunch" title="Permanent link">&para;</a></h5>
+<h5 id="publish_world_ned_framelaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_assistants/launch/publish_world_ned_frame.launch"><code class="codehilite"><span class="n">publish_world_ned_frame</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#publish_world_ned_framelaunch" title="Permanent link">&para;</a></h5>
+<h5 id="set_simulation_timerlaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_assistants/launch/set_simulation_timer.launch"><code class="codehilite"><span class="n">set_simulation_timer</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#set_simulation_timerlaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
 <li><strong>timeout</strong></li>
 </ul>
-<h5 id="unpause_simulationlaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_assistants/launch/unpause_simulation.launch"><code class="codehilite">unpause_simulation.launch</code></a><a class="headerlink" href="#unpause_simulationlaunch" title="Permanent link">&para;</a></h5>
+<h5 id="unpause_simulationlaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_assistants/launch/unpause_simulation.launch"><code class="codehilite"><span class="n">unpause_simulation</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#unpause_simulationlaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
-<li><strong>timeout</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
+<li><strong>timeout</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
 </ul>
-<h5 id="publish_body_snamelaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_assistants/launch/publish_body_sname.launch"><code class="codehilite">publish_body_sname.launch</code></a><a class="headerlink" href="#publish_body_snamelaunch" title="Permanent link">&para;</a></h5>
+<h5 id="publish_body_snamelaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_assistants/launch/publish_body_sname.launch"><code class="codehilite"><span class="n">publish_body_sname</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#publish_body_snamelaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
@@ -3002,33 +3028,34 @@
 <li><strong>uuv_name</strong></li>
 </ul>
 <h4 id="scripts">Scripts<a class="headerlink" href="#scripts" title="Permanent link">&para;</a></h4>
-<h5 id="publish_world_modelspy"><code class="codehilite">publish_world_models.py</code><a class="headerlink" href="#publish_world_modelspy" title="Permanent link">&para;</a></h5>
+<h5 id="publish_world_modelspy"><code class="codehilite"><span class="n">publish_world_models</span><span class="p">.</span><span class="n">py</span></code><a class="headerlink" href="#publish_world_modelspy" title="Permanent link">&para;</a></h5>
 <blockquote>
-<p><strong>Script type:</strong> <code class="codehilite">python</code></p>
+<p><strong>Script type:</strong> <code class="codehilite"><span class="n">python</span></code></p>
 </blockquote>
-<h5 id="publish_footprintspy"><code class="codehilite">publish_footprints.py</code><a class="headerlink" href="#publish_footprintspy" title="Permanent link">&para;</a></h5>
+<h5 id="generate_urdf"><code class="codehilite"><span class="n">generate_urdf</span></code><a class="headerlink" href="#generate_urdf" title="Permanent link">&para;</a></h5>
+<h5 id="publish_footprintspy"><code class="codehilite"><span class="n">publish_footprints</span><span class="p">.</span><span class="n">py</span></code><a class="headerlink" href="#publish_footprintspy" title="Permanent link">&para;</a></h5>
 <blockquote>
-<p><strong>Script type:</strong> <code class="codehilite">python</code></p>
+<p><strong>Script type:</strong> <code class="codehilite"><span class="n">python</span></code></p>
 </blockquote>
-<h5 id="publish_vehicle_footprintpy"><code class="codehilite">publish_vehicle_footprint.py</code><a class="headerlink" href="#publish_vehicle_footprintpy" title="Permanent link">&para;</a></h5>
+<h5 id="publish_vehicle_footprintpy"><code class="codehilite"><span class="n">publish_vehicle_footprint</span><span class="p">.</span><span class="n">py</span></code><a class="headerlink" href="#publish_vehicle_footprintpy" title="Permanent link">&para;</a></h5>
 <blockquote>
-<p><strong>Script type:</strong> <code class="codehilite">python</code></p>
+<p><strong>Script type:</strong> <code class="codehilite"><span class="n">python</span></code></p>
 </blockquote>
-<h5 id="create_new_robot_model"><code class="codehilite">create_new_robot_model</code><a class="headerlink" href="#create_new_robot_model" title="Permanent link">&para;</a></h5>
+<h5 id="create_new_robot_model"><code class="codehilite"><span class="n">create_new_robot_model</span></code><a class="headerlink" href="#create_new_robot_model" title="Permanent link">&para;</a></h5>
 <blockquote>
-<p><strong>Script type:</strong> <code class="codehilite">python</code></p>
+<p><strong>Script type:</strong> <code class="codehilite"><span class="n">python</span></code></p>
 </blockquote>
-<h5 id="unpause_simulationpy"><code class="codehilite">unpause_simulation.py</code><a class="headerlink" href="#unpause_simulationpy" title="Permanent link">&para;</a></h5>
+<h5 id="unpause_simulationpy"><code class="codehilite"><span class="n">unpause_simulation</span><span class="p">.</span><span class="n">py</span></code><a class="headerlink" href="#unpause_simulationpy" title="Permanent link">&para;</a></h5>
 <blockquote>
-<p><strong>Script type:</strong> <code class="codehilite">python</code></p>
+<p><strong>Script type:</strong> <code class="codehilite"><span class="n">python</span></code></p>
 </blockquote>
-<h5 id="create_thruster_manager_configuration"><code class="codehilite">create_thruster_manager_configuration</code><a class="headerlink" href="#create_thruster_manager_configuration" title="Permanent link">&para;</a></h5>
+<h5 id="create_thruster_manager_configuration"><code class="codehilite"><span class="n">create_thruster_manager_configuration</span></code><a class="headerlink" href="#create_thruster_manager_configuration" title="Permanent link">&para;</a></h5>
 <blockquote>
-<p><strong>Script type:</strong> <code class="codehilite">python</code></p>
+<p><strong>Script type:</strong> <code class="codehilite"><span class="n">python</span></code></p>
 </blockquote>
-<h5 id="set_simulation_timerpy"><code class="codehilite">set_simulation_timer.py</code><a class="headerlink" href="#set_simulation_timerpy" title="Permanent link">&para;</a></h5>
+<h5 id="set_simulation_timerpy"><code class="codehilite"><span class="n">set_simulation_timer</span><span class="p">.</span><span class="n">py</span></code><a class="headerlink" href="#set_simulation_timerpy" title="Permanent link">&para;</a></h5>
 <blockquote>
-<p><strong>Script type:</strong> <code class="codehilite">python</code></p>
+<p><strong>Script type:</strong> <code class="codehilite"><span class="n">python</span></code></p>
 </blockquote>
                 
                   

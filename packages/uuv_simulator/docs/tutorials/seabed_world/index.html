@@ -456,6 +456,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -2730,7 +2742,7 @@
                 
                   <h1>Creating a new world with a custom seabed</h1>
                 
-                <p>For the following tutorial, all the files can also be found in the <a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_tutorials/uuv_tutorial_seabed_world"><code class="codehilite">uuv_tutorial_seabed_world</code></a> package.
+                <p>For the following tutorial, all the files can also be found in the <a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_tutorials/uuv_tutorial_seabed_world"><code class="codehilite"><span class="n">uuv_tutorial_seabed_world</span></code></a> package.
 The seabed can be critical in simulation scenarios where the objective is, for example, to use UUVs for bathymetric mapping or just to make the scenario look more realistic.
 Gazebo already has a feature to generate heightmaps from grayscale images (see the video below). This is a very quick way to setup a heightmap, but it can happen that its complexity might make the simulation run slower when trying to interact with it.</p>
 <iframe src="https://player.vimeo.com/video/58409707" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
@@ -2740,8 +2752,8 @@ Gazebo already has a feature to generate heightmaps from grayscale images (see t
 <p>Another option is to take an existent point cloud of a seabed and convert it into a mesh that can be imported in Gazebo like any other model.</p>
 <h4 id="creating-the-mesh-file">Creating the mesh file<a class="headerlink" href="#creating-the-mesh-file" title="Permanent link">&para;</a></h4>
 <p>Measurement data can be sparse and have outliers that need to be removed before generating the mesh. 
-The script below is an example on how the measurement data can be interpolated into a grid and later converted into an STL file. For this example, we will use the test surface available in the <code class="codehilite">matplotlib</code> package, but you should replace it with your own point cloud data. You will also need the packages <code class="codehilite">numpy</code>, <code class="codehilite">scipy</code> and <code class="codehilite">numpy-stl</code>.</p>
-<p>To install the necessary packages, you can use <code class="codehilite">pip</code></p>
+The script below is an example on how the measurement data can be interpolated into a grid and later converted into an STL file. For this example, we will use the test surface available in the <code class="codehilite"><span class="n">matplotlib</span></code> package, but you should replace it with your own point cloud data. You will also need the packages <code class="codehilite"><span class="n">numpy</span></code>, <code class="codehilite"><span class="n">scipy</span></code> and <code class="codehilite"><span class="n">numpy</span><span class="o">-</span><span class="n">stl</span></code>.</p>
+<p>To install the necessary packages, you can use <code class="codehilite"><span class="n">pip</span></code></p>
 <div class="codehilite"><pre><span></span>sudo apt install python-pip
 pip install numpy scipy matplotlib numpy-stl --user
 </pre></div>
@@ -2827,7 +2839,7 @@ pip install numpy scipy matplotlib numpy-stl --user
 <p><img alt="Seabed Image" src="../../images/seabed/seabed_image.png" /></p>
 <p>and the triangulated grid used for the creation of the seabed</p>
 <p><img alt="Seabed triagulated" src="../../images/seabed/seabed_tri.png" /></p>
-<p>Now a <code class="codehilite">seabed.stl</code> data has been created or you can download it <a href="https://github.com/uuvsimulator/uuv_simulator/blob/master/uuv_tutorials/uuv_tutorial_seabed_world/models/tutorial_seabed/meshes/seabed.stl">here</a>.
+<p>Now a <code class="codehilite"><span class="n">seabed</span><span class="p">.</span><span class="n">stl</span></code> data has been created or you can download it <a href="https://github.com/uuvsimulator/uuv_simulator/blob/master/uuv_tutorials/uuv_tutorial_seabed_world/models/tutorial_seabed/meshes/seabed.stl">here</a>.
 You can open it using <a href="http://meshlab.sourceforge.net/">MeshLab</a> or <a href="https://www.blender.org/">Blender</a>. Here we will use Blender to show the surface. You can also use Blender to edit the mesh, if necessary.</p>
 <p><img alt="Seabed Blender" src="../../images/seabed/seabed_blender.png" /></p>
 <p>Even though the surface is ready, if you import it in Gazebo as it is you might not be able to have contact forces if you hit the seabed with your robot. 
@@ -2860,11 +2872,11 @@ mkdir -p models/tutorial_seabed/meshes
 touch model.config model.sdf
 </pre></div>
 
-<p>Now copy the <code class="codehilite">seabed.stl</code> file into the folder <code class="codehilite">uuv_tutorial_seabed_world/models/tutorial_seabed/meshes</code>.</p>
-<p>For the Gazebo seabed model, you will need to create the following files in your <code class="codehilite">uuv_tutorial_seabed_world/models/tutorial_seabed</code> folder. The materials used below come from UUV simulator's <a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_descriptions/Media/materials">materials description</a>.
+<p>Now copy the <code class="codehilite"><span class="n">seabed</span><span class="p">.</span><span class="n">stl</span></code> file into the folder <code class="codehilite"><span class="n">uuv_tutorial_seabed_world</span><span class="o">/</span><span class="n">models</span><span class="o">/</span><span class="n">tutorial_seabed</span><span class="o">/</span><span class="n">meshes</span></code>.</p>
+<p>For the Gazebo seabed model, you will need to create the following files in your <code class="codehilite"><span class="n">uuv_tutorial_seabed_world</span><span class="o">/</span><span class="n">models</span><span class="o">/</span><span class="n">tutorial_seabed</span></code> folder. The materials used below come from UUV simulator's <a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_descriptions/Media/materials">materials description</a>.
 You can replace them for other textures. You can change them to, for example, the <a href="https://bitbucket.org/osrf/gazebo/src/7d7c37d66d00f1e5e3d96a90734bc61f1f75d8eb/media/materials/scripts/gazebo.material?at=default&amp;fileviewer=file-view-default">default materials provided by Gazebo</a>.</p>
 <ul>
-<li><code class="codehilite">model.config</code></li>
+<li><code class="codehilite"><span class="n">model</span><span class="p">.</span><span class="n">config</span></code></li>
 </ul>
 <div class="codehilite"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
 <span class="nt">&lt;model&gt;</span>
@@ -2934,9 +2946,9 @@ You can replace them for other textures. You can change them to, for example, th
 <span class="nt">&lt;/sdf&gt;</span>
 </pre></div>
 
-<p>Now you can configure your <strong>catkin package</strong> so that the model can be listed in Gazebo as a model. For that you'll have to configure the <code class="codehilite">package.xml</code> and <code class="codehilite">CMakeLists.txt</code> files as in the examples below.</p>
+<p>Now you can configure your <strong>catkin package</strong> so that the model can be listed in Gazebo as a model. For that you'll have to configure the <code class="codehilite"><span class="n">package</span><span class="p">.</span><span class="n">xml</span></code> and <code class="codehilite"><span class="n">CMakeLists</span><span class="p">.</span><span class="n">txt</span></code> files as in the examples below.</p>
 <ul>
-<li><code class="codehilite">CMakeLists.txt</code></li>
+<li><code class="codehilite"><span class="n">CMakeLists</span><span class="p">.</span><span class="n">txt</span></code></li>
 </ul>
 <div class="codehilite"><pre><span></span>cmake_minimum_required(VERSION 2.8.3)
 project(uuv_tutorial_seabed_world)
@@ -2951,7 +2963,7 @@ install(DIRECTORY launch worlds models
 </pre></div>
 
 <ul>
-<li><code class="codehilite">package.xml</code></li>
+<li><code class="codehilite"><span class="n">package</span><span class="p">.</span><span class="n">xml</span></code></li>
 </ul>
 <p>For this file, be sure to have the following lines</p>
 <div class="codehilite"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
@@ -2991,12 +3003,12 @@ catkin_make
 catkin build
 </pre></div>
 
-<p>if you are using <code class="codehilite">catkin_tools</code>.</p>
+<p>if you are using <code class="codehilite"><span class="n">catkin_tools</span></code>.</p>
 <p>Now, if you open Gazebo using </p>
 <div class="codehilite"><pre><span></span>roslaunch gazebo_ros empty_world.launch
 </pre></div>
 
-<p>and delete the <code class="codehilite">ground_plane</code> model under the <strong>Models</strong> list, and then select the <strong>Tutorial - Seabed</strong> model from the list at the <strong>Insert</strong> tab, you will be able to see the following screen</p>
+<p>and delete the <code class="codehilite"><span class="n">ground_plane</span></code> model under the <strong>Models</strong> list, and then select the <strong>Tutorial - Seabed</strong> model from the list at the <strong>Insert</strong> tab, you will be able to see the following screen</p>
 <p><img alt="Gazebo Seabed" src="../../images/seabed/gazebo_seabed.png" /></p>
 <h4 id="creating-a-new-gazebo-world">Creating a new Gazebo world<a class="headerlink" href="#creating-a-new-gazebo-world" title="Permanent link">&para;</a></h4>
 <p>Now that the model is done, you can create a Gazebo world to load your scenario with the seabed model. Create a new world file as follows </p>
@@ -3004,14 +3016,14 @@ catkin build
 touch example_underwater.world
 </pre></div>
 
-<p>and a <code class="codehilite">launch</code> file to start it </p>
+<p>and a <code class="codehilite"><span class="n">launch</span></code> file to start it </p>
 <div class="codehilite"><pre><span></span>roscd uuv_tutorial_seabed_world/launch
 touch tutorial_seabed_world.launch
 </pre></div>
 
 <p>The contents of both files can be seen below</p>
 <ul>
-<li><code class="codehilite">example_underwater.world</code></li>
+<li><code class="codehilite"><span class="n">example_underwater</span><span class="p">.</span><span class="n">world</span></code></li>
 </ul>
 <div class="codehilite"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; ?&gt;</span>
 <span class="nt">&lt;sdf</span> <span class="na">version=</span><span class="s">&quot;1.5&quot;</span><span class="nt">&gt;</span>
@@ -3085,7 +3097,7 @@ touch tutorial_seabed_world.launch
 </pre></div>
 
 <ul>
-<li><code class="codehilite">tutorial_seabed_world.launch</code></li>
+<li><code class="codehilite"><span class="n">tutorial_seabed_world</span><span class="p">.</span><span class="n">launch</span></code></li>
 </ul>
 <div class="codehilite"><pre><span></span><span class="nt">&lt;launch&gt;</span>
     <span class="nt">&lt;arg</span> <span class="na">name=</span><span class="s">&quot;gui&quot;</span> <span class="na">default=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>

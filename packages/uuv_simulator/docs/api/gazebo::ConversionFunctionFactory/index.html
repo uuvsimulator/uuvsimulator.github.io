@@ -456,6 +456,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -2786,7 +2798,7 @@
                 
                   <h1>ConversionFunctionFactory</h1>
                 
-                <h4 id="class-gazeboconversionfunctionfactory">class <code class="codehilite">gazebo::ConversionFunctionFactory</code><a class="headerlink" href="#class-gazeboconversionfunctionfactory" title="Permanent link">&para;</a></h4>
+                <h4 id="class-gazeboconversionfunctionfactory">class <code class="codehilite"><span class="n">gazebo</span><span class="p">::</span><span class="n">ConversionFunctionFactory</span></code><a class="headerlink" href="#class-gazeboconversionfunctionfactory" title="Permanent link">&para;</a></h4>
 <p>Factory singleton class that creates a <a href="docs/packages/uuv_simulator/docs/api/gazebo::ConversionFunction.md#classgazebo_1_1_conversion_function">ConversionFunction</a> from sdf.</p>
 <h5 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h5>
 <table>
@@ -2798,19 +2810,19 @@
 </thead>
 <tbody>
 <tr>
-<td><code class="codehilite">public</code><a href="docs/packages/uuv_simulator/docs/api/gazebo::ConversionFunction.md#classgazebo_1_1_conversion_function"><code class="codehilite">ConversionFunction</code></a><code class="codehilite">*</code><a href="#classgazebo_1_1_conversion_function_factory_1a26d4ebd40ed459a7fb5ed382822ecc33"><code class="codehilite">CreateConversionFunction</code></a><code class="codehilite">(sdf::ElementPtr _sdf)</code></td>
+<td><code class="codehilite"><span class="k">public</span></code><a href="docs/packages/uuv_simulator/docs/api/gazebo::ConversionFunction.md#classgazebo_1_1_conversion_function"><code class="codehilite"><span class="n">ConversionFunction</span></code></a><code class="codehilite"><span class="o">*</span></code><a href="#classgazebo_1_1_conversion_function_factory_1a26d4ebd40ed459a7fb5ed382822ecc33"><code class="codehilite"><span class="n">CreateConversionFunction</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">)</span></code></td>
 <td>Create a <a href="docs/packages/uuv_simulator/docs/api/gazebo::ConversionFunction.md#classgazebo_1_1_conversion_function">ConversionFunction</a> object according to its sdf Description.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public bool</code><a href="#classgazebo_1_1_conversion_function_factory_1ac25e17bcce4a2fd6f0cf42f2ead733b0"><code class="codehilite">RegisterCreator</code></a><code class="codehilite">(const std::string &amp; _identifier,ConversionFunctionCreator _creator)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_conversion_function_factory_1ac25e17bcce4a2fd6f0cf42f2ead733b0"><code class="codehilite"><span class="n">RegisterCreator</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="o">&amp;</span> <span class="n">_identifier</span><span class="p">,</span><span class="n">ConversionFunctionCreator</span> <span class="n">_creator</span><span class="p">)</span></code></td>
 <td>Register a <a href="docs/packages/uuv_simulator/docs/api/gazebo::ConversionFunction.md#classgazebo_1_1_conversion_function">ConversionFunction</a> class with its creator.</td>
 </tr>
 </tbody>
 </table>
 <h5 id="members">Members<a class="headerlink" href="#members" title="Permanent link">&para;</a></h5>
-<h6 id="publicconversionfunctioncreateconversionfunctionsdfelementptr-_sdf"><code class="codehilite">public</code><a href="docs/packages/uuv_simulator/docs/api/gazebo::ConversionFunction.md#classgazebo_1_1_conversion_function"><code class="codehilite">ConversionFunction</code></a><code class="codehilite">*</code><a href="#classgazebo_1_1_conversion_function_factory_1a26d4ebd40ed459a7fb5ed382822ecc33"><code class="codehilite">CreateConversionFunction</code></a><code class="codehilite">(sdf::ElementPtr _sdf)</code><a class="headerlink" href="#publicconversionfunctioncreateconversionfunctionsdfelementptr-_sdf" title="Permanent link">&para;</a></h6>
+<h6 id="publicconversionfunctioncreateconversionfunctionsdfelementptr-_sdf"><code class="codehilite"><span class="k">public</span></code><a href="docs/packages/uuv_simulator/docs/api/gazebo::ConversionFunction.md#classgazebo_1_1_conversion_function"><code class="codehilite"><span class="n">ConversionFunction</span></code></a><code class="codehilite"><span class="o">*</span></code><a href="#classgazebo_1_1_conversion_function_factory_1a26d4ebd40ed459a7fb5ed382822ecc33"><code class="codehilite"><span class="n">CreateConversionFunction</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">)</span></code><a class="headerlink" href="#publicconversionfunctioncreateconversionfunctionsdfelementptr-_sdf" title="Permanent link">&para;</a></h6>
 <p>Create a <a href="docs/packages/uuv_simulator/docs/api/gazebo::ConversionFunction.md#classgazebo_1_1_conversion_function">ConversionFunction</a> object according to its sdf Description.</p>
-<h6 id="public-boolregistercreatorconst-stdstring-_identifierconversionfunctioncreator-_creator"><code class="codehilite">public bool</code><a href="#classgazebo_1_1_conversion_function_factory_1ac25e17bcce4a2fd6f0cf42f2ead733b0"><code class="codehilite">RegisterCreator</code></a><code class="codehilite">(const std::string &amp; _identifier,ConversionFunctionCreator _creator)</code><a class="headerlink" href="#public-boolregistercreatorconst-stdstring-_identifierconversionfunctioncreator-_creator" title="Permanent link">&para;</a></h6>
+<h6 id="public-boolregistercreatorconst-stdstring-_identifierconversionfunctioncreator-_creator"><code class="codehilite"><span class="k">public</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_conversion_function_factory_1ac25e17bcce4a2fd6f0cf42f2ead733b0"><code class="codehilite"><span class="n">RegisterCreator</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="o">&amp;</span> <span class="n">_identifier</span><span class="p">,</span><span class="n">ConversionFunctionCreator</span> <span class="n">_creator</span><span class="p">)</span></code><a class="headerlink" href="#public-boolregistercreatorconst-stdstring-_identifierconversionfunctioncreator-_creator" title="Permanent link">&para;</a></h6>
 <p>Register a <a href="docs/packages/uuv_simulator/docs/api/gazebo::ConversionFunction.md#classgazebo_1_1_conversion_function">ConversionFunction</a> class with its creator.</p>
                 
                   

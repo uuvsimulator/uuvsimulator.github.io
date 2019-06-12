@@ -456,6 +456,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -2952,9 +2964,9 @@
                 
                   <h1>CustomBatteryConsumerROSPlugin</h1>
                 
-                <h4 id="class-gazebocustombatteryconsumerrosplugin">class <code class="codehilite">gazebo::CustomBatteryConsumerROSPlugin</code><a class="headerlink" href="#class-gazebocustombatteryconsumerrosplugin" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><span class="kr">class</span> <span class="nx">gazebo</span><span class="o">::</span><span class="nx">CustomBatteryConsumerROSPlugin</span>
-  : <span class="kt">public</span> <span class="nx">ModelPlugin</span>
+                <h4 id="class-gazebocustombatteryconsumerrosplugin">class <code class="codehilite"><span class="n">gazebo</span><span class="p">::</span><span class="n">CustomBatteryConsumerROSPlugin</span></code><a class="headerlink" href="#class-gazebocustombatteryconsumerrosplugin" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="n">gazebo::CustomBatteryConsumerROSPlugin</span>
+  : <span class="n">public</span> <span class="n">ModelPlugin</span>
 </pre></div>
 
 <h5 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h5>
@@ -2967,91 +2979,91 @@
 </thead>
 <tbody>
 <tr>
-<td><code class="codehilite">public</code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1a1dfc5cbec8fb4bb7c398b5f92ebfe025"><code class="codehilite">CustomBatteryConsumerROSPlugin</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span></code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1a1dfc5cbec8fb4bb7c398b5f92ebfe025"><code class="codehilite"><span class="n">CustomBatteryConsumerROSPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Constructor.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual</code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1ad874654e87502adee138a375c59096a5"><code class="codehilite">~CustomBatteryConsumerROSPlugin</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span></code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1ad874654e87502adee138a375c59096a5"><code class="codehilite"><span class="o">~</span><span class="n">CustomBatteryConsumerROSPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Destructor.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public void</code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1a092657cb2832d56f4f4f9037e29de22f"><code class="codehilite">Load</code></a><code class="codehilite">(physics::ModelPtr _parent,sdf::ElementPtr _sdf)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">void</span></code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1a092657cb2832d56f4f4f9037e29de22f"><code class="codehilite"><span class="k">Load</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">physics</span><span class="p">::</span><span class="n">ModelPtr</span> <span class="n">_parent</span><span class="p">,</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">)</span></code></td>
 <td>Load module and read parameters from SDF.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected boost::scoped_ptr&lt; ros::NodeHandle &gt;</code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1a849c350038fc65f0b6618daa9bff2d5a"><code class="codehilite">rosNode</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">boost</span><span class="p">::</span><span class="n">scoped_ptr</span><span class="o">&lt;</span> <span class="n">ros</span><span class="p">::</span><span class="n">NodeHandle</span> <span class="o">&gt;</span></code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1a849c350038fc65f0b6618daa9bff2d5a"><code class="codehilite"><span class="n">rosNode</span></code></a></td>
 <td>Pointer to this ROS node's handle.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ros::Subscriber</code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1a5f4ab26681042a3704d0854c80179ccb"><code class="codehilite">deviceStateSub</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ros</span><span class="p">::</span><span class="n">Subscriber</span></code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1a5f4ab26681042a3704d0854c80179ccb"><code class="codehilite"><span class="n">deviceStateSub</span></code></a></td>
 <td>Subscriber to the device state flag.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected common::BatteryPtr</code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1aab63a2fd9601f9ed588cd310a31d166d"><code class="codehilite">battery</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">common</span><span class="p">::</span><span class="n">BatteryPtr</span></code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1aab63a2fd9601f9ed588cd310a31d166d"><code class="codehilite"><span class="n">battery</span></code></a></td>
 <td>Pointer to battery.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected bool</code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1adb9208bcb12e204be32cdafbd4dedece"><code class="codehilite">isDeviceOn</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1adb9208bcb12e204be32cdafbd4dedece"><code class="codehilite"><span class="n">isDeviceOn</span></code></a></td>
 <td>Flag to signal whether a specific device is running.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1a2a77576499d0d9a4121df0ab26263999"><code class="codehilite">powerLoad</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1a2a77576499d0d9a4121df0ab26263999"><code class="codehilite"><span class="n">powerLoad</span></code></a></td>
 <td>Power load in W.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected int</code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1afa8963cf588440f8a65a40709ee87f1b"><code class="codehilite">consumerID</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="nb">int</span></code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1afa8963cf588440f8a65a40709ee87f1b"><code class="codehilite"><span class="n">consumerID</span></code></a></td>
 <td>Battery consumer ID.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected std::string</code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1aab7c22693c5544d155fe5e3a193d9848"><code class="codehilite">linkName</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1aab7c22693c5544d155fe5e3a193d9848"><code class="codehilite"><span class="n">linkName</span></code></a></td>
 <td>Link name.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected std::string</code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1aabf460331c052e75d5bdfd801832e67c"><code class="codehilite">batteryName</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1aabf460331c052e75d5bdfd801832e67c"><code class="codehilite"><span class="n">batteryName</span></code></a></td>
 <td>Battery model name.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected event::ConnectionPtr</code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1ac88de3b1d146e46df3352b5769a86b81"><code class="codehilite">rosPublishConnection</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">event</span><span class="p">::</span><span class="n">ConnectionPtr</span></code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1ac88de3b1d146e46df3352b5769a86b81"><code class="codehilite"><span class="n">rosPublishConnection</span></code></a></td>
 <td>Connection for callbacks on update world.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected void</code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1a884a9bccf2a5f4a5a935b67a133a18a2"><code class="codehilite">UpdateDeviceState</code></a><code class="codehilite">(const std_msgs::Bool::ConstPtr &amp; _msg)</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">void</span></code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1a884a9bccf2a5f4a5a935b67a133a18a2"><code class="codehilite"><span class="n">UpdateDeviceState</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">std_msgs</span><span class="p">::</span><span class="n">Bool</span><span class="p">::</span><span class="n">ConstPtr</span> <span class="o">&amp;</span> <span class="n">_msg</span><span class="p">)</span></code></td>
 <td>Callback for the device state topic subscriber.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected void</code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1aa0f068f722eb00582d21cd0c69379a2f"><code class="codehilite">UpdatePowerLoad</code></a><code class="codehilite">(double _powerLoad)</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">void</span></code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1aa0f068f722eb00582d21cd0c69379a2f"><code class="codehilite"><span class="n">UpdatePowerLoad</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">double</span> <span class="n">_powerLoad</span><span class="p">)</span></code></td>
 <td>Update power load.</td>
 </tr>
 </tbody>
 </table>
 <h5 id="members">Members<a class="headerlink" href="#members" title="Permanent link">&para;</a></h5>
-<h6 id="publiccustombatteryconsumerrosplugin"><code class="codehilite">public</code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1a1dfc5cbec8fb4bb7c398b5f92ebfe025"><code class="codehilite">CustomBatteryConsumerROSPlugin</code></a><code class="codehilite">()</code><a class="headerlink" href="#publiccustombatteryconsumerrosplugin" title="Permanent link">&para;</a></h6>
+<h6 id="publiccustombatteryconsumerrosplugin"><code class="codehilite"><span class="k">public</span></code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1a1dfc5cbec8fb4bb7c398b5f92ebfe025"><code class="codehilite"><span class="n">CustomBatteryConsumerROSPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#publiccustombatteryconsumerrosplugin" title="Permanent link">&para;</a></h6>
 <p>Constructor.</p>
-<h6 id="public-virtualcustombatteryconsumerrosplugin"><code class="codehilite">public virtual</code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1ad874654e87502adee138a375c59096a5"><code class="codehilite">~CustomBatteryConsumerROSPlugin</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-virtualcustombatteryconsumerrosplugin" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtualcustombatteryconsumerrosplugin"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span></code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1ad874654e87502adee138a375c59096a5"><code class="codehilite"><span class="o">~</span><span class="n">CustomBatteryConsumerROSPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-virtualcustombatteryconsumerrosplugin" title="Permanent link">&para;</a></h6>
 <p>Destructor.</p>
-<h6 id="public-voidloadphysicsmodelptr-_parentsdfelementptr-_sdf"><code class="codehilite">public void</code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1a092657cb2832d56f4f4f9037e29de22f"><code class="codehilite">Load</code></a><code class="codehilite">(physics::ModelPtr _parent,sdf::ElementPtr _sdf)</code><a class="headerlink" href="#public-voidloadphysicsmodelptr-_parentsdfelementptr-_sdf" title="Permanent link">&para;</a></h6>
+<h6 id="public-voidloadphysicsmodelptr-_parentsdfelementptr-_sdf"><code class="codehilite"><span class="k">public</span> <span class="n">void</span></code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1a092657cb2832d56f4f4f9037e29de22f"><code class="codehilite"><span class="k">Load</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">physics</span><span class="p">::</span><span class="n">ModelPtr</span> <span class="n">_parent</span><span class="p">,</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">)</span></code><a class="headerlink" href="#public-voidloadphysicsmodelptr-_parentsdfelementptr-_sdf" title="Permanent link">&para;</a></h6>
 <p>Load module and read parameters from SDF.</p>
-<h6 id="protected-boostscoped_ptr-rosnodehandle-rosnode"><code class="codehilite">protected boost::scoped_ptr&lt; ros::NodeHandle &gt;</code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1a849c350038fc65f0b6618daa9bff2d5a"><code class="codehilite">rosNode</code></a><a class="headerlink" href="#protected-boostscoped_ptr-rosnodehandle-rosnode" title="Permanent link">&para;</a></h6>
+<h6 id="protected-boostscoped_ptr-rosnodehandle-rosnode"><code class="codehilite"><span class="n">protected</span> <span class="n">boost</span><span class="p">::</span><span class="n">scoped_ptr</span><span class="o">&lt;</span> <span class="n">ros</span><span class="p">::</span><span class="n">NodeHandle</span> <span class="o">&gt;</span></code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1a849c350038fc65f0b6618daa9bff2d5a"><code class="codehilite"><span class="n">rosNode</span></code></a><a class="headerlink" href="#protected-boostscoped_ptr-rosnodehandle-rosnode" title="Permanent link">&para;</a></h6>
 <p>Pointer to this ROS node's handle.</p>
-<h6 id="protected-rossubscriberdevicestatesub"><code class="codehilite">protected ros::Subscriber</code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1a5f4ab26681042a3704d0854c80179ccb"><code class="codehilite">deviceStateSub</code></a><a class="headerlink" href="#protected-rossubscriberdevicestatesub" title="Permanent link">&para;</a></h6>
+<h6 id="protected-rossubscriberdevicestatesub"><code class="codehilite"><span class="n">protected</span> <span class="n">ros</span><span class="p">::</span><span class="n">Subscriber</span></code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1a5f4ab26681042a3704d0854c80179ccb"><code class="codehilite"><span class="n">deviceStateSub</span></code></a><a class="headerlink" href="#protected-rossubscriberdevicestatesub" title="Permanent link">&para;</a></h6>
 <p>Subscriber to the device state flag.</p>
-<h6 id="protected-commonbatteryptrbattery"><code class="codehilite">protected common::BatteryPtr</code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1aab63a2fd9601f9ed588cd310a31d166d"><code class="codehilite">battery</code></a><a class="headerlink" href="#protected-commonbatteryptrbattery" title="Permanent link">&para;</a></h6>
+<h6 id="protected-commonbatteryptrbattery"><code class="codehilite"><span class="n">protected</span> <span class="n">common</span><span class="p">::</span><span class="n">BatteryPtr</span></code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1aab63a2fd9601f9ed588cd310a31d166d"><code class="codehilite"><span class="n">battery</span></code></a><a class="headerlink" href="#protected-commonbatteryptrbattery" title="Permanent link">&para;</a></h6>
 <p>Pointer to battery.</p>
-<h6 id="protected-boolisdeviceon"><code class="codehilite">protected bool</code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1adb9208bcb12e204be32cdafbd4dedece"><code class="codehilite">isDeviceOn</code></a><a class="headerlink" href="#protected-boolisdeviceon" title="Permanent link">&para;</a></h6>
+<h6 id="protected-boolisdeviceon"><code class="codehilite"><span class="n">protected</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1adb9208bcb12e204be32cdafbd4dedece"><code class="codehilite"><span class="n">isDeviceOn</span></code></a><a class="headerlink" href="#protected-boolisdeviceon" title="Permanent link">&para;</a></h6>
 <p>Flag to signal whether a specific device is running.</p>
-<h6 id="protected-doublepowerload"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1a2a77576499d0d9a4121df0ab26263999"><code class="codehilite">powerLoad</code></a><a class="headerlink" href="#protected-doublepowerload" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doublepowerload"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1a2a77576499d0d9a4121df0ab26263999"><code class="codehilite"><span class="n">powerLoad</span></code></a><a class="headerlink" href="#protected-doublepowerload" title="Permanent link">&para;</a></h6>
 <p>Power load in W.</p>
-<h6 id="protected-intconsumerid"><code class="codehilite">protected int</code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1afa8963cf588440f8a65a40709ee87f1b"><code class="codehilite">consumerID</code></a><a class="headerlink" href="#protected-intconsumerid" title="Permanent link">&para;</a></h6>
+<h6 id="protected-intconsumerid"><code class="codehilite"><span class="n">protected</span> <span class="nb">int</span></code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1afa8963cf588440f8a65a40709ee87f1b"><code class="codehilite"><span class="n">consumerID</span></code></a><a class="headerlink" href="#protected-intconsumerid" title="Permanent link">&para;</a></h6>
 <p>Battery consumer ID.</p>
-<h6 id="protected-stdstringlinkname"><code class="codehilite">protected std::string</code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1aab7c22693c5544d155fe5e3a193d9848"><code class="codehilite">linkName</code></a><a class="headerlink" href="#protected-stdstringlinkname" title="Permanent link">&para;</a></h6>
+<h6 id="protected-stdstringlinkname"><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1aab7c22693c5544d155fe5e3a193d9848"><code class="codehilite"><span class="n">linkName</span></code></a><a class="headerlink" href="#protected-stdstringlinkname" title="Permanent link">&para;</a></h6>
 <p>Link name.</p>
-<h6 id="protected-stdstringbatteryname"><code class="codehilite">protected std::string</code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1aabf460331c052e75d5bdfd801832e67c"><code class="codehilite">batteryName</code></a><a class="headerlink" href="#protected-stdstringbatteryname" title="Permanent link">&para;</a></h6>
+<h6 id="protected-stdstringbatteryname"><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1aabf460331c052e75d5bdfd801832e67c"><code class="codehilite"><span class="n">batteryName</span></code></a><a class="headerlink" href="#protected-stdstringbatteryname" title="Permanent link">&para;</a></h6>
 <p>Battery model name.</p>
-<h6 id="protected-eventconnectionptrrospublishconnection"><code class="codehilite">protected event::ConnectionPtr</code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1ac88de3b1d146e46df3352b5769a86b81"><code class="codehilite">rosPublishConnection</code></a><a class="headerlink" href="#protected-eventconnectionptrrospublishconnection" title="Permanent link">&para;</a></h6>
+<h6 id="protected-eventconnectionptrrospublishconnection"><code class="codehilite"><span class="n">protected</span> <span class="n">event</span><span class="p">::</span><span class="n">ConnectionPtr</span></code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1ac88de3b1d146e46df3352b5769a86b81"><code class="codehilite"><span class="n">rosPublishConnection</span></code></a><a class="headerlink" href="#protected-eventconnectionptrrospublishconnection" title="Permanent link">&para;</a></h6>
 <p>Connection for callbacks on update world.</p>
-<h6 id="protected-voidupdatedevicestateconst-std_msgsboolconstptr-_msg"><code class="codehilite">protected void</code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1a884a9bccf2a5f4a5a935b67a133a18a2"><code class="codehilite">UpdateDeviceState</code></a><code class="codehilite">(const std_msgs::Bool::ConstPtr &amp; _msg)</code><a class="headerlink" href="#protected-voidupdatedevicestateconst-std_msgsboolconstptr-_msg" title="Permanent link">&para;</a></h6>
+<h6 id="protected-voidupdatedevicestateconst-std_msgsboolconstptr-_msg"><code class="codehilite"><span class="n">protected</span> <span class="n">void</span></code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1a884a9bccf2a5f4a5a935b67a133a18a2"><code class="codehilite"><span class="n">UpdateDeviceState</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">std_msgs</span><span class="p">::</span><span class="n">Bool</span><span class="p">::</span><span class="n">ConstPtr</span> <span class="o">&amp;</span> <span class="n">_msg</span><span class="p">)</span></code><a class="headerlink" href="#protected-voidupdatedevicestateconst-std_msgsboolconstptr-_msg" title="Permanent link">&para;</a></h6>
 <p>Callback for the device state topic subscriber.</p>
-<h6 id="protected-voidupdatepowerloaddouble-_powerload"><code class="codehilite">protected void</code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1aa0f068f722eb00582d21cd0c69379a2f"><code class="codehilite">UpdatePowerLoad</code></a><code class="codehilite">(double _powerLoad)</code><a class="headerlink" href="#protected-voidupdatepowerloaddouble-_powerload" title="Permanent link">&para;</a></h6>
+<h6 id="protected-voidupdatepowerloaddouble-_powerload"><code class="codehilite"><span class="n">protected</span> <span class="n">void</span></code><a href="#classgazebo_1_1_custom_battery_consumer_r_o_s_plugin_1aa0f068f722eb00582d21cd0c69379a2f"><code class="codehilite"><span class="n">UpdatePowerLoad</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">double</span> <span class="n">_powerLoad</span><span class="p">)</span></code><a class="headerlink" href="#protected-voidupdatepowerloaddouble-_powerload" title="Permanent link">&para;</a></h6>
 <p>Update power load.</p>
                 
                   

@@ -456,6 +456,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -2856,9 +2868,9 @@
                 
                   <h1>HMSphere</h1>
                 
-                <h4 id="class-gazebohmsphere">class <code class="codehilite">gazebo::HMSphere</code><a class="headerlink" href="#class-gazebohmsphere" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><span class="kr">class</span> <span class="nx">gazebo</span><span class="o">::</span><span class="nx">HMSphere</span>
-  : <span class="kt">public</span> <span class="nx">gazebo</span><span class="o">::</span><span class="nx">HMFossen</span>
+                <h4 id="class-gazebohmsphere">class <code class="codehilite"><span class="n">gazebo</span><span class="p">::</span><span class="n">HMSphere</span></code><a class="headerlink" href="#class-gazebohmsphere" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="n">gazebo::HMSphere</span>
+  : <span class="n">public</span> <span class="n">gazebo::HMFossen</span>
 </pre></div>
 
 <p>Class containing the methods and attributes for a hydrodynamic model for a sphere in the fluid.</p>
@@ -2872,49 +2884,49 @@
 </thead>
 <tbody>
 <tr>
-<td><code class="codehilite">public inline virtual std::string</code><a href="#classgazebo_1_1_h_m_sphere_1a6ee346960d84c9013955972feb52cc8b"><code class="codehilite">GetType</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">inline</span> <span class="n">virtual</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classgazebo_1_1_h_m_sphere_1a6ee346960d84c9013955972feb52cc8b"><code class="codehilite"><span class="n">GetType</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Return (derived) type of hydrodynamic model.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_h_m_sphere_1acd4564627261d2b9b3008760a4a478d7"><code class="codehilite">Print</code></a><code class="codehilite">(std::string _paramName,std::string _message)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_h_m_sphere_1acd4564627261d2b9b3008760a4a478d7"><code class="codehilite"><span class="n">Print</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="n">_paramName</span><span class="p">,</span><span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="n">_message</span><span class="p">)</span></code></td>
 <td>Prints parameters.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_h_m_sphere_1a53a9704c540fd283d50118a870d9a8b1"><code class="codehilite">radius</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_h_m_sphere_1a53a9704c540fd283d50118a870d9a8b1"><code class="codehilite"><span class="n">radius</span></code></a></td>
 <td>Sphere radius.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_h_m_sphere_1a61c1e959e29f452df6dda720e5f6b5c1"><code class="codehilite">Cd</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_h_m_sphere_1a61c1e959e29f452df6dda720e5f6b5c1"><code class="codehilite"><span class="n">Cd</span></code></a></td>
 <td>Drag coefficient.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_h_m_sphere_1a5081baf0c9306d417ad644e227687b68"><code class="codehilite">areaSection</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_h_m_sphere_1a5081baf0c9306d417ad644e227687b68"><code class="codehilite"><span class="n">areaSection</span></code></a></td>
 <td>Area of the cross section.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected</code><a href="#classgazebo_1_1_h_m_sphere_1aeaadb6a68613b17755780a3de522ff5c"><code class="codehilite">REGISTER_HYDRODYNAMICMODEL</code></a><code class="codehilite">(</code><a href="#classgazebo_1_1_h_m_sphere"><code class="codehilite">HMSphere</code></a><code class="codehilite">)</code></td>
+<td><code class="codehilite"><span class="n">protected</span></code><a href="#classgazebo_1_1_h_m_sphere_1aeaadb6a68613b17755780a3de522ff5c"><code class="codehilite"><span class="n">REGISTER_HYDRODYNAMICMODEL</span></code></a><code class="codehilite"><span class="p">(</span></code><a href="#classgazebo_1_1_h_m_sphere"><code class="codehilite"><span class="n">HMSphere</span></code></a><code class="codehilite"><span class="p">)</span></code></td>
 <td>Register this model with the factory.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected</code><a href="#classgazebo_1_1_h_m_sphere_1aa7e66a6a55d3eb381c258de70f0b81a6"><code class="codehilite">HMSphere</code></a><code class="codehilite">(sdf::ElementPtr _sdf,physics::LinkPtr _link)</code></td>
+<td><code class="codehilite"><span class="n">protected</span></code><a href="#classgazebo_1_1_h_m_sphere_1aa7e66a6a55d3eb381c258de70f0b81a6"><code class="codehilite"><span class="n">HMSphere</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">,</span><span class="n">physics</span><span class="p">::</span><span class="n">LinkPtr</span> <span class="n">_link</span><span class="p">)</span></code></td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <h5 id="members">Members<a class="headerlink" href="#members" title="Permanent link">&para;</a></h5>
-<h6 id="public-inline-virtual-stdstringgettype"><code class="codehilite">public inline virtual std::string</code><a href="#classgazebo_1_1_h_m_sphere_1a6ee346960d84c9013955972feb52cc8b"><code class="codehilite">GetType</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-inline-virtual-stdstringgettype" title="Permanent link">&para;</a></h6>
+<h6 id="public-inline-virtual-stdstringgettype"><code class="codehilite"><span class="k">public</span> <span class="n">inline</span> <span class="n">virtual</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classgazebo_1_1_h_m_sphere_1a6ee346960d84c9013955972feb52cc8b"><code class="codehilite"><span class="n">GetType</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-inline-virtual-stdstringgettype" title="Permanent link">&para;</a></h6>
 <p>Return (derived) type of hydrodynamic model.</p>
-<h6 id="public-virtual-voidprintstdstring-_paramnamestdstring-_message"><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_h_m_sphere_1acd4564627261d2b9b3008760a4a478d7"><code class="codehilite">Print</code></a><code class="codehilite">(std::string _paramName,std::string _message)</code><a class="headerlink" href="#public-virtual-voidprintstdstring-_paramnamestdstring-_message" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtual-voidprintstdstring-_paramnamestdstring-_message"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_h_m_sphere_1acd4564627261d2b9b3008760a4a478d7"><code class="codehilite"><span class="n">Print</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="n">_paramName</span><span class="p">,</span><span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="n">_message</span><span class="p">)</span></code><a class="headerlink" href="#public-virtual-voidprintstdstring-_paramnamestdstring-_message" title="Permanent link">&para;</a></h6>
 <p>Prints parameters.</p>
-<h6 id="protected-doubleradius"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_h_m_sphere_1a53a9704c540fd283d50118a870d9a8b1"><code class="codehilite">radius</code></a><a class="headerlink" href="#protected-doubleradius" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doubleradius"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_h_m_sphere_1a53a9704c540fd283d50118a870d9a8b1"><code class="codehilite"><span class="n">radius</span></code></a><a class="headerlink" href="#protected-doubleradius" title="Permanent link">&para;</a></h6>
 <p>Sphere radius.</p>
-<h6 id="protected-doublecd"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_h_m_sphere_1a61c1e959e29f452df6dda720e5f6b5c1"><code class="codehilite">Cd</code></a><a class="headerlink" href="#protected-doublecd" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doublecd"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_h_m_sphere_1a61c1e959e29f452df6dda720e5f6b5c1"><code class="codehilite"><span class="n">Cd</span></code></a><a class="headerlink" href="#protected-doublecd" title="Permanent link">&para;</a></h6>
 <p>Drag coefficient.</p>
-<h6 id="protected-doubleareasection"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_h_m_sphere_1a5081baf0c9306d417ad644e227687b68"><code class="codehilite">areaSection</code></a><a class="headerlink" href="#protected-doubleareasection" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doubleareasection"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_h_m_sphere_1a5081baf0c9306d417ad644e227687b68"><code class="codehilite"><span class="n">areaSection</span></code></a><a class="headerlink" href="#protected-doubleareasection" title="Permanent link">&para;</a></h6>
 <p>Area of the cross section.</p>
-<h6 id="protectedregister_hydrodynamicmodelhmsphere"><code class="codehilite">protected</code><a href="#classgazebo_1_1_h_m_sphere_1aeaadb6a68613b17755780a3de522ff5c"><code class="codehilite">REGISTER_HYDRODYNAMICMODEL</code></a><code class="codehilite">(</code><a href="#classgazebo_1_1_h_m_sphere"><code class="codehilite">HMSphere</code></a><code class="codehilite">)</code><a class="headerlink" href="#protectedregister_hydrodynamicmodelhmsphere" title="Permanent link">&para;</a></h6>
+<h6 id="protectedregister_hydrodynamicmodelhmsphere"><code class="codehilite"><span class="n">protected</span></code><a href="#classgazebo_1_1_h_m_sphere_1aeaadb6a68613b17755780a3de522ff5c"><code class="codehilite"><span class="n">REGISTER_HYDRODYNAMICMODEL</span></code></a><code class="codehilite"><span class="p">(</span></code><a href="#classgazebo_1_1_h_m_sphere"><code class="codehilite"><span class="n">HMSphere</span></code></a><code class="codehilite"><span class="p">)</span></code><a class="headerlink" href="#protectedregister_hydrodynamicmodelhmsphere" title="Permanent link">&para;</a></h6>
 <p>Register this model with the factory.</p>
-<h6 id="protectedhmspheresdfelementptr-_sdfphysicslinkptr-_link"><code class="codehilite">protected</code><a href="#classgazebo_1_1_h_m_sphere_1aa7e66a6a55d3eb381c258de70f0b81a6"><code class="codehilite">HMSphere</code></a><code class="codehilite">(sdf::ElementPtr _sdf,physics::LinkPtr _link)</code><a class="headerlink" href="#protectedhmspheresdfelementptr-_sdfphysicslinkptr-_link" title="Permanent link">&para;</a></h6>
+<h6 id="protectedhmspheresdfelementptr-_sdfphysicslinkptr-_link"><code class="codehilite"><span class="n">protected</span></code><a href="#classgazebo_1_1_h_m_sphere_1aa7e66a6a55d3eb381c258de70f0b81a6"><code class="codehilite"><span class="n">HMSphere</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">,</span><span class="n">physics</span><span class="p">::</span><span class="n">LinkPtr</span> <span class="n">_link</span><span class="p">)</span></code><a class="headerlink" href="#protectedhmspheresdfelementptr-_sdfphysicslinkptr-_link" title="Permanent link">&para;</a></h6>
                 
                   
                 

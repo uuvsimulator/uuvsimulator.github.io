@@ -456,6 +456,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -2856,9 +2868,9 @@
                 
                   <h1>HMBox</h1>
                 
-                <h4 id="class-gazebohmbox">class <code class="codehilite">gazebo::HMBox</code><a class="headerlink" href="#class-gazebohmbox" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><span class="kr">class</span> <span class="nx">gazebo</span><span class="o">::</span><span class="nx">HMBox</span>
-  : <span class="kt">public</span> <span class="nx">gazebo</span><span class="o">::</span><span class="nx">HMFossen</span>
+                <h4 id="class-gazebohmbox">class <code class="codehilite"><span class="n">gazebo</span><span class="p">::</span><span class="n">HMBox</span></code><a class="headerlink" href="#class-gazebohmbox" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="n">gazebo::HMBox</span>
+  : <span class="n">public</span> <span class="n">gazebo::HMFossen</span>
 </pre></div>
 
 <p>Class containing the methods and attributes for a hydrodynamic model for a box in the fluid.</p>
@@ -2872,49 +2884,49 @@
 </thead>
 <tbody>
 <tr>
-<td><code class="codehilite">public inline virtual std::string</code><a href="#classgazebo_1_1_h_m_box_1a6617b9acdab36fa004feb27b7a05f6ef"><code class="codehilite">GetType</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">inline</span> <span class="n">virtual</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classgazebo_1_1_h_m_box_1a6617b9acdab36fa004feb27b7a05f6ef"><code class="codehilite"><span class="n">GetType</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Return (derived) type of hydrodynamic model.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_h_m_box_1a56a3123563c1f6dfa78a4f124d495c72"><code class="codehilite">Print</code></a><code class="codehilite">(std::string _paramName,std::string _message)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_h_m_box_1a56a3123563c1f6dfa78a4f124d495c72"><code class="codehilite"><span class="n">Print</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="n">_paramName</span><span class="p">,</span><span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="n">_message</span><span class="p">)</span></code></td>
 <td>Prints parameters.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_h_m_box_1ac2c2cc1ea1fbb98b17f47ebede1261e3"><code class="codehilite">Cd</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_h_m_box_1ac2c2cc1ea1fbb98b17f47ebede1261e3"><code class="codehilite"><span class="n">Cd</span></code></a></td>
 <td>Drag coefficient.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_h_m_box_1a13e4a2034e9c0b727087c2525bd84acf"><code class="codehilite">length</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_h_m_box_1a13e4a2034e9c0b727087c2525bd84acf"><code class="codehilite"><span class="k">length</span></code></a></td>
 <td>Length of the box.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_h_m_box_1ab0d0b9465a2f7f595d5922d3ed45a9c4"><code class="codehilite">width</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_h_m_box_1ab0d0b9465a2f7f595d5922d3ed45a9c4"><code class="codehilite"><span class="n">width</span></code></a></td>
 <td>Width of the box.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_h_m_box_1a73325f0d7d5098892963503f5b6c3149"><code class="codehilite">height</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_h_m_box_1a73325f0d7d5098892963503f5b6c3149"><code class="codehilite"><span class="n">height</span></code></a></td>
 <td>Height of the box.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected</code><a href="#classgazebo_1_1_h_m_box_1af1d27f2047dbcfa9b979179f5f3ef870"><code class="codehilite">HMBox</code></a><code class="codehilite">(sdf::ElementPtr _sdf,physics::LinkPtr _link)</code></td>
+<td><code class="codehilite"><span class="n">protected</span></code><a href="#classgazebo_1_1_h_m_box_1af1d27f2047dbcfa9b979179f5f3ef870"><code class="codehilite"><span class="n">HMBox</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">,</span><span class="n">physics</span><span class="p">::</span><span class="n">LinkPtr</span> <span class="n">_link</span><span class="p">)</span></code></td>
 <td>Constructor.</td>
 </tr>
 </tbody>
 </table>
 <h5 id="members">Members<a class="headerlink" href="#members" title="Permanent link">&para;</a></h5>
-<h6 id="public-inline-virtual-stdstringgettype"><code class="codehilite">public inline virtual std::string</code><a href="#classgazebo_1_1_h_m_box_1a6617b9acdab36fa004feb27b7a05f6ef"><code class="codehilite">GetType</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-inline-virtual-stdstringgettype" title="Permanent link">&para;</a></h6>
+<h6 id="public-inline-virtual-stdstringgettype"><code class="codehilite"><span class="k">public</span> <span class="n">inline</span> <span class="n">virtual</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classgazebo_1_1_h_m_box_1a6617b9acdab36fa004feb27b7a05f6ef"><code class="codehilite"><span class="n">GetType</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-inline-virtual-stdstringgettype" title="Permanent link">&para;</a></h6>
 <p>Return (derived) type of hydrodynamic model.</p>
-<h6 id="public-virtual-voidprintstdstring-_paramnamestdstring-_message"><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_h_m_box_1a56a3123563c1f6dfa78a4f124d495c72"><code class="codehilite">Print</code></a><code class="codehilite">(std::string _paramName,std::string _message)</code><a class="headerlink" href="#public-virtual-voidprintstdstring-_paramnamestdstring-_message" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtual-voidprintstdstring-_paramnamestdstring-_message"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_h_m_box_1a56a3123563c1f6dfa78a4f124d495c72"><code class="codehilite"><span class="n">Print</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="n">_paramName</span><span class="p">,</span><span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="n">_message</span><span class="p">)</span></code><a class="headerlink" href="#public-virtual-voidprintstdstring-_paramnamestdstring-_message" title="Permanent link">&para;</a></h6>
 <p>Prints parameters.</p>
-<h6 id="protected-doublecd"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_h_m_box_1ac2c2cc1ea1fbb98b17f47ebede1261e3"><code class="codehilite">Cd</code></a><a class="headerlink" href="#protected-doublecd" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doublecd"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_h_m_box_1ac2c2cc1ea1fbb98b17f47ebede1261e3"><code class="codehilite"><span class="n">Cd</span></code></a><a class="headerlink" href="#protected-doublecd" title="Permanent link">&para;</a></h6>
 <p>Drag coefficient.</p>
-<h6 id="protected-doublelength"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_h_m_box_1a13e4a2034e9c0b727087c2525bd84acf"><code class="codehilite">length</code></a><a class="headerlink" href="#protected-doublelength" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doublelength"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_h_m_box_1a13e4a2034e9c0b727087c2525bd84acf"><code class="codehilite"><span class="k">length</span></code></a><a class="headerlink" href="#protected-doublelength" title="Permanent link">&para;</a></h6>
 <p>Length of the box.</p>
-<h6 id="protected-doublewidth"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_h_m_box_1ab0d0b9465a2f7f595d5922d3ed45a9c4"><code class="codehilite">width</code></a><a class="headerlink" href="#protected-doublewidth" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doublewidth"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_h_m_box_1ab0d0b9465a2f7f595d5922d3ed45a9c4"><code class="codehilite"><span class="n">width</span></code></a><a class="headerlink" href="#protected-doublewidth" title="Permanent link">&para;</a></h6>
 <p>Width of the box.</p>
-<h6 id="protected-doubleheight"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_h_m_box_1a73325f0d7d5098892963503f5b6c3149"><code class="codehilite">height</code></a><a class="headerlink" href="#protected-doubleheight" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doubleheight"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_h_m_box_1a73325f0d7d5098892963503f5b6c3149"><code class="codehilite"><span class="n">height</span></code></a><a class="headerlink" href="#protected-doubleheight" title="Permanent link">&para;</a></h6>
 <p>Height of the box.</p>
-<h6 id="protectedhmboxsdfelementptr-_sdfphysicslinkptr-_link"><code class="codehilite">protected</code><a href="#classgazebo_1_1_h_m_box_1af1d27f2047dbcfa9b979179f5f3ef870"><code class="codehilite">HMBox</code></a><code class="codehilite">(sdf::ElementPtr _sdf,physics::LinkPtr _link)</code><a class="headerlink" href="#protectedhmboxsdfelementptr-_sdfphysicslinkptr-_link" title="Permanent link">&para;</a></h6>
+<h6 id="protectedhmboxsdfelementptr-_sdfphysicslinkptr-_link"><code class="codehilite"><span class="n">protected</span></code><a href="#classgazebo_1_1_h_m_box_1af1d27f2047dbcfa9b979179f5f3ef870"><code class="codehilite"><span class="n">HMBox</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">,</span><span class="n">physics</span><span class="p">::</span><span class="n">LinkPtr</span> <span class="n">_link</span><span class="p">)</span></code><a class="headerlink" href="#protectedhmboxsdfelementptr-_sdfphysicslinkptr-_link" title="Permanent link">&para;</a></h6>
 <p>Constructor.</p>
                 
                   

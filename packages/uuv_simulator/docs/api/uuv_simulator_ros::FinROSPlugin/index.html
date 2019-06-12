@@ -456,6 +456,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -2896,9 +2908,9 @@
                 
                   <h1>FinROSPlugin</h1>
                 
-                <h4 id="class-uuv_simulator_rosfinrosplugin">class <code class="codehilite">uuv_simulator_ros::FinROSPlugin</code><a class="headerlink" href="#class-uuv_simulator_rosfinrosplugin" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><span class="kr">class</span> <span class="nx">uuv_simulator_ros</span><span class="o">::</span><span class="nx">FinROSPlugin</span>
-  : <span class="kt">public</span> <span class="nx">FinPlugin</span>
+                <h4 id="class-uuv_simulator_rosfinrosplugin">class <code class="codehilite"><span class="n">uuv_simulator_ros</span><span class="p">::</span><span class="n">FinROSPlugin</span></code><a class="headerlink" href="#class-uuv_simulator_rosfinrosplugin" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="n">uuv_simulator_ros::FinROSPlugin</span>
+  : <span class="n">public</span> <span class="n">FinPlugin</span>
 </pre></div>
 
 <h5 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h5>
@@ -2911,67 +2923,67 @@
 </thead>
 <tbody>
 <tr>
-<td><code class="codehilite">public</code><a href="#classuuv__simulator__ros_1_1_fin_r_o_s_plugin_1ab36ec9a6e6cf420763695f9e91cc155b"><code class="codehilite">FinROSPlugin</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span></code><a href="#classuuv__simulator__ros_1_1_fin_r_o_s_plugin_1ab36ec9a6e6cf420763695f9e91cc155b"><code class="codehilite"><span class="n">FinROSPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Constrcutor.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public</code><a href="#classuuv__simulator__ros_1_1_fin_r_o_s_plugin_1a424574c4b915a5af56a5c8daec47e626"><code class="codehilite">~FinROSPlugin</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span></code><a href="#classuuv__simulator__ros_1_1_fin_r_o_s_plugin_1a424574c4b915a5af56a5c8daec47e626"><code class="codehilite"><span class="o">~</span><span class="n">FinROSPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Destructor.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public void</code><a href="#classuuv__simulator__ros_1_1_fin_r_o_s_plugin_1a0f70780cf0a115dc47cd4a21f6a62f60"><code class="codehilite">Load</code></a><code class="codehilite">(gazebo::physics::ModelPtr _parent,sdf::ElementPtr _sdf)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">void</span></code><a href="#classuuv__simulator__ros_1_1_fin_r_o_s_plugin_1a0f70780cf0a115dc47cd4a21f6a62f60"><code class="codehilite"><span class="k">Load</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">gazebo</span><span class="p">::</span><span class="n">physics</span><span class="p">::</span><span class="n">ModelPtr</span> <span class="n">_parent</span><span class="p">,</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">)</span></code></td>
 <td>Load module and read parameters from SDF.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public void</code><a href="#classuuv__simulator__ros_1_1_fin_r_o_s_plugin_1a2aa520188b885575965a7675f62d78c8"><code class="codehilite">RosPublishStates</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">void</span></code><a href="#classuuv__simulator__ros_1_1_fin_r_o_s_plugin_1a2aa520188b885575965a7675f62d78c8"><code class="codehilite"><span class="n">RosPublishStates</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Publish state via ROS.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public void</code><a href="#classuuv__simulator__ros_1_1_fin_r_o_s_plugin_1a09703d436ca89cd2c7c75d110cdc5b7a"><code class="codehilite">SetReference</code></a><code class="codehilite">(const uuv_gazebo_ros_plugins_msgs::FloatStamped::ConstPtr &amp; _msg)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">void</span></code><a href="#classuuv__simulator__ros_1_1_fin_r_o_s_plugin_1a09703d436ca89cd2c7c75d110cdc5b7a"><code class="codehilite"><span class="n">SetReference</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">uuv_gazebo_ros_plugins_msgs</span><span class="p">::</span><span class="n">FloatStamped</span><span class="p">::</span><span class="n">ConstPtr</span> <span class="o">&amp;</span> <span class="n">_msg</span><span class="p">)</span></code></td>
 <td>Set new set point.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public bool</code><a href="#classuuv__simulator__ros_1_1_fin_r_o_s_plugin_1ac5c561a272971295a1a0a2a79928732c"><code class="codehilite">GetLiftDragParams</code></a><code class="codehilite">(uuv_gazebo_ros_plugins_msgs::GetListParam::Request &amp; _req,uuv_gazebo_ros_plugins_msgs::GetListParam::Response &amp; _res)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">bool</span></code><a href="#classuuv__simulator__ros_1_1_fin_r_o_s_plugin_1ac5c561a272971295a1a0a2a79928732c"><code class="codehilite"><span class="n">GetLiftDragParams</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">uuv_gazebo_ros_plugins_msgs</span><span class="p">::</span><span class="n">GetListParam</span><span class="p">::</span><span class="n">Request</span> <span class="o">&amp;</span> <span class="n">_req</span><span class="p">,</span><span class="n">uuv_gazebo_ros_plugins_msgs</span><span class="p">::</span><span class="n">GetListParam</span><span class="p">::</span><span class="n">Response</span> <span class="o">&amp;</span> <span class="n">_res</span><span class="p">)</span></code></td>
 <td>Return the list of paramaters of the lift and drag model.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public gazebo::common::Time</code><a href="#classuuv__simulator__ros_1_1_fin_r_o_s_plugin_1aba957637565587cf7fc8114e951024a8"><code class="codehilite">GetRosPublishPeriod</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">gazebo</span><span class="p">::</span><span class="n">common</span><span class="p">::</span><span class="n">Time</span></code><a href="#classuuv__simulator__ros_1_1_fin_r_o_s_plugin_1aba957637565587cf7fc8114e951024a8"><code class="codehilite"><span class="n">GetRosPublishPeriod</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Return the ROS publish period.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public void</code><a href="#classuuv__simulator__ros_1_1_fin_r_o_s_plugin_1a2ad58a55300e951a3a3f4b2d7dd61133"><code class="codehilite">SetRosPublishRate</code></a><code class="codehilite">(double _hz)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">void</span></code><a href="#classuuv__simulator__ros_1_1_fin_r_o_s_plugin_1a2ad58a55300e951a3a3f4b2d7dd61133"><code class="codehilite"><span class="n">SetRosPublishRate</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">double</span> <span class="n">_hz</span><span class="p">)</span></code></td>
 <td>Set the ROS publish frequency (Hz).</td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual void</code><a href="#classuuv__simulator__ros_1_1_fin_r_o_s_plugin_1a3984861d97812ec447b20fd6edb90d26"><code class="codehilite">Init</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classuuv__simulator__ros_1_1_fin_r_o_s_plugin_1a3984861d97812ec447b20fd6edb90d26"><code class="codehilite"><span class="n">Init</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Initialize Module.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual void</code><a href="#classuuv__simulator__ros_1_1_fin_r_o_s_plugin_1a423e0b46d5d38b327c6122ecd99665b4"><code class="codehilite">Reset</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classuuv__simulator__ros_1_1_fin_r_o_s_plugin_1a423e0b46d5d38b327c6122ecd99665b4"><code class="codehilite"><span class="k">Reset</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Reset Module.</td>
 </tr>
 </tbody>
 </table>
 <h5 id="members">Members<a class="headerlink" href="#members" title="Permanent link">&para;</a></h5>
-<h6 id="publicfinrosplugin"><code class="codehilite">public</code><a href="#classuuv__simulator__ros_1_1_fin_r_o_s_plugin_1ab36ec9a6e6cf420763695f9e91cc155b"><code class="codehilite">FinROSPlugin</code></a><code class="codehilite">()</code><a class="headerlink" href="#publicfinrosplugin" title="Permanent link">&para;</a></h6>
+<h6 id="publicfinrosplugin"><code class="codehilite"><span class="k">public</span></code><a href="#classuuv__simulator__ros_1_1_fin_r_o_s_plugin_1ab36ec9a6e6cf420763695f9e91cc155b"><code class="codehilite"><span class="n">FinROSPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#publicfinrosplugin" title="Permanent link">&para;</a></h6>
 <p>Constrcutor.</p>
-<h6 id="publicfinrosplugin_1"><code class="codehilite">public</code><a href="#classuuv__simulator__ros_1_1_fin_r_o_s_plugin_1a424574c4b915a5af56a5c8daec47e626"><code class="codehilite">~FinROSPlugin</code></a><code class="codehilite">()</code><a class="headerlink" href="#publicfinrosplugin_1" title="Permanent link">&para;</a></h6>
+<h6 id="publicfinrosplugin_1"><code class="codehilite"><span class="k">public</span></code><a href="#classuuv__simulator__ros_1_1_fin_r_o_s_plugin_1a424574c4b915a5af56a5c8daec47e626"><code class="codehilite"><span class="o">~</span><span class="n">FinROSPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#publicfinrosplugin_1" title="Permanent link">&para;</a></h6>
 <p>Destructor.</p>
-<h6 id="public-voidloadgazebophysicsmodelptr-_parentsdfelementptr-_sdf"><code class="codehilite">public void</code><a href="#classuuv__simulator__ros_1_1_fin_r_o_s_plugin_1a0f70780cf0a115dc47cd4a21f6a62f60"><code class="codehilite">Load</code></a><code class="codehilite">(gazebo::physics::ModelPtr _parent,sdf::ElementPtr _sdf)</code><a class="headerlink" href="#public-voidloadgazebophysicsmodelptr-_parentsdfelementptr-_sdf" title="Permanent link">&para;</a></h6>
+<h6 id="public-voidloadgazebophysicsmodelptr-_parentsdfelementptr-_sdf"><code class="codehilite"><span class="k">public</span> <span class="n">void</span></code><a href="#classuuv__simulator__ros_1_1_fin_r_o_s_plugin_1a0f70780cf0a115dc47cd4a21f6a62f60"><code class="codehilite"><span class="k">Load</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">gazebo</span><span class="p">::</span><span class="n">physics</span><span class="p">::</span><span class="n">ModelPtr</span> <span class="n">_parent</span><span class="p">,</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">)</span></code><a class="headerlink" href="#public-voidloadgazebophysicsmodelptr-_parentsdfelementptr-_sdf" title="Permanent link">&para;</a></h6>
 <p>Load module and read parameters from SDF.</p>
-<h6 id="public-voidrospublishstates"><code class="codehilite">public void</code><a href="#classuuv__simulator__ros_1_1_fin_r_o_s_plugin_1a2aa520188b885575965a7675f62d78c8"><code class="codehilite">RosPublishStates</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-voidrospublishstates" title="Permanent link">&para;</a></h6>
+<h6 id="public-voidrospublishstates"><code class="codehilite"><span class="k">public</span> <span class="n">void</span></code><a href="#classuuv__simulator__ros_1_1_fin_r_o_s_plugin_1a2aa520188b885575965a7675f62d78c8"><code class="codehilite"><span class="n">RosPublishStates</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-voidrospublishstates" title="Permanent link">&para;</a></h6>
 <p>Publish state via ROS.</p>
-<h6 id="public-voidsetreferenceconst-uuv_gazebo_ros_plugins_msgsfloatstampedconstptr-_msg"><code class="codehilite">public void</code><a href="#classuuv__simulator__ros_1_1_fin_r_o_s_plugin_1a09703d436ca89cd2c7c75d110cdc5b7a"><code class="codehilite">SetReference</code></a><code class="codehilite">(const uuv_gazebo_ros_plugins_msgs::FloatStamped::ConstPtr &amp; _msg)</code><a class="headerlink" href="#public-voidsetreferenceconst-uuv_gazebo_ros_plugins_msgsfloatstampedconstptr-_msg" title="Permanent link">&para;</a></h6>
+<h6 id="public-voidsetreferenceconst-uuv_gazebo_ros_plugins_msgsfloatstampedconstptr-_msg"><code class="codehilite"><span class="k">public</span> <span class="n">void</span></code><a href="#classuuv__simulator__ros_1_1_fin_r_o_s_plugin_1a09703d436ca89cd2c7c75d110cdc5b7a"><code class="codehilite"><span class="n">SetReference</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">uuv_gazebo_ros_plugins_msgs</span><span class="p">::</span><span class="n">FloatStamped</span><span class="p">::</span><span class="n">ConstPtr</span> <span class="o">&amp;</span> <span class="n">_msg</span><span class="p">)</span></code><a class="headerlink" href="#public-voidsetreferenceconst-uuv_gazebo_ros_plugins_msgsfloatstampedconstptr-_msg" title="Permanent link">&para;</a></h6>
 <p>Set new set point.</p>
-<h6 id="public-boolgetliftdragparamsuuv_gazebo_ros_plugins_msgsgetlistparamrequest-_requuv_gazebo_ros_plugins_msgsgetlistparamresponse-_res"><code class="codehilite">public bool</code><a href="#classuuv__simulator__ros_1_1_fin_r_o_s_plugin_1ac5c561a272971295a1a0a2a79928732c"><code class="codehilite">GetLiftDragParams</code></a><code class="codehilite">(uuv_gazebo_ros_plugins_msgs::GetListParam::Request &amp; _req,uuv_gazebo_ros_plugins_msgs::GetListParam::Response &amp; _res)</code><a class="headerlink" href="#public-boolgetliftdragparamsuuv_gazebo_ros_plugins_msgsgetlistparamrequest-_requuv_gazebo_ros_plugins_msgsgetlistparamresponse-_res" title="Permanent link">&para;</a></h6>
+<h6 id="public-boolgetliftdragparamsuuv_gazebo_ros_plugins_msgsgetlistparamrequest-_requuv_gazebo_ros_plugins_msgsgetlistparamresponse-_res"><code class="codehilite"><span class="k">public</span> <span class="n">bool</span></code><a href="#classuuv__simulator__ros_1_1_fin_r_o_s_plugin_1ac5c561a272971295a1a0a2a79928732c"><code class="codehilite"><span class="n">GetLiftDragParams</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">uuv_gazebo_ros_plugins_msgs</span><span class="p">::</span><span class="n">GetListParam</span><span class="p">::</span><span class="n">Request</span> <span class="o">&amp;</span> <span class="n">_req</span><span class="p">,</span><span class="n">uuv_gazebo_ros_plugins_msgs</span><span class="p">::</span><span class="n">GetListParam</span><span class="p">::</span><span class="n">Response</span> <span class="o">&amp;</span> <span class="n">_res</span><span class="p">)</span></code><a class="headerlink" href="#public-boolgetliftdragparamsuuv_gazebo_ros_plugins_msgsgetlistparamrequest-_requuv_gazebo_ros_plugins_msgsgetlistparamresponse-_res" title="Permanent link">&para;</a></h6>
 <p>Return the list of paramaters of the lift and drag model.</p>
-<h6 id="public-gazebocommontimegetrospublishperiod"><code class="codehilite">public gazebo::common::Time</code><a href="#classuuv__simulator__ros_1_1_fin_r_o_s_plugin_1aba957637565587cf7fc8114e951024a8"><code class="codehilite">GetRosPublishPeriod</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-gazebocommontimegetrospublishperiod" title="Permanent link">&para;</a></h6>
+<h6 id="public-gazebocommontimegetrospublishperiod"><code class="codehilite"><span class="k">public</span> <span class="n">gazebo</span><span class="p">::</span><span class="n">common</span><span class="p">::</span><span class="n">Time</span></code><a href="#classuuv__simulator__ros_1_1_fin_r_o_s_plugin_1aba957637565587cf7fc8114e951024a8"><code class="codehilite"><span class="n">GetRosPublishPeriod</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-gazebocommontimegetrospublishperiod" title="Permanent link">&para;</a></h6>
 <p>Return the ROS publish period.</p>
-<h6 id="public-voidsetrospublishratedouble-_hz"><code class="codehilite">public void</code><a href="#classuuv__simulator__ros_1_1_fin_r_o_s_plugin_1a2ad58a55300e951a3a3f4b2d7dd61133"><code class="codehilite">SetRosPublishRate</code></a><code class="codehilite">(double _hz)</code><a class="headerlink" href="#public-voidsetrospublishratedouble-_hz" title="Permanent link">&para;</a></h6>
+<h6 id="public-voidsetrospublishratedouble-_hz"><code class="codehilite"><span class="k">public</span> <span class="n">void</span></code><a href="#classuuv__simulator__ros_1_1_fin_r_o_s_plugin_1a2ad58a55300e951a3a3f4b2d7dd61133"><code class="codehilite"><span class="n">SetRosPublishRate</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">double</span> <span class="n">_hz</span><span class="p">)</span></code><a class="headerlink" href="#public-voidsetrospublishratedouble-_hz" title="Permanent link">&para;</a></h6>
 <p>Set the ROS publish frequency (Hz).</p>
-<h6 id="public-virtual-voidinit"><code class="codehilite">public virtual void</code><a href="#classuuv__simulator__ros_1_1_fin_r_o_s_plugin_1a3984861d97812ec447b20fd6edb90d26"><code class="codehilite">Init</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-virtual-voidinit" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtual-voidinit"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classuuv__simulator__ros_1_1_fin_r_o_s_plugin_1a3984861d97812ec447b20fd6edb90d26"><code class="codehilite"><span class="n">Init</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-virtual-voidinit" title="Permanent link">&para;</a></h6>
 <p>Initialize Module.</p>
-<h6 id="public-virtual-voidreset"><code class="codehilite">public virtual void</code><a href="#classuuv__simulator__ros_1_1_fin_r_o_s_plugin_1a423e0b46d5d38b327c6122ecd99665b4"><code class="codehilite">Reset</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-virtual-voidreset" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtual-voidreset"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classuuv__simulator__ros_1_1_fin_r_o_s_plugin_1a423e0b46d5d38b327c6122ecd99665b4"><code class="codehilite"><span class="k">Reset</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-virtual-voidreset" title="Permanent link">&para;</a></h6>
 <p>Reset Module.</p>
                 
                   

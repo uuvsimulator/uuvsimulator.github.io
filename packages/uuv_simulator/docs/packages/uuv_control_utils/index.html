@@ -456,6 +456,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -3050,98 +3062,98 @@
                 
                 <p><img alt="Version" src="https://img.shields.io/badge/version-0.6.12-brightgreen.svg" /></p>
 <blockquote>
-<p>Link to the <code class="codehilite">uuv_simulator</code> repository <a href="https://github.com/uuvsimulator/uuv_simulator">here</a></p>
+<p>Link to the <code class="codehilite"><span class="n">uuv_simulator</span></code> repository <a href="https://github.com/uuvsimulator/uuv_simulator">here</a></p>
 </blockquote>
 <h4 id="description">Description<a class="headerlink" href="#description" title="Permanent link">&para;</a></h4>
 <p>The uuv_control_utils package</p>
 <h4 id="launch-files">Launch files<a class="headerlink" href="#launch-files" title="Permanent link">&para;</a></h4>
-<h5 id="send_waypoints_filelaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_control_utils/launch/send_waypoints_file.launch"><code class="codehilite">send_waypoints_file.launch</code></a><a class="headerlink" href="#send_waypoints_filelaunch" title="Permanent link">&para;</a></h5>
+<h5 id="send_waypoints_filelaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_control_utils/launch/send_waypoints_file.launch"><code class="codehilite"><span class="n">send_waypoints_file</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#send_waypoints_filelaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
 <li><strong>uuv_name</strong></li>
-<li><strong>filename</strong> (<em>default:</em> <code class="codehilite">$(find uuv_control_utils)/config/example_waypoints.yaml</code>)</li>
-<li><strong>start_time</strong> (<em>default:</em> <code class="codehilite">-1</code>)</li>
-<li><strong>interpolator</strong> (<em>default:</em> <code class="codehilite">lipb</code>)</li>
+<li><strong>filename</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">uuv_control_utils</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">example_waypoints</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
+<li><strong>start_time</strong> (<em>default:</em> <code class="codehilite"><span class="o">-</span><span class="mi">1</span></code>)</li>
+<li><strong>interpolator</strong> (<em>default:</em> <code class="codehilite"><span class="n">lipb</span></code>)</li>
 </ul>
-<h5 id="set_timed_current_perturbationlaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_control_utils/launch/set_timed_current_perturbation.launch"><code class="codehilite">set_timed_current_perturbation.launch</code></a><a class="headerlink" href="#set_timed_current_perturbationlaunch" title="Permanent link">&para;</a></h5>
+<h5 id="set_timed_current_perturbationlaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_control_utils/launch/set_timed_current_perturbation.launch"><code class="codehilite"><span class="n">set_timed_current_perturbation</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#set_timed_current_perturbationlaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
-<li><strong>starting_time</strong> (<em>default:</em> <code class="codehilite">0.0</code>)</li>
-<li><strong>end_time</strong> (<em>default:</em> <code class="codehilite">-1</code>)</li>
-<li><strong>current_vel</strong> (<em>default:</em> <code class="codehilite">1</code>)</li>
-<li><strong>horizontal_angle</strong> (<em>default:</em> <code class="codehilite">0.0</code>)</li>
-<li><strong>vertical_angle</strong> (<em>default:</em> <code class="codehilite">0.0</code>)</li>
+<li><strong>starting_time</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">0</span></code>)</li>
+<li><strong>end_time</strong> (<em>default:</em> <code class="codehilite"><span class="o">-</span><span class="mi">1</span></code>)</li>
+<li><strong>current_vel</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1</span></code>)</li>
+<li><strong>horizontal_angle</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">0</span></code>)</li>
+<li><strong>vertical_angle</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">0</span></code>)</li>
 </ul>
-<h5 id="start_disturbance_managerlaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_control_utils/launch/start_disturbance_manager.launch"><code class="codehilite">start_disturbance_manager.launch</code></a><a class="headerlink" href="#start_disturbance_managerlaunch" title="Permanent link">&para;</a></h5>
+<h5 id="start_disturbance_managerlaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_control_utils/launch/start_disturbance_manager.launch"><code class="codehilite"><span class="n">start_disturbance_manager</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#start_disturbance_managerlaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
 <li><strong>uuv_name</strong></li>
-<li><strong>use_file</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
+<li><strong>use_file</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>)</li>
 <li><strong>disturbance_file</strong></li>
-<li><strong>current_starting_time</strong> (<em>default:</em> <code class="codehilite">20.0</code>)</li>
-<li><strong>current_vel</strong> (<em>default:</em> <code class="codehilite">1</code>)</li>
-<li><strong>current_horz_angle</strong> (<em>default:</em> <code class="codehilite">0.0</code>)</li>
-<li><strong>current_vert_angle</strong> (<em>default:</em> <code class="codehilite">0.0</code>)</li>
-<li><strong>current_duration</strong> (<em>default:</em> <code class="codehilite">10</code>)</li>
-<li><strong>force_x</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>force_y</strong> (<em>default:</em> <code class="codehilite">2000</code>)</li>
-<li><strong>force_z</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>torque_x</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>torque_y</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>torque_z</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>wrench_starting_time</strong> (<em>default:</em> <code class="codehilite">30</code>)</li>
-<li><strong>wrench_duration</strong> (<em>default:</em> <code class="codehilite">20</code>)</li>
+<li><strong>current_starting_time</strong> (<em>default:</em> <code class="codehilite"><span class="mi">20</span><span class="p">.</span><span class="mi">0</span></code>)</li>
+<li><strong>current_vel</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1</span></code>)</li>
+<li><strong>current_horz_angle</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">0</span></code>)</li>
+<li><strong>current_vert_angle</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">0</span></code>)</li>
+<li><strong>current_duration</strong> (<em>default:</em> <code class="codehilite"><span class="mi">10</span></code>)</li>
+<li><strong>force_x</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>force_y</strong> (<em>default:</em> <code class="codehilite"><span class="mi">2000</span></code>)</li>
+<li><strong>force_z</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>torque_x</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>torque_y</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>torque_z</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>wrench_starting_time</strong> (<em>default:</em> <code class="codehilite"><span class="mi">30</span></code>)</li>
+<li><strong>wrench_duration</strong> (<em>default:</em> <code class="codehilite"><span class="mi">20</span></code>)</li>
 </ul>
-<h5 id="apply_body_wrenchlaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_control_utils/launch/apply_body_wrench.launch"><code class="codehilite">apply_body_wrench.launch</code></a><a class="headerlink" href="#apply_body_wrenchlaunch" title="Permanent link">&para;</a></h5>
+<h5 id="apply_body_wrenchlaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_control_utils/launch/apply_body_wrench.launch"><code class="codehilite"><span class="n">apply_body_wrench</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#apply_body_wrenchlaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
 <li><strong>uuv_name</strong></li>
-<li><strong>force_x</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>force_y</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>force_z</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>torque_x</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>torque_y</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>torque_z</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>starting_time</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>duration</strong> (<em>default:</em> <code class="codehilite">1</code>)</li>
+<li><strong>force_x</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>force_y</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>force_z</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>torque_x</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>torque_y</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>torque_z</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>starting_time</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>duration</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1</span></code>)</li>
 </ul>
-<h5 id="start_circular_trajectorylaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_control_utils/launch/start_circular_trajectory.launch"><code class="codehilite">start_circular_trajectory.launch</code></a><a class="headerlink" href="#start_circular_trajectorylaunch" title="Permanent link">&para;</a></h5>
+<h5 id="start_circular_trajectorylaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_control_utils/launch/start_circular_trajectory.launch"><code class="codehilite"><span class="n">start_circular_trajectory</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#start_circular_trajectorylaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
 <li><strong>uuv_name</strong></li>
-<li><strong>start_time</strong> (<em>default:</em> <code class="codehilite">-1</code>)</li>
-<li><strong>radius</strong> (<em>default:</em> <code class="codehilite">8</code>)</li>
-<li><strong>center_x</strong> (<em>default:</em> <code class="codehilite">4</code>)</li>
-<li><strong>center_y</strong> (<em>default:</em> <code class="codehilite">2</code>)</li>
-<li><strong>center_z</strong> (<em>default:</em> <code class="codehilite">-22</code>)</li>
-<li><strong>n_points</strong> (<em>default:</em> <code class="codehilite">50</code>)</li>
-<li><strong>heading_offset</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>duration</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>max_forward_speed</strong> (<em>default:</em> <code class="codehilite">0.3</code>)</li>
+<li><strong>start_time</strong> (<em>default:</em> <code class="codehilite"><span class="o">-</span><span class="mi">1</span></code>)</li>
+<li><strong>radius</strong> (<em>default:</em> <code class="codehilite"><span class="mi">8</span></code>)</li>
+<li><strong>center_x</strong> (<em>default:</em> <code class="codehilite"><span class="mi">4</span></code>)</li>
+<li><strong>center_y</strong> (<em>default:</em> <code class="codehilite"><span class="mi">2</span></code>)</li>
+<li><strong>center_z</strong> (<em>default:</em> <code class="codehilite"><span class="o">-</span><span class="mi">22</span></code>)</li>
+<li><strong>n_points</strong> (<em>default:</em> <code class="codehilite"><span class="mi">50</span></code>)</li>
+<li><strong>heading_offset</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>duration</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>max_forward_speed</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">3</span></code>)</li>
 </ul>
-<h5 id="set_gm_current_perturbationlaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_control_utils/launch/set_gm_current_perturbation.launch"><code class="codehilite">set_gm_current_perturbation.launch</code></a><a class="headerlink" href="#set_gm_current_perturbationlaunch" title="Permanent link">&para;</a></h5>
+<h5 id="set_gm_current_perturbationlaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_control_utils/launch/set_gm_current_perturbation.launch"><code class="codehilite"><span class="n">set_gm_current_perturbation</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#set_gm_current_perturbationlaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
 <li><strong>component</strong></li>
-<li><strong>mean</strong> (<em>default:</em> <code class="codehilite">0.0</code>)</li>
-<li><strong>min</strong> (<em>default:</em> <code class="codehilite">0.0</code>)</li>
-<li><strong>max</strong> (<em>default:</em> <code class="codehilite">0.0</code>)</li>
-<li><strong>noise</strong> (<em>default:</em> <code class="codehilite">0.0</code>)</li>
-<li><strong>mu</strong> (<em>default:</em> <code class="codehilite">0.0</code>)</li>
+<li><strong>mean</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">0</span></code>)</li>
+<li><strong>min</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">0</span></code>)</li>
+<li><strong>max</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">0</span></code>)</li>
+<li><strong>noise</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">0</span></code>)</li>
+<li><strong>mu</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">0</span></code>)</li>
 </ul>
-<h5 id="set_scalar_parameterlaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_control_utils/launch/set_scalar_parameter.launch"><code class="codehilite">set_scalar_parameter.launch</code></a><a class="headerlink" href="#set_scalar_parameterlaunch" title="Permanent link">&para;</a></h5>
+<h5 id="set_scalar_parameterlaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_control_utils/launch/set_scalar_parameter.launch"><code class="codehilite"><span class="n">set_scalar_parameter</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#set_scalar_parameterlaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
@@ -3150,90 +3162,90 @@
 <li><strong>service_name</strong></li>
 <li><strong>data</strong></li>
 </ul>
-<h5 id="set_thruster_output_efficiencylaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_control_utils/launch/set_thruster_output_efficiency.launch"><code class="codehilite">set_thruster_output_efficiency.launch</code></a><a class="headerlink" href="#set_thruster_output_efficiencylaunch" title="Permanent link">&para;</a></h5>
+<h5 id="set_thruster_output_efficiencylaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_control_utils/launch/set_thruster_output_efficiency.launch"><code class="codehilite"><span class="n">set_thruster_output_efficiency</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#set_thruster_output_efficiencylaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
 <li><strong>uuv_name</strong></li>
-<li><strong>starting_time</strong> (<em>default:</em> <code class="codehilite">0.0</code>)</li>
-<li><strong>thruster_id</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>efficiency</strong> (<em>default:</em> <code class="codehilite">1.0</code>)</li>
-<li><strong>duration</strong> (<em>default:</em> <code class="codehilite">-1</code>)</li>
+<li><strong>starting_time</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">0</span></code>)</li>
+<li><strong>thruster_id</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>efficiency</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1</span><span class="p">.</span><span class="mi">0</span></code>)</li>
+<li><strong>duration</strong> (<em>default:</em> <code class="codehilite"><span class="o">-</span><span class="mi">1</span></code>)</li>
 </ul>
-<h5 id="set_thruster_statelaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_control_utils/launch/set_thruster_state.launch"><code class="codehilite">set_thruster_state.launch</code></a><a class="headerlink" href="#set_thruster_statelaunch" title="Permanent link">&para;</a></h5>
+<h5 id="set_thruster_statelaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_control_utils/launch/set_thruster_state.launch"><code class="codehilite"><span class="n">set_thruster_state</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#set_thruster_statelaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
 <li><strong>uuv_name</strong></li>
-<li><strong>starting_time</strong> (<em>default:</em> <code class="codehilite">0.0</code>)</li>
-<li><strong>thruster_id</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>is_on</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>duration</strong> (<em>default:</em> <code class="codehilite">-1</code>)</li>
+<li><strong>starting_time</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">0</span></code>)</li>
+<li><strong>thruster_id</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>is_on</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>duration</strong> (<em>default:</em> <code class="codehilite"><span class="o">-</span><span class="mi">1</span></code>)</li>
 </ul>
-<h5 id="start_helical_trajectorylaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_control_utils/launch/start_helical_trajectory.launch"><code class="codehilite">start_helical_trajectory.launch</code></a><a class="headerlink" href="#start_helical_trajectorylaunch" title="Permanent link">&para;</a></h5>
+<h5 id="start_helical_trajectorylaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_control_utils/launch/start_helical_trajectory.launch"><code class="codehilite"><span class="n">start_helical_trajectory</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#start_helical_trajectorylaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
 <li><strong>uuv_name</strong></li>
-<li><strong>start_time</strong> (<em>default:</em> <code class="codehilite">-1</code>)</li>
-<li><strong>radius</strong> (<em>default:</em> <code class="codehilite">8</code>)</li>
-<li><strong>center_x</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>center_y</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>center_z</strong> (<em>default:</em> <code class="codehilite">-30</code>)</li>
-<li><strong>n_points</strong> (<em>default:</em> <code class="codehilite">50</code>)</li>
-<li><strong>n_turns</strong> (<em>default:</em> <code class="codehilite">1</code>)</li>
-<li><strong>delta_z</strong> (<em>default:</em> <code class="codehilite">5.0</code>)</li>
-<li><strong>heading_offset</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>duration</strong> (<em>default:</em> <code class="codehilite">150</code>)</li>
-<li><strong>max_forward_speed</strong> (<em>default:</em> <code class="codehilite">0.3</code>)</li>
+<li><strong>start_time</strong> (<em>default:</em> <code class="codehilite"><span class="o">-</span><span class="mi">1</span></code>)</li>
+<li><strong>radius</strong> (<em>default:</em> <code class="codehilite"><span class="mi">8</span></code>)</li>
+<li><strong>center_x</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>center_y</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>center_z</strong> (<em>default:</em> <code class="codehilite"><span class="o">-</span><span class="mi">30</span></code>)</li>
+<li><strong>n_points</strong> (<em>default:</em> <code class="codehilite"><span class="mi">50</span></code>)</li>
+<li><strong>n_turns</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1</span></code>)</li>
+<li><strong>delta_z</strong> (<em>default:</em> <code class="codehilite"><span class="mi">5</span><span class="p">.</span><span class="mi">0</span></code>)</li>
+<li><strong>heading_offset</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>duration</strong> (<em>default:</em> <code class="codehilite"><span class="mi">150</span></code>)</li>
+<li><strong>max_forward_speed</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">3</span></code>)</li>
 </ul>
 <h4 id="scripts">Scripts<a class="headerlink" href="#scripts" title="Permanent link">&para;</a></h4>
-<h5 id="set_timed_current_perturbationpy"><code class="codehilite">set_timed_current_perturbation.py</code><a class="headerlink" href="#set_timed_current_perturbationpy" title="Permanent link">&para;</a></h5>
+<h5 id="set_timed_current_perturbationpy"><code class="codehilite"><span class="n">set_timed_current_perturbation</span><span class="p">.</span><span class="n">py</span></code><a class="headerlink" href="#set_timed_current_perturbationpy" title="Permanent link">&para;</a></h5>
 <blockquote>
-<p><strong>Script type:</strong> <code class="codehilite">python</code></p>
+<p><strong>Script type:</strong> <code class="codehilite"><span class="n">python</span></code></p>
 </blockquote>
-<h5 id="apply_body_wrenchpy"><code class="codehilite">apply_body_wrench.py</code><a class="headerlink" href="#apply_body_wrenchpy" title="Permanent link">&para;</a></h5>
+<h5 id="apply_body_wrenchpy"><code class="codehilite"><span class="n">apply_body_wrench</span><span class="p">.</span><span class="n">py</span></code><a class="headerlink" href="#apply_body_wrenchpy" title="Permanent link">&para;</a></h5>
 <blockquote>
-<p><strong>Script type:</strong> <code class="codehilite">python</code></p>
+<p><strong>Script type:</strong> <code class="codehilite"><span class="n">python</span></code></p>
 </blockquote>
-<h5 id="trajectory_marker_publisherpy"><code class="codehilite">trajectory_marker_publisher.py</code><a class="headerlink" href="#trajectory_marker_publisherpy" title="Permanent link">&para;</a></h5>
+<h5 id="trajectory_marker_publisherpy"><code class="codehilite"><span class="n">trajectory_marker_publisher</span><span class="p">.</span><span class="n">py</span></code><a class="headerlink" href="#trajectory_marker_publisherpy" title="Permanent link">&para;</a></h5>
 <blockquote>
-<p><strong>Script type:</strong> <code class="codehilite">python</code></p>
+<p><strong>Script type:</strong> <code class="codehilite"><span class="n">python</span></code></p>
 </blockquote>
-<h5 id="set_scalar_parameterpy"><code class="codehilite">set_scalar_parameter.py</code><a class="headerlink" href="#set_scalar_parameterpy" title="Permanent link">&para;</a></h5>
+<h5 id="set_scalar_parameterpy"><code class="codehilite"><span class="n">set_scalar_parameter</span><span class="p">.</span><span class="n">py</span></code><a class="headerlink" href="#set_scalar_parameterpy" title="Permanent link">&para;</a></h5>
 <blockquote>
-<p><strong>Script type:</strong> <code class="codehilite">python</code></p>
+<p><strong>Script type:</strong> <code class="codehilite"><span class="n">python</span></code></p>
 </blockquote>
-<h5 id="set_thruster_output_efficiencypy"><code class="codehilite">set_thruster_output_efficiency.py</code><a class="headerlink" href="#set_thruster_output_efficiencypy" title="Permanent link">&para;</a></h5>
+<h5 id="set_thruster_output_efficiencypy"><code class="codehilite"><span class="n">set_thruster_output_efficiency</span><span class="p">.</span><span class="n">py</span></code><a class="headerlink" href="#set_thruster_output_efficiencypy" title="Permanent link">&para;</a></h5>
 <blockquote>
-<p><strong>Script type:</strong> <code class="codehilite">python</code></p>
+<p><strong>Script type:</strong> <code class="codehilite"><span class="n">python</span></code></p>
 </blockquote>
-<h5 id="start_helical_trajectorypy"><code class="codehilite">start_helical_trajectory.py</code><a class="headerlink" href="#start_helical_trajectorypy" title="Permanent link">&para;</a></h5>
+<h5 id="start_helical_trajectorypy"><code class="codehilite"><span class="n">start_helical_trajectory</span><span class="p">.</span><span class="n">py</span></code><a class="headerlink" href="#start_helical_trajectorypy" title="Permanent link">&para;</a></h5>
 <blockquote>
-<p><strong>Script type:</strong> <code class="codehilite">python</code></p>
+<p><strong>Script type:</strong> <code class="codehilite"><span class="n">python</span></code></p>
 </blockquote>
-<h5 id="disturbance_managerpy"><code class="codehilite">disturbance_manager.py</code><a class="headerlink" href="#disturbance_managerpy" title="Permanent link">&para;</a></h5>
+<h5 id="disturbance_managerpy"><code class="codehilite"><span class="n">disturbance_manager</span><span class="p">.</span><span class="n">py</span></code><a class="headerlink" href="#disturbance_managerpy" title="Permanent link">&para;</a></h5>
 <blockquote>
-<p><strong>Script type:</strong> <code class="codehilite">python</code></p>
+<p><strong>Script type:</strong> <code class="codehilite"><span class="n">python</span></code></p>
 </blockquote>
-<h5 id="send_waypoint_filepy"><code class="codehilite">send_waypoint_file.py</code><a class="headerlink" href="#send_waypoint_filepy" title="Permanent link">&para;</a></h5>
+<h5 id="send_waypoint_filepy"><code class="codehilite"><span class="n">send_waypoint_file</span><span class="p">.</span><span class="n">py</span></code><a class="headerlink" href="#send_waypoint_filepy" title="Permanent link">&para;</a></h5>
 <blockquote>
-<p><strong>Script type:</strong> <code class="codehilite">python</code></p>
+<p><strong>Script type:</strong> <code class="codehilite"><span class="n">python</span></code></p>
 </blockquote>
-<h5 id="start_circular_trajectorypy"><code class="codehilite">start_circular_trajectory.py</code><a class="headerlink" href="#start_circular_trajectorypy" title="Permanent link">&para;</a></h5>
+<h5 id="start_circular_trajectorypy"><code class="codehilite"><span class="n">start_circular_trajectory</span><span class="p">.</span><span class="n">py</span></code><a class="headerlink" href="#start_circular_trajectorypy" title="Permanent link">&para;</a></h5>
 <blockquote>
-<p><strong>Script type:</strong> <code class="codehilite">python</code></p>
+<p><strong>Script type:</strong> <code class="codehilite"><span class="n">python</span></code></p>
 </blockquote>
-<h5 id="set_thruster_statepy"><code class="codehilite">set_thruster_state.py</code><a class="headerlink" href="#set_thruster_statepy" title="Permanent link">&para;</a></h5>
+<h5 id="set_thruster_statepy"><code class="codehilite"><span class="n">set_thruster_state</span><span class="p">.</span><span class="n">py</span></code><a class="headerlink" href="#set_thruster_statepy" title="Permanent link">&para;</a></h5>
 <blockquote>
-<p><strong>Script type:</strong> <code class="codehilite">python</code></p>
+<p><strong>Script type:</strong> <code class="codehilite"><span class="n">python</span></code></p>
 </blockquote>
-<h5 id="set_gm_current_perturbationpy"><code class="codehilite">set_gm_current_perturbation.py</code><a class="headerlink" href="#set_gm_current_perturbationpy" title="Permanent link">&para;</a></h5>
+<h5 id="set_gm_current_perturbationpy"><code class="codehilite"><span class="n">set_gm_current_perturbation</span><span class="p">.</span><span class="n">py</span></code><a class="headerlink" href="#set_gm_current_perturbationpy" title="Permanent link">&para;</a></h5>
 <blockquote>
-<p><strong>Script type:</strong> <code class="codehilite">python</code></p>
+<p><strong>Script type:</strong> <code class="codehilite"><span class="n">python</span></code></p>
 </blockquote>
                 
                   

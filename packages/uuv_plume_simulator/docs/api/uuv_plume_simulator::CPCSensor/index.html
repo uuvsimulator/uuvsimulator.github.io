@@ -454,6 +454,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../../uuv_simulator/docs/features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../../uuv_simulator/docs/features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -3328,7 +3340,7 @@
                 
                   <h1>CPCSensor</h1>
                 
-                <h4 id="class-uuv_plume_simulatorcpcsensor">class <code class="codehilite">uuv_plume_simulator::CPCSensor</code><a class="headerlink" href="#class-uuv_plume_simulatorcpcsensor" title="Permanent link">&para;</a></h4>
+                <h4 id="class-uuv_plume_simulatorcpcsensor">class <code class="codehilite"><span class="n">uuv_plume_simulator</span><span class="p">::</span><span class="n">CPCSensor</span></code><a class="headerlink" href="#class-uuv_plume_simulatorcpcsensor" title="Permanent link">&para;</a></h4>
 <h5 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h5>
 <table>
 <thead>
@@ -3339,264 +3351,264 @@
 </thead>
 <tbody>
 <tr>
-<td><code class="codehilite">public</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a1472cc5596ca8af358a4a2a887c94935"><code class="codehilite">CPCSensor</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a1472cc5596ca8af358a4a2a887c94935"><code class="codehilite"><span class="n">CPCSensor</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Class constructor.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a6c28c6d5b2f1788372ce74be9ac48d31"><code class="codehilite">~CPCSensor</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a6c28c6d5b2f1788372ce74be9ac48d31"><code class="codehilite"><span class="o">~</span><span class="n">CPCSensor</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Class destructor.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected bool</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a32ace61c89476eb6309a4507936b5257"><code class="codehilite">updatingCloud</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">bool</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a32ace61c89476eb6309a4507936b5257"><code class="codehilite"><span class="n">updatingCloud</span></code></a></td>
 <td>Flag to ensure the cloud and measurement update don't coincide.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a853b8d456c24b321b952359c9a61489b"><code class="codehilite">gamma</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a853b8d456c24b321b952359c9a61489b"><code class="codehilite"><span class="n">gamma</span></code></a></td>
 <td>Gamma velocity parameter for the smoothing function.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1ad676c2b912f8b148b57070cda5b1c384"><code class="codehilite">gain</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1ad676c2b912f8b148b57070cda5b1c384"><code class="codehilite"><span class="n">gain</span></code></a></td>
 <td>Sensor gain.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a285eb79145cfd715291f808eaac32afb"><code class="codehilite">smoothingLength</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a285eb79145cfd715291f808eaac32afb"><code class="codehilite"><span class="n">smoothingLength</span></code></a></td>
 <td>Radius of the kernel to identify particles that will be taken into account in the concentration computation.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected std::string</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a1a2bed3e78efa3c7d002d266c775029f"><code class="codehilite">salinityUnit</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a1a2bed3e78efa3c7d002d266c775029f"><code class="codehilite"><span class="n">salinityUnit</span></code></a></td>
 <td>Salinity unit to be used. Options are.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a4925a0273447a20a2a45749c2b739bf3"><code class="codehilite">saturation</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a4925a0273447a20a2a45749c2b739bf3"><code class="codehilite"><span class="n">saturation</span></code></a></td>
 <td>Sensor saturation.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected bool</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a9f12bbbc0bb4734e3e319fc940b0b0e6"><code class="codehilite">useGeoCoordinates</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">bool</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a9f12bbbc0bb4734e3e319fc940b0b0e6"><code class="codehilite"><span class="n">useGeoCoordinates</span></code></a></td>
 <td>Flag that will allow storing the geodetic coordinates with the measurement message.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected bool</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1ae9007729f28c92ac5d8a11190cdeb8bd"><code class="codehilite">publishSalinity</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">bool</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1ae9007729f28c92ac5d8a11190cdeb8bd"><code class="codehilite"><span class="n">publishSalinity</span></code></a></td>
 <td>Flag to activate publishing the simulated salinity.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a91278f224f4dc69aaa839eb517dd5a46"><code class="codehilite">referenceSalinityValue</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a91278f224f4dc69aaa839eb517dd5a46"><code class="codehilite"><span class="n">referenceSalinityValue</span></code></a></td>
 <td>Default salinity value for the fluid e.g. sea water.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a7bbe4a621ed6c6be8d7ee87769c154f6"><code class="codehilite">plumeSalinityValue</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a7bbe4a621ed6c6be8d7ee87769c154f6"><code class="codehilite"><span class="n">plumeSalinityValue</span></code></a></td>
 <td>Default salinity value for the plume.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected bool</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a2de0395b9721e726347601543cfcd03d"><code class="codehilite">updateMeasurement</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">bool</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a2de0395b9721e726347601543cfcd03d"><code class="codehilite"><span class="n">updateMeasurement</span></code></a></td>
 <td>Set to true to avoid particle update.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a5091b83afd0468f9f9926e19329c33ee"><code class="codehilite">updateRate</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a5091b83afd0468f9f9926e19329c33ee"><code class="codehilite"><span class="n">updateRate</span></code></a></td>
 <td>Output topic's update rate.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected std::string</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1aee44faae4c264c656d8ebd248d2292a4"><code class="codehilite">sensorFrameID</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1aee44faae4c264c656d8ebd248d2292a4"><code class="codehilite"><span class="n">sensorFrameID</span></code></a></td>
 <td>Name of the sensor frame.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected bool</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1af7b8775cc7edf1f37b10d2324f002146"><code class="codehilite">areParticlesInit</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">bool</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1af7b8775cc7edf1f37b10d2324f002146"><code class="codehilite"><span class="n">areParticlesInit</span></code></a></td>
 <td>Flag set to true after the first set of plume particles is received.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected bool</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1ab9602b92be015516bb35879f6b1539fe"><code class="codehilite">useOdom</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">bool</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1ab9602b92be015516bb35879f6b1539fe"><code class="codehilite"><span class="n">useOdom</span></code></a></td>
 <td>Flag set if the sensor position update must be read from the vehicle's odometry input topic.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected bool</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a42362a4faafe57c53e52930f32d5b757"><code class="codehilite">useGPS</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">bool</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a42362a4faafe57c53e52930f32d5b757"><code class="codehilite"><span class="n">useGPS</span></code></a></td>
 <td>Flag set if the sensor position update must be read from the vehicle's GPS topic.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected bool</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a6e5f2a338e6158a8e65288489d2f43d0"><code class="codehilite">useTFUpdate</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">bool</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a6e5f2a338e6158a8e65288489d2f43d0"><code class="codehilite"><span class="n">useTFUpdate</span></code></a></td>
 <td>Flag set if the TF update wrt the sensor frame ID.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected geometry_msgs::Vector3</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a624487ac7c4af59a54344608be0e9002"><code class="codehilite">cartPos</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">geometry_msgs</span><span class="p">::</span><span class="n">Vector3</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a624487ac7c4af59a54344608be0e9002"><code class="codehilite"><span class="n">cartPos</span></code></a></td>
 <td>Measured Cartesian position.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected geographic_msgs::GeoPoint</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a2eaeb701f45906596c91eb81b0799423"><code class="codehilite">geoPos</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">geographic_msgs</span><span class="p">::</span><span class="n">GeoPoint</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a2eaeb701f45906596c91eb81b0799423"><code class="codehilite"><span class="n">geoPos</span></code></a></td>
 <td>Measured geodetic position.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ros::Subscriber</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a10ca6338f7e6ed74c814aecd89908df9"><code class="codehilite">particlesSub</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ros</span><span class="p">::</span><span class="n">Subscriber</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a10ca6338f7e6ed74c814aecd89908df9"><code class="codehilite"><span class="n">particlesSub</span></code></a></td>
 <td>Subscriber for the plume particle point cloud.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ros::Subscriber</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a1113a6a302688220ec6e900897847e08"><code class="codehilite">odometrySub</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ros</span><span class="p">::</span><span class="n">Subscriber</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a1113a6a302688220ec6e900897847e08"><code class="codehilite"><span class="n">odometrySub</span></code></a></td>
 <td>Subscriber for odometry topic.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ros::Subscriber</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a22257bbc83b40e7b502e3c423fa25572"><code class="codehilite">gpsSub</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ros</span><span class="p">::</span><span class="n">Subscriber</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a22257bbc83b40e7b502e3c423fa25572"><code class="codehilite"><span class="n">gpsSub</span></code></a></td>
 <td>Subscriber to the GPS update topic.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ros::Publisher</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1aeacfcb3e55ddf1da3df33dfd7132dad1"><code class="codehilite">concentrationPub</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ros</span><span class="p">::</span><span class="n">Publisher</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1aeacfcb3e55ddf1da3df33dfd7132dad1"><code class="codehilite"><span class="n">concentrationPub</span></code></a></td>
 <td>Output topic for particle concentration.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ros::Publisher</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a606721a0bb469e7c369d166ec7298027"><code class="codehilite">salinityPub</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ros</span><span class="p">::</span><span class="n">Publisher</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a606721a0bb469e7c369d166ec7298027"><code class="codehilite"><span class="n">salinityPub</span></code></a></td>
 <td>Output topic for salinity.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected std::shared_ptr&lt; ros::NodeHandle &gt;</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1acc3ddc9eda68743989953933a8bdb6dd"><code class="codehilite">nodeHandle</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span> <span class="n">ros</span><span class="p">::</span><span class="n">NodeHandle</span> <span class="o">&gt;</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1acc3ddc9eda68743989953933a8bdb6dd"><code class="codehilite"><span class="n">nodeHandle</span></code></a></td>
 <td>ROS node handle.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected tf2_ros::Buffer</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a2b75335de225523e6ddadaab786c6376"><code class="codehilite">tfBuffer</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">tf2_ros</span><span class="p">::</span><span class="n">Buffer</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a2b75335de225523e6ddadaab786c6376"><code class="codehilite"><span class="n">tfBuffer</span></code></a></td>
 <td>TF buffer instance.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected std::shared_ptr&lt; tf2_ros::TransformListener &gt;</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1ab6950f90194ecfd62ab0bbd54fd81f7c"><code class="codehilite">tfListener</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span> <span class="n">tf2_ros</span><span class="p">::</span><span class="n">TransformListener</span> <span class="o">&gt;</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1ab6950f90194ecfd62ab0bbd54fd81f7c"><code class="codehilite"><span class="n">tfListener</span></code></a></td>
 <td>TF listener pointer.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected GeographicLib::LocalCartesian</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1ae9c6808ab2ad5b13a72fb511eac3ab94"><code class="codehilite">projection</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">GeographicLib</span><span class="p">::</span><span class="n">LocalCartesian</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1ae9c6808ab2ad5b13a72fb511eac3ab94"><code class="codehilite"><span class="n">projection</span></code></a></td>
 <td>Local Cartesian projection.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected uuv_plume_msgs::ParticleConcentration</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a8cfe5eff941369e1e33e26064764abbb"><code class="codehilite">concentrationMsg</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">uuv_plume_msgs</span><span class="p">::</span><span class="n">ParticleConcentration</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a8cfe5eff941369e1e33e26064764abbb"><code class="codehilite"><span class="n">concentrationMsg</span></code></a></td>
 <td>Plume concentration message.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected uuv_plume_msgs::Salinity</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a2e35ed0c7c463da2602b5ac9f1da282e"><code class="codehilite">salinityMsg</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">uuv_plume_msgs</span><span class="p">::</span><span class="n">Salinity</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a2e35ed0c7c463da2602b5ac9f1da282e"><code class="codehilite"><span class="n">salinityMsg</span></code></a></td>
 <td>Salinity message.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ros::Timer</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a9c173307f263aa9b9b7c7f2342d5ce94"><code class="codehilite">updateTimer</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ros</span><span class="p">::</span><span class="n">Timer</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a9c173307f263aa9b9b7c7f2342d5ce94"><code class="codehilite"><span class="n">updateTimer</span></code></a></td>
 <td>Sensor update timer.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected std::default_random_engine</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a32296108956e0909056e72ea5c3fe873"><code class="codehilite">rndGen</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">default_random_engine</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a32296108956e0909056e72ea5c3fe873"><code class="codehilite"><span class="n">rndGen</span></code></a></td>
 <td>Pseudo random number generator.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected std::normal_distribution&lt; double &gt;</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a43cfa91f2d9b5285545e7986b5a15962"><code class="codehilite">noiseModel</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">normal_distribution</span><span class="o">&lt;</span> <span class="n">double</span> <span class="o">&gt;</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a43cfa91f2d9b5285545e7986b5a15962"><code class="codehilite"><span class="n">noiseModel</span></code></a></td>
 <td>Normal distribution describing the noise model.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1aff1cf4cad2ccf96800db7f6a16f271cc"><code class="codehilite">noiseAmp</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1aff1cf4cad2ccf96800db7f6a16f271cc"><code class="codehilite"><span class="n">noiseAmp</span></code></a></td>
 <td>Noise amplitude.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a051b51ad3230fe9ee57f94aa80605cb1"><code class="codehilite">noiseSigma</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a051b51ad3230fe9ee57f94aa80605cb1"><code class="codehilite"><span class="n">noiseSigma</span></code></a></td>
 <td>Noise standard deviation.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected void</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1aa0112facdab526f2e99a62772a7613cb"><code class="codehilite">OnSensorUpdate</code></a><code class="codehilite">(const ros::TimerEvent &amp;)</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">void</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1aa0112facdab526f2e99a62772a7613cb"><code class="codehilite"><span class="n">OnSensorUpdate</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">ros</span><span class="p">::</span><span class="n">TimerEvent</span> <span class="o">&amp;</span><span class="p">)</span></code></td>
 <td>Update the output concentration and salinity topics.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected void</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1ae4cac538822b672d2045a11f4d406336"><code class="codehilite">OnPlumeParticlesUpdate</code></a><code class="codehilite">(const sensor_msgs::PointCloud::ConstPtr &amp; _msg)</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">void</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1ae4cac538822b672d2045a11f4d406336"><code class="codehilite"><span class="n">OnPlumeParticlesUpdate</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">sensor_msgs</span><span class="p">::</span><span class="n">PointCloud</span><span class="p">::</span><span class="n">ConstPtr</span> <span class="o">&amp;</span> <span class="n">_msg</span><span class="p">)</span></code></td>
 <td>Update callback from the plume particles.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected void</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a6348d873f88079a8af2303d76eede010"><code class="codehilite">OnOdometryUpdate</code></a><code class="codehilite">(const nav_msgs::Odometry::ConstPtr &amp; _msg)</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">void</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a6348d873f88079a8af2303d76eede010"><code class="codehilite"><span class="n">OnOdometryUpdate</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">nav_msgs</span><span class="p">::</span><span class="n">Odometry</span><span class="p">::</span><span class="n">ConstPtr</span> <span class="o">&amp;</span> <span class="n">_msg</span><span class="p">)</span></code></td>
 <td>Update the odometry callback.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected void</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a428cc881985682f78876aa44866a6c7e"><code class="codehilite">OnGPSUpdate</code></a><code class="codehilite">(const sensor_msgs::NavSatFix::ConstPtr &amp; _msg)</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">void</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a428cc881985682f78876aa44866a6c7e"><code class="codehilite"><span class="n">OnGPSUpdate</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">sensor_msgs</span><span class="p">::</span><span class="n">NavSatFix</span><span class="p">::</span><span class="n">ConstPtr</span> <span class="o">&amp;</span> <span class="n">_msg</span><span class="p">)</span></code></td>
 <td>Update the GPS update callback.</td>
 </tr>
 </tbody>
 </table>
 <h5 id="members">Members<a class="headerlink" href="#members" title="Permanent link">&para;</a></h5>
-<h6 id="publiccpcsensor"><code class="codehilite">public</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a1472cc5596ca8af358a4a2a887c94935"><code class="codehilite">CPCSensor</code></a><code class="codehilite">()</code><a class="headerlink" href="#publiccpcsensor" title="Permanent link">&para;</a></h6>
+<h6 id="publiccpcsensor"><code class="codehilite"><span class="k">public</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a1472cc5596ca8af358a4a2a887c94935"><code class="codehilite"><span class="n">CPCSensor</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#publiccpcsensor" title="Permanent link">&para;</a></h6>
 <p>Class constructor.</p>
-<h6 id="publiccpcsensor_1"><code class="codehilite">public</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a6c28c6d5b2f1788372ce74be9ac48d31"><code class="codehilite">~CPCSensor</code></a><code class="codehilite">()</code><a class="headerlink" href="#publiccpcsensor_1" title="Permanent link">&para;</a></h6>
+<h6 id="publiccpcsensor_1"><code class="codehilite"><span class="k">public</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a6c28c6d5b2f1788372ce74be9ac48d31"><code class="codehilite"><span class="o">~</span><span class="n">CPCSensor</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#publiccpcsensor_1" title="Permanent link">&para;</a></h6>
 <p>Class destructor.</p>
-<h6 id="protected-boolupdatingcloud"><code class="codehilite">protected bool</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a32ace61c89476eb6309a4507936b5257"><code class="codehilite">updatingCloud</code></a><a class="headerlink" href="#protected-boolupdatingcloud" title="Permanent link">&para;</a></h6>
+<h6 id="protected-boolupdatingcloud"><code class="codehilite"><span class="n">protected</span> <span class="n">bool</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a32ace61c89476eb6309a4507936b5257"><code class="codehilite"><span class="n">updatingCloud</span></code></a><a class="headerlink" href="#protected-boolupdatingcloud" title="Permanent link">&para;</a></h6>
 <p>Flag to ensure the cloud and measurement update don't coincide.</p>
-<h6 id="protected-doublegamma"><code class="codehilite">protected double</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a853b8d456c24b321b952359c9a61489b"><code class="codehilite">gamma</code></a><a class="headerlink" href="#protected-doublegamma" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doublegamma"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a853b8d456c24b321b952359c9a61489b"><code class="codehilite"><span class="n">gamma</span></code></a><a class="headerlink" href="#protected-doublegamma" title="Permanent link">&para;</a></h6>
 <p>Gamma velocity parameter for the smoothing function.</p>
-<h6 id="protected-doublegain"><code class="codehilite">protected double</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1ad676c2b912f8b148b57070cda5b1c384"><code class="codehilite">gain</code></a><a class="headerlink" href="#protected-doublegain" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doublegain"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1ad676c2b912f8b148b57070cda5b1c384"><code class="codehilite"><span class="n">gain</span></code></a><a class="headerlink" href="#protected-doublegain" title="Permanent link">&para;</a></h6>
 <p>Sensor gain.</p>
-<h6 id="protected-doublesmoothinglength"><code class="codehilite">protected double</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a285eb79145cfd715291f808eaac32afb"><code class="codehilite">smoothingLength</code></a><a class="headerlink" href="#protected-doublesmoothinglength" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doublesmoothinglength"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a285eb79145cfd715291f808eaac32afb"><code class="codehilite"><span class="n">smoothingLength</span></code></a><a class="headerlink" href="#protected-doublesmoothinglength" title="Permanent link">&para;</a></h6>
 <p>Radius of the kernel to identify particles that will be taken into account in the concentration computation.</p>
-<h6 id="protected-stdstringsalinityunit"><code class="codehilite">protected std::string</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a1a2bed3e78efa3c7d002d266c775029f"><code class="codehilite">salinityUnit</code></a><a class="headerlink" href="#protected-stdstringsalinityunit" title="Permanent link">&para;</a></h6>
+<h6 id="protected-stdstringsalinityunit"><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a1a2bed3e78efa3c7d002d266c775029f"><code class="codehilite"><span class="n">salinityUnit</span></code></a><a class="headerlink" href="#protected-stdstringsalinityunit" title="Permanent link">&para;</a></h6>
 <p>Salinity unit to be used. Options are.</p>
 <ul>
 <li>
-<p><code class="codehilite">ppt</code> (parts per thousand)</p>
+<p><code class="codehilite"><span class="n">ppt</span></code> (parts per thousand)</p>
 </li>
 <li>
-<p><code class="codehilite">ppm</code> (parts per million)</p>
+<p><code class="codehilite"><span class="n">ppm</span></code> (parts per million)</p>
 </li>
 <li>
-<p><code class="codehilite">psu</code> (practical salinity unit)</p>
+<p><code class="codehilite"><span class="n">psu</span></code> (practical salinity unit)</p>
 </li>
 </ul>
-<h6 id="protected-doublesaturation"><code class="codehilite">protected double</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a4925a0273447a20a2a45749c2b739bf3"><code class="codehilite">saturation</code></a><a class="headerlink" href="#protected-doublesaturation" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doublesaturation"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a4925a0273447a20a2a45749c2b739bf3"><code class="codehilite"><span class="n">saturation</span></code></a><a class="headerlink" href="#protected-doublesaturation" title="Permanent link">&para;</a></h6>
 <p>Sensor saturation.</p>
-<h6 id="protected-boolusegeocoordinates"><code class="codehilite">protected bool</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a9f12bbbc0bb4734e3e319fc940b0b0e6"><code class="codehilite">useGeoCoordinates</code></a><a class="headerlink" href="#protected-boolusegeocoordinates" title="Permanent link">&para;</a></h6>
+<h6 id="protected-boolusegeocoordinates"><code class="codehilite"><span class="n">protected</span> <span class="n">bool</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a9f12bbbc0bb4734e3e319fc940b0b0e6"><code class="codehilite"><span class="n">useGeoCoordinates</span></code></a><a class="headerlink" href="#protected-boolusegeocoordinates" title="Permanent link">&para;</a></h6>
 <p>Flag that will allow storing the geodetic coordinates with the measurement message.</p>
-<h6 id="protected-boolpublishsalinity"><code class="codehilite">protected bool</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1ae9007729f28c92ac5d8a11190cdeb8bd"><code class="codehilite">publishSalinity</code></a><a class="headerlink" href="#protected-boolpublishsalinity" title="Permanent link">&para;</a></h6>
+<h6 id="protected-boolpublishsalinity"><code class="codehilite"><span class="n">protected</span> <span class="n">bool</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1ae9007729f28c92ac5d8a11190cdeb8bd"><code class="codehilite"><span class="n">publishSalinity</span></code></a><a class="headerlink" href="#protected-boolpublishsalinity" title="Permanent link">&para;</a></h6>
 <p>Flag to activate publishing the simulated salinity.</p>
-<h6 id="protected-doublereferencesalinityvalue"><code class="codehilite">protected double</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a91278f224f4dc69aaa839eb517dd5a46"><code class="codehilite">referenceSalinityValue</code></a><a class="headerlink" href="#protected-doublereferencesalinityvalue" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doublereferencesalinityvalue"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a91278f224f4dc69aaa839eb517dd5a46"><code class="codehilite"><span class="n">referenceSalinityValue</span></code></a><a class="headerlink" href="#protected-doublereferencesalinityvalue" title="Permanent link">&para;</a></h6>
 <p>Default salinity value for the fluid e.g. sea water.</p>
-<h6 id="protected-doubleplumesalinityvalue"><code class="codehilite">protected double</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a7bbe4a621ed6c6be8d7ee87769c154f6"><code class="codehilite">plumeSalinityValue</code></a><a class="headerlink" href="#protected-doubleplumesalinityvalue" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doubleplumesalinityvalue"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a7bbe4a621ed6c6be8d7ee87769c154f6"><code class="codehilite"><span class="n">plumeSalinityValue</span></code></a><a class="headerlink" href="#protected-doubleplumesalinityvalue" title="Permanent link">&para;</a></h6>
 <p>Default salinity value for the plume.</p>
-<h6 id="protected-boolupdatemeasurement"><code class="codehilite">protected bool</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a2de0395b9721e726347601543cfcd03d"><code class="codehilite">updateMeasurement</code></a><a class="headerlink" href="#protected-boolupdatemeasurement" title="Permanent link">&para;</a></h6>
+<h6 id="protected-boolupdatemeasurement"><code class="codehilite"><span class="n">protected</span> <span class="n">bool</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a2de0395b9721e726347601543cfcd03d"><code class="codehilite"><span class="n">updateMeasurement</span></code></a><a class="headerlink" href="#protected-boolupdatemeasurement" title="Permanent link">&para;</a></h6>
 <p>Set to true to avoid particle update.</p>
-<h6 id="protected-doubleupdaterate"><code class="codehilite">protected double</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a5091b83afd0468f9f9926e19329c33ee"><code class="codehilite">updateRate</code></a><a class="headerlink" href="#protected-doubleupdaterate" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doubleupdaterate"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a5091b83afd0468f9f9926e19329c33ee"><code class="codehilite"><span class="n">updateRate</span></code></a><a class="headerlink" href="#protected-doubleupdaterate" title="Permanent link">&para;</a></h6>
 <p>Output topic's update rate.</p>
-<h6 id="protected-stdstringsensorframeid"><code class="codehilite">protected std::string</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1aee44faae4c264c656d8ebd248d2292a4"><code class="codehilite">sensorFrameID</code></a><a class="headerlink" href="#protected-stdstringsensorframeid" title="Permanent link">&para;</a></h6>
+<h6 id="protected-stdstringsensorframeid"><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1aee44faae4c264c656d8ebd248d2292a4"><code class="codehilite"><span class="n">sensorFrameID</span></code></a><a class="headerlink" href="#protected-stdstringsensorframeid" title="Permanent link">&para;</a></h6>
 <p>Name of the sensor frame.</p>
-<h6 id="protected-boolareparticlesinit"><code class="codehilite">protected bool</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1af7b8775cc7edf1f37b10d2324f002146"><code class="codehilite">areParticlesInit</code></a><a class="headerlink" href="#protected-boolareparticlesinit" title="Permanent link">&para;</a></h6>
+<h6 id="protected-boolareparticlesinit"><code class="codehilite"><span class="n">protected</span> <span class="n">bool</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1af7b8775cc7edf1f37b10d2324f002146"><code class="codehilite"><span class="n">areParticlesInit</span></code></a><a class="headerlink" href="#protected-boolareparticlesinit" title="Permanent link">&para;</a></h6>
 <p>Flag set to true after the first set of plume particles is received.</p>
-<h6 id="protected-booluseodom"><code class="codehilite">protected bool</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1ab9602b92be015516bb35879f6b1539fe"><code class="codehilite">useOdom</code></a><a class="headerlink" href="#protected-booluseodom" title="Permanent link">&para;</a></h6>
+<h6 id="protected-booluseodom"><code class="codehilite"><span class="n">protected</span> <span class="n">bool</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1ab9602b92be015516bb35879f6b1539fe"><code class="codehilite"><span class="n">useOdom</span></code></a><a class="headerlink" href="#protected-booluseodom" title="Permanent link">&para;</a></h6>
 <p>Flag set if the sensor position update must be read from the vehicle's odometry input topic.</p>
-<h6 id="protected-boolusegps"><code class="codehilite">protected bool</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a42362a4faafe57c53e52930f32d5b757"><code class="codehilite">useGPS</code></a><a class="headerlink" href="#protected-boolusegps" title="Permanent link">&para;</a></h6>
+<h6 id="protected-boolusegps"><code class="codehilite"><span class="n">protected</span> <span class="n">bool</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a42362a4faafe57c53e52930f32d5b757"><code class="codehilite"><span class="n">useGPS</span></code></a><a class="headerlink" href="#protected-boolusegps" title="Permanent link">&para;</a></h6>
 <p>Flag set if the sensor position update must be read from the vehicle's GPS topic.</p>
-<h6 id="protected-boolusetfupdate"><code class="codehilite">protected bool</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a6e5f2a338e6158a8e65288489d2f43d0"><code class="codehilite">useTFUpdate</code></a><a class="headerlink" href="#protected-boolusetfupdate" title="Permanent link">&para;</a></h6>
+<h6 id="protected-boolusetfupdate"><code class="codehilite"><span class="n">protected</span> <span class="n">bool</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a6e5f2a338e6158a8e65288489d2f43d0"><code class="codehilite"><span class="n">useTFUpdate</span></code></a><a class="headerlink" href="#protected-boolusetfupdate" title="Permanent link">&para;</a></h6>
 <p>Flag set if the TF update wrt the sensor frame ID.</p>
-<h6 id="protected-geometry_msgsvector3cartpos"><code class="codehilite">protected geometry_msgs::Vector3</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a624487ac7c4af59a54344608be0e9002"><code class="codehilite">cartPos</code></a><a class="headerlink" href="#protected-geometry_msgsvector3cartpos" title="Permanent link">&para;</a></h6>
+<h6 id="protected-geometry_msgsvector3cartpos"><code class="codehilite"><span class="n">protected</span> <span class="n">geometry_msgs</span><span class="p">::</span><span class="n">Vector3</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a624487ac7c4af59a54344608be0e9002"><code class="codehilite"><span class="n">cartPos</span></code></a><a class="headerlink" href="#protected-geometry_msgsvector3cartpos" title="Permanent link">&para;</a></h6>
 <p>Measured Cartesian position.</p>
-<h6 id="protected-geographic_msgsgeopointgeopos"><code class="codehilite">protected geographic_msgs::GeoPoint</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a2eaeb701f45906596c91eb81b0799423"><code class="codehilite">geoPos</code></a><a class="headerlink" href="#protected-geographic_msgsgeopointgeopos" title="Permanent link">&para;</a></h6>
+<h6 id="protected-geographic_msgsgeopointgeopos"><code class="codehilite"><span class="n">protected</span> <span class="n">geographic_msgs</span><span class="p">::</span><span class="n">GeoPoint</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a2eaeb701f45906596c91eb81b0799423"><code class="codehilite"><span class="n">geoPos</span></code></a><a class="headerlink" href="#protected-geographic_msgsgeopointgeopos" title="Permanent link">&para;</a></h6>
 <p>Measured geodetic position.</p>
-<h6 id="protected-rossubscriberparticlessub"><code class="codehilite">protected ros::Subscriber</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a10ca6338f7e6ed74c814aecd89908df9"><code class="codehilite">particlesSub</code></a><a class="headerlink" href="#protected-rossubscriberparticlessub" title="Permanent link">&para;</a></h6>
+<h6 id="protected-rossubscriberparticlessub"><code class="codehilite"><span class="n">protected</span> <span class="n">ros</span><span class="p">::</span><span class="n">Subscriber</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a10ca6338f7e6ed74c814aecd89908df9"><code class="codehilite"><span class="n">particlesSub</span></code></a><a class="headerlink" href="#protected-rossubscriberparticlessub" title="Permanent link">&para;</a></h6>
 <p>Subscriber for the plume particle point cloud.</p>
-<h6 id="protected-rossubscriberodometrysub"><code class="codehilite">protected ros::Subscriber</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a1113a6a302688220ec6e900897847e08"><code class="codehilite">odometrySub</code></a><a class="headerlink" href="#protected-rossubscriberodometrysub" title="Permanent link">&para;</a></h6>
+<h6 id="protected-rossubscriberodometrysub"><code class="codehilite"><span class="n">protected</span> <span class="n">ros</span><span class="p">::</span><span class="n">Subscriber</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a1113a6a302688220ec6e900897847e08"><code class="codehilite"><span class="n">odometrySub</span></code></a><a class="headerlink" href="#protected-rossubscriberodometrysub" title="Permanent link">&para;</a></h6>
 <p>Subscriber for odometry topic.</p>
-<h6 id="protected-rossubscribergpssub"><code class="codehilite">protected ros::Subscriber</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a22257bbc83b40e7b502e3c423fa25572"><code class="codehilite">gpsSub</code></a><a class="headerlink" href="#protected-rossubscribergpssub" title="Permanent link">&para;</a></h6>
+<h6 id="protected-rossubscribergpssub"><code class="codehilite"><span class="n">protected</span> <span class="n">ros</span><span class="p">::</span><span class="n">Subscriber</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a22257bbc83b40e7b502e3c423fa25572"><code class="codehilite"><span class="n">gpsSub</span></code></a><a class="headerlink" href="#protected-rossubscribergpssub" title="Permanent link">&para;</a></h6>
 <p>Subscriber to the GPS update topic.</p>
-<h6 id="protected-rospublisherconcentrationpub"><code class="codehilite">protected ros::Publisher</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1aeacfcb3e55ddf1da3df33dfd7132dad1"><code class="codehilite">concentrationPub</code></a><a class="headerlink" href="#protected-rospublisherconcentrationpub" title="Permanent link">&para;</a></h6>
+<h6 id="protected-rospublisherconcentrationpub"><code class="codehilite"><span class="n">protected</span> <span class="n">ros</span><span class="p">::</span><span class="n">Publisher</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1aeacfcb3e55ddf1da3df33dfd7132dad1"><code class="codehilite"><span class="n">concentrationPub</span></code></a><a class="headerlink" href="#protected-rospublisherconcentrationpub" title="Permanent link">&para;</a></h6>
 <p>Output topic for particle concentration.</p>
-<h6 id="protected-rospublishersalinitypub"><code class="codehilite">protected ros::Publisher</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a606721a0bb469e7c369d166ec7298027"><code class="codehilite">salinityPub</code></a><a class="headerlink" href="#protected-rospublishersalinitypub" title="Permanent link">&para;</a></h6>
+<h6 id="protected-rospublishersalinitypub"><code class="codehilite"><span class="n">protected</span> <span class="n">ros</span><span class="p">::</span><span class="n">Publisher</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a606721a0bb469e7c369d166ec7298027"><code class="codehilite"><span class="n">salinityPub</span></code></a><a class="headerlink" href="#protected-rospublishersalinitypub" title="Permanent link">&para;</a></h6>
 <p>Output topic for salinity.</p>
-<h6 id="protected-stdshared_ptr-rosnodehandle-nodehandle"><code class="codehilite">protected std::shared_ptr&lt; ros::NodeHandle &gt;</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1acc3ddc9eda68743989953933a8bdb6dd"><code class="codehilite">nodeHandle</code></a><a class="headerlink" href="#protected-stdshared_ptr-rosnodehandle-nodehandle" title="Permanent link">&para;</a></h6>
+<h6 id="protected-stdshared_ptr-rosnodehandle-nodehandle"><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span> <span class="n">ros</span><span class="p">::</span><span class="n">NodeHandle</span> <span class="o">&gt;</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1acc3ddc9eda68743989953933a8bdb6dd"><code class="codehilite"><span class="n">nodeHandle</span></code></a><a class="headerlink" href="#protected-stdshared_ptr-rosnodehandle-nodehandle" title="Permanent link">&para;</a></h6>
 <p>ROS node handle.</p>
-<h6 id="protected-tf2_rosbuffertfbuffer"><code class="codehilite">protected tf2_ros::Buffer</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a2b75335de225523e6ddadaab786c6376"><code class="codehilite">tfBuffer</code></a><a class="headerlink" href="#protected-tf2_rosbuffertfbuffer" title="Permanent link">&para;</a></h6>
+<h6 id="protected-tf2_rosbuffertfbuffer"><code class="codehilite"><span class="n">protected</span> <span class="n">tf2_ros</span><span class="p">::</span><span class="n">Buffer</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a2b75335de225523e6ddadaab786c6376"><code class="codehilite"><span class="n">tfBuffer</span></code></a><a class="headerlink" href="#protected-tf2_rosbuffertfbuffer" title="Permanent link">&para;</a></h6>
 <p>TF buffer instance.</p>
-<h6 id="protected-stdshared_ptr-tf2_rostransformlistener-tflistener"><code class="codehilite">protected std::shared_ptr&lt; tf2_ros::TransformListener &gt;</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1ab6950f90194ecfd62ab0bbd54fd81f7c"><code class="codehilite">tfListener</code></a><a class="headerlink" href="#protected-stdshared_ptr-tf2_rostransformlistener-tflistener" title="Permanent link">&para;</a></h6>
+<h6 id="protected-stdshared_ptr-tf2_rostransformlistener-tflistener"><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span> <span class="n">tf2_ros</span><span class="p">::</span><span class="n">TransformListener</span> <span class="o">&gt;</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1ab6950f90194ecfd62ab0bbd54fd81f7c"><code class="codehilite"><span class="n">tfListener</span></code></a><a class="headerlink" href="#protected-stdshared_ptr-tf2_rostransformlistener-tflistener" title="Permanent link">&para;</a></h6>
 <p>TF listener pointer.</p>
-<h6 id="protected-geographicliblocalcartesianprojection"><code class="codehilite">protected GeographicLib::LocalCartesian</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1ae9c6808ab2ad5b13a72fb511eac3ab94"><code class="codehilite">projection</code></a><a class="headerlink" href="#protected-geographicliblocalcartesianprojection" title="Permanent link">&para;</a></h6>
+<h6 id="protected-geographicliblocalcartesianprojection"><code class="codehilite"><span class="n">protected</span> <span class="n">GeographicLib</span><span class="p">::</span><span class="n">LocalCartesian</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1ae9c6808ab2ad5b13a72fb511eac3ab94"><code class="codehilite"><span class="n">projection</span></code></a><a class="headerlink" href="#protected-geographicliblocalcartesianprojection" title="Permanent link">&para;</a></h6>
 <p>Local Cartesian projection.</p>
-<h6 id="protected-uuv_plume_msgsparticleconcentrationconcentrationmsg"><code class="codehilite">protected uuv_plume_msgs::ParticleConcentration</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a8cfe5eff941369e1e33e26064764abbb"><code class="codehilite">concentrationMsg</code></a><a class="headerlink" href="#protected-uuv_plume_msgsparticleconcentrationconcentrationmsg" title="Permanent link">&para;</a></h6>
+<h6 id="protected-uuv_plume_msgsparticleconcentrationconcentrationmsg"><code class="codehilite"><span class="n">protected</span> <span class="n">uuv_plume_msgs</span><span class="p">::</span><span class="n">ParticleConcentration</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a8cfe5eff941369e1e33e26064764abbb"><code class="codehilite"><span class="n">concentrationMsg</span></code></a><a class="headerlink" href="#protected-uuv_plume_msgsparticleconcentrationconcentrationmsg" title="Permanent link">&para;</a></h6>
 <p>Plume concentration message.</p>
-<h6 id="protected-uuv_plume_msgssalinitysalinitymsg"><code class="codehilite">protected uuv_plume_msgs::Salinity</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a2e35ed0c7c463da2602b5ac9f1da282e"><code class="codehilite">salinityMsg</code></a><a class="headerlink" href="#protected-uuv_plume_msgssalinitysalinitymsg" title="Permanent link">&para;</a></h6>
+<h6 id="protected-uuv_plume_msgssalinitysalinitymsg"><code class="codehilite"><span class="n">protected</span> <span class="n">uuv_plume_msgs</span><span class="p">::</span><span class="n">Salinity</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a2e35ed0c7c463da2602b5ac9f1da282e"><code class="codehilite"><span class="n">salinityMsg</span></code></a><a class="headerlink" href="#protected-uuv_plume_msgssalinitysalinitymsg" title="Permanent link">&para;</a></h6>
 <p>Salinity message.</p>
-<h6 id="protected-rostimerupdatetimer"><code class="codehilite">protected ros::Timer</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a9c173307f263aa9b9b7c7f2342d5ce94"><code class="codehilite">updateTimer</code></a><a class="headerlink" href="#protected-rostimerupdatetimer" title="Permanent link">&para;</a></h6>
+<h6 id="protected-rostimerupdatetimer"><code class="codehilite"><span class="n">protected</span> <span class="n">ros</span><span class="p">::</span><span class="n">Timer</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a9c173307f263aa9b9b7c7f2342d5ce94"><code class="codehilite"><span class="n">updateTimer</span></code></a><a class="headerlink" href="#protected-rostimerupdatetimer" title="Permanent link">&para;</a></h6>
 <p>Sensor update timer.</p>
-<h6 id="protected-stddefault_random_enginerndgen"><code class="codehilite">protected std::default_random_engine</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a32296108956e0909056e72ea5c3fe873"><code class="codehilite">rndGen</code></a><a class="headerlink" href="#protected-stddefault_random_enginerndgen" title="Permanent link">&para;</a></h6>
+<h6 id="protected-stddefault_random_enginerndgen"><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">default_random_engine</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a32296108956e0909056e72ea5c3fe873"><code class="codehilite"><span class="n">rndGen</span></code></a><a class="headerlink" href="#protected-stddefault_random_enginerndgen" title="Permanent link">&para;</a></h6>
 <p>Pseudo random number generator.</p>
-<h6 id="protected-stdnormal_distribution-double-noisemodel"><code class="codehilite">protected std::normal_distribution&lt; double &gt;</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a43cfa91f2d9b5285545e7986b5a15962"><code class="codehilite">noiseModel</code></a><a class="headerlink" href="#protected-stdnormal_distribution-double-noisemodel" title="Permanent link">&para;</a></h6>
+<h6 id="protected-stdnormal_distribution-double-noisemodel"><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">normal_distribution</span><span class="o">&lt;</span> <span class="n">double</span> <span class="o">&gt;</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a43cfa91f2d9b5285545e7986b5a15962"><code class="codehilite"><span class="n">noiseModel</span></code></a><a class="headerlink" href="#protected-stdnormal_distribution-double-noisemodel" title="Permanent link">&para;</a></h6>
 <p>Normal distribution describing the noise model.</p>
-<h6 id="protected-doublenoiseamp"><code class="codehilite">protected double</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1aff1cf4cad2ccf96800db7f6a16f271cc"><code class="codehilite">noiseAmp</code></a><a class="headerlink" href="#protected-doublenoiseamp" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doublenoiseamp"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1aff1cf4cad2ccf96800db7f6a16f271cc"><code class="codehilite"><span class="n">noiseAmp</span></code></a><a class="headerlink" href="#protected-doublenoiseamp" title="Permanent link">&para;</a></h6>
 <p>Noise amplitude.</p>
-<h6 id="protected-doublenoisesigma"><code class="codehilite">protected double</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a051b51ad3230fe9ee57f94aa80605cb1"><code class="codehilite">noiseSigma</code></a><a class="headerlink" href="#protected-doublenoisesigma" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doublenoisesigma"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a051b51ad3230fe9ee57f94aa80605cb1"><code class="codehilite"><span class="n">noiseSigma</span></code></a><a class="headerlink" href="#protected-doublenoisesigma" title="Permanent link">&para;</a></h6>
 <p>Noise standard deviation.</p>
-<h6 id="protected-voidonsensorupdateconst-rostimerevent"><code class="codehilite">protected void</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1aa0112facdab526f2e99a62772a7613cb"><code class="codehilite">OnSensorUpdate</code></a><code class="codehilite">(const ros::TimerEvent &amp;)</code><a class="headerlink" href="#protected-voidonsensorupdateconst-rostimerevent" title="Permanent link">&para;</a></h6>
+<h6 id="protected-voidonsensorupdateconst-rostimerevent"><code class="codehilite"><span class="n">protected</span> <span class="n">void</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1aa0112facdab526f2e99a62772a7613cb"><code class="codehilite"><span class="n">OnSensorUpdate</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">ros</span><span class="p">::</span><span class="n">TimerEvent</span> <span class="o">&amp;</span><span class="p">)</span></code><a class="headerlink" href="#protected-voidonsensorupdateconst-rostimerevent" title="Permanent link">&para;</a></h6>
 <p>Update the output concentration and salinity topics.</p>
-<h6 id="protected-voidonplumeparticlesupdateconst-sensor_msgspointcloudconstptr-_msg"><code class="codehilite">protected void</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1ae4cac538822b672d2045a11f4d406336"><code class="codehilite">OnPlumeParticlesUpdate</code></a><code class="codehilite">(const sensor_msgs::PointCloud::ConstPtr &amp; _msg)</code><a class="headerlink" href="#protected-voidonplumeparticlesupdateconst-sensor_msgspointcloudconstptr-_msg" title="Permanent link">&para;</a></h6>
+<h6 id="protected-voidonplumeparticlesupdateconst-sensor_msgspointcloudconstptr-_msg"><code class="codehilite"><span class="n">protected</span> <span class="n">void</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1ae4cac538822b672d2045a11f4d406336"><code class="codehilite"><span class="n">OnPlumeParticlesUpdate</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">sensor_msgs</span><span class="p">::</span><span class="n">PointCloud</span><span class="p">::</span><span class="n">ConstPtr</span> <span class="o">&amp;</span> <span class="n">_msg</span><span class="p">)</span></code><a class="headerlink" href="#protected-voidonplumeparticlesupdateconst-sensor_msgspointcloudconstptr-_msg" title="Permanent link">&para;</a></h6>
 <p>Update callback from the plume particles.</p>
-<h6 id="protected-voidonodometryupdateconst-nav_msgsodometryconstptr-_msg"><code class="codehilite">protected void</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a6348d873f88079a8af2303d76eede010"><code class="codehilite">OnOdometryUpdate</code></a><code class="codehilite">(const nav_msgs::Odometry::ConstPtr &amp; _msg)</code><a class="headerlink" href="#protected-voidonodometryupdateconst-nav_msgsodometryconstptr-_msg" title="Permanent link">&para;</a></h6>
+<h6 id="protected-voidonodometryupdateconst-nav_msgsodometryconstptr-_msg"><code class="codehilite"><span class="n">protected</span> <span class="n">void</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a6348d873f88079a8af2303d76eede010"><code class="codehilite"><span class="n">OnOdometryUpdate</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">nav_msgs</span><span class="p">::</span><span class="n">Odometry</span><span class="p">::</span><span class="n">ConstPtr</span> <span class="o">&amp;</span> <span class="n">_msg</span><span class="p">)</span></code><a class="headerlink" href="#protected-voidonodometryupdateconst-nav_msgsodometryconstptr-_msg" title="Permanent link">&para;</a></h6>
 <p>Update the odometry callback.</p>
-<h6 id="protected-voidongpsupdateconst-sensor_msgsnavsatfixconstptr-_msg"><code class="codehilite">protected void</code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a428cc881985682f78876aa44866a6c7e"><code class="codehilite">OnGPSUpdate</code></a><code class="codehilite">(const sensor_msgs::NavSatFix::ConstPtr &amp; _msg)</code><a class="headerlink" href="#protected-voidongpsupdateconst-sensor_msgsnavsatfixconstptr-_msg" title="Permanent link">&para;</a></h6>
+<h6 id="protected-voidongpsupdateconst-sensor_msgsnavsatfixconstptr-_msg"><code class="codehilite"><span class="n">protected</span> <span class="n">void</span></code><a href="#classuuv__plume__simulator_1_1_c_p_c_sensor_1a428cc881985682f78876aa44866a6c7e"><code class="codehilite"><span class="n">OnGPSUpdate</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">sensor_msgs</span><span class="p">::</span><span class="n">NavSatFix</span><span class="p">::</span><span class="n">ConstPtr</span> <span class="o">&amp;</span> <span class="n">_msg</span><span class="p">)</span></code><a class="headerlink" href="#protected-voidongpsupdateconst-sensor_msgsnavsatfixconstptr-_msg" title="Permanent link">&para;</a></h6>
 <p>Update the GPS update callback.</p>
                 
                   

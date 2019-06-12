@@ -456,6 +456,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -3092,9 +3104,9 @@
                 
                   <h1>FinPlugin</h1>
                 
-                <h4 id="class-gazebofinplugin">class <code class="codehilite">gazebo::FinPlugin</code><a class="headerlink" href="#class-gazebofinplugin" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><span class="kr">class</span> <span class="nx">gazebo</span><span class="o">::</span><span class="nx">FinPlugin</span>
-  : <span class="kt">public</span> <span class="nx">ModelPlugin</span>
+                <h4 id="class-gazebofinplugin">class <code class="codehilite"><span class="n">gazebo</span><span class="p">::</span><span class="n">FinPlugin</span></code><a class="headerlink" href="#class-gazebofinplugin" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="n">gazebo::FinPlugin</span>
+  : <span class="n">public</span> <span class="n">ModelPlugin</span>
 </pre></div>
 
 <h5 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h5>
@@ -3107,147 +3119,147 @@
 </thead>
 <tbody>
 <tr>
-<td><code class="codehilite">public</code><a href="#classgazebo_1_1_fin_plugin_1a347a9d485eb98d0c0d1ce181cf3530e7"><code class="codehilite">FinPlugin</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span></code><a href="#classgazebo_1_1_fin_plugin_1a347a9d485eb98d0c0d1ce181cf3530e7"><code class="codehilite"><span class="n">FinPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Constructor.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual</code><a href="#classgazebo_1_1_fin_plugin_1a6bfb47239eaef146985a19a5005ba320"><code class="codehilite">~FinPlugin</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span></code><a href="#classgazebo_1_1_fin_plugin_1a6bfb47239eaef146985a19a5005ba320"><code class="codehilite"><span class="o">~</span><span class="n">FinPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Destructor.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_fin_plugin_1a2229e6e90a612c37da8bbf1110c54f53"><code class="codehilite">Load</code></a><code class="codehilite">(physics::ModelPtr _model,sdf::ElementPtr _sdf)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_fin_plugin_1a2229e6e90a612c37da8bbf1110c54f53"><code class="codehilite"><span class="k">Load</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">physics</span><span class="p">::</span><span class="n">ModelPtr</span> <span class="n">_model</span><span class="p">,</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">)</span></code></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_fin_plugin_1a674d8c80971e173b7066fa2a52ae8388"><code class="codehilite">Init</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_fin_plugin_1a674d8c80971e173b7066fa2a52ae8388"><code class="codehilite"><span class="n">Init</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">public void</code><a href="#classgazebo_1_1_fin_plugin_1ab4612d0093ed8b1fd0e24f780f584889"><code class="codehilite">OnUpdate</code></a><code class="codehilite">(const common::UpdateInfo &amp; _info)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">void</span></code><a href="#classgazebo_1_1_fin_plugin_1ab4612d0093ed8b1fd0e24f780f584889"><code class="codehilite"><span class="n">OnUpdate</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">common</span><span class="p">::</span><span class="n">UpdateInfo</span> <span class="o">&amp;</span> <span class="n">_info</span><span class="p">)</span></code></td>
 <td>Update the simulation state.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected std::shared_ptr&lt;</code><a href="docs/packages/uuv_simulator/docs/api/gazebo::Dynamics.md#classgazebo_1_1_dynamics"><code class="codehilite">Dynamics</code></a><code class="codehilite">&gt;</code><a href="#classgazebo_1_1_fin_plugin_1ad0a0e94fc62d04d9a08f119e72919420"><code class="codehilite">dynamics</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span></code><a href="docs/packages/uuv_simulator/docs/api/gazebo::Dynamics.md#classgazebo_1_1_dynamics"><code class="codehilite"><span class="n">Dynamics</span></code></a><code class="codehilite"><span class="o">&gt;</span></code><a href="#classgazebo_1_1_fin_plugin_1ad0a0e94fc62d04d9a08f119e72919420"><code class="codehilite"><span class="n">dynamics</span></code></a></td>
 <td>Fin dynamic model.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected std::shared_ptr&lt;</code><a href="docs/packages/uuv_simulator/docs/api/gazebo::LiftDrag.md#classgazebo_1_1_lift_drag"><code class="codehilite">LiftDrag</code></a><code class="codehilite">&gt;</code><a href="#classgazebo_1_1_fin_plugin_1a59d7567aa36e7d6882d1dd11c9ab75d0"><code class="codehilite">liftdrag</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span></code><a href="docs/packages/uuv_simulator/docs/api/gazebo::LiftDrag.md#classgazebo_1_1_lift_drag"><code class="codehilite"><span class="n">LiftDrag</span></code></a><code class="codehilite"><span class="o">&gt;</span></code><a href="#classgazebo_1_1_fin_plugin_1a59d7567aa36e7d6882d1dd11c9ab75d0"><code class="codehilite"><span class="n">liftdrag</span></code></a></td>
 <td>Lift&amp;Drag model.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected event::ConnectionPtr</code><a href="#classgazebo_1_1_fin_plugin_1a217cde139114bb0f1415f73b82538e00"><code class="codehilite">updateConnection</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">event</span><span class="p">::</span><span class="n">ConnectionPtr</span></code><a href="#classgazebo_1_1_fin_plugin_1a217cde139114bb0f1415f73b82538e00"><code class="codehilite"><span class="n">updateConnection</span></code></a></td>
 <td>Update event.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected transport::NodePtr</code><a href="#classgazebo_1_1_fin_plugin_1a2acefe090abcbd138a230391e577d187"><code class="codehilite">node</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">transport</span><span class="p">::</span><span class="n">NodePtr</span></code><a href="#classgazebo_1_1_fin_plugin_1a2acefe090abcbd138a230391e577d187"><code class="codehilite"><span class="n">node</span></code></a></td>
 <td>Gazebo node.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected physics::JointPtr</code><a href="#classgazebo_1_1_fin_plugin_1af5fbe5a75a59199af8e92e17b2546841"><code class="codehilite">joint</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">physics</span><span class="p">::</span><span class="n">JointPtr</span></code><a href="#classgazebo_1_1_fin_plugin_1af5fbe5a75a59199af8e92e17b2546841"><code class="codehilite"><span class="n">joint</span></code></a></td>
 <td>The fin joint.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected physics::LinkPtr</code><a href="#classgazebo_1_1_fin_plugin_1aa2a49d7b7c718265296063be66767375"><code class="codehilite">link</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">physics</span><span class="p">::</span><span class="n">LinkPtr</span></code><a href="#classgazebo_1_1_fin_plugin_1aa2a49d7b7c718265296063be66767375"><code class="codehilite"><span class="n">link</span></code></a></td>
 <td>The fin link.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected transport::SubscriberPtr</code><a href="#classgazebo_1_1_fin_plugin_1a5d58c432064cc3c9c94b3ed0bd8a52a3"><code class="codehilite">commandSubscriber</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">transport</span><span class="p">::</span><span class="n">SubscriberPtr</span></code><a href="#classgazebo_1_1_fin_plugin_1a5d58c432064cc3c9c94b3ed0bd8a52a3"><code class="codehilite"><span class="n">commandSubscriber</span></code></a></td>
 <td>Subscriber to the reference signal topic.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected transport::PublisherPtr</code><a href="#classgazebo_1_1_fin_plugin_1a17fc907ce5376d31010075d2c127e0a9"><code class="codehilite">anglePublisher</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">transport</span><span class="p">::</span><span class="n">PublisherPtr</span></code><a href="#classgazebo_1_1_fin_plugin_1a17fc907ce5376d31010075d2c127e0a9"><code class="codehilite"><span class="n">anglePublisher</span></code></a></td>
 <td>Publisher to the output thrust topic.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_fin_plugin_1ae0cfeae0cbbf51ed8ad3d88710a7bf95"><code class="codehilite">finForce</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_fin_plugin_1ae0cfeae0cbbf51ed8ad3d88710a7bf95"><code class="codehilite"><span class="n">finForce</span></code></a></td>
 <td>Force component calculated from the lift and drag module.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_fin_plugin_1ac748f61691360a841314e3d92ee7cfdd"><code class="codehilite">inputCommand</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_fin_plugin_1ac748f61691360a841314e3d92ee7cfdd"><code class="codehilite"><span class="n">inputCommand</span></code></a></td>
 <td>Latest input command.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected int</code><a href="#classgazebo_1_1_fin_plugin_1a0d357d22e70731d4f0da1e2eb16dbec9"><code class="codehilite">finID</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="nb">int</span></code><a href="#classgazebo_1_1_fin_plugin_1a0d357d22e70731d4f0da1e2eb16dbec9"><code class="codehilite"><span class="n">finID</span></code></a></td>
 <td>Fin ID.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected std::string</code><a href="#classgazebo_1_1_fin_plugin_1ae595f9a8c9d7d00439935c3a95a7ec42"><code class="codehilite">topicPrefix</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classgazebo_1_1_fin_plugin_1ae595f9a8c9d7d00439935c3a95a7ec42"><code class="codehilite"><span class="n">topicPrefix</span></code></a></td>
 <td>Topic prefix.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_fin_plugin_1a030388a1a36c2f58f0baa34605eb0d15"><code class="codehilite">angle</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_fin_plugin_1a030388a1a36c2f58f0baa34605eb0d15"><code class="codehilite"><span class="n">angle</span></code></a></td>
 <td>Latest fin angle in [rad].</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected common::Time</code><a href="#classgazebo_1_1_fin_plugin_1a4fb2db18a81a9a7cf8f2f5376b3e5d02"><code class="codehilite">angleStamp</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">common</span><span class="p">::</span><span class="n">Time</span></code><a href="#classgazebo_1_1_fin_plugin_1a4fb2db18a81a9a7cf8f2f5376b3e5d02"><code class="codehilite"><span class="n">angleStamp</span></code></a></td>
 <td>Time stamp of latest thrust force.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected transport::SubscriberPtr</code><a href="#classgazebo_1_1_fin_plugin_1a3940ad05bd8930b1d866154116939a07"><code class="codehilite">currentSubscriber</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">transport</span><span class="p">::</span><span class="n">SubscriberPtr</span></code><a href="#classgazebo_1_1_fin_plugin_1a3940ad05bd8930b1d866154116939a07"><code class="codehilite"><span class="n">currentSubscriber</span></code></a></td>
 <td>Subcriber to current message.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_fin_plugin_1adc8117b6c3169bbcccc25ba63ba4276e"><code class="codehilite">currentVelocity</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_fin_plugin_1adc8117b6c3169bbcccc25ba63ba4276e"><code class="codehilite"><span class="n">currentVelocity</span></code></a></td>
 <td>Current velocity vector read from topic.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected void</code><a href="#classgazebo_1_1_fin_plugin_1ad20391361f5206bde332a229251c7f38"><code class="codehilite">UpdateInput</code></a><code class="codehilite">(</code><a href="docs/packages/uuv_simulator/docs/api/ConstDoublePtr.md#_fin_plugin_8hh_1adec3148dfa71d908caf33660a62187d4"><code class="codehilite">ConstDoublePtr</code></a><code class="codehilite">&amp; _msg)</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">void</span></code><a href="#classgazebo_1_1_fin_plugin_1ad20391361f5206bde332a229251c7f38"><code class="codehilite"><span class="n">UpdateInput</span></code></a><code class="codehilite"><span class="p">(</span></code><a href="docs/packages/uuv_simulator/docs/api/ConstDoublePtr.md#_fin_plugin_8hh_1adec3148dfa71d908caf33660a62187d4"><code class="codehilite"><span class="n">ConstDoublePtr</span></code></a><code class="codehilite"><span class="o">&amp;</span> <span class="n">_msg</span><span class="p">)</span></code></td>
 <td>Callback for the input topic subscriber.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected void</code><a href="#classgazebo_1_1_fin_plugin_1aaf4c2da2058c877cbffdd0dc6d94c0ee"><code class="codehilite">UpdateCurrentVelocity</code></a><code class="codehilite">(ConstVector3dPtr &amp; _msg)</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">void</span></code><a href="#classgazebo_1_1_fin_plugin_1aaf4c2da2058c877cbffdd0dc6d94c0ee"><code class="codehilite"><span class="n">UpdateCurrentVelocity</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">ConstVector3dPtr</span> <span class="o">&amp;</span> <span class="n">_msg</span><span class="p">)</span></code></td>
 <td>Reads current velocity topic.</td>
 </tr>
 </tbody>
 </table>
 <h5 id="members">Members<a class="headerlink" href="#members" title="Permanent link">&para;</a></h5>
-<h6 id="publicfinplugin"><code class="codehilite">public</code><a href="#classgazebo_1_1_fin_plugin_1a347a9d485eb98d0c0d1ce181cf3530e7"><code class="codehilite">FinPlugin</code></a><code class="codehilite">()</code><a class="headerlink" href="#publicfinplugin" title="Permanent link">&para;</a></h6>
+<h6 id="publicfinplugin"><code class="codehilite"><span class="k">public</span></code><a href="#classgazebo_1_1_fin_plugin_1a347a9d485eb98d0c0d1ce181cf3530e7"><code class="codehilite"><span class="n">FinPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#publicfinplugin" title="Permanent link">&para;</a></h6>
 <p>Constructor.</p>
-<h6 id="public-virtualfinplugin"><code class="codehilite">public virtual</code><a href="#classgazebo_1_1_fin_plugin_1a6bfb47239eaef146985a19a5005ba320"><code class="codehilite">~FinPlugin</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-virtualfinplugin" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtualfinplugin"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span></code><a href="#classgazebo_1_1_fin_plugin_1a6bfb47239eaef146985a19a5005ba320"><code class="codehilite"><span class="o">~</span><span class="n">FinPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-virtualfinplugin" title="Permanent link">&para;</a></h6>
 <p>Destructor.</p>
-<h6 id="public-virtual-voidloadphysicsmodelptr-_modelsdfelementptr-_sdf"><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_fin_plugin_1a2229e6e90a612c37da8bbf1110c54f53"><code class="codehilite">Load</code></a><code class="codehilite">(physics::ModelPtr _model,sdf::ElementPtr _sdf)</code><a class="headerlink" href="#public-virtual-voidloadphysicsmodelptr-_modelsdfelementptr-_sdf" title="Permanent link">&para;</a></h6>
-<h6 id="public-virtual-voidinit"><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_fin_plugin_1a674d8c80971e173b7066fa2a52ae8388"><code class="codehilite">Init</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-virtual-voidinit" title="Permanent link">&para;</a></h6>
-<h6 id="public-voidonupdateconst-commonupdateinfo-_info"><code class="codehilite">public void</code><a href="#classgazebo_1_1_fin_plugin_1ab4612d0093ed8b1fd0e24f780f584889"><code class="codehilite">OnUpdate</code></a><code class="codehilite">(const common::UpdateInfo &amp; _info)</code><a class="headerlink" href="#public-voidonupdateconst-commonupdateinfo-_info" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtual-voidloadphysicsmodelptr-_modelsdfelementptr-_sdf"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_fin_plugin_1a2229e6e90a612c37da8bbf1110c54f53"><code class="codehilite"><span class="k">Load</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">physics</span><span class="p">::</span><span class="n">ModelPtr</span> <span class="n">_model</span><span class="p">,</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">)</span></code><a class="headerlink" href="#public-virtual-voidloadphysicsmodelptr-_modelsdfelementptr-_sdf" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtual-voidinit"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_fin_plugin_1a674d8c80971e173b7066fa2a52ae8388"><code class="codehilite"><span class="n">Init</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-virtual-voidinit" title="Permanent link">&para;</a></h6>
+<h6 id="public-voidonupdateconst-commonupdateinfo-_info"><code class="codehilite"><span class="k">public</span> <span class="n">void</span></code><a href="#classgazebo_1_1_fin_plugin_1ab4612d0093ed8b1fd0e24f780f584889"><code class="codehilite"><span class="n">OnUpdate</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">common</span><span class="p">::</span><span class="n">UpdateInfo</span> <span class="o">&amp;</span> <span class="n">_info</span><span class="p">)</span></code><a class="headerlink" href="#public-voidonupdateconst-commonupdateinfo-_info" title="Permanent link">&para;</a></h6>
 <p>Update the simulation state.</p>
 <h6 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h6>
 <ul>
-<li><code class="codehilite">_info</code> Information used in the update event.</li>
+<li><code class="codehilite"><span class="n">_info</span></code> Information used in the update event.</li>
 </ul>
-<h6 id="protected-stdshared_ptrdynamicsdynamics"><code class="codehilite">protected std::shared_ptr&lt;</code><a href="docs/packages/uuv_simulator/docs/api/gazebo::Dynamics.md#classgazebo_1_1_dynamics"><code class="codehilite">Dynamics</code></a><code class="codehilite">&gt;</code><a href="#classgazebo_1_1_fin_plugin_1ad0a0e94fc62d04d9a08f119e72919420"><code class="codehilite">dynamics</code></a><a class="headerlink" href="#protected-stdshared_ptrdynamicsdynamics" title="Permanent link">&para;</a></h6>
+<h6 id="protected-stdshared_ptrdynamicsdynamics"><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span></code><a href="docs/packages/uuv_simulator/docs/api/gazebo::Dynamics.md#classgazebo_1_1_dynamics"><code class="codehilite"><span class="n">Dynamics</span></code></a><code class="codehilite"><span class="o">&gt;</span></code><a href="#classgazebo_1_1_fin_plugin_1ad0a0e94fc62d04d9a08f119e72919420"><code class="codehilite"><span class="n">dynamics</span></code></a><a class="headerlink" href="#protected-stdshared_ptrdynamicsdynamics" title="Permanent link">&para;</a></h6>
 <p>Fin dynamic model.</p>
-<h6 id="protected-stdshared_ptrliftdragliftdrag"><code class="codehilite">protected std::shared_ptr&lt;</code><a href="docs/packages/uuv_simulator/docs/api/gazebo::LiftDrag.md#classgazebo_1_1_lift_drag"><code class="codehilite">LiftDrag</code></a><code class="codehilite">&gt;</code><a href="#classgazebo_1_1_fin_plugin_1a59d7567aa36e7d6882d1dd11c9ab75d0"><code class="codehilite">liftdrag</code></a><a class="headerlink" href="#protected-stdshared_ptrliftdragliftdrag" title="Permanent link">&para;</a></h6>
+<h6 id="protected-stdshared_ptrliftdragliftdrag"><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span></code><a href="docs/packages/uuv_simulator/docs/api/gazebo::LiftDrag.md#classgazebo_1_1_lift_drag"><code class="codehilite"><span class="n">LiftDrag</span></code></a><code class="codehilite"><span class="o">&gt;</span></code><a href="#classgazebo_1_1_fin_plugin_1a59d7567aa36e7d6882d1dd11c9ab75d0"><code class="codehilite"><span class="n">liftdrag</span></code></a><a class="headerlink" href="#protected-stdshared_ptrliftdragliftdrag" title="Permanent link">&para;</a></h6>
 <p>Lift&amp;Drag model.</p>
-<h6 id="protected-eventconnectionptrupdateconnection"><code class="codehilite">protected event::ConnectionPtr</code><a href="#classgazebo_1_1_fin_plugin_1a217cde139114bb0f1415f73b82538e00"><code class="codehilite">updateConnection</code></a><a class="headerlink" href="#protected-eventconnectionptrupdateconnection" title="Permanent link">&para;</a></h6>
+<h6 id="protected-eventconnectionptrupdateconnection"><code class="codehilite"><span class="n">protected</span> <span class="n">event</span><span class="p">::</span><span class="n">ConnectionPtr</span></code><a href="#classgazebo_1_1_fin_plugin_1a217cde139114bb0f1415f73b82538e00"><code class="codehilite"><span class="n">updateConnection</span></code></a><a class="headerlink" href="#protected-eventconnectionptrupdateconnection" title="Permanent link">&para;</a></h6>
 <p>Update event.</p>
-<h6 id="protected-transportnodeptrnode"><code class="codehilite">protected transport::NodePtr</code><a href="#classgazebo_1_1_fin_plugin_1a2acefe090abcbd138a230391e577d187"><code class="codehilite">node</code></a><a class="headerlink" href="#protected-transportnodeptrnode" title="Permanent link">&para;</a></h6>
+<h6 id="protected-transportnodeptrnode"><code class="codehilite"><span class="n">protected</span> <span class="n">transport</span><span class="p">::</span><span class="n">NodePtr</span></code><a href="#classgazebo_1_1_fin_plugin_1a2acefe090abcbd138a230391e577d187"><code class="codehilite"><span class="n">node</span></code></a><a class="headerlink" href="#protected-transportnodeptrnode" title="Permanent link">&para;</a></h6>
 <p>Gazebo node.</p>
-<h6 id="protected-physicsjointptrjoint"><code class="codehilite">protected physics::JointPtr</code><a href="#classgazebo_1_1_fin_plugin_1af5fbe5a75a59199af8e92e17b2546841"><code class="codehilite">joint</code></a><a class="headerlink" href="#protected-physicsjointptrjoint" title="Permanent link">&para;</a></h6>
+<h6 id="protected-physicsjointptrjoint"><code class="codehilite"><span class="n">protected</span> <span class="n">physics</span><span class="p">::</span><span class="n">JointPtr</span></code><a href="#classgazebo_1_1_fin_plugin_1af5fbe5a75a59199af8e92e17b2546841"><code class="codehilite"><span class="n">joint</span></code></a><a class="headerlink" href="#protected-physicsjointptrjoint" title="Permanent link">&para;</a></h6>
 <p>The fin joint.</p>
-<h6 id="protected-physicslinkptrlink"><code class="codehilite">protected physics::LinkPtr</code><a href="#classgazebo_1_1_fin_plugin_1aa2a49d7b7c718265296063be66767375"><code class="codehilite">link</code></a><a class="headerlink" href="#protected-physicslinkptrlink" title="Permanent link">&para;</a></h6>
+<h6 id="protected-physicslinkptrlink"><code class="codehilite"><span class="n">protected</span> <span class="n">physics</span><span class="p">::</span><span class="n">LinkPtr</span></code><a href="#classgazebo_1_1_fin_plugin_1aa2a49d7b7c718265296063be66767375"><code class="codehilite"><span class="n">link</span></code></a><a class="headerlink" href="#protected-physicslinkptrlink" title="Permanent link">&para;</a></h6>
 <p>The fin link.</p>
-<h6 id="protected-transportsubscriberptrcommandsubscriber"><code class="codehilite">protected transport::SubscriberPtr</code><a href="#classgazebo_1_1_fin_plugin_1a5d58c432064cc3c9c94b3ed0bd8a52a3"><code class="codehilite">commandSubscriber</code></a><a class="headerlink" href="#protected-transportsubscriberptrcommandsubscriber" title="Permanent link">&para;</a></h6>
+<h6 id="protected-transportsubscriberptrcommandsubscriber"><code class="codehilite"><span class="n">protected</span> <span class="n">transport</span><span class="p">::</span><span class="n">SubscriberPtr</span></code><a href="#classgazebo_1_1_fin_plugin_1a5d58c432064cc3c9c94b3ed0bd8a52a3"><code class="codehilite"><span class="n">commandSubscriber</span></code></a><a class="headerlink" href="#protected-transportsubscriberptrcommandsubscriber" title="Permanent link">&para;</a></h6>
 <p>Subscriber to the reference signal topic.</p>
-<h6 id="protected-transportpublisherptranglepublisher"><code class="codehilite">protected transport::PublisherPtr</code><a href="#classgazebo_1_1_fin_plugin_1a17fc907ce5376d31010075d2c127e0a9"><code class="codehilite">anglePublisher</code></a><a class="headerlink" href="#protected-transportpublisherptranglepublisher" title="Permanent link">&para;</a></h6>
+<h6 id="protected-transportpublisherptranglepublisher"><code class="codehilite"><span class="n">protected</span> <span class="n">transport</span><span class="p">::</span><span class="n">PublisherPtr</span></code><a href="#classgazebo_1_1_fin_plugin_1a17fc907ce5376d31010075d2c127e0a9"><code class="codehilite"><span class="n">anglePublisher</span></code></a><a class="headerlink" href="#protected-transportpublisherptranglepublisher" title="Permanent link">&para;</a></h6>
 <p>Publisher to the output thrust topic.</p>
-<h6 id="protected-ignitionmathvector3dfinforce"><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_fin_plugin_1ae0cfeae0cbbf51ed8ad3d88710a7bf95"><code class="codehilite">finForce</code></a><a class="headerlink" href="#protected-ignitionmathvector3dfinforce" title="Permanent link">&para;</a></h6>
+<h6 id="protected-ignitionmathvector3dfinforce"><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_fin_plugin_1ae0cfeae0cbbf51ed8ad3d88710a7bf95"><code class="codehilite"><span class="n">finForce</span></code></a><a class="headerlink" href="#protected-ignitionmathvector3dfinforce" title="Permanent link">&para;</a></h6>
 <p>Force component calculated from the lift and drag module.</p>
-<h6 id="protected-doubleinputcommand"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_fin_plugin_1ac748f61691360a841314e3d92ee7cfdd"><code class="codehilite">inputCommand</code></a><a class="headerlink" href="#protected-doubleinputcommand" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doubleinputcommand"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_fin_plugin_1ac748f61691360a841314e3d92ee7cfdd"><code class="codehilite"><span class="n">inputCommand</span></code></a><a class="headerlink" href="#protected-doubleinputcommand" title="Permanent link">&para;</a></h6>
 <p>Latest input command.</p>
-<h6 id="protected-intfinid"><code class="codehilite">protected int</code><a href="#classgazebo_1_1_fin_plugin_1a0d357d22e70731d4f0da1e2eb16dbec9"><code class="codehilite">finID</code></a><a class="headerlink" href="#protected-intfinid" title="Permanent link">&para;</a></h6>
+<h6 id="protected-intfinid"><code class="codehilite"><span class="n">protected</span> <span class="nb">int</span></code><a href="#classgazebo_1_1_fin_plugin_1a0d357d22e70731d4f0da1e2eb16dbec9"><code class="codehilite"><span class="n">finID</span></code></a><a class="headerlink" href="#protected-intfinid" title="Permanent link">&para;</a></h6>
 <p>Fin ID.</p>
-<h6 id="protected-stdstringtopicprefix"><code class="codehilite">protected std::string</code><a href="#classgazebo_1_1_fin_plugin_1ae595f9a8c9d7d00439935c3a95a7ec42"><code class="codehilite">topicPrefix</code></a><a class="headerlink" href="#protected-stdstringtopicprefix" title="Permanent link">&para;</a></h6>
+<h6 id="protected-stdstringtopicprefix"><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classgazebo_1_1_fin_plugin_1ae595f9a8c9d7d00439935c3a95a7ec42"><code class="codehilite"><span class="n">topicPrefix</span></code></a><a class="headerlink" href="#protected-stdstringtopicprefix" title="Permanent link">&para;</a></h6>
 <p>Topic prefix.</p>
-<h6 id="protected-doubleangle"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_fin_plugin_1a030388a1a36c2f58f0baa34605eb0d15"><code class="codehilite">angle</code></a><a class="headerlink" href="#protected-doubleangle" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doubleangle"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_fin_plugin_1a030388a1a36c2f58f0baa34605eb0d15"><code class="codehilite"><span class="n">angle</span></code></a><a class="headerlink" href="#protected-doubleangle" title="Permanent link">&para;</a></h6>
 <p>Latest fin angle in [rad].</p>
-<h6 id="protected-commontimeanglestamp"><code class="codehilite">protected common::Time</code><a href="#classgazebo_1_1_fin_plugin_1a4fb2db18a81a9a7cf8f2f5376b3e5d02"><code class="codehilite">angleStamp</code></a><a class="headerlink" href="#protected-commontimeanglestamp" title="Permanent link">&para;</a></h6>
+<h6 id="protected-commontimeanglestamp"><code class="codehilite"><span class="n">protected</span> <span class="n">common</span><span class="p">::</span><span class="n">Time</span></code><a href="#classgazebo_1_1_fin_plugin_1a4fb2db18a81a9a7cf8f2f5376b3e5d02"><code class="codehilite"><span class="n">angleStamp</span></code></a><a class="headerlink" href="#protected-commontimeanglestamp" title="Permanent link">&para;</a></h6>
 <p>Time stamp of latest thrust force.</p>
-<h6 id="protected-transportsubscriberptrcurrentsubscriber"><code class="codehilite">protected transport::SubscriberPtr</code><a href="#classgazebo_1_1_fin_plugin_1a3940ad05bd8930b1d866154116939a07"><code class="codehilite">currentSubscriber</code></a><a class="headerlink" href="#protected-transportsubscriberptrcurrentsubscriber" title="Permanent link">&para;</a></h6>
+<h6 id="protected-transportsubscriberptrcurrentsubscriber"><code class="codehilite"><span class="n">protected</span> <span class="n">transport</span><span class="p">::</span><span class="n">SubscriberPtr</span></code><a href="#classgazebo_1_1_fin_plugin_1a3940ad05bd8930b1d866154116939a07"><code class="codehilite"><span class="n">currentSubscriber</span></code></a><a class="headerlink" href="#protected-transportsubscriberptrcurrentsubscriber" title="Permanent link">&para;</a></h6>
 <p>Subcriber to current message.</p>
-<h6 id="protected-ignitionmathvector3dcurrentvelocity"><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_fin_plugin_1adc8117b6c3169bbcccc25ba63ba4276e"><code class="codehilite">currentVelocity</code></a><a class="headerlink" href="#protected-ignitionmathvector3dcurrentvelocity" title="Permanent link">&para;</a></h6>
+<h6 id="protected-ignitionmathvector3dcurrentvelocity"><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_fin_plugin_1adc8117b6c3169bbcccc25ba63ba4276e"><code class="codehilite"><span class="n">currentVelocity</span></code></a><a class="headerlink" href="#protected-ignitionmathvector3dcurrentvelocity" title="Permanent link">&para;</a></h6>
 <p>Current velocity vector read from topic.</p>
-<h6 id="protected-voidupdateinputconstdoubleptr-_msg"><code class="codehilite">protected void</code><a href="#classgazebo_1_1_fin_plugin_1ad20391361f5206bde332a229251c7f38"><code class="codehilite">UpdateInput</code></a><code class="codehilite">(</code><a href="docs/packages/uuv_simulator/docs/api/ConstDoublePtr.md#_fin_plugin_8hh_1adec3148dfa71d908caf33660a62187d4"><code class="codehilite">ConstDoublePtr</code></a><code class="codehilite">&amp; _msg)</code><a class="headerlink" href="#protected-voidupdateinputconstdoubleptr-_msg" title="Permanent link">&para;</a></h6>
+<h6 id="protected-voidupdateinputconstdoubleptr-_msg"><code class="codehilite"><span class="n">protected</span> <span class="n">void</span></code><a href="#classgazebo_1_1_fin_plugin_1ad20391361f5206bde332a229251c7f38"><code class="codehilite"><span class="n">UpdateInput</span></code></a><code class="codehilite"><span class="p">(</span></code><a href="docs/packages/uuv_simulator/docs/api/ConstDoublePtr.md#_fin_plugin_8hh_1adec3148dfa71d908caf33660a62187d4"><code class="codehilite"><span class="n">ConstDoublePtr</span></code></a><code class="codehilite"><span class="o">&amp;</span> <span class="n">_msg</span><span class="p">)</span></code><a class="headerlink" href="#protected-voidupdateinputconstdoubleptr-_msg" title="Permanent link">&para;</a></h6>
 <p>Callback for the input topic subscriber.</p>
-<h6 id="protected-voidupdatecurrentvelocityconstvector3dptr-_msg"><code class="codehilite">protected void</code><a href="#classgazebo_1_1_fin_plugin_1aaf4c2da2058c877cbffdd0dc6d94c0ee"><code class="codehilite">UpdateCurrentVelocity</code></a><code class="codehilite">(ConstVector3dPtr &amp; _msg)</code><a class="headerlink" href="#protected-voidupdatecurrentvelocityconstvector3dptr-_msg" title="Permanent link">&para;</a></h6>
+<h6 id="protected-voidupdatecurrentvelocityconstvector3dptr-_msg"><code class="codehilite"><span class="n">protected</span> <span class="n">void</span></code><a href="#classgazebo_1_1_fin_plugin_1aaf4c2da2058c877cbffdd0dc6d94c0ee"><code class="codehilite"><span class="n">UpdateCurrentVelocity</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">ConstVector3dPtr</span> <span class="o">&amp;</span> <span class="n">_msg</span><span class="p">)</span></code><a class="headerlink" href="#protected-voidupdatecurrentvelocityconstvector3dptr-_msg" title="Permanent link">&para;</a></h6>
 <p>Reads current velocity topic.</p>
                 
                   

@@ -456,6 +456,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -2826,10 +2838,10 @@
                 
                   <h1>ROSBaseSensorPlugin</h1>
                 
-                <h4 id="class-gazeborosbasesensorplugin">class <code class="codehilite">gazebo::ROSBaseSensorPlugin</code><a class="headerlink" href="#class-gazeborosbasesensorplugin" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><span class="kr">class</span> <span class="nx">gazebo</span><span class="o">::</span><span class="nx">ROSBaseSensorPlugin</span>
-  : <span class="kt">public</span> <span class="nx">gazebo</span><span class="o">::</span><span class="nx">ROSBasePlugin</span>
-  : <span class="kt">public</span> <span class="nx">SensorPlugin</span>
+                <h4 id="class-gazeborosbasesensorplugin">class <code class="codehilite"><span class="n">gazebo</span><span class="p">::</span><span class="n">ROSBaseSensorPlugin</span></code><a class="headerlink" href="#class-gazeborosbasesensorplugin" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="n">gazebo::ROSBaseSensorPlugin</span>
+  : <span class="n">public</span> <span class="n">gazebo::ROSBasePlugin</span>
+  : <span class="n">public</span> <span class="n">SensorPlugin</span>
 </pre></div>
 
 <h5 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h5>
@@ -2842,37 +2854,37 @@
 </thead>
 <tbody>
 <tr>
-<td><code class="codehilite">public</code><a href="#classgazebo_1_1_r_o_s_base_sensor_plugin_1a5f5f2144542f249de769ec638cfdfee5"><code class="codehilite">ROSBaseSensorPlugin</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span></code><a href="#classgazebo_1_1_r_o_s_base_sensor_plugin_1a5f5f2144542f249de769ec638cfdfee5"><code class="codehilite"><span class="n">ROSBaseSensorPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Class constructor.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual</code><a href="#classgazebo_1_1_r_o_s_base_sensor_plugin_1a3c7adf8a507fbae48749f761f5d43b53"><code class="codehilite">~ROSBaseSensorPlugin</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span></code><a href="#classgazebo_1_1_r_o_s_base_sensor_plugin_1a3c7adf8a507fbae48749f761f5d43b53"><code class="codehilite"><span class="o">~</span><span class="n">ROSBaseSensorPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Class destructor.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected sensors::SensorPtr</code><a href="#classgazebo_1_1_r_o_s_base_sensor_plugin_1a34cac9a5589143a2f8ab2623d47c8ac4"><code class="codehilite">parentSensor</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">sensors</span><span class="p">::</span><span class="n">SensorPtr</span></code><a href="#classgazebo_1_1_r_o_s_base_sensor_plugin_1a34cac9a5589143a2f8ab2623d47c8ac4"><code class="codehilite"><span class="n">parentSensor</span></code></a></td>
 <td>Pointer to the parent sensor.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected virtual void</code><a href="#classgazebo_1_1_r_o_s_base_sensor_plugin_1a2ad16341faa4fadef2e3347ce2c8907a"><code class="codehilite">Load</code></a><code class="codehilite">(sensors::SensorPtr _model,sdf::ElementPtr _sdf)</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_r_o_s_base_sensor_plugin_1a2ad16341faa4fadef2e3347ce2c8907a"><code class="codehilite"><span class="k">Load</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">sensors</span><span class="p">::</span><span class="n">SensorPtr</span> <span class="n">_model</span><span class="p">,</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">)</span></code></td>
 <td>Load plugin and its configuration from sdf,.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected virtual bool</code><a href="#classgazebo_1_1_r_o_s_base_sensor_plugin_1a299ecabab8d2cbb768618dd509279e11"><code class="codehilite">OnUpdate</code></a><code class="codehilite">(const common::UpdateInfo &amp;)</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_r_o_s_base_sensor_plugin_1a299ecabab8d2cbb768618dd509279e11"><code class="codehilite"><span class="n">OnUpdate</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">common</span><span class="p">::</span><span class="n">UpdateInfo</span> <span class="o">&amp;</span><span class="p">)</span></code></td>
 <td>Update callback from simulation.</td>
 </tr>
 </tbody>
 </table>
 <h5 id="members">Members<a class="headerlink" href="#members" title="Permanent link">&para;</a></h5>
-<h6 id="publicrosbasesensorplugin"><code class="codehilite">public</code><a href="#classgazebo_1_1_r_o_s_base_sensor_plugin_1a5f5f2144542f249de769ec638cfdfee5"><code class="codehilite">ROSBaseSensorPlugin</code></a><code class="codehilite">()</code><a class="headerlink" href="#publicrosbasesensorplugin" title="Permanent link">&para;</a></h6>
+<h6 id="publicrosbasesensorplugin"><code class="codehilite"><span class="k">public</span></code><a href="#classgazebo_1_1_r_o_s_base_sensor_plugin_1a5f5f2144542f249de769ec638cfdfee5"><code class="codehilite"><span class="n">ROSBaseSensorPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#publicrosbasesensorplugin" title="Permanent link">&para;</a></h6>
 <p>Class constructor.</p>
-<h6 id="public-virtualrosbasesensorplugin"><code class="codehilite">public virtual</code><a href="#classgazebo_1_1_r_o_s_base_sensor_plugin_1a3c7adf8a507fbae48749f761f5d43b53"><code class="codehilite">~ROSBaseSensorPlugin</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-virtualrosbasesensorplugin" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtualrosbasesensorplugin"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span></code><a href="#classgazebo_1_1_r_o_s_base_sensor_plugin_1a3c7adf8a507fbae48749f761f5d43b53"><code class="codehilite"><span class="o">~</span><span class="n">ROSBaseSensorPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-virtualrosbasesensorplugin" title="Permanent link">&para;</a></h6>
 <p>Class destructor.</p>
-<h6 id="protected-sensorssensorptrparentsensor"><code class="codehilite">protected sensors::SensorPtr</code><a href="#classgazebo_1_1_r_o_s_base_sensor_plugin_1a34cac9a5589143a2f8ab2623d47c8ac4"><code class="codehilite">parentSensor</code></a><a class="headerlink" href="#protected-sensorssensorptrparentsensor" title="Permanent link">&para;</a></h6>
+<h6 id="protected-sensorssensorptrparentsensor"><code class="codehilite"><span class="n">protected</span> <span class="n">sensors</span><span class="p">::</span><span class="n">SensorPtr</span></code><a href="#classgazebo_1_1_r_o_s_base_sensor_plugin_1a34cac9a5589143a2f8ab2623d47c8ac4"><code class="codehilite"><span class="n">parentSensor</span></code></a><a class="headerlink" href="#protected-sensorssensorptrparentsensor" title="Permanent link">&para;</a></h6>
 <p>Pointer to the parent sensor.</p>
-<h6 id="protected-virtual-voidloadsensorssensorptr-_modelsdfelementptr-_sdf"><code class="codehilite">protected virtual void</code><a href="#classgazebo_1_1_r_o_s_base_sensor_plugin_1a2ad16341faa4fadef2e3347ce2c8907a"><code class="codehilite">Load</code></a><code class="codehilite">(sensors::SensorPtr _model,sdf::ElementPtr _sdf)</code><a class="headerlink" href="#protected-virtual-voidloadsensorssensorptr-_modelsdfelementptr-_sdf" title="Permanent link">&para;</a></h6>
+<h6 id="protected-virtual-voidloadsensorssensorptr-_modelsdfelementptr-_sdf"><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_r_o_s_base_sensor_plugin_1a2ad16341faa4fadef2e3347ce2c8907a"><code class="codehilite"><span class="k">Load</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">sensors</span><span class="p">::</span><span class="n">SensorPtr</span> <span class="n">_model</span><span class="p">,</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">)</span></code><a class="headerlink" href="#protected-virtual-voidloadsensorssensorptr-_modelsdfelementptr-_sdf" title="Permanent link">&para;</a></h6>
 <p>Load plugin and its configuration from sdf,.</p>
-<h6 id="protected-virtual-boolonupdateconst-commonupdateinfo"><code class="codehilite">protected virtual bool</code><a href="#classgazebo_1_1_r_o_s_base_sensor_plugin_1a299ecabab8d2cbb768618dd509279e11"><code class="codehilite">OnUpdate</code></a><code class="codehilite">(const common::UpdateInfo &amp;)</code><a class="headerlink" href="#protected-virtual-boolonupdateconst-commonupdateinfo" title="Permanent link">&para;</a></h6>
+<h6 id="protected-virtual-boolonupdateconst-commonupdateinfo"><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_r_o_s_base_sensor_plugin_1a299ecabab8d2cbb768618dd509279e11"><code class="codehilite"><span class="n">OnUpdate</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">common</span><span class="p">::</span><span class="n">UpdateInfo</span> <span class="o">&amp;</span><span class="p">)</span></code><a class="headerlink" href="#protected-virtual-boolonupdateconst-commonupdateinfo" title="Permanent link">&para;</a></h6>
 <p>Update callback from simulation.</p>
                 
                   

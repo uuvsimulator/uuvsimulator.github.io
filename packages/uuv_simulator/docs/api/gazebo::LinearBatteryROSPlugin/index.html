@@ -456,6 +456,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -2896,9 +2908,9 @@
                 
                   <h1>LinearBatteryROSPlugin</h1>
                 
-                <h4 id="class-gazebolinearbatteryrosplugin">class <code class="codehilite">gazebo::LinearBatteryROSPlugin</code><a class="headerlink" href="#class-gazebolinearbatteryrosplugin" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><span class="kr">class</span> <span class="nx">gazebo</span><span class="o">::</span><span class="nx">LinearBatteryROSPlugin</span>
-  : <span class="kt">public</span> <span class="nx">LinearBatteryPlugin</span>
+                <h4 id="class-gazebolinearbatteryrosplugin">class <code class="codehilite"><span class="n">gazebo</span><span class="p">::</span><span class="n">LinearBatteryROSPlugin</span></code><a class="headerlink" href="#class-gazebolinearbatteryrosplugin" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="n">gazebo::LinearBatteryROSPlugin</span>
+  : <span class="n">public</span> <span class="n">LinearBatteryPlugin</span>
 </pre></div>
 
 <h5 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h5>
@@ -2911,67 +2923,67 @@
 </thead>
 <tbody>
 <tr>
-<td><code class="codehilite">public</code><a href="#classgazebo_1_1_linear_battery_r_o_s_plugin_1aabebb4f5b17d524e9c3d74dd0cb1acdd"><code class="codehilite">LinearBatteryROSPlugin</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span></code><a href="#classgazebo_1_1_linear_battery_r_o_s_plugin_1aabebb4f5b17d524e9c3d74dd0cb1acdd"><code class="codehilite"><span class="n">LinearBatteryROSPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Constructor.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual</code><a href="#classgazebo_1_1_linear_battery_r_o_s_plugin_1a46c86524f2df0f027533d1806c32a47e"><code class="codehilite">~LinearBatteryROSPlugin</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span></code><a href="#classgazebo_1_1_linear_battery_r_o_s_plugin_1a46c86524f2df0f027533d1806c32a47e"><code class="codehilite"><span class="o">~</span><span class="n">LinearBatteryROSPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Destructor.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public void</code><a href="#classgazebo_1_1_linear_battery_r_o_s_plugin_1a224ee323f756ae606c9836493f1ff494"><code class="codehilite">Load</code></a><code class="codehilite">(physics::ModelPtr _parent,sdf::ElementPtr _sdf)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">void</span></code><a href="#classgazebo_1_1_linear_battery_r_o_s_plugin_1a224ee323f756ae606c9836493f1ff494"><code class="codehilite"><span class="k">Load</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">physics</span><span class="p">::</span><span class="n">ModelPtr</span> <span class="n">_parent</span><span class="p">,</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">)</span></code></td>
 <td>Load module and read parameters from SDF.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_linear_battery_r_o_s_plugin_1aedd9b7053962837e687826e7e06ac249"><code class="codehilite">Init</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_linear_battery_r_o_s_plugin_1aedd9b7053962837e687826e7e06ac249"><code class="codehilite"><span class="n">Init</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Initialize Module.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_linear_battery_r_o_s_plugin_1a869ec61ac6792894bff98f7fc3b7fae0"><code class="codehilite">Reset</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_linear_battery_r_o_s_plugin_1a869ec61ac6792894bff98f7fc3b7fae0"><code class="codehilite"><span class="k">Reset</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Reset Module.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected boost::scoped_ptr&lt; ros::NodeHandle &gt;</code><a href="#classgazebo_1_1_linear_battery_r_o_s_plugin_1ac079f1d2cb6edb06f4432c69f165a0a4"><code class="codehilite">rosNode</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">boost</span><span class="p">::</span><span class="n">scoped_ptr</span><span class="o">&lt;</span> <span class="n">ros</span><span class="p">::</span><span class="n">NodeHandle</span> <span class="o">&gt;</span></code><a href="#classgazebo_1_1_linear_battery_r_o_s_plugin_1ac079f1d2cb6edb06f4432c69f165a0a4"><code class="codehilite"><span class="n">rosNode</span></code></a></td>
 <td>Pointer to this ROS node's handle.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected std::string</code><a href="#classgazebo_1_1_linear_battery_r_o_s_plugin_1ae9469d16486e6a1730d6ba881caef006"><code class="codehilite">robotNamespace</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classgazebo_1_1_linear_battery_r_o_s_plugin_1ae9469d16486e6a1730d6ba881caef006"><code class="codehilite"><span class="n">robotNamespace</span></code></a></td>
 <td>Namespace for this ROS node.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected sensor_msgs::BatteryState</code><a href="#classgazebo_1_1_linear_battery_r_o_s_plugin_1a44c22f944534c81519677c63c78c7701"><code class="codehilite">batteryStateMsg</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">sensor_msgs</span><span class="p">::</span><span class="n">BatteryState</span></code><a href="#classgazebo_1_1_linear_battery_r_o_s_plugin_1a44c22f944534c81519677c63c78c7701"><code class="codehilite"><span class="n">batteryStateMsg</span></code></a></td>
 <td>Battery state ROS message.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ros::Timer</code><a href="#classgazebo_1_1_linear_battery_r_o_s_plugin_1ac1ba8a2811bbcf5f5700a2505f7a63d9"><code class="codehilite">updateTimer</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ros</span><span class="p">::</span><span class="n">Timer</span></code><a href="#classgazebo_1_1_linear_battery_r_o_s_plugin_1ac1ba8a2811bbcf5f5700a2505f7a63d9"><code class="codehilite"><span class="n">updateTimer</span></code></a></td>
 <td>Connection for callbacks on update world.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected void</code><a href="#classgazebo_1_1_linear_battery_r_o_s_plugin_1af7dd1d4bd4f0b220d8c815bdb8e38679"><code class="codehilite">PublishBatteryState</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">void</span></code><a href="#classgazebo_1_1_linear_battery_r_o_s_plugin_1af7dd1d4bd4f0b220d8c815bdb8e38679"><code class="codehilite"><span class="n">PublishBatteryState</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Publish battery states.</td>
 </tr>
 </tbody>
 </table>
 <h5 id="members">Members<a class="headerlink" href="#members" title="Permanent link">&para;</a></h5>
-<h6 id="publiclinearbatteryrosplugin"><code class="codehilite">public</code><a href="#classgazebo_1_1_linear_battery_r_o_s_plugin_1aabebb4f5b17d524e9c3d74dd0cb1acdd"><code class="codehilite">LinearBatteryROSPlugin</code></a><code class="codehilite">()</code><a class="headerlink" href="#publiclinearbatteryrosplugin" title="Permanent link">&para;</a></h6>
+<h6 id="publiclinearbatteryrosplugin"><code class="codehilite"><span class="k">public</span></code><a href="#classgazebo_1_1_linear_battery_r_o_s_plugin_1aabebb4f5b17d524e9c3d74dd0cb1acdd"><code class="codehilite"><span class="n">LinearBatteryROSPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#publiclinearbatteryrosplugin" title="Permanent link">&para;</a></h6>
 <p>Constructor.</p>
-<h6 id="public-virtuallinearbatteryrosplugin"><code class="codehilite">public virtual</code><a href="#classgazebo_1_1_linear_battery_r_o_s_plugin_1a46c86524f2df0f027533d1806c32a47e"><code class="codehilite">~LinearBatteryROSPlugin</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-virtuallinearbatteryrosplugin" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtuallinearbatteryrosplugin"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span></code><a href="#classgazebo_1_1_linear_battery_r_o_s_plugin_1a46c86524f2df0f027533d1806c32a47e"><code class="codehilite"><span class="o">~</span><span class="n">LinearBatteryROSPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-virtuallinearbatteryrosplugin" title="Permanent link">&para;</a></h6>
 <p>Destructor.</p>
-<h6 id="public-voidloadphysicsmodelptr-_parentsdfelementptr-_sdf"><code class="codehilite">public void</code><a href="#classgazebo_1_1_linear_battery_r_o_s_plugin_1a224ee323f756ae606c9836493f1ff494"><code class="codehilite">Load</code></a><code class="codehilite">(physics::ModelPtr _parent,sdf::ElementPtr _sdf)</code><a class="headerlink" href="#public-voidloadphysicsmodelptr-_parentsdfelementptr-_sdf" title="Permanent link">&para;</a></h6>
+<h6 id="public-voidloadphysicsmodelptr-_parentsdfelementptr-_sdf"><code class="codehilite"><span class="k">public</span> <span class="n">void</span></code><a href="#classgazebo_1_1_linear_battery_r_o_s_plugin_1a224ee323f756ae606c9836493f1ff494"><code class="codehilite"><span class="k">Load</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">physics</span><span class="p">::</span><span class="n">ModelPtr</span> <span class="n">_parent</span><span class="p">,</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">)</span></code><a class="headerlink" href="#public-voidloadphysicsmodelptr-_parentsdfelementptr-_sdf" title="Permanent link">&para;</a></h6>
 <p>Load module and read parameters from SDF.</p>
-<h6 id="public-virtual-voidinit"><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_linear_battery_r_o_s_plugin_1aedd9b7053962837e687826e7e06ac249"><code class="codehilite">Init</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-virtual-voidinit" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtual-voidinit"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_linear_battery_r_o_s_plugin_1aedd9b7053962837e687826e7e06ac249"><code class="codehilite"><span class="n">Init</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-virtual-voidinit" title="Permanent link">&para;</a></h6>
 <p>Initialize Module.</p>
-<h6 id="public-virtual-voidreset"><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_linear_battery_r_o_s_plugin_1a869ec61ac6792894bff98f7fc3b7fae0"><code class="codehilite">Reset</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-virtual-voidreset" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtual-voidreset"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_linear_battery_r_o_s_plugin_1a869ec61ac6792894bff98f7fc3b7fae0"><code class="codehilite"><span class="k">Reset</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-virtual-voidreset" title="Permanent link">&para;</a></h6>
 <p>Reset Module.</p>
-<h6 id="protected-boostscoped_ptr-rosnodehandle-rosnode"><code class="codehilite">protected boost::scoped_ptr&lt; ros::NodeHandle &gt;</code><a href="#classgazebo_1_1_linear_battery_r_o_s_plugin_1ac079f1d2cb6edb06f4432c69f165a0a4"><code class="codehilite">rosNode</code></a><a class="headerlink" href="#protected-boostscoped_ptr-rosnodehandle-rosnode" title="Permanent link">&para;</a></h6>
+<h6 id="protected-boostscoped_ptr-rosnodehandle-rosnode"><code class="codehilite"><span class="n">protected</span> <span class="n">boost</span><span class="p">::</span><span class="n">scoped_ptr</span><span class="o">&lt;</span> <span class="n">ros</span><span class="p">::</span><span class="n">NodeHandle</span> <span class="o">&gt;</span></code><a href="#classgazebo_1_1_linear_battery_r_o_s_plugin_1ac079f1d2cb6edb06f4432c69f165a0a4"><code class="codehilite"><span class="n">rosNode</span></code></a><a class="headerlink" href="#protected-boostscoped_ptr-rosnodehandle-rosnode" title="Permanent link">&para;</a></h6>
 <p>Pointer to this ROS node's handle.</p>
-<h6 id="protected-stdstringrobotnamespace"><code class="codehilite">protected std::string</code><a href="#classgazebo_1_1_linear_battery_r_o_s_plugin_1ae9469d16486e6a1730d6ba881caef006"><code class="codehilite">robotNamespace</code></a><a class="headerlink" href="#protected-stdstringrobotnamespace" title="Permanent link">&para;</a></h6>
+<h6 id="protected-stdstringrobotnamespace"><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classgazebo_1_1_linear_battery_r_o_s_plugin_1ae9469d16486e6a1730d6ba881caef006"><code class="codehilite"><span class="n">robotNamespace</span></code></a><a class="headerlink" href="#protected-stdstringrobotnamespace" title="Permanent link">&para;</a></h6>
 <p>Namespace for this ROS node.</p>
-<h6 id="protected-sensor_msgsbatterystatebatterystatemsg"><code class="codehilite">protected sensor_msgs::BatteryState</code><a href="#classgazebo_1_1_linear_battery_r_o_s_plugin_1a44c22f944534c81519677c63c78c7701"><code class="codehilite">batteryStateMsg</code></a><a class="headerlink" href="#protected-sensor_msgsbatterystatebatterystatemsg" title="Permanent link">&para;</a></h6>
+<h6 id="protected-sensor_msgsbatterystatebatterystatemsg"><code class="codehilite"><span class="n">protected</span> <span class="n">sensor_msgs</span><span class="p">::</span><span class="n">BatteryState</span></code><a href="#classgazebo_1_1_linear_battery_r_o_s_plugin_1a44c22f944534c81519677c63c78c7701"><code class="codehilite"><span class="n">batteryStateMsg</span></code></a><a class="headerlink" href="#protected-sensor_msgsbatterystatebatterystatemsg" title="Permanent link">&para;</a></h6>
 <p>Battery state ROS message.</p>
-<h6 id="protected-rostimerupdatetimer"><code class="codehilite">protected ros::Timer</code><a href="#classgazebo_1_1_linear_battery_r_o_s_plugin_1ac1ba8a2811bbcf5f5700a2505f7a63d9"><code class="codehilite">updateTimer</code></a><a class="headerlink" href="#protected-rostimerupdatetimer" title="Permanent link">&para;</a></h6>
+<h6 id="protected-rostimerupdatetimer"><code class="codehilite"><span class="n">protected</span> <span class="n">ros</span><span class="p">::</span><span class="n">Timer</span></code><a href="#classgazebo_1_1_linear_battery_r_o_s_plugin_1ac1ba8a2811bbcf5f5700a2505f7a63d9"><code class="codehilite"><span class="n">updateTimer</span></code></a><a class="headerlink" href="#protected-rostimerupdatetimer" title="Permanent link">&para;</a></h6>
 <p>Connection for callbacks on update world.</p>
-<h6 id="protected-voidpublishbatterystate"><code class="codehilite">protected void</code><a href="#classgazebo_1_1_linear_battery_r_o_s_plugin_1af7dd1d4bd4f0b220d8c815bdb8e38679"><code class="codehilite">PublishBatteryState</code></a><code class="codehilite">()</code><a class="headerlink" href="#protected-voidpublishbatterystate" title="Permanent link">&para;</a></h6>
+<h6 id="protected-voidpublishbatterystate"><code class="codehilite"><span class="n">protected</span> <span class="n">void</span></code><a href="#classgazebo_1_1_linear_battery_r_o_s_plugin_1af7dd1d4bd4f0b220d8c815bdb8e38679"><code class="codehilite"><span class="n">PublishBatteryState</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#protected-voidpublishbatterystate" title="Permanent link">&para;</a></h6>
 <p>Publish battery states.</p>
                 
                   

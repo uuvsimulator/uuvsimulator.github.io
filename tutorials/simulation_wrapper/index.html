@@ -452,6 +452,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../packages/uuv_simulator/docs/features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../packages/uuv_simulator/docs/features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -2693,7 +2705,7 @@
 <p>One of the good advantages of simulation implemenations is the possibility of evaluating the complete closed-loop system under several different scenarios that would be difficult to reproduce in real experiments.
 That is the case for reinforcement learning and optimization algorithms, to name a few use-cases where the simulation could be used for system evaluation.
 Even though that is a promising application of any Gazebo/ROS based simulation, the actual implementation of a wrapper with which the simulation can be started and terminated in a controlled environment involves a lot of attention in order to guarantee that all ROS nodes can be properly started.
-For this purposes, a set of nodes and process managers have been implemented as part of the <a href="https://github.com/uuvsimulator/uuv_simulation_evaluation"><code class="codehilite">uuv_simulation_evaluation</code></a>.
+For this purposes, a set of nodes and process managers have been implemented as part of the <a href="https://github.com/uuvsimulator/uuv_simulation_evaluation"><code class="codehilite"><span class="n">uuv_simulation_evaluation</span></code></a>.
 Be sure to install the package in your catkin workspace</p>
 <div class="codehilite"><pre><span></span>  <span class="nb">cd</span> ~/catkin_ws/src
   git clone https://github.com/uuvsimulator/uuv_simulation_evaluation.git
@@ -2707,8 +2719,8 @@ Be sure to install the package in your catkin workspace</p>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The <code class="codehilite">uuv_simulation_evaluation</code> package also requires extra dependencies that can be installed as follows
-<div class="codehilite"><pre><span></span>pip3 install smac
+<p>The <code class="codehilite"><span class="n">uuv_simulation_evaluation</span></code> package also requires extra dependencies that can be installed as follows
+<div class="codehilite"><pre><span></span><span class="n">pip3</span> <span class="n">install</span> <span class="n">smac</span>
 </pre></div></p>
 </div>
 <h4 id="starting-and-terminating-the-simulation-using-a-timeout">Starting and terminating the simulation using a timeout<a class="headerlink" href="#starting-and-terminating-the-simulation-using-a-timeout" title="Permanent link">&para;</a></h4>
@@ -2716,12 +2728,12 @@ Be sure to install the package in your catkin workspace</p>
 This is acchieved by a very simple ROS node that is launched by the file below</p>
 <p>.. literalinclude:: ../files/tutorials/simulation_wrapper/set_simulation_timer.launch
   :language: xml</p>
-<p>and starts the <code class="codehilite">set_simulation_timer &lt;https://github.com/uuvsimulator/uuv_simulation_evaluation/blob/master/uuv_simulation_wrapper/scripts/set_simulation_timer&gt;</code>_ Python ROS node.
+<p>and starts the <code class="codehilite"><span class="n">set_simulation_timer</span> <span class="o">&lt;</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">uuvsimulator</span><span class="o">/</span><span class="n">uuv_simulation_evaluation</span><span class="o">/</span><span class="nb">blob</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">uuv_simulation_wrapper</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">set_simulation_timer</span><span class="o">&gt;</span></code>_ Python ROS node.
 This node will simply read simulation time from <strong>/clock</strong> and use the <strong>timeout</strong> input argument to count down the simulation time.
 Since the node is initialized with the <strong>required</strong> flag, all ROS processes are terminated once the timeout is reached.
 The only requirement is that this node has to be called with the rest of the processes running the simulation (including the Gazebo process) to terminate the simulation at a specified timeout, namely start the <strong>set_simulation_timer</strong> node in the launch file.</p>
 <p>.. note::</p>
-<p>For more information on the <strong>required</strong> flag, check the <code class="codehilite">official ROS wiki page &lt;http://wiki.ros.org/roslaunch/XML/node&gt;</code>_.</p>
+<p>For more information on the <strong>required</strong> flag, check the <code class="codehilite"><span class="n">official</span> <span class="n">ROS</span> <span class="n">wiki</span> <span class="n">page</span> <span class="o">&lt;</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">wiki</span><span class="p">.</span><span class="n">ros</span><span class="p">.</span><span class="n">org</span><span class="o">/</span><span class="n">roslaunch</span><span class="o">/</span><span class="n">XML</span><span class="o">/</span><span class="n">node</span><span class="o">&gt;</span></code>_.</p>
 <p>One small example is starting the empty underwater world and setting a simulation timeout in a launch file as follows ::</p>
 <p><launch>
     <include file="$(find uuv_descriptions)/launch/empty_underwater_world.launch">
@@ -2765,7 +2777,7 @@ Is essential in this case to start the Gazebo world with the <strong>paused</str
 <p>roslaunch uuv_simulation_timer_example start_timer_example.launch</p>
 <h5 id="using-the-python-wrapper-to-run-a-simulation">Using the Python wrapper to run a simulation<a class="headerlink" href="#using-the-python-wrapper-to-run-a-simulation" title="Permanent link">&para;</a></h5>
 <p>In the <strong>uuv_simulation_wrapper</strong> package, a simulation wrapper is implemented as a part of the <strong>uuv_simulation_runner</strong> Python library that can be used to start a simulation and evaluate its resulting ROS bag from a Python application.
-Some configuration is needed to acchieve it, but an example is available in the catkin package <code class="codehilite">uuv_simulation_runner_example &lt;https://github.com/uuvsimulator/uuv_simulation_evaluation/tree/master/uuv_evaluation_examples/uuv_simulation_runner_example&gt;</code>_.
+Some configuration is needed to acchieve it, but an example is available in the catkin package <code class="codehilite"><span class="n">uuv_simulation_runner_example</span> <span class="o">&lt;</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">uuvsimulator</span><span class="o">/</span><span class="n">uuv_simulation_evaluation</span><span class="o">/</span><span class="n">tree</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">uuv_evaluation_examples</span><span class="o">/</span><span class="n">uuv_simulation_runner_example</span><span class="o">&gt;</span></code>_.
 The folder structure of the this demonstration consists of a catkin package set as ::</p>
 <p>uuv_simulation_runner_example
   |-- config
@@ -2774,11 +2786,11 @@ The folder structure of the this demonstration consists of a catkin package set 
       |-- start_simulation.launch
   |-- scripts
       |-- run_grid_search
-  <code class="codehilite">-- CMakeLists.txt</code>-- package.xml</p>
+  <code class="codehilite"><span class="c1">-- CMakeLists.txt</span></code>-- package.xml</p>
 <p>The different elements necessary to make the evaluation using the wrapper are described below.</p>
 <p>Simulation launcher
 <sup>^</sup><sup>^</sup><sup>^</sup><sup>^</sup><sup>^</sup><sup>^</sup>^</p>
-<p>The launch file <code class="codehilite">start_simulation.launch &lt;https://github.com/uuvsimulator/uuv_simulation_evaluation/blob/master/uuv_evaluation_examples/uuv_simulation_runner_example/launch/start_simulation.launch&gt;</code>_ must contain all the nodes and elements to start the simulation that needs to be evaluated.
+<p>The launch file <code class="codehilite"><span class="n">start_simulation</span><span class="p">.</span><span class="n">launch</span> <span class="o">&lt;</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">uuvsimulator</span><span class="o">/</span><span class="n">uuv_simulation_evaluation</span><span class="o">/</span><span class="nb">blob</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">uuv_evaluation_examples</span><span class="o">/</span><span class="n">uuv_simulation_runner_example</span><span class="o">/</span><span class="n">launch</span><span class="o">/</span><span class="n">start_simulation</span><span class="p">.</span><span class="n">launch</span><span class="o">&gt;</span></code>_ must contain all the nodes and elements to start the simulation that needs to be evaluated.
 In this example the Gazebo world starts with the simulation timers presented in the previous section, a RexROV vehicle is spawned with a PID controller node.
 A helical trajectory then is initialized and a constant current is applied to the scenario.
 Some of the elements of the launch file that will be common to other use-cases are described below.</p>
@@ -2824,9 +2836,9 @@ The simulation wrapper expects the launch file to have an input string <strong>b
 <p>.. note::</p>
 <p>The pose of the vehicle can be recorded with respect to Gazebo's default inertial frame <strong>world</strong> (that uses the East-North-Up convention) by using the <strong>/<vehicle>/pose_gt</strong> topic or with respect to the generated <strong>world_ned</strong> frame (that uses the North-East-Down convention) by using <strong>/<vehicle>/pose_gt_ned</strong>.</p>
 <p>For this the vehicle must use the sensor plugins included in <strong>uuv_sensor_ros_plugins</strong> package and the static TF frame <strong>world_ned</strong> must exist (which is already done when starting one of the Gazebo worlds included in the UUV simulator package).</p>
-<p>Check this <code class="codehilite">Wikipedia page &lt;https://en.wikipedia.org/wiki/Axes_conventions&gt;</code>_ for more information on both conventions.</p>
+<p>Check this <code class="codehilite"><span class="n">Wikipedia</span> <span class="n">page</span> <span class="o">&lt;</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">en</span><span class="p">.</span><span class="n">wikipedia</span><span class="p">.</span><span class="n">org</span><span class="o">/</span><span class="n">wiki</span><span class="o">/</span><span class="n">Axes_conventions</span><span class="o">&gt;</span></code>_ for more information on both conventions.</p>
 <p>.. note::</p>
-<p>The topic <strong>/rexrov/wrench_perturbation</strong> is generated when using the disturbance manager node described in :ref:<code class="codehilite">disturbances</code>.</p>
+<p>The topic <strong>/rexrov/wrench_perturbation</strong> is generated when using the disturbance manager node described in :ref:<code class="codehilite"><span class="n">disturbances</span></code>.</p>
 <p><strong>Turning off the frontend during the evaluation</strong></p>
 <p>To avoid unnecessary overhead when doing repetitive evaluations of the same scenario, a flag can be given as an input of to turn off the Gazebo client and other visualization tools as RViz.
 In the example the flag is given as ::</p>

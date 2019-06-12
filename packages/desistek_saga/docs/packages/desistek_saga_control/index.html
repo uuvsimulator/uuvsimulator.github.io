@@ -454,6 +454,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../../uuv_simulator/docs/features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../../uuv_simulator/docs/features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -2856,156 +2868,156 @@
                 
                 <p><img alt="Version" src="https://img.shields.io/badge/version-0.3.2-brightgreen.svg" /></p>
 <blockquote>
-<p>Link to the <code class="codehilite">desistek_saga</code> repository <a href="https://github.com/uuvsimulator/desistek_saga">here</a></p>
+<p>Link to the <code class="codehilite"><span class="n">desistek_saga</span></code> repository <a href="https://github.com/uuvsimulator/desistek_saga">here</a></p>
 </blockquote>
 <h4 id="description">Description<a class="headerlink" href="#description" title="Permanent link">&para;</a></h4>
 <p>Configuration and launch files to control the Desistek SAGA ROV</p>
 <h4 id="launch-files">Launch files<a class="headerlink" href="#launch-files" title="Permanent link">&para;</a></h4>
-<h5 id="start_pdc_controllaunch"><a href="https://github.com/uuvsimulator/desistek_saga/tree/master/desistek_saga_control/launch/start_pdc_control.launch"><code class="codehilite">start_pdc_control.launch</code></a><a class="headerlink" href="#start_pdc_controllaunch" title="Permanent link">&para;</a></h5>
+<h5 id="start_pdc_controllaunch"><a href="https://github.com/uuvsimulator/desistek_saga/tree/master/desistek_saga_control/launch/start_pdc_control.launch"><code class="codehilite"><span class="n">start_pdc_control</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#start_pdc_controllaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
-<li><strong>uuv_name</strong> (<em>default:</em> <code class="codehilite">desistek_saga</code>)</li>
-<li><strong>record</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
-<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite">true</code>)</li>
-<li><strong>use_ned_frame</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
-<li><strong>Kp</strong> (<em>default:</em> <code class="codehilite">1,1,1,0,0,1</code>)</li>
-<li><strong>Kd</strong> (<em>default:</em> <code class="codehilite">0,0,0,0,0,0</code>)</li>
-<li><strong>teleop_on</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
-<li><strong>joy_id</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>axis_yaw</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>axis_x</strong> (<em>default:</em> <code class="codehilite">4</code>)</li>
-<li><strong>axis_y</strong> (<em>default:</em> <code class="codehilite">3</code>)</li>
-<li><strong>axis_z</strong> (<em>default:</em> <code class="codehilite">1</code>)</li>
-<li><strong>thruster_manager_output_dir</strong> (<em>default:</em> <code class="codehilite">$(find desistek_saga_control)/config</code>)</li>
-<li><strong>thruster_manager_config_file</strong> (<em>default:</em> <code class="codehilite">$(find desistek_saga_control)/config/thruster_manager.yaml</code>)</li>
-<li><strong>tam_file</strong> (<em>default:</em> <code class="codehilite">$(find desistek_saga_control)/config/TAM.yaml</code>)</li>
-<li><strong>model_params_file</strong> (<em>default:</em> <code class="codehilite">$(find desistek_saga_control)/config/model_params.yaml</code>)</li>
+<li><strong>uuv_name</strong> (<em>default:</em> <code class="codehilite"><span class="n">desistek_saga</span></code>)</li>
+<li><strong>record</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>)</li>
+<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite"><span class="k">true</span></code>)</li>
+<li><strong>use_ned_frame</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>)</li>
+<li><strong>Kp</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span></code>)</li>
+<li><strong>Kd</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span></code>)</li>
+<li><strong>teleop_on</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>)</li>
+<li><strong>joy_id</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>axis_yaw</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>axis_x</strong> (<em>default:</em> <code class="codehilite"><span class="mi">4</span></code>)</li>
+<li><strong>axis_y</strong> (<em>default:</em> <code class="codehilite"><span class="mi">3</span></code>)</li>
+<li><strong>axis_z</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1</span></code>)</li>
+<li><strong>thruster_manager_output_dir</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">desistek_saga_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span></code>)</li>
+<li><strong>thruster_manager_config_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">desistek_saga_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">thruster_manager</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
+<li><strong>tam_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">desistek_saga_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">TAM</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
+<li><strong>model_params_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">desistek_saga_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">model_params</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
 </ul>
-<h5 id="start_thruster_managerlaunch"><a href="https://github.com/uuvsimulator/desistek_saga/tree/master/desistek_saga_control/launch/start_thruster_manager.launch"><code class="codehilite">start_thruster_manager.launch</code></a><a class="headerlink" href="#start_thruster_managerlaunch" title="Permanent link">&para;</a></h5>
+<h5 id="start_thruster_managerlaunch"><a href="https://github.com/uuvsimulator/desistek_saga/tree/master/desistek_saga_control/launch/start_thruster_manager.launch"><code class="codehilite"><span class="n">start_thruster_manager</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#start_thruster_managerlaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
-<li><strong>uuv_name</strong> (<em>default:</em> <code class="codehilite">desistek_saga</code>)</li>
+<li><strong>uuv_name</strong> (<em>default:</em> <code class="codehilite"><span class="n">desistek_saga</span></code>)</li>
 </ul>
-<h5 id="record_demolaunch"><a href="https://github.com/uuvsimulator/desistek_saga/tree/master/desistek_saga_control/launch/record_demo.launch"><code class="codehilite">record_demo.launch</code></a><a class="headerlink" href="#record_demolaunch" title="Permanent link">&para;</a></h5>
+<h5 id="record_demolaunch"><a href="https://github.com/uuvsimulator/desistek_saga/tree/master/desistek_saga_control/launch/record_demo.launch"><code class="codehilite"><span class="n">record_demo</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#record_demolaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
-<li><strong>record</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
-<li><strong>bag_filename</strong> (<em>default:</em> <code class="codehilite">recording.bag</code>)</li>
+<li><strong>record</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>)</li>
+<li><strong>bag_filename</strong> (<em>default:</em> <code class="codehilite"><span class="n">recording</span><span class="p">.</span><span class="n">bag</span></code>)</li>
 </ul>
-<h5 id="start_nmb_sm_controllaunch"><a href="https://github.com/uuvsimulator/desistek_saga/tree/master/desistek_saga_control/launch/start_nmb_sm_control.launch"><code class="codehilite">start_nmb_sm_control.launch</code></a><a class="headerlink" href="#start_nmb_sm_controllaunch" title="Permanent link">&para;</a></h5>
+<h5 id="start_nmb_sm_controllaunch"><a href="https://github.com/uuvsimulator/desistek_saga/tree/master/desistek_saga_control/launch/start_nmb_sm_control.launch"><code class="codehilite"><span class="n">start_nmb_sm_control</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#start_nmb_sm_controllaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
-<li><strong>uuv_name</strong> (<em>default:</em> <code class="codehilite">desistek_saga</code>)</li>
-<li><strong>record</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
-<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite">true</code>)</li>
-<li><strong>use_ned_frame</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
-<li><strong>K</strong> (<em>default:</em> <code class="codehilite">5.0,5.0,5.0,0.0,0.0,5.0</code>)</li>
-<li><strong>Kd</strong> (<em>default:</em> <code class="codehilite">10.0,13.73,2.44,0.0,0.0,3.55</code>)</li>
-<li><strong>Ki</strong> (<em>default:</em> <code class="codehilite">0.05,0.62,0.05,0.0,0.0,0.05</code>)</li>
-<li><strong>slope</strong> (<em>default:</em> <code class="codehilite">2.0,0.89,2.0,0.0,0.0,0.8</code>)</li>
-<li><strong>teleop_on</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
-<li><strong>joy_id</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>axis_yaw</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>axis_x</strong> (<em>default:</em> <code class="codehilite">4</code>)</li>
-<li><strong>axis_y</strong> (<em>default:</em> <code class="codehilite">3</code>)</li>
-<li><strong>axis_z</strong> (<em>default:</em> <code class="codehilite">1</code>)</li>
-<li><strong>thruster_manager_output_dir</strong> (<em>default:</em> <code class="codehilite">$(find desistek_saga_control)/config</code>)</li>
-<li><strong>thruster_manager_config_file</strong> (<em>default:</em> <code class="codehilite">$(find desistek_saga_control)/config/thruster_manager.yaml</code>)</li>
-<li><strong>tam_file</strong> (<em>default:</em> <code class="codehilite">$(find desistek_saga_control)/config/TAM.yaml</code>)</li>
+<li><strong>uuv_name</strong> (<em>default:</em> <code class="codehilite"><span class="n">desistek_saga</span></code>)</li>
+<li><strong>record</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>)</li>
+<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite"><span class="k">true</span></code>)</li>
+<li><strong>use_ned_frame</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>)</li>
+<li><strong>K</strong> (<em>default:</em> <code class="codehilite"><span class="mi">5</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">.</span><span class="mi">0</span></code>)</li>
+<li><strong>Kd</strong> (<em>default:</em> <code class="codehilite"><span class="mi">10</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">13</span><span class="p">.</span><span class="mi">73</span><span class="p">,</span><span class="mi">2</span><span class="p">.</span><span class="mi">44</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">.</span><span class="mi">55</span></code>)</li>
+<li><strong>Ki</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">05</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">62</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">05</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">05</span></code>)</li>
+<li><strong>slope</strong> (<em>default:</em> <code class="codehilite"><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">89</span><span class="p">,</span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">8</span></code>)</li>
+<li><strong>teleop_on</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>)</li>
+<li><strong>joy_id</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>axis_yaw</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>axis_x</strong> (<em>default:</em> <code class="codehilite"><span class="mi">4</span></code>)</li>
+<li><strong>axis_y</strong> (<em>default:</em> <code class="codehilite"><span class="mi">3</span></code>)</li>
+<li><strong>axis_z</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1</span></code>)</li>
+<li><strong>thruster_manager_output_dir</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">desistek_saga_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span></code>)</li>
+<li><strong>thruster_manager_config_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">desistek_saga_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">thruster_manager</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
+<li><strong>tam_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">desistek_saga_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">TAM</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
 </ul>
-<h5 id="start_sf_controllaunch"><a href="https://github.com/uuvsimulator/desistek_saga/tree/master/desistek_saga_control/launch/start_sf_control.launch"><code class="codehilite">start_sf_control.launch</code></a><a class="headerlink" href="#start_sf_controllaunch" title="Permanent link">&para;</a></h5>
+<h5 id="start_sf_controllaunch"><a href="https://github.com/uuvsimulator/desistek_saga/tree/master/desistek_saga_control/launch/start_sf_control.launch"><code class="codehilite"><span class="n">start_sf_control</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#start_sf_controllaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
-<li><strong>uuv_name</strong> (<em>default:</em> <code class="codehilite">desistek_saga</code>)</li>
-<li><strong>record</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
-<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite">true</code>)</li>
-<li><strong>use_ned_frame</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
-<li><strong>Kd</strong> (<em>default:</em> <code class="codehilite">1.0,1.0,1.0,0.0,0.0,1.0</code>)</li>
-<li><strong>lambda</strong> (<em>default:</em> <code class="codehilite">1.0</code>)</li>
-<li><strong>c</strong> (<em>default:</em> <code class="codehilite">1.0</code>)</li>
-<li><strong>teleop_on</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
-<li><strong>joy_id</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>axis_yaw</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>axis_x</strong> (<em>default:</em> <code class="codehilite">4</code>)</li>
-<li><strong>axis_y</strong> (<em>default:</em> <code class="codehilite">3</code>)</li>
-<li><strong>axis_z</strong> (<em>default:</em> <code class="codehilite">1</code>)</li>
-<li><strong>thruster_manager_output_dir</strong> (<em>default:</em> <code class="codehilite">$(find desistek_saga_control)/config</code>)</li>
-<li><strong>thruster_manager_config_file</strong> (<em>default:</em> <code class="codehilite">$(find desistek_saga_control)/config/thruster_manager.yaml</code>)</li>
-<li><strong>tam_file</strong> (<em>default:</em> <code class="codehilite">$(find desistek_saga_control)/config/TAM.yaml</code>)</li>
-<li><strong>model_params_file</strong> (<em>default:</em> <code class="codehilite">$(find desistek_saga_control)/config/model_params.yaml</code>)</li>
+<li><strong>uuv_name</strong> (<em>default:</em> <code class="codehilite"><span class="n">desistek_saga</span></code>)</li>
+<li><strong>record</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>)</li>
+<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite"><span class="k">true</span></code>)</li>
+<li><strong>use_ned_frame</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>)</li>
+<li><strong>Kd</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span></code>)</li>
+<li><strong>lambda</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1</span><span class="p">.</span><span class="mi">0</span></code>)</li>
+<li><strong>c</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1</span><span class="p">.</span><span class="mi">0</span></code>)</li>
+<li><strong>teleop_on</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>)</li>
+<li><strong>joy_id</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>axis_yaw</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>axis_x</strong> (<em>default:</em> <code class="codehilite"><span class="mi">4</span></code>)</li>
+<li><strong>axis_y</strong> (<em>default:</em> <code class="codehilite"><span class="mi">3</span></code>)</li>
+<li><strong>axis_z</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1</span></code>)</li>
+<li><strong>thruster_manager_output_dir</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">desistek_saga_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span></code>)</li>
+<li><strong>thruster_manager_config_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">desistek_saga_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">thruster_manager</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
+<li><strong>tam_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">desistek_saga_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">TAM</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
+<li><strong>model_params_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">desistek_saga_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">model_params</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
 </ul>
-<h5 id="start_pid_controllaunch"><a href="https://github.com/uuvsimulator/desistek_saga/tree/master/desistek_saga_control/launch/start_pid_control.launch"><code class="codehilite">start_pid_control.launch</code></a><a class="headerlink" href="#start_pid_controllaunch" title="Permanent link">&para;</a></h5>
+<h5 id="start_pid_controllaunch"><a href="https://github.com/uuvsimulator/desistek_saga/tree/master/desistek_saga_control/launch/start_pid_control.launch"><code class="codehilite"><span class="n">start_pid_control</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#start_pid_controllaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
-<li><strong>uuv_name</strong> (<em>default:</em> <code class="codehilite">desistek_saga</code>)</li>
-<li><strong>record</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
-<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite">true</code>)</li>
-<li><strong>use_ned_frame</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
-<li><strong>Kp</strong> (<em>default:</em> <code class="codehilite">1,1,1,0,0,1</code>)</li>
-<li><strong>Kd</strong> (<em>default:</em> <code class="codehilite">0,0,0,0,0,0</code>)</li>
-<li><strong>Ki</strong> (<em>default:</em> <code class="codehilite">0,0,0,0,0,0</code>)</li>
-<li><strong>teleop_on</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
-<li><strong>joy_id</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>axis_yaw</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>axis_x</strong> (<em>default:</em> <code class="codehilite">4</code>)</li>
-<li><strong>axis_y</strong> (<em>default:</em> <code class="codehilite">3</code>)</li>
-<li><strong>axis_z</strong> (<em>default:</em> <code class="codehilite">1</code>)</li>
-<li><strong>thruster_manager_output_dir</strong> (<em>default:</em> <code class="codehilite">$(find desistek_saga_control)/config</code>)</li>
-<li><strong>thruster_manager_config_file</strong> (<em>default:</em> <code class="codehilite">$(find desistek_saga_control)/config/thruster_manager.yaml</code>)</li>
-<li><strong>tam_file</strong> (<em>default:</em> <code class="codehilite">$(find desistek_saga_control)/config/TAM.yaml</code>)</li>
+<li><strong>uuv_name</strong> (<em>default:</em> <code class="codehilite"><span class="n">desistek_saga</span></code>)</li>
+<li><strong>record</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>)</li>
+<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite"><span class="k">true</span></code>)</li>
+<li><strong>use_ned_frame</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>)</li>
+<li><strong>Kp</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span></code>)</li>
+<li><strong>Kd</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span></code>)</li>
+<li><strong>Ki</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span></code>)</li>
+<li><strong>teleop_on</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>)</li>
+<li><strong>joy_id</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>axis_yaw</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>axis_x</strong> (<em>default:</em> <code class="codehilite"><span class="mi">4</span></code>)</li>
+<li><strong>axis_y</strong> (<em>default:</em> <code class="codehilite"><span class="mi">3</span></code>)</li>
+<li><strong>axis_z</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1</span></code>)</li>
+<li><strong>thruster_manager_output_dir</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">desistek_saga_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span></code>)</li>
+<li><strong>thruster_manager_config_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">desistek_saga_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">thruster_manager</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
+<li><strong>tam_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">desistek_saga_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">TAM</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
 </ul>
-<h5 id="start_cascaded_pid_with_teleoplaunch"><a href="https://github.com/uuvsimulator/desistek_saga/tree/master/desistek_saga_control/launch/start_cascaded_pid_with_teleop.launch"><code class="codehilite">start_cascaded_pid_with_teleop.launch</code></a><a class="headerlink" href="#start_cascaded_pid_with_teleoplaunch" title="Permanent link">&para;</a></h5>
+<h5 id="start_cascaded_pid_with_teleoplaunch"><a href="https://github.com/uuvsimulator/desistek_saga/tree/master/desistek_saga_control/launch/start_cascaded_pid_with_teleop.launch"><code class="codehilite"><span class="n">start_cascaded_pid_with_teleop</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#start_cascaded_pid_with_teleoplaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
-<li><strong>namespace</strong> (<em>default:</em> <code class="codehilite">desistek_saga</code>)</li>
-<li><strong>joy_id</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>axis_x</strong> (<em>default:</em> <code class="codehilite">4</code>)</li>
-<li><strong>axis_y</strong> (<em>default:</em> <code class="codehilite">3</code>)</li>
-<li><strong>axis_z</strong> (<em>default:</em> <code class="codehilite">1</code>)</li>
-<li><strong>axis_yaw</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite">true</code>)</li>
+<li><strong>namespace</strong> (<em>default:</em> <code class="codehilite"><span class="n">desistek_saga</span></code>)</li>
+<li><strong>joy_id</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>axis_x</strong> (<em>default:</em> <code class="codehilite"><span class="mi">4</span></code>)</li>
+<li><strong>axis_y</strong> (<em>default:</em> <code class="codehilite"><span class="mi">3</span></code>)</li>
+<li><strong>axis_z</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1</span></code>)</li>
+<li><strong>axis_yaw</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite"><span class="k">true</span></code>)</li>
 </ul>
-<h5 id="start_position_holdlaunch"><a href="https://github.com/uuvsimulator/desistek_saga/tree/master/desistek_saga_control/launch/start_position_hold.launch"><code class="codehilite">start_position_hold.launch</code></a><a class="headerlink" href="#start_position_holdlaunch" title="Permanent link">&para;</a></h5>
+<h5 id="start_position_holdlaunch"><a href="https://github.com/uuvsimulator/desistek_saga/tree/master/desistek_saga_control/launch/start_position_hold.launch"><code class="codehilite"><span class="n">start_position_hold</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#start_position_holdlaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
-<li><strong>namespace</strong> (<em>default:</em> <code class="codehilite">desistek_saga</code>)</li>
+<li><strong>namespace</strong> (<em>default:</em> <code class="codehilite"><span class="n">desistek_saga</span></code>)</li>
 </ul>
-<h5 id="start_geometric_tracking_controllaunch"><a href="https://github.com/uuvsimulator/desistek_saga/tree/master/desistek_saga_control/launch/start_geometric_tracking_control.launch"><code class="codehilite">start_geometric_tracking_control.launch</code></a><a class="headerlink" href="#start_geometric_tracking_controllaunch" title="Permanent link">&para;</a></h5>
+<h5 id="start_geometric_tracking_controllaunch"><a href="https://github.com/uuvsimulator/desistek_saga/tree/master/desistek_saga_control/launch/start_geometric_tracking_control.launch"><code class="codehilite"><span class="n">start_geometric_tracking_control</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#start_geometric_tracking_controllaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
-<li><strong>uuv_name</strong> (<em>default:</em> <code class="codehilite">desistek_saga</code>)</li>
-<li><strong>record</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
-<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite">true</code>)</li>
-<li><strong>Kp</strong> (<em>default:</em> <code class="codehilite">2.0,2.0,2.0,0.8</code>)</li>
-<li><strong>Kd</strong> (<em>default:</em> <code class="codehilite">0.1,0.1,0.1,0.1</code>)</li>
-<li><strong>Ki</strong> (<em>default:</em> <code class="codehilite">0.05,0.05,0.05,0.05</code>)</li>
-<li><strong>teleop_on</strong> (<em>default:</em> <code class="codehilite">false</code>)</li>
-<li><strong>joy_id</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>axis_yaw</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
-<li><strong>axis_x</strong> (<em>default:</em> <code class="codehilite">4</code>)</li>
-<li><strong>axis_y</strong> (<em>default:</em> <code class="codehilite">3</code>)</li>
-<li><strong>axis_z</strong> (<em>default:</em> <code class="codehilite">1</code>)</li>
-<li><strong>thruster_manager_output_dir</strong> (<em>default:</em> <code class="codehilite">$(find desistek_saga_control)/config</code>)</li>
-<li><strong>thruster_manager_config_file</strong> (<em>default:</em> <code class="codehilite">$(find desistek_saga_control)/config/thruster_manager.yaml</code>)</li>
-<li><strong>tam_file</strong> (<em>default:</em> <code class="codehilite">$(find desistek_saga_control)/config/TAM.yaml</code>)</li>
+<li><strong>uuv_name</strong> (<em>default:</em> <code class="codehilite"><span class="n">desistek_saga</span></code>)</li>
+<li><strong>record</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>)</li>
+<li><strong>gui_on</strong> (<em>default:</em> <code class="codehilite"><span class="k">true</span></code>)</li>
+<li><strong>Kp</strong> (<em>default:</em> <code class="codehilite"><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">8</span></code>)</li>
+<li><strong>Kd</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span></code>)</li>
+<li><strong>Ki</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span><span class="p">.</span><span class="mi">05</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">05</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">05</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">05</span></code>)</li>
+<li><strong>teleop_on</strong> (<em>default:</em> <code class="codehilite"><span class="k">false</span></code>)</li>
+<li><strong>joy_id</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>axis_yaw</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
+<li><strong>axis_x</strong> (<em>default:</em> <code class="codehilite"><span class="mi">4</span></code>)</li>
+<li><strong>axis_y</strong> (<em>default:</em> <code class="codehilite"><span class="mi">3</span></code>)</li>
+<li><strong>axis_z</strong> (<em>default:</em> <code class="codehilite"><span class="mi">1</span></code>)</li>
+<li><strong>thruster_manager_output_dir</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">desistek_saga_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span></code>)</li>
+<li><strong>thruster_manager_config_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">desistek_saga_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">thruster_manager</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
+<li><strong>tam_file</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">find</span> <span class="n">desistek_saga_control</span><span class="p">)</span><span class="o">/</span><span class="n">config</span><span class="o">/</span><span class="n">TAM</span><span class="p">.</span><span class="n">yaml</span></code>)</li>
 </ul>
                 
                   

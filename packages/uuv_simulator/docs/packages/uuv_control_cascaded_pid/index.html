@@ -456,6 +456,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -2854,53 +2866,53 @@
                 
                 <p><img alt="Version" src="https://img.shields.io/badge/version-0.6.12-brightgreen.svg" /></p>
 <blockquote>
-<p>Link to the <code class="codehilite">uuv_simulator</code> repository <a href="https://github.com/uuvsimulator/uuv_simulator">here</a></p>
+<p>Link to the <code class="codehilite"><span class="n">uuv_simulator</span></code> repository <a href="https://github.com/uuvsimulator/uuv_simulator">here</a></p>
 </blockquote>
 <h4 id="description">Description<a class="headerlink" href="#description" title="Permanent link">&para;</a></h4>
 <p>A cascade of PID controllers for acceleration, velocity, and position control.</p>
 <h4 id="launch-files">Launch files<a class="headerlink" href="#launch-files" title="Permanent link">&para;</a></h4>
-<h5 id="joy_velocitylaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_control_cascaded_pid/launch/joy_velocity.launch"><code class="codehilite">joy_velocity.launch</code></a><a class="headerlink" href="#joy_velocitylaunch" title="Permanent link">&para;</a></h5>
+<h5 id="joy_velocitylaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_control_cascaded_pid/launch/joy_velocity.launch"><code class="codehilite"><span class="n">joy_velocity</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#joy_velocitylaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
 <li><strong>model_name</strong></li>
-<li><strong>uuv_name</strong> (<em>default:</em> <code class="codehilite">$(arg model_name)</code>)</li>
-<li><strong>joy_id</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
+<li><strong>uuv_name</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">model_name</span><span class="p">)</span></code>)</li>
+<li><strong>joy_id</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
 </ul>
-<h5 id="joy_accellaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_control_cascaded_pid/launch/joy_accel.launch"><code class="codehilite">joy_accel.launch</code></a><a class="headerlink" href="#joy_accellaunch" title="Permanent link">&para;</a></h5>
+<h5 id="joy_accellaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_control_cascaded_pid/launch/joy_accel.launch"><code class="codehilite"><span class="n">joy_accel</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#joy_accellaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
 <li><strong>model_name</strong></li>
-<li><strong>uuv_name</strong> (<em>default:</em> <code class="codehilite">$(arg model_name)</code>)</li>
-<li><strong>joy_id</strong> (<em>default:</em> <code class="codehilite">0</code>)</li>
+<li><strong>uuv_name</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">model_name</span><span class="p">)</span></code>)</li>
+<li><strong>joy_id</strong> (<em>default:</em> <code class="codehilite"><span class="mi">0</span></code>)</li>
 </ul>
-<h5 id="position_holdlaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_control_cascaded_pid/launch/position_hold.launch"><code class="codehilite">position_hold.launch</code></a><a class="headerlink" href="#position_holdlaunch" title="Permanent link">&para;</a></h5>
+<h5 id="position_holdlaunch"><a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_control_cascaded_pid/launch/position_hold.launch"><code class="codehilite"><span class="n">position_hold</span><span class="p">.</span><span class="n">launch</span></code></a><a class="headerlink" href="#position_holdlaunch" title="Permanent link">&para;</a></h5>
 <blockquote>
 <p><strong>Arguments</strong></p>
 </blockquote>
 <ul>
 <li><strong>model_name</strong></li>
-<li><strong>uuv_name</strong> (<em>default:</em> <code class="codehilite">$(arg model_name)</code>)</li>
+<li><strong>uuv_name</strong> (<em>default:</em> <code class="codehilite"><span class="err">$</span><span class="p">(</span><span class="n">arg</span> <span class="n">model_name</span><span class="p">)</span></code>)</li>
 </ul>
 <h4 id="scripts">Scripts<a class="headerlink" href="#scripts" title="Permanent link">&para;</a></h4>
-<h5 id="accelerationcontrolpy"><code class="codehilite">AccelerationControl.py</code><a class="headerlink" href="#accelerationcontrolpy" title="Permanent link">&para;</a></h5>
+<h5 id="accelerationcontrolpy"><code class="codehilite"><span class="n">AccelerationControl</span><span class="p">.</span><span class="n">py</span></code><a class="headerlink" href="#accelerationcontrolpy" title="Permanent link">&para;</a></h5>
 <blockquote>
-<p><strong>Script type:</strong> <code class="codehilite">python</code></p>
+<p><strong>Script type:</strong> <code class="codehilite"><span class="n">python</span></code></p>
 </blockquote>
-<h5 id="positioncontrolpy"><code class="codehilite">PositionControl.py</code><a class="headerlink" href="#positioncontrolpy" title="Permanent link">&para;</a></h5>
+<h5 id="positioncontrolpy"><code class="codehilite"><span class="n">PositionControl</span><span class="p">.</span><span class="n">py</span></code><a class="headerlink" href="#positioncontrolpy" title="Permanent link">&para;</a></h5>
 <blockquote>
-<p><strong>Script type:</strong> <code class="codehilite">python</code></p>
+<p><strong>Script type:</strong> <code class="codehilite"><span class="n">python</span></code></p>
 </blockquote>
-<h5 id="positioncontrolunderactuatedpy"><code class="codehilite">PositionControlUnderactuated.py</code><a class="headerlink" href="#positioncontrolunderactuatedpy" title="Permanent link">&para;</a></h5>
+<h5 id="positioncontrolunderactuatedpy"><code class="codehilite"><span class="n">PositionControlUnderactuated</span><span class="p">.</span><span class="n">py</span></code><a class="headerlink" href="#positioncontrolunderactuatedpy" title="Permanent link">&para;</a></h5>
 <blockquote>
-<p><strong>Script type:</strong> <code class="codehilite">python</code></p>
+<p><strong>Script type:</strong> <code class="codehilite"><span class="n">python</span></code></p>
 </blockquote>
-<h5 id="velocitycontrolpy"><code class="codehilite">VelocityControl.py</code><a class="headerlink" href="#velocitycontrolpy" title="Permanent link">&para;</a></h5>
+<h5 id="velocitycontrolpy"><code class="codehilite"><span class="n">VelocityControl</span><span class="p">.</span><span class="n">py</span></code><a class="headerlink" href="#velocitycontrolpy" title="Permanent link">&para;</a></h5>
 <blockquote>
-<p><strong>Script type:</strong> <code class="codehilite">python</code></p>
+<p><strong>Script type:</strong> <code class="codehilite"><span class="n">python</span></code></p>
 </blockquote>
                 
                   

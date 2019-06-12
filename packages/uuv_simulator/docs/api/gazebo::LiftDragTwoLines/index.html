@@ -456,6 +456,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -2926,9 +2938,9 @@
                 
                   <h1>LiftDragTwoLines</h1>
                 
-                <h4 id="class-gazeboliftdragtwolines">class <code class="codehilite">gazebo::LiftDragTwoLines</code><a class="headerlink" href="#class-gazeboliftdragtwolines" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><span class="kr">class</span> <span class="nx">gazebo</span><span class="o">::</span><span class="nx">LiftDragTwoLines</span>
-  : <span class="kt">public</span> <span class="nx">gazebo</span><span class="o">::</span><span class="nx">LiftDrag</span>
+                <h4 id="class-gazeboliftdragtwolines">class <code class="codehilite"><span class="n">gazebo</span><span class="p">::</span><span class="n">LiftDragTwoLines</span></code><a class="headerlink" href="#class-gazeboliftdragtwolines" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="n">gazebo::LiftDragTwoLines</span>
+  : <span class="n">public</span> <span class="n">gazebo::LiftDrag</span>
 </pre></div>
 
 <p>Lift&amp;drag model that models lift/drag coeffs using two lines. This is based on Gazebo's LiftDragPlugin but implemented as a derived <a href="docs/packages/uuv_simulator/docs/api/gazebo::LiftDrag.md#classgazebo_1_1_lift_drag">LiftDrag</a> model to allow using it in combination with the dynamics of a Fin.</p>
@@ -2942,79 +2954,79 @@
 </thead>
 <tbody>
 <tr>
-<td><code class="codehilite">public inline virtual std::string</code><a href="#classgazebo_1_1_lift_drag_two_lines_1a541d5835070a1b626cd57c4291c805d0"><code class="codehilite">GetType</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">inline</span> <span class="n">virtual</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classgazebo_1_1_lift_drag_two_lines_1a541d5835070a1b626cd57c4291c805d0"><code class="codehilite"><span class="n">GetType</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Return (derived) type of dynamic system.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual ignition::math::Vector3d</code><a href="#classgazebo_1_1_lift_drag_two_lines_1ae88266dfe7c1fc1818cdf0a998b37002"><code class="codehilite">compute</code></a><code class="codehilite">(const ignition::math::Vector3d &amp; _velL)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_lift_drag_two_lines_1ae88266dfe7c1fc1818cdf0a998b37002"><code class="codehilite"><span class="n">compute</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span> <span class="o">&amp;</span> <span class="n">_velL</span><span class="p">)</span></code></td>
 <td>Compute the lift and drag force.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual bool</code><a href="#classgazebo_1_1_lift_drag_two_lines_1ac5ae08c5d1cbad85f259bcc5b84705b5"><code class="codehilite">GetParam</code></a><code class="codehilite">(std::string _tag,double &amp; _output)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_lift_drag_two_lines_1ac5ae08c5d1cbad85f259bcc5b84705b5"><code class="codehilite"><span class="n">GetParam</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="n">_tag</span><span class="p">,</span><span class="n">double</span> <span class="o">&amp;</span> <span class="n">_output</span><span class="p">)</span></code></td>
 <td>Return paramater in scalar form for the given tag.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual std::map&lt; std::string, double &gt;</code><a href="#classgazebo_1_1_lift_drag_two_lines_1ac1e2943c9ebef6ef3471fe293799b726"><code class="codehilite">GetListParams</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">std</span><span class="p">::</span><span class="k">map</span><span class="o">&lt;</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span><span class="p">,</span> <span class="n">double</span> <span class="o">&gt;</span></code><a href="#classgazebo_1_1_lift_drag_two_lines_1ac1e2943c9ebef6ef3471fe293799b726"><code class="codehilite"><span class="n">GetListParams</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Return list of all parameters.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_lift_drag_two_lines_1a461fc127b2ec92301d715d6a6b4df69f"><code class="codehilite">area</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_lift_drag_two_lines_1a461fc127b2ec92301d715d6a6b4df69f"><code class="codehilite"><span class="n">area</span></code></a></td>
 <td>Airfoil area.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_lift_drag_two_lines_1ac5ea64aeb8b87292fe68a1c024d6d474"><code class="codehilite">fluidDensity</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_lift_drag_two_lines_1ac5ea64aeb8b87292fe68a1c024d6d474"><code class="codehilite"><span class="n">fluidDensity</span></code></a></td>
 <td>Fluid density.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_lift_drag_two_lines_1a01e4fdcf5d1cb823d782180c7b5e4ac7"><code class="codehilite">a0</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_lift_drag_two_lines_1a01e4fdcf5d1cb823d782180c7b5e4ac7"><code class="codehilite"><span class="n">a0</span></code></a></td>
 <td>Original zero angle of attack location.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_lift_drag_two_lines_1a4215009b05c352436274ce81e0ddf8c4"><code class="codehilite">alphaStall</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_lift_drag_two_lines_1a4215009b05c352436274ce81e0ddf8c4"><code class="codehilite"><span class="n">alphaStall</span></code></a></td>
 <td>Stall angle.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_lift_drag_two_lines_1a569349db608e180bf2ea30de181ee34a"><code class="codehilite">cla</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_lift_drag_two_lines_1a569349db608e180bf2ea30de181ee34a"><code class="codehilite"><span class="n">cla</span></code></a></td>
 <td>Lift coefficient without stall.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_lift_drag_two_lines_1ad2653c58c571861bd6510b30f3803d39"><code class="codehilite">claStall</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_lift_drag_two_lines_1ad2653c58c571861bd6510b30f3803d39"><code class="codehilite"><span class="n">claStall</span></code></a></td>
 <td>Lift coefficient with stall.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_lift_drag_two_lines_1a90b024b3933c2f2c5ee67c026af6b5c8"><code class="codehilite">cda</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_lift_drag_two_lines_1a90b024b3933c2f2c5ee67c026af6b5c8"><code class="codehilite"><span class="n">cda</span></code></a></td>
 <td>Drag coefficient without stall.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_lift_drag_two_lines_1a369bf986130bde7cac35d088f00f8e7a"><code class="codehilite">cdaStall</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_lift_drag_two_lines_1a369bf986130bde7cac35d088f00f8e7a"><code class="codehilite"><span class="n">cdaStall</span></code></a></td>
 <td>Drag coefficient with stall.</td>
 </tr>
 </tbody>
 </table>
 <h5 id="members">Members<a class="headerlink" href="#members" title="Permanent link">&para;</a></h5>
-<h6 id="public-inline-virtual-stdstringgettype"><code class="codehilite">public inline virtual std::string</code><a href="#classgazebo_1_1_lift_drag_two_lines_1a541d5835070a1b626cd57c4291c805d0"><code class="codehilite">GetType</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-inline-virtual-stdstringgettype" title="Permanent link">&para;</a></h6>
+<h6 id="public-inline-virtual-stdstringgettype"><code class="codehilite"><span class="k">public</span> <span class="n">inline</span> <span class="n">virtual</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classgazebo_1_1_lift_drag_two_lines_1a541d5835070a1b626cd57c4291c805d0"><code class="codehilite"><span class="n">GetType</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-inline-virtual-stdstringgettype" title="Permanent link">&para;</a></h6>
 <p>Return (derived) type of dynamic system.</p>
-<h6 id="public-virtual-ignitionmathvector3dcomputeconst-ignitionmathvector3d-_vell"><code class="codehilite">public virtual ignition::math::Vector3d</code><a href="#classgazebo_1_1_lift_drag_two_lines_1ae88266dfe7c1fc1818cdf0a998b37002"><code class="codehilite">compute</code></a><code class="codehilite">(const ignition::math::Vector3d &amp; _velL)</code><a class="headerlink" href="#public-virtual-ignitionmathvector3dcomputeconst-ignitionmathvector3d-_vell" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtual-ignitionmathvector3dcomputeconst-ignitionmathvector3d-_vell"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_lift_drag_two_lines_1ae88266dfe7c1fc1818cdf0a998b37002"><code class="codehilite"><span class="n">compute</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span> <span class="o">&amp;</span> <span class="n">_velL</span><span class="p">)</span></code><a class="headerlink" href="#public-virtual-ignitionmathvector3dcomputeconst-ignitionmathvector3d-_vell" title="Permanent link">&para;</a></h6>
 <p>Compute the lift and drag force.</p>
-<h6 id="public-virtual-boolgetparamstdstring-_tagdouble-_output"><code class="codehilite">public virtual bool</code><a href="#classgazebo_1_1_lift_drag_two_lines_1ac5ae08c5d1cbad85f259bcc5b84705b5"><code class="codehilite">GetParam</code></a><code class="codehilite">(std::string _tag,double &amp; _output)</code><a class="headerlink" href="#public-virtual-boolgetparamstdstring-_tagdouble-_output" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtual-boolgetparamstdstring-_tagdouble-_output"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_lift_drag_two_lines_1ac5ae08c5d1cbad85f259bcc5b84705b5"><code class="codehilite"><span class="n">GetParam</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="n">_tag</span><span class="p">,</span><span class="n">double</span> <span class="o">&amp;</span> <span class="n">_output</span><span class="p">)</span></code><a class="headerlink" href="#public-virtual-boolgetparamstdstring-_tagdouble-_output" title="Permanent link">&para;</a></h6>
 <p>Return paramater in scalar form for the given tag.</p>
-<h6 id="public-virtual-stdmap-stdstring-double-getlistparams"><code class="codehilite">public virtual std::map&lt; std::string, double &gt;</code><a href="#classgazebo_1_1_lift_drag_two_lines_1ac1e2943c9ebef6ef3471fe293799b726"><code class="codehilite">GetListParams</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-virtual-stdmap-stdstring-double-getlistparams" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtual-stdmap-stdstring-double-getlistparams"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">std</span><span class="p">::</span><span class="k">map</span><span class="o">&lt;</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span><span class="p">,</span> <span class="n">double</span> <span class="o">&gt;</span></code><a href="#classgazebo_1_1_lift_drag_two_lines_1ac1e2943c9ebef6ef3471fe293799b726"><code class="codehilite"><span class="n">GetListParams</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-virtual-stdmap-stdstring-double-getlistparams" title="Permanent link">&para;</a></h6>
 <p>Return list of all parameters.</p>
-<h6 id="protected-doublearea"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_lift_drag_two_lines_1a461fc127b2ec92301d715d6a6b4df69f"><code class="codehilite">area</code></a><a class="headerlink" href="#protected-doublearea" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doublearea"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_lift_drag_two_lines_1a461fc127b2ec92301d715d6a6b4df69f"><code class="codehilite"><span class="n">area</span></code></a><a class="headerlink" href="#protected-doublearea" title="Permanent link">&para;</a></h6>
 <p>Airfoil area.</p>
-<h6 id="protected-doublefluiddensity"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_lift_drag_two_lines_1ac5ea64aeb8b87292fe68a1c024d6d474"><code class="codehilite">fluidDensity</code></a><a class="headerlink" href="#protected-doublefluiddensity" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doublefluiddensity"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_lift_drag_two_lines_1ac5ea64aeb8b87292fe68a1c024d6d474"><code class="codehilite"><span class="n">fluidDensity</span></code></a><a class="headerlink" href="#protected-doublefluiddensity" title="Permanent link">&para;</a></h6>
 <p>Fluid density.</p>
-<h6 id="protected-doublea0"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_lift_drag_two_lines_1a01e4fdcf5d1cb823d782180c7b5e4ac7"><code class="codehilite">a0</code></a><a class="headerlink" href="#protected-doublea0" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doublea0"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_lift_drag_two_lines_1a01e4fdcf5d1cb823d782180c7b5e4ac7"><code class="codehilite"><span class="n">a0</span></code></a><a class="headerlink" href="#protected-doublea0" title="Permanent link">&para;</a></h6>
 <p>Original zero angle of attack location.</p>
-<h6 id="protected-doublealphastall"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_lift_drag_two_lines_1a4215009b05c352436274ce81e0ddf8c4"><code class="codehilite">alphaStall</code></a><a class="headerlink" href="#protected-doublealphastall" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doublealphastall"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_lift_drag_two_lines_1a4215009b05c352436274ce81e0ddf8c4"><code class="codehilite"><span class="n">alphaStall</span></code></a><a class="headerlink" href="#protected-doublealphastall" title="Permanent link">&para;</a></h6>
 <p>Stall angle.</p>
-<h6 id="protected-doublecla"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_lift_drag_two_lines_1a569349db608e180bf2ea30de181ee34a"><code class="codehilite">cla</code></a><a class="headerlink" href="#protected-doublecla" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doublecla"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_lift_drag_two_lines_1a569349db608e180bf2ea30de181ee34a"><code class="codehilite"><span class="n">cla</span></code></a><a class="headerlink" href="#protected-doublecla" title="Permanent link">&para;</a></h6>
 <p>Lift coefficient without stall.</p>
-<h6 id="protected-doubleclastall"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_lift_drag_two_lines_1ad2653c58c571861bd6510b30f3803d39"><code class="codehilite">claStall</code></a><a class="headerlink" href="#protected-doubleclastall" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doubleclastall"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_lift_drag_two_lines_1ad2653c58c571861bd6510b30f3803d39"><code class="codehilite"><span class="n">claStall</span></code></a><a class="headerlink" href="#protected-doubleclastall" title="Permanent link">&para;</a></h6>
 <p>Lift coefficient with stall.</p>
-<h6 id="protected-doublecda"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_lift_drag_two_lines_1a90b024b3933c2f2c5ee67c026af6b5c8"><code class="codehilite">cda</code></a><a class="headerlink" href="#protected-doublecda" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doublecda"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_lift_drag_two_lines_1a90b024b3933c2f2c5ee67c026af6b5c8"><code class="codehilite"><span class="n">cda</span></code></a><a class="headerlink" href="#protected-doublecda" title="Permanent link">&para;</a></h6>
 <p>Drag coefficient without stall.</p>
-<h6 id="protected-doublecdastall"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_lift_drag_two_lines_1a369bf986130bde7cac35d088f00f8e7a"><code class="codehilite">cdaStall</code></a><a class="headerlink" href="#protected-doublecdastall" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doublecdastall"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_lift_drag_two_lines_1a369bf986130bde7cac35d088f00f8e7a"><code class="codehilite"><span class="n">cdaStall</span></code></a><a class="headerlink" href="#protected-doublecdastall" title="Permanent link">&para;</a></h6>
 <p>Drag coefficient with stall.</p>
                 
                   

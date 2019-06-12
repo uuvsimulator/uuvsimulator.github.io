@@ -456,6 +456,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -2870,7 +2882,7 @@
                 
                   <h1>LiftDrag</h1>
                 
-                <h4 id="class-gazeboliftdrag">class <code class="codehilite">gazebo::LiftDrag</code><a class="headerlink" href="#class-gazeboliftdrag" title="Permanent link">&para;</a></h4>
+                <h4 id="class-gazeboliftdrag">class <code class="codehilite"><span class="n">gazebo</span><span class="p">::</span><span class="n">LiftDrag</span></code><a class="headerlink" href="#class-gazeboliftdrag" title="Permanent link">&para;</a></h4>
 <p>Abstract base class for Lift&amp;Drag models.</p>
 <h5 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h5>
 <table>
@@ -2882,55 +2894,55 @@
 </thead>
 <tbody>
 <tr>
-<td><code class="codehilite">public inline virtual</code><a href="#classgazebo_1_1_lift_drag_1a7025e5299778dfb25ee8e1eaed4ecb83"><code class="codehilite">~LiftDrag</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">inline</span> <span class="n">virtual</span></code><a href="#classgazebo_1_1_lift_drag_1a7025e5299778dfb25ee8e1eaed4ecb83"><code class="codehilite"><span class="o">~</span><span class="n">LiftDrag</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Destructor.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public std::string</code><a href="#classgazebo_1_1_lift_drag_1ad8a25e574ba7f75b30e8813b315010b3"><code class="codehilite">GetType</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classgazebo_1_1_lift_drag_1ad8a25e574ba7f75b30e8813b315010b3"><code class="codehilite"><span class="n">GetType</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Return (derived) type of lift&amp;drag model.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public ignition::math::Vector3d</code><a href="#classgazebo_1_1_lift_drag_1ac20f4dbd4ea08d8d9d0852f8e2b128b0"><code class="codehilite">compute</code></a><code class="codehilite">(const ignition::math::Vector3d &amp; _velL)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_lift_drag_1ac20f4dbd4ea08d8d9d0852f8e2b128b0"><code class="codehilite"><span class="n">compute</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span> <span class="o">&amp;</span> <span class="n">_velL</span><span class="p">)</span></code></td>
 <td>Compute the lift and drag force.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public bool</code><a href="#classgazebo_1_1_lift_drag_1a4e2d58afb4af2ba7c0f169cd8fcebb3b"><code class="codehilite">GetParam</code></a><code class="codehilite">(std::string _tag,double &amp; _output)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_lift_drag_1a4e2d58afb4af2ba7c0f169cd8fcebb3b"><code class="codehilite"><span class="n">GetParam</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="n">_tag</span><span class="p">,</span><span class="n">double</span> <span class="o">&amp;</span> <span class="n">_output</span><span class="p">)</span></code></td>
 <td>Return paramater in vector form for the given tag.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public std::map&lt; std::string, double &gt;</code><a href="#classgazebo_1_1_lift_drag_1a7d35e963ce57451f5939ccff9a956285"><code class="codehilite">GetListParams</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">std</span><span class="p">::</span><span class="k">map</span><span class="o">&lt;</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span><span class="p">,</span> <span class="n">double</span> <span class="o">&gt;</span></code><a href="#classgazebo_1_1_lift_drag_1a7d35e963ce57451f5939ccff9a956285"><code class="codehilite"><span class="n">GetListParams</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Return list of all parameters.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_lift_drag_1aa062dc13d3a5c4b9d6de277cc578eee7"><code class="codehilite">prevTime</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_lift_drag_1aa062dc13d3a5c4b9d6de277cc578eee7"><code class="codehilite"><span class="n">prevTime</span></code></a></td>
 <td>Time of last state update.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_lift_drag_1a73cd43d69e94ce2a392abe437c732cb0"><code class="codehilite">state</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_lift_drag_1a73cd43d69e94ce2a392abe437c732cb0"><code class="codehilite"><span class="k">state</span></code></a></td>
 <td>Latest state.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected inline</code><a href="#classgazebo_1_1_lift_drag_1aa9f53de408dfca89a517be7dbcd673c6"><code class="codehilite">LiftDrag</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">inline</span></code><a href="#classgazebo_1_1_lift_drag_1aa9f53de408dfca89a517be7dbcd673c6"><code class="codehilite"><span class="n">LiftDrag</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Protected constructor: Use the factory for object creation.</td>
 </tr>
 </tbody>
 </table>
 <h5 id="members">Members<a class="headerlink" href="#members" title="Permanent link">&para;</a></h5>
-<h6 id="public-inline-virtualliftdrag"><code class="codehilite">public inline virtual</code><a href="#classgazebo_1_1_lift_drag_1a7025e5299778dfb25ee8e1eaed4ecb83"><code class="codehilite">~LiftDrag</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-inline-virtualliftdrag" title="Permanent link">&para;</a></h6>
+<h6 id="public-inline-virtualliftdrag"><code class="codehilite"><span class="k">public</span> <span class="n">inline</span> <span class="n">virtual</span></code><a href="#classgazebo_1_1_lift_drag_1a7025e5299778dfb25ee8e1eaed4ecb83"><code class="codehilite"><span class="o">~</span><span class="n">LiftDrag</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-inline-virtualliftdrag" title="Permanent link">&para;</a></h6>
 <p>Destructor.</p>
-<h6 id="public-stdstringgettype"><code class="codehilite">public std::string</code><a href="#classgazebo_1_1_lift_drag_1ad8a25e574ba7f75b30e8813b315010b3"><code class="codehilite">GetType</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-stdstringgettype" title="Permanent link">&para;</a></h6>
+<h6 id="public-stdstringgettype"><code class="codehilite"><span class="k">public</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classgazebo_1_1_lift_drag_1ad8a25e574ba7f75b30e8813b315010b3"><code class="codehilite"><span class="n">GetType</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-stdstringgettype" title="Permanent link">&para;</a></h6>
 <p>Return (derived) type of lift&amp;drag model.</p>
-<h6 id="public-ignitionmathvector3dcomputeconst-ignitionmathvector3d-_vell"><code class="codehilite">public ignition::math::Vector3d</code><a href="#classgazebo_1_1_lift_drag_1ac20f4dbd4ea08d8d9d0852f8e2b128b0"><code class="codehilite">compute</code></a><code class="codehilite">(const ignition::math::Vector3d &amp; _velL)</code><a class="headerlink" href="#public-ignitionmathvector3dcomputeconst-ignitionmathvector3d-_vell" title="Permanent link">&para;</a></h6>
+<h6 id="public-ignitionmathvector3dcomputeconst-ignitionmathvector3d-_vell"><code class="codehilite"><span class="k">public</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_lift_drag_1ac20f4dbd4ea08d8d9d0852f8e2b128b0"><code class="codehilite"><span class="n">compute</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span> <span class="o">&amp;</span> <span class="n">_velL</span><span class="p">)</span></code><a class="headerlink" href="#public-ignitionmathvector3dcomputeconst-ignitionmathvector3d-_vell" title="Permanent link">&para;</a></h6>
 <p>Compute the lift and drag force.</p>
-<h6 id="public-boolgetparamstdstring-_tagdouble-_output"><code class="codehilite">public bool</code><a href="#classgazebo_1_1_lift_drag_1a4e2d58afb4af2ba7c0f169cd8fcebb3b"><code class="codehilite">GetParam</code></a><code class="codehilite">(std::string _tag,double &amp; _output)</code><a class="headerlink" href="#public-boolgetparamstdstring-_tagdouble-_output" title="Permanent link">&para;</a></h6>
+<h6 id="public-boolgetparamstdstring-_tagdouble-_output"><code class="codehilite"><span class="k">public</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_lift_drag_1a4e2d58afb4af2ba7c0f169cd8fcebb3b"><code class="codehilite"><span class="n">GetParam</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="n">_tag</span><span class="p">,</span><span class="n">double</span> <span class="o">&amp;</span> <span class="n">_output</span><span class="p">)</span></code><a class="headerlink" href="#public-boolgetparamstdstring-_tagdouble-_output" title="Permanent link">&para;</a></h6>
 <p>Return paramater in vector form for the given tag.</p>
-<h6 id="public-stdmap-stdstring-double-getlistparams"><code class="codehilite">public std::map&lt; std::string, double &gt;</code><a href="#classgazebo_1_1_lift_drag_1a7d35e963ce57451f5939ccff9a956285"><code class="codehilite">GetListParams</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-stdmap-stdstring-double-getlistparams" title="Permanent link">&para;</a></h6>
+<h6 id="public-stdmap-stdstring-double-getlistparams"><code class="codehilite"><span class="k">public</span> <span class="n">std</span><span class="p">::</span><span class="k">map</span><span class="o">&lt;</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span><span class="p">,</span> <span class="n">double</span> <span class="o">&gt;</span></code><a href="#classgazebo_1_1_lift_drag_1a7d35e963ce57451f5939ccff9a956285"><code class="codehilite"><span class="n">GetListParams</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-stdmap-stdstring-double-getlistparams" title="Permanent link">&para;</a></h6>
 <p>Return list of all parameters.</p>
-<h6 id="protected-doubleprevtime"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_lift_drag_1aa062dc13d3a5c4b9d6de277cc578eee7"><code class="codehilite">prevTime</code></a><a class="headerlink" href="#protected-doubleprevtime" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doubleprevtime"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_lift_drag_1aa062dc13d3a5c4b9d6de277cc578eee7"><code class="codehilite"><span class="n">prevTime</span></code></a><a class="headerlink" href="#protected-doubleprevtime" title="Permanent link">&para;</a></h6>
 <p>Time of last state update.</p>
-<h6 id="protected-doublestate"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_lift_drag_1a73cd43d69e94ce2a392abe437c732cb0"><code class="codehilite">state</code></a><a class="headerlink" href="#protected-doublestate" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doublestate"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_lift_drag_1a73cd43d69e94ce2a392abe437c732cb0"><code class="codehilite"><span class="k">state</span></code></a><a class="headerlink" href="#protected-doublestate" title="Permanent link">&para;</a></h6>
 <p>Latest state.</p>
-<h6 id="protected-inlineliftdrag"><code class="codehilite">protected inline</code><a href="#classgazebo_1_1_lift_drag_1aa9f53de408dfca89a517be7dbcd673c6"><code class="codehilite">LiftDrag</code></a><code class="codehilite">()</code><a class="headerlink" href="#protected-inlineliftdrag" title="Permanent link">&para;</a></h6>
+<h6 id="protected-inlineliftdrag"><code class="codehilite"><span class="n">protected</span> <span class="n">inline</span></code><a href="#classgazebo_1_1_lift_drag_1aa9f53de408dfca89a517be7dbcd673c6"><code class="codehilite"><span class="n">LiftDrag</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#protected-inlineliftdrag" title="Permanent link">&para;</a></h6>
 <p>Protected constructor: Use the factory for object creation.</p>
                 
                   

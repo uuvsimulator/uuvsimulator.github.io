@@ -456,6 +456,18 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -2801,7 +2813,7 @@
                   <h1>Gazebo worlds</h1>
                 
                 <h4 id="auv-underwater-world">AUV underwater world<a class="headerlink" href="#auv-underwater-world" title="Permanent link">&para;</a></h4>
-<p>This scenario launches the <a href="https://github.com/uuvsimulator/uuv_simulator/blob/master/uuv_gazebo_worlds/worlds/auv_underwater_world.world"><code class="codehilite">auv_underwater_world.world</code></a> and is an empty underwater world that can be used to run vehicles that include fins and the <a href="../../api/gazebo::FinPlugin/"><code class="codehilite">FinPlugin</code></a> from <a href="../../packages/uuv_gazebo_plugins/"><code class="codehilite">uuv_gazebo_plugins</code></a> or <a href="../../api/uuv_simulator_ros::FinROSPlugin/"><code class="codehilite">FinROSPlugin</code></a> from <a href="../../packages/uuv_gazebo_ros_plugins/"><code class="codehilite">uuv_gazebo_ros_plugins</code></a></p>
+<p>This scenario launches the <a href="https://github.com/uuvsimulator/uuv_simulator/blob/master/uuv_gazebo_worlds/worlds/auv_underwater_world.world"><code class="codehilite"><span class="n">auv_underwater_world</span><span class="p">.</span><span class="n">world</span></code></a> and is an empty underwater world that can be used to run vehicles that include fins and the <a href="../../api/gazebo::FinPlugin/"><code class="codehilite"><span class="n">FinPlugin</span></code></a> from <a href="../../packages/uuv_gazebo_plugins/"><code class="codehilite"><span class="n">uuv_gazebo_plugins</span></code></a> or <a href="../../api/uuv_simulator_ros::FinROSPlugin/"><code class="codehilite"><span class="n">FinROSPlugin</span></code></a> from <a href="../../packages/uuv_gazebo_ros_plugins/"><code class="codehilite"><span class="n">uuv_gazebo_ros_plugins</span></code></a></p>
 <p>To launch Gazebo with this scenario run</p>
 <div class="codehilite"><pre><span></span>roslaunch uuv_gazebo_worlds auv_underwater_world.launch
 </pre></div>
@@ -2821,9 +2833,9 @@
 <span class="nt">&lt;/physics&gt;</span>
 </pre></div>
 
-<p>This scenario also starts the <a href="../../api/uuv_simulator_ros::UnderwaterCurrentROSPlugin/">underwater current</a> to generate 3D current velocity topics as <code class="codehilite">geometry_msgs/Twist</code> messages and the <a href="../../api/gazebo::SubseaPressureROSPlugin/">spherical coordinate transform server</a> to provide services for transformation from ENU or NED to and from spherical coordinates. </p>
+<p>This scenario also starts the <a href="../../api/uuv_simulator_ros::UnderwaterCurrentROSPlugin/">underwater current</a> to generate 3D current velocity topics as <code class="codehilite"><span class="n">geometry_msgs</span><span class="o">/</span><span class="n">Twist</span></code> messages and the <a href="../../api/gazebo::SubseaPressureROSPlugin/">spherical coordinate transform server</a> to provide services for transformation from ENU or NED to and from spherical coordinates. </p>
 <h4 id="empty-underwater-world">Empty underwater world<a class="headerlink" href="#empty-underwater-world" title="Permanent link">&para;</a></h4>
-<p>The <a href="https://github.com/uuvsimulator/uuv_simulator/blob/master/uuv_gazebo_worlds/worlds/empty_underwater.world"><code class="codehilite">empty_underwater.world</code></a> the <a href="../../api/uuv_simulator_ros::UnderwaterCurrentROSPlugin/">underwater current</a> to generate 3D current velocity topics as <code class="codehilite">geometry_msgs/Twist</code> messages and the <a href="../../api/gazebo::SubseaPressureROSPlugin/">spherical coordinate transform server</a> to provide services for transformation from ENU or NED to and from spherical coordinates. It is an empty underwater space using the <code class="codehilite">ocean_box</code> model.</p>
+<p>The <a href="https://github.com/uuvsimulator/uuv_simulator/blob/master/uuv_gazebo_worlds/worlds/empty_underwater.world"><code class="codehilite"><span class="n">empty_underwater</span><span class="p">.</span><span class="n">world</span></code></a> the <a href="../../api/uuv_simulator_ros::UnderwaterCurrentROSPlugin/">underwater current</a> to generate 3D current velocity topics as <code class="codehilite"><span class="n">geometry_msgs</span><span class="o">/</span><span class="n">Twist</span></code> messages and the <a href="../../api/gazebo::SubseaPressureROSPlugin/">spherical coordinate transform server</a> to provide services for transformation from ENU or NED to and from spherical coordinates. It is an empty underwater space using the <code class="codehilite"><span class="n">ocean_box</span></code> model.</p>
 <p>To launch Gazebo with this scenario run</p>
 <div class="codehilite"><pre><span></span>roslaunch uuv_gazebo_worlds empty_underwater_world.launch
 </pre></div>
@@ -2844,7 +2856,7 @@
 
 <h4 id="coast-of-mangalia-romania">Coast of Mangalia, Romania<a class="headerlink" href="#coast-of-mangalia-romania" title="Permanent link">&para;</a></h4>
 <p>This scenario was used for the demonstrations of the second demonstration on the <a href="http://swarms.eu/">EU-Project SWARMs</a> at Mangalia, Romania. 
-It contains an approximated model of the seabed around the missions area with the origin set to <code class="codehilite">(43.797763, 28.598597)</code>.</p>
+It contains an approximated model of the seabed around the missions area with the origin set to <code class="codehilite"><span class="p">(</span><span class="mi">43</span><span class="p">.</span><span class="mi">797763</span><span class="p">,</span> <span class="mi">28</span><span class="p">.</span><span class="mi">598597</span><span class="p">)</span></code>.</p>
 <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=28.566341400146484%2C43.78382917496967%2C28.620114326477054%2C43.81170734524018&amp;layer=mapnik&amp;marker=43.79776988597209%2C28.593227863311768" style="border: 1px solid black"></iframe>
 
 <p><br/><small><a href="https://www.openstreetmap.org/?mlat=43.7978&amp;mlon=28.5932#map=15/43.7978/28.5932">View Larger Map</a></small></p>
@@ -2869,7 +2881,7 @@ It contains an approximated model of the seabed around the missions area with th
 <p>By adding blue fog to this scenario, the fog cannot be limited to only the underwater region. The fog will cover the whole scenario. </p>
 </div>
 <h4 id="ocean-waves-world">Ocean waves world<a class="headerlink" href="#ocean-waves-world" title="Permanent link">&para;</a></h4>
-<p>This scenario inclues a sea surface running the <a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_gazebo_worlds/models/ocean"><code class="codehilite">ocean</code></a> model <code class="codehilite">waves shader</code> to animate the waves during the simulation.</p>
+<p>This scenario inclues a sea surface running the <a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_gazebo_worlds/models/ocean"><code class="codehilite"><span class="n">ocean</span></code></a> model <code class="codehilite"><span class="n">waves</span> <span class="n">shader</span></code> to animate the waves during the simulation.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The waves are only a visual feature. The wave load will not be applied to surface or underwater vehicles.</p>
@@ -2908,7 +2920,7 @@ It contains an approximated model of the seabed around the missions area with th
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../../intro/" title="Introduction" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../actuators/" title="Actuators" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -2917,7 +2929,7 @@ It contains an approximated model of the seabed around the missions area with th
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Introduction
+                Actuators
               </span>
             </div>
           </a>

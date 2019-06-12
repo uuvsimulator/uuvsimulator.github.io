@@ -456,6 +456,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -3078,9 +3090,9 @@
                 
                   <h1>PoseGTROSPlugin</h1>
                 
-                <h4 id="class-gazeboposegtrosplugin">class <code class="codehilite">gazebo::PoseGTROSPlugin</code><a class="headerlink" href="#class-gazeboposegtrosplugin" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><span class="kr">class</span> <span class="nx">gazebo</span><span class="o">::</span><span class="nx">PoseGTROSPlugin</span>
-  : <span class="kt">public</span> <span class="nx">gazebo</span><span class="o">::</span><span class="nx">ROSBaseModelPlugin</span>
+                <h4 id="class-gazeboposegtrosplugin">class <code class="codehilite"><span class="n">gazebo</span><span class="p">::</span><span class="n">PoseGTROSPlugin</span></code><a class="headerlink" href="#class-gazeboposegtrosplugin" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="n">gazebo::PoseGTROSPlugin</span>
+  : <span class="n">public</span> <span class="n">gazebo::ROSBaseModelPlugin</span>
 </pre></div>
 
 <h5 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h5>
@@ -3093,128 +3105,128 @@
 </thead>
 <tbody>
 <tr>
-<td><code class="codehilite">public</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a7abaecb1897e10ef38f5c5263950a730"><code class="codehilite">PoseGTROSPlugin</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a7abaecb1897e10ef38f5c5263950a730"><code class="codehilite"><span class="n">PoseGTROSPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Class constructor.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a448aa8217a27d318a9a79a7e7a917e5e"><code class="codehilite">~PoseGTROSPlugin</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a448aa8217a27d318a9a79a7e7a917e5e"><code class="codehilite"><span class="o">~</span><span class="n">PoseGTROSPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Class destructor.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a4c7e55e320c5619ea3d0b09d9760e2e1"><code class="codehilite">Load</code></a><code class="codehilite">(physics::ModelPtr _model,sdf::ElementPtr _sdf)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a4c7e55e320c5619ea3d0b09d9760e2e1"><code class="codehilite"><span class="k">Load</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">physics</span><span class="p">::</span><span class="n">ModelPtr</span> <span class="n">_model</span><span class="p">,</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">)</span></code></td>
 <td>Load the plugin.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ros::Publisher</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1aa55d65fca015d905281a5b69628c495f"><code class="codehilite">nedOdomPub</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ros</span><span class="p">::</span><span class="n">Publisher</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1aa55d65fca015d905281a5b69628c495f"><code class="codehilite"><span class="n">nedOdomPub</span></code></a></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ignition::math::Pose3d</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1ad4c38844932e1e6a64007d3748cff494"><code class="codehilite">offset</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Pose3d</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1ad4c38844932e1e6a64007d3748cff494"><code class="codehilite"><span class="k">offset</span></code></a></td>
 <td>Pose offset.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected std::string</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a7f84ad70de3354b002b6327e7a0ecf7e"><code class="codehilite">nedFrameID</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a7f84ad70de3354b002b6327e7a0ecf7e"><code class="codehilite"><span class="n">nedFrameID</span></code></a></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ignition::math::Pose3d</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a594808116873fcad831599977614bd3f"><code class="codehilite">nedTransform</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Pose3d</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a594808116873fcad831599977614bd3f"><code class="codehilite"><span class="n">nedTransform</span></code></a></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">protected bool</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a0e2710fa47f04bc4b9d25d1627e3bbef"><code class="codehilite">nedTransformIsInit</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a0e2710fa47f04bc4b9d25d1627e3bbef"><code class="codehilite"><span class="n">nedTransformIsInit</span></code></a></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">protected bool</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1ad3c7c125394996b330019c99a63d7cd6"><code class="codehilite">publishNEDOdom</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1ad3c7c125394996b330019c99a63d7cd6"><code class="codehilite"><span class="n">publishNEDOdom</span></code></a></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">protected tf2_ros::Buffer</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1add9cef7d74fe3ff0ed10da1b57788c64"><code class="codehilite">tfBuffer</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">tf2_ros</span><span class="p">::</span><span class="n">Buffer</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1add9cef7d74fe3ff0ed10da1b57788c64"><code class="codehilite"><span class="n">tfBuffer</span></code></a></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">protected boost::shared_ptr&lt; tf2_ros::TransformListener &gt;</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a3dc3aec17e8738157998914e32bc1acb"><code class="codehilite">tfListener</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">boost</span><span class="p">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span> <span class="n">tf2_ros</span><span class="p">::</span><span class="n">TransformListener</span> <span class="o">&gt;</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a3dc3aec17e8738157998914e32bc1acb"><code class="codehilite"><span class="n">tfListener</span></code></a></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a2ea18a63dfbff05817e762429c924e2d"><code class="codehilite">lastLinVel</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a2ea18a63dfbff05817e762429c924e2d"><code class="codehilite"><span class="n">lastLinVel</span></code></a></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a77c7789e7eff6c351b68155fae3c72f7"><code class="codehilite">lastAngVel</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a77c7789e7eff6c351b68155fae3c72f7"><code class="codehilite"><span class="n">lastAngVel</span></code></a></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1aea054e850fd2c5fd602b7f50497e6f1f"><code class="codehilite">linAcc</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1aea054e850fd2c5fd602b7f50497e6f1f"><code class="codehilite"><span class="n">linAcc</span></code></a></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a9e08e99ad4ba46d70c5e6f93815304f2"><code class="codehilite">angAcc</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a9e08e99ad4ba46d70c5e6f93815304f2"><code class="codehilite"><span class="n">angAcc</span></code></a></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1ad148ae9dd9d04f5e5ee1408e7d790d76"><code class="codehilite">lastRefLinVel</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1ad148ae9dd9d04f5e5ee1408e7d790d76"><code class="codehilite"><span class="n">lastRefLinVel</span></code></a></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a734eee58528e7db340a35f8dd1bc2b11"><code class="codehilite">lastRefAngVel</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a734eee58528e7db340a35f8dd1bc2b11"><code class="codehilite"><span class="n">lastRefAngVel</span></code></a></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a003e8c587b2daacdc3fa77ba7591f07f"><code class="codehilite">refLinAcc</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a003e8c587b2daacdc3fa77ba7591f07f"><code class="codehilite"><span class="n">refLinAcc</span></code></a></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a117b4dd179871a23bb91c2f3e6d61753"><code class="codehilite">refAngAcc</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a117b4dd179871a23bb91c2f3e6d61753"><code class="codehilite"><span class="n">refAngAcc</span></code></a></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">protected virtual bool</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a9b34da677b1f4b34d07fd02c4c44a8d2"><code class="codehilite">OnUpdate</code></a><code class="codehilite">(const common::UpdateInfo &amp; _info)</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a9b34da677b1f4b34d07fd02c4c44a8d2"><code class="codehilite"><span class="n">OnUpdate</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">common</span><span class="p">::</span><span class="n">UpdateInfo</span> <span class="o">&amp;</span> <span class="n">_info</span><span class="p">)</span></code></td>
 <td>Update sensor measurement.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected void</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a637b2ff059028539ec9f9c314482bd0f"><code class="codehilite">PublishNEDOdomMessage</code></a><code class="codehilite">(common::Time _time,ignition::math::Pose3d _pose,ignition::math::Vector3d _linVel,ignition::math::Vector3d _angVel)</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">void</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a637b2ff059028539ec9f9c314482bd0f"><code class="codehilite"><span class="n">PublishNEDOdomMessage</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">common</span><span class="p">::</span><span class="n">Time</span> <span class="n">_time</span><span class="p">,</span><span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Pose3d</span> <span class="n">_pose</span><span class="p">,</span><span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span> <span class="n">_linVel</span><span class="p">,</span><span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span> <span class="n">_angVel</span><span class="p">)</span></code></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">protected void</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1af9985dc3356397d382584c21bde650a6"><code class="codehilite">PublishOdomMessage</code></a><code class="codehilite">(common::Time _time,ignition::math::Pose3d _pose,ignition::math::Vector3d _linVel,ignition::math::Vector3d _angVel)</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">void</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1af9985dc3356397d382584c21bde650a6"><code class="codehilite"><span class="n">PublishOdomMessage</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">common</span><span class="p">::</span><span class="n">Time</span> <span class="n">_time</span><span class="p">,</span><span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Pose3d</span> <span class="n">_pose</span><span class="p">,</span><span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span> <span class="n">_linVel</span><span class="p">,</span><span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span> <span class="n">_angVel</span><span class="p">)</span></code></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">protected void</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1af83bca7f0f2aee70389d6e88c7c597f6"><code class="codehilite">UpdateNEDTransform</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">void</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1af83bca7f0f2aee70389d6e88c7c597f6"><code class="codehilite"><span class="n">UpdateNEDTransform</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <h5 id="members">Members<a class="headerlink" href="#members" title="Permanent link">&para;</a></h5>
-<h6 id="publicposegtrosplugin"><code class="codehilite">public</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a7abaecb1897e10ef38f5c5263950a730"><code class="codehilite">PoseGTROSPlugin</code></a><code class="codehilite">()</code><a class="headerlink" href="#publicposegtrosplugin" title="Permanent link">&para;</a></h6>
+<h6 id="publicposegtrosplugin"><code class="codehilite"><span class="k">public</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a7abaecb1897e10ef38f5c5263950a730"><code class="codehilite"><span class="n">PoseGTROSPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#publicposegtrosplugin" title="Permanent link">&para;</a></h6>
 <p>Class constructor.</p>
-<h6 id="publicposegtrosplugin_1"><code class="codehilite">public</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a448aa8217a27d318a9a79a7e7a917e5e"><code class="codehilite">~PoseGTROSPlugin</code></a><code class="codehilite">()</code><a class="headerlink" href="#publicposegtrosplugin_1" title="Permanent link">&para;</a></h6>
+<h6 id="publicposegtrosplugin_1"><code class="codehilite"><span class="k">public</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a448aa8217a27d318a9a79a7e7a917e5e"><code class="codehilite"><span class="o">~</span><span class="n">PoseGTROSPlugin</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#publicposegtrosplugin_1" title="Permanent link">&para;</a></h6>
 <p>Class destructor.</p>
-<h6 id="public-virtual-voidloadphysicsmodelptr-_modelsdfelementptr-_sdf"><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a4c7e55e320c5619ea3d0b09d9760e2e1"><code class="codehilite">Load</code></a><code class="codehilite">(physics::ModelPtr _model,sdf::ElementPtr _sdf)</code><a class="headerlink" href="#public-virtual-voidloadphysicsmodelptr-_modelsdfelementptr-_sdf" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtual-voidloadphysicsmodelptr-_modelsdfelementptr-_sdf"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a4c7e55e320c5619ea3d0b09d9760e2e1"><code class="codehilite"><span class="k">Load</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">physics</span><span class="p">::</span><span class="n">ModelPtr</span> <span class="n">_model</span><span class="p">,</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">)</span></code><a class="headerlink" href="#public-virtual-voidloadphysicsmodelptr-_modelsdfelementptr-_sdf" title="Permanent link">&para;</a></h6>
 <p>Load the plugin.</p>
-<h6 id="protected-rospublishernedodompub"><code class="codehilite">protected ros::Publisher</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1aa55d65fca015d905281a5b69628c495f"><code class="codehilite">nedOdomPub</code></a><a class="headerlink" href="#protected-rospublishernedodompub" title="Permanent link">&para;</a></h6>
-<h6 id="protected-ignitionmathpose3doffset"><code class="codehilite">protected ignition::math::Pose3d</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1ad4c38844932e1e6a64007d3748cff494"><code class="codehilite">offset</code></a><a class="headerlink" href="#protected-ignitionmathpose3doffset" title="Permanent link">&para;</a></h6>
+<h6 id="protected-rospublishernedodompub"><code class="codehilite"><span class="n">protected</span> <span class="n">ros</span><span class="p">::</span><span class="n">Publisher</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1aa55d65fca015d905281a5b69628c495f"><code class="codehilite"><span class="n">nedOdomPub</span></code></a><a class="headerlink" href="#protected-rospublishernedodompub" title="Permanent link">&para;</a></h6>
+<h6 id="protected-ignitionmathpose3doffset"><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Pose3d</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1ad4c38844932e1e6a64007d3748cff494"><code class="codehilite"><span class="k">offset</span></code></a><a class="headerlink" href="#protected-ignitionmathpose3doffset" title="Permanent link">&para;</a></h6>
 <p>Pose offset.</p>
-<h6 id="protected-stdstringnedframeid"><code class="codehilite">protected std::string</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a7f84ad70de3354b002b6327e7a0ecf7e"><code class="codehilite">nedFrameID</code></a><a class="headerlink" href="#protected-stdstringnedframeid" title="Permanent link">&para;</a></h6>
-<h6 id="protected-ignitionmathpose3dnedtransform"><code class="codehilite">protected ignition::math::Pose3d</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a594808116873fcad831599977614bd3f"><code class="codehilite">nedTransform</code></a><a class="headerlink" href="#protected-ignitionmathpose3dnedtransform" title="Permanent link">&para;</a></h6>
-<h6 id="protected-boolnedtransformisinit"><code class="codehilite">protected bool</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a0e2710fa47f04bc4b9d25d1627e3bbef"><code class="codehilite">nedTransformIsInit</code></a><a class="headerlink" href="#protected-boolnedtransformisinit" title="Permanent link">&para;</a></h6>
-<h6 id="protected-boolpublishnedodom"><code class="codehilite">protected bool</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1ad3c7c125394996b330019c99a63d7cd6"><code class="codehilite">publishNEDOdom</code></a><a class="headerlink" href="#protected-boolpublishnedodom" title="Permanent link">&para;</a></h6>
-<h6 id="protected-tf2_rosbuffertfbuffer"><code class="codehilite">protected tf2_ros::Buffer</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1add9cef7d74fe3ff0ed10da1b57788c64"><code class="codehilite">tfBuffer</code></a><a class="headerlink" href="#protected-tf2_rosbuffertfbuffer" title="Permanent link">&para;</a></h6>
-<h6 id="protected-boostshared_ptr-tf2_rostransformlistener-tflistener"><code class="codehilite">protected boost::shared_ptr&lt; tf2_ros::TransformListener &gt;</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a3dc3aec17e8738157998914e32bc1acb"><code class="codehilite">tfListener</code></a><a class="headerlink" href="#protected-boostshared_ptr-tf2_rostransformlistener-tflistener" title="Permanent link">&para;</a></h6>
-<h6 id="protected-ignitionmathvector3dlastlinvel"><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a2ea18a63dfbff05817e762429c924e2d"><code class="codehilite">lastLinVel</code></a><a class="headerlink" href="#protected-ignitionmathvector3dlastlinvel" title="Permanent link">&para;</a></h6>
-<h6 id="protected-ignitionmathvector3dlastangvel"><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a77c7789e7eff6c351b68155fae3c72f7"><code class="codehilite">lastAngVel</code></a><a class="headerlink" href="#protected-ignitionmathvector3dlastangvel" title="Permanent link">&para;</a></h6>
-<h6 id="protected-ignitionmathvector3dlinacc"><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1aea054e850fd2c5fd602b7f50497e6f1f"><code class="codehilite">linAcc</code></a><a class="headerlink" href="#protected-ignitionmathvector3dlinacc" title="Permanent link">&para;</a></h6>
-<h6 id="protected-ignitionmathvector3dangacc"><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a9e08e99ad4ba46d70c5e6f93815304f2"><code class="codehilite">angAcc</code></a><a class="headerlink" href="#protected-ignitionmathvector3dangacc" title="Permanent link">&para;</a></h6>
-<h6 id="protected-ignitionmathvector3dlastreflinvel"><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1ad148ae9dd9d04f5e5ee1408e7d790d76"><code class="codehilite">lastRefLinVel</code></a><a class="headerlink" href="#protected-ignitionmathvector3dlastreflinvel" title="Permanent link">&para;</a></h6>
-<h6 id="protected-ignitionmathvector3dlastrefangvel"><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a734eee58528e7db340a35f8dd1bc2b11"><code class="codehilite">lastRefAngVel</code></a><a class="headerlink" href="#protected-ignitionmathvector3dlastrefangvel" title="Permanent link">&para;</a></h6>
-<h6 id="protected-ignitionmathvector3dreflinacc"><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a003e8c587b2daacdc3fa77ba7591f07f"><code class="codehilite">refLinAcc</code></a><a class="headerlink" href="#protected-ignitionmathvector3dreflinacc" title="Permanent link">&para;</a></h6>
-<h6 id="protected-ignitionmathvector3drefangacc"><code class="codehilite">protected ignition::math::Vector3d</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a117b4dd179871a23bb91c2f3e6d61753"><code class="codehilite">refAngAcc</code></a><a class="headerlink" href="#protected-ignitionmathvector3drefangacc" title="Permanent link">&para;</a></h6>
-<h6 id="protected-virtual-boolonupdateconst-commonupdateinfo-_info"><code class="codehilite">protected virtual bool</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a9b34da677b1f4b34d07fd02c4c44a8d2"><code class="codehilite">OnUpdate</code></a><code class="codehilite">(const common::UpdateInfo &amp; _info)</code><a class="headerlink" href="#protected-virtual-boolonupdateconst-commonupdateinfo-_info" title="Permanent link">&para;</a></h6>
+<h6 id="protected-stdstringnedframeid"><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a7f84ad70de3354b002b6327e7a0ecf7e"><code class="codehilite"><span class="n">nedFrameID</span></code></a><a class="headerlink" href="#protected-stdstringnedframeid" title="Permanent link">&para;</a></h6>
+<h6 id="protected-ignitionmathpose3dnedtransform"><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Pose3d</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a594808116873fcad831599977614bd3f"><code class="codehilite"><span class="n">nedTransform</span></code></a><a class="headerlink" href="#protected-ignitionmathpose3dnedtransform" title="Permanent link">&para;</a></h6>
+<h6 id="protected-boolnedtransformisinit"><code class="codehilite"><span class="n">protected</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a0e2710fa47f04bc4b9d25d1627e3bbef"><code class="codehilite"><span class="n">nedTransformIsInit</span></code></a><a class="headerlink" href="#protected-boolnedtransformisinit" title="Permanent link">&para;</a></h6>
+<h6 id="protected-boolpublishnedodom"><code class="codehilite"><span class="n">protected</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1ad3c7c125394996b330019c99a63d7cd6"><code class="codehilite"><span class="n">publishNEDOdom</span></code></a><a class="headerlink" href="#protected-boolpublishnedodom" title="Permanent link">&para;</a></h6>
+<h6 id="protected-tf2_rosbuffertfbuffer"><code class="codehilite"><span class="n">protected</span> <span class="n">tf2_ros</span><span class="p">::</span><span class="n">Buffer</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1add9cef7d74fe3ff0ed10da1b57788c64"><code class="codehilite"><span class="n">tfBuffer</span></code></a><a class="headerlink" href="#protected-tf2_rosbuffertfbuffer" title="Permanent link">&para;</a></h6>
+<h6 id="protected-boostshared_ptr-tf2_rostransformlistener-tflistener"><code class="codehilite"><span class="n">protected</span> <span class="n">boost</span><span class="p">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span> <span class="n">tf2_ros</span><span class="p">::</span><span class="n">TransformListener</span> <span class="o">&gt;</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a3dc3aec17e8738157998914e32bc1acb"><code class="codehilite"><span class="n">tfListener</span></code></a><a class="headerlink" href="#protected-boostshared_ptr-tf2_rostransformlistener-tflistener" title="Permanent link">&para;</a></h6>
+<h6 id="protected-ignitionmathvector3dlastlinvel"><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a2ea18a63dfbff05817e762429c924e2d"><code class="codehilite"><span class="n">lastLinVel</span></code></a><a class="headerlink" href="#protected-ignitionmathvector3dlastlinvel" title="Permanent link">&para;</a></h6>
+<h6 id="protected-ignitionmathvector3dlastangvel"><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a77c7789e7eff6c351b68155fae3c72f7"><code class="codehilite"><span class="n">lastAngVel</span></code></a><a class="headerlink" href="#protected-ignitionmathvector3dlastangvel" title="Permanent link">&para;</a></h6>
+<h6 id="protected-ignitionmathvector3dlinacc"><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1aea054e850fd2c5fd602b7f50497e6f1f"><code class="codehilite"><span class="n">linAcc</span></code></a><a class="headerlink" href="#protected-ignitionmathvector3dlinacc" title="Permanent link">&para;</a></h6>
+<h6 id="protected-ignitionmathvector3dangacc"><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a9e08e99ad4ba46d70c5e6f93815304f2"><code class="codehilite"><span class="n">angAcc</span></code></a><a class="headerlink" href="#protected-ignitionmathvector3dangacc" title="Permanent link">&para;</a></h6>
+<h6 id="protected-ignitionmathvector3dlastreflinvel"><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1ad148ae9dd9d04f5e5ee1408e7d790d76"><code class="codehilite"><span class="n">lastRefLinVel</span></code></a><a class="headerlink" href="#protected-ignitionmathvector3dlastreflinvel" title="Permanent link">&para;</a></h6>
+<h6 id="protected-ignitionmathvector3dlastrefangvel"><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a734eee58528e7db340a35f8dd1bc2b11"><code class="codehilite"><span class="n">lastRefAngVel</span></code></a><a class="headerlink" href="#protected-ignitionmathvector3dlastrefangvel" title="Permanent link">&para;</a></h6>
+<h6 id="protected-ignitionmathvector3dreflinacc"><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a003e8c587b2daacdc3fa77ba7591f07f"><code class="codehilite"><span class="n">refLinAcc</span></code></a><a class="headerlink" href="#protected-ignitionmathvector3dreflinacc" title="Permanent link">&para;</a></h6>
+<h6 id="protected-ignitionmathvector3drefangacc"><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a117b4dd179871a23bb91c2f3e6d61753"><code class="codehilite"><span class="n">refAngAcc</span></code></a><a class="headerlink" href="#protected-ignitionmathvector3drefangacc" title="Permanent link">&para;</a></h6>
+<h6 id="protected-virtual-boolonupdateconst-commonupdateinfo-_info"><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a9b34da677b1f4b34d07fd02c4c44a8d2"><code class="codehilite"><span class="n">OnUpdate</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">common</span><span class="p">::</span><span class="n">UpdateInfo</span> <span class="o">&amp;</span> <span class="n">_info</span><span class="p">)</span></code><a class="headerlink" href="#protected-virtual-boolonupdateconst-commonupdateinfo-_info" title="Permanent link">&para;</a></h6>
 <p>Update sensor measurement.</p>
-<h6 id="protected-voidpublishnedodommessagecommontime-_timeignitionmathpose3d-_poseignitionmathvector3d-_linvelignitionmathvector3d-_angvel"><code class="codehilite">protected void</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a637b2ff059028539ec9f9c314482bd0f"><code class="codehilite">PublishNEDOdomMessage</code></a><code class="codehilite">(common::Time _time,ignition::math::Pose3d _pose,ignition::math::Vector3d _linVel,ignition::math::Vector3d _angVel)</code><a class="headerlink" href="#protected-voidpublishnedodommessagecommontime-_timeignitionmathpose3d-_poseignitionmathvector3d-_linvelignitionmathvector3d-_angvel" title="Permanent link">&para;</a></h6>
-<h6 id="protected-voidpublishodommessagecommontime-_timeignitionmathpose3d-_poseignitionmathvector3d-_linvelignitionmathvector3d-_angvel"><code class="codehilite">protected void</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1af9985dc3356397d382584c21bde650a6"><code class="codehilite">PublishOdomMessage</code></a><code class="codehilite">(common::Time _time,ignition::math::Pose3d _pose,ignition::math::Vector3d _linVel,ignition::math::Vector3d _angVel)</code><a class="headerlink" href="#protected-voidpublishodommessagecommontime-_timeignitionmathpose3d-_poseignitionmathvector3d-_linvelignitionmathvector3d-_angvel" title="Permanent link">&para;</a></h6>
-<h6 id="protected-voidupdatenedtransform"><code class="codehilite">protected void</code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1af83bca7f0f2aee70389d6e88c7c597f6"><code class="codehilite">UpdateNEDTransform</code></a><code class="codehilite">()</code><a class="headerlink" href="#protected-voidupdatenedtransform" title="Permanent link">&para;</a></h6>
+<h6 id="protected-voidpublishnedodommessagecommontime-_timeignitionmathpose3d-_poseignitionmathvector3d-_linvelignitionmathvector3d-_angvel"><code class="codehilite"><span class="n">protected</span> <span class="n">void</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1a637b2ff059028539ec9f9c314482bd0f"><code class="codehilite"><span class="n">PublishNEDOdomMessage</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">common</span><span class="p">::</span><span class="n">Time</span> <span class="n">_time</span><span class="p">,</span><span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Pose3d</span> <span class="n">_pose</span><span class="p">,</span><span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span> <span class="n">_linVel</span><span class="p">,</span><span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span> <span class="n">_angVel</span><span class="p">)</span></code><a class="headerlink" href="#protected-voidpublishnedodommessagecommontime-_timeignitionmathpose3d-_poseignitionmathvector3d-_linvelignitionmathvector3d-_angvel" title="Permanent link">&para;</a></h6>
+<h6 id="protected-voidpublishodommessagecommontime-_timeignitionmathpose3d-_poseignitionmathvector3d-_linvelignitionmathvector3d-_angvel"><code class="codehilite"><span class="n">protected</span> <span class="n">void</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1af9985dc3356397d382584c21bde650a6"><code class="codehilite"><span class="n">PublishOdomMessage</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">common</span><span class="p">::</span><span class="n">Time</span> <span class="n">_time</span><span class="p">,</span><span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Pose3d</span> <span class="n">_pose</span><span class="p">,</span><span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span> <span class="n">_linVel</span><span class="p">,</span><span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Vector3d</span> <span class="n">_angVel</span><span class="p">)</span></code><a class="headerlink" href="#protected-voidpublishodommessagecommontime-_timeignitionmathpose3d-_poseignitionmathvector3d-_linvelignitionmathvector3d-_angvel" title="Permanent link">&para;</a></h6>
+<h6 id="protected-voidupdatenedtransform"><code class="codehilite"><span class="n">protected</span> <span class="n">void</span></code><a href="#classgazebo_1_1_pose_g_t_r_o_s_plugin_1af83bca7f0f2aee70389d6e88c7c597f6"><code class="codehilite"><span class="n">UpdateNEDTransform</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#protected-voidupdatenedtransform" title="Permanent link">&para;</a></h6>
                 
                   
                 

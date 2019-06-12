@@ -455,6 +455,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../packages/uuv_simulator/docs/features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../packages/uuv_simulator/docs/features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -2644,19 +2656,19 @@
 <div class="codehilite"><pre><span></span>roslaunch uuv_gazebo_worlds ocean_waves.launch
 </pre></div>
 
-<p>Spawn the remotely operated vehicle RexROV (find the robot description files in <a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_descriptions"><code class="codehilite">uuv_descriptions</code></a>) as follows</p>
+<p>Spawn the remotely operated vehicle RexROV (find the robot description files in <a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_descriptions"><code class="codehilite"><span class="n">uuv_descriptions</span></code></a>) as follows</p>
 <div class="codehilite"><pre><span></span>roslaunch uuv_descriptions upload_rexrov.launch mode:<span class="o">=</span>default x:<span class="o">=</span><span class="m">0</span> y:<span class="o">=</span><span class="m">0</span> z:<span class="o">=</span>-20 namespace:<span class="o">=</span>rexrov
 </pre></div>
 
-<p>for which <code class="codehilite">mode</code> stands for the configuration of the vehicle to be used. It is important to create the vehicles under a unique <code class="codehilite">namespace</code> to allow simulation of multiple vehicles in the same scenario.</p>
+<p>for which <code class="codehilite"><span class="k">mode</span></code> stands for the configuration of the vehicle to be used. It is important to create the vehicles under a unique <code class="codehilite"><span class="n">namespace</span></code> to allow simulation of multiple vehicles in the same scenario.</p>
 <p>You can start a velocity controller with a joystick teleoperation node as </p>
 <div class="codehilite"><pre><span></span>roslaunch uuv_control_cascaded_pid joy_velocity.launch uuv_name:<span class="o">=</span>rexrov model_name:<span class="o">=</span>rexrov joy_id:<span class="o">=</span><span class="m">0</span>
 </pre></div>
 
-<p>In this case <code class="codehilite">model_name</code> refers to the vehicle model, which can be different from the <code class="codehilite">namespace</code>. It is a necessary parameter to load the correct controller and thruster allocation matrix coefficients. The joystick ID is already set zero as default. To find the correct joystick index, you can install and run <code class="codehilite">jstest-gtk</code>.</p>
+<p>In this case <code class="codehilite"><span class="n">model_name</span></code> refers to the vehicle model, which can be different from the <code class="codehilite"><span class="n">namespace</span></code>. It is a necessary parameter to load the correct controller and thruster allocation matrix coefficients. The joystick ID is already set zero as default. To find the correct joystick index, you can install and run <code class="codehilite"><span class="n">jstest</span><span class="o">-</span><span class="n">gtk</span></code>.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>The mapping of the joystick teleoperation node is set as default for the XBox 360 controller. Remapping is possible by passing the correct indexes of the desired axes in the launch file located in the <a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_teleop"><code class="codehilite">uuv_teleop</code></a>.</p>
+<p>The mapping of the joystick teleoperation node is set as default for the XBox 360 controller. Remapping is possible by passing the correct indexes of the desired axes in the launch file located in the <a href="https://github.com/uuvsimulator/uuv_simulator/tree/master/uuv_teleop"><code class="codehilite"><span class="n">uuv_teleop</span></code></a>.</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>

@@ -456,6 +456,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -3036,10 +3048,10 @@
                 
                   <h1>GazeboRosImageSonar</h1>
                 
-                <h4 id="class-gazebogazeborosimagesonar">class <code class="codehilite">gazebo::GazeboRosImageSonar</code><a class="headerlink" href="#class-gazebogazeborosimagesonar" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><span class="kr">class</span> <span class="nx">gazebo</span><span class="o">::</span><span class="nx">GazeboRosImageSonar</span>
-  : <span class="kt">public</span> <span class="nx">SensorPlugin</span>
-  : <span class="kt">private</span> <span class="nx">GazeboRosCameraUtils</span>
+                <h4 id="class-gazebogazeborosimagesonar">class <code class="codehilite"><span class="n">gazebo</span><span class="p">::</span><span class="n">GazeboRosImageSonar</span></code><a class="headerlink" href="#class-gazebogazeborosimagesonar" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="n">gazebo::GazeboRosImageSonar</span>
+  : <span class="n">public</span> <span class="n">SensorPlugin</span>
+  : <span class="n">private</span> <span class="n">GazeboRosCameraUtils</span>
 </pre></div>
 
 <h5 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h5>
@@ -3052,113 +3064,113 @@
 </thead>
 <tbody>
 <tr>
-<td><code class="codehilite">public</code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a9fb946272527f8dff40658553986b0e4"><code class="codehilite">GazeboRosImageSonar</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span></code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a9fb946272527f8dff40658553986b0e4"><code class="codehilite"><span class="n">GazeboRosImageSonar</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Constructor.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public</code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a4db6c96c5b7844bbdc65cf50cf233be6"><code class="codehilite">~GazeboRosImageSonar</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span></code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a4db6c96c5b7844bbdc65cf50cf233be6"><code class="codehilite"><span class="o">~</span><span class="n">GazeboRosImageSonar</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Destructor.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a572dcea1d62a05f9f2ba2f278c7eb369"><code class="codehilite">Load</code></a><code class="codehilite">(sensors::SensorPtr _parent,sdf::ElementPtr _sdf)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a572dcea1d62a05f9f2ba2f278c7eb369"><code class="codehilite"><span class="k">Load</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">sensors</span><span class="p">::</span><span class="n">SensorPtr</span> <span class="n">_parent</span><span class="p">,</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">)</span></code></td>
 <td>Load the plugin.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1ab4d294c942ec9805d38b5ab651d79611"><code class="codehilite">Advertise</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1ab4d294c942ec9805d38b5ab651d79611"><code class="codehilite"><span class="n">Advertise</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Advertise point cloud and depth image.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ros::Publisher</code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1af5163cef4707acb546dc9975defc98dc"><code class="codehilite">depth_image_camera_info_pub_</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ros</span><span class="p">::</span><span class="n">Publisher</span></code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1af5163cef4707acb546dc9975defc98dc"><code class="codehilite"><span class="n">depth_image_camera_info_pub_</span></code></a></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">protected unsigned int</code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a88da9dd6b15bc621dd949c18649db749"><code class="codehilite">width</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">unsigned</span> <span class="nb">int</span></code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a88da9dd6b15bc621dd949c18649db749"><code class="codehilite"><span class="n">width</span></code></a></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">protected unsigned int</code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1aecb1e1936f2ede4f10b7739a2eda7079"><code class="codehilite">height</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">unsigned</span> <span class="nb">int</span></code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1aecb1e1936f2ede4f10b7739a2eda7079"><code class="codehilite"><span class="n">height</span></code></a></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">protected unsigned int</code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a52b86e01dad173d75096c226b732858e"><code class="codehilite">depth</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">unsigned</span> <span class="nb">int</span></code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a52b86e01dad173d75096c226b732858e"><code class="codehilite"><span class="n">depth</span></code></a></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">protected std::string</code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a6a18cb1b4864f357afab29e25509a48a"><code class="codehilite">format</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a6a18cb1b4864f357afab29e25509a48a"><code class="codehilite"><span class="n">format</span></code></a></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">protected cv::Mat</code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a7597c8b023cef37ed021f8a2a18cd1c3"><code class="codehilite">dist_matrix_</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">cv</span><span class="p">::</span><span class="n">Mat</span></code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a7597c8b023cef37ed021f8a2a18cd1c3"><code class="codehilite"><span class="n">dist_matrix_</span></code></a></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">protected std::vector&lt; std::vector&lt; int &gt; &gt;</code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1af1bd49503473a5d08cd3291782afef60"><code class="codehilite">angle_range_indices_</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">vector</span><span class="o">&lt;</span> <span class="n">std</span><span class="p">::</span><span class="n">vector</span><span class="o">&lt;</span> <span class="nb">int</span> <span class="o">&gt;</span> <span class="o">&gt;</span></code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1af1bd49503473a5d08cd3291782afef60"><code class="codehilite"><span class="n">angle_range_indices_</span></code></a></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">protected std::vector&lt; int &gt;</code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a3d5dc5e58d03bf4ac127b0596deff327"><code class="codehilite">angle_nbr_indices_</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">vector</span><span class="o">&lt;</span> <span class="nb">int</span> <span class="o">&gt;</span></code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a3d5dc5e58d03bf4ac127b0596deff327"><code class="codehilite"><span class="n">angle_nbr_indices_</span></code></a></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">protected sensors::DepthCameraSensorPtr</code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a1b65cb9b2e8a150a94a643052ddfe9e6"><code class="codehilite">parentSensor</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">sensors</span><span class="p">::</span><span class="n">DepthCameraSensorPtr</span></code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a1b65cb9b2e8a150a94a643052ddfe9e6"><code class="codehilite"><span class="n">parentSensor</span></code></a></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">protected rendering::DepthCameraPtr</code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a12b3ba852307631c5697dddd40d9d79b"><code class="codehilite">depthCamera</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">rendering</span><span class="p">::</span><span class="n">DepthCameraPtr</span></code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a12b3ba852307631c5697dddd40d9d79b"><code class="codehilite"><span class="n">depthCamera</span></code></a></td>
 <td></td>
 </tr>
 <tr>
-<td><code class="codehilite">protected virtual void</code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a8d42e68da5678b0a5cb85291790e5ddf"><code class="codehilite">OnNewDepthFrame</code></a><code class="codehilite">(const float * _image,unsigned int _width,unsigned int _height,unsigned int _depth,const std::string &amp; _format)</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a8d42e68da5678b0a5cb85291790e5ddf"><code class="codehilite"><span class="n">OnNewDepthFrame</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="nb">float</span> <span class="o">*</span> <span class="n">_image</span><span class="p">,</span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">_width</span><span class="p">,</span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">_height</span><span class="p">,</span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">_depth</span><span class="p">,</span><span class="n">const</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="o">&amp;</span> <span class="n">_format</span><span class="p">)</span></code></td>
 <td>Update the controller.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected virtual void</code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a38389595a6606d68a9c9d0c0203d4c7f"><code class="codehilite">OnNewRGBPointCloud</code></a><code class="codehilite">(const float * _pcd,unsigned int _width,unsigned int _height,unsigned int _depth,const std::string &amp; _format)</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a38389595a6606d68a9c9d0c0203d4c7f"><code class="codehilite"><span class="n">OnNewRGBPointCloud</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="nb">float</span> <span class="o">*</span> <span class="n">_pcd</span><span class="p">,</span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">_width</span><span class="p">,</span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">_height</span><span class="p">,</span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">_depth</span><span class="p">,</span><span class="n">const</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="o">&amp;</span> <span class="n">_format</span><span class="p">)</span></code></td>
 <td>Update the controller.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected virtual void</code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a9dab1f74d823f6df56c384e6af18da22"><code class="codehilite">OnNewImageFrame</code></a><code class="codehilite">(const unsigned char * _image,unsigned int _width,unsigned int _height,unsigned int _depth,const std::string &amp; _format)</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a9dab1f74d823f6df56c384e6af18da22"><code class="codehilite"><span class="n">OnNewImageFrame</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">unsigned</span> <span class="nb">char</span> <span class="o">*</span> <span class="n">_image</span><span class="p">,</span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">_width</span><span class="p">,</span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">_height</span><span class="p">,</span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">_depth</span><span class="p">,</span><span class="n">const</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="o">&amp;</span> <span class="n">_format</span><span class="p">)</span></code></td>
 <td>Update the controller.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected virtual void</code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1ae0b9b5f9320d9430c41ba208605b7c7e"><code class="codehilite">PublishCameraInfo</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1ae0b9b5f9320d9430c41ba208605b7c7e"><code class="codehilite"><span class="n">PublishCameraInfo</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <h5 id="members">Members<a class="headerlink" href="#members" title="Permanent link">&para;</a></h5>
-<h6 id="publicgazeborosimagesonar"><code class="codehilite">public</code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a9fb946272527f8dff40658553986b0e4"><code class="codehilite">GazeboRosImageSonar</code></a><code class="codehilite">()</code><a class="headerlink" href="#publicgazeborosimagesonar" title="Permanent link">&para;</a></h6>
+<h6 id="publicgazeborosimagesonar"><code class="codehilite"><span class="k">public</span></code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a9fb946272527f8dff40658553986b0e4"><code class="codehilite"><span class="n">GazeboRosImageSonar</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#publicgazeborosimagesonar" title="Permanent link">&para;</a></h6>
 <p>Constructor.</p>
 <h6 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h6>
 <ul>
-<li><code class="codehilite">parent</code> The parent entity, must be a Model or a Sensor</li>
+<li><code class="codehilite"><span class="n">parent</span></code> The parent entity, must be a Model or a Sensor</li>
 </ul>
-<h6 id="publicgazeborosimagesonar_1"><code class="codehilite">public</code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a4db6c96c5b7844bbdc65cf50cf233be6"><code class="codehilite">~GazeboRosImageSonar</code></a><code class="codehilite">()</code><a class="headerlink" href="#publicgazeborosimagesonar_1" title="Permanent link">&para;</a></h6>
+<h6 id="publicgazeborosimagesonar_1"><code class="codehilite"><span class="k">public</span></code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a4db6c96c5b7844bbdc65cf50cf233be6"><code class="codehilite"><span class="o">~</span><span class="n">GazeboRosImageSonar</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#publicgazeborosimagesonar_1" title="Permanent link">&para;</a></h6>
 <p>Destructor.</p>
-<h6 id="public-virtual-voidloadsensorssensorptr-_parentsdfelementptr-_sdf"><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a572dcea1d62a05f9f2ba2f278c7eb369"><code class="codehilite">Load</code></a><code class="codehilite">(sensors::SensorPtr _parent,sdf::ElementPtr _sdf)</code><a class="headerlink" href="#public-virtual-voidloadsensorssensorptr-_parentsdfelementptr-_sdf" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtual-voidloadsensorssensorptr-_parentsdfelementptr-_sdf"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a572dcea1d62a05f9f2ba2f278c7eb369"><code class="codehilite"><span class="k">Load</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">sensors</span><span class="p">::</span><span class="n">SensorPtr</span> <span class="n">_parent</span><span class="p">,</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">)</span></code><a class="headerlink" href="#public-virtual-voidloadsensorssensorptr-_parentsdfelementptr-_sdf" title="Permanent link">&para;</a></h6>
 <p>Load the plugin.</p>
 <h6 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h6>
 <ul>
-<li><code class="codehilite">take</code> in SDF root element</li>
+<li><code class="codehilite"><span class="n">take</span></code> in SDF root element</li>
 </ul>
-<h6 id="public-virtual-voidadvertise"><code class="codehilite">public virtual void</code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1ab4d294c942ec9805d38b5ab651d79611"><code class="codehilite">Advertise</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-virtual-voidadvertise" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtual-voidadvertise"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1ab4d294c942ec9805d38b5ab651d79611"><code class="codehilite"><span class="n">Advertise</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-virtual-voidadvertise" title="Permanent link">&para;</a></h6>
 <p>Advertise point cloud and depth image.</p>
-<h6 id="protected-rospublisherdepth_image_camera_info_pub_"><code class="codehilite">protected ros::Publisher</code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1af5163cef4707acb546dc9975defc98dc"><code class="codehilite">depth_image_camera_info_pub_</code></a><a class="headerlink" href="#protected-rospublisherdepth_image_camera_info_pub_" title="Permanent link">&para;</a></h6>
-<h6 id="protected-unsigned-intwidth"><code class="codehilite">protected unsigned int</code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a88da9dd6b15bc621dd949c18649db749"><code class="codehilite">width</code></a><a class="headerlink" href="#protected-unsigned-intwidth" title="Permanent link">&para;</a></h6>
-<h6 id="protected-unsigned-intheight"><code class="codehilite">protected unsigned int</code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1aecb1e1936f2ede4f10b7739a2eda7079"><code class="codehilite">height</code></a><a class="headerlink" href="#protected-unsigned-intheight" title="Permanent link">&para;</a></h6>
-<h6 id="protected-unsigned-intdepth"><code class="codehilite">protected unsigned int</code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a52b86e01dad173d75096c226b732858e"><code class="codehilite">depth</code></a><a class="headerlink" href="#protected-unsigned-intdepth" title="Permanent link">&para;</a></h6>
-<h6 id="protected-stdstringformat"><code class="codehilite">protected std::string</code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a6a18cb1b4864f357afab29e25509a48a"><code class="codehilite">format</code></a><a class="headerlink" href="#protected-stdstringformat" title="Permanent link">&para;</a></h6>
-<h6 id="protected-cvmatdist_matrix_"><code class="codehilite">protected cv::Mat</code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a7597c8b023cef37ed021f8a2a18cd1c3"><code class="codehilite">dist_matrix_</code></a><a class="headerlink" href="#protected-cvmatdist_matrix_" title="Permanent link">&para;</a></h6>
-<h6 id="protected-stdvector-stdvector-int-angle_range_indices_"><code class="codehilite">protected std::vector&lt; std::vector&lt; int &gt; &gt;</code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1af1bd49503473a5d08cd3291782afef60"><code class="codehilite">angle_range_indices_</code></a><a class="headerlink" href="#protected-stdvector-stdvector-int-angle_range_indices_" title="Permanent link">&para;</a></h6>
-<h6 id="protected-stdvector-int-angle_nbr_indices_"><code class="codehilite">protected std::vector&lt; int &gt;</code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a3d5dc5e58d03bf4ac127b0596deff327"><code class="codehilite">angle_nbr_indices_</code></a><a class="headerlink" href="#protected-stdvector-int-angle_nbr_indices_" title="Permanent link">&para;</a></h6>
-<h6 id="protected-sensorsdepthcamerasensorptrparentsensor"><code class="codehilite">protected sensors::DepthCameraSensorPtr</code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a1b65cb9b2e8a150a94a643052ddfe9e6"><code class="codehilite">parentSensor</code></a><a class="headerlink" href="#protected-sensorsdepthcamerasensorptrparentsensor" title="Permanent link">&para;</a></h6>
-<h6 id="protected-renderingdepthcameraptrdepthcamera"><code class="codehilite">protected rendering::DepthCameraPtr</code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a12b3ba852307631c5697dddd40d9d79b"><code class="codehilite">depthCamera</code></a><a class="headerlink" href="#protected-renderingdepthcameraptrdepthcamera" title="Permanent link">&para;</a></h6>
-<h6 id="protected-virtual-voidonnewdepthframeconst-float-_imageunsigned-int-_widthunsigned-int-_heightunsigned-int-_depthconst-stdstring-_format"><code class="codehilite">protected virtual void</code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a8d42e68da5678b0a5cb85291790e5ddf"><code class="codehilite">OnNewDepthFrame</code></a><code class="codehilite">(const float * _image,unsigned int _width,unsigned int _height,unsigned int _depth,const std::string &amp; _format)</code><a class="headerlink" href="#protected-virtual-voidonnewdepthframeconst-float-_imageunsigned-int-_widthunsigned-int-_heightunsigned-int-_depthconst-stdstring-_format" title="Permanent link">&para;</a></h6>
+<h6 id="protected-rospublisherdepth_image_camera_info_pub_"><code class="codehilite"><span class="n">protected</span> <span class="n">ros</span><span class="p">::</span><span class="n">Publisher</span></code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1af5163cef4707acb546dc9975defc98dc"><code class="codehilite"><span class="n">depth_image_camera_info_pub_</span></code></a><a class="headerlink" href="#protected-rospublisherdepth_image_camera_info_pub_" title="Permanent link">&para;</a></h6>
+<h6 id="protected-unsigned-intwidth"><code class="codehilite"><span class="n">protected</span> <span class="n">unsigned</span> <span class="nb">int</span></code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a88da9dd6b15bc621dd949c18649db749"><code class="codehilite"><span class="n">width</span></code></a><a class="headerlink" href="#protected-unsigned-intwidth" title="Permanent link">&para;</a></h6>
+<h6 id="protected-unsigned-intheight"><code class="codehilite"><span class="n">protected</span> <span class="n">unsigned</span> <span class="nb">int</span></code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1aecb1e1936f2ede4f10b7739a2eda7079"><code class="codehilite"><span class="n">height</span></code></a><a class="headerlink" href="#protected-unsigned-intheight" title="Permanent link">&para;</a></h6>
+<h6 id="protected-unsigned-intdepth"><code class="codehilite"><span class="n">protected</span> <span class="n">unsigned</span> <span class="nb">int</span></code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a52b86e01dad173d75096c226b732858e"><code class="codehilite"><span class="n">depth</span></code></a><a class="headerlink" href="#protected-unsigned-intdepth" title="Permanent link">&para;</a></h6>
+<h6 id="protected-stdstringformat"><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a6a18cb1b4864f357afab29e25509a48a"><code class="codehilite"><span class="n">format</span></code></a><a class="headerlink" href="#protected-stdstringformat" title="Permanent link">&para;</a></h6>
+<h6 id="protected-cvmatdist_matrix_"><code class="codehilite"><span class="n">protected</span> <span class="n">cv</span><span class="p">::</span><span class="n">Mat</span></code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a7597c8b023cef37ed021f8a2a18cd1c3"><code class="codehilite"><span class="n">dist_matrix_</span></code></a><a class="headerlink" href="#protected-cvmatdist_matrix_" title="Permanent link">&para;</a></h6>
+<h6 id="protected-stdvector-stdvector-int-angle_range_indices_"><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">vector</span><span class="o">&lt;</span> <span class="n">std</span><span class="p">::</span><span class="n">vector</span><span class="o">&lt;</span> <span class="nb">int</span> <span class="o">&gt;</span> <span class="o">&gt;</span></code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1af1bd49503473a5d08cd3291782afef60"><code class="codehilite"><span class="n">angle_range_indices_</span></code></a><a class="headerlink" href="#protected-stdvector-stdvector-int-angle_range_indices_" title="Permanent link">&para;</a></h6>
+<h6 id="protected-stdvector-int-angle_nbr_indices_"><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">vector</span><span class="o">&lt;</span> <span class="nb">int</span> <span class="o">&gt;</span></code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a3d5dc5e58d03bf4ac127b0596deff327"><code class="codehilite"><span class="n">angle_nbr_indices_</span></code></a><a class="headerlink" href="#protected-stdvector-int-angle_nbr_indices_" title="Permanent link">&para;</a></h6>
+<h6 id="protected-sensorsdepthcamerasensorptrparentsensor"><code class="codehilite"><span class="n">protected</span> <span class="n">sensors</span><span class="p">::</span><span class="n">DepthCameraSensorPtr</span></code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a1b65cb9b2e8a150a94a643052ddfe9e6"><code class="codehilite"><span class="n">parentSensor</span></code></a><a class="headerlink" href="#protected-sensorsdepthcamerasensorptrparentsensor" title="Permanent link">&para;</a></h6>
+<h6 id="protected-renderingdepthcameraptrdepthcamera"><code class="codehilite"><span class="n">protected</span> <span class="n">rendering</span><span class="p">::</span><span class="n">DepthCameraPtr</span></code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a12b3ba852307631c5697dddd40d9d79b"><code class="codehilite"><span class="n">depthCamera</span></code></a><a class="headerlink" href="#protected-renderingdepthcameraptrdepthcamera" title="Permanent link">&para;</a></h6>
+<h6 id="protected-virtual-voidonnewdepthframeconst-float-_imageunsigned-int-_widthunsigned-int-_heightunsigned-int-_depthconst-stdstring-_format"><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a8d42e68da5678b0a5cb85291790e5ddf"><code class="codehilite"><span class="n">OnNewDepthFrame</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="nb">float</span> <span class="o">*</span> <span class="n">_image</span><span class="p">,</span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">_width</span><span class="p">,</span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">_height</span><span class="p">,</span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">_depth</span><span class="p">,</span><span class="n">const</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="o">&amp;</span> <span class="n">_format</span><span class="p">)</span></code><a class="headerlink" href="#protected-virtual-voidonnewdepthframeconst-float-_imageunsigned-int-_widthunsigned-int-_heightunsigned-int-_depthconst-stdstring-_format" title="Permanent link">&para;</a></h6>
 <p>Update the controller.</p>
-<h6 id="protected-virtual-voidonnewrgbpointcloudconst-float-_pcdunsigned-int-_widthunsigned-int-_heightunsigned-int-_depthconst-stdstring-_format"><code class="codehilite">protected virtual void</code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a38389595a6606d68a9c9d0c0203d4c7f"><code class="codehilite">OnNewRGBPointCloud</code></a><code class="codehilite">(const float * _pcd,unsigned int _width,unsigned int _height,unsigned int _depth,const std::string &amp; _format)</code><a class="headerlink" href="#protected-virtual-voidonnewrgbpointcloudconst-float-_pcdunsigned-int-_widthunsigned-int-_heightunsigned-int-_depthconst-stdstring-_format" title="Permanent link">&para;</a></h6>
+<h6 id="protected-virtual-voidonnewrgbpointcloudconst-float-_pcdunsigned-int-_widthunsigned-int-_heightunsigned-int-_depthconst-stdstring-_format"><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a38389595a6606d68a9c9d0c0203d4c7f"><code class="codehilite"><span class="n">OnNewRGBPointCloud</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="nb">float</span> <span class="o">*</span> <span class="n">_pcd</span><span class="p">,</span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">_width</span><span class="p">,</span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">_height</span><span class="p">,</span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">_depth</span><span class="p">,</span><span class="n">const</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="o">&amp;</span> <span class="n">_format</span><span class="p">)</span></code><a class="headerlink" href="#protected-virtual-voidonnewrgbpointcloudconst-float-_pcdunsigned-int-_widthunsigned-int-_heightunsigned-int-_depthconst-stdstring-_format" title="Permanent link">&para;</a></h6>
 <p>Update the controller.</p>
-<h6 id="protected-virtual-voidonnewimageframeconst-unsigned-char-_imageunsigned-int-_widthunsigned-int-_heightunsigned-int-_depthconst-stdstring-_format"><code class="codehilite">protected virtual void</code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a9dab1f74d823f6df56c384e6af18da22"><code class="codehilite">OnNewImageFrame</code></a><code class="codehilite">(const unsigned char * _image,unsigned int _width,unsigned int _height,unsigned int _depth,const std::string &amp; _format)</code><a class="headerlink" href="#protected-virtual-voidonnewimageframeconst-unsigned-char-_imageunsigned-int-_widthunsigned-int-_heightunsigned-int-_depthconst-stdstring-_format" title="Permanent link">&para;</a></h6>
+<h6 id="protected-virtual-voidonnewimageframeconst-unsigned-char-_imageunsigned-int-_widthunsigned-int-_heightunsigned-int-_depthconst-stdstring-_format"><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1a9dab1f74d823f6df56c384e6af18da22"><code class="codehilite"><span class="n">OnNewImageFrame</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">unsigned</span> <span class="nb">char</span> <span class="o">*</span> <span class="n">_image</span><span class="p">,</span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">_width</span><span class="p">,</span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">_height</span><span class="p">,</span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">_depth</span><span class="p">,</span><span class="n">const</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="o">&amp;</span> <span class="n">_format</span><span class="p">)</span></code><a class="headerlink" href="#protected-virtual-voidonnewimageframeconst-unsigned-char-_imageunsigned-int-_widthunsigned-int-_heightunsigned-int-_depthconst-stdstring-_format" title="Permanent link">&para;</a></h6>
 <p>Update the controller.</p>
-<h6 id="protected-virtual-voidpublishcamerainfo"><code class="codehilite">protected virtual void</code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1ae0b9b5f9320d9430c41ba208605b7c7e"><code class="codehilite">PublishCameraInfo</code></a><code class="codehilite">()</code><a class="headerlink" href="#protected-virtual-voidpublishcamerainfo" title="Permanent link">&para;</a></h6>
+<h6 id="protected-virtual-voidpublishcamerainfo"><code class="codehilite"><span class="n">protected</span> <span class="n">virtual</span> <span class="n">void</span></code><a href="#classgazebo_1_1_gazebo_ros_image_sonar_1ae0b9b5f9320d9430c41ba208605b7c7e"><code class="codehilite"><span class="n">PublishCameraInfo</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#protected-virtual-voidpublishcamerainfo" title="Permanent link">&para;</a></h6>
                 
                   
                 

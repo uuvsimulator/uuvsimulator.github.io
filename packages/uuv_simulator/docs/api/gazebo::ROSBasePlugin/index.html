@@ -456,6 +456,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../features/actuators/" title="Actuators" class="md-nav__link">
+      Actuators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../features/gazebo_worlds/" title="Gazebo worlds" class="md-nav__link">
       Gazebo worlds
     </a>
@@ -3260,7 +3272,7 @@
                 
                   <h1>ROSBasePlugin</h1>
                 
-                <h4 id="class-gazeborosbaseplugin">class <code class="codehilite">gazebo::ROSBasePlugin</code><a class="headerlink" href="#class-gazeborosbaseplugin" title="Permanent link">&para;</a></h4>
+                <h4 id="class-gazeborosbaseplugin">class <code class="codehilite"><span class="n">gazebo</span><span class="p">::</span><span class="n">ROSBasePlugin</span></code><a class="headerlink" href="#class-gazeborosbaseplugin" title="Permanent link">&para;</a></h4>
 <h5 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h5>
 <table>
 <thead>
@@ -3271,223 +3283,223 @@
 </thead>
 <tbody>
 <tr>
-<td><code class="codehilite">public</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a0435db27811265bd28476844b1aebb7d"><code class="codehilite">ROSBasePlugin</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a0435db27811265bd28476844b1aebb7d"><code class="codehilite"><span class="n">ROSBasePlugin</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Class constructor.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public virtual</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a085d18e1e808fae36b6bf3dce476c7e5"><code class="codehilite">~ROSBasePlugin</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a085d18e1e808fae36b6bf3dce476c7e5"><code class="codehilite"><span class="o">~</span><span class="n">ROSBasePlugin</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Class destructor.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public bool</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a74ff905293eb8caa7becbc5404a97fc6"><code class="codehilite">InitBasePlugin</code></a><code class="codehilite">(sdf::ElementPtr _sdf)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a74ff905293eb8caa7becbc5404a97fc6"><code class="codehilite"><span class="n">InitBasePlugin</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">)</span></code></td>
 <td>Initialize base plugin.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public bool</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a02aa79b255cb8f0847998f774cb03b32"><code class="codehilite">OnUpdate</code></a><code class="codehilite">(const common::UpdateInfo &amp;)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a02aa79b255cb8f0847998f774cb03b32"><code class="codehilite"><span class="n">OnUpdate</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">common</span><span class="p">::</span><span class="n">UpdateInfo</span> <span class="o">&amp;</span><span class="p">)</span></code></td>
 <td>Update callback from simulation.</td>
 </tr>
 <tr>
-<td><code class="codehilite">public bool</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1abd97192b9712ae6a05d41d158c05f57a"><code class="codehilite">AddNoiseModel</code></a><code class="codehilite">(std::string _name,double _sigma)</code></td>
+<td><code class="codehilite"><span class="k">public</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1abd97192b9712ae6a05d41d158c05f57a"><code class="codehilite"><span class="n">AddNoiseModel</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="n">_name</span><span class="p">,</span><span class="n">double</span> <span class="n">_sigma</span><span class="p">)</span></code></td>
 <td>Add noise normal distribution to the list.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected std::string</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a9a9e059aec0a41dd012223d3ea3c9fe9"><code class="codehilite">robotNamespace</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a9a9e059aec0a41dd012223d3ea3c9fe9"><code class="codehilite"><span class="n">robotNamespace</span></code></a></td>
 <td>Robot namespace.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected std::string</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a818f107bc9e165a3cc8016fd6859f86a"><code class="codehilite">sensorOutputTopic</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a818f107bc9e165a3cc8016fd6859f86a"><code class="codehilite"><span class="n">sensorOutputTopic</span></code></a></td>
 <td>Name of the sensor's output topic.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected physics::WorldPtr</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a24f910550057c819c246f5c3f74dae5a"><code class="codehilite">world</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">physics</span><span class="p">::</span><span class="n">WorldPtr</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a24f910550057c819c246f5c3f74dae5a"><code class="codehilite"><span class="n">world</span></code></a></td>
 <td>Pointer to the world.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected event::ConnectionPtr</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a1d7b676bec7c29b2bd021b47ecd32bb5"><code class="codehilite">updateConnection</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">event</span><span class="p">::</span><span class="n">ConnectionPtr</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a1d7b676bec7c29b2bd021b47ecd32bb5"><code class="codehilite"><span class="n">updateConnection</span></code></a></td>
 <td>Pointer to the update event connection.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected common::Time</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1ac3798d56f9ea70175d99ab80106b4319"><code class="codehilite">lastMeasurementTime</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">common</span><span class="p">::</span><span class="n">Time</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1ac3798d56f9ea70175d99ab80106b4319"><code class="codehilite"><span class="n">lastMeasurementTime</span></code></a></td>
 <td>(Simulation) time when the last sensor measurement was generated.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1adbcb691eba2efdd0156d5422bd1cf03f"><code class="codehilite">updateRate</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1adbcb691eba2efdd0156d5422bd1cf03f"><code class="codehilite"><span class="n">updateRate</span></code></a></td>
 <td>Sensor update rate.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1aef76766a171b7b9c0c236ff5987800f9"><code class="codehilite">noiseSigma</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1aef76766a171b7b9c0c236ff5987800f9"><code class="codehilite"><span class="n">noiseSigma</span></code></a></td>
 <td>Noise standard deviation.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a6a7695e4dc91f9504a3ee88d5da94102"><code class="codehilite">noiseAmp</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a6a7695e4dc91f9504a3ee88d5da94102"><code class="codehilite"><span class="n">noiseAmp</span></code></a></td>
 <td>Noise amplitude.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected bool</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a03fadaa69a0c77dc81153d5059c2cfb4"><code class="codehilite">gazeboMsgEnabled</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a03fadaa69a0c77dc81153d5059c2cfb4"><code class="codehilite"><span class="n">gazeboMsgEnabled</span></code></a></td>
 <td>Flag set to true if the Gazebo sensors messages are supposed to be published as well (it can avoid unnecessary overhead in case) the sensor messages needed are only ROS messages.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected std::default_random_engine</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1ac9f7d735298e4c0017e34ff652295fd3"><code class="codehilite">rndGen</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">default_random_engine</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1ac9f7d735298e4c0017e34ff652295fd3"><code class="codehilite"><span class="n">rndGen</span></code></a></td>
 <td>Pseudo random number generator.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected std::map&lt; std::string, std::normal_distribution&lt; double &gt; &gt;</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1aec1fe60d8e12867115754d7f89689da2"><code class="codehilite">noiseModels</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="k">map</span><span class="o">&lt;</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span><span class="p">,</span> <span class="n">std</span><span class="p">::</span><span class="n">normal_distribution</span><span class="o">&lt;</span> <span class="n">double</span> <span class="o">&gt;</span> <span class="o">&gt;</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1aec1fe60d8e12867115754d7f89689da2"><code class="codehilite"><span class="n">noiseModels</span></code></a></td>
 <td>Normal distribution describing the noise models.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected std_msgs::Bool</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a217d66ec1fe4002468300e0c409bfb32"><code class="codehilite">isOn</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">std_msgs</span><span class="p">::</span><span class="n">Bool</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a217d66ec1fe4002468300e0c409bfb32"><code class="codehilite"><span class="n">isOn</span></code></a></td>
 <td>Flag to control the generation of output messages.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected boost::shared_ptr&lt; ros::NodeHandle &gt;</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a6b907bcd7669d3907f3c78e654fcca88"><code class="codehilite">rosNode</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">boost</span><span class="p">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span> <span class="n">ros</span><span class="p">::</span><span class="n">NodeHandle</span> <span class="o">&gt;</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a6b907bcd7669d3907f3c78e654fcca88"><code class="codehilite"><span class="n">rosNode</span></code></a></td>
 <td>ROS node handle for communication with ROS.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected transport::NodePtr</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a6444bffce26cd7c1d31ab1b3abd990c7"><code class="codehilite">gazeboNode</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">transport</span><span class="p">::</span><span class="n">NodePtr</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a6444bffce26cd7c1d31ab1b3abd990c7"><code class="codehilite"><span class="n">gazeboNode</span></code></a></td>
 <td>Gazebo's node handle for transporting measurement messages.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ros::Publisher</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1aff7eafda5f899aa2304a870d1418a300"><code class="codehilite">rosSensorOutputPub</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ros</span><span class="p">::</span><span class="n">Publisher</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1aff7eafda5f899aa2304a870d1418a300"><code class="codehilite"><span class="n">rosSensorOutputPub</span></code></a></td>
 <td>Gazebo's publisher for transporting measurement messages.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected transport::PublisherPtr</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a00461d61554c0a38b03892488a43eefb"><code class="codehilite">gazeboSensorOutputPub</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">transport</span><span class="p">::</span><span class="n">PublisherPtr</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a00461d61554c0a38b03892488a43eefb"><code class="codehilite"><span class="n">gazeboSensorOutputPub</span></code></a></td>
 <td>Gazebo's publisher for transporting measurement messages.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ros::ServiceServer</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a4a9b8a250d6c0c4e8148fa96c8dcc395"><code class="codehilite">changeSensorSrv</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ros</span><span class="p">::</span><span class="n">ServiceServer</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a4a9b8a250d6c0c4e8148fa96c8dcc395"><code class="codehilite"><span class="n">changeSensorSrv</span></code></a></td>
 <td>Service server object.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ros::Publisher</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a0a405302b38096d97a25c18879de03ee"><code class="codehilite">pluginStatePub</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ros</span><span class="p">::</span><span class="n">Publisher</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a0a405302b38096d97a25c18879de03ee"><code class="codehilite"><span class="n">pluginStatePub</span></code></a></td>
 <td>ROS publisher for the switchable sensor data.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ignition::math::Pose3d</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1aa788862de11b763facdf51ac105c535d"><code class="codehilite">referenceFrame</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Pose3d</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1aa788862de11b763facdf51ac105c535d"><code class="codehilite"><span class="n">referenceFrame</span></code></a></td>
 <td>Pose of the reference frame wrt world frame.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected ros::Subscriber</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a0d5b3d85ee84ddd0e722a4e1dbd83d83"><code class="codehilite">tfStaticSub</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">ros</span><span class="p">::</span><span class="n">Subscriber</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a0d5b3d85ee84ddd0e722a4e1dbd83d83"><code class="codehilite"><span class="n">tfStaticSub</span></code></a></td>
 <td>ROS subscriber for the TF static reference frame.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected std::string</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a02ca6231d0a2961fe6a63002de9a5ad4"><code class="codehilite">referenceFrameID</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a02ca6231d0a2961fe6a63002de9a5ad4"><code class="codehilite"><span class="n">referenceFrameID</span></code></a></td>
 <td>Frame ID of the reference frame.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected bool</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a9004a71899294df66fe56bd6adcc187c"><code class="codehilite">isReferenceInit</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a9004a71899294df66fe56bd6adcc187c"><code class="codehilite"><span class="n">isReferenceInit</span></code></a></td>
 <td>Flag set to true if reference frame initialized.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected physics::LinkPtr</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a34ff72f4617839866a593d0c1a00f375"><code class="codehilite">referenceLink</code></a></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">physics</span><span class="p">::</span><span class="n">LinkPtr</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a34ff72f4617839866a593d0c1a00f375"><code class="codehilite"><span class="n">referenceLink</span></code></a></td>
 <td>Reference link.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected bool</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a8c02e25afa29c264aa3a262b277a3723"><code class="codehilite">IsOn</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a8c02e25afa29c264aa3a262b277a3723"><code class="codehilite"><span class="n">IsOn</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Returns true if the plugin is activated.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected void</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a0185c958f2ce8b30a1c5dc078bbd7b0e"><code class="codehilite">PublishState</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">void</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a0185c958f2ce8b30a1c5dc078bbd7b0e"><code class="codehilite"><span class="n">PublishState</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Publish the current state of the plugin.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected bool</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a47e246ab8e3e9fe1b7f032ee7bd8af16"><code class="codehilite">ChangeSensorState</code></a><code class="codehilite">(uuv_sensor_ros_plugins_msgs::ChangeSensorState::Request &amp; _req,uuv_sensor_ros_plugins_msgs::ChangeSensorState::Response &amp; _res)</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a47e246ab8e3e9fe1b7f032ee7bd8af16"><code class="codehilite"><span class="n">ChangeSensorState</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">uuv_sensor_ros_plugins_msgs</span><span class="p">::</span><span class="n">ChangeSensorState</span><span class="p">::</span><span class="n">Request</span> <span class="o">&amp;</span> <span class="n">_req</span><span class="p">,</span><span class="n">uuv_sensor_ros_plugins_msgs</span><span class="p">::</span><span class="n">ChangeSensorState</span><span class="p">::</span><span class="n">Response</span> <span class="o">&amp;</span> <span class="n">_res</span><span class="p">)</span></code></td>
 <td>Change sensor state (ON/OFF)</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected void</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a465f66f7ecad8aa9e0f9e7d5fd0159d9"><code class="codehilite">GetTFMessage</code></a><code class="codehilite">(const tf::tfMessage::ConstPtr &amp; _msg)</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">void</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a465f66f7ecad8aa9e0f9e7d5fd0159d9"><code class="codehilite"><span class="n">GetTFMessage</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">tf</span><span class="p">::</span><span class="n">tfMessage</span><span class="p">::</span><span class="n">ConstPtr</span> <span class="o">&amp;</span> <span class="n">_msg</span><span class="p">)</span></code></td>
 <td>Callback function for the static TF message.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1ae1fd5e5059943e83865efa837e52e3a7"><code class="codehilite">GetGaussianNoise</code></a><code class="codehilite">(double _amp)</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1ae1fd5e5059943e83865efa837e52e3a7"><code class="codehilite"><span class="n">GetGaussianNoise</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">double</span> <span class="n">_amp</span><span class="p">)</span></code></td>
 <td>Returns noise value for a function with zero mean from the default Gaussian noise model.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected double</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a69d2da0f2848ba0153756afbb331e447"><code class="codehilite">GetGaussianNoise</code></a><code class="codehilite">(std::string _name,double _amp)</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a69d2da0f2848ba0153756afbb331e447"><code class="codehilite"><span class="n">GetGaussianNoise</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="n">_name</span><span class="p">,</span><span class="n">double</span> <span class="n">_amp</span><span class="p">)</span></code></td>
 <td>Returns noise value for a function with zero mean from a Gaussian noise model according to the model name.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected bool</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1af12a92a0ddf7c3c07163d32d6d95c655"><code class="codehilite">EnableMeasurement</code></a><code class="codehilite">(const common::UpdateInfo &amp; _info) const</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1af12a92a0ddf7c3c07163d32d6d95c655"><code class="codehilite"><span class="n">EnableMeasurement</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">common</span><span class="p">::</span><span class="n">UpdateInfo</span> <span class="o">&amp;</span> <span class="n">_info</span><span class="p">)</span> <span class="n">const</span></code></td>
 <td>Enables generation of simulated measurement if the timeout since the last update has been reached.</td>
 </tr>
 <tr>
-<td><code class="codehilite">protected void</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a768035af5fb258d9c07c4d7fd5049700"><code class="codehilite">UpdateReferenceFramePose</code></a><code class="codehilite">()</code></td>
+<td><code class="codehilite"><span class="n">protected</span> <span class="n">void</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a768035af5fb258d9c07c4d7fd5049700"><code class="codehilite"><span class="n">UpdateReferenceFramePose</span></code></a><code class="codehilite"><span class="p">()</span></code></td>
 <td>Updates the pose of the reference frame wrt the world frame.</td>
 </tr>
 </tbody>
 </table>
 <h5 id="members">Members<a class="headerlink" href="#members" title="Permanent link">&para;</a></h5>
-<h6 id="publicrosbaseplugin"><code class="codehilite">public</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a0435db27811265bd28476844b1aebb7d"><code class="codehilite">ROSBasePlugin</code></a><code class="codehilite">()</code><a class="headerlink" href="#publicrosbaseplugin" title="Permanent link">&para;</a></h6>
+<h6 id="publicrosbaseplugin"><code class="codehilite"><span class="k">public</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a0435db27811265bd28476844b1aebb7d"><code class="codehilite"><span class="n">ROSBasePlugin</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#publicrosbaseplugin" title="Permanent link">&para;</a></h6>
 <p>Class constructor.</p>
-<h6 id="public-virtualrosbaseplugin"><code class="codehilite">public virtual</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a085d18e1e808fae36b6bf3dce476c7e5"><code class="codehilite">~ROSBasePlugin</code></a><code class="codehilite">()</code><a class="headerlink" href="#public-virtualrosbaseplugin" title="Permanent link">&para;</a></h6>
+<h6 id="public-virtualrosbaseplugin"><code class="codehilite"><span class="k">public</span> <span class="n">virtual</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a085d18e1e808fae36b6bf3dce476c7e5"><code class="codehilite"><span class="o">~</span><span class="n">ROSBasePlugin</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#public-virtualrosbaseplugin" title="Permanent link">&para;</a></h6>
 <p>Class destructor.</p>
-<h6 id="public-boolinitbasepluginsdfelementptr-_sdf"><code class="codehilite">public bool</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a74ff905293eb8caa7becbc5404a97fc6"><code class="codehilite">InitBasePlugin</code></a><code class="codehilite">(sdf::ElementPtr _sdf)</code><a class="headerlink" href="#public-boolinitbasepluginsdfelementptr-_sdf" title="Permanent link">&para;</a></h6>
+<h6 id="public-boolinitbasepluginsdfelementptr-_sdf"><code class="codehilite"><span class="k">public</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a74ff905293eb8caa7becbc5404a97fc6"><code class="codehilite"><span class="n">InitBasePlugin</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">sdf</span><span class="p">::</span><span class="n">ElementPtr</span> <span class="n">_sdf</span><span class="p">)</span></code><a class="headerlink" href="#public-boolinitbasepluginsdfelementptr-_sdf" title="Permanent link">&para;</a></h6>
 <p>Initialize base plugin.</p>
-<h6 id="public-boolonupdateconst-commonupdateinfo"><code class="codehilite">public bool</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a02aa79b255cb8f0847998f774cb03b32"><code class="codehilite">OnUpdate</code></a><code class="codehilite">(const common::UpdateInfo &amp;)</code><a class="headerlink" href="#public-boolonupdateconst-commonupdateinfo" title="Permanent link">&para;</a></h6>
+<h6 id="public-boolonupdateconst-commonupdateinfo"><code class="codehilite"><span class="k">public</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a02aa79b255cb8f0847998f774cb03b32"><code class="codehilite"><span class="n">OnUpdate</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">common</span><span class="p">::</span><span class="n">UpdateInfo</span> <span class="o">&amp;</span><span class="p">)</span></code><a class="headerlink" href="#public-boolonupdateconst-commonupdateinfo" title="Permanent link">&para;</a></h6>
 <p>Update callback from simulation.</p>
-<h6 id="public-booladdnoisemodelstdstring-_namedouble-_sigma"><code class="codehilite">public bool</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1abd97192b9712ae6a05d41d158c05f57a"><code class="codehilite">AddNoiseModel</code></a><code class="codehilite">(std::string _name,double _sigma)</code><a class="headerlink" href="#public-booladdnoisemodelstdstring-_namedouble-_sigma" title="Permanent link">&para;</a></h6>
+<h6 id="public-booladdnoisemodelstdstring-_namedouble-_sigma"><code class="codehilite"><span class="k">public</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1abd97192b9712ae6a05d41d158c05f57a"><code class="codehilite"><span class="n">AddNoiseModel</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="n">_name</span><span class="p">,</span><span class="n">double</span> <span class="n">_sigma</span><span class="p">)</span></code><a class="headerlink" href="#public-booladdnoisemodelstdstring-_namedouble-_sigma" title="Permanent link">&para;</a></h6>
 <p>Add noise normal distribution to the list.</p>
-<h6 id="protected-stdstringrobotnamespace"><code class="codehilite">protected std::string</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a9a9e059aec0a41dd012223d3ea3c9fe9"><code class="codehilite">robotNamespace</code></a><a class="headerlink" href="#protected-stdstringrobotnamespace" title="Permanent link">&para;</a></h6>
+<h6 id="protected-stdstringrobotnamespace"><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a9a9e059aec0a41dd012223d3ea3c9fe9"><code class="codehilite"><span class="n">robotNamespace</span></code></a><a class="headerlink" href="#protected-stdstringrobotnamespace" title="Permanent link">&para;</a></h6>
 <p>Robot namespace.</p>
-<h6 id="protected-stdstringsensoroutputtopic"><code class="codehilite">protected std::string</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a818f107bc9e165a3cc8016fd6859f86a"><code class="codehilite">sensorOutputTopic</code></a><a class="headerlink" href="#protected-stdstringsensoroutputtopic" title="Permanent link">&para;</a></h6>
+<h6 id="protected-stdstringsensoroutputtopic"><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a818f107bc9e165a3cc8016fd6859f86a"><code class="codehilite"><span class="n">sensorOutputTopic</span></code></a><a class="headerlink" href="#protected-stdstringsensoroutputtopic" title="Permanent link">&para;</a></h6>
 <p>Name of the sensor's output topic.</p>
-<h6 id="protected-physicsworldptrworld"><code class="codehilite">protected physics::WorldPtr</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a24f910550057c819c246f5c3f74dae5a"><code class="codehilite">world</code></a><a class="headerlink" href="#protected-physicsworldptrworld" title="Permanent link">&para;</a></h6>
+<h6 id="protected-physicsworldptrworld"><code class="codehilite"><span class="n">protected</span> <span class="n">physics</span><span class="p">::</span><span class="n">WorldPtr</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a24f910550057c819c246f5c3f74dae5a"><code class="codehilite"><span class="n">world</span></code></a><a class="headerlink" href="#protected-physicsworldptrworld" title="Permanent link">&para;</a></h6>
 <p>Pointer to the world.</p>
-<h6 id="protected-eventconnectionptrupdateconnection"><code class="codehilite">protected event::ConnectionPtr</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a1d7b676bec7c29b2bd021b47ecd32bb5"><code class="codehilite">updateConnection</code></a><a class="headerlink" href="#protected-eventconnectionptrupdateconnection" title="Permanent link">&para;</a></h6>
+<h6 id="protected-eventconnectionptrupdateconnection"><code class="codehilite"><span class="n">protected</span> <span class="n">event</span><span class="p">::</span><span class="n">ConnectionPtr</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a1d7b676bec7c29b2bd021b47ecd32bb5"><code class="codehilite"><span class="n">updateConnection</span></code></a><a class="headerlink" href="#protected-eventconnectionptrupdateconnection" title="Permanent link">&para;</a></h6>
 <p>Pointer to the update event connection.</p>
-<h6 id="protected-commontimelastmeasurementtime"><code class="codehilite">protected common::Time</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1ac3798d56f9ea70175d99ab80106b4319"><code class="codehilite">lastMeasurementTime</code></a><a class="headerlink" href="#protected-commontimelastmeasurementtime" title="Permanent link">&para;</a></h6>
+<h6 id="protected-commontimelastmeasurementtime"><code class="codehilite"><span class="n">protected</span> <span class="n">common</span><span class="p">::</span><span class="n">Time</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1ac3798d56f9ea70175d99ab80106b4319"><code class="codehilite"><span class="n">lastMeasurementTime</span></code></a><a class="headerlink" href="#protected-commontimelastmeasurementtime" title="Permanent link">&para;</a></h6>
 <p>(Simulation) time when the last sensor measurement was generated.</p>
-<h6 id="protected-doubleupdaterate"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1adbcb691eba2efdd0156d5422bd1cf03f"><code class="codehilite">updateRate</code></a><a class="headerlink" href="#protected-doubleupdaterate" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doubleupdaterate"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1adbcb691eba2efdd0156d5422bd1cf03f"><code class="codehilite"><span class="n">updateRate</span></code></a><a class="headerlink" href="#protected-doubleupdaterate" title="Permanent link">&para;</a></h6>
 <p>Sensor update rate.</p>
-<h6 id="protected-doublenoisesigma"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1aef76766a171b7b9c0c236ff5987800f9"><code class="codehilite">noiseSigma</code></a><a class="headerlink" href="#protected-doublenoisesigma" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doublenoisesigma"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1aef76766a171b7b9c0c236ff5987800f9"><code class="codehilite"><span class="n">noiseSigma</span></code></a><a class="headerlink" href="#protected-doublenoisesigma" title="Permanent link">&para;</a></h6>
 <p>Noise standard deviation.</p>
-<h6 id="protected-doublenoiseamp"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a6a7695e4dc91f9504a3ee88d5da94102"><code class="codehilite">noiseAmp</code></a><a class="headerlink" href="#protected-doublenoiseamp" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doublenoiseamp"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a6a7695e4dc91f9504a3ee88d5da94102"><code class="codehilite"><span class="n">noiseAmp</span></code></a><a class="headerlink" href="#protected-doublenoiseamp" title="Permanent link">&para;</a></h6>
 <p>Noise amplitude.</p>
-<h6 id="protected-boolgazebomsgenabled"><code class="codehilite">protected bool</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a03fadaa69a0c77dc81153d5059c2cfb4"><code class="codehilite">gazeboMsgEnabled</code></a><a class="headerlink" href="#protected-boolgazebomsgenabled" title="Permanent link">&para;</a></h6>
+<h6 id="protected-boolgazebomsgenabled"><code class="codehilite"><span class="n">protected</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a03fadaa69a0c77dc81153d5059c2cfb4"><code class="codehilite"><span class="n">gazeboMsgEnabled</span></code></a><a class="headerlink" href="#protected-boolgazebomsgenabled" title="Permanent link">&para;</a></h6>
 <p>Flag set to true if the Gazebo sensors messages are supposed to be published as well (it can avoid unnecessary overhead in case) the sensor messages needed are only ROS messages.</p>
-<h6 id="protected-stddefault_random_enginerndgen"><code class="codehilite">protected std::default_random_engine</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1ac9f7d735298e4c0017e34ff652295fd3"><code class="codehilite">rndGen</code></a><a class="headerlink" href="#protected-stddefault_random_enginerndgen" title="Permanent link">&para;</a></h6>
+<h6 id="protected-stddefault_random_enginerndgen"><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">default_random_engine</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1ac9f7d735298e4c0017e34ff652295fd3"><code class="codehilite"><span class="n">rndGen</span></code></a><a class="headerlink" href="#protected-stddefault_random_enginerndgen" title="Permanent link">&para;</a></h6>
 <p>Pseudo random number generator.</p>
-<h6 id="protected-stdmap-stdstring-stdnormal_distribution-double-noisemodels"><code class="codehilite">protected std::map&lt; std::string, std::normal_distribution&lt; double &gt; &gt;</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1aec1fe60d8e12867115754d7f89689da2"><code class="codehilite">noiseModels</code></a><a class="headerlink" href="#protected-stdmap-stdstring-stdnormal_distribution-double-noisemodels" title="Permanent link">&para;</a></h6>
+<h6 id="protected-stdmap-stdstring-stdnormal_distribution-double-noisemodels"><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="k">map</span><span class="o">&lt;</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span><span class="p">,</span> <span class="n">std</span><span class="p">::</span><span class="n">normal_distribution</span><span class="o">&lt;</span> <span class="n">double</span> <span class="o">&gt;</span> <span class="o">&gt;</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1aec1fe60d8e12867115754d7f89689da2"><code class="codehilite"><span class="n">noiseModels</span></code></a><a class="headerlink" href="#protected-stdmap-stdstring-stdnormal_distribution-double-noisemodels" title="Permanent link">&para;</a></h6>
 <p>Normal distribution describing the noise models.</p>
-<h6 id="protected-std_msgsboolison"><code class="codehilite">protected std_msgs::Bool</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a217d66ec1fe4002468300e0c409bfb32"><code class="codehilite">isOn</code></a><a class="headerlink" href="#protected-std_msgsboolison" title="Permanent link">&para;</a></h6>
+<h6 id="protected-std_msgsboolison"><code class="codehilite"><span class="n">protected</span> <span class="n">std_msgs</span><span class="p">::</span><span class="n">Bool</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a217d66ec1fe4002468300e0c409bfb32"><code class="codehilite"><span class="n">isOn</span></code></a><a class="headerlink" href="#protected-std_msgsboolison" title="Permanent link">&para;</a></h6>
 <p>Flag to control the generation of output messages.</p>
-<h6 id="protected-boostshared_ptr-rosnodehandle-rosnode"><code class="codehilite">protected boost::shared_ptr&lt; ros::NodeHandle &gt;</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a6b907bcd7669d3907f3c78e654fcca88"><code class="codehilite">rosNode</code></a><a class="headerlink" href="#protected-boostshared_ptr-rosnodehandle-rosnode" title="Permanent link">&para;</a></h6>
+<h6 id="protected-boostshared_ptr-rosnodehandle-rosnode"><code class="codehilite"><span class="n">protected</span> <span class="n">boost</span><span class="p">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span> <span class="n">ros</span><span class="p">::</span><span class="n">NodeHandle</span> <span class="o">&gt;</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a6b907bcd7669d3907f3c78e654fcca88"><code class="codehilite"><span class="n">rosNode</span></code></a><a class="headerlink" href="#protected-boostshared_ptr-rosnodehandle-rosnode" title="Permanent link">&para;</a></h6>
 <p>ROS node handle for communication with ROS.</p>
-<h6 id="protected-transportnodeptrgazebonode"><code class="codehilite">protected transport::NodePtr</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a6444bffce26cd7c1d31ab1b3abd990c7"><code class="codehilite">gazeboNode</code></a><a class="headerlink" href="#protected-transportnodeptrgazebonode" title="Permanent link">&para;</a></h6>
+<h6 id="protected-transportnodeptrgazebonode"><code class="codehilite"><span class="n">protected</span> <span class="n">transport</span><span class="p">::</span><span class="n">NodePtr</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a6444bffce26cd7c1d31ab1b3abd990c7"><code class="codehilite"><span class="n">gazeboNode</span></code></a><a class="headerlink" href="#protected-transportnodeptrgazebonode" title="Permanent link">&para;</a></h6>
 <p>Gazebo's node handle for transporting measurement messages.</p>
-<h6 id="protected-rospublisherrossensoroutputpub"><code class="codehilite">protected ros::Publisher</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1aff7eafda5f899aa2304a870d1418a300"><code class="codehilite">rosSensorOutputPub</code></a><a class="headerlink" href="#protected-rospublisherrossensoroutputpub" title="Permanent link">&para;</a></h6>
+<h6 id="protected-rospublisherrossensoroutputpub"><code class="codehilite"><span class="n">protected</span> <span class="n">ros</span><span class="p">::</span><span class="n">Publisher</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1aff7eafda5f899aa2304a870d1418a300"><code class="codehilite"><span class="n">rosSensorOutputPub</span></code></a><a class="headerlink" href="#protected-rospublisherrossensoroutputpub" title="Permanent link">&para;</a></h6>
 <p>Gazebo's publisher for transporting measurement messages.</p>
-<h6 id="protected-transportpublisherptrgazebosensoroutputpub"><code class="codehilite">protected transport::PublisherPtr</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a00461d61554c0a38b03892488a43eefb"><code class="codehilite">gazeboSensorOutputPub</code></a><a class="headerlink" href="#protected-transportpublisherptrgazebosensoroutputpub" title="Permanent link">&para;</a></h6>
+<h6 id="protected-transportpublisherptrgazebosensoroutputpub"><code class="codehilite"><span class="n">protected</span> <span class="n">transport</span><span class="p">::</span><span class="n">PublisherPtr</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a00461d61554c0a38b03892488a43eefb"><code class="codehilite"><span class="n">gazeboSensorOutputPub</span></code></a><a class="headerlink" href="#protected-transportpublisherptrgazebosensoroutputpub" title="Permanent link">&para;</a></h6>
 <p>Gazebo's publisher for transporting measurement messages.</p>
-<h6 id="protected-rosserviceserverchangesensorsrv"><code class="codehilite">protected ros::ServiceServer</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a4a9b8a250d6c0c4e8148fa96c8dcc395"><code class="codehilite">changeSensorSrv</code></a><a class="headerlink" href="#protected-rosserviceserverchangesensorsrv" title="Permanent link">&para;</a></h6>
+<h6 id="protected-rosserviceserverchangesensorsrv"><code class="codehilite"><span class="n">protected</span> <span class="n">ros</span><span class="p">::</span><span class="n">ServiceServer</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a4a9b8a250d6c0c4e8148fa96c8dcc395"><code class="codehilite"><span class="n">changeSensorSrv</span></code></a><a class="headerlink" href="#protected-rosserviceserverchangesensorsrv" title="Permanent link">&para;</a></h6>
 <p>Service server object.</p>
-<h6 id="protected-rospublisherpluginstatepub"><code class="codehilite">protected ros::Publisher</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a0a405302b38096d97a25c18879de03ee"><code class="codehilite">pluginStatePub</code></a><a class="headerlink" href="#protected-rospublisherpluginstatepub" title="Permanent link">&para;</a></h6>
+<h6 id="protected-rospublisherpluginstatepub"><code class="codehilite"><span class="n">protected</span> <span class="n">ros</span><span class="p">::</span><span class="n">Publisher</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a0a405302b38096d97a25c18879de03ee"><code class="codehilite"><span class="n">pluginStatePub</span></code></a><a class="headerlink" href="#protected-rospublisherpluginstatepub" title="Permanent link">&para;</a></h6>
 <p>ROS publisher for the switchable sensor data.</p>
-<h6 id="protected-ignitionmathpose3dreferenceframe"><code class="codehilite">protected ignition::math::Pose3d</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1aa788862de11b763facdf51ac105c535d"><code class="codehilite">referenceFrame</code></a><a class="headerlink" href="#protected-ignitionmathpose3dreferenceframe" title="Permanent link">&para;</a></h6>
+<h6 id="protected-ignitionmathpose3dreferenceframe"><code class="codehilite"><span class="n">protected</span> <span class="n">ignition</span><span class="p">::</span><span class="n">math</span><span class="p">::</span><span class="n">Pose3d</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1aa788862de11b763facdf51ac105c535d"><code class="codehilite"><span class="n">referenceFrame</span></code></a><a class="headerlink" href="#protected-ignitionmathpose3dreferenceframe" title="Permanent link">&para;</a></h6>
 <p>Pose of the reference frame wrt world frame.</p>
-<h6 id="protected-rossubscribertfstaticsub"><code class="codehilite">protected ros::Subscriber</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a0d5b3d85ee84ddd0e722a4e1dbd83d83"><code class="codehilite">tfStaticSub</code></a><a class="headerlink" href="#protected-rossubscribertfstaticsub" title="Permanent link">&para;</a></h6>
+<h6 id="protected-rossubscribertfstaticsub"><code class="codehilite"><span class="n">protected</span> <span class="n">ros</span><span class="p">::</span><span class="n">Subscriber</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a0d5b3d85ee84ddd0e722a4e1dbd83d83"><code class="codehilite"><span class="n">tfStaticSub</span></code></a><a class="headerlink" href="#protected-rossubscribertfstaticsub" title="Permanent link">&para;</a></h6>
 <p>ROS subscriber for the TF static reference frame.</p>
-<h6 id="protected-stdstringreferenceframeid"><code class="codehilite">protected std::string</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a02ca6231d0a2961fe6a63002de9a5ad4"><code class="codehilite">referenceFrameID</code></a><a class="headerlink" href="#protected-stdstringreferenceframeid" title="Permanent link">&para;</a></h6>
+<h6 id="protected-stdstringreferenceframeid"><code class="codehilite"><span class="n">protected</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a02ca6231d0a2961fe6a63002de9a5ad4"><code class="codehilite"><span class="n">referenceFrameID</span></code></a><a class="headerlink" href="#protected-stdstringreferenceframeid" title="Permanent link">&para;</a></h6>
 <p>Frame ID of the reference frame.</p>
-<h6 id="protected-boolisreferenceinit"><code class="codehilite">protected bool</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a9004a71899294df66fe56bd6adcc187c"><code class="codehilite">isReferenceInit</code></a><a class="headerlink" href="#protected-boolisreferenceinit" title="Permanent link">&para;</a></h6>
+<h6 id="protected-boolisreferenceinit"><code class="codehilite"><span class="n">protected</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a9004a71899294df66fe56bd6adcc187c"><code class="codehilite"><span class="n">isReferenceInit</span></code></a><a class="headerlink" href="#protected-boolisreferenceinit" title="Permanent link">&para;</a></h6>
 <p>Flag set to true if reference frame initialized.</p>
-<h6 id="protected-physicslinkptrreferencelink"><code class="codehilite">protected physics::LinkPtr</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a34ff72f4617839866a593d0c1a00f375"><code class="codehilite">referenceLink</code></a><a class="headerlink" href="#protected-physicslinkptrreferencelink" title="Permanent link">&para;</a></h6>
+<h6 id="protected-physicslinkptrreferencelink"><code class="codehilite"><span class="n">protected</span> <span class="n">physics</span><span class="p">::</span><span class="n">LinkPtr</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a34ff72f4617839866a593d0c1a00f375"><code class="codehilite"><span class="n">referenceLink</span></code></a><a class="headerlink" href="#protected-physicslinkptrreferencelink" title="Permanent link">&para;</a></h6>
 <p>Reference link.</p>
-<h6 id="protected-boolison"><code class="codehilite">protected bool</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a8c02e25afa29c264aa3a262b277a3723"><code class="codehilite">IsOn</code></a><code class="codehilite">()</code><a class="headerlink" href="#protected-boolison" title="Permanent link">&para;</a></h6>
+<h6 id="protected-boolison"><code class="codehilite"><span class="n">protected</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a8c02e25afa29c264aa3a262b277a3723"><code class="codehilite"><span class="n">IsOn</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#protected-boolison" title="Permanent link">&para;</a></h6>
 <p>Returns true if the plugin is activated.</p>
-<h6 id="protected-voidpublishstate"><code class="codehilite">protected void</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a0185c958f2ce8b30a1c5dc078bbd7b0e"><code class="codehilite">PublishState</code></a><code class="codehilite">()</code><a class="headerlink" href="#protected-voidpublishstate" title="Permanent link">&para;</a></h6>
+<h6 id="protected-voidpublishstate"><code class="codehilite"><span class="n">protected</span> <span class="n">void</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a0185c958f2ce8b30a1c5dc078bbd7b0e"><code class="codehilite"><span class="n">PublishState</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#protected-voidpublishstate" title="Permanent link">&para;</a></h6>
 <p>Publish the current state of the plugin.</p>
-<h6 id="protected-boolchangesensorstateuuv_sensor_ros_plugins_msgschangesensorstaterequest-_requuv_sensor_ros_plugins_msgschangesensorstateresponse-_res"><code class="codehilite">protected bool</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a47e246ab8e3e9fe1b7f032ee7bd8af16"><code class="codehilite">ChangeSensorState</code></a><code class="codehilite">(uuv_sensor_ros_plugins_msgs::ChangeSensorState::Request &amp; _req,uuv_sensor_ros_plugins_msgs::ChangeSensorState::Response &amp; _res)</code><a class="headerlink" href="#protected-boolchangesensorstateuuv_sensor_ros_plugins_msgschangesensorstaterequest-_requuv_sensor_ros_plugins_msgschangesensorstateresponse-_res" title="Permanent link">&para;</a></h6>
+<h6 id="protected-boolchangesensorstateuuv_sensor_ros_plugins_msgschangesensorstaterequest-_requuv_sensor_ros_plugins_msgschangesensorstateresponse-_res"><code class="codehilite"><span class="n">protected</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a47e246ab8e3e9fe1b7f032ee7bd8af16"><code class="codehilite"><span class="n">ChangeSensorState</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">uuv_sensor_ros_plugins_msgs</span><span class="p">::</span><span class="n">ChangeSensorState</span><span class="p">::</span><span class="n">Request</span> <span class="o">&amp;</span> <span class="n">_req</span><span class="p">,</span><span class="n">uuv_sensor_ros_plugins_msgs</span><span class="p">::</span><span class="n">ChangeSensorState</span><span class="p">::</span><span class="n">Response</span> <span class="o">&amp;</span> <span class="n">_res</span><span class="p">)</span></code><a class="headerlink" href="#protected-boolchangesensorstateuuv_sensor_ros_plugins_msgschangesensorstaterequest-_requuv_sensor_ros_plugins_msgschangesensorstateresponse-_res" title="Permanent link">&para;</a></h6>
 <p>Change sensor state (ON/OFF)</p>
-<h6 id="protected-voidgettfmessageconst-tftfmessageconstptr-_msg"><code class="codehilite">protected void</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a465f66f7ecad8aa9e0f9e7d5fd0159d9"><code class="codehilite">GetTFMessage</code></a><code class="codehilite">(const tf::tfMessage::ConstPtr &amp; _msg)</code><a class="headerlink" href="#protected-voidgettfmessageconst-tftfmessageconstptr-_msg" title="Permanent link">&para;</a></h6>
+<h6 id="protected-voidgettfmessageconst-tftfmessageconstptr-_msg"><code class="codehilite"><span class="n">protected</span> <span class="n">void</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a465f66f7ecad8aa9e0f9e7d5fd0159d9"><code class="codehilite"><span class="n">GetTFMessage</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">tf</span><span class="p">::</span><span class="n">tfMessage</span><span class="p">::</span><span class="n">ConstPtr</span> <span class="o">&amp;</span> <span class="n">_msg</span><span class="p">)</span></code><a class="headerlink" href="#protected-voidgettfmessageconst-tftfmessageconstptr-_msg" title="Permanent link">&para;</a></h6>
 <p>Callback function for the static TF message.</p>
-<h6 id="protected-doublegetgaussiannoisedouble-_amp"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1ae1fd5e5059943e83865efa837e52e3a7"><code class="codehilite">GetGaussianNoise</code></a><code class="codehilite">(double _amp)</code><a class="headerlink" href="#protected-doublegetgaussiannoisedouble-_amp" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doublegetgaussiannoisedouble-_amp"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1ae1fd5e5059943e83865efa837e52e3a7"><code class="codehilite"><span class="n">GetGaussianNoise</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">double</span> <span class="n">_amp</span><span class="p">)</span></code><a class="headerlink" href="#protected-doublegetgaussiannoisedouble-_amp" title="Permanent link">&para;</a></h6>
 <p>Returns noise value for a function with zero mean from the default Gaussian noise model.</p>
-<h6 id="protected-doublegetgaussiannoisestdstring-_namedouble-_amp"><code class="codehilite">protected double</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a69d2da0f2848ba0153756afbb331e447"><code class="codehilite">GetGaussianNoise</code></a><code class="codehilite">(std::string _name,double _amp)</code><a class="headerlink" href="#protected-doublegetgaussiannoisestdstring-_namedouble-_amp" title="Permanent link">&para;</a></h6>
+<h6 id="protected-doublegetgaussiannoisestdstring-_namedouble-_amp"><code class="codehilite"><span class="n">protected</span> <span class="n">double</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a69d2da0f2848ba0153756afbb331e447"><code class="codehilite"><span class="n">GetGaussianNoise</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">std</span><span class="p">::</span><span class="n">string</span> <span class="n">_name</span><span class="p">,</span><span class="n">double</span> <span class="n">_amp</span><span class="p">)</span></code><a class="headerlink" href="#protected-doublegetgaussiannoisestdstring-_namedouble-_amp" title="Permanent link">&para;</a></h6>
 <p>Returns noise value for a function with zero mean from a Gaussian noise model according to the model name.</p>
-<h6 id="protected-boolenablemeasurementconst-commonupdateinfo-_info-const"><code class="codehilite">protected bool</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1af12a92a0ddf7c3c07163d32d6d95c655"><code class="codehilite">EnableMeasurement</code></a><code class="codehilite">(const common::UpdateInfo &amp; _info) const</code><a class="headerlink" href="#protected-boolenablemeasurementconst-commonupdateinfo-_info-const" title="Permanent link">&para;</a></h6>
+<h6 id="protected-boolenablemeasurementconst-commonupdateinfo-_info-const"><code class="codehilite"><span class="n">protected</span> <span class="n">bool</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1af12a92a0ddf7c3c07163d32d6d95c655"><code class="codehilite"><span class="n">EnableMeasurement</span></code></a><code class="codehilite"><span class="p">(</span><span class="n">const</span> <span class="n">common</span><span class="p">::</span><span class="n">UpdateInfo</span> <span class="o">&amp;</span> <span class="n">_info</span><span class="p">)</span> <span class="n">const</span></code><a class="headerlink" href="#protected-boolenablemeasurementconst-commonupdateinfo-_info-const" title="Permanent link">&para;</a></h6>
 <p>Enables generation of simulated measurement if the timeout since the last update has been reached.</p>
-<h6 id="protected-voidupdatereferenceframepose"><code class="codehilite">protected void</code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a768035af5fb258d9c07c4d7fd5049700"><code class="codehilite">UpdateReferenceFramePose</code></a><code class="codehilite">()</code><a class="headerlink" href="#protected-voidupdatereferenceframepose" title="Permanent link">&para;</a></h6>
+<h6 id="protected-voidupdatereferenceframepose"><code class="codehilite"><span class="n">protected</span> <span class="n">void</span></code><a href="#classgazebo_1_1_r_o_s_base_plugin_1a768035af5fb258d9c07c4d7fd5049700"><code class="codehilite"><span class="n">UpdateReferenceFramePose</span></code></a><code class="codehilite"><span class="p">()</span></code><a class="headerlink" href="#protected-voidupdatereferenceframepose" title="Permanent link">&para;</a></h6>
 <p>Updates the pose of the reference frame wrt the world frame.</p>
                 
                   
