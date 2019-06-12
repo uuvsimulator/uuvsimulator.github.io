@@ -2958,16 +2958,132 @@
                 
                 <h4 id="thrusters">Thrusters<a class="headerlink" href="#thrusters" title="Permanent link">&para;</a></h4>
 <p>The thruster units are composed of two modules: the <em>dynamic model</em> describing the dynamics of the thruster's rotor and the <em>conversion function</em>, that describes the steady-state relationship between the rotor's angular velocity and the thrust force output.</p>
+<blockquote>
+<p>URDF snippet</p>
+</blockquote>
+<p>An example of the thruster unit <code class="codehilite"><span class="n">xacro</span></code> macro can be seen below, including a the thruster link, joint and the Gazebo plugin that includes the dynamic model and conversion function descriptions. </p>
+<p>To use the snippet below, replace the <code class="codehilite"><span class="o">&lt;</span><span class="n">dynamics</span><span class="o">&gt;</span></code> and <code class="codehilite"><span class="o">&lt;</span><span class="k">conversion</span><span class="o">&gt;</span></code>
+blocks by the fitting models described in the following sections.</p>
+<p><code class="codehilite"><span class="n">xacro</span></code> macros for thruster units, <code class="codehilite"><span class="o">&lt;</span><span class="n">dynamics</span><span class="o">&gt;</span></code> and <code class="codehilite"><span class="o">&lt;</span><span class="k">conversion</span><span class="o">&gt;</span></code> models can also be included in a custom robot description using the <a href="https://github.com/uuvsimulator/uuv_simulator/blob/master/uuv_gazebo_plugins/uuv_gazebo_ros_plugins/urdf/thruster_snippets.xacro"><code class="codehilite"><span class="n">thruster_snippets</span><span class="p">.</span><span class="n">xacro</span></code></a>.</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;xacro:macro</span> <span class="na">name=</span><span class="s">&quot;thruster_macro&quot;</span> <span class="na">params=</span><span class="s">&quot;robot_namespace thruster_id *origin prop_mesh_file&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;link</span> <span class="na">name=</span><span class="s">&quot;${robot_namespace}/thruster_${thruster_id}&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;inertial&gt;</span>
+      <span class="nt">&lt;mass</span> <span class="na">value=</span><span class="s">&quot;0.001&quot;</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;origin</span> <span class="na">xyz=</span><span class="s">&quot;0 0 0&quot;</span> <span class="na">rpy=</span><span class="s">&quot;0 0 0&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;inertia</span> <span class="na">ixx=</span><span class="s">&quot;0.000000017&quot;</span> <span class="na">ixy=</span><span class="s">&quot;0.0&quot;</span> <span class="na">ixz=</span><span class="s">&quot;0.0&quot;</span>
+              <span class="na">iyy=</span><span class="s">&quot;0.000000017&quot;</span> <span class="na">iyz=</span><span class="s">&quot;0.0&quot;</span>
+              <span class="na">izz=</span><span class="s">&quot;0.000000017&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/inertial&gt;</span>
+
+    <span class="nt">&lt;visual&gt;</span>
+      <span class="nt">&lt;geometry&gt;</span>
+        <span class="nt">&lt;mesh</span> <span class="na">filename=</span><span class="s">&quot;${prop_mesh_file}&quot;</span> <span class="na">scale=</span><span class="s">&quot;1 1 1&quot;</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;/geometry&gt;</span>
+    <span class="nt">&lt;/visual&gt;</span>
+  <span class="nt">&lt;/link&gt;</span>
+
+  <span class="c">&lt;!-- Joint between thruster link and vehicle base link --&gt;</span>
+  <span class="nt">&lt;joint</span> <span class="na">name=</span><span class="s">&quot;${robot_namespace}/thruster_${thruster_id}_joint&quot;</span> <span class="na">type=</span><span class="s">&quot;continuous&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;xacro:insert_block</span> <span class="na">name=</span><span class="s">&quot;origin&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;axis</span> <span class="na">xyz=</span><span class="s">&quot;1 0 0&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;parent</span> <span class="na">link=</span><span class="s">&quot;${robot_namespace}/base_link&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;child</span> <span class="na">link=</span><span class="s">&quot;${robot_namespace}/thruster_${thruster_id}&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/joint&gt;</span>
+
+  <span class="nt">&lt;gazebo&gt;</span>
+    <span class="c">&lt;!-- Thruster ROS plugin --&gt;</span>
+    <span class="nt">&lt;plugin</span> <span class="na">name=</span><span class="s">&quot;${robot_namespace}_${thruster_id}_thruster_model&quot;</span> <span class="na">filename=</span><span class="s">&quot;libuuv_thruster_ros_plugin.so&quot;</span><span class="nt">&gt;</span>
+      <span class="c">&lt;!-- Name of the thruster link --&gt;</span>
+      <span class="nt">&lt;linkName&gt;</span>${robot_namespace}/thruster_${thruster_id}<span class="nt">&lt;/linkName&gt;</span>
+
+      <span class="c">&lt;!-- Name of the joint between thruster and vehicle base link --&gt;</span>
+      <span class="nt">&lt;jointName&gt;</span>${robot_namespace}/thruster_${thruster_id}_joint<span class="nt">&lt;/jointName&gt;</span>
+
+      <span class="c">&lt;!-- Make the thruster aware of its id --&gt;</span>
+      <span class="nt">&lt;thrusterID&gt;</span>${thruster_id}<span class="nt">&lt;/thrusterID&gt;</span>
+
+      <span class="c">&lt;!-- Gain of the input command signal --&gt;</span>
+      <span class="nt">&lt;gain&gt;</span>1<span class="nt">&lt;/gain&gt;</span>
+
+      <span class="c">&lt;!-- Maximum allowed input value for the input signal for thruster unit --&gt;</span>
+      <span class="nt">&lt;clampMax&gt;</span>0<span class="nt">&lt;/clampMax&gt;</span>
+
+      <span class="c">&lt;!-- Minimum allowed value for the input signal for thruster unit --&gt;</span>
+      <span class="nt">&lt;clampMin&gt;</span>0<span class="nt">&lt;/clampMin&gt;</span>
+
+      <span class="c">&lt;!-- Minimum and maximum thrust force output allowed --&gt;</span>
+      <span class="nt">&lt;thrustMin&gt;</span>0<span class="nt">&lt;/thrustMin&gt;</span>
+      <span class="nt">&lt;thrustMax&gt;</span>0<span class="nt">&lt;/thrustMax&gt;</span>
+
+      <span class="c">&lt;!--</span>
+<span class="c">      Value from 0 to 1 to set the efficiency of the output thrust force</span>
+<span class="c">      Default value is 1.0</span>
+<span class="c">      --&gt;</span>
+      <span class="nt">&lt;thrust_efficiency&gt;</span>1<span class="nt">&lt;/thrust_efficiency&gt;</span>
+
+      <span class="c">&lt;!--</span>
+<span class="c">      Value from 0 to 1 to set the efficiency of the propeller as a factor</span>
+<span class="c">      to be multiplied to the current value of the state variable at each</span>
+<span class="c">      iteration.</span>
+<span class="c">      Default value is 1.0</span>
+<span class="c">      --&gt;</span>
+      <span class="nt">&lt;propeller_efficiency&gt;</span>1<span class="nt">&lt;/propeller_efficiency&gt;</span>
+
+      <span class="nt">&lt;dynamics&gt;</span>
+        <span class="c">&lt;!-- See the descriptions for dynamic models below --&gt;</span>
+      <span class="nt">&lt;/dynamics&gt;</span>
+
+      <span class="nt">&lt;conversion&gt;</span>
+        <span class="c">&lt;!-- See the descriptions for conversion functions below --&gt;</span>
+      <span class="nt">&lt;/conversion&gt;</span>
+    <span class="nt">&lt;/gazebo&gt;</span>
+
+    <span class="nt">&lt;gazebo</span> <span class="na">reference=</span><span class="s">&quot;${robot_namespace}/thruster_${thruster_id}&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;selfCollide&gt;</span>false<span class="nt">&lt;/selfCollide&gt;</span>
+    <span class="nt">&lt;/gazebo&gt;</span>
+<span class="nt">&lt;/xacro:macro&gt;</span>
+</pre></div>
+
 <h5 id="dynamic-models">Dynamic models<a class="headerlink" href="#dynamic-models" title="Permanent link">&para;</a></h5>
 <h6 id="zero_order"><code class="codehilite"><span class="n">zero_order</span></code><a class="headerlink" href="#zero_order" title="Permanent link">&para;</a></h6>
+<blockquote>
+<p>Description</p>
+</blockquote>
+<div>
+<div class="MathJax_Preview">
+\Omega[k + 1] = \Omega_{ref}
+</div>
+<script type="math/tex; mode=display">
+\Omega[k + 1] = \Omega_{ref}
+</script>
+</div>
 <p><img alt="" src="../../images/actuators/dyn_zero_order.png" /></p>
+<blockquote>
+<p>URDF description</p>
+</blockquote>
 <div class="codehilite"><pre><span></span><span class="nt">&lt;dynamics&gt;</span>
   <span class="nt">&lt;type&gt;</span>ZeroOrder<span class="nt">&lt;/type&gt;</span>
 <span class="nt">&lt;/dynamics&gt;</span>
 </pre></div>
 
 <h6 id="first_order"><code class="codehilite"><span class="n">first_order</span></code><a class="headerlink" href="#first_order" title="Permanent link">&para;</a></h6>
+<blockquote>
+<p>Description</p>
+</blockquote>
+<div>
+<div class="MathJax_Preview">
+\alpha = \exp(- \Delta t / \tau) \\
+\Omega[k + 1] = \alpha \Omega[k] + (1 - \alpha) \Omega_{ref} 
+</div>
+<script type="math/tex; mode=display">
+\alpha = \exp(- \Delta t / \tau) \\
+\Omega[k + 1] = \alpha \Omega[k] + (1 - \alpha) \Omega_{ref} 
+</script>
+</div>
 <p><img alt="" src="../../images/actuators/dyn_first_order.png" /></p>
+<blockquote>
+<p>URDF description</p>
+</blockquote>
 <div class="codehilite"><pre><span></span><span class="nt">&lt;dynamics&gt;</span>
   <span class="nt">&lt;type&gt;</span>FirstOrder<span class="nt">&lt;/type&gt;</span>
   <span class="nt">&lt;timeConstant&gt;</span>time_constant<span class="nt">&lt;/timeConstant&gt;</span>
@@ -2975,7 +3091,21 @@
 </pre></div>
 
 <h6 id="yoerger"><code class="codehilite"><span class="n">yoerger</span></code><a class="headerlink" href="#yoerger" title="Permanent link">&para;</a></h6>
+<blockquote>
+<p>Description</p>
+</blockquote>
+<div>
+<div class="MathJax_Preview">
+\Omega[k + 1] = \Omega[k] + \Delta t (\beta \Omega_{ref} - \alpha \Omega[k] \text{abs}(\Omega[k])) 
+</div>
+<script type="math/tex; mode=display">
+\Omega[k + 1] = \Omega[k] + \Delta t (\beta \Omega_{ref} - \alpha \Omega[k] \text{abs}(\Omega[k])) 
+</script>
+</div>
 <p><img alt="" src="../../images/actuators/dyn_yoerger.png" /></p>
+<blockquote>
+<p>URDF description</p>
+</blockquote>
 <div class="codehilite"><pre><span></span><span class="nt">&lt;dynamics&gt;</span>
   <span class="nt">&lt;type&gt;</span>Yoerger<span class="nt">&lt;/type&gt;</span>
   <span class="nt">&lt;alpha&gt;</span>alpha<span class="nt">&lt;/alpha&gt;</span>
@@ -2991,6 +3121,20 @@
 <p><a href="http://www.engr.mun.ca/~bachmayer/ENG9095-webpage/thruster/Yoerger1990.pdf">D. R. Yoerger, J. G. Cooke, and J.-J. E. Slotine, "The influence of thruster dynamics on underwater vehicle behavior and their incorporation into control system design," IEEE Journal of Oceanic Engineering, vol. 15, no. 3, pp. 167-178, Jul. 1990.</a></p>
 </div>
 <h6 id="bessa"><code class="codehilite"><span class="n">bessa</span></code><a class="headerlink" href="#bessa" title="Permanent link">&para;</a></h6>
+<blockquote>
+<p>Description</p>
+</blockquote>
+<div>
+<div class="MathJax_Preview">
+\Omega[k + 1] = \Omega[k] + \Delta t (\frac{K_t}{R_m} \Omega_{ref} - K_{v1} \Omega[k] - \frac{K_{v2}}{J_{msp}} \Omega[k] \text{abs}(\Omega[k]) )
+</div>
+<script type="math/tex; mode=display">
+\Omega[k + 1] = \Omega[k] + \Delta t (\frac{K_t}{R_m} \Omega_{ref} - K_{v1} \Omega[k] - \frac{K_{v2}}{J_{msp}} \Omega[k] \text{abs}(\Omega[k]) )
+</script>
+</div>
+<blockquote>
+<p>URDF description</p>
+</blockquote>
 <div class="codehilite"><pre><span></span><span class="nt">&lt;dynamics&gt;</span>
   <span class="nt">&lt;type&gt;</span>Bessa<span class="nt">&lt;/type&gt;</span>
   <span class="nt">&lt;Jmsp&gt;</span>Jmsp<span class="nt">&lt;/Jmsp&gt;</span>
@@ -3001,6 +3145,9 @@
 <span class="nt">&lt;/dynamics&gt;</span>
 </pre></div>
 
+<blockquote>
+<p>Source</p>
+</blockquote>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><a href="http://abcm.org.br/symposium-series/SSM_Vol2/Section_IX_Submarine_Robotics/SSM2_IX_01.pdf">Bessa, Wallace Moreira, Max Suell Dutra, and Edwin Kreuzer. "Thruster dynamics compensation for the positioning of underwater robotic vehicles through a fuzzy sliding mode based approach." ABCM Symposium Series in Mechatronics. Vol. 2. 2006.</a></p>
@@ -3013,10 +3160,10 @@
 <p>The simple steady-state description of the relationship between rotor's angular velocity and thrust force output is a result of a energy physical analysis presented in <code class="codehilite"><span class="n">Yoerger</span> <span class="n">et</span> <span class="n">al</span><span class="p">.,</span> <span class="mi">1990</span></code>.</p>
 <div>
 <div class="MathJax_Preview">
-  T(\omega) = c_b \omega | \omega |
+  T(\Omega) = c_b \Omega | \Omega |
 </div>
 <script type="math/tex; mode=display">
-  T(\omega) = c_b \omega | \omega |
+  T(\Omega) = c_b \Omega | \Omega |
 </script>
 </div>
 <p><img alt="" src="../../images/actuators/cf_basic.png" /></p>
@@ -3040,22 +3187,22 @@
 <blockquote>
 <p>Description</p>
 </blockquote>
-<p>This model sets a dead-zone around <span><span class="MathJax_Preview">\omega=0</span><script type="math/tex">\omega=0</script></span>. It was published by
+<p>This model sets a dead-zone around <span><span class="MathJax_Preview">\Omega=0</span><script type="math/tex">\Omega=0</script></span>. It was published by
 <code class="codehilite"><span class="n">Bessa</span><span class="p">,</span> <span class="mi">2006</span></code> and requires</p>
 <div>
 <div class="MathJax_Preview">
-T(\omega)=
+T(\Omega)=
   \begin{cases}
-  C_L (\omega | \omega | - \delta_L), \text{if } \omega | \omega | &lt; \delta_L \\
-  C_R (\omega | \omega | - \delta_R), \text{if } \omega | \omega | &gt; \delta_R\\
+  C_L (\Omega | \Omega | - \delta_L), \text{if } \Omega | \Omega | &lt; \delta_L \\
+  C_R (\Omega | \Omega | - \delta_R), \text{if } \Omega | \Omega | &gt; \delta_R\\
   0, \text{otherwise}
   \end{cases}
 </div>
 <script type="math/tex; mode=display">
-T(\omega)=
+T(\Omega)=
   \begin{cases}
-  C_L (\omega | \omega | - \delta_L), \text{if } \omega | \omega | < \delta_L \\
-  C_R (\omega | \omega | - \delta_R), \text{if } \omega | \omega | > \delta_R\\
+  C_L (\Omega | \Omega | - \delta_L), \text{if } \Omega | \Omega | < \delta_L \\
+  C_R (\Omega | \Omega | - \delta_R), \text{if } \Omega | \Omega | > \delta_R\\
   0, \text{otherwise}
   \end{cases}
 </script>
@@ -3096,6 +3243,58 @@ T(\omega)=
 </pre></div>
 
 <h4 id="fins">Fins<a class="headerlink" href="#fins" title="Permanent link">&para;</a></h4>
+<p>Fin units are built similar to the thrusters, a <em>dynamic model</em> to describe the fin's revolute joint's state and a <em>lift and drag model</em> that models the lift and drag forces generated at the fin's surface taking into account the fin's relative velocity with respect to the current velocity.</p>
+<blockquote>
+<p>URDF snippet </p>
+</blockquote>
+<p><code class="codehilite"><span class="n">xacro</span></code> macros for thruster units, <code class="codehilite"><span class="o">&lt;</span><span class="n">dynamics</span><span class="o">&gt;</span></code> and <code class="codehilite"><span class="o">&lt;</span><span class="n">liftdrag</span><span class="o">&gt;</span></code> models can also be included in a custom robot description using the <a href="https://github.com/uuvsimulator/uuv_simulator/blob/master/uuv_gazebo_plugins/uuv_gazebo_ros_plugins/urdf/fin_snippets.xacro"><code class="codehilite"><span class="n">fin_snippets</span><span class="p">.</span><span class="n">xacro</span></code></a>.</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;xacro:macro</span> <span class="na">name=</span><span class="s">&quot;fin_macro&quot;</span>
+  <span class="na">params=</span><span class="s">&quot;namespace</span>
+<span class="s">          parent_link</span>
+<span class="s">          fin_id</span>
+<span class="s">          *origin</span>
+<span class="s">          min_joint_limit</span>
+<span class="s">          max_joint_limit</span>
+<span class="s">          mesh_filename</span>
+<span class="s">          current_velocity_topic&quot;</span><span class="nt">&gt;</span>
+
+  <span class="nt">&lt;joint</span> <span class="na">name=</span><span class="s">&quot;${namespace}/fin${fin_id}_joint&quot;</span> <span class="na">type=</span><span class="s">&quot;revolute&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;limit</span> <span class="na">effort=</span><span class="s">&quot;0&quot;</span> <span class="na">lower=</span><span class="s">&quot;${min_joint_limit}&quot;</span> <span class="na">upper=</span><span class="s">&quot;${max_joint_limit}&quot;</span> <span class="na">velocity=</span><span class="s">&quot;0&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;xacro:insert_block</span> <span class="na">name=</span><span class="s">&quot;origin&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;axis</span> <span class="na">xyz=</span><span class="s">&quot;0 0 1&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;parent</span> <span class="na">link=</span><span class="s">&quot;${parent_link}&quot;</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;child</span> <span class="na">link=</span><span class="s">&quot;${namespace}/fin${fin_id}&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/joint&gt;</span>
+
+  <span class="nt">&lt;link</span> <span class="na">name=</span><span class="s">&quot;${namespace}/fin${fin_id}&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;xacro:no_inertial</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;visual&gt;</span>
+      <span class="nt">&lt;origin</span> <span class="na">xyz=</span><span class="s">&quot;0 0 0&quot;</span> <span class="na">rpy=</span><span class="s">&quot;0 0 0&quot;</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;geometry&gt;</span>
+        <span class="nt">&lt;mesh</span> <span class="na">filename=</span><span class="s">&quot;${mesh_filename}&quot;</span> <span class="na">scale=</span><span class="s">&quot;1 1 1&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;/geometry&gt;</span>
+    <span class="nt">&lt;/visual&gt;</span>
+  <span class="nt">&lt;/link&gt;</span>
+
+  <span class="nt">&lt;gazebo&gt;</span>
+    <span class="nt">&lt;plugin</span> <span class="na">name=</span><span class="s">&quot;${namespace}_fin${fin_id}_model&quot;</span> <span class="na">filename=</span><span class="s">&quot;libuuv_fin_ros_plugin.so&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;dynamics&gt;</span>
+        <span class="c">&lt;!-- See the options for dynamics models in the thruster dynamic model sections above --&gt;</span>
+      <span class="nt">&lt;/dynamics&gt;</span>
+
+      <span class="nt">&lt;liftdrag&gt;</span>
+        <span class="c">&lt;!-- See the options for lift and drag models in the sections below --&gt;</span>
+      <span class="nt">&lt;/liftdrag&gt;</span>
+
+      <span class="nt">&lt;current_velocity_topic&gt;</span>${current_velocity_topic}<span class="nt">&lt;/current_velocity_topic&gt;</span>
+      <span class="nt">&lt;fin_id&gt;</span>${fin_id}<span class="nt">&lt;/fin_id&gt;</span>
+      <span class="nt">&lt;link_name&gt;</span>${namespace}/fin${fin_id}<span class="nt">&lt;/link_name&gt;</span>
+      <span class="nt">&lt;joint_name&gt;</span>${namespace}/fin${fin_id}_joint<span class="nt">&lt;/joint_name&gt;</span>
+    <span class="nt">&lt;/plugin&gt;</span>
+  <span class="nt">&lt;/gazebo&gt;</span>
+<span class="nt">&lt;/xacro:macro&gt;</span>
+</pre></div>
+
 <h5 id="lift-and-drag-models">Lift and drag models<a class="headerlink" href="#lift-and-drag-models" title="Permanent link">&para;</a></h5>
 <h6 id="quadratic"><code class="codehilite"><span class="n">quadratic</span></code><a class="headerlink" href="#quadratic" title="Permanent link">&para;</a></h6>
 <blockquote>
@@ -3116,6 +3315,9 @@ T(\omega)=
 <p><a href="https://brage.bibsys.no/xmlui/handle/11250/259834">Engelhardtsen, Oystein. 3D AUV Collision Avoidance. MS thesis. Institutt for teknisk kybernetikk, 2007.</a></p>
 </div>
 <h6 id="two_lines"><code class="codehilite"><span class="n">two_lines</span></code><a class="headerlink" href="#two_lines" title="Permanent link">&para;</a></h6>
+<blockquote>
+<p>Description</p>
+</blockquote>
 <p>This model is based on Gazebo's lift and drag plugin that uses the <a href="http://gazebosim.org/tutorials?tut=aerodynamics&amp;cat=plugins">two lines approximation</a> to compute the lift and drag coefficients that will be later used to compute the lift and drag forces with respect to the fin's frame.</p>
 <blockquote>
 <p>URDF description</p>
